@@ -1,0 +1,11 @@
+basesystem
+kernel-image-std-def
+
+interactivesystem
+apt-conf-sisyphus
+apt
+
+alterator-lilo
+alterator-root
+alterator-users
+alterator-net-eth

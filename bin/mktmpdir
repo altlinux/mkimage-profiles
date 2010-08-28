@@ -1,0 +1,29 @@
+#!/bin/sh
+# analyze free space, preferring tmpfs over really many gigaz
+
+# hope there aren't spaces in RM's $HOME are they?
+DIRS="$TMP $TMPDIR $HOME/hasher /tmp /var/tmp"
+MINSIZE=1048576		# face control criterion
+
+# pick existing, writeable, >1Gb free space dirs
+# rank them wrt type: tmpfs > realfs > rootfs
+choose_tmpdir() {
+	for i in $DIRS; do
+		[ -d "$i" -a -w "$i" ] || continue
+		echo -n "$i "
+		df -Tl "$i" | tail -1
+	done \
+	| sort -unk6 \
+	| while read dir dev fstype size used free percent mnt; do
+		[ "$free" -gt "$MINSIZE" ] || continue
+		[ "$fstype" = "tmpfs" ] && { echo "2 $dir $free"; continue; }
+		[ "$mnt" = "/" ] && { echo "0 $dir $free"; continue; }
+		echo "1 $dir $free"
+	done \
+	| sort -n \
+	| tail -1 \
+	| cut -f2 -d' '
+}
+
+DIR="`choose_tmpdir`"
+mktemp -d "${1:-tmpdir}.XXXXXXXXXX" --tmpdir="${DIR:-..}"

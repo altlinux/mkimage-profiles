@@ -1,0 +1,30 @@
+#!/bin/sh
+# this is a chinese configure script:
+# it would take any parameters,
+# nod the head intelligently,
+# and hide 'em beneath the clothes
+# (until time comes)
+
+PARAMS="$@"
+# TODO: grep/validate?
+
+# create suitable temporary directory for this build, then
+# copy profiles there to configure a copy, not master tree
+# keeping profile itself completely readonly would be nice
+
+export BUILDDIR="$(bin/mktmpdir mkimage-profiles.build)"
+ls -ld $BUILDDIR
+
+#find image.in -type f -print0 | xargs -r0 cp -at "$BUILDDIR"/ --
+rsync -qa --delete image.in/ "$BUILDDIR"/
+cp -a pkg "$BUILDDIR"/
+#rm -f "$BUILDDIR"/.config.mk
+touch "$BUILDDIR"/.config.mk
+mkdir "$BUILDDIR"/.mki
+rm -f build
+[ -w . ] \
+&& ln -sf "$BUILDDIR" build \
+|| echo "profile directory readonly: skipping symlinks, env only"
+
+# remember all those --with-*?  we'll pass them downstream, honestly
+echo "$PARAMS" > "$BUILDDIR"/.with

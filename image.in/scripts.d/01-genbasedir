@@ -1,0 +1,50 @@
+#!/bin/sh
+
+verbose()
+{
+	[ -z "$GLOBAL_VERBOSE" ] ||
+		echo >&2 "HOOK: 01-genbasedir: $*"
+}
+
+verbose started
+
+[ -d "$WORKDIR/ALTLinux" ] || exit 0
+cd "$WORKDIR/ALTLinux"
+
+set -- contrib-main addon-main ltsp-main
+for pair; do
+	slave=${pair%-*}
+	master=${pair#*-}
+	verbose "slave=$slave master=$master"
+
+	[ -d "RPMS.$master" ] || continue
+	find "RPMS.$master" -mindepth 1 -maxdepth 1 -type f -name '*.rpm' -printf "RPMS.$slave/%f\\0" |
+		xargs -r0 rm -fv --
+done
+
+#We always put RPMS.addon on separate disk
+if [ -d RPMS.addon ] ; then
+	rm -fr RPMS.main
+	INFO_LABEL="Addon"
+fi
+
+comps="$(find -mindepth 1 -maxdepth 1 -type d -name 'RPMS.*' -printf '%f\n' |
+	sed 's/^RPMS\.//')"
+
+verbose "comps=$comps"
+
+genbasedir \
+	--topdir="$WORKDIR" \
+        --architecture="$INFO_ARCH" \
+        --no-oldhashfile \
+        --partial \
+        --bz2only \
+	--create \
+        --notautomatic=false \
+        ${INFO_NAME:+--archive="$INFO_NAME"} \
+        ${INFO_VERSION:+--version="$INFO_VERSION"} \
+        ${INFO_ORIGIN:+--origin="$INFO_ORIGIN"} \
+        ${INFO_LABEL:+--label="$INFO_LABEL"} \
+        ALTLinux $comps
+
+verbose finished
