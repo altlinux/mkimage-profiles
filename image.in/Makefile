@@ -7,7 +7,7 @@ SUBDIRS = $(SUBPROFILES)
 
 # we usually need a bootloader (until stage1 is separate),
 # and "main" subprofile needs genbasedir
-CHROOT_PACKAGES = syslinux apt-utils $(STAGE1_PACKAGES)
+CHROOT_PACKAGES = syslinux apt-utils $(KERNEL_PACKAGES)
 
 ###
 MKI_PACK_RESULTS = boot:mkimage-profiles.iso
@@ -19,7 +19,7 @@ PROPAGATOR_VERSION = mkimage-profiles 2.0
 PROPAGATOR_MAR_MODULES = ./modules
 PROPAGATOR_INITFS = ./initfs
 
-include /usr/share/mkimage/targets.mk
+include $(MKIMAGE_PREFIX)/targets.mk
 
 all: prep copy-tree copy-subdirs run-scripts pack-image
 

@@ -1,13 +1,14 @@
 #!/bin/sh -f
 # a script to transform a tag name, a list of tag names (ANDed then),
-# or a complex boolean expression into a list of package list names
-#
+# or a complex boolean expression into a list of package list names.
 # examples of expected stdin:
 #
 # kde
 # live gnome
 # (base && (kernel || apt || alterator))
 # 
+
+# TODO; consider s/-name/-path/
 
 find . $(sed \
     -e "s,\([^&|! ()']\+\),-name *_\1_*,g" \

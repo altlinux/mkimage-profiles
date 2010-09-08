@@ -18,16 +18,16 @@ AC_ARG_WITH(aptconf,
 
 AC_ARG_WITH(mkimage,
 	    AC_HELP_STRING([--with-mkimage=dir],
-			   [custom mkimage prefix, e.g '--with-mkimage=/home/me/mkimage']),
+			   [custom mkimage prefix, e.g '--with-mkimage=/home/me/usr/share/mkimage']),
 			   [
 			    AC_MSG_CHECKING([mkimage])
-			    if test -d "$with_mkimage/usr/share/mkimage"; then
+			    if test -d "$with_mkimage/tools"; then
 				    MKIMAGE_PREFIX="$with_mkimage"
-				    AC_MSG_RESULT([** $with_mkimage/usr/share/mkimage exists])
+				    AC_MSG_RESULT([** $with_mkimage/tools exists])
 			    fi
 			    ],
 			    [
-			     MKIMAGE_PREFIX=''
+			     MKIMAGE_PREFIX='/usr/share/mkimage'
 			     ])
 
 # with-kernel: provide two separate desktop/server default substs?

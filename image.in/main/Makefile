@@ -2,8 +2,8 @@
 
 default: all
 
-include $(GLOBAL_BUILDDIR)/globals.mk
-include $(GLOBAL_BUILDDIR)/functions.mk
+include ../globals.mk
+include ../functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 include $(GLOBAL_BUILDDIR)/.config.mk
 
@@ -11,6 +11,7 @@ CHROOT_PACKAGES = apt-utils rsync
 PACKAGES_EXPAND_METHOD=regexp
 
 IMAGE_PACKAGES = $(call list,.base) \
+		 $(COMMON_PACKAGES) \
 		 $(MAIN_PACKAGES) \
 		 $(call list,$(BASE_LISTS)) \
 		 $(call list,$(DISK_LISTS))
