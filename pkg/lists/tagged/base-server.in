@@ -1,0 +1,116 @@
+# interactivesystem
+anacron
+apt-conf-@APTCONF_PACKAGE@
+apt
+glibc-gconv-modules
+glibc-locales
+glibc-nss
+glibc-utils
+interactivesystem
+kbd
+setarch
+shadow-suite
+#sound-scripts (hal required, using alsa-set-initial-mixer)
+#alsa-set-initial-mixer
+sysklogd
+udev
+
+# boot
+bootsplash
+lilo
+memtest86+
+
+# editor
+vim-console
+
+# network tools
+curl
+elinks
+etcnet
+hostinfo
+iptables
+iputils
+lftp
+mailx
+netcat
+netlist
+openssh-clients
+rsync
+traceroute
+vlan-utils
+ntpdate
+tcpdump
+
+# disk tools
+eject
+hdparm
+lvm2
+mdadm
+mtools
+ntfs-3g
+sfdisk
+usbutils
+xfsprogs
+
+#printing
+#printer-drivers-base
+
+# servers
+openssh-server
+postfix
+openntpd
+
+# security
+openssl
+osec-mailreport
+audit
+
+# debug
+strace
+
+# alterator stage3
+installer-@INSTALLER@-stage3
+installer-feature-copy-udev-rules-stage3
+installer-feature-setup-network-stage3
+
+# ?
+acpid
+mkbootflash
+rp-pppoe-base
+
+# ldap
+# nss_ldap
+# pam_ldap
+
+# haldbus :(
+#hal
+#dbus
+
+# mc :(
+mc
+
+#alsa-utils
+
+# kernel/firmware
+firmware-ipw2100
+firmware-ipw2200
+firmware-iwl3945
+firmware-iwl4965
+firmware-iwl5000
+firmware-acx100
+firmware-prism54
+firmware-rt73
+lm_sensors
+update-kernel
+
+# compression
+cpio
+p7zip
+tar
+unzip
+zip
+
+bridge-utils
+
+gpm
+expect

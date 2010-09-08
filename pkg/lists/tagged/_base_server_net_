@@ -1,0 +1,18 @@
+# network tools
+curl
+elinks
+etcnet
+hostinfo
+iptables
+iputils
+lftp
+mailx
+netcat
+netlist
+openssh-clients
+rsync
+traceroute
+vlan-utils
+ntpdate
+tcpdump
+bridge-utils

@@ -1,0 +1,37 @@
+# interactivesystem
+
+sudo
+etcnet-defaults-server
+
+# network tools
+arpwatch
+dhcpcd
+bind
+wireless-tools
+
+# disk tools
+jfsutils
+reiserfsprogs
+quota
+
+# servers
+dovecot
+postfix-dovecot
+nfs-server
+
+#clients
+nfs-clients
+
+# debug
+tcpdump
+
+# docs
+man-pages
+#indexhtml-@THEME@
+alt-docs-apache2
+#docs-issue-school-server
+
+# virt
+vzctl
+kvm
+qemu-system

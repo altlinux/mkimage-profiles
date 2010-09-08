@@ -1,0 +1,10 @@
+# disk tools
+eject
+hdparm
+lvm2
+mdadm
+mtools
+ntfs-3g
+sfdisk
+usbutils
+xfsprogs

@@ -5,13 +5,24 @@ CONFIG = $(BUILDDIR)/.config.mk
 # shell will get confused by ' or args get spammed with "
 put = $(and $(1),$(put_body))
 define put_body
-@printf '%s\n' '$(1)#=- $@' >> "$(CONFIG)";
-@# TODO: maybe some more logging/tracing, otherwise inline this
+@printf '%s\n' '$(1)#=- $@' >> "$(CONFIG)"
 endef
+
+tags = $(shell echo "$(1)" | bin/tags2lists)
 
 # request particular image subprofile inclusion
 sub/%:
 	$(call put,SUBPROFILES+=$(@:sub/%=%))
+
+# package list names are relative to pkg/lists/
+#
+#  $(VAR) will be substituted before writing them to $(CONFIG);
+# $$(VAR) will remain unsubstituted util $(CONFIG) is included
+#         and their value requested (so the variable referenced
+#         can change its value during configuration _before_
+#         it's actually used)
+#
+# tags do boolean expressions: (tag1 && !(tag2 || tag3))
 
 init:
 	@echo "** starting distro configuration build process"
@@ -34,6 +45,7 @@ distro/server-light: distro/server-base use/bootsplash
 	$(call put,KFLAVOUR=ovz-smp)	# override default
 	$(call put,BRANDING=sisyphus-server-light)
 	$(call put,DISK_LISTS+=kernel-wifi)
+	$(call put,BASE_LISTS+=$(call tags,base server))
 
 use/memtest86:
 	$(call put,COMMON_PACKAGES+=memtest86+)
