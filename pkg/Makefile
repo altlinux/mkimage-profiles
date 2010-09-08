@@ -11,12 +11,14 @@ pkgs: prep test
 		$(if $(filter environment% file,$(origin $V)),\
 			$(shell cp -a $(addprefix lists/,$(value $V)) \
 				      $(BUILDDIR)/pkg/lists/)))
+	@cp -a lists/.base $(BUILDDIR)/pkg/lists/
 
 # moving this into pkgs spoils execution order (clobbers results)
 prep:
 	mkdir -p $(BUILDDIR)/pkg/{lists,groups}
 
 # dump *_LISTS variables' values
+# TODO: consider GLOBAL_VERBOSE? (currently not coming with .config.mk)
 test:
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \

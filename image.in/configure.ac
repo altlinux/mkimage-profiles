@@ -7,7 +7,7 @@ AC_ARG_WITH(aptconf,
 			    AC_MSG_CHECKING([apt.conf file])
 			    if test -r "$with_aptconf"  ; then
 				    APTCONF="$with_aptconf"
-				    AC_MSG_RESULT([** $with_aptconf exists])
+				    AC_MSG_RESULT([$with_aptconf exists])
 				    else
 					    echo "WARNING: $with_aptconf missing, ignoring"
 				    fi
@@ -23,7 +23,7 @@ AC_ARG_WITH(mkimage,
 			    AC_MSG_CHECKING([mkimage])
 			    if test -d "$with_mkimage/tools"; then
 				    MKIMAGE_PREFIX="$with_mkimage"
-				    AC_MSG_RESULT([** $with_mkimage/tools exists])
+				    AC_MSG_RESULT([$with_mkimage/tools exists])
 			    fi
 			    ],
 			    [

@@ -1,8 +1,8 @@
 ### build up distribution's configuration
 CONFIG = $(BUILDDIR)/.config.mk
 
-# ACHTUNG: don"t use ANY quotes ('/") for put() arguments!
-#          shell will get confused by ' or args get spammed with "
+# NB: don"t use ANY quotes ('/") for put() arguments!
+# shell will get confused by ' or args get spammed with "
 put = $(and $(1),$(put_body))
 define put_body
 @printf '%s\n' '$(1)#=- $@' >> "$(CONFIG)";
@@ -18,7 +18,7 @@ init:
 	:> $(CONFIG)
 	$(call put,KFLAVOUR=std-def)	###
 	$(call put,IMAGE_INIT_LIST=+branding-$$(BRANDING)-release)
-	#$(call put,STAGE1_PACKAGES=kernel-image-$$(KFLAVOUR))
+	@#$(call put,STAGE1_PACKAGES=kernel-image-$$(KFLAVOUR))
 	$(call put,KERNEL_PACKAGES=kernel-image-$$(KFLAVOUR))
 
 # NB: our */* are phony targets really, just for namespace
