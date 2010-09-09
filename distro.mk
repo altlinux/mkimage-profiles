@@ -1,5 +1,8 @@
-### build up distribution's configuration
+# build up distribution's configuration
 CONFIG = $(BUILDDIR)/.config.mk
+
+# source initial feature snippets
+-include features.in/*/config.mk
 
 # NB: don"t use ANY quotes ('/") for put() arguments!
 # shell will get confused by ' or args get spammed with "
@@ -29,8 +32,11 @@ init:
 	:> $(CONFIG)
 	$(call put,KFLAVOUR=std-def)	###
 	$(call put,IMAGE_INIT_LIST=+branding-$$(BRANDING)-release)
+	$(call put,BRANDING=altlinux-desktop)	###
 	@#$(call put,STAGE1_PACKAGES=kernel-image-$$(KFLAVOUR))
 	$(call put,KERNEL_PACKAGES=kernel-image-$$(KFLAVOUR))
+
+distro/syslinux: init
 
 # NB: our */* are phony targets really, just for namespace
 distro/installer: init sub/install2
@@ -46,10 +52,6 @@ distro/server-light: distro/server-base use/bootsplash
 	$(call put,BRANDING=sisyphus-server-light)
 	$(call put,DISK_LISTS+=kernel-wifi)
 	$(call put,BASE_LISTS+=$(call tags,base server))
-
-use/memtest86:
-	$(call put,COMMON_PACKAGES+=memtest86+)
-	@# configure syslinux/isolinux as well
 
 use/bootsplash:
 	$(call put,COMMON_TAGS+=bootsplash)

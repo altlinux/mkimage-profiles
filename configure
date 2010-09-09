@@ -16,7 +16,7 @@ PARAMS="$@"
 #ls -ld $BUILDDIR
 
 #find image.in -type f -print0 | xargs -r0 cp -at "$BUILDDIR"/ --
-#rsync -qaH --delete image.in/ "$BUILDDIR"/image/
+#rsync -qaH --delete image.in/ "$BUILDDIR"/
 #rm -f "$BUILDDIR"/.config.mk
 #touch "$BUILDDIR"/.config.mk
 #mkdir "$BUILDDIR"/.mki

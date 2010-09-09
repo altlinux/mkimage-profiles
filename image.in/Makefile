@@ -5,45 +5,33 @@ include $(GLOBAL_BUILDDIR)/.config.mk
 
 SUBDIRS = $(SUBPROFILES)
 
-# we usually need a bootloader (until stage1 is separate),
-# and "main" subprofile needs genbasedir
-CHROOT_PACKAGES = syslinux apt-utils $(KERNEL_PACKAGES)
-
+# "main" subprofile needs genbasedir
+CHROOT_PACKAGES = apt-utils
 ###
-MKI_PACK_RESULTS = boot:mkimage-profiles.iso
-COPY_TREE = ./isodata
+MKI_PACK_RESULTS = isoboot:mkimage-profiles.iso
+COPY_TREE = ./files
 BOOT_TYPE = isolinux
-
-###
-PROPAGATOR_VERSION = mkimage-profiles 2.0
-PROPAGATOR_MAR_MODULES = ./modules
-PROPAGATOR_INITFS = ./initfs
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
 all: prep copy-tree copy-subdirs run-scripts pack-image
 
-prep: initfs disk-info metadata
+# FIXME: scripts.d/?
+prep: disk-info metadata
 	@echo "TOPDIR=$(TOPDIR)"
 
-initfs:
-	echo "file	/.VERSION	@TMPDIR@/.VERSION	0644	0 0" >initfs
-	### FIXME: broken test, we already do branding
-	[ -z "$(BRANDING)" ] || \
-		echo "file	/bootsplash	/bootsplash/bootsplash	0644	0 0" >>initfs
-
 disk-info:
-	mkdir -p isodata/.disk
-	echo "$(PROPAGATOR_VERSION)" >isodata/.disk/info	### +$(ARCH)
-	(cd $(TOPDIR); git show-ref --head --dereference -s -- HEAD 2>/dev/null) >isodata/.disk/commit
-	[ -s isodata/.disk/commit ] || rm isodata/.disk/commit
+	mkdir -p files/.disk
+	echo "$(PROPAGATOR_VERSION)" >files/.disk/info	### +$(ARCH)
+	(cd $(TOPDIR); git show-ref --head --dereference -s -- HEAD 2>/dev/null) >files/.disk/commit
+	[ -s files/.disk/commit ] || rm files/.disk/commit
 
 # see also alterator-pkg (backend3/pkg-install)
-# FIXME: groups unmerged
+# FIXME: groups unmerged, and only .base hardwired in
 metadata:
-	mkdir -p isodata/Metadata
-	rm -f isodata/Metadata/pkg-groups.tar
-	tar -cvf isodata/Metadata/pkg-groups.tar \
+	mkdir -p files/Metadata
+	rm -f files/Metadata/pkg-groups.tar
+	tar -cvf files/Metadata/pkg-groups.tar \
 		-C $(PKGDIR) \
-		$(shell echo $(call list,.base) $(call list,base) | sed 's,$(PKGDIR)/*,,g')
+		$(shell echo $(call list,.base) | sed 's,$(PKGDIR)/*,,g')
 

@@ -9,7 +9,7 @@
 # 
 
 # TODO; consider s/-name/-path/
-[ -d pkg/lists ] && cd pkg/lists
+[ -d pkg.in/lists ] && cd pkg.in/lists
 
 find ${1:-tagged} $(sed \
     -e "s,\([^&|! ()']\+\),-name *_\1_*,g" \

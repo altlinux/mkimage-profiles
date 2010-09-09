@@ -5,13 +5,15 @@
 
 include clean.mk
 include distro.mk
+include profile.mk
 include iso.mk
 
-# this could have come come from environment;
+# this could have come from environment;
 # if not, can be symlinked if r/w, or made anew
 ifndef BUILDDIR
 BUILDDIR := $(shell realpath build || bin/mktmpdir mkimage-profiles.build)
 endif
+export BUILDDIR
 
 # we can't use implicit rules for top-level targets, only for prereqs
 CONFIGS=$(shell sed -n 's,^distro/\([^:]\+\):.*$$,\1,p' distro.mk)
@@ -21,16 +23,4 @@ all:
 	@echo '** available distribution targets:'
 	@echo $(DISTROS) | fmt -sw65 | column -t
 
-prep:
-	@echo "** BUILDDIR: $(BUILDDIR)"
-#	ls -ld $(BUILDDIR)
-	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/image/
-	@rm -f "$(BUILDDIR)"/.config.mk
-	@touch "$(BUILDDIR)"/.config.mk
-	@mkdir "$(BUILDDIR)"/.mki
-	@rm -f build
-	@[ -w . ] \
-		&& ln -sf "$(BUILDDIR)" build \
-		|| echo "** profile directory readonly: skipping symlinks, env only"
-
-$(DISTROS): %.iso: | prep distro/% iso
+$(DISTROS): %.iso: | profile/init distro/% profile/populate iso

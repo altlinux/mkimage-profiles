@@ -5,4 +5,5 @@ sfdisk
 mdadm
 
 openssh-server
+openssh-blacklist
 acpid
