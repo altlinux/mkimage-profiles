@@ -22,7 +22,7 @@ prep: disk-info metadata
 
 disk-info:
 	mkdir -p files/.disk
-	echo "$(PROPAGATOR_VERSION)" >files/.disk/info	### +$(ARCH)
+	echo "FIXME" >files/.disk/info	### +$(ARCH)
 	(cd $(TOPDIR); git show-ref --head --dereference -s -- HEAD 2>/dev/null) >files/.disk/commit
 	[ -s files/.disk/commit ] || rm files/.disk/commit
 

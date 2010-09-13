@@ -4,14 +4,8 @@ CONFIG = $(BUILDDIR)/.config.mk
 # source initial feature snippets
 -include features.in/*/config.mk
 
-# NB: don"t use ANY quotes ('/") for put() arguments!
-# shell will get confused by ' or args get spammed with "
-put = $(and $(1),$(put_body))
-define put_body
-@printf '%s\n' '$(1)#=- $@' >> "$(CONFIG)"
-endef
-
-tags = $(shell echo "$(1)" | bin/tags2lists)
+# put(), add(), set(), tags()
+include functions.mk
 
 # request particular image subprofile inclusion
 sub/%:
@@ -27,31 +21,32 @@ sub/%:
 #
 # tags do boolean expressions: (tag1 && !(tag2 || tag3))
 
-init:
+distro/init:
 	@echo "** starting distro configuration build process"
-	:> $(CONFIG)
-	$(call put,KFLAVOUR=std-def)	###
-	$(call put,IMAGE_INIT_LIST=+branding-$$(BRANDING)-release)
-	$(call put,BRANDING=altlinux-desktop)	###
-	@#$(call put,STAGE1_PACKAGES=kernel-image-$$(KFLAVOUR))
-	$(call put,KERNEL_PACKAGES=kernel-image-$$(KFLAVOUR))
+	@:> $(CONFIG)
 
-distro/syslinux: init
+distro/base: distro/init sub/stage1
+	$(call set,KFLAVOUR,std-def)	###
+	$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
+	$(call set,BRANDING,altlinux-desktop)	###
+	$(call set,KERNEL_PACKAGES,kernel-image-$$(KFLAVOUR))
+
+distro/syslinux: distro/base
 
 # NB: our */* are phony targets really, just for namespace
-distro/installer: init sub/install2
+distro/installer: distro/base sub/install2
 	@#$(call put,BRANDING=altlinux-sisyphus)	###
-	$(call put,BASE_LISTS=base kernel)
-	$(call put,INSTALL2_PACKAGES=installer-distro-server-light-stage2)	###
+	$(call set,BASE_LISTS,base kernel)
+	$(call set,INSTALL2_PACKAGES,installer-distro-server-light-stage2)	###
 
 distro/server-base: distro/installer sub/main use/memtest86
-	$(call put,BASE_LISTS+=server-base kernel-server)
+	$(call add,BASE_LISTS,server-base kernel-server)
 
 distro/server-light: distro/server-base use/bootsplash
-	$(call put,KFLAVOUR=ovz-smp)	# override default
-	$(call put,BRANDING=sisyphus-server-light)
-	$(call put,DISK_LISTS+=kernel-wifi)
-	$(call put,BASE_LISTS+=$(call tags,base server))
+	$(call set,KFLAVOUR,ovz-smp)	# override default
+	$(call set,BRANDING,sisyphus-server-light)
+	$(call add,DISK_LISTS,kernel-wifi)
+	$(call add,BASE_LISTS,$(call tags,base server))
 
 use/bootsplash:
-	$(call put,COMMON_TAGS+=bootsplash)
+	$(call add,COMMON_TAGS,bootsplash)
