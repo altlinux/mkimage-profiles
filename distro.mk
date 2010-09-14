@@ -5,13 +5,8 @@ CONFIG = $(BUILDDIR)/.config.mk
 -include features.in/*/config.mk
 
 # put(), add(), set(), tags()
-include functions.mk
-
-# request particular image subprofile inclusion
-sub/%:
-	$(call put,SUBPROFILES+=$(@:sub/%=%))
-
-# package list names are relative to pkg/lists/
+#
+# package list names are considered relative to pkg/lists/
 #
 #  $(VAR) will be substituted before writing them to $(CONFIG);
 # $$(VAR) will remain unsubstituted util $(CONFIG) is included
@@ -19,7 +14,12 @@ sub/%:
 #         can change its value during configuration _before_
 #         it's actually used)
 #
-# tags do boolean expressions: (tag1 && !(tag2 || tag3))
+# tags can do boolean expressions: (tag1 && !(tag2 || tag3))
+include functions.mk
+
+# request particular image subprofile inclusion
+sub/%:
+	$(call add,SUBPROFILES,$(@:sub/%=%))
 
 distro/init:
 	@echo "** starting distro configuration build process"
