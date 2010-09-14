@@ -1,17 +1,24 @@
 include $(BUILDDIR)/.config.mk
 
-# make rsync backups
+SHELL += -x
+
+# first rsync what's static, and make backups --
+# these might signal of file clashes (or plain dirt);
+# then handle two more ways of implementing a feature
 all:
-	@for dir in $(FEATURES); do \
+	@echo "** starting feature configuration"
+	@[ -z $(FEATURES) ] || \
+	for dir in $(sort $(FEATURES)); do \
 		for sub in $(SUBPROFILES); do \
-			dest=$${sub%stage1}; \
 			[ -d $$dir/$$sub/ ] && \
-			rsync -ab $$dir/$$sub/ $(BUILDDIR)/$$dest/ && \
-			cd $(BUILDDIR)/$$dest/ && \
-			git add . && \
-			git commit -qam "$@/$$dir/$$sub" && \
-			cd ->&/dev/null; \
+			rsync -ab $$dir/$$sub/ $(BUILDDIR)/$$sub/ && { \
+				cd $(BUILDDIR)/$$sub/ && \
+				git add . && \
+				git commit -qam "$@/$$dir/$$sub" ||:; \
+				cd - >&/dev/null; \
+			}; \
 		done; \
+		[ -x $$dir/generate.sh ] && { cd $$dir && ./generate.sh; cd -; }; \
+		[ -s $$dir/generate.mk ] && $(MAKE) -C $$dir -f generate.mk; \
 	done
-	@# these might signal of file clashes (or plain dirt)
-	@find $(BUILDDIR) -name '*~'
+	@find $(BUILDDIR) -name '*~' ||:

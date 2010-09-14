@@ -1,0 +1,7 @@
+#!/bin/sh -x
+
+mkdir -p "$WORKDIR"/syslinux
+MEMTEST="$(find /boot/ -name 'memtest*' -print -quit)"
+# hdt recommends adding .bin
+[ -z "$MEMTEST" ] ||
+	cp -f "$MEMTEST" "$WORKDIR"/syslinux/memtest.bin

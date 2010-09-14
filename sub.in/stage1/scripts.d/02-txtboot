@@ -1,2 +1,0 @@
-#!/bin/sh
-install -pDm644 /usr/lib/syslinux/menu.c32 "$WORKDIR"/syslinux/menu.c32

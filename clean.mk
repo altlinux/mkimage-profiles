@@ -1,5 +1,6 @@
 clean:
 	@echo '** cleaning up...'
+	@find -name '*~' -delete >&/dev/null
 	@[ -d build/ ] && \
 		$(MAKE) -C build/ $@ GLOBAL_BUILDDIR=$(shell readlink build) \
 	||:

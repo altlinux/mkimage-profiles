@@ -1,3 +1,4 @@
-use/memtest86:
-	$(call put,COMMON_PACKAGES+=memtest86+)
-	@# configure syslinux/isolinux as well
+use/memtest:
+	$(call add,FEATURES,memtest)
+	$(call add,COMMON_PACKAGES,memtest86+)
+	$(call add,SYSLINUX_ITEMS,memtest)

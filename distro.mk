@@ -25,28 +25,32 @@ distro/init:
 	@echo "** starting distro configuration build process"
 	@:> $(CONFIG)
 
-distro/base: distro/init sub/stage1
-	$(call set,KFLAVOUR,std-def)	###
+distro/base: distro/init sub/stage1 use/syslinux/localboot
+	$(call set,KFLAVOUR,std-def)
 	$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	$(call set,BRANDING,altlinux-desktop)	###
 	$(call set,KERNEL_PACKAGES,kernel-image-$$(KFLAVOUR))
 
-distro/syslinux: distro/base
+# bootloader test target
+distro/syslinux: distro/base use/syslinux/ui/menu use/syslinux/localboot use/hdt use/memtest boot/isolinux
 
-# NB: our */* are phony targets really, just for namespace
-distro/installer: distro/base sub/install2
+distro/installer: distro/base sub/install2 use/syslinux/install2
 	@#$(call put,BRANDING=altlinux-sisyphus)	###
 	$(call set,BASE_LISTS,base kernel)
 	$(call set,INSTALL2_PACKAGES,installer-distro-server-light-stage2)	###
 
-distro/server-base: distro/installer sub/main use/memtest86
+distro/server-base: distro/installer sub/main use/syslinux/ui/menu use/memtest
 	$(call add,BASE_LISTS,server-base kernel-server)
 
-distro/server-light: distro/server-base use/bootsplash
+distro/server-light: distro/server-base use/hdt
 	$(call set,KFLAVOUR,ovz-smp)	# override default
 	$(call set,BRANDING,sisyphus-server-light)
 	$(call add,DISK_LISTS,kernel-wifi)
 	$(call add,BASE_LISTS,$(call tags,base server))
 
-use/bootsplash:
-	$(call add,COMMON_TAGS,bootsplash)
+# FIXME: this belongs to bootsplash feature
+#use/bootsplash:
+#	$(call add,COMMON_TAGS,bootsplash)
+
+boot/%:
+	$(call set,BOOTLOADER,$*)

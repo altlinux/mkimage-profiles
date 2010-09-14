@@ -4,13 +4,13 @@
 include $(BUILDDIR)/.config.mk
 
 # env | sort -u | grep _LISTS | xargs cp
-all: prep test
+all: prep debug
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
-			$(shell cp --parents -avt $(BUILDDIR)/pkg/lists/ \
-				-- $(value $V) >> $(BUILDDIR)/log 2>&1)))
-	@cp -av .base $(BUILDDIR)/pkg/lists/
+			$(shell cp --parents -at $(BUILDDIR)/pkg/lists/ \
+				-- $(value $V))))
+	@cp -a .base $(BUILDDIR)/pkg/lists/
 
 # moving this into 'all' spoils execution order (clobbers results)
 prep:
@@ -19,7 +19,7 @@ prep:
 # dump *_LISTS variables' values
 # TODO: consider GLOBAL_VERBOSE? (currently not coming with .config.mk)
 #       (for cp -v then, too)
-test:
+debug:
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\

@@ -14,24 +14,24 @@ BOOT_TYPE = isolinux
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
-all: prep copy-tree copy-subdirs run-scripts pack-image
+all: prep copy-subdirs copy-tree run-scripts pack-image
 
 # FIXME: scripts.d/?
 prep: disk-info metadata
 	@echo "TOPDIR=$(TOPDIR)"
 
 disk-info:
-	mkdir -p files/.disk
-	echo "FIXME" >files/.disk/info	### +$(ARCH)
-	(cd $(TOPDIR); git show-ref --head --dereference -s -- HEAD 2>/dev/null) >files/.disk/commit
-	[ -s files/.disk/commit ] || rm files/.disk/commit
+	@mkdir -p files/.disk
+	@echo "FIXME" >files/.disk/info	### +$(ARCH)
+	@(cd $(TOPDIR); git show-ref --head --dereference -s -- HEAD 2>/dev/null) >files/.disk/commit
+	@[ -s files/.disk/commit ] || rm files/.disk/commit
 
 # see also alterator-pkg (backend3/pkg-install)
 # FIXME: groups unmerged, and only .base hardwired in
 metadata:
-	mkdir -p files/Metadata
-	rm -f files/Metadata/pkg-groups.tar
-	tar -cvf files/Metadata/pkg-groups.tar \
+	@mkdir -p files/Metadata
+	@rm -f files/Metadata/pkg-groups.tar
+	@tar -cvf files/Metadata/pkg-groups.tar \
 		-C $(PKGDIR) \
 		$(shell echo $(call list,.base) | sed 's,$(PKGDIR)/*,,g')
 

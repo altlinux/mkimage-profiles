@@ -1,4 +1,4 @@
-### installation package base (requisite + optional)
+# installation package base (requisite + optional)
 
 default: all
 

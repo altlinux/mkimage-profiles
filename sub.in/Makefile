@@ -6,8 +6,8 @@ all:
 		cd $(BUILDDIR)/$$dir/ && \
 		git add . && \
 		git commit -qam "$@/$$dir"; \
-		cd ->&/dev/null; \
-	done
+		cd - >&/dev/null; \
+	done ||:
 
 clean:
 	@for dir in $(SUBPROFILES); do \

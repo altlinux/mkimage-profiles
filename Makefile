@@ -28,4 +28,4 @@ all:
 	@echo '** available distribution targets:'
 	@echo $(DISTROS) | fmt -sw65 | column -t
 
-$(DISTROS): %.iso: | profile/init distro/% profile/populate iso
+$(DISTROS): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
