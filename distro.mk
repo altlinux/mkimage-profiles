@@ -47,6 +47,9 @@ distro/server-light: distro/server-base use/hdt
 	$(call set,BRANDING,sisyphus-server-light)
 	$(call add,DISK_LISTS,kernel-wifi)
 	$(call add,BASE_LISTS,$(call tags,base server))
+	$(call add,GROUPS,dns-server http-server ftp-server kvm-server)
+	$(call add,GROUPS,ipmi mysql-server dhcp-server mail-server)
+	$(call add,GROUPS,monitoring diag-tools)
 
 # FIXME: this belongs to bootsplash feature
 #use/bootsplash:

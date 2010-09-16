@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=MySQL Server
+X-Alterator-PackageList=mysql-server
+X-Alterator-Required=no
+Name[ru_RU]=Сервер MySQL
+Categories=Server;Networking
+

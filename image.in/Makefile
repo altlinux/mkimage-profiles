@@ -27,11 +27,11 @@ disk-info:
 	@[ -s files/.disk/commit ] || rm files/.disk/commit
 
 # see also alterator-pkg (backend3/pkg-install)
-# FIXME: groups unmerged, and only .base hardwired in
+# FIXME: if we copy --as-needed, maybe just tar . ?
 metadata:
 	@mkdir -p files/Metadata
 	@rm -f files/Metadata/pkg-groups.tar
-	@tar -cvf files/Metadata/pkg-groups.tar \
+	tar -cvf files/Metadata/pkg-groups.tar \
 		-C $(PKGDIR) \
-		$(shell echo $(call list,.base) | sed 's,$(PKGDIR)/*,,g')
+		$$(echo $(call list,.base) $(call list,$(GROUPS)) $(call group,$(GROUPS)) | sed 's,$(PKGDIR)/*,,g')
 

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=DHCP Server
+X-Alterator-PackageList=dhcp-server
+X-Alterator-Required=no
+Name[ru_RU]=Сервер DHCP
+Categories=Server;Networking
+

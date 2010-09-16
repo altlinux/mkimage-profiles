@@ -10,7 +10,7 @@ all: prep debug
 		$(if $(filter environment% file,$(origin $V)),\
 			$(shell cp --parents -at $(BUILDDIR)/pkg/lists/ \
 				-- $(value $V))))
-	@cp -a .base $(BUILDDIR)/pkg/lists/
+	@cp -a .base $(GROUPS) $(BUILDDIR)/pkg/lists/
 
 # moving this into 'all' spoils execution order (clobbers results)
 prep:
@@ -24,3 +24,5 @@ debug:
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
 			$(warning $V=$(value $V))))
+	@echo "** LISTS: -- see above"
+	@echo "** GROUPS: $(GROUPS)"
