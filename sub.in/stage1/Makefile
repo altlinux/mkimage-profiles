@@ -3,7 +3,7 @@ include ../functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 include $(GLOBAL_BUILDDIR)/.config.mk
 
-CHROOT_PACKAGES = syslinux $(KERNEL_PACKAGES) $(COMMON_PACKAGES)
+CHROOT_PACKAGES = $(KERNEL_PACKAGES) $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
 
 MKI_PACK_RESULTS = data
 ###

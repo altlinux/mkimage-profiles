@@ -3,6 +3,7 @@ include $(BUILDDIR)/.config.mk
 all:
 	@for dir in $(SUBPROFILES); do \
 		rsync -a $$dir/ $(BUILDDIR)/$$dir/ && \
+		type -t git >&/dev/null && \
 		cd $(BUILDDIR)/$$dir/ && \
 		git add . && \
 		git commit -qam "$@/$$dir"; \

@@ -4,35 +4,53 @@ ifndef BOOTLOADER
 $(warning syslinux feature enabled but BOOTLOADER undefined)
 endif
 
-ifndef SYSLINUX
-SYSLINUX = textprompt
+ifndef SYSLINUX_UI
+$(warning no syslinux ui module configured, falling back to plain text prompt)
+SYSLINUX_UI := prompt
 endif
 
-### FIXME: too much insight (ab)used
+# UI is backed by modules in modern syslinux
+# (except for built-in text prompt)
+SYSLINUX_MODULES := $(SYSLINUX_MODULES) $(SYSLINUX_UI)
+
+# SUBPROFILES are considered SYSLINUX_CFG too;
+# 01defaults.cfg is included indefinitely
+SYSLINUX_CFG := $(SYSLINUX_CFG) $(SUBPROFILES) defaults
+
 DSTDIR := $(BUILDDIR)/stage1/files/syslinux
 CONFIG := $(DSTDIR)/$(BOOTLOADER).cfg
-PARTS  := $(SYSLINUX_UI) $(SYSLINUX_ITEMS) $(SUBPROFILES) timeout
 MODDIR := /usr/lib/syslinux
 
-# compile bootloader config from chosen parts
-# NB: list position determined by file numbering (*.cfg)
-config: debug copy
-	@cat $(sort $(foreach P,$(PARTS),$(wildcard cfg.in/??$(P).cfg))) /dev/null > $(CONFIG)
+# we can do SYSLINUX_{CFG,MODULES,FILES}
+# CFG have only cfg snippet
+# FILES have only filenames (absolute or relative to /usr/lib/syslinux/)
+# MODULES must have both cfg snippet and syslinux module filename
+#         (and get included iff cfg snippet AND module exist)
 
+# syslinux modules come as .com and .c32 files
+sysmod = $(wildcard $(addprefix $(MODDIR)/,$(addsuffix .c??,$(1))))
+cfg = $(wildcard cfg.in/??$(1).cfg)
+
+# NB: list position determined by file numbering (*.cfg sorting)
+all: prep debug
+	cat $(sort \
+		$(foreach C,$(SYSLINUX_CFG),$(call cfg,$(C))) \
+		$(foreach M,$(SYSLINUX_MODULES), \
+			$(shell cp -pLt $(DSTDIR) -- $(call sysmod,$(M)) && echo $(call cfg,$(M))))) \
+		/dev/null > $(CONFIG)
+	[ -z "$(SYSLINUX_FILES)" ] || { \
+		cd $(MODDIR); \
+		cp -pLt $(DSTDIR) -- $(SYSLINUX_FILES); \
+	}
+
+# cat's argument gets evaluated before recipe body execution
 prep:
-	@mkdir -p $(DSTDIR)
+	mkdir -p $(DSTDIR)
 
-# copy over the needed syslinux modules (item.c32 or item.com)
-# and SYSLINUX_FILES (list of absolute paths)
-copy: prep
-	@$(foreach F, \
-		$(SYSLINUX_FILES) $(wildcard $(addprefix $(MODDIR)/,$(addsuffix .c??,$(SYSLINUX_ITEMS)))), \
-		$(shell cp -pLt $(DSTDIR) -- $(F)))
-
-# for p in $PARTS; do ls ??$p.cfg; done | sort
+# for p in $...; do ls ??$p.cfg; done | sort
 debug:
 	@echo "** BOOTLOADER: $(BOOTLOADER)"
 	@echo "** SYSLINUX_UI: $(SYSLINUX_UI)"
-	@echo "** SYSLINUX_ITEMS: $(SYSLINUX_ITEMS)"
-	@echo "** PARTS: $(sort $(foreach P,$(PARTS),$(wildcard cfg.in/??$(P).cfg)))"
-	@echo "** MODULES: $(wildcard $(addprefix $(MODDIR)/,$(addsuffix .c??,$(SYSLINUX_ITEMS))))"
+	@echo "** SYSLINUX_CFG: $(SYSLINUX_CFG)"
+	@echo "** SYSLINUX_FILES: $(SYSLINUX_FILES)"
+	@echo "** SYSLINUX_MODULES: $(SYSLINUX_MODULES)"

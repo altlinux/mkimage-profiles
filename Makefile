@@ -1,5 +1,5 @@
 # 1. configure distro
-# 2. configure subprofiles, prepare package lists
+# 2. configure subprofiles, prepare package lists/groups and hooks
 # 3. build subprofiles
 # 4. build image
 
@@ -9,7 +9,7 @@ include profile.mk
 include iso.mk
 
 # this could have come from environment;
-# if not, can be symlinked if r/w, or made anew
+# if not, can be symlinked if r/w, or made anew (NB: immediate assignment)
 ifndef BUILDDIR
 BUILDDIR := $(shell realpath build || bin/mktmpdir mkimage-profiles.build)
 endif

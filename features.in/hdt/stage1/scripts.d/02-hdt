@@ -1,0 +1,2 @@
+#!/bin/sh
+gzip -9 "$WORKDIR"/syslinux/pci.ids ||:

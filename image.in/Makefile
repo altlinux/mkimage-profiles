@@ -23,8 +23,10 @@ prep: disk-info metadata
 disk-info:
 	@mkdir -p files/.disk
 	@echo "FIXME" >files/.disk/info	### +$(ARCH)
-	@(cd $(TOPDIR); git show-ref --head --dereference -s -- HEAD 2>/dev/null) >files/.disk/commit
-	@[ -s files/.disk/commit ] || rm files/.disk/commit
+	@type -t git >&/dev/null && ( \
+		cd $(TOPDIR) && \
+		git show-ref --head --dereference -s -- HEAD 2>/dev/null; \
+	) >files/.disk/commit
 
 # see also alterator-pkg (backend3/pkg-install)
 # FIXME: if we copy --as-needed, maybe just tar . ?

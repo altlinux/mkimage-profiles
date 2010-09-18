@@ -4,8 +4,10 @@
 include $(BUILDDIR)/.config.mk
 
 all: debug
-	@mkdir -p $(BUILDDIR)/pkg/groups \
-	&& cp -at $(BUILDDIR)/pkg/groups/ -- $(addsuffix .directory,$(GROUPS))
+	@[ -n "$(GROUPS)" ] && { \
+		mkdir -p $(BUILDDIR)/pkg/groups && \
+		cp -at $(BUILDDIR)/pkg/groups/ -- $(addsuffix .directory,$(GROUPS)); \
+	} ||:
 
 debug:
 	@echo "** GROUPS: $(GROUPS)"
