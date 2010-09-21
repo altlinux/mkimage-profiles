@@ -5,7 +5,7 @@ $(warning syslinux feature enabled but BOOTLOADER undefined)
 endif
 
 ifndef SYSLINUX_UI
-$(warning no syslinux ui module configured, falling back to plain text prompt)
+$(warning no syslinux ui configured, default is plain text prompt)
 SYSLINUX_UI := prompt
 endif
 
@@ -33,19 +33,19 @@ cfg = $(wildcard cfg.in/??$(1).cfg)
 
 # NB: list position determined by file numbering (*.cfg sorting)
 all: prep debug
-	cat $(sort \
+	@cat $(sort \
 		$(foreach C,$(SYSLINUX_CFG),$(call cfg,$(C))) \
 		$(foreach M,$(SYSLINUX_MODULES), \
 			$(shell cp -pLt $(DSTDIR) -- $(call sysmod,$(M)) && echo $(call cfg,$(M))))) \
 		/dev/null > $(CONFIG)
-	[ -z "$(SYSLINUX_FILES)" ] || { \
+	@[ -z "$(SYSLINUX_FILES)" ] || { \
 		cd $(MODDIR); \
 		cp -pLt $(DSTDIR) -- $(SYSLINUX_FILES); \
 	}
 
 # cat's argument gets evaluated before recipe body execution
 prep:
-	mkdir -p $(DSTDIR)
+	@mkdir -p $(DSTDIR)
 
 # for p in $...; do ls ??$p.cfg; done | sort
 debug:

@@ -1,0 +1,43 @@
+This directory contains phony example feature and should provide
+you with a minimal idea what code _can_ be included into a real
+feature: static files, configuration and generation makefiles,
+and a generation shell script.
+
+It's not neccessary to toss all of those into your feature,
+better try to keep it minimalistic, self-contained and useful
+as a building block.
+
+The only requisite part of the feature is config.mk which
+is included in toplevel distro.mk and which provides the
+use/* target specific for the feature (and also registers
+it in FEATURES variable -- sorry, it's not feasible to do
+automatically).  If the feature's name isn't mentioned in
+the list contained in that variable, then it's not examined
+while building up the profile either.
+
+The rest of content is optional and used in this order
+(see features.in/Makefile):
+
+- first all subdirectories corresponding to subprofile names
+  requested for the distribution profile being made are copied
+  over to $(BUILDDIR)/image/; thus they get merged with the tree
+  which is already formed by subprofiles (../sub.in/*) and preceding
+  features; in case of overlapping files rsync should leave backup
+  copies which are to be treated as a signal of disorder;
+
+- then generate.sh is run, if found and executable;
+
+- then generate.mk is used, if found and non-empty.
+
+e.g., if the distro needs stage1, install2 and main subprofiles,
+you might want to collect feature-specific scripts for installer
+into install2/image-scripts.d/ (or main/scripts.d/, depending on
+what is to be achieved -- see also mkimage docs).
+
+And if some non-trivial configuration actions are to be done
+(like syslinux config file being compiled from pieces depending
+on what bits are present of the functionality asked for...) then
+you can perform them in generate.* code.
+
+Please feel free to comment on what's useful here and what's crap
+to mike@altlinux.

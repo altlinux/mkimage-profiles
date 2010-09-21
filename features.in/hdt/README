@@ -1,0 +1,5 @@
+Добавление модуля hdt (Hardware Detection Tool COM32 module) к syslinux;
+может быть востребовано для инсталяторов, live/rescue.
+
+TODO: недоступно Memory->memtest; может иметь смысл класть сжатые gzip
+pci.ids и modules.pcimap.

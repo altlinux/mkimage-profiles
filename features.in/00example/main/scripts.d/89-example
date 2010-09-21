@@ -1,0 +1,13 @@
+#!/bin/sh
+# example script executed by mkimage in _instrumental_ chroot
+# (image-scripts.d/* get executed in _work_ chroot)
+#
+# NB: to be executed, it must be marked executable first :)
+
+# let's do something very useful
+echo "$0: WORKDIR=$WORKDIR; directory listig:"
+ls -l "$WORKDIR"
+
+# and let's _not_ terminate with non-zero for no real reason;
+# ":" is a shell builtin command like true(1)
+:

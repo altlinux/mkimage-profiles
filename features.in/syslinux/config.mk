@@ -1,17 +1,19 @@
-# UI is overwritten and _does_ automatically enable the feature...
-use/syslinux/ui-%:
+# default is plain text prompt
+use/syslinux:
 	@$(call add,FEATURES,syslinux)
-	@$(call set,SYSLINUX_UI,$*)
 	@$(call add,STAGE1_PACKAGES,syslinux)
-	if [ "$*" == gfxboot ]; then \
+
+# UI is overwritten
+use/syslinux/ui-%: use/syslinux
+	@$(call set,SYSLINUX_UI,$*)
+	@if [ "$*" == gfxboot ]; then \
 		$(call add,STAGE1_PACKAGES,gfxboot); \
 		$(call add,STAGE1_PACKAGES,branding-$$(BRANDING)-bootloader); \
 	fi
 
-# ...while plain modules...
-use/syslinux/%.com use/syslinux/%.c32:
+# modules and config snippets just add up
+use/syslinux/%.com use/syslinux/%.c32: use/syslinux
 	@$(call add,SYSLINUX_MODULES,$*)
 
-# ...and menu items don't autoenable it (but stack up themselves)
-use/syslinux/%.cfg:
+use/syslinux/%.cfg: use/syslinux
 	@$(call add,SYSLINUX_CFG,$*)

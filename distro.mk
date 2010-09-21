@@ -1,4 +1,7 @@
 # build up distribution's configuration
+#
+# NB: distro/ targets should be defined here,
+# see toplevel Makefile's $(DISTRO) assignment
 CONFIG = $(BUILDDIR)/.config.mk
 
 # source initial feature snippets
@@ -25,7 +28,7 @@ distro/init:
 	@echo "** starting distro configuration build process"
 	@:> $(CONFIG)
 
-distro/base: distro/init sub/stage1 use/syslinux/localboot.cfg
+distro/base: distro/init sub/stage1 use/syslinux use/syslinux/localboot.cfg
 	@$(call set,KFLAVOUR,std-def)
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	@$(call set,BRANDING,altlinux-desktop)	###
