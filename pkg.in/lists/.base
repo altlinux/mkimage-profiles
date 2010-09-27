@@ -1,5 +1,5 @@
 basesystem
-kernel-image-std-def
+#kernel-image-std-def
 
 interactivesystem
 apt-conf-sisyphus

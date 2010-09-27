@@ -1,7 +1,6 @@
-include globals.mk
 include functions.mk
-include $(MKIMAGE_PREFIX)/config.mk
 include $(GLOBAL_BUILDDIR)/.config.mk
+include $(MKIMAGE_PREFIX)/config.mk
 
 SUBDIRS = $(SUBPROFILES)
 
@@ -12,13 +11,23 @@ MKI_PACK_RESULTS = isoboot:mkimage-profiles.iso
 COPY_TREE = ./files
 BOOT_TYPE = isolinux
 
+ifeq "$(wildcard $(APTCONF))" ""
+GLOBAL_HSH_APT_CONFIG = /etc/apt/apt.conf
+else
+GLOBAL_HSH_APT_CONFIG = $(APTCONF)
+endif
+
 include $(MKIMAGE_PREFIX)/targets.mk
 
 all: prep copy-subdirs copy-tree run-scripts pack-image
 
 # FIXME: scripts.d/?
-prep: disk-info metadata
+prep: debug disk-info metadata
+
+debug:
 	@echo "TOPDIR=$(TOPDIR)"
+	@echo "ARCH=$(ARCH)"
+	@echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
 
 disk-info:
 	@mkdir -p files/.disk

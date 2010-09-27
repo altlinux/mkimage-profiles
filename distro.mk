@@ -24,17 +24,19 @@ include functions.mk
 sub/%:
 	@$(call add,SUBPROFILES,$(@:sub/%=%))
 
-distro/init:
+# initalize config from scratch, put some sane defaults in
+distro/.init:
 	@echo "** starting distro configuration build process"
-	@:> $(CONFIG)
+	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
+	@$(call try,GLOBAL_VERBOSE,)
 
-distro/base: distro/init sub/stage1 use/syslinux use/syslinux/localboot.cfg
+distro/.base: distro/.init sub/stage1 use/syslinux use/syslinux/localboot.cfg
 	@$(call set,KFLAVOUR,std-def)
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	@$(call set,BRANDING,altlinux-desktop)	###
 	@$(call set,KERNEL_PACKAGES,kernel-image-$$(KFLAVOUR))
 
-distro/installer: distro/base sub/install2 use/syslinux/install2.cfg
+distro/installer: distro/.base sub/install2 use/syslinux/install2.cfg
 	@#$(call put,BRANDING=altlinux-sisyphus)	###
 	@$(call set,BASE_LISTS,base kernel)
 	@$(call set,INSTALL2_PACKAGES,installer-distro-server-light-stage2)	###
@@ -51,9 +53,19 @@ distro/server-light: distro/server-base use/hdt
 	@$(call add,GROUPS,ipmi mysql-server dhcp-server mail-server)
 	@$(call add,GROUPS,monitoring diag-tools)
 
-# bootloader test target
-distro/syslinux: distro/base use/syslinux/ui-gfxboot \
-		 use/hdt use/memtest boot/isolinux
+distro/minicd: distro/server-base
+	@$(call set,KFLAVOUR,std-ng)	# we might need the most recent drivers
+	@$(call add,MAIN_PACKAGES,etcnet-full)
+	@$(call set,BRANDING,sisyphus-server-light)
 
-boot/%: distro/init
+# bootloader test target
+distro/syslinux: distro/.base use/syslinux/ui-gfxboot use/hdt use/memtest
+
+# pick up release manager's config (TODO: distro-specific include as well?)
+distro/.metaconf:
+	@if [ -s $(HOME)/.mkimage/metaconf.mk ]; then \
+		$(call put,-include $(HOME)/.mkimage/metaconf.mk); \
+	fi
+
+boot/%: distro/.init
 	@$(call set,BOOTLOADER,$*)

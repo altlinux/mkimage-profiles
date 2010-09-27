@@ -1,7 +1,6 @@
-include ../globals.mk
-include ../functions.mk
-include $(MKIMAGE_PREFIX)/config.mk
 include $(GLOBAL_BUILDDIR)/.config.mk
+include $(GLOBAL_BUILDDIR)/functions.mk
+include $(MKIMAGE_PREFIX)/config.mk
 
 CHROOT_PACKAGES = $(KERNEL_PACKAGES) $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
 

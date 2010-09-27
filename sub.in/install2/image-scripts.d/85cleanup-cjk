@@ -1,27 +1,29 @@
 #!/bin/sh
 
 # remove unused fonts
-cd /usr/share/fonts/bitmap/misc/
-rm -f *ja.* *ko.* han* gb* jis* k14* rk* *rk.* *kana* cl*
-rm -f *ISO* *JIS* *KOI*
+cd /usr/share/fonts/bitmap/misc/ &&
+	rm -f *ja.* *ko.* han* gb* jis* k14* rk* *rk.* *kana* cl* \
+	      *ISO* *JIS* *KOI*
 # TODO: sort out the rest of *x*
 
 # drop unneeded translation
-cd /usr/share/qt4/translations/
-rm -f *_zh* *_ja*
+cd /usr/share/qt4/translations/ &&
+	rm -f *_zh* *_ja*
 
 # ...l10n...
-cd /usr/share/X11/locale
-rm -rf *[^C8]/ ja* ko* th* vi* zh* iso*
+cd /usr/share/X11/locale &&
+	rm -rf *[^C8]/ ja* ko* th* vi* zh* iso*
 
 # xkb
-cd /usr/share/X11/xkb/symbols
-rm -rf *_vndr jp kr th vn cn
+cd /usr/share/X11/xkb/symbols &&
+	rm -rf *_vndr jp kr th vn cn
 
 # gconv
-cd /usr/lib*/gconv
-rm -f CP* ISO* KOI* *JIS* T* HP* MAC* 
+cd /usr/lib*/gconv &&
+	rm -f CP* ISO* KOI* *JIS* T* HP* MAC*
 
 # locales
-cd /usr/lib*/locale
-rm -rf ja_* ko_* th_* zh_*
+cd /usr/lib*/locale &&
+	rm -rf ja_* ko_* th_* zh_*
+
+:

@@ -1,9 +1,8 @@
 default: all
 
-include ../globals.mk
-include ../functions.mk
-include $(MKIMAGE_PREFIX)/config.mk
 include $(GLOBAL_BUILDDIR)/.config.mk
+include $(GLOBAL_BUILDDIR)/functions.mk
+include $(MKIMAGE_PREFIX)/config.mk
 
 IMAGE_PACKAGES = $(KERNEL_PACKAGES) \
 		 $(COMMON_PACKAGES) \
