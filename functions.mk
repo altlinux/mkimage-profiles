@@ -40,4 +40,4 @@ define log_body
 { grep -q '^# $@$$' "$(CONFIG)" || printf '# %s\n' '$@' >> "$(CONFIG)"; }
 endef
 
-tags = $(shell echo "$(1)" | bin/tags2lists)
+tags = $(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists))
