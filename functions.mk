@@ -40,4 +40,5 @@ define log_body
 { grep -q '^# $@$$' "$(CONFIG)" || printf '# %s\n' '$@' >> "$(CONFIG)"; }
 endef
 
+# convert tag list into a list of relative package list paths
 tags = $(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists))

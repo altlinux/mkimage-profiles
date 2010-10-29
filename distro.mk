@@ -30,23 +30,26 @@ distro/.init:
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
 
+# NB: the last flavour in KFLAVOURS gets to be the default one;
+# the kernel packages regexp evaluation has to take place at build stage
 distro/.base: distro/.init sub/stage1 use/syslinux use/syslinux/localboot.cfg
-	@$(call set,KFLAVOUR,std-def)
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	@$(call set,BRANDING,altlinux-desktop)	###
-	@$(call set,KERNEL_PACKAGES,kernel-image-$$(KFLAVOUR))
+	@$(call set,KFLAVOURS,std-def)
+	@$(call set,KMODULES,drm)
 
 distro/installer: distro/.base sub/install2 use/syslinux/install2.cfg
 	@#$(call put,BRANDING=altlinux-sisyphus)	###
-	@$(call set,BASE_LISTS,base kernel)
+	@$(call set,BASE_LISTS,base)
 	@$(call set,INSTALL2_PACKAGES,installer-distro-server-light-stage2)	###
 
 distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
-	@$(call add,BASE_LISTS,server-base kernel-server)
+	@$(call add,BASE_LISTS,server-base)
 
 distro/server-light: distro/server-base use/hdt
-	@$(call set,KFLAVOUR,ovz-smp)	# override default
 	@$(call set,BRANDING,sisyphus-server-light)
+	@$(call set,KFLAVOURS,ovz-smp el-smp)	# override default
+	@$(call add,KMODULES,igb ipset kvm ndiswrapper pf_ring rtl8192 xtables-addons)
 	@$(call add,DISK_LISTS,kernel-wifi)
 	@$(call add,BASE_LISTS,$(call tags,base server))
 	@$(call add,GROUPS,dns-server http-server ftp-server kvm-server)
@@ -54,7 +57,7 @@ distro/server-light: distro/server-base use/hdt
 	@$(call add,GROUPS,monitoring diag-tools)
 
 distro/minicd: distro/server-base
-	@$(call set,KFLAVOUR,std-ng)	# we might need the most recent drivers
+	@$(call set,KFLAVOURS,un-def)	# we might need the most recent drivers (NB: std-ng lacks aufs2)
 	@$(call add,MAIN_PACKAGES,etcnet-full)
 	@$(call set,BRANDING,sisyphus-server-light)
 

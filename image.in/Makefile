@@ -1,4 +1,5 @@
 include functions.mk
+include $(GLOBAL_BUILDDIR)/functions.mk
 include $(GLOBAL_BUILDDIR)/.config.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
@@ -42,6 +43,9 @@ disk-info:
 metadata:
 	@mkdir -p files/Metadata
 	@rm -f files/Metadata/pkg-groups.tar
+	# FIXME: KERNEL_PACKAGES deprecated, this is broken now! -- or not?..
+	@echo "DEBUG: image.in/Makefile" >&2
+	@echo -e "\n# auto-added in image.in/Makefile\n$(call kpackages)" >> $(call list,.base)
 	tar -cvf files/Metadata/pkg-groups.tar \
 		-C $(PKGDIR) \
 		$$(echo $(call list,.base) $(call list,$(GROUPS)) $(call group,$(GROUPS)) | sed 's,$(PKGDIR)/*,,g')

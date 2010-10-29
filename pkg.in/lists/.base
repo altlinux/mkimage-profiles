@@ -1,11 +1,11 @@
 basesystem
-#kernel-image-std-def
+udev
 
 interactivesystem
 apt-conf-sisyphus
 apt
 
-alterator-lilo
+alterator-grub
 alterator-root
 alterator-users
 alterator-net-eth
