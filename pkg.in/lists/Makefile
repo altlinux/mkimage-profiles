@@ -1,16 +1,17 @@
-# copy package lists referenced in distro configuration
-# over to build dir
+# step 3: copy package lists referenced in distro configuration
+#         (and only those!) over to $(BUILDDIR)
 
 include $(BUILDDIR)/.config.mk
+TARGET := $(BUILDDIR)/pkg/lists/
 
 # env | sort -u | grep _LISTS | xargs cp
 all: prep debug
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
-			$(shell cp --parents -at $(BUILDDIR)/pkg/lists/ \
+			$(shell cp --parents -at $(TARGET) \
 				-- $(value $V))))
-	@cp -a .base $(GROUPS) $(BUILDDIR)/pkg/lists/
+	@cp -a .base $(GROUPS) $(TARGET)
 
 # moving this into 'all' spoils execution order (clobbers results)
 prep:

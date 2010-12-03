@@ -41,4 +41,4 @@ define log_body
 endef
 
 # convert tag list into a list of relative package list paths
-tags = $(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists))
+tags = $(and $(strip $(1)),$(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists pkg.in/lists/tagged)))

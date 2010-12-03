@@ -10,7 +10,7 @@
 # NB: tags are processed using word boundaries,
 #     so avoid using "-" in tag names
 
-DIR="${1:-pkg.in/lists/tagged}"
+DIR="${1:?need base directory}"
 
 warn() {
 	echo "$0: WARNING: $*" >&2
@@ -20,11 +20,13 @@ warn() {
 [ -d "$DIR" ] || warn "$DIR nonexistent"
 cd "$DIR" || warn "cannot change to $DIR"
 
-find $(sed \
-    -e "s,\([^&|! ()']\+\),-regex ^.*\\\\<\1\\\\>.*$,g" \
-    -e "s, *&& *, -a ,g" \
-    -e "s, *|| *, -o ,g" \
-    -e "s, *! *, ! ,g" \
-    -e "s, *( *, ( ,g" \
-    -e "s, *) *, ) ,g" \
-) | sed 's,^\./,,'
+# NB: care with quoting
+transformed="$(sed \
+	-e "s,\([^&|! ()']\+\),-regex ^.*\\\\<\1\\\\>.*$,g" \
+	-e "s, *&& *, -a ,g" \
+	-e "s, *|| *, -o ,g" \
+	-e "s, *! *, ! ,g" \
+	-e "s, *( *, ( ,g" \
+	-e "s, *) *, ) ,g")"
+
+[ -z "$transformed" ] || find $transformed | sed 's,^\./,,'

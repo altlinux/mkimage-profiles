@@ -1,3 +1,5 @@
+# step 3: copy the needed subprofiles to $(BUILDDIR)
+
 include $(BUILDDIR)/.config.mk
 
 all:

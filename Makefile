@@ -1,8 +1,11 @@
+# steps to build a distribution image:
 # --- here
-# 1. configure distro
-# 2. configure subprofiles, prepare package lists/groups and hooks
+# 1. initialize new profile (BUILDDIR) as a copy of image.in/
+# 2. configure distro
+# 3. copy subprofiles, package lists/groups and script hooks
+#    from metaprofile to new profile (as needed)
 # --- in BUILDDIR
-# 3. build subprofiles and subsequently image
+# 4. build subprofiles and subsequently image
 
 all help:
 	@echo '** available distribution targets:'
@@ -16,7 +19,8 @@ include iso.mk
 # this could have come from environment;
 # if not, can be symlinked if r/w, or made anew (NB: immediate assignment)
 ifndef BUILDDIR
-BUILDDIR := $(shell realpath build || bin/mktmpdir mkimage-profiles.build)
+PREFIX := mkimage-profiles.build
+BUILDDIR := $(shell [ -s build ] && realpath build || bin/mktmpdir $(PREFIX))
 endif
 
 ifdef DEBUG

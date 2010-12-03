@@ -1,4 +1,4 @@
-# installation package base (requisite + optional)
+# step 4: build main subprofile (requisite + optional packages for media)
 
 default: all
 
@@ -7,21 +7,11 @@ include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
 CHROOT_PACKAGES = apt-utils rsync
-PACKAGES_EXPAND_METHOD=regexp
 
-# FIXME: hardwired
-#IMAGE_PACKAGES_REGEXP = "$(KERNEL_PACKAGES_REGEXP)"
-# NB: due to #24669, IMAGE_PACKAGES_REGEXP does need quoting here
-IMAGE_PACKAGES_REGEXP = "$(call kpackages)"
-#IMAGE_PACKAGES_REGEXP = $(call kimage) $(call kmodules)
-#IMAGE_PACKAGES_REGEXP = ^kernel-image-(std-def|el-smp)$$ ^kernel-modules-(ipset|kvm|ndiswrapper|pf_ring|xtables-addons)-(el-smp|ovz-smp)$$
-# TODO: map() list() onto these
-IMAGE_PACKAGES = $(call list,.base) \
+IMAGE_PACKAGES_REGEXP = $(call kpackages)
+IMAGE_PACKAGES = $(call map,list,.base $(BASE_LISTS) $(DISK_LISTS) $(GROUPS)) \
 		 $(COMMON_PACKAGES) \
-		 $(MAIN_PACKAGES) \
-		 $(call list,$(BASE_LISTS)) \
-		 $(call list,$(DISK_LISTS)) \
-		 $(call list,$(GROUPS))
+		 $(MAIN_PACKAGES)
 
 MKI_DESTDIR = ALTLinux/RPMS.main
 MKI_PACK_RESULTS = data

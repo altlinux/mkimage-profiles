@@ -1,3 +1,4 @@
+# step 1: initialize the off-tree mkimage profile
 profile/init:
 	@echo "** BUILDDIR: $(BUILDDIR)"
 	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
@@ -15,6 +16,7 @@ profile/init:
 		echo "** profile directory readonly: skipping symlinks, env only"; \
 	fi
 
+# this is done after step 2, see toplevel Makefile
 profile/populate: profile/init distro/.metaconf
 	@for dir in sub.in features.in pkg.in; do \
 		$(MAKE) -C $$dir; \

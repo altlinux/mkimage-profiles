@@ -1,5 +1,6 @@
 kernel/drivers/ata
 kernel/drivers/block
+kernel/drivers/gpu/drm
 kernel/drivers/hid
 kernel/drivers/md
 kernel/drivers/net/\([^w]\|w[^i]\).\+\.ko

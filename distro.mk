@@ -1,4 +1,4 @@
-# build up distribution's configuration
+# step 2: build up distribution's configuration
 #
 # NB: distro/ targets should be defined here,
 # see toplevel Makefile's $(DISTRO) assignment
@@ -34,14 +34,15 @@ distro/.init:
 # the kernel packages regexp evaluation has to take place at build stage
 distro/.base: distro/.init sub/stage1 use/syslinux use/syslinux/localboot.cfg
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
-	@$(call set,BRANDING,altlinux-desktop)	###
+	@$(call set,BRANDING,altlinux-sisyphus)
 	@$(call set,KFLAVOURS,std-def)
-	@$(call set,KMODULES,drm)
 
 distro/installer: distro/.base sub/install2 use/syslinux/install2.cfg
-	@#$(call put,BRANDING=altlinux-sisyphus)	###
+	@$(call set,INSTALLER,server-light)
+	@$(call set,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
+	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)
+	@$(call add,MAIN_PACKAGES,branding-$$(BRANDING)-release)
 	@$(call set,BASE_LISTS,base)
-	@$(call set,INSTALL2_PACKAGES,installer-distro-server-light-stage2)	###
 
 distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
@@ -59,7 +60,6 @@ distro/server-light: distro/server-base use/hdt
 distro/minicd: distro/server-base
 	@$(call set,KFLAVOURS,un-def)	# we might need the most recent drivers (NB: std-ng lacks aufs2)
 	@$(call add,MAIN_PACKAGES,etcnet-full)
-	@$(call set,BRANDING,sisyphus-server-light)
 
 # bootloader test target
 distro/syslinux: distro/.base use/syslinux/ui-gfxboot use/hdt use/memtest

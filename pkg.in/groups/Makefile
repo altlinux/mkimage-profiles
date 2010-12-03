@@ -1,5 +1,5 @@
-# copy package lists referenced in distro configuration
-# over to build dir
+# step 3: copy package groups referenced in distro configuration
+#         (and only those!) over to $(BUILDDIR)
 
 include $(BUILDDIR)/.config.mk
 

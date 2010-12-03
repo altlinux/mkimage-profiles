@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "file	/.VERSION	@TMPDIR@/.VERSION	0644	0 0" >"$WORKDIR"/initfs
 # FIXME: broken test, we already do branding
-[ -z "$(BRANDING)" ] || \
+[ -z "$BRANDING" ] || \
 	echo "file	/bootsplash	/bootsplash/bootsplash	0644	0 0" >>"$WORKDIR"/initfs
 

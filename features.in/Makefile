@@ -1,3 +1,6 @@
+# step 3: copy the needed features to $(BUILDDIR)
+#         (only regarding the needed subprofiles)
+
 -include $(BUILDDIR)/.config.mk
 
 # first rsync what's static, and make backups --
