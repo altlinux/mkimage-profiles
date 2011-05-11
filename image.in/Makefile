@@ -12,9 +12,12 @@ SUBDIRS = $(SUBPROFILES)
 # "main" subprofile needs genbasedir
 CHROOT_PACKAGES = apt-utils
 ###
-MKI_PACK_RESULTS = isoboot:mkimage-profiles.iso
+MKI_PACK_RESULTS = isoboot:$(IMAGENAME)
 COPY_TREE = ./files
 BOOT_TYPE = isolinux
+
+# outdir shouldn't be wiped clean before use
+CLEANUP_OUTDIR =
 
 ifeq "$(wildcard $(APTCONF))" ""
 GLOBAL_HSH_APT_CONFIG = /etc/apt/apt.conf
@@ -27,7 +30,13 @@ include $(MKIMAGE_PREFIX)/targets.mk
 all: prep copy-subdirs copy-tree run-scripts pack-image
 
 # FIXME: scripts.d/?
-prep: debug dot-disk metadata
+prep: debug dot-disk metadata $(IMAGEDIR)
+
+$(IMAGEDIR):
+	mkdir -p "$(IMAGEDIR)"
+
+# specified only for the final image, not for the subparts
+pack-image: OUTDIR = $(IMAGEDIR)
 
 debug:
 ifdef DEBUG
@@ -40,6 +49,7 @@ dot-disk:
 	@mkdir -p files/.disk
 	@echo "ALT Linux based" >files/.disk/info
 	@echo "$(ARCH)" >files/.disk/arch
+	@echo "$(DATE)" >files/.disk/date
 	@type -t git >&/dev/null && ( \
 		cd $(TOPDIR) && \
 		git show-ref --head --dereference -s -- HEAD 2>/dev/null; \

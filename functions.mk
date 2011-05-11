@@ -1,7 +1,7 @@
 # NB: don"t use ANY quotes ('/") for put()/add()/set() arguments!
 # shell will get confused by ' or args get spammed with "
 
-# pay attention to the context in which functions get called:
+# pay attention to the context functions get called in:
 # e.g. features.in/syslinux/config.mk introduces conditionals
 
 # this one adds whatever is given as an argument

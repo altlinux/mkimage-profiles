@@ -1,5 +1,8 @@
+# this makefile is designed to be included in toplevel one
+ifdef BUILDDIR
+
 # step 2: build up distribution's configuration
-#
+
 # NB: distro/ targets should be defined here,
 # see toplevel Makefile's $(DISTRO) assignment
 CONFIG = $(BUILDDIR)/.config.mk
@@ -7,7 +10,7 @@ CONFIG = $(BUILDDIR)/.config.mk
 # source initial feature snippets
 -include features.in/*/config.mk
 
-# put(), add(), set(), tags()
+# put(), add(), set(), try(), tags(): see functions.mk
 #
 # package list names are considered relative to pkg/lists/
 #
@@ -26,9 +29,11 @@ sub/%:
 
 # initalize config from scratch, put some sane defaults in
 distro/.init:
-	@echo "** starting distro configuration build process"
+	@echo "** preparing distro configuration$${DEBUG:+: see $(CONFIG)}"
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
+	@$(call try,IMAGEDIR,$(IMAGEDIR))
+	@$(call try,IMAGENAME,$(IMAGENAME))
 
 # NB: the last flavour in KFLAVOURS gets to be the default one;
 # the kernel packages regexp evaluation has to take place at build stage
@@ -49,7 +54,7 @@ distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
 
 distro/server-light: distro/server-base use/hdt
 	@$(call set,BRANDING,sisyphus-server-light)
-	@$(call set,KFLAVOURS,ovz-smp el-smp)	# override default
+	@$(call set,KFLAVOURS,ovz-el el-smp)	# override default
 	@$(call add,KMODULES,igb ipset kvm ndiswrapper pf_ring rtl8192 xtables-addons)
 	@$(call add,DISK_LISTS,kernel-wifi)
 	@$(call add,BASE_LISTS,$(call tags,base server))
@@ -72,3 +77,5 @@ distro/.metaconf:
 
 boot/%: distro/.init
 	@$(call set,BOOTLOADER,$*)
+
+endif

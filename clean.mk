@@ -1,14 +1,22 @@
-clean:
-	@echo '** cleaning up...'
-	@find -name '*~' -delete >&/dev/null
-	@[ -d build/ ] && \
-		$(MAKE) -C build/ $@ GLOBAL_BUILDDIR=$(shell readlink build) \
-	||:
+# this makefile can be used standalone
 
+# drop stock predefined rules
+.DEFAULT:
+
+clean:
+	@echo '** cleaning up'
+	@find -name '*~' -delete >&/dev/null
+	@if test -L build; then \
+		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG); \
+	fi
+
+# there can be some sense in writing log here even if normally
+# $(BUILDDIR)/ gets purged: make might have failed,
+# and BUILDLOG can be specified by hand either
 distclean: clean
-	@[ -d build/ ] && \
+	@if test -L build; then \
 		rm -rf build/.git; \
-		$(MAKE) -C build/ $@ GLOBAL_BUILDDIR=$(shell readlink build) && \
+		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) && \
 		rm -r $(shell readlink build) && \
-		rm build \
-	||:
+		rm build; \
+	fi
