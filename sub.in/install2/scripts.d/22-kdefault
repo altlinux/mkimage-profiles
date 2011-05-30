@@ -1,0 +1,25 @@
+#!/bin/sh
+# symlink default kernel iff requested but not yet done
+
+KDEFAULT="$INFO_KDEFAULT"
+if [ -n "$GLOBAL_VERBOSE" ]; then
+	echo "** KDEFAULT: $KDEFAULT"
+fi
+
+# kernel-image in instrumental chroot
+VMLINK=/boot/vmlinuz
+
+# better bail out early rather than make a silly symlink
+shopt -s failglob
+
+if [ -L "$VMLINK" ]; then
+	echo "** $VMLINK -> $(readlink "$VMLINK")"
+fi
+
+if [ -n "$KDEFAULT" ]; then
+	VMLINUZ="$(cd /boot; echo vmlinuz-*-$KDEFAULT-*)"
+	if [ -n "$VMLINUZ" ]; then
+		ln -sf "$VMLINUZ" "$VMLINK"
+		echo "** overriding $VMLINK with $VMLINUZ"
+	fi
+fi

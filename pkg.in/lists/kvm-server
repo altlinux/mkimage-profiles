@@ -1,4 +1,4 @@
 kvm
-qemu
+#qemu
 libvirt
 mkve

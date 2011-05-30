@@ -1,0 +1,7 @@
+### ~/.mkimage/profiles.mk
+
+# ARCH is defined in/for metaprofile's toplevel Makefile, not here
+APTCONF = ~/apt/apt.conf.$(ARCH)
+
+# can be defined here but passing DEBUG=1 is preferred
+#GLOBAL_VERBOSE = 1

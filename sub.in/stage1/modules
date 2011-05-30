@@ -41,6 +41,7 @@ atl1e.ko
 atl2.ko
 atp870u.ko
 atp.ko
+aufs.ko
 axnet_cs.ko
 b44.ko
 bnx2.ko

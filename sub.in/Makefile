@@ -1,6 +1,6 @@
 # step 3: copy the needed subprofiles to $(BUILDDIR)
 
-include $(BUILDDIR)/.config.mk
+include $(BUILDDIR)/distcfg.mk
 
 all:
 	@for dir in $(SUBPROFILES); do \
@@ -14,7 +14,8 @@ all:
 
 clean:
 	@for dir in $(SUBPROFILES); do \
-		[ -n "$$dir" ] && \
-		rm -rf $(BUILDDIR)/$$dir && \
-		mkdir -p $(BUILDDIR)/$$dir ||:; \
+		if [ -n "$$dir" ]; then \
+			rm -rf $(BUILDDIR)/$$dir && \
+			mkdir -p $(BUILDDIR)/$$dir; \
+		fi; \
 	done

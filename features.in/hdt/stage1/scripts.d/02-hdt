@@ -1,2 +1,9 @@
 #!/bin/sh
-gzip -9 "$WORKDIR"/syslinux/pci.ids ||:
+# http://syslinux.zytor.com/wiki/index.php/Hdt_%28Hardware_Detection_Tool%29#pci_stuff
+# NB: this script intentionally supports pci.ids provided by
+#     pciids package as that one is updated automatically
+
+[ -z "$GLOBAL_VERBOSE" ] || echo "** compressing pci.ids"
+
+mkdir -p "$WORKDIR/syslinux"
+gzip -9 < /usr/share/misc/pci.ids > "$WORKDIR"/syslinux/pci.ids

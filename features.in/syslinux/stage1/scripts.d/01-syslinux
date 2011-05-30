@@ -1,0 +1,36 @@
+#!/bin/sh
+# gather syslinux configuration from snippets;
+# copy modules; see also ../../generate.mk
+
+MODDIR="/usr/lib/syslinux"
+
+mkdir -p "$WORKDIR/syslinux"
+cd "$WORKDIR/syslinux"
+
+# validate just in case (written by ../../generate.mk)
+BOOTLOADER="$(cat .in/bootloader)"
+case "$BOOTLOADER" in
+	isolinux|syslinux) ;;
+	*) echo "$0: error: weird BOOTLOADER: $BOOTLOADER" >&2; exit 1;;
+esac
+
+# copy extra files, if any
+SYSLINUX_FILES="$(cat .in/files.list)"
+if test -n "${SYSLINUX_FILES% }"; then
+	cp -a $SYSLINUX_FILES .
+fi
+
+# prune module-specific config snippets; skip built-in one
+SYSLINUX_MODULES="$(cat .in/modules.list)"
+if test -n "$SYSLINUX_MODULES"; then
+	for module in $SYSLINUX_MODULES; do
+		if test "$modules" == "prompt"; then continue; fi
+		cp -a $MODDIR/$module.c?? . || rm .in/[0-9][0-9]$module.cfg
+	done
+fi
+
+# number ordering sponsored by shell's pathname expansion
+grep -hv '^#' .in/[0-9][0-9]*.cfg > "$BOOTLOADER.cfg"
+
+# snippets are not going into the actual image
+if test "$DEBUG" != 2; then rm -r .in/; fi

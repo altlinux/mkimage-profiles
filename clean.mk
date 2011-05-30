@@ -6,7 +6,7 @@
 clean:
 	@echo '** cleaning up'
 	@find -name '*~' -delete >&/dev/null
-	@if test -L build; then \
+	@if [ -L build -a -d build/ ]; then \
 		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG); \
 	fi
 
@@ -14,9 +14,10 @@ clean:
 # $(BUILDDIR)/ gets purged: make might have failed,
 # and BUILDLOG can be specified by hand either
 distclean: clean
-	@if test -L build; then \
+	@if [ -L build -a -d build/ ]; then \
+		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG); \
 		rm -rf build/.git; \
 		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) && \
-		rm -r $(shell readlink build) && \
-		rm build; \
+		rm -r $(shell readlink build); \
 	fi
+	@rm -f build

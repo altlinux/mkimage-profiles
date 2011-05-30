@@ -1,8 +1,8 @@
 see also http://www.altlinux.org/Mkimage/Profiles/next;
 
-quickstart: make distclean server-light.iso
+quickstart: make distclean server-base.iso
 
-configurables: ~/.mkimage/metaconf.mk, see distro.mk
+configurables: ~/.mkimage/profiles.mk, see libdistro.mk
 
 Концепция:
 - метапрофиль служит репозиторием всего возможно нужного для
@@ -15,7 +15,8 @@ configurables: ~/.mkimage/metaconf.mk, see distro.mk
 Особенности:
 - метапрофиль может быть полностью read-only при сборке
 - для сборки подыскивается предпочтительно tmpfs
-- в профиль копируются только нужные объекты
+- в профиль копируются только нужные объекты;
+  он автономен относительно метапрофиля
 
 Стадии работы:
 - инициализация дистрибутивного профиля
@@ -36,7 +37,7 @@ configurables: ~/.mkimage/metaconf.mk, see distro.mk
   (не путать с дистрибутивами), но законченными; могут жить
   в distro.mk (или сделать use.mk?), либо же в индивидуальных
   features.in/*/config.mk, если необходимо дополнить не только
-  .config.mk, а и дерево формируемого профиля
+  distcfg.mk, а и дерево формируемого профиля
 - фичи: законченные кусочки функциональности, могут зависеть
   друг от друга; сливаются с соответствующими субпрофилями
   при сборке $(BUILDDIR), могут нести с собой копируемые в один

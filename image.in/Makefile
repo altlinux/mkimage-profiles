@@ -4,7 +4,7 @@
 
 include functions.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
-include $(GLOBAL_BUILDDIR)/.config.mk
+include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
 SUBDIRS = $(SUBPROFILES)
@@ -19,7 +19,8 @@ BOOT_TYPE = isolinux
 # outdir shouldn't be wiped clean before use
 CLEANUP_OUTDIR =
 
-ifeq "$(wildcard $(APTCONF))" ""
+APTCONF := $(wildcard $(APTCONF))
+ifeq "$(APTCONF)" ""
 GLOBAL_HSH_APT_CONFIG = /etc/apt/apt.conf
 else
 GLOBAL_HSH_APT_CONFIG = $(APTCONF)
@@ -28,6 +29,28 @@ endif
 include $(MKIMAGE_PREFIX)/targets.mk
 
 all: prep copy-subdirs copy-tree run-scripts pack-image
+
+# Metadata/ needed only for installer (and not for e.g. syslinux.iso)
+ifeq "$(KFLAVOURS)" ""
+metadata:
+	@echo "** skipping metadata target, no kernel installed"
+else
+# see also alterator-pkg (backend3/pkg-install)
+# FIXME: if we copy --as-needed, maybe just tar . ?
+# TODO:  initfs seems conditionally needed as well
+metadata:
+	@mkdir -p files/Metadata
+	@rm -f files/Metadata/pkg-groups.tar
+	@echo -e "\n# auto-added in image.in/Makefile\n$(call kpackages)" \
+		>> $(call list,.base)
+	@echo "branding-$(BRANDING)-release" >> $(call list,.base)
+	@tar -cvf files/Metadata/pkg-groups.tar \
+		-C $(PKGDIR) \
+		$$(echo $(call list,.base) \
+			$(call list,$(GROUPS)) \
+			$(call group,$(GROUPS)) \
+		   | sed 's,$(PKGDIR)/*,,g')
+endif
 
 # FIXME: scripts.d/?
 prep: debug dot-disk metadata $(IMAGEDIR)
@@ -54,14 +77,3 @@ dot-disk:
 		cd $(TOPDIR) && \
 		git show-ref --head --dereference -s -- HEAD 2>/dev/null; \
 	) >files/.disk/commit
-
-# see also alterator-pkg (backend3/pkg-install)
-# FIXME: if we copy --as-needed, maybe just tar . ?
-metadata:
-	@mkdir -p files/Metadata
-	@rm -f files/Metadata/pkg-groups.tar
-	@echo -e "\n# auto-added in image.in/Makefile\n$(call kpackages)" >> $(call list,.base)
-	@echo "branding-$(BRANDING)-release" >> $(call list,.base)
-	@tar -cvf files/Metadata/pkg-groups.tar \
-		-C $(PKGDIR) \
-		$$(echo $(call list,.base) $(call list,$(GROUPS)) $(call group,$(GROUPS)) | sed 's,$(PKGDIR)/*,,g')

@@ -2,7 +2,7 @@
 # --- here
 # 1. initialize new profile (BUILDDIR) as a copy of image.in/
 # 2. configure distro
-# 3. copy subprofiles, package lists/groups and script hooks
+# 3. copy subprofiles, script hooks, and package lists/groups
 #    from metaprofile to new profile (as needed)
 # --- in BUILDDIR
 # 4. build subprofiles and subsequently image
@@ -33,7 +33,7 @@ DATE = $(shell date +%Y%m%d)
 
 export ARCH BUILDDIR DATE SHELL
 
-# to be passed into .config.mk
+# to be passed into distcfg.mk
 IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
 	&& echo "$$HOME/out" \
 	|| echo "$(BUILDDIR)/out" )
@@ -42,9 +42,13 @@ IMAGENAME ?= mkimage-profiles-$(ARCH).iso
 $(DISTROS): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
 	@# TODO: run automated tests (e.g. iso size)
 	@OUTNAME="$(@:.iso=)-$(DATE)-$(ARCH).iso"; \
+	 OUTPATH="$(IMAGEDIR)/$$OUTNAME"; \
 		test -s "$(IMAGEDIR)/$(IMAGENAME)" && \
-		mv "$(IMAGEDIR)/"{$(IMAGENAME),$$OUTNAME} && \
-		echo "** image: $(IMAGEDIR)/$$OUTNAME" && \
+		mv "$(IMAGEDIR)/$(IMAGENAME)" "$$OUTPATH" && \
+		echo "** image: $$OUTPATH" && \
 		ln -sf "$$OUTNAME" "$(IMAGEDIR)/$@" && \
-		ln -sf "$@" "$(IMAGEDIR)/mkimage-profiles.iso"
-### TODO: copy build.log as well for successful builds?
+		ln -sf "$@" "$(IMAGEDIR)/mkimage-profiles.iso"; \
+		if [ -n "$(DEBUG)" ]; then \
+			cp -a "$(BUILDLOG)" "$$OUTPATH.log"; \
+			cp -a "$(CONFIG)" "$$OUTPATH.cfg"; \
+		fi

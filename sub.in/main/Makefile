@@ -2,7 +2,7 @@
 
 default: all
 
-include $(GLOBAL_BUILDDIR)/.config.mk
+include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 

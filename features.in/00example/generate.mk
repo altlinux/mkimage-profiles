@@ -8,7 +8,7 @@
 #
 # for a real-world example, see syslinux feature
 
-include $(BUILDDIR)/.config.mk
+include $(BUILDDIR)/distcfg.mk
 
 ifndef 00EXAMPLE
 $(warning this is an example, who might want to include it? :])

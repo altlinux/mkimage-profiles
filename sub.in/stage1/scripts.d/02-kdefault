@@ -1,0 +1,25 @@
+#!/bin/sh
+# symlink default kernel iff requested but not yet done
+
+STAGE1_KFLAVOUR="$INFO_STAGE1_KFLAVOUR"
+if [ -n "$GLOBAL_VERBOSE" ]; then
+	echo "** STAGE1_KFLAVOUR: $STAGE1_KFLAVOUR"
+fi
+
+# kernel-image in instrumental chroot
+VMLINK=/boot/vmlinuz
+
+# better bail out early rather than make a silly symlink
+shopt -s failglob
+
+if [ -L "$VMLINK" ]; then
+	echo "** $VMLINK -> $(readlink "$VMLINK")"
+fi
+
+if [ -n "$STAGE1_KFLAVOUR" ]; then
+	VMLINUZ="$(cd /boot; echo vmlinuz-*-$STAGE1_KFLAVOUR-*)"
+	if [ -n "$VMLINUZ" ]; then
+		ln -sf "$VMLINUZ" "$VMLINK"
+		echo "** overriding $VMLINK with $VMLINUZ"
+	fi
+fi

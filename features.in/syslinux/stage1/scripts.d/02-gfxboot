@@ -4,7 +4,7 @@ gfxboot_datadir=/usr/share/gfxboot
 bootlogo="`ls $gfxboot_datadir/*/bootlogo | head -1`"	###
 
 if [ ! -f "$bootlogo" ]; then
-	echo "${0##*/} - SKIP: $bootlogo not found"
+	echo "${0##*/} - SKIP: $bootlogo not found" >&2
 	ls -alR $gfxboot_datadir
 	exit 0
 fi
