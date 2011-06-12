@@ -34,21 +34,16 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 # something actually useful (as a network-only installer)
 distro/installer: distro/.base use/installer
 	@$(call set,INSTALLER,server-light)
+	@$(call set,INSTALLER_KMODULES_REGEXP,drm.*)	# for KMS
 
 # BASE_LISTS, DISK_LISTS, MAIN_PACKAGES: see sub.in/main/
 
 distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
 
-# STAGE1_KFLAVOUR is the one for installer
-# KDEFAULT is for the installed system
-# both of these default to the last KFLAVOURS item if not set
-
-distro/server-ovz: distro/server-base use/hdt
-	@$(call set,STAGE1_KFLAVOUR,std-def)
+distro/server-ovz: distro/server-base use/hdt use/firmware/server
+	@$(call set,INSTALLER_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
-	@$(call set,KDEFAULT,ovz-el)
-	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)
 	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
 	@$(call add,KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
 	@$(call add,KMODULES,drbd83 kvm)

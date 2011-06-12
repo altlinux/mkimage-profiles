@@ -12,7 +12,7 @@ include $(MKIMAGE_PREFIX)/config.mk
 
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there
-IMAGE_PACKAGES_REGEXP = $(call kpackages,$(KMODULES),$(KFLAVOURS))
+IMAGE_PACKAGES_REGEXP = $(call kpackages,$(INSTALLER_KMODULES),$(INSTALLER_KFLAVOUR))
 IMAGE_PACKAGES = $(COMMON_PACKAGES) \
 		 $(INSTALL2_PACKAGES) \
 		 ./packages

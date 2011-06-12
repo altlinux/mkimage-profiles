@@ -17,7 +17,7 @@ iso:
 	else \
 		echo " (coffee time)"; \
 	fi
-	@if time -f %E $(ARCH) \
+	@if time -f "%E %PCPU %Mk" $(ARCH) \
 		$(MAKE) -C $(BUILDDIR)/ GLOBAL_BUILDDIR=$(BUILDDIR) $(LOG); \
 	then \
 		echo "** build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
@@ -27,5 +27,5 @@ iso:
 		if test -z "$(DEBUG)"; then \
 			echo "   (you might want to re-run with DEBUG=1)"; \
 		fi; \
-		tail -100 "$(BUILDLOG)" | egrep "^E:|rror|arning"; \
+		tail -100 "$(BUILDLOG)" | egrep "^E:|[Ee]rror|[Ww]arning"; \
 	fi

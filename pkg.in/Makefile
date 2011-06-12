@@ -6,6 +6,6 @@ $(error BUILDDIR not defined)
 endif
 
 all:
-	for dir in lists groups; do \
-		$(MAKE) -C $$dir BUILDDIR=$(BUILDDIR); \
+	@for dir in lists groups; do \
+		$(MAKE) -C $$dir; \
 	done

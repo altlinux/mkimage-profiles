@@ -12,7 +12,8 @@ include $(MKIMAGE_PREFIX)/config.mk
 
 CHROOT_PACKAGES = apt-utils rsync
 
-IMAGE_PACKAGES_REGEXP = $(call kpackages,$(KMODULES),$(KFLAVOURS))
+IMAGE_PACKAGES_REGEXP = $(call kpackages,$(KMODULES),$(KFLAVOURS)) \
+			$(MAIN_PACKAGES_REGEXP)
 IMAGE_PACKAGES = $(call map,list,.base $(BASE_LISTS) $(DISK_LISTS) $(GROUPS)) \
 		 $(COMMON_PACKAGES) \
 		 $(MAIN_PACKAGES)
@@ -25,4 +26,5 @@ include $(MKIMAGE_PREFIX)/targets.mk
 all: $(GLOBAL_DEBUG) copy-packages pack-image
 
 debug:
-	@echo "IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
+	@echo "** main: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
+	@echo "** main: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"
