@@ -2,6 +2,10 @@
 #
 # NB: this metaprofile directory forms the initial BUILDDIR/
 
+ifndef GLOBAL_BUILDDIR
+$(error GLOBAL_BUILDDIR not defined)
+endif
+
 include functions.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(GLOBAL_BUILDDIR)/distcfg.mk
@@ -31,9 +35,9 @@ include $(MKIMAGE_PREFIX)/targets.mk
 all: prep copy-subdirs copy-tree run-scripts pack-image
 
 # Metadata/ needed only for installer (and not for e.g. syslinux.iso)
-ifeq "$(KFLAVOURS)" ""
+ifeq "$(STAGE1_KFLAVOUR)$(KFLAVOURS)" ""
 metadata:
-	@echo "** skipping metadata target, no kernel installed"
+	@echo "** skipping metadata target, no stage1 kernel installed"
 else
 # see also alterator-pkg (backend3/pkg-install)
 # FIXME: if we copy --as-needed, maybe just tar . ?
@@ -41,8 +45,8 @@ else
 metadata:
 	@mkdir -p files/Metadata
 	@rm -f files/Metadata/pkg-groups.tar
-	@echo -e "\n# auto-added in image.in/Makefile\n$(call kpackages)" \
-		>> $(call list,.base)
+	@echo -e "\n# auto-added in image.in/Makefile" >> $(call list,.base)
+	@echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))" >> $(call list,.base)
 	@echo "branding-$(BRANDING)-release" >> $(call list,.base)
 	@tar -cvf files/Metadata/pkg-groups.tar \
 		-C $(PKGDIR) \
@@ -53,7 +57,7 @@ metadata:
 endif
 
 # FIXME: scripts.d/?
-prep: debug dot-disk metadata $(IMAGEDIR)
+prep: $(GLOBAL_DEBUG) dot-disk metadata $(IMAGEDIR)
 
 $(IMAGEDIR):
 	mkdir -p "$(IMAGEDIR)"
@@ -62,11 +66,9 @@ $(IMAGEDIR):
 pack-image: OUTDIR = $(IMAGEDIR)
 
 debug:
-ifdef DEBUG
-	@echo "TOPDIR=$(TOPDIR)"
-	@echo "ARCH=$(ARCH)"
-	@echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
-endif
+	echo "TOPDIR=$(TOPDIR)"
+	echo "ARCH=$(ARCH)"
+	echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
 
 dot-disk:
 	@mkdir -p files/.disk
@@ -75,5 +77,5 @@ dot-disk:
 	@echo "$(DATE)" >files/.disk/date
 	@type -t git >&/dev/null && ( \
 		cd $(TOPDIR) && \
-		git show-ref --head --dereference -s -- HEAD 2>/dev/null; \
+		git show-ref --head -d -s -- HEAD 2>/dev/null; \
 	) >files/.disk/commit

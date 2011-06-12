@@ -1,5 +1,7 @@
 # this makefile is designed to be included in toplevel one
-ifdef BUILDDIR
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
 
 # step 2: build up distribution's configuration
 
@@ -47,7 +49,9 @@ distro/server-ovz: distro/server-base use/hdt
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call set,KDEFAULT,ovz-el)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)
-	@$(call add,KMODULES,igb ipset kvm ndiswrapper pf_ring rtl8192 xtables-addons)
+	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
+	@$(call add,KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
+	@$(call add,KMODULES,drbd83 kvm)
 	@$(call add,DISK_LISTS,kernel-wifi)
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,BASE_LISTS,$(call tags,base server))
@@ -56,10 +60,7 @@ distro/server-ovz: distro/server-base use/hdt
 	@$(call add,GROUPS,monitoring diag-tools)
 
 distro/minicd: distro/server-base
-	@$(call set,KFLAVOURS,un-def)	# we might need the most recent drivers
+	@$(call set,KFLAVOURS,pure-emerald)	# we might need the most recent drivers
 	@$(call add,MAIN_PACKAGES,etcnet-full)
 
 # if there are too many screens above, it might make sense to distro.d/
-else
-$(error BUILDDIR not defined)
-endif

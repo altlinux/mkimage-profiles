@@ -1,5 +1,7 @@
 # this makefile is designed to be included in toplevel one
-ifdef BUILDDIR
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
 
 # simple logging switch inspired by netch@'s advice:
 # you can add plain $(LOG) to a rule recipe line to moderate it
@@ -16,8 +18,8 @@ LOG = >>$(BUILDLOG) 2>&1
 else
 MAKE += -s
 LOG = 2>>$(BUILDLOG) >/dev/null
+# 1) makefile target; 2) also passed to script hooks
+GLOBAL_DEBUG := debug
 endif
 
-export BUILDLOG DEBUG GLOBAL_VERBOSE LOG MAKE SHELL
-
-endif
+export BUILDLOG DEBUG GLOBAL_DEBUG GLOBAL_VERBOSE LOG MAKE SHELL

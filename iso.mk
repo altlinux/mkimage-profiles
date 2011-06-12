@@ -1,5 +1,7 @@
 # this makefile is designed to be included in toplevel one
-ifdef BUILDDIR
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
 
 # step 4 is kicked off here but actually done by image.in/Makefile
 #
@@ -28,5 +30,3 @@ iso:
 		fi; \
 		tail -100 "$(BUILDLOG)" | grep "^E:"; \
 	fi
-
-endif

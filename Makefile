@@ -11,17 +11,10 @@ all help:
 	@echo '** available distribution targets:'
 	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
 
-# this could have come from environment;
-# if not, can be symlinked if r/w, or made anew (NB: immediate assignment)
-ifndef BUILDDIR
-PREFIX := mkimage-profiles.build
-BUILDDIR := $(shell [ -s build ] && realpath build || bin/mktmpdir $(PREFIX))
-endif
-
 # most of the actual work done elsewhere
 include clean.mk
-include distro.mk
 include profile.mk
+include distro.mk
 include log.mk
 include iso.mk
 
@@ -31,7 +24,7 @@ DISTROS := $(addsuffix .iso,$(CONFIGS))
 ARCH ?= $(shell arch | sed 's/i686/i586/')
 DATE = $(shell date +%Y%m%d)
 
-export ARCH BUILDDIR DATE SHELL
+export ARCH DATE
 
 # to be passed into distcfg.mk
 IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \

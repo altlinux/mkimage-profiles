@@ -1,10 +1,16 @@
 # step 4: build stage1 subprofile (installer bootstrap)
 
+ifndef GLOBAL_BUILDDIR
+$(error GLOBAL_BUILDDIR not defined)
+endif
+
 include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
-ifdef BOOTLOADER
+ifndef BOOTLOADER
+$(error BOOTLOADER not defined)
+endif
 
 MKI_PACK_RESULTS = data
 # FIXME: un-hardwire description
@@ -17,29 +23,23 @@ include $(MKIMAGE_PREFIX)/targets.mk
 
 CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
 
-ifeq "$(KFLAVOURS)" ""
+# here we try and come up with the installer kernel/modules, if any;
+# only a single kernel might be needed (STAGE1_KFLAVOUR sets explicitly);
+# kernel image copied from instrumental chroot into .work/syslinux/alt0/
+
+STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
+
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
+ifeq "$(STAGE1_KFLAVOUR)" ""
 build-propagator:
 	@echo "** skipping build-propagator target, no kernel installed"
 else
-# kernel image copied from instrumental chroot into .work/syslinux/alt0/
-# NB: installer only needs a single kernel, no use for multiple ones
-ifneq "$(STAGE1_KFLAVOUR)" ""
-KFLAVOURS := $(STAGE1_KFLAVOUR)
-else
-KFLAVOURS := $(lastword $(KFLAVOURS))
-endif
-ifneq "$(STAGE1_KMODULES_REGEXP)" ""
-KMODULES := $(STAGE1_KMODULES_REGEXP)
-endif
-# set up kernel related part, pass to hooks
-CHROOT_PACKAGES_REGEXP := $(call kpackages)
-BUILD_PROPAGATOR = build-propagator
-INFO_STAGE1_KFLAVOUR := $(KFLAVOURS)
+CHROOT_PACKAGES_REGEXP := $(call kpackages,$(STAGE1_KMODULES_REGEXP),$(STAGE1_KFLAVOUR))
+INFO_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 endif
 
 # scripts prepare bootloader configuration, too
-all: prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \
+all: debug prepare-workdir copy-tree run-scripts build-propagator \
 	copy-$(BOOTLOADER) pack-image
 
 debug:
@@ -49,7 +49,3 @@ debug:
 		echo "** CHROOT_PACKAGES_REGEXP: $(CHROOT_PACKAGES_REGEXP)"; \
 		echo "** BOOTLOADER: $(BOOTLOADER)"; \
 	fi
-
-else
-$(error BOOTLOADER undefined)
-endif

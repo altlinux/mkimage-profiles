@@ -11,6 +11,7 @@ verbose started
 [ -d "$WORKDIR/ALTLinux" ] || exit 0
 cd "$WORKDIR/ALTLinux"
 
+# FIXME: m-p-d legacy
 set -- contrib-main addon-main ltsp-main
 for pair; do
 	slave=${pair%-*}

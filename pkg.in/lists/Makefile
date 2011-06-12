@@ -1,12 +1,16 @@
 # step 3: copy package lists referenced in distro configuration
 #         (and only those!) over to $(BUILDDIR)
 
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
+
 include $(BUILDDIR)/distcfg.mk
 SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
 # env | sort -u | grep _LISTS | xargs cp
-all: $(TARGET) debug
+all: $(TARGET) $(GLOBAL_DEBUG)
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
@@ -24,11 +28,9 @@ $(TARGET):
 	@mkdir -p $(TARGET)
 
 debug:
-ifdef GLOBAL_VERBOSE
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
 			$(warning $V=$(value $V))))
 	@echo "** LISTS: -- see above"
 	@echo "** GROUPS: $(GROUPS)"
-endif

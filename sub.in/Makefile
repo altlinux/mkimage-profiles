@@ -1,5 +1,9 @@
 # step 3: copy the needed subprofiles to $(BUILDDIR)
 
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
+
 include $(BUILDDIR)/distcfg.mk
 
 all:

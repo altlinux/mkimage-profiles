@@ -1,11 +1,15 @@
 # step 3: copy package groups referenced in distro configuration
 #         (and only those!) over to $(BUILDDIR)
 
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
+
 include $(BUILDDIR)/distcfg.mk
 SUFFIX := pkg/groups
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
-all: debug
+all: $(GLOBAL_DEBUG)
 	@if [ -n "$(GROUPS)" ]; then \
 		mkdir -p $(TARGET) && \
 		cp -at $(TARGET) -- $(addsuffix .directory,$(GROUPS)); \
@@ -17,6 +21,4 @@ all: debug
 	fi
 
 debug:
-ifdef GLOBAL_VERBOSE
 	@echo "** GROUPS: $(GROUPS)"
-endif

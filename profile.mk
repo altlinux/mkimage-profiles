@@ -1,12 +1,29 @@
 # this makefile is designed to be included in toplevel one
-ifdef BUILDDIR
+
+# this could have come from environment;
+# if not, can be symlinked if r/w, or made anew
+# NB: immediate assignment
+ifndef BUILDDIR
+BUILDDIR := $(shell [ -s build ] \
+        && realpath build \
+        || bin/mktmpdir mkimage-profiles.build)
+endif
+
+# even smart caching only hurts when every build goes from scratch
+NO_CACHE ?= 1
+
+export BUILDDIR NO_CACHE
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
 	@echo -n "** initializing BUILDDIR: "
 	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
 	@:> "$(BUILDDIR)"/distcfg.mk
-	@:> "$(BUILDLOG)"
+	@{ \
+		git show-ref --head -d -s -- HEAD && \
+		git status -s && \
+		echo; \
+	} 2>/dev/null >> "$(BUILDLOG)"
 	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
 	@type -t git >&/dev/null && \
 		cd $(BUILDDIR) && \
@@ -26,5 +43,3 @@ profile/populate: profile/init distro/.rc
 	@for dir in sub.in features.in pkg.in; do \
 		$(MAKE) -C $$dir $(LOG); \
 	done
-
-endif

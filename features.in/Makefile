@@ -1,7 +1,9 @@
-ifdef BUILDDIR
-
 # step 3: copy the needed features to $(BUILDDIR)
 #         (only regarding the needed subprofiles)
+
+ifndef BUILDDIR
+$(error BUILDDIR not defined)
+endif
 
 -include $(BUILDDIR)/distcfg.mk
 
@@ -11,7 +13,7 @@ ifdef BUILDDIR
 
 all:
 	@echo "** starting feature configuration"
-	@if test -n "$(DEBUG)"; then echo "** requested: $(FEATURES)"; fi
+	@if test -n "$(GLOBAL_DEBUG)"; then echo "** requested: $(FEATURES)"; fi
 	@for dir in $(FEATURES); do \
 		for sub in $(SUBPROFILES); do \
 			if test -d $$dir/$$sub/; then \
@@ -38,7 +40,3 @@ all:
 help:
 	@echo "** available features:"
 	@grep -h '^use/' */config.mk
-
-else
-$(error BUILDDIR not defined)
-endif
