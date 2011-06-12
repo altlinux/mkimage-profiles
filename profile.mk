@@ -9,6 +9,11 @@ BUILDDIR := $(shell [ -s build ] \
         || bin/mktmpdir mkimage-profiles.build)
 endif
 
+# holds a postprocessor; shell test executes in particular situation
+# NB: not exported, for toplevel use only
+SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s build ] \
+	  && echo "| sed 's,$(BUILDDIR),build,'")
+
 # even smart caching only hurts when every build goes from scratch
 NO_CACHE ?= 1
 

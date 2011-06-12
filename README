@@ -2,7 +2,8 @@ see also http://www.altlinux.org/Mkimage/Profiles/next;
 
 quickstart: make distclean server-base.iso
 
-configurables: ~/.mkimage/profiles.mk, see libdistro.mk
+configurables: ~/.mkimage/profiles.mk,
+see doc/profiles.mk.sample and libdistro.mk
 
 Концепция:
 - метапрофиль служит репозиторием всего возможно нужного для
@@ -29,8 +30,8 @@ configurables: ~/.mkimage/profiles.mk, see libdistro.mk
   желательно избегать множественного наследования, используя
   вместо него блоки use/*
 - субпрофили (список собирается в $(SUBPROFILES)):
-  + stage1: propagator (ожидается после syslinux)
-  + install2: инсталятор
+  + stage1: propagator и ядро инсталятора
+  + install2: сам инсталятор
   + main: пакетная база к инсталяции (обязательная и дополнительная)
   + ...
 - блоки функциональности use/*: не являются самостоятельными

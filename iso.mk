@@ -13,20 +13,19 @@ endif
 iso:
 	@echo -n "** starting image build"
 	@if test -n "$(DEBUG)"; then \
-		echo ": see $(BUILDLOG)"; \
+		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
 	else \
 		echo " (coffee time)"; \
 	fi
-	@if time $(ARCH) \
+	@if time -f %E $(ARCH) \
 		$(MAKE) -C $(BUILDDIR)/ GLOBAL_BUILDDIR=$(BUILDDIR) $(LOG); \
 	then \
-		echo "** build done (`tail -2 $(BUILDLOG) \
-			| sed -n 's,^.* \([0-9:]\+\)\...elapsed.*$$,\1,p' \
+		echo "** build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
 			|| echo "no log"`)"; \
 	else \
-		echo "** build failed, see log: $(BUILDLOG)"; \
+		echo "** build failed, see log: $(BUILDLOG)" $(SHORTEN); \
 		if test -z "$(DEBUG)"; then \
 			echo "   (you might want to re-run with DEBUG=1)"; \
 		fi; \
-		tail -100 "$(BUILDLOG)" | grep "^E:"; \
+		tail -100 "$(BUILDLOG)" | egrep "^E:|rror|arning"; \
 	fi

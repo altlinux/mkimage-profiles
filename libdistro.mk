@@ -9,7 +9,7 @@ boot/%: distro/.init
 
 # initalize config from scratch, put some sane defaults in
 distro/.init:
-	@echo "** preparing distro configuration$${DEBUG:+: see $(CONFIG)}"
+	@echo "** preparing distro configuration$${DEBUG:+: see $(CONFIG)}" $(SHORTEN)
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(IMAGEDIR))

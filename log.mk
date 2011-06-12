@@ -9,6 +9,7 @@ endif
 
 BUILDLOG ?= $(BUILDDIR)/build.log
 
+# LOG holds a postprocessor
 ifdef DEBUG
 GLOBAL_VERBOSE ?= $(DEBUG)
 ifeq (2,$(DEBUG))
