@@ -40,7 +40,7 @@ CHROOT_PACKAGES_REGEXP += $(STAGE1_PACKAGES_REGEXP)
 CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
 
 # scripts prepare bootloader configuration, too
-all: debug prepare-workdir copy-tree run-scripts build-propagator \
+all: | debug prepare-workdir copy-tree run-scripts build-propagator \
 	copy-$(BOOTLOADER) pack-image
 
 debug:
