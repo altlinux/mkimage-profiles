@@ -47,7 +47,7 @@ metadata:
 	@rm -f files/Metadata/pkg-groups.tar
 	@echo -e "\n# auto-added in image.in/Makefile" >> $(call list,.base)
 	@echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))" >> $(call list,.base)
-	@echo "$(COMMON_PACKAGES)" >> $(call list,.base)
+	@echo "$(COMMON_PACKAGES)" | tr ' 	' '\n\n' >> $(call list,.base)
 	@echo "branding-$(BRANDING)-release" >> $(call list,.base)
 	@tar -cvf files/Metadata/pkg-groups.tar \
 		-C $(PKGDIR) \
