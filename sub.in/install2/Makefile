@@ -10,6 +10,9 @@ include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
+# this might have been prepared by ../stage1/scripts.d/03-test-kernel
+-include $(GLOBAL_BUILDDIR)/squashcfg.mk
+
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there
 IMAGE_PACKAGES_REGEXP = $(call kpackages,$(INSTALLER_KMODULES),$(INSTALLER_KFLAVOUR))
@@ -21,4 +24,4 @@ MKI_PACK_RESULTS = squash:altinst
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
-all: build-image run-image-scripts pack-image
+all: | build-image run-image-scripts pack-image

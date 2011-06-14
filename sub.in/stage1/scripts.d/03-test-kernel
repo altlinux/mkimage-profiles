@@ -1,0 +1,22 @@
+#!/bin/sh
+# check relevant kernel features availability
+
+# test for installer-required filesystems support
+for opt in CONFIG_SQUASHFS CONFIG_AUFS_FS; do
+	if grep -q "^$opt=[my]$" /boot/config-*; then
+		[ -n "$GLOBAL_VERBOSE" ] && echo "** $opt available"
+	else
+		if [ "$?" = 1 ]; then	# a file exists but lacks the pattern
+			echo "** error: stage1 kernel must have $opt support" >&2
+			exit 1
+		fi
+	fi
+done
+
+# squashfs options: not really neccessary but better than none
+# NB: this config file should be carried over into install2
+if grep -q '^CONFIG_SQUASHFS_XZ=y$' /boot/config-*; then
+	echo "PACK_SQUASHFS_OPTS=-comp xz -Xbcj x86" > /.image/squashcfg.mk
+else
+	echo "PACK_SQUASHFS_OPTS=-comp gzip" >> /.image/squashcfg.mk
+fi

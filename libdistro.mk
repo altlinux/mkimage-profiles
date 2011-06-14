@@ -4,6 +4,8 @@
 sub/%:
 	@$(call add,SUBPROFILES,$(@:sub/%=%))
 
+sub/install2: sub/stage1
+
 boot/%: distro/.init
 	@$(call set,BOOTLOADER,$*)
 
