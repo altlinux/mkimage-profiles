@@ -13,8 +13,7 @@ $(error BOOTLOADER not defined)
 endif
 
 MKI_PACK_RESULTS = data
-# FIXME: un-hardwire description
-PROPAGATOR_VERSION = mkimage-profiles 2.0
+PROPAGATOR_VERSION = ALT Linux
 PROPAGATOR_MAR_MODULES = ./modules
 PROPAGATOR_INITFS = ./initfs
 COPY_TREE = ./files

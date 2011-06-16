@@ -23,7 +23,7 @@ include libdistro.mk
 # bootloader test target; requires recent mkimage to build
 distro/syslinux: distro/.init distro/.branding sub/stage1 \
 	use/syslinux use/syslinux/localboot.cfg \
-	use/syslinux/ui-vesamenu use/hdt use/memtest
+	use/syslinux/ui-vesamenu use/hdt use/memtest use/dos
 
 #  $(VAR) will be substituted before writing them to $(CONFIG);
 # $$(VAR) will remain unsubstituted util $(CONFIG) is included
