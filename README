@@ -1,6 +1,7 @@
-see also http://www.altlinux.org/Mkimage/Profiles/next;
+see also http://www.altlinux.org/Mkimage/Profiles/next
 
-quickstart: make distclean server-base.iso
+quickstart: make server-base.iso
+(NB: requires configured http://en.altlinux.org/Hasher)
 
 configurables: ~/.mkimage/profiles.mk,
 see doc/profiles.mk.sample and libdistro.mk
@@ -35,10 +36,10 @@ see doc/profiles.mk.sample and libdistro.mk
   + main: пакетная база к инсталяции (обязательная и дополнительная)
   + ...
 - блоки функциональности use/*: не являются самостоятельными
-  (не путать с дистрибутивами), но законченными; могут жить
-  в distro.mk (или сделать use.mk?), либо же в индивидуальных
-  features.in/*/config.mk, если необходимо дополнить не только
-  distcfg.mk, а и дерево формируемого профиля
+  (не путать с дистрибутивами), но законченными; описываются
+  в use.mk либо же в индивидуальных features.in/*/config.mk,
+  если необходимо дополнить не только distcfg.mk, а и дерево
+  формируемого профиля
 - фичи: законченные кусочки функциональности, могут зависеть
   друг от друга; сливаются с соответствующими субпрофилями
   при сборке $(BUILDDIR), могут нести с собой копируемые в один

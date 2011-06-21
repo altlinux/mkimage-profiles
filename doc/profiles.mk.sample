@@ -1,4 +1,4 @@
-### ~/.mkimage/profiles.mk
+### sample ~/.mkimage/profiles.mk
 
 # ARCH is defined in/for metaprofile's toplevel Makefile, not here
 APTCONF = ~/apt/apt.conf.$(ARCH)
