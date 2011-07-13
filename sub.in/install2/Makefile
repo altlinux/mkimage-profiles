@@ -13,6 +13,14 @@ include $(MKIMAGE_PREFIX)/config.mk
 # this might have been prepared by ../stage1/scripts.d/03-test-kernel
 -include $(GLOBAL_BUILDDIR)/squashcfg.mk
 
+# here we also try and come up with the installer kernel/modules, if any;
+# no kernel flavour specified will result in no modules for stage1 vmlinuz
+INSTALLER_KFLAVOUR ?= $(lastword $(KFLAVOURS))
+
+ifeq "$(INSTALLER_KFLAVOUR)" ""
+$(error INSTALLER_KFLAVOUR is utterly empty; cannot guess either)
+endif
+
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there
 IMAGE_PACKAGES_REGEXP = $(call kpackages,$(INSTALLER_KMODULES),$(INSTALLER_KFLAVOUR))
