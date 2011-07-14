@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# remove unused (or too small) fonts
+cd /usr/share/fonts/bitmap/misc/ &&
+	rm -f [admno]* cu[^r]*
+
+# drop unneeded translation
+# FIXME: whitelist is reasonable
+cd /usr/share/qt4/translations/ &&
+	rm -f *_ar* *_cs* *_da* *_de* *_es* *_fr* \
+	      *_gl* *_he* *_hu* *_pl* \
+	      *_sk* *_sl* *_sv*
+
+# ...l10n...
+# FIXME: whitelist is reasonable
+cd /usr/share/X11/locale &&
+	rm -rf am_ET.UTF-8 armscii-8 el_GR.UTF-8 fi_FI.UTF-8
+
+# xkb; don't drop "pc" yet
+cd /usr/share/X11/xkb/symbols &&
+	ls \
+	| egrep -v 'by|en|kz|pt|ru|ua|us|pc|....*' \
+	| xargs rm -rf
+
+# gconv
+cd /usr/lib*/gconv &&
+	rm -f EUC* G* I*
+
+# locales
+cd /usr/lib*/locale &&
+	ls \
+	| egrep -v '^(be|en|kk|pt|ru|uk)_' \
+	| xargs rm -rf
+
+# remove kbd data
+# FIXME: might break things?
+#rm -rf /lib/kbd/
+
+# outstanding binaries
+rm /bin/ipv6calc /sbin/sln
+
+:
