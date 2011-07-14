@@ -3,6 +3,8 @@ ifndef BUILDDIR
 $(error BUILDDIR not defined)
 endif
 
+export ARCH ?= $(shell arch | sed 's/i686/i586/')
+
 # step 4 is kicked off here but actually done by image.in/Makefile
 #
 # adding boot/isolinux to prereqs is too late here,

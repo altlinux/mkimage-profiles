@@ -39,20 +39,19 @@ ifeq "$(INSTALLER_KFLAVOUR)$(KFLAVOURS)" ""
 metadata:
 	@echo "** skipping metadata target, no stage1 kernel installed"
 else
-metadata:
+metadata: dot-base
 	@mkdir -p files/Metadata
 	@rm -f files/Metadata/pkg-groups.tar
-	@echo -e "\n# auto-added in image.in/Makefile" >> $(call list,.base)
-	@echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))" >> $(call list,.base)
-	@echo "$(COMMON_PACKAGES)" | tr ' 	' '\n\n' >> $(call list,.base)
-	@echo "branding-$(BRANDING)-release" >> $(call list,.base)
 # see also alterator-pkg (backend3/pkg-install); we only tar up what's up to it
 	@tar -cvf files/Metadata/pkg-groups.tar -C $(PKGDIR) \
-		$$(echo $(call list,.base) \
-			$(call list,$(GROUPS)) \
+		$$(echo $(call list,$(GROUPS) .base) \
 			$(call group,$(GROUPS)) \
 		   | sed 's,$(PKGDIR)/*,,g')
 endif
+
+dot-base:
+	@echo -e "# auto-added in image.in/Makefile" >> $(call list,.base)
+	@echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))" >> $(call list,.base)
 
 prep: $(GLOBAL_DEBUG) dot-disk metadata $(IMAGEDIR)
 

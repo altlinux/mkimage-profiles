@@ -47,7 +47,7 @@ distro/server-ovz: distro/server-base use/hdt use/firmware/server
 	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
 	@$(call add,KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
 	@$(call add,KMODULES,drbd83 kvm)
-	@$(call add,DISK_LISTS,kernel-wifi)
+	@$(call add,MAIN_LISTS,kernel-wifi)
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,BASE_LISTS,$(call tags,base server))
 	@$(call add,GROUPS,dns-server http-server ftp-server kvm-server)

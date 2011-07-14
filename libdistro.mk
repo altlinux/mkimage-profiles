@@ -24,7 +24,6 @@ distro/.branding: distro/.init
 # NB: the last flavour in KFLAVOURS gets to be the default one;
 # the kernel packages regexp evaluation has to take place at build stage
 distro/.base: distro/.branding sub/stage1 use/syslinux use/syslinux/localboot.cfg
-	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	@$(call set,KFLAVOURS,std-def)
 
 # pick up release manager's config

@@ -15,7 +15,6 @@ clean:
 # and BUILDLOG can be specified by hand either
 distclean: clean
 	@if [ -L build -a -d build/ ]; then \
-		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG); \
 		rm -rf build/.git; \
 		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) && \
 		rm -r $(shell readlink build); \

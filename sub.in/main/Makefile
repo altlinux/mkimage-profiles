@@ -14,8 +14,10 @@ CHROOT_PACKAGES = apt-utils rsync
 
 IMAGE_PACKAGES_REGEXP = $(call kpackages,$(KMODULES),$(KFLAVOURS)) \
 			$(MAIN_PACKAGES_REGEXP)
-IMAGE_PACKAGES = $(call map,list,.base $(BASE_LISTS) $(DISK_LISTS) $(GROUPS)) \
+
+IMAGE_PACKAGES = $(call map,list,$(BASE_LISTS) $(MAIN_LISTS) $(GROUPS)) \
 		 $(COMMON_PACKAGES) \
+		 $(BASE_PACKAGES) \
 		 $(MAIN_PACKAGES)
 
 MKI_DESTDIR = ALTLinux/RPMS.main

@@ -1,11 +1,1 @@
-basesystem
-udev
-
-interactivesystem
-apt-conf-sisyphus
-apt
-
-alterator-grub
-alterator-root
-alterator-users
-alterator-net-eth
+# basesystem packages, see Makefile

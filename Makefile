@@ -9,7 +9,7 @@
 
 all help:
 	@echo '** available distribution targets:'
-	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
+	@echo $(IMAGES) | fmt -sw"$$((COLUMNS>>1))" | column -t
 
 # most of the actual work done elsewhere
 include clean.mk
@@ -19,12 +19,10 @@ include log.mk
 include iso.mk
 
 # we can't use implicit rules for top-level targets, only for prereqs
-CONFIGS := $(shell sed -n 's,^distro/\([^:.]\+\):.*$$,\1,p' distro.mk)
-DISTROS := $(addsuffix .iso,$(CONFIGS))
-ARCH ?= $(shell arch | sed 's/i686/i586/')
-DATE = $(shell date +%Y%m%d)
-
-export ARCH DATE
+# NB: what about static pattern rules?
+# TODO: move into libdistro?
+DISTROS := $(shell sed -n 's,^distro/\([^:.]\+\):.*$$,\1,p' distro.mk)
+IMAGES := $(addsuffix .iso,$(DISTROS))
 
 # to be passed into distcfg.mk
 IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
@@ -32,7 +30,7 @@ IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
 	|| echo "$(BUILDDIR)/out" )
 IMAGENAME ?= mkimage-profiles-$(ARCH).iso
 
-$(DISTROS): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
+$(IMAGES): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
 	@# TODO: run automated tests (e.g. iso size)
 	@OUTNAME="$(@:.iso=)-$(DATE)-$(ARCH).iso"; \
 	 OUTPATH="$(IMAGEDIR)/$$OUTNAME"; \
