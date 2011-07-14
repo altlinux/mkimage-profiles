@@ -53,6 +53,7 @@ rm -rf /lib/modules/*/kernel/drivers/media
 rm -rf /lib/modules/*/kernel/drivers/mmc
 rm -rf /lib/modules/*/kernel/drivers/mtd*
 rm -rf /lib/modules/*/kernel/drivers/net/irda
+rm -rf /lib/modules/*/kernel/drivers/net/wireless
 rm -rf /lib/modules/*/kernel/drivers/staging
 rm -rf /lib/modules/*/kernel/drivers/spi
 rm -rf /lib/modules/*/kernel/drivers/telephony
