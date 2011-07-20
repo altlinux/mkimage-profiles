@@ -6,6 +6,8 @@ quickstart: make server-base.iso
 configurables: ~/.mkimage/profiles.mk,
 see doc/profiles.mk.sample and libdistro.mk
 
+license: GPLv2+, see COPYING
+
 Концепция:
 - метапрофиль служит репозиторием для построения индивидуального
   профиля, по которому создаётся итоговый дистрибутив
