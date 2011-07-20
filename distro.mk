@@ -30,13 +30,14 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 #         and their value requested (so the variable referenced
 #         can change its value during configuration _before_
 #         it's actually used); just peek inside $(CONFIG) ;-)
+# BASE_PACKAGES, BASE_LISTS, MAIN_PACKAGES, MAIN_LISTS: see sub.in/main/
 
 # something actually useful (as a network-only installer)
 distro/installer: distro/.base use/installer
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,INSTALLER_KMODULES_REGEXP,drm.*)	# for KMS
 
-# BASE_PACKAGES, BASE_LISTS, MAIN_PACKAGES, MAIN_LISTS: see sub.in/main/
+# server distributions
 
 distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
@@ -55,7 +56,15 @@ distro/server-ovz: distro/server-base use/hdt use/firmware/server
 	@$(call add,GROUPS,monitoring diag-tools)
 
 distro/minicd: distro/server-base
-	@$(call set,KFLAVOURS,pure-emerald)	# we might need the most recent drivers
+	@$(call set,KFLAVOURS,pure-emerald)	# usually recent drivers
 	@$(call add,MAIN_PACKAGES,etcnet-full)
 
-# if there are too many screens above, it might make sense to distro.d/
+# desktop distributions
+
+distro/desktop-base: distro/installer sub/main \
+	use/syslinux/ui-vesamenu use/x11/xorg
+
+distro/icewm: distro/desktop-base use/lowmem use/x11/xdm use/x11/runlevel5
+	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
+
+# NB: if there are too many screens above, it might make sense to distro.d/

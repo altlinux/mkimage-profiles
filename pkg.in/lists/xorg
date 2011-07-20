@@ -1,0 +1,46 @@
+xorg-server
+xorg-drv-ati
+xorg-drv-cirrus
+xorg-drv-evdev
+xorg-drv-fbdev
+xorg-drv-intel
+xorg-drv-joystick
+xorg-drv-mga
+xorg-drv-multimedia
+xorg-drv-nouveau
+xorg-drv-nv
+#I586_ONLY@xorg-drv-s3
+#I586_ONLY@xorg-drv-s3virge
+#I586_ONLY@xorg-drv-savage
+xorg-drv-sis
+xorg-drv-synaptics
+xorg-drv-vesa
+xorg-drv-video
+xorg-drv-void
+xorg-drv-wacom
+xorg-drv-qxl
+
+# for those who need these
+xorg-drv-keyboard
+xorg-drv-mouse
+
+#xorg-dri-*
+
+xauth
+xorg-utils
+#xorg-extensions*
+xinit
+
+# TODO: split these into a separate packagelist or no sense?
+wm-select
+
+fonts-ttf-dejavu
+fonts-bitmap-terminus
+fonts-otf-stix
+fonts-ttf-droid
+x-cursor-theme-jimmac
+
+menu-icons-default
+
+# :-/
+#*-debuginfo-
