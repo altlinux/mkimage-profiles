@@ -5,7 +5,7 @@
 # 3. copy subprofiles, script hooks, and package lists/groups
 #    from metaprofile to new profile (as needed)
 # --- in BUILDDIR
-# 4. build subprofiles and subsequently image
+# 4. build subprofiles and subsequently the image
 
 all help:
 	@echo '** available distribution targets:'
