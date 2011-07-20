@@ -33,10 +33,10 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 
 # something actually useful (as a network-only installer)
 distro/installer: distro/.base use/installer
-	@$(call set,INSTALLER,server-light)
+	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,INSTALLER_KMODULES_REGEXP,drm.*)	# for KMS
 
-# BASE_LISTS, DISK_LISTS, MAIN_PACKAGES: see sub.in/main/
+# BASE_PACKAGES, BASE_LISTS, MAIN_PACKAGES, MAIN_LISTS: see sub.in/main/
 
 distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
