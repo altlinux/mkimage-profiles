@@ -64,7 +64,7 @@ distro/minicd: distro/server-base
 distro/desktop-base: distro/installer sub/main \
 	use/syslinux/ui-vesamenu use/x11/xorg
 
-distro/icewm: distro/desktop-base use/lowmem use/x11/xdm use/x11/runlevel5
+distro/icewm: distro/desktop-base use/lowmem use/x11/xdm use/x11/runlevel5 use/bootloader/lilo
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 
 # NB: if there are too many screens above, it might make sense to distro.d/

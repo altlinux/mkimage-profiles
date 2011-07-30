@@ -1,0 +1,5 @@
+#!/bin/sh
+# FIXME: test run for installer-distro-altlinux-generic 6.0-alt2
+# NB: grub is currently the default in ALT Linux
+
+sed -i "s/^grub$/$GLOBAL_BASE_BOOTLOADER/" /usr/share/install2/installer-steps
