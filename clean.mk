@@ -3,8 +3,18 @@
 # drop stock predefined rules
 .DEFAULT:
 
+# tmpfs-sparing extra rule: cleanup workdir after completing each stage
+# (as packed results are saved this only lowers RAM pressure)
+ifdef CLEAN
+export GLOBAL_CLEAN_WORKDIR = clean-current
+ifdef DEBUG
+WARNING = (both CLEAN and DEBUG defined, debug options will be limited)
+endif
+endif
+
+# ordinary clean: destroys workdirs but not the corresponding results
 clean:
-	@echo '** cleaning up'
+	@echo '** cleaning up $(WARNING)'
 	@find -name '*~' -delete >&/dev/null
 	@if [ -L build -a -d build/ ]; then \
 		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG); \

@@ -1,7 +1,10 @@
 ### sample ~/.mkimage/profiles.mk
 
-# ARCH is defined in/for metaprofile's toplevel Makefile, not here
-APTCONF = ~/apt/apt.conf.$(ARCH)
+### where to look for apt.conf; system one used by default
+#APTCONF = ~/apt/apt.conf.$(ARCH)
 
-# can be defined here but passing DEBUG=1 is preferred
-#GLOBAL_VERBOSE = 1
+### turns on GLOBAL_VERBOSE and prettier output
+#DEBUG = 1
+
+# spares tmpfs, quite recommended unless you need raw workdir chroots
+#CLEAN = 1

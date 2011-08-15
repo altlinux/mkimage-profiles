@@ -32,7 +32,8 @@ endif
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
-all: prep copy-subdirs copy-tree run-scripts pack-image
+all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
+	$(GLOBAL_CLEAN_WORKDIR)
 
 # Metadata/ needed only for installer (and not for e.g. syslinux.iso)
 ifeq "$(INSTALLER_KFLAVOUR)$(KFLAVOURS)" ""

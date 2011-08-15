@@ -11,6 +11,8 @@ BUILDLOG ?= $(BUILDDIR)/build.log
 
 # LOG holds a postprocessor
 ifdef DEBUG
+# 1) makefile target; 2) also passed to script hooks
+GLOBAL_DEBUG := debug
 GLOBAL_VERBOSE ?= $(DEBUG)
 ifeq (2,$(DEBUG))
 SHELL += -x
@@ -19,8 +21,6 @@ LOG = >>$(BUILDLOG) 2>&1
 else
 MAKE += -s
 LOG = 2>>$(BUILDLOG) >/dev/null
-# 1) makefile target; 2) also passed to script hooks
-GLOBAL_DEBUG := debug
 endif
 
 DATE = $(shell date +%Y%m%d)

@@ -2,7 +2,7 @@
 
 # this could have come from environment;
 # if not, can be symlinked if r/w, or made anew
-# NB: immediate assignment
+# NB: immediate assignment matters
 ifndef BUILDDIR
 BUILDDIR := $(shell [ -s build ] \
         && realpath build \

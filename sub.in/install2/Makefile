@@ -32,4 +32,9 @@ MKI_PACK_RESULTS = squash:altinst
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
-all: | build-image run-image-scripts pack-image
+all: | $(GLOBAL_DEBUG) build-image run-image-scripts pack-image \
+	$(GLOBAL_CLEAN_WORKDIR)
+
+debug:
+	@echo "** install2: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
+	@echo "** install2: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"
