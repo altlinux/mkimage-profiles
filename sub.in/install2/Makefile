@@ -15,15 +15,15 @@ include $(MKIMAGE_PREFIX)/config.mk
 
 # here we also try and come up with the installer kernel/modules, if any;
 # no kernel flavour specified will result in no modules for stage1 vmlinuz
-INSTALLER_KFLAVOUR ?= $(lastword $(KFLAVOURS))
+STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
 
-ifeq "$(INSTALLER_KFLAVOUR)" ""
-$(error INSTALLER_KFLAVOUR is utterly empty; cannot guess either)
+ifeq "$(STAGE1_KFLAVOUR)" ""
+$(error STAGE1_KFLAVOUR is utterly empty; cannot guess either)
 endif
 
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there
-IMAGE_PACKAGES_REGEXP = $(call kpackages,$(INSTALLER_KMODULES),$(INSTALLER_KFLAVOUR))
+IMAGE_PACKAGES_REGEXP = $(call kpackages,$(STAGE1_KMODULES),$(STAGE1_KFLAVOUR))
 IMAGE_PACKAGES = $(COMMON_PACKAGES) \
 		 $(INSTALL2_PACKAGES) \
 		 ./packages

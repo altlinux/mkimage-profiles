@@ -1,9 +1,9 @@
 #!/bin/sh
 # symlink default kernel iff requested but not yet done
 
-INSTALLER_KFLAVOUR="$INFO_INSTALLER_KFLAVOUR"
+STAGE1_KFLAVOUR="$INFO_STAGE1_KFLAVOUR"
 if [ -n "$GLOBAL_VERBOSE" ]; then
-	echo "** INSTALLER_KFLAVOUR: $INSTALLER_KFLAVOUR"
+	echo "** STAGE1_KFLAVOUR: $STAGE1_KFLAVOUR"
 fi
 
 # kernel-image in instrumental chroot
@@ -16,8 +16,8 @@ if [ -L "$VMLINK" ]; then
 	echo "** $VMLINK -> $(readlink "$VMLINK")"
 fi
 
-if [ -n "$INSTALLER_KFLAVOUR" ]; then
-	VMLINUZ="$(cd /boot; echo vmlinuz-*-$INSTALLER_KFLAVOUR-*)"
+if [ -n "$STAGE1_KFLAVOUR" ]; then
+	VMLINUZ="$(cd /boot; echo vmlinuz-*-$STAGE1_KFLAVOUR-*)"
 	if [ -n "$VMLINUZ" ]; then
 		ln -sf "$VMLINUZ" "$VMLINK"
 		echo "** overriding $VMLINK with $VMLINUZ"

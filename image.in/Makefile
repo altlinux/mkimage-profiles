@@ -36,7 +36,7 @@ all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
 # Metadata/ needed only for installer (and not for e.g. syslinux.iso)
-ifeq "$(INSTALLER_KFLAVOUR)$(KFLAVOURS)" ""
+ifeq "$(STAGE1_KFLAVOUR)$(KFLAVOURS)" ""
 metadata:
 	@echo "** skipping metadata target, no stage1 kernel installed"
 else

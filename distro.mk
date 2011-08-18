@@ -35,7 +35,7 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 # something actually useful (as a network-only installer)
 distro/installer: distro/.base use/installer
 	@$(call set,INSTALLER,altlinux-generic)
-	@$(call set,INSTALLER_KMODULES_REGEXP,drm.*)	# for KMS
+	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 
 # server distributions
 
@@ -43,7 +43,7 @@ distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
 
 distro/server-ovz: distro/server-base use/hdt use/firmware/server
-	@$(call set,INSTALLER_KFLAVOUR,std-def)
+	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
 	@$(call add,KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
