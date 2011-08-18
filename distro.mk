@@ -59,6 +59,10 @@ distro/minicd: distro/server-base
 	@$(call set,KFLAVOURS,pure-emerald)	# usually recent drivers
 	@$(call add,MAIN_PACKAGES,etcnet-full)
 
+distro/rescue: distro/.branding sub/rescue use/stage1kernel use/syslinux/ui-menu
+	@$(call set,KFLAVOURS,un-def)	# usually recent drivers too
+	@$(call add,RESCUE_PACKAGES,etcnet-full)
+
 # desktop distributions
 
 distro/desktop-base: distro/installer sub/main \

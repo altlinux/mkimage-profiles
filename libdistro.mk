@@ -4,9 +4,10 @@
 sub/%:
 	@$(call add,SUBPROFILES,$(@:sub/%=%))
 
-sub/install2: sub/stage1
+sub/install2 sub/rescue: sub/stage1
 
-boot/%: distro/.init
+# FIXME: maybe syslinux feature belongs to distro/.init?
+boot/%: distro/.init use/syslinux
 	@$(call set,BOOTLOADER,$*)
 
 # initalize config from scratch, put some sane defaults in

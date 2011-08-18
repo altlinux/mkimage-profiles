@@ -1,0 +1,6 @@
+# remove rpm database
+rm -rf /var/lib/rpm/*
+
+# remove apt data files
+rm -rf /var/cache/apt /var/lib*/apt
+
