@@ -10,30 +10,31 @@ endif
 # first rsync what's static, and make backups --
 # these might signal of file clashes (or plain dirt);
 # then handle two more ways of implementing a feature
-
+# NB: subprofile can be specified as src/dest
 all:
 	@echo "** starting feature configuration"
 	@if test -n "$(GLOBAL_DEBUG)"; then echo "** requested: $(FEATURES)"; fi
 	@for dir in $(FEATURES); do \
 		for sub in $(SUBPROFILES); do \
-			if test -d $$dir/$$sub/; then \
-				if rsync -ab $$dir/$$sub/ $(BUILDDIR)/$$sub/; \
+			dst="${sub#*/}" && \
+			if test -d "$$dir/$$dst/"; then \
+				if rsync -ab "$$dir/$$dst/" "$(BUILDDIR)/$$dst/"; \
 				then \
 					type -t git >&/dev/null && \
-					pushd $(BUILDDIR)/$$sub/ && \
+					pushd "$(BUILDDIR)/$$dst/" && \
 					git add . && \
-					git commit -qam "$@/$$dir/$$sub" ||:; \
+					git commit -qam "$@/$$dir/$$dst" ||:; \
 					popd; \
 				fi; \
 			fi; \
 		done; \
-		if test -x $$dir/generate.sh; then \
-			pushd $$dir && \
+		if test -x "$$dir/generate.sh"; then \
+			pushd "$$dir" && \
 			sh generate.sh; \
 			popd; \
 		fi; \
-		if test -s $$dir/generate.mk; then \
-			$(MAKE) -C $$dir -f generate.mk; \
+		if test -s "$$dir/generate.mk"; then \
+			$(MAKE) -C "$$dir" -f generate.mk; \
 		fi; \
 	done
 

@@ -1,4 +1,7 @@
-# step 4: build rescue subprofile (custom livecd)
+# step 4: build a stage2 subprofile (custom livecd)
+
+# NB: stage2 is not standalone but rather a common base
+#     for all livecd images (installer, live, rescue)
 
 ifndef GLOBAL_BUILDDIR
 $(error GLOBAL_BUILDDIR not defined)
@@ -13,6 +16,9 @@ include $(MKIMAGE_PREFIX)/config.mk
 # this might have been prepared by ../stage1/scripts.d/03-test-kernel
 -include $(GLOBAL_BUILDDIR)/squashcfg.mk
 
+# this should be brought in by corresponding specific stage2 feature
+include stage2cfg.mk
+
 # here we also try and come up with the stage1 kernel/modules, if any;
 # no kernel flavour specified will result in no modules for stage1 vmlinuz
 STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
@@ -24,11 +30,6 @@ endif
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there
 IMAGE_PACKAGES_REGEXP = $(call kpackages,$(STAGE1_KMODULES),$(STAGE1_KFLAVOUR))
-IMAGE_PACKAGES = $(COMMON_PACKAGES) \
-		 $(RESCUE_PACKAGES) \
-		 ./packages
-
-MKI_PACK_RESULTS = squash:rescue
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
@@ -36,5 +37,4 @@ all: | $(GLOBAL_DEBUG) build-image run-image-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
 debug:
-	@echo "** rescue: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
-	@echo "** rescue: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"
+	@echo "stage2: warning: dummy debug target not redefined"

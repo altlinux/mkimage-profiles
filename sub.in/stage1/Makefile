@@ -46,6 +46,8 @@ all: | debug prepare-workdir copy-tree run-scripts build-propagator \
 
 debug:
 	@if test -n "$(GLOBAL_VERBOSE)"; then \
+		echo "** BRANDING: $(BRANDING)"; \
+		echo "** IMAGE_INIT_LIST: $(IMAGE_INIT_LIST)"; \
 		echo "** STAGE1_PACKAGES: $(STAGE1_PACKAGES)"; \
 		echo "** STAGE1_PACKAGES_REGEXP: $(STAGE1_PACKAGES_REGEXP)"; \
 		echo "** CHROOT_PACKAGES: $(CHROOT_PACKAGES)"; \

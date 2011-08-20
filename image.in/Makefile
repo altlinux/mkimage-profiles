@@ -11,7 +11,9 @@ include $(GLOBAL_BUILDDIR)/functions.mk
 include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
-SUBDIRS = $(SUBPROFILES)
+# for complex-specified subprofiles like stage2/live,
+# take the latter part
+SUBDIRS = $(notdir $(SUBPROFILES))
 
 # "main" subprofile needs genbasedir
 CHROOT_PACKAGES = apt-utils

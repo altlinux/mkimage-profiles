@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# propagator needs this,
+# "FATAL ERROR IN INIT: overmounting /image" otherwise
+mkdir -p /image

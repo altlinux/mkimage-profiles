@@ -6,20 +6,25 @@ endif
 
 include $(BUILDDIR)/distcfg.mk
 
+# if the subprofile is specified in src/dst notation,
+# take src/ and put it as dst/ (for stage2 variants)
 all:
-	@for dir in $(SUBPROFILES); do \
-		rsync -a $$dir/ $(BUILDDIR)/$$dir/ && \
+	@for sub in $(SUBPROFILES); do \
+		src="$${sub%/*}" && \
+		dst="$${sub#*/}" && \
+		rsync -a "$$src/" "$(BUILDDIR)/$$dst/" && \
 		type -t git >&/dev/null && \
-		cd $(BUILDDIR)/$$dir/ && \
+		cd "$(BUILDDIR)/$$dst/" && \
 		git add . && \
-		git commit -qam "$@/$$dir"; \
+		git commit -qam "$$sub"; \
 		cd - >&/dev/null; \
-	done ||:
+	done
 
 clean:
-	@for dir in $(SUBPROFILES); do \
-		if [ -n "$$dir" ]; then \
-			rm -rf $(BUILDDIR)/$$dir && \
-			mkdir -p $(BUILDDIR)/$$dir; \
+	@for sub in $(SUBPROFILES); do \
+		dst="${sub#*/}" && \
+		if [ -n "$$dst" ]; then \
+			rm -rf "$(BUILDDIR)/$$dst" && \
+			mkdir -p "$(BUILDDIR)/$$dst"; \
 		fi; \
 	done

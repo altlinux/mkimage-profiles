@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# for udev, "FATAL ERROR IN INIT: overmounting /image" otherwise
+# for udev
 ln -sf /proc/mounts /etc/mtab
 
 # pam_console_apply is harmful during install

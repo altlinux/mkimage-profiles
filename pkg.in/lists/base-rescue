@@ -1,17 +1,7 @@
-udev
-e2fsprogs
-glibc-nss
-
-firmware-linux
-firmware-aic94xx-seq
-
-#altlinux-release
-interactivesystem
-
 ### Startup
-#kernel-image-@KERNEL@
 rootfiles
 sysvinit
+interactivesystem
 startup
 startup-rescue
 
@@ -128,8 +118,8 @@ whois
 wireless-tools
 wpa_supplicant
 
-
 ### Applications/Shells
+zsh
 ash
 bash
 bc

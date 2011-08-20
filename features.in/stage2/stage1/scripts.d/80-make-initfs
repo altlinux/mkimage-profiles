@@ -1,0 +1,15 @@
+#!/bin/sh -efu
+# NB: /etc/initrd.mk carefully prepared by earlier scripts
+
+kver="$(rpm -qa 'kernel-image*' --qf '%{installtime} %{version}-%{name}-%{release}\n' \
+	| sort -n \
+	| tail -n 1 \
+	| cut -f 2 -d ' ' \
+	| sed 's/kernel-image-//')"
+
+make-initrd --no-checks -k $kver \
+&& gzip < /boot/initrd-$kver.img > $(getconf LIBDIR)/propagator/initfs \
+|| exit 1
+
+[ -h /boot/vmlinuz ] || ln -s vmlinuz-$kver /boot/vmlinuz
+[ -h /boot/initrd.img ] || ln -s initrd-$kver.img /boot/initrd.img

@@ -33,7 +33,7 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 # BASE_PACKAGES, BASE_LISTS, MAIN_PACKAGES, MAIN_LISTS: see sub.in/main/
 
 # something actually useful (as a network-only installer)
-distro/installer: distro/.base use/installer
+distro/installer: distro/.base use/install2
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 
@@ -59,9 +59,8 @@ distro/minicd: distro/server-base
 	@$(call set,KFLAVOURS,pure-emerald)	# usually recent drivers
 	@$(call add,MAIN_PACKAGES,etcnet-full)
 
-distro/rescue: distro/.branding sub/rescue use/stage1kernel use/syslinux/ui-menu
-	@$(call set,KFLAVOURS,un-def)	# usually recent drivers too
-	@$(call add,RESCUE_PACKAGES,etcnet-full)
+distro/live: distro/.base use/live use/syslinux/ui-menu
+distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 
 # desktop distributions
 

@@ -4,8 +4,6 @@
 sub/%:
 	@$(call add,SUBPROFILES,$(@:sub/%=%))
 
-sub/install2 sub/rescue: sub/stage1
-
 # FIXME: maybe syslinux feature belongs to distro/.init?
 boot/%: distro/.init use/syslinux
 	@$(call set,BOOTLOADER,$*)

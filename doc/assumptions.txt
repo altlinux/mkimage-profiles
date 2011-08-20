@@ -1,0 +1,17 @@
+- pkg.in/lists/Makefile
+  + ожидает, что названия пакаджлистов указываются в переменных
+    вида *_LISTS, и копирует в генерируемый профиль только их
+  + если задать имя файла пакаджлиста непосредственно в Makefile
+    субпрофиля, он не будет скопирован
+  + характерное сообщение об ошибке:
+    E: Couldn't find package
+
+- features.in/stage2/stage1/scripts.d/02-kdefault
+- features.in/stage2/stage1/scripts.d/03-test-kernel
+- sub.in/stage1/Makefile
+  + ожидают, что в stage1 попадёт строго одно ядро сообразно
+    явному указанию в STAGE1_KFLAVOUR (либо последнее указанное
+    в KFLAVOURS)
+  + если добавить какой-либо kernel-image в STAGE1_PACKAGES*,
+    результат может быть неожиданным
+  + вероятная ошибка: незагрузка полученного squashfs
