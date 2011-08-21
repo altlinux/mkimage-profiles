@@ -32,17 +32,24 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 #         it's actually used); just peek inside $(CONFIG) ;-)
 # BASE_PACKAGES, BASE_LISTS, MAIN_PACKAGES, MAIN_LISTS: see sub.in/main/
 
+# live images
+
+distro/live: distro/.base use/live use/syslinux/ui-menu
+distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
+
 # something actually useful (as a network-only installer)
+# NB: doesn't carry stage3 thus cannot use/bootloader
 distro/installer: distro/.base use/install2
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 
 # server distributions
 
-distro/server-base: distro/installer sub/main use/syslinux/ui-menu use/memtest
+distro/server-base: distro/installer sub/main \
+	use/syslinux/ui-menu use/memtest use/bootloader/grub
 	@$(call add,BASE_LISTS,server-base)
 
-distro/server-ovz: distro/server-base use/hdt use/firmware/server
+distro/server-ovz: distro/server-base use/hdt use/rescue use/firmware/server
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
@@ -59,13 +66,10 @@ distro/minicd: distro/server-base
 	@$(call set,KFLAVOURS,pure-emerald)	# usually recent drivers
 	@$(call add,MAIN_PACKAGES,etcnet-full)
 
-distro/live: distro/.base use/live use/syslinux/ui-menu
-distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
-
 # desktop distributions
 
 distro/desktop-base: distro/installer sub/main \
-	use/syslinux/ui-vesamenu use/x11/xorg
+	use/syslinux/ui-vesamenu use/x11/xorg use/bootloader/grub
 
 distro/icewm: distro/desktop-base use/lowmem use/x11/xdm use/x11/runlevel5 use/bootloader/lilo
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
