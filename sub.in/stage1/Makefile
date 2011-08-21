@@ -41,8 +41,10 @@ CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for ../install2/Makefile
 all: | debug prepare-workdir copy-tree run-scripts build-propagator \
-	copy-$(BOOTLOADER) pack-image $(GLOBAL_CLEAN_WORKDIR)
-	@cp $(OUTDIR)/squashcfg.mk $(GLOBAL_BUILDDIR)/
+	copy-$(BOOTLOADER) $(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
+	@if test -s $(OUTDIR)/squashcfg.mk; then \
+		cp $(OUTDIR)/squashcfg.mk $(GLOBAL_BUILDDIR)/; \
+	fi
 
 debug:
 	@if test -n "$(GLOBAL_VERBOSE)"; then \
