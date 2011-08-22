@@ -27,10 +27,8 @@ include $(MKIMAGE_PREFIX)/targets.mk
 STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
 
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
-ifeq "$(STAGE1_KFLAVOUR)" ""
-build-propagator:
-	@echo "** skipping build-propagator target, no kernel installed"
-else
+ifneq "$(STAGE1_KFLAVOUR)" ""
+BUILD_PROPAGATOR = build-propagator
 CHROOT_PACKAGES_REGEXP := $(call kpackages,$(STAGE1_KMODULES_REGEXP),$(STAGE1_KFLAVOUR))
 INFO_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 endif
@@ -40,7 +38,7 @@ CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
 
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for ../install2/Makefile
-all: | debug prepare-workdir copy-tree run-scripts build-propagator \
+all: | debug prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \
 	copy-$(BOOTLOADER) $(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
 	@if test -s $(OUTDIR)/squashcfg.mk; then \
 		cp $(OUTDIR)/squashcfg.mk $(GLOBAL_BUILDDIR)/; \

@@ -32,16 +32,18 @@ else
 GLOBAL_HSH_APT_CONFIG = $(APTCONF)
 endif
 
+# Metadata/ needed only for installers (and not for e.g. syslinux.iso)
+ifneq "$(STAGE1_KFLAVOUR)$(KFLAVOURS)" ""
+METADATA = metadata
+endif
+
 include $(MKIMAGE_PREFIX)/targets.mk
 
 all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
-# Metadata/ needed only for installer (and not for e.g. syslinux.iso)
-ifeq "$(STAGE1_KFLAVOUR)$(KFLAVOURS)" ""
-metadata:
-	@echo "** skipping metadata target, no stage1 kernel installed"
-else
+prep: $(GLOBAL_DEBUG) dot-disk $(METADATA) $(IMAGEDIR)
+
 metadata: dot-base
 	@mkdir -p files/Metadata
 	@rm -f files/Metadata/pkg-groups.tar
@@ -50,13 +52,10 @@ metadata: dot-base
 		$$(echo $(call list,$(GROUPS) .base) \
 			$(call group,$(GROUPS)) \
 		   | sed 's,$(PKGDIR)/*,,g')
-endif
 
 dot-base:
 	@echo -e "# auto-added in image.in/Makefile" >> $(call list,.base)
 	@echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))" >> $(call list,.base)
-
-prep: $(GLOBAL_DEBUG) dot-disk metadata $(IMAGEDIR)
 
 $(IMAGEDIR):
 	mkdir -p "$(IMAGEDIR)"
