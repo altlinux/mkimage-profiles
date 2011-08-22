@@ -16,7 +16,7 @@ all:
 	@if test -n "$(GLOBAL_DEBUG)"; then echo "** requested: $(FEATURES)"; fi
 	@for dir in $(FEATURES); do \
 		for sub in $(SUBPROFILES); do \
-			dst="${sub#*/}" && \
+			dst="$${sub#*/}" && \
 			if test -d "$$dir/$$dst/"; then \
 				if rsync -ab "$$dir/$$dst/" "$(BUILDDIR)/$$dst/"; \
 				then \
