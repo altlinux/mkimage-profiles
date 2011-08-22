@@ -12,19 +12,20 @@ all:
 	@for sub in $(SUBPROFILES); do \
 		src="$${sub%/*}" && \
 		dst="$${sub#*/}" && \
+		neq="$${src#$$dst}" && \
 		rsync -a "$$src/" "$(BUILDDIR)/$$dst/" && \
 		type -t git >&/dev/null && \
 		cd "$(BUILDDIR)/$$dst/" && \
 		git add . && \
-		git commit -qam "$$sub"; \
+		git commit -qam "$$dst subprofile initialized$${neq:+ (using $$src)}"; \
 		cd - >&/dev/null; \
 	done
 
 clean:
 	@for sub in $(SUBPROFILES); do \
 		dst="${sub#*/}" && \
-		if [ -n "$$dst" ]; then \
-			rm -rf "$(BUILDDIR)/$$dst" && \
+		if [ -n "$$dst" -a -n "$(BUILDDIR)" ]; then \
+			rm -r "$(BUILDDIR)/$$dst" && \
 			mkdir -p "$(BUILDDIR)/$$dst"; \
 		fi; \
 	done

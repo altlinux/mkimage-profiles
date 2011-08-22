@@ -16,7 +16,7 @@ all: $(GLOBAL_DEBUG)
 		type -t git >&/dev/null && \
 		cd $(TARGET) && \
 		git add . && \
-		git commit -qam "$(SUFFIX)"; \
+		git commit -qam "requested $(SUFFIX) copied over"; \
 		cd - >&/dev/null; \
 	fi
 

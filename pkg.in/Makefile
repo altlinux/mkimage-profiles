@@ -5,6 +5,7 @@ ifndef BUILDDIR
 $(error BUILDDIR not defined)
 endif
 
+# sequential execution, no reason to haste
 all:
 	@for dir in lists groups; do \
 		$(MAKE) -C $$dir; \

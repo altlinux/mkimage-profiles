@@ -1,4 +1,5 @@
 #!/bin/sh
+# FIXME: bring to common style
 
 verbose()
 {

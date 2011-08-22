@@ -9,15 +9,15 @@ BUILDDIR := $(shell [ -s build ] \
         || bin/mktmpdir mkimage-profiles.build)
 endif
 
-# holds a postprocessor; shell test executes in particular situation
-# NB: not exported, for toplevel use only
-SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s build ] \
-	  && echo "| sed 's,$(BUILDDIR),build,'")
-
 # even smart caching only hurts when every build goes from scratch
 NO_CACHE ?= 1
 
 export BUILDDIR NO_CACHE
+
+# holds a postprocessor; shell test executes in particular situation
+# NB: not exported, for toplevel use only
+SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s build ] \
+	  && echo "| sed 's,$(BUILDDIR),build,'")
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
@@ -34,7 +34,7 @@ profile/init: distclean
 		cd $(BUILDDIR) && \
 		git init -q && \
 		git add . && \
-		git commit -qam 'init'
+		git commit -qam 'distribution profile initialized'
 	@rm -f build && \
 		if [ -w . ]; then \
 			ln -sf "$(BUILDDIR)" build && \
