@@ -34,3 +34,6 @@ grep -hv '^#' .in/[0-9][0-9]*.cfg > "$BOOTLOADER.cfg"
 
 # snippets are not going into the actual image
 if test "$DEBUG" != 2; then rm -r .in/; fi
+
+# NB: there will be final macro expansion based on actual image sizes
+#     (done by ../../scripts.d/10-propagator-ramdisk)

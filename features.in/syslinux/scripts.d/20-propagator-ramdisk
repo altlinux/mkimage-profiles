@@ -1,0 +1,13 @@
+#!/bin/sh -x
+# postprocess isolinux configuration
+# when the image sizes are finally known
+
+cd "$WORKDIR"
+
+# apply size census while looking for potential squashfs images
+find -maxdepth 1 -type f -size +1M \
+| sed 's,^\./,,' \
+| while read image; do
+	size="$[ $(stat -c%s "$image") / 1024 + 1 ]"
+	sed -i "s,@${image}_size@,$size," syslinux/*.cfg
+done

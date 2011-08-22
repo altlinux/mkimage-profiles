@@ -15,3 +15,13 @@
   + если добавить какой-либо kernel-image в STAGE1_PACKAGES*,
     результат может быть неожиданным
   + вероятная ошибка: незагрузка полученного squashfs
+
+- features.in/install2/install2/stage2cfg.mk
+- features.in/live/live/stage2cfg.mk
+- features.in/rescue/rescue/stage2cfg.mk
+- features.in/syslinux/cfg.in/15live.cfg
+- features.in/syslinux/cfg.in/20install2.cfg
+- features.in/syslinux/cfg.in/80rescue.cfg
+- features.in/syslinux/scripts.d/20-propagator-ramdisk
+  + ожидают, что названия squashfs-образов второй стадии инсталятора,
+    livecd и спасательной системы соответственно altinst, live и rescue

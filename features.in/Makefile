@@ -32,6 +32,19 @@ all:
 				fi; \
 			fi; \
 		done; \
+		for scripts in scripts.d image-scripts.d; do \
+			if test -d "$(BUILDDIR)/$$scripts" -a \
+				-d "$$dir/$$scripts"; then \
+				if rsync -qab "$$dir/$$scripts/" \
+					"$(BUILDDIR)/$$scripts/"; then \
+					type -t git >&/dev/null && \
+					pushd "$(BUILDDIR)/$$scripts/" && \
+					git add . && \
+					git commit -qam "$$dir feature (toplevel $$scripts)" ||:; \
+					popd; \
+				fi; \
+			fi; \
+		done; \
 		if test -x "$$dir/generate.sh"; then \
 			pushd "$$dir" && \
 			sh generate.sh; \
