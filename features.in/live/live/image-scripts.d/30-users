@@ -1,0 +1,52 @@
+#!/bin/sh
+# * reset password for root
+# * add user `altlinux' (without password)
+
+verbose()
+{
+    if [ -n "$GLOBAL_VERBOSE" ]; then
+        echo "HOOK: 30-users: $@"
+    fi
+}
+
+add_user()
+{
+    verbose "Add $1 user"
+    local groups=
+    for g in users scanner audio radio proc cdrom cdwriter wheel fuse; do
+	if groupmod $g 2>/dev/null; then
+	    if [ -n "$groups" ]; then
+		groups="$groups,$g"
+	    else
+		groups="$g"
+	    fi
+	fi
+    done
+
+    /usr/sbin/useradd -p "" -G "$groups" "$1" ||:
+    chown -R "$1:auth" "/etc/tcb/$1"
+    chown -R "$1:$1" /home/$1
+
+    if [ -n "$GLOBAL_CRYPT_HOMES" ]; then
+      verbose "Set password for user $1"
+      echo "$1" | passwd --stdin $1
+    fi
+
+    sudoers="/etc/sudoers"
+    if [ -w "$sudoers" ]; then
+        verbose "Add $1 to sudoers."
+        echo "$1   ALL=(root) NOPASSWD:ALL" >> "$sudoers"
+    else
+        verbose "Can't find writable $sudoers file."
+    fi
+}
+
+verbose "has started"
+
+verbose "Clear password for root account"
+/usr/sbin/usermod -p "" root
+chown -R root.auth /etc/tcb/root
+
+add_user altlinux
+
+verbose "finished"

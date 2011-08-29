@@ -82,15 +82,12 @@ recoverdm
 reiserfsprogs
 xfsprogs
 btrfs-progs
+ext3grep
 
 ### Applications/Networking
 arpwatch
-bridge-utils
-dhcpcd
 elinks
-etcnet
 hostinfo
-ifrename
 iftop
 iproute2
 iptables
@@ -115,8 +112,6 @@ telnet
 traceroute
 wget
 whois
-wireless-tools
-wpa_supplicant
 
 ### Applications/Shells
 zsh
