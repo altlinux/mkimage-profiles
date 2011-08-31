@@ -1,7 +1,6 @@
 # network tools
 curl
 elinks
-etcnet
 hostinfo
 iptables
 iputils
