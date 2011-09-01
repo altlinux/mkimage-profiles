@@ -1,11 +1,13 @@
 # this makefile is designed to be included in toplevel one
 
+SYMLINK = build
+
 # this could have come from environment;
 # if not, can be symlinked if r/w, or made anew
 # NB: immediate assignment matters
 ifndef BUILDDIR
-BUILDDIR := $(shell [ -s build ] \
-        && realpath build \
+BUILDDIR := $(shell [ -s "$(SYMLINK)" ] \
+        && realpath "$(SYMLINK)" \
         || bin/mktmpdir mkimage-profiles.build)
 endif
 
@@ -16,8 +18,8 @@ export BUILDDIR NO_CACHE
 
 # holds a postprocessor; shell test executes in particular situation
 # NB: not exported, for toplevel use only
-SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s build ] \
-	  && echo "| sed 's,$(BUILDDIR),build,'")
+SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s "$(SYMLINK)" ] \
+	  && echo "| sed 's,$(BUILDDIR),$(SYMLINK),'")
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
@@ -28,23 +30,30 @@ profile/init: distclean
 		git show-ref --head -d -s -- HEAD && \
 		git status -s && \
 		echo; \
-	} 2>/dev/null >> "$(BUILDLOG)"
+	} $(LOG)
 	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
 	@type -t git >&/dev/null && \
 		cd $(BUILDDIR) && \
 		git init -q && \
 		git add . && \
 		git commit -qam 'distribution profile initialized'
-	@rm -f build && \
+	@rm -f "$(SYMLINK)" && \
 		if [ -w . ]; then \
-			ln -sf "$(BUILDDIR)" build && \
-			echo "build/"; \
+			ln -sf "$(BUILDDIR)" "$(SYMLINK)" && \
+			echo "$(SYMLINK)/"; \
 		else \
 			echo "$(BUILDDIR)/"; \
 		fi
 
+# requires already formed distcfg.mk for useful output
+profile/dump-vars:
+	@if [ -s "$(SYMLINK)" ]; then \
+		$(MAKE) --no-print-directory -C "$(SYMLINK)/" -f vars.mk; \
+		echo; \
+	fi $(LOG)
+
 # step 3 entry point: copy the needed parts into BUILDDIR
-profile/populate: profile/init distro/.rc
+profile/populate: profile/init distro/.rc profile/dump-vars
 	@for dir in sub.in features.in pkg.in; do \
 		$(MAKE) -C $$dir $(LOG); \
 	done
