@@ -35,7 +35,7 @@ all: $(TARGET) $(GLOBAL_DEBUG)
 			echo "$(BASE_PACKAGES)"; \
 		}; \
 	) | sed -re '/^[^[:space:]#]/ s/[[:space:]]+/\n/g' >$(TARGET)/.base
-	@[ -z "$(GROUPS)" ] || cp -at $(TARGET) $(GROUPS)
+	@[ -z "$(MAIN_GROUPS)" ] || cp -at $(TARGET) $(MAIN_GROUPS)
 	@type -t git >&/dev/null && \
 	cd $(TARGET) && \
 	git add . && \

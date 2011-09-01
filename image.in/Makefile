@@ -49,8 +49,8 @@ metadata: dot-base
 	@rm -f files/Metadata/pkg-groups.tar
 # see also alterator-pkg (backend3/pkg-install); we only tar up what's up to it
 	@tar -cvf files/Metadata/pkg-groups.tar -C $(PKGDIR) \
-		$$(echo $(call list,$(GROUPS) .base) \
-			$(call group,$(GROUPS)) \
+		$$(echo $(call list,$(MAIN_GROUPS) .base) \
+			$(call group,$(MAIN_GROUPS)) \
 		   | sed 's,$(PKGDIR)/*,,g')
 
 dot-base:

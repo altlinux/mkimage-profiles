@@ -2,7 +2,7 @@
 
 IMAGE_PACKAGES = $(COMMON_PACKAGES) \
 		 $(LIVE_PACKAGES) \
-		 $(call map,list,$(LIVE_LISTS) $(LIVE_GROUPS)) \
+		 $(call map,list,$(LIVE_LISTS) $(LIVE_MAIN_GROUPS)) \
 		 interactivesystem
 
 MKI_PACK_RESULTS = squash:live

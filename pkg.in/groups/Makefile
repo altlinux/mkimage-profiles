@@ -10,9 +10,9 @@ SUFFIX := pkg/groups
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
 all: $(GLOBAL_DEBUG)
-	@if [ -n "$(GROUPS)" ]; then \
+	@if [ -n "$(MAIN_GROUPS)" ]; then \
 		mkdir -p $(TARGET) && \
-		cp -at $(TARGET) -- $(addsuffix .directory,$(GROUPS)); \
+		cp -at $(TARGET) -- $(addsuffix .directory,$(MAIN_GROUPS)); \
 		type -t git >&/dev/null && \
 		cd $(TARGET) && \
 		git add . && \
@@ -21,4 +21,4 @@ all: $(GLOBAL_DEBUG)
 	fi
 
 debug:
-	@echo "** GROUPS: $(GROUPS)"
+	@echo "** MAIN_GROUPS: $(MAIN_GROUPS)"

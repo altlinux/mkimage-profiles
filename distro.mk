@@ -65,9 +65,9 @@ distro/server-ovz: distro/server-base use/hdt use/rescue use/firmware/server
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,BASE_LISTS,$(call tags,base server))
 	@$(call add,MAIN_LISTS,kernel-wifi)
-	@$(call add,GROUPS,dns-server http-server ftp-server kvm-server)
-	@$(call add,GROUPS,ipmi mysql-server dhcp-server mail-server)
-	@$(call add,GROUPS,monitoring diag-tools)
+	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
+	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)
+	@$(call add,MAIN_GROUPS,monitoring diag-tools)
 
 # desktop distributions
 
