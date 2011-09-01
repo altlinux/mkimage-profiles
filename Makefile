@@ -34,6 +34,7 @@ $(IMAGES): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
 	@# TODO: run automated tests (e.g. iso size)
 	@OUTNAME="$(@:.iso=)-$(DATE)-$(ARCH).iso"; \
 	 OUTPATH="$(IMAGEDIR)/$$OUTNAME"; \
+		mkdir -p "$(IMAGEDIR)" && \
 		test -s "$(IMAGEDIR)/$(IMAGENAME)" && \
 		mv "$(IMAGEDIR)/$(IMAGENAME)" "$$OUTPATH" && \
 		echo "** image: $$OUTPATH" && \
