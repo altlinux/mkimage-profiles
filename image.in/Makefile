@@ -54,11 +54,13 @@ metadata: dot-base
 		   | sed 's,$(PKGDIR)/*,,g')
 
 dot-base:
-	@echo -e "# auto-added in image.in/Makefile" >> $(call list,.base)
-	@echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))" >> $(call list,.base)
+	@{ \
+		echo -e "\n## added by image.in/Makefile"; \
+		echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))"; \
+	} >> $(call list,.base)
 
 $(IMAGEDIR):
-	mkdir -p "$(IMAGEDIR)"
+	@mkdir -p "$(IMAGEDIR)"
 
 # specified only for the final image, not for the subparts
 pack-image: OUTDIR = $(IMAGEDIR)
@@ -73,7 +75,8 @@ dot-disk:
 	@echo "ALT Linux based" >files/.disk/info
 	@echo "$(ARCH)" >files/.disk/arch
 	@echo "$(DATE)" >files/.disk/date
-	@type -t git >&/dev/null && ( \
-		cd $(TOPDIR) && \
-		git show-ref --head -d -s -- HEAD 2>/dev/null; \
-	) >files/.disk/commit
+	@if type -t git >&/dev/null; then \
+		( cd $(TOPDIR) && \
+		git show-ref --head -ds -- HEAD ) \
+		>files/.disk/commit 2>/dev/null; \
+	fi

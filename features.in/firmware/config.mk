@@ -3,14 +3,14 @@
 #     for mkmodpack to use
 
 use/firmware:
-	@$(call add,COMMON_PACKAGES,firmware-linux)
+	@$(call add,SYSTEM_PACKAGES,firmware-linux)
 
 use/firmware/server: use/firmware
-	@$(call add,COMMON_PACKAGES,firmware-aic94xx-seq)
+	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
 	@$(call add,MAIN_PACKAGES_REGEXP,firmware-ql.*)
 
 use/firmware/desktop: use/firmware
-	@$(call add,COMMON_PACKAGES,firmware-psb)
+	@$(call add,SYSTEM_PACKAGES,firmware-psb)
 
 use/firmware/wireless: use/firmware
 	@$(call add,MAIN_PACKAGES,firmware-acx100)

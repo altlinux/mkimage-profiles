@@ -34,7 +34,7 @@ INFO_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 endif
 
 CHROOT_PACKAGES_REGEXP += $(STAGE1_PACKAGES_REGEXP)
-CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(COMMON_PACKAGES)
+CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(SYSTEM_PACKAGES)
 
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for ../install2/Makefile

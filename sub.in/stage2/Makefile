@@ -19,6 +19,9 @@ include $(MKIMAGE_PREFIX)/config.mk
 # this should be brought in by corresponding specific stage2 feature
 include stage2cfg.mk
 
+# requisite stuff
+IMAGE_PACKAGES += $(SYSTEM_PACKAGES)
+
 # here we also try and come up with the stage1 kernel/modules, if any;
 # no kernel flavour specified will result in no modules for stage1 vmlinuz
 STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
