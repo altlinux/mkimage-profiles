@@ -56,7 +56,8 @@ distro/server-mini: distro/server-base
 		$(call tags,base && (server || network || security || pkg)))
 	@$(call add,BASE_LISTS,$(call tags,extra network))
 
-distro/server-ovz: distro/server-base use/hdt use/rescue use/firmware/server
+distro/server-ovz: distro/server-base \
+	use/hdt use/rescue use/firmware/server use/powerbutton/acpi
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
@@ -74,7 +75,9 @@ distro/server-ovz: distro/server-base use/hdt use/rescue use/firmware/server
 distro/desktop-base: distro/installer sub/main \
 	use/syslinux/ui-vesamenu use/x11/xorg use/bootloader/grub
 
-distro/icewm: distro/desktop-base use/lowmem use/x11/xdm use/x11/runlevel5 use/bootloader/lilo
+distro/icewm: distro/desktop-base \
+	use/lowmem use/x11/xdm use/x11/runlevel5 \
+	use/bootloader/lilo use/powerbutton/acpi
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 
 # NB: if there are too many screens above, it might make sense to distro.d/
