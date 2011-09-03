@@ -6,4 +6,4 @@
 и требует пакет выбранного загрузчика.
 
 Реализация экспериментальная (нужно модуляризовать installer-steps),
-завязана на installer-distro-altlinux-generic = 6.0-alt2.
+пока завязана на installer-distro-altlinux-generic.
