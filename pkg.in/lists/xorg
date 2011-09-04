@@ -32,7 +32,7 @@ xorg-utils
 xinit
 
 # TODO: split these into a separate packagelist or no sense?
-wm-select
+#wm-select
 
 fonts-ttf-dejavu
 fonts-bitmap-terminus
