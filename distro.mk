@@ -36,6 +36,7 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 
 distro/live: distro/.base use/live use/syslinux/ui-menu
 distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
+distro/dos: sub/stage1 use/dos use/syslinux/ui-menu
 
 # something actually useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader

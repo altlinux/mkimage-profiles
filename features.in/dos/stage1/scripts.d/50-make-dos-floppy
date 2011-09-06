@@ -1,0 +1,6 @@
+#!/bin/sh -x
+# create a barebone bootable freedos floppy
+# TODO: some sub-framework to populate it as well
+
+mkdir -p "$WORKDIR/syslinux"
+make-freedos-floppy "$WORKDIR/syslinux/freedos.img"
