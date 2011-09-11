@@ -10,33 +10,30 @@ include $(BUILDDIR)/distcfg.mk
 # first rsync what's static, and make backups (*~) --
 # these might signal of file clashes (or plain dirt);
 # then handle two more ways of implementing a feature
-# NB: some subprofiles will be specified as src/dest
+# NB: some subprofiles will be specified as "src/dst"
+#     (then both src/ and dst/ can hold the addons)
 all:
 	@echo "** starting feature configuration"
-	@if test -n "$(GLOBAL_DEBUG)"; then \
-		echo "** target subprofiles: $(notdir $(SUBPROFILES))"; \
+	@if [ -n "$(GLOBAL_DEBUG)" ]; then \
+		echo "** target subprofiles: $(SUBPROFILES)"; \
 		echo "** requested features: $(FEATURES)"; \
 	fi
 	@for dir in $(FEATURES); do \
+		pushd "$$dir" && \
 		for sub in $(SUBPROFILES); do \
-			dst="$${sub#*/}" && \
-			if test -d "$$dir/$$dst/"; then \
-				if rsync -qab "$$dir/$$dst/" \
-					"$(BUILDDIR)/$$dst/"; \
-				then \
-					type -t git >&/dev/null && \
-					pushd "$(BUILDDIR)/$$dst/" && \
-					git add . && \
-					git commit -qam "$$dir feature ($$dst subprofile part)" ||:; \
-					popd; \
-				fi; \
-			fi; \
+			src="$${sub%/*}/"; \
+			dst="$${sub#*/}/"; \
+			if [ -d "$$src/" ]; then rsync -qab "$$src" "$(BUILDDIR)/$$dst/"; fi; \
+			if [ -d "$$dst/" ]; then rsync -qab "$$dst" "$(BUILDDIR)/$$dst/"; fi; \
+			type -t git >&/dev/null && \
+			pushd "$(BUILDDIR)/$$dst/" && \
+			git add . && \
+			git commit -qam "$$dir feature ($$sub subprofile part)" ||:; \
+			popd; \
 		done; \
 		for scripts in scripts.d image-scripts.d; do \
-			if test -d "$(BUILDDIR)/$$scripts" -a \
-				-d "$$dir/$$scripts"; then \
-				if rsync -qab "$$dir/$$scripts/" \
-					"$(BUILDDIR)/$$scripts/"; then \
+			if [ -d "$(BUILDDIR)/$$scripts" -a -d "$$scripts" ]; then \
+				if rsync -qab "$$scripts/" "$(BUILDDIR)/$$scripts/"; then \
 					type -t git >&/dev/null && \
 					pushd "$(BUILDDIR)/$$scripts/" && \
 					git add . && \
@@ -45,18 +42,13 @@ all:
 				fi; \
 			fi; \
 		done; \
-		if test -x "$$dir/generate.sh"; then \
-			pushd "$$dir" && \
-			sh generate.sh; \
-			popd; \
-		fi; \
-		if test -s "$$dir/generate.mk"; then \
-			$(MAKE) -C "$$dir" -f generate.mk; \
-		fi; \
+		if [ -x "generate.sh" ]; then sh generate.sh; fi; \
+		if [ -s "generate.mk" ]; then $(MAKE) -f generate.mk; fi; \
 		type -t git >&/dev/null && \
 		pushd "$(BUILDDIR)/" && \
 		git add . && \
 		git commit -qam "$$dir feature generation complete" ||:; \
+		popd; \
 		popd; \
 	done
 	@find "$(BUILDDIR)/" -name '*~' \
