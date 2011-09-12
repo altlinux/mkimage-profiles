@@ -18,6 +18,8 @@ include distro.mk
 include log.mk
 include iso.mk
 
+.PHONY: $(IMAGES)
+
 # we can't use implicit rules for top-level targets, only for prereqs
 # NB: what about static pattern rules?
 # TODO: move into libdistro?
@@ -29,6 +31,9 @@ IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
 	&& echo "$$HOME/out" \
 	|| echo "$(BUILDDIR)/out" )
 IMAGENAME ?= mkimage-profiles-$(ARCH).iso
+
+everything:
+	@for i in $(IMAGES); do $(MAKE) BUILDDIR=$(BUILDDIR) $$i; done
 
 $(IMAGES): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
 	@# TODO: run automated tests (e.g. iso size)
