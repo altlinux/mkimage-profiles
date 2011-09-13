@@ -36,8 +36,11 @@ IMAGE_PACKAGES_REGEXP = $(call kpackages,$(STAGE1_KMODULES),$(STAGE1_KFLAVOUR))
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
+# NB: it's a collector variable, add()ing to a GLOBAL_ results in lost hair
+GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
+
 all: | $(GLOBAL_DEBUG) build-image run-image-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
-debug:
-	@echo "stage2: warning: dummy debug target not redefined"
+# dummy
+debug: ;

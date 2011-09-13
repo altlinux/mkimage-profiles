@@ -11,3 +11,4 @@ HSH_EXCLUDE_DOCS = 1
 debug:
 	@echo "** install2: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
 	@echo "** install2: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"
+	@echo "** install2: CLEANUP_PACKAGES: $(CLEANUP_PACKAGES)"

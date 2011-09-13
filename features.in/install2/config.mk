@@ -1,4 +1,4 @@
-use/install2: use/stage2 sub/stage2/install2
+use/install2: use/stage2 sub/stage2/install2 use/cleanup/installer
 	@$(call add,FEATURES,install2)
 	@$(call set,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
 	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)

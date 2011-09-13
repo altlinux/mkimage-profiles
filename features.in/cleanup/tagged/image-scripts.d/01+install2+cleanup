@@ -1,0 +1,20 @@
+#!/bin/sh -efu
+
+if [ -n "$GLOBAL_VERBOSE" ]; then
+	echo "** GLOBAL_CLEANUP_PACKAGES: $GLOBAL_CLEANUP_PACKAGES"
+fi >&2
+
+SCRIPT="/usr/share/install2/postinstall.d/01+install2+cleanup"
+cat > "$SCRIPT" << EOF
+#!/bin/sh -efu
+
+. install2-init-functions
+
+# don't override the script start message on the same line
+echo "removing $GLOBAL_CLEANUP_PACKAGES"
+
+# remove extra packages from installed system
+list="\$(exec_chroot rpmquery -a --qf='%{NAME}\\n' $GLOBAL_CLEANUP_PACKAGES)"
+[ -z "\$list" ] || exec_chroot apt-get remove -f -y  -- \$list
+EOF
+chmod +x "$SCRIPT"

@@ -26,7 +26,7 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 	use/syslinux/ui-vesamenu use/hdt use/memtest use/dos
 
 #  $(VAR) will be substituted before writing them to $(CONFIG);
-# $$(VAR) will remain unsubstituted util $(CONFIG) is included
+# $$(VAR) will remain unsubstituted until $(CONFIG) is included
 #         and their value requested (so the variable referenced
 #         can change its value during configuration _before_
 #         it's actually used); just peek inside $(CONFIG) ;-)
@@ -50,7 +50,7 @@ distro/server-base: distro/installer sub/main \
 	use/syslinux/ui-menu use/memtest use/bootloader/grub
 	@$(call add,BASE_LISTS,server-base)
 
-distro/server-mini: distro/server-base
+distro/server-mini: distro/server-base use/cleanup/x11-alterator
 	@$(call set,KFLAVOURS,el-smp)
 	@$(call add,KMODULES,e1000e igb)
 	@$(call add,BASE_LISTS,\
@@ -78,7 +78,8 @@ distro/desktop-base: distro/installer sub/main \
 
 distro/icewm: distro/desktop-base \
 	use/lowmem use/x11/xdm use/x11/runlevel5 \
-	use/bootloader/lilo use/powerbutton/acpi
+	use/bootloader/lilo use/powerbutton/acpi \
+	use/cleanup/alterator
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 
 # NB: if there are too many screens above, it might make sense to distro.d/
