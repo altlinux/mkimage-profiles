@@ -5,6 +5,7 @@ SYMLINK = build
 # this could have come from environment;
 # if not, can be symlinked if r/w, or made anew
 # NB: immediate assignment matters
+# NB: PATH has no effect here
 ifndef BUILDDIR
 BUILDDIR := $(shell [ -s "$(SYMLINK)" ] \
         && realpath "$(SYMLINK)" \
@@ -14,7 +15,9 @@ endif
 # even smart caching only hurts when every build goes from scratch
 NO_CACHE ?= 1
 
-export BUILDDIR NO_CACHE
+PATH := $(CURDIR)/bin:$(PATH)
+
+export BUILDDIR NO_CACHE PATH
 
 # holds a postprocessor; shell test executes in particular situation
 # NB: not exported, for toplevel use only
