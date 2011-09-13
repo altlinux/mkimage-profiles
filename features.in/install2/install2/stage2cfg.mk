@@ -8,6 +8,9 @@ MKI_PACK_RESULTS = squash:altinst
 # also removed in a cleanup hook but to spare a few cycles...
 HSH_EXCLUDE_DOCS = 1
 
+# pass downstream
+GLOBAL_BASE_BOOTLOADER := $(BASE_BOOTLOADER)
+
 debug:
 	@echo "** install2: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
 	@echo "** install2: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"

@@ -15,6 +15,7 @@ endef
 # add() just appends an additive rule...
 add = $(and $(1),$(2),$(add_body))
 define add_body
+$(if $(filter GLOBAL_% INFO_%,$(1)),$(warning add,$(1) might be a problem)) \
 { $(log_body); \
 printf '%s += %s\n' '$(1)' '$(2)' >> "$(CONFIG)"; }
 endef
