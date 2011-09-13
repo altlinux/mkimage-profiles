@@ -1,7 +1,7 @@
 # dump interesting variables' effective values;
 # based on http://stackoverflow.com/questions/7117978
 
-SPAM := $(.VARIABLES)
+SPAM := $(.VARIABLES) DISTCFG_MK
 -include distcfg.mk
 HAM := $(.VARIABLES)
 

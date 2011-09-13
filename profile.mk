@@ -28,7 +28,10 @@ SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s "$(SYMLINK)" ] \
 profile/init: distclean
 	@echo -n "** initializing BUILDDIR: "
 	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
-	@:> "$(BUILDDIR)"/distcfg.mk
+	@{ \
+		echo "ifndef DISTCFG_MK"; \
+		echo "DISTCFG_MK = 1"; \
+	} > "$(BUILDDIR)"/distcfg.mk
 	@{ \
 		git show-ref --head -d -s -- HEAD && \
 		git status -s && \
@@ -48,6 +51,9 @@ profile/init: distclean
 			echo "$(BUILDDIR)/"; \
 		fi
 
+profile/finalize: distro/.rc
+	@echo "endif" >> "$(BUILDDIR)"/distcfg.mk
+
 # requires already formed distcfg.mk for useful output
 profile/dump-vars:
 	@if [ -s "$(SYMLINK)" ]; then \
@@ -56,7 +62,7 @@ profile/dump-vars:
 	fi $(LOG)
 
 # step 3 entry point: copy the needed parts into BUILDDIR
-profile/populate: profile/init distro/.rc profile/dump-vars
+profile/populate: profile/init profile/finalize profile/dump-vars
 	@for dir in sub.in features.in pkg.in; do \
 		$(MAKE) -C $$dir $(LOG); \
 	done
