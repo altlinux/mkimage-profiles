@@ -58,7 +58,8 @@ distro/server-mini: distro/server-base use/cleanup/x11-alterator
 	@$(call add,BASE_LISTS,$(call tags,extra network))
 
 distro/server-ovz: distro/server-base \
-	use/hdt use/rescue use/firmware/server use/powerbutton/acpi
+	use/hdt use/rescue use/firmware/server use/powerbutton/acpi \
+	use/cleanup/x11-alterator
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call add,KMODULES,bcmwl e1000e igb ndiswrapper rtl8168 rtl8192)
