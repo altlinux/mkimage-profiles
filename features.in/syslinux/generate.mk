@@ -45,10 +45,9 @@ cfg = $(wildcard cfg.in/??$(1).cfg)
 #
 # arguments get evaluated before recipe body execution thus prep
 all: prep debug
-	@echo $(sort \
+	cp -pLt $(DSTDIR) -- $(sort \
 		$(foreach C,$(SYSLINUX_CFG),$(call cfg,$(C))) \
-		$(foreach M,$(SYSLINUX_MODULES),$(call cfg,$(M)))) \
-		| xargs cp -pLt $(DSTDIR) --
+		$(foreach M,$(SYSLINUX_MODULES),$(call cfg,$(M))))
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/files.list
 	@echo $(BOOTLOADER) > $(DSTDIR)/bootloader
