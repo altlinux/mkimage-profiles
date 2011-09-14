@@ -14,7 +14,7 @@ export ARCH ?= $(shell arch | sed 's/i686/i586/')
 
 iso:
 	@echo -n "** starting image build"
-	@if test -n "$(DEBUG)"; then \
+	@if [ -n "$(DEBUG)" ]; then \
 		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
 	else \
 		echo " (coffee time)"; \
@@ -26,8 +26,10 @@ iso:
 			|| echo "no log"`)"; \
 	else \
 		echo "** build failed, see log: $(BUILDLOG)" $(SHORTEN); \
-		if test -z "$(DEBUG)"; then \
+		if [ -z "$(DEBUG)" ]; then \
 			echo "   (you might want to re-run with DEBUG=1)"; \
 		fi; \
 		tail -100 "$(BUILDLOG)" | egrep "^E:|[Ee]rror|[Ww]arning"; \
+		df -P $(BUILDDIR) | awk 'END { if ($$4 < 1024) \
+			{ print "** NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi

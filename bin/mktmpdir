@@ -26,4 +26,4 @@ choose_tmpdir() {
 }
 
 DIR="`choose_tmpdir`"
-mktemp -d "${1:-tmpdir}.XXXXXXXXXX" --tmpdir="${DIR:-..}"
+mktemp -d "${1:-tmpdir}.XXXXXXXXXX" --tmpdir="${DIR:-`realpath ..`}"
