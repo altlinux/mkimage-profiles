@@ -40,7 +40,7 @@ all:
 					fi; \
 					if [ -d "tagged/$$scr" ]; then \
 						pushd "tagged/$$scr" && \
-						echo "($$src || $$dst)" \
+						echo "$$feat && ($$src || $$dst)" \
 						| tags2lists . \
 						| xargs -r cp -v -pLt "$$scriptdir" --; \
 						popd; \
