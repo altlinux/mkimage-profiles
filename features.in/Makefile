@@ -2,8 +2,16 @@
 #         (only regarding the needed subprofiles)
 
 ifndef BUILDDIR
-$(error BUILDDIR not defined)
-endif
+help all:
+	@echo "** BUILDDIR not defined; available features:"
+	@for dir in */; do \
+		echo -n "$$dir: "; \
+		grep -h '^use/' $$dir/config.mk \
+		| cut -f1 -d: \
+		| tr '\n' ' ' \
+		| sort -u; \
+	done
+else
 
 include $(BUILDDIR)/distcfg.mk
 
@@ -69,8 +77,4 @@ all:
 	done
 	@find "$(BUILDDIR)/" -name '*~' \
 	| sed "s,$(BUILDDIR)/,** warning: file clash: ," >&2
-
-# FIXME: drop or fix regarding undefined BUILDDIR being ok
-#help:
-#	@echo "** available features:"
-#	@grep -h '^use/' */config.mk | fmt -sw"$$((COLUMNS>>1))" | column -t
+endif

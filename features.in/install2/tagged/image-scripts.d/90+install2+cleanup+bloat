@@ -1,0 +1,32 @@
+#!/bin/sh
+# purge anything unused during installation
+
+rm -rf /usr/share/icons/{hicolor,large,mini}
+
+# PAM plugins
+rm -rf /lib*/security
+
+rm -rf /usr/share/ca-certificates
+rm -rf /usr/lib/qt4/plugins/codecs
+rm -rf /usr/lib/qt4/plugins/bearer
+rm -rf /usr/lib/qt4/plugins/inputmethods
+rm -rf /usr/share/qt4/{doc,mkspecs,phrasebooks}
+
+rm -rf /usr/share/guile/*/{*.txt,scripts}
+rm -rf /usr/share/awk/
+
+### could it be handled with any grace?
+### TODO: x11vnc, xorg-xvfb: fix installer-common-stage2
+rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
+	bind-utils libbind \
+	gnupg libgcrypt libgnutls\* libgpg-error libsoup\* \
+	libGL glxinfo xdriinfo \
+	make make-initrd x11vnc xorg-xvfb \
+| xargs -r rpmi -e --nodeps --
+
+rpmquery -a bind-utils libbind \
+| xargs -r rpmi -e --
+
+# outstanding binaries
+rm -f /sbin/{sln,tc}
+rm -f /usr/bin/openssl

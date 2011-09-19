@@ -1,12 +1,14 @@
 see also http://www.altlinux.org/Mkimage/Profiles/next
 
-quickstart: make server-base.iso
-(NB: requires configured http://en.altlinux.org/Hasher)
+quickstart: make server-base.iso;
+see http://en.altlinux.org/Hasher (and a large tmpfs)
 
-configurables: ~/.mkimage/profiles.mk,
+configurables: ~/.mkimage/profiles.mk;
 see doc/profiles.mk.sample and libdistro.mk
 
 license: GPLv2+, see COPYING
+
+most docs in Russian, welcome to learn it or ask for English
 
 Концепция:
 - метапрофиль служит репозиторием для построения индивидуального

@@ -1,4 +1,5 @@
 #!/bin/sh -efu
+# create a postinstall script to drop temporarily needed packages
 
 if [ -n "$GLOBAL_VERBOSE" ]; then
 	echo "** GLOBAL_CLEANUP_PACKAGES: $GLOBAL_CLEANUP_PACKAGES"

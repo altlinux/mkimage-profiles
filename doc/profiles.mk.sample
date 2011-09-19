@@ -1,9 +1,9 @@
-### sample ~/.mkimage/profiles.mk
+# sample ~/.mkimage/profiles.mk
 
-### where to look for apt.conf; system one used by default
+# where to look for apt.conf; system one used by default
 #APTCONF = ~/apt/apt.conf.$(ARCH)
 
-### turns on GLOBAL_VERBOSE and prettier output
+# turns on GLOBAL_VERBOSE and prettier output
 #DEBUG = 1
 
 # spares tmpfs, quite recommended unless you need raw workdir chroots

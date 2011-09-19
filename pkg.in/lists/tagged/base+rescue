@@ -1,4 +1,4 @@
-### Startup
+# Startup
 rootfiles
 sysvinit
 interactivesystem
@@ -7,7 +7,7 @@ startup-rescue
 
 udev
 
-### Common
+# Common
 coreutils
 glibc-locales
 glibc-nss
@@ -19,11 +19,11 @@ sysfsutils
 sysklogd
 util-linux
 
-### CPU utils
+# CPU utils
 cpuburn
 x86info
 
-### Disk utils
+# Disk utils
 bonnie++
 cfdisk
 ddrescue
@@ -43,7 +43,7 @@ testdisk
 mtools
 partimage
 
-### Applications
+# Applications
 binutils
 dmidecode
 hexedit
@@ -55,7 +55,7 @@ sharutils
 time
 openssl
 
-### Applications/Archiving
+# Applications/Archiving
 arj
 bzip2
 gzip
@@ -63,16 +63,16 @@ unrar
 unzip
 zip
 
-### Applications/Editors
+# Applications/Editors
 vim-console
 
-### Applications/File
+# Applications/File
 findutils
 file
 less
 mtools
 
-### Filesystem utils
+# Filesystem utils
 dosfstools
 e2fsprogs
 jfsprogs
@@ -84,7 +84,7 @@ xfsprogs
 btrfs-progs
 ext3grep
 
-### Applications/Networking
+# Applications/Networking
 arpwatch
 elinks
 hostinfo
@@ -113,7 +113,7 @@ traceroute
 wget
 whois
 
-### Applications/Shells
+# Applications/Shells
 zsh
 ash
 bash
@@ -121,6 +121,6 @@ bc
 gpm
 mc
 
-### Development/Debuggers
+# Development/Debuggers
 strace
 sysstat

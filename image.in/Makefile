@@ -17,7 +17,6 @@ SUBDIRS = $(notdir $(SUBPROFILES))
 
 # "main" subprofile needs genbasedir
 CHROOT_PACKAGES = apt-utils
-###
 MKI_PACK_RESULTS = isoboot:$(IMAGENAME)
 COPY_TREE = ./files
 BOOT_TYPE = isolinux
@@ -33,7 +32,8 @@ GLOBAL_HSH_APT_CONFIG = $(APTCONF)
 endif
 
 # Metadata/ needed only for installers (and not for e.g. syslinux.iso)
-ifneq "$(STAGE1_KFLAVOUR)$(KFLAVOURS)" ""
+### what about installable live?
+ifneq (,$(findstring install2,$(FEATURES)))
 METADATA = metadata
 endif
 

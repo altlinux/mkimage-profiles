@@ -1,64 +1,50 @@
 #!/bin/sh
-
-# remove all docs
-rpmquery -adl |grep ^/ |xargs -r rm -f --
-rm -rf /usr/share/{doc,man,info,license,gfxboot}
-
-# remove unused icons
-rm -rf /usr/share/icons/{hicolor,large,mini}
-
-# remove PAM plugins
-rm -rf /lib*/security
-
-# remove some unused files
-rm -rf /usr/share/ca-certificates
-rm -rf /usr/lib/qt4/plugins/codecs
-rm -f /usr/lib*/gconv/IBM*
-rm -f /usr/lib*/gconv/BIG5*
-rm -f /usr/lib*/gconv/EBCDIC*
-
-# remove unneeded timezones
-rm -rf /usr/share/zoneinfo/{posix,right}/
-
-# remove unneeded l10n
-find /usr/share/locale/ -type f \! -name 'alterator*' -delete
-
-# remove non-utf8 locales
-find /usr/lib*/locale -mindepth 1 -maxdepth 1 -type d \! -name '*.utf8' -print0 |
-	xargs -r0 rm -rf --
+# drop extra drivers et al, purge kernel image(s)
 
 # xorg modules
 rm -r /usr/lib*/X11/modules/dri
 
-# remove ogfs
-rm -f /lib*/evms/*/ogfs*
+# evms modules; see http://evms.sourceforge.net/user_guide/
+rm -f /lib*/evms/*/{bbr,csm,drivelink,ogfs,replace,snapshot}*
 
-# remove cpp, gcc and perl
-rpmquery -a cpp\* gcc\* perl-base |
-	xargs -r rpmi -e --nodeps --
-
-# remove unneeded kernel modules
+# unneeded kernel modules
+### some of these removals belong to a purge grade script
+### TODO: mostly scsi-less and net-less cleanup for antique
 rm -rf /lib/modules/*/kernel/arch
 rm -rf /lib/modules/*/kernel/drivers/atm
-rm -rf /lib/modules/*/kernel/drivers/char/ipmi
+rm -rf /lib/modules/*/kernel/drivers/bluetooth
+rm -rf /lib/modules/*/kernel/drivers/char/{ipmi,hw_random,mwave,tpm}
 rm -rf /lib/modules/*/kernel/drivers/char/watchdog
 rm -rf /lib/modules/*/kernel/drivers/cpufreq
 rm -rf /lib/modules/*/kernel/drivers/edac
 rm -rf /lib/modules/*/kernel/drivers/firmware	###
+rm -rf /lib/modules/*/kernel/drivers/gpio
 rm -rf /lib/modules/*/kernel/drivers/hwmon
 rm -rf /lib/modules/*/kernel/drivers/infiniband	###
 rm -rf /lib/modules/*/kernel/drivers/input/{gameport,joy*}
 rm -rf /lib/modules/*/kernel/drivers/isdn
+rm -rf /lib/modules/*/kernel/drivers/leds
 rm -rf /lib/modules/*/kernel/drivers/media
 rm -rf /lib/modules/*/kernel/drivers/mmc
 rm -rf /lib/modules/*/kernel/drivers/mtd*
+rm -rf /lib/modules/*/kernel/drivers/net/can
+rm -rf /lib/modules/*/kernel/drivers/net/hamradio
 rm -rf /lib/modules/*/kernel/drivers/net/irda
+rm -rf /lib/modules/*/kernel/drivers/net/tokenring
+rm -rf /lib/modules/*/kernel/drivers/net/wimax
 rm -rf /lib/modules/*/kernel/drivers/net/wireless
+rm -rf /lib/modules/*/kernel/drivers/net/wan
+rm -rf /lib/modules/*/kernel/drivers/regulator
 rm -rf /lib/modules/*/kernel/drivers/staging
 rm -rf /lib/modules/*/kernel/drivers/spi
+rm -rf /lib/modules/*/kernel/drivers/target
 rm -rf /lib/modules/*/kernel/drivers/telephony
-rm -rf /lib/modules/*/kernel/drivers/usb/{misc,mon}
+rm -rf /lib/modules/*/kernel/drivers/tty/[^s][^e]*
+rm -rf /lib/modules/*/kernel/drivers/usb/{atm,c67*,image,misc,mon,otg,serial,wusbcore}
+rm -rf /lib/modules/*/kernel/drivers/usb/storage/ums*
+rm -rf /lib/modules/*/kernel/drivers/uwb
 rm -rf /lib/modules/*/kernel/drivers/w1
+rm -rf /lib/modules/*/kernel/drivers/watchdog
 rm -rf /lib/modules/*/kernel/fs/9p
 rm -rf /lib/modules/*/kernel/fs/adfs
 rm -rf /lib/modules/*/kernel/fs/affs
@@ -68,12 +54,16 @@ rm -rf /lib/modules/*/kernel/fs/autofs4
 rm -rf /lib/modules/*/kernel/fs/befs
 rm -rf /lib/modules/*/kernel/fs/bfs
 rm -rf /lib/modules/*/kernel/fs/btrfs
+rm -rf /lib/modules/*/kernel/fs/ceph
 rm -rf /lib/modules/*/kernel/fs/cifs
 rm -rf /lib/modules/*/kernel/fs/coda
 rm -rf /lib/modules/*/kernel/fs/configfs
 rm -rf /lib/modules/*/kernel/fs/cramfs
+rm -rf /lib/modules/*/kernel/fs/dlm
 rm -rf /lib/modules/*/kernel/fs/efs
+rm -rf /lib/modules/*/kernel/fs/exofs
 rm -rf /lib/modules/*/kernel/fs/freevxfs
+rm -rf /lib/modules/*/kernel/fs/fscache
 rm -rf /lib/modules/*/kernel/fs/fuse
 rm -rf /lib/modules/*/kernel/fs/hfs
 rm -rf /lib/modules/*/kernel/fs/hfsplus
@@ -81,18 +71,26 @@ rm -rf /lib/modules/*/kernel/fs/hpfs
 rm -rf /lib/modules/*/kernel/fs/jffs
 rm -rf /lib/modules/*/kernel/fs/jffs2
 rm -rf /lib/modules/*/kernel/fs/lockd
+rm -rf /lib/modules/*/kernel/fs/logfs
 rm -rf /lib/modules/*/kernel/fs/minix
 rm -rf /lib/modules/*/kernel/fs/ncpfs
 rm -rf /lib/modules/*/kernel/fs/nilfs2
 rm -rf /lib/modules/*/kernel/fs/ocfs2
+rm -rf /lib/modules/*/kernel/fs/omfs
 rm -rf /lib/modules/*/kernel/fs/qnx4
+rm -rf /lib/modules/*/kernel/fs/romfs
 rm -rf /lib/modules/*/kernel/fs/smbfs
 rm -rf /lib/modules/*/kernel/fs/sysv
+rm -rf /lib/modules/*/kernel/fs/ubifs
 rm -rf /lib/modules/*/kernel/fs/udf
 rm -rf /lib/modules/*/kernel/fs/ufs
 rm -rf /lib/modules/*/kernel/net/*/netfilter
+rm -rf /lib/modules/*/kernel/net/9p
 rm -rf /lib/modules/*/kernel/net/appletalk
+rm -rf /lib/modules/*/kernel/net/atm
 rm -rf /lib/modules/*/kernel/net/ax25
+rm -rf /lib/modules/*/kernel/net/can
+rm -rf /lib/modules/*/kernel/net/ceph
 rm -rf /lib/modules/*/kernel/net/bluetooth
 rm -rf /lib/modules/*/kernel/net/dccp
 rm -rf /lib/modules/*/kernel/net/decnet
@@ -102,22 +100,24 @@ rm -rf /lib/modules/*/kernel/net/ipx
 rm -rf /lib/modules/*/kernel/net/irda
 rm -rf /lib/modules/*/kernel/net/netfilter
 rm -rf /lib/modules/*/kernel/net/netrom
+rm -rf /lib/modules/*/kernel/net/rds
 rm -rf /lib/modules/*/kernel/net/rose
 rm -rf /lib/modules/*/kernel/net/sctp
 rm -rf /lib/modules/*/kernel/net/tipc
+rm -rf /lib/modules/*/kernel/net/{wimax,wireless,mac80211}
 rm -rf /lib/modules/*/kernel/net/x25
 rm -rf /lib/modules/*/kernel/sound
 
-# remove blacklisted kernel modules
+# blacklisted kernel modules
 sed -n 's/^blacklist[[:space:]]\+\([^[:space:]]\+\).*/\1/p' /etc/modprobe.d/* |
 	while read i; do
 		find /lib/modules/ -type f -name "$i.ko" -delete
 	done
 
-# run depmod after kernel modules removal
+# regenerate module dependencies
 for i in /lib*/modules/*; do
-    /sbin/depmod -a -F /boot/System.map-${i##*/} ${i##*/}
+	/sbin/depmod -a -F /boot/System.map-${i##*/} ${i##*/}
 done
 
-# remove kernel images
+# kernel images
 rm -rf /boot/*

@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# stage1 needs this <-- FIXME: duplicated in sub.in/stage2/image-scripts.d/00propagator
-#mkdir -p /image
-
 # m-p-d::profiles/rescue/image-scripts.d/999system
 mv -f -- /etc/inittab.rescue /etc/inittab
 

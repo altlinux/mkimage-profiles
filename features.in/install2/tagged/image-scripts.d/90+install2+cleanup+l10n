@@ -1,0 +1,22 @@
+#!/bin/sh
+# drop unused l10n/i18n data
+
+# the fell swoop
+find /usr/share/locale/ -type f \! -name 'alterator*' -delete
+rm -rf /usr/share/zoneinfo/{posix,right}/
+
+# charset conversion tables
+### NB: BIG5* and friends should be handled consistently
+rm -f /usr/lib*/gconv/IBM*
+rm -f /usr/lib*/gconv/BIG5*
+rm -f /usr/lib*/gconv/EBCDIC*
+
+# en_* variations
+rm -rf /usr/{lib*,share}/locale/en_[^U]*
+
+# non-utf8 locales
+find /usr/lib*/locale -mindepth 1 -maxdepth 1 -type d \! -name '*.utf8' -print0 |
+        xargs -r0 rm -rf --
+
+# dangling symlinks
+find /usr/lib*/locale \! -readable -delete
