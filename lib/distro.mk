@@ -1,29 +1,45 @@
-# this makefile is designed to be included in toplevel one
-ifndef BUILDDIR
-$(error BUILDDIR not defined)
-endif
-
 # step 2: build up distribution's configuration
 
-# NB: distro/ targets should be defined in this file,
-# see toplevel Makefile's $(DISTROS) assignment
-CONFIG = $(BUILDDIR)/distcfg.mk
+ifndef MKIMAGE_PROFILES
+$(error this makefile is designed to be included in toplevel one)
+endif
 
-# collect use/% (source initial feature snippets)
--include features.in/*/config.mk
+# NB: distro/ targets should be defined in this file
 
-# put(), add(), set(), try(), tags():
-# package list names are considered relative to pkg/lists/;
-# tags can do boolean expressions: (tag1 && !(tag2 || tag3))
-include functions.mk
+DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
+		$(lastword $(MAKEFILE_LIST)) | sort)
 
-# distro/.%, sub/.%, boot/%
-include libdistro.mk
+ifeq (distro,$(IMAGE_CLASS))
 
-# bootloader test target; requires recent mkimage to build
-distro/syslinux: distro/.init distro/.branding sub/stage1 \
+.PHONY: $(DISTRO_TARGETS)
+
+# request particular image subprofile inclusion
+sub/%:
+	@$(call add,SUBPROFILES,$(@:sub/%=%))
+
+# install media bootloader
+boot/%: profile/bare use/syslinux
+	@$(call set,BOOTLOADER,$*)
+
+# fundamental targets
+
+distro/.init: profile/bare
+
+# NB: the last flavour in KFLAVOURS gets to be the default one;
+# the kernel packages regexp evaluation has to take place at build stage
+distro/.base: distro/.init use/syslinux/localboot.cfg
+	@$(call set,KFLAVOURS,std-def)
+
+# bootloader test target
+distro/syslinux: distro/.init \
 	use/syslinux use/syslinux/localboot.cfg \
-	use/syslinux/ui-vesamenu use/hdt use/memtest use/dos
+	use/syslinux/ui-vesamenu use/hdt use/memtest
+
+# live images
+
+distro/live: distro/.base use/live use/syslinux/ui-menu
+distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
+distro/dos: distro/.init use/dos use/syslinux/ui-menu
 
 #  $(VAR) will be substituted before writing them to $(CONFIG);
 # $$(VAR) will remain unsubstituted until $(CONFIG) is included
@@ -31,12 +47,6 @@ distro/syslinux: distro/.init distro/.branding sub/stage1 \
 #         can change its value during configuration _before_
 #         it's actually used); just peek inside $(CONFIG) ;-)
 # BASE_PACKAGES, BASE_LISTS, MAIN_PACKAGES, MAIN_LISTS: see sub.in/main/
-
-# live images
-
-distro/live: distro/.base use/live use/syslinux/ui-menu
-distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
-distro/dos: sub/stage1 use/dos use/syslinux/ui-menu
 
 # something actually useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader
@@ -84,3 +94,4 @@ distro/icewm: distro/desktop-base \
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 
 # NB: if there are too many screens above, it might make sense to distro.d/
+endif

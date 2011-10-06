@@ -27,3 +27,8 @@
 - features.in/syslinux/scripts.d/20-propagator-ramdisk
   + ожидают, что названия squashfs-образов второй стадии инсталятора,
     livecd и спасательной системы соответственно altinst, live и rescue
+
+- image.in/Makefile
+  + ожидает, что конфигурация будет в distcfg.mk (см. тж. lib/profile.mk),
+    а лог сборки -- в build.log (см. тж. lib/log.mk); альтернативой было
+    бы пробрасывание переменных с полным путём ради единственного места

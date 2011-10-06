@@ -1,4 +1,6 @@
-PKGDIR=$(GLOBAL_BUILDDIR)/pkg
+# globals
+PKGDIR := $(GLOBAL_BUILDDIR)/pkg
+DATE ?= $(shell date +%Y%m%d)
 
 # prefix pkglist name with its directory to form a path
 list = $(1:%=$(PKGDIR)/lists/%)
@@ -12,6 +14,7 @@ map = $(foreach a,$(2),$(call $(1),$(a)))
 # kernel package list generation; see also #24669
 NULL :=
 SPACE := $(NULL) # the officially documented way of getting a space
+
 list2re = $(subst $(SPACE),|,$(strip $(1)))
 # args: KMODULES, KFLAVOURS
 kpackages = ^kernel-(image|modules-($(call list2re,$(1))))-($(call list2re,$(2)))$$

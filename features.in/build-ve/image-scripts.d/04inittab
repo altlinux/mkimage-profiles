@@ -1,0 +1,3 @@
+#!/bin/sh -e
+# we don't need no gettys in OpenVZ VEs (might need one in LXC though)
+subst 's,^[0-9]\+:[0-9]\+:respawn:/sbin/mingetty.*,#&,' /etc/inittab

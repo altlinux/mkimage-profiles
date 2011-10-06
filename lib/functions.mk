@@ -38,8 +38,13 @@ endef
 
 # if the rule being executed isn't logged yet, log it
 define log_body
-{ grep -q '^# $@$$' "$(CONFIG)" || printf '# %s\n' '$@' >> "$(CONFIG)"; }
+{ [ -s "$(CONFIG)" ] && \
+	grep -q '^# $@$$' "$(CONFIG)" || printf '# %s\n' '$@' >> "$(CONFIG)"; }
 endef
 
 # convert tag list into a list of relative package list paths
+# NB: tags can do boolean expressions: (tag1 && !(tag2 || tag3))
 tags = $(and $(strip $(1)),$(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists pkg.in/lists/tagged)))
+
+# toplevel Makefile convenience
+addsuffices = $(foreach s,$(1),$(call addsuffix,$s,$(2)))

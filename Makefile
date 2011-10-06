@@ -2,50 +2,57 @@
 # --- here
 # 1. initialize new profile (BUILDDIR) as a copy of image.in/
 # 2. configure distro
-# 3. copy subprofiles, script hooks, and package lists/groups
-#    from metaprofile to new profile (as needed)
+# 3. copy the needed bits from metaprofile to a new profile
 # --- in BUILDDIR
-# 4. build subprofiles and subsequently the image
+# 4. build subprofiles and subsequently an image
 
-all help:
-	@echo '** available distribution targets:'
-	@echo $(IMAGES) | fmt -sw"$$((COLUMNS>>1))" | column -t
+MKIMAGE_PROFILES = $(dir $(lastword $(MAKEFILE_LIST)))
+
+# only process the first target (inter-target cleanup is tricky)
+IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	distro/server-base.iso
+IMAGE_CONF   := $(basename $(MAKECMDGOALS))#	distro/server-base
+IMAGE_CLASS  := $(dir $(IMAGE_TARGET))#		distro/ (let's fix it)
+IMAGE_CLASS  := $(IMAGE_CLASS:%/=%)#		distro
+IMAGE_FILE   := $(notdir $(IMAGE_TARGET))#	server-base.iso
+IMAGE_NAME   := $(basename $(IMAGE_FILE))#	server-base
+IMAGE_TYPE   := $(suffix $(IMAGE_FILE))#	.iso (fix this too)
+IMAGE_TYPE   := $(IMAGE_TYPE:.%=%)#		iso
 
 # most of the actual work done elsewhere
-include clean.mk
-include profile.mk
-include distro.mk
-include log.mk
-include iso.mk
+include lib/*.mk
+include features.in/*/config.mk
+
+DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS)) 
+VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
+IMAGES  := $(DISTROS) $(VES)
 
 .PHONY: $(IMAGES)
 
-# we can't use implicit rules for top-level targets, only for prereqs
-# NB: what about static pattern rules?
-# TODO: move into libdistro?
-DISTROS := $(shell sed -n 's,^distro/\([^:.]\+\):.*$$,\1,p' distro.mk)
-IMAGES := $(addsuffix .iso,$(DISTROS))
+help:
+	@echo '** available distribution targets:'
+	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
+	@echo
+	@echo '** available virtual environment targets:'
+	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
 
-# to be passed into distcfg.mk
-IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
-	&& echo "$$HOME/out" \
-	|| echo "$(BUILDDIR)/out" )
-IMAGENAME ?= mkimage-profiles-$(ARCH).iso
+### suboptimal but at least clear, reliable and convenient
+all:
+	@for i in $(DISTROS); do \
+		echo "** building $$i:"; \
+		$(MAKE) --no-print-directory BUILDDIR=$(BUILDDIR) $$i; \
+		echo; \
+	done
 
-everything:
-	@for i in $(IMAGES); do $(MAKE) BUILDDIR=$(BUILDDIR) $$i; done
+$(IMAGES): debug \
+	config/with/$(IMAGE_CONF) \
+	config/like/$(IMAGE_CLASS) \
+	config/name/$(IMAGE_NAME) \
+	config/pack/$(IMAGE_TYPE) \
+	build; @:
 
-$(IMAGES): %.iso: | profile/init distro/% boot/isolinux profile/populate iso
-	@# TODO: run automated tests (e.g. iso size)
-	@OUTNAME="$(@:.iso=)-$(DATE)-$(ARCH).iso"; \
-	 OUTPATH="$(IMAGEDIR)/$$OUTNAME"; \
-		mkdir -p "$(IMAGEDIR)" && \
-		test -s "$(IMAGEDIR)/$(IMAGENAME)" && \
-		mv "$(IMAGEDIR)/$(IMAGENAME)" "$$OUTPATH" && \
-		echo "** image: $$OUTPATH" && \
-		ln -sf "$$OUTNAME" "$(IMAGEDIR)/$@" && \
-		ln -sf "$@" "$(IMAGEDIR)/mkimage-profiles.iso"; \
-		if [ -n "$(DEBUG)" ]; then \
-			cp -a "$(BUILDLOG)" "$$OUTPATH.log"; \
-			cp -a "$(CONFIG)" "$$OUTPATH.cfg"; \
-		fi
+debug:
+ifeq (2,$(DEBUG))
+	@$(foreach v,\
+		$(filter IMAGE_%,$(sort $(.VARIABLES))),\
+		$(warning $v = $($v)))
+endif

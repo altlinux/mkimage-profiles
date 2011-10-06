@@ -1,0 +1,33 @@
+требуется
+~~~~~~~~~
+- ALT Linux 6.0 или выше (возможна адаптация "вниз")
+- установленный mkimage (свежий, как и hasher)
+- пользователь с правом запуска hasher
+
+полезно
+~~~~~~~
+- смонтированный tmpfs на несколько гигабайт
+  + например, в /tmp или /home/USER/hasher
+  + каталог из prefix в /etc/hasher-priv/system
+- установленный git-core
+- настроенный ~/.gitconfig
+
+команды
+~~~~~~~
+- от имени root:
+# apt-get install hasher git-core
+# hasher-useradd USER
+
+- от имени пользователя (после повторного входа):
+$ git config --global user.email "my@email"
+$ git config --global user.name "My Name"
+
+- тестовая сборка (см. тж. lib/distro.mk, doc/variables.txt):
+$ make distro/icewm.iso
+
+ссылки
+~~~~~~
+- http://www.altlinux.org/tmpfs
+- http://www.altlinux.org/hasher
+- http://www.altlinux.org/mkimage
+- http://www.altlinux.org/Mkimage/Profiles/next

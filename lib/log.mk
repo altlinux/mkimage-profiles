@@ -1,11 +1,10 @@
-# this makefile is designed to be included in toplevel one
-ifndef BUILDDIR
-$(error BUILDDIR not defined)
-endif
-
 # simple logging switch inspired by netch@'s advice:
 # you can add plain $(LOG) to a rule recipe line to moderate it
 # (logfile is automatically truncated during profile/init)
+
+ifndef MKIMAGE_PROFILES
+$(error this makefile is designed to be included in toplevel one)
+endif
 
 BUILDLOG ?= $(BUILDDIR)/build.log
 

@@ -1,0 +1,11 @@
+#!/bin/sh
+# VEs typically have no means to communicate with the outer
+# world except for networking; still this might need some
+# more tweaking for networkless LXC case
+
+# candidates:
+# off: keytable
+
+for i in network random syslogd random; do chkconfig $i on; done
+for i in fbsetfont netfs rawdevices; do chkconfig $i off; done
+:

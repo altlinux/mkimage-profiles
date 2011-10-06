@@ -1,4 +1,6 @@
-# this makefile is designed to be included in toplevel one
+ifndef MKIMAGE_PROFILES
+$(error this makefile is designed to be included in toplevel one)
+endif
 
 SYMLINK = build
 
@@ -19,6 +21,9 @@ PATH := $(CURDIR)/bin:$(PATH)
 
 export BUILDDIR NO_CACHE PATH
 
+CONFIG := $(BUILDDIR)/distcfg.mk
+RC := $(HOME)/.mkimage/profiles.mk
+
 # holds a postprocessor; shell test executes in particular situation
 # NB: not exported, for toplevel use only
 SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s "$(SYMLINK)" ] \
@@ -28,10 +33,8 @@ SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s "$(SYMLINK)" ] \
 profile/init: distclean
 	@echo -n "** initializing BUILDDIR: "
 	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
-	@{ \
-		echo "ifndef DISTCFG_MK"; \
-		echo "DISTCFG_MK = 1"; \
-	} > "$(BUILDDIR)"/distcfg.mk
+	@$(call put,ifndef DISTCFG_MK)
+	@$(call put,DISTCFG_MK = 1)
 	@{ \
 		git show-ref --head -d -s -- HEAD && \
 		git status -s && \
@@ -51,8 +54,17 @@ profile/init: distclean
 			echo "$(BUILDDIR)/"; \
 		fi
 
-profile/finalize: distro/.rc
-	@echo "endif" >> "$(BUILDDIR)"/distcfg.mk
+profile/bare: profile/init
+	@echo "** preparing distro configuration$${DEBUG:+: see $(CONFIG)}" $(SHORTEN)
+	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
+	@$(call try,GLOBAL_VERBOSE,)
+	@$(call try,IMAGEDIR,$(IMAGEDIR))
+	@$(call try,BRANDING,altlinux-sisyphus)
+	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
+
+profile/finalize:
+	@if [ -s $(RC) ]; then $(call put,-include $(RC)); fi
+	@$(call put,endif)
 
 # requires already formed distcfg.mk for useful output
 profile/dump-vars:

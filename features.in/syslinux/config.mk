@@ -1,5 +1,5 @@
 # default is plain text prompt
-use/syslinux:
+use/syslinux: sub/stage1
 	@$(call add,FEATURES,syslinux)
 	@$(call add,STAGE1_PACKAGES,syslinux)
 

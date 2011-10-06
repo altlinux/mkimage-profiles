@@ -1,18 +1,19 @@
-# this makefile is designed to be included in toplevel one
-ifndef BUILDDIR
-$(error BUILDDIR not defined)
+# step 4 is kicked off here but actually done by image.in/Makefile
+
+ifndef MKIMAGE_PROFILES
+$(error this makefile is designed to be included in toplevel one)
 endif
+
+# NB: /usr/bin/{i586,x86_64} are setarch(8) symlinks
 
 export ARCH ?= $(shell arch | sed 's/i686/i586/')
 
-# step 4 is kicked off here but actually done by image.in/Makefile
-#
-# adding boot/isolinux to prereqs is too late here,
-# since profile/populate target is already done by now
-#
-# NB: /usr/bin/{i586,x86_64} are setarch(8) symlinks
+# to be passed into distcfg.mk
+IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
+	&& echo "$$HOME/out" \
+	|| echo "$(BUILDDIR)/out" )
 
-iso:
+build: profile/populate
 	@echo -n "** starting image build"
 	@if [ -n "$(DEBUG)" ]; then \
 		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
@@ -20,7 +21,7 @@ iso:
 		echo " (coffee time)"; \
 	fi
 	@if time -f "%E %PCPU %Mk" $(ARCH) \
-		$(MAKE) -C $(BUILDDIR)/ GLOBAL_BUILDDIR=$(BUILDDIR) $(LOG); \
+		$(MAKE) -C $(BUILDDIR)/ $(LOG); \
 	then \
 		echo "** build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
 			|| echo "no log"`)"; \

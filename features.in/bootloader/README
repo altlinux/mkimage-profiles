@@ -6,4 +6,5 @@
 и требует пакет выбранного загрузчика.
 
 Реализация экспериментальная (нужно модуляризовать installer-steps),
-пока завязана на installer-distro-altlinux-generic.
+пока завязана на installer-distro-altlinux-generic.  Возможно,
+с использованием alterator-lilo связаны проблемы времени установки.

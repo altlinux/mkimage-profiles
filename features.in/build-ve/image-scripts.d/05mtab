@@ -1,0 +1,3 @@
+#!/bin/sh -e
+# should be pretty much obsolete but just in case
+[ -L /etc/mtab ] || ln -sf /proc/mounts /etc/mtab

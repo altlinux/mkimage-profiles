@@ -26,7 +26,7 @@ IMAGE_PACKAGES += $(SYSTEM_PACKAGES)
 # no kernel flavour specified will result in no modules for stage1 vmlinuz
 STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
 
-ifeq "$(STAGE1_KFLAVOUR)" ""
+ifeq (,$(STAGE1_KFLAVOUR))
 $(error STAGE1_KFLAVOUR is utterly empty; cannot guess either)
 endif
 

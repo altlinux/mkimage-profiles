@@ -40,17 +40,17 @@ all:
 			dst="$${sub#*/}"; \
 			if [ -d "$$src" ]; then rsync -qab "$$src/" "$(BUILDDIR)/$$dst/"; fi; \
 			if [ -d "$$dst" ]; then rsync -qab "$$dst/" "$(BUILDDIR)/$$dst/"; fi; \
-			for scr in {image-,}scripts.d; do \
-				scriptdir="$(BUILDDIR)/$$dst/$$scr/"; \
-				if [ -d "$$scriptdir" ]; then \
-					if [ -d "$$scr" ]; then \
-						rsync -qab "$$scr/" "$$scriptdir/"; \
+			for dir in lib {image-,}scripts.d; do \
+				destdir="$(BUILDDIR)/$$dst/$$dir/"; \
+				if [ -d "$$destdir" ]; then \
+					if [ -d "$$dir" ]; then \
+						rsync -qab "$$dir/" "$$destdir/"; \
 					fi; \
-					if [ -d "tagged/$$scr" ]; then \
-						pushd "tagged/$$scr" && \
+					if [ -d "tagged/$$dir" ]; then \
+						pushd "tagged/$$dir" && \
 						echo "$$feat && ($$src || $$dst)" \
 						| tags2lists . \
-						| xargs -r cp -v -pLt "$$scriptdir" --; \
+						| xargs -r cp -v -pLt "$$destdir" --; \
 						popd; \
 					fi; \
 				fi; \

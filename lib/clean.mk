@@ -17,7 +17,7 @@ clean:
 	@echo '** cleaning up $(WARNING)'
 	@find -name '*~' -delete >&/dev/null
 	@if [ -L build -a -d build/ ]; then \
-		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG); \
+		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) ||:; \
 	fi
 
 # there can be some sense in writing log here even if normally
@@ -26,7 +26,8 @@ clean:
 distclean: clean
 	@if [ -L build -a -d build/ ]; then \
 		rm -rf build/.git; \
-		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) && \
+		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) || \
+			rm -rf build/; \
 		rm -r $(shell readlink build); \
 	fi
 	@rm -f build

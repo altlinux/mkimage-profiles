@@ -1,82 +1,51 @@
-# step 4: build image (final stage)
-#
-# NB: this directory forms the initial BUILDDIR/
+# stage 4: dive into mkimage
 
-ifndef GLOBAL_BUILDDIR
-$(error GLOBAL_BUILDDIR not defined)
-endif
+GLOBAL_BUILDDIR ?= $(shell pwd)
 
+include distcfg.mk
 include functions.mk
-include $(GLOBAL_BUILDDIR)/functions.mk
-include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
-# for complex-specified subprofiles like stage2/live,
-# take the latter part
-SUBDIRS = $(notdir $(SUBPROFILES))
+# reconstruct instead of passing yet another variable
+IMAGE_FILE := $(IMAGE_NAME).$(IMAGE_TYPE)
+IMAGE_OUTFILE := $(IMAGE_NAME)-$(DATE)-$(ARCH).$(IMAGE_TYPE)
+MKI_PACK_RESULTS = $(IMAGE_PACKTYPE):$(IMAGE_OUTFILE)
 
-# "main" subprofile needs genbasedir
-CHROOT_PACKAGES = apt-utils
-MKI_PACK_RESULTS = isoboot:$(IMAGENAME)
+# these get opied over as is
 COPY_TREE = ./files
-BOOT_TYPE = isolinux
 
 # outdir shouldn't be wiped clean before use
 CLEANUP_OUTDIR ?=
 
 APTCONF := $(wildcard $(APTCONF))
-ifeq "$(APTCONF)" ""
+ifeq (,$(APTCONF))
 GLOBAL_HSH_APT_CONFIG = /etc/apt/apt.conf
 else
 GLOBAL_HSH_APT_CONFIG = $(APTCONF)
 endif
 
-# Metadata/ needed only for installers (and not for e.g. syslinux.iso)
-### what about installable live?
-ifneq (,$(findstring install2,$(FEATURES)))
-METADATA = metadata
-endif
-
+# the lib/build-*.mk comes from features.in/build-*/lib
+include lib/*.mk
 include $(MKIMAGE_PREFIX)/targets.mk
 
-all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
-	$(GLOBAL_CLEAN_WORKDIR)
-
-prep: $(GLOBAL_DEBUG) dot-disk $(METADATA) $(IMAGEDIR)
-
-metadata: dot-base
-	@mkdir -p files/Metadata
-	@rm -f files/Metadata/pkg-groups.tar
-# see also alterator-pkg (backend3/pkg-install); we only tar up what's up to it
-	@tar -cvf files/Metadata/pkg-groups.tar -C $(PKGDIR) \
-		$$(echo $(call list,$(MAIN_GROUPS) .base) \
-			$(call group,$(MAIN_GROUPS)) \
-		   | sed 's,$(PKGDIR)/*,,g')
-
-dot-base:
-	@{ \
-		echo -e "\n## added by image.in/Makefile"; \
-		echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))"; \
-	} >> $(call list,.base)
+# specified only for the final image (target-specific)
+pack-image: OUTDIR = $(IMAGEDIR)
+pack-image: $(IMAGEDIR)
 
 $(IMAGEDIR):
 	@mkdir -p "$(IMAGEDIR)"
 
-# specified only for the final image, not for the subparts
-pack-image: OUTDIR = $(IMAGEDIR)
+postprocess:
+	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
+	echo "** image: $(IMAGE_OUTFILE)" && \
+	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_FILE)" && \
+	ln -sf "$(IMAGE_FILE)" "$(IMAGEDIR)/mkimage-profiles.$(IMAGE_TYPE)"; \
+	if [ -n "$(GLOBAL_DEBUG)" ]; then \
+		cp -a build.log "$$OUTPATH.log"; \
+		cp -a distcfg.mk "$$OUTPATH.cfg"; \
+	fi
 
 debug:
 	@echo "TOPDIR=$(TOPDIR)"
 	@echo "ARCH=$(ARCH)"
 	@echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
-
-dot-disk:
-	@mkdir -p files/.disk
-	@echo "ALT Linux based" >files/.disk/info
-	@echo "$(ARCH)" >files/.disk/arch
-	@echo "$(DATE)" >files/.disk/date
-	@if type -t git >&/dev/null; then \
-		( cd $(TOPDIR) && \
-		git show-ref --head -ds -- HEAD ) \
-		>files/.disk/commit 2>/dev/null; \
-	fi
