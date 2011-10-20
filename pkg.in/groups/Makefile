@@ -13,11 +13,13 @@ all: $(GLOBAL_DEBUG)
 	@if [ -n "$(MAIN_GROUPS)" ]; then \
 		mkdir -p $(TARGET) && \
 		cp -at $(TARGET) -- $(addsuffix .directory,$(MAIN_GROUPS)); \
-		type -t git >&/dev/null && \
-		cd $(TARGET) && \
-		git add . && \
-		git commit -qam "requested $(SUFFIX) copied over"; \
-		cd - >&/dev/null; \
+		if type -t git >&/dev/null && cd $(TARGET); then \
+			if [ -n "`git status -s`" ]; then \
+				git add . && \
+				git commit -qam "requested $(SUFFIX) copied over"; \
+			fi; \
+			cd - >&/dev/null; \
+		fi; \
 	fi
 
 debug:

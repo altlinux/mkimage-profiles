@@ -38,10 +38,12 @@ all: $(TARGET) $(GLOBAL_DEBUG)
 	@if [ -n "$(MAIN_GROUPS)" ]; then \
 		cp -at $(TARGET) -- $(MAIN_GROUPS); \
 	fi
-	@if type -t git >&/dev/null; then \
-		cd $(TARGET) && \
-		git add . && \
-		git commit -qam "requested $(SUFFIX) copied over"; \
+	@if type -t git >&/dev/null && cd $(TARGET); then \
+		if [ -n "`git status -s`" ]; then \
+			git add . && \
+			git commit -qam "requested $(SUFFIX) copied over"; \
+		fi; \
+		cd - >&/dev/null; \
 	fi
 
 # do beforehand as foreach gets expanded before recipe execution

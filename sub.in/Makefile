@@ -13,12 +13,14 @@ all:
 		src="$${sub%/*}" && \
 		dst="$${sub#*/}" && \
 		neq="$${src#$$dst}" && \
-		rsync -a "$$src/" "$(BUILDDIR)/$$dst/" && \
-		type -t git >&/dev/null && \
-		cd "$(BUILDDIR)/$$dst/" && \
-		git add . && \
-		git commit -qam "$$dst subprofile initialized$${neq:+ (using $$src)}"; \
-		cd - >&/dev/null; \
+		rsync -qa "$$src/" "$(BUILDDIR)/$$dst/" && \
+		if type -t git >&/dev/null && cd "$(BUILDDIR)/$$dst/"; then \
+			if [ -n "`git status -s`" ]; then \
+				git add . && \
+				git commit -qam "$$dst subprofile initialized$${neq:+ (using $$src)}"; \
+			fi; \
+			cd - >&/dev/null; \
+		fi; \
 	done
 
 clean:

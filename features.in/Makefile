@@ -27,6 +27,7 @@ include $(BUILDDIR)/distcfg.mk
 ### {image-,}scripts.d/ get rsynced twice :-/
 ### still we don't want the trimmed-down case
 
+### sorry for somewhat complicated and overly long lines
 all:
 	@echo "** starting feature configuration"
 	@if [ -n "$(GLOBAL_DEBUG)" ]; then \
@@ -47,32 +48,38 @@ all:
 						rsync -qab "$$dir/" "$$destdir/"; \
 					fi; \
 					if [ -d "tagged/$$dir" ]; then \
-						pushd "tagged/$$dir" && \
-						echo "$$feat && ($$src || $$dst)" \
-						| tags2lists . \
-						| xargs -r cp -v -pLt "$$destdir" --; \
-						popd; \
+						if pushd "tagged/$$dir"; then \
+							echo "$$feat && ($$src || $$dst)" \
+							| tags2lists . \
+							| xargs -r cp -v -pLt "$$destdir" --; \
+							popd; \
+						fi; \
 					fi; \
 				fi; \
 			done; \
-			type -t git >&/dev/null && \
-			pushd "$(BUILDDIR)/$$dst/" && \
-			git add . && \
-			if [ -n "$$dst" ]; then \
-				the="$$sub subprofile"; \
-			else \
-				the="toplevel"; \
+			if type -t git >&/dev/null && \
+			   pushd "$(BUILDDIR)/$$dst/"; then \
+				test -n "`git status -s`" && \
+				git add . && \
+				if [ -n "$$dst" ]; then \
+					the="$$sub subprofile"; \
+				else \
+					the="toplevel"; \
+				fi && \
+				git commit -qam "$$feat feature ($$the part)"; \
+				popd; \
 			fi; \
-			git commit -qam "$$feat feature ($$the part)" ||:; \
-			popd; \
 		done; \
 		if [ -x "generate.sh" ]; then sh generate.sh; fi; \
 		if [ -s "generate.mk" ]; then $(MAKE) -f generate.mk; fi; \
-		type -t git >&/dev/null && \
-		pushd "$(BUILDDIR)/" && \
-		git add . && \
-		git commit -qam "$$feat feature generation complete" ||:; \
-		popd; \
+		if type -t git >&/dev/null && \
+		   pushd "$(BUILDDIR)/"; then \
+			if test -n "`git status -s`"; then \
+				git add . && \
+				git commit -qam "$$feat feature generation complete"; \
+			fi; \
+			popd; \
+		fi; \
 		popd; \
 	done
 	@find "$(BUILDDIR)/" -name '*~' \
