@@ -1,5 +1,8 @@
 # globals
 PKGDIR := $(GLOBAL_BUILDDIR)/pkg
+
+### duplicated from toplevel build.mk, log.mk for sake of "local" builds
+ARCH ?= $(shell arch | sed 's/i686/i586/')
 DATE ?= $(shell date +%Y%m%d)
 
 # prefix pkglist name with its directory to form a path
