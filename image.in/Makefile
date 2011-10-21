@@ -1,6 +1,7 @@
 # stage 4: dive into mkimage
 
 GLOBAL_BUILDDIR ?= $(shell pwd)
+LINKPREFIX := mkimage-profiles
 
 include distcfg.mk
 include functions.mk
@@ -39,7 +40,8 @@ postprocess:
 	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
 	echo "** image: $(IMAGE_OUTFILE)" && \
 	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_FILE)" && \
-	ln -sf "$(IMAGE_FILE)" "$(IMAGEDIR)/mkimage-profiles.$(IMAGE_TYPE)"; \
+	ln -sf "$(IMAGE_FILE)" "$(IMAGEDIR)/$(LINKPREFIX).$(IMAGE_TYPE)"; \
+	ln -sf "$$OUTPATH" "$(IMAGE_FILE)"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		cp -a build.log "$$OUTPATH.log"; \
 		cp -a distcfg.mk "$$OUTPATH.cfg"; \

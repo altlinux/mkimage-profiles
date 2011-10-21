@@ -41,11 +41,11 @@ profile/init: distclean
 		echo; \
 	} $(LOG)
 	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
-	@type -t git >&/dev/null && \
-		cd $(BUILDDIR) && \
+	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
 		git init -q && \
 		git add . && \
-		git commit -qam 'distribution profile initialized'
+		git commit -qam 'derivative profile initialized'; \
+	fi
 	@rm -f "$(SYMLINK)" && \
 		if [ -w . ]; then \
 			ln -sf "$(BUILDDIR)" "$(SYMLINK)" && \
@@ -61,10 +61,20 @@ profile/bare: profile/init
 	@$(call try,IMAGEDIR,$(IMAGEDIR))
 	@$(call try,BRANDING,altlinux-sisyphus)
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
+	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
+		git init -q && \
+		git add . && \
+		git commit -qam 'image configuration defaults set'; \
+	fi
 
 profile/finalize:
 	@if [ -s $(RC) ]; then $(call put,-include $(RC)); fi
 	@$(call put,endif)
+	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
+		git init -q && \
+		git add . && \
+		git commit -qam 'image configuration finalized'; \
+	fi
 
 # requires already formed distcfg.mk for useful output
 profile/dump-vars:

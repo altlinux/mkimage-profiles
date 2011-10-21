@@ -66,7 +66,7 @@ all:
 				else \
 					the="toplevel"; \
 				fi && \
-				git commit -qam "$$feat feature ($$the part)"; \
+				git commit -qam "$$feat feature: $$the part added"; \
 				popd; \
 			fi; \
 		done; \
