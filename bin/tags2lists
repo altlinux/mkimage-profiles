@@ -29,4 +29,5 @@ transformed="$(sed \
 	-e "s, *( *, ( ,g" \
 	-e "s, *) *, ) ,g")"
 
+[ "$DEBUG" = 2 ] && echo "`basename $0`: transformed = \"$transformed\"" >&2
 [ -z "$transformed" ] || find $transformed | sed 's,^\./,,'

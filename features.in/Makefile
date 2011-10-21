@@ -35,12 +35,23 @@ all:
 		echo "** requested features: $(FEATURES)"; \
 	fi
 	@for feat in $(FEATURES); do \
-		pushd "$$feat" && \
+		if [ -n "$(GLOBAL_DEBUG)" ]; then \
+			echo "** adding $$feat feature"; \
+		fi; \
+		pushd "$$feat" >/dev/null && \
 		for sub in / $(SUBPROFILES); do \
 			src="$${sub%/*}"; \
 			dst="$${sub#*/}"; \
-			if [ -d "$$src" ]; then rsync -qab "$$src/" "$(BUILDDIR)/$$dst/"; fi; \
-			if [ -d "$$dst" ]; then rsync -qab "$$dst/" "$(BUILDDIR)/$$dst/"; fi; \
+			if [ -d "$$src" ]; then \
+				rsync -qab "$$src/" "$(BUILDDIR)/$$dst/"; \
+				dirtags="&& $$src"; \
+			fi; \
+			if [ -d "$$dst" ]; then \
+				rsync -qab "$$dst/" "$(BUILDDIR)/$$dst/"; \
+				if [ "$$dst" != "$$src" ]; then \
+					dirtags="&& ($$src || $$dst)"; \
+				fi; \
+			fi; \
 			for dir in lib {image-,}scripts.d; do \
 				destdir="$(BUILDDIR)/$$dst/$$dir/"; \
 				if [ -d "$$destdir" ]; then \
@@ -48,17 +59,17 @@ all:
 						rsync -qab "$$dir/" "$$destdir/"; \
 					fi; \
 					if [ -d "tagged/$$dir" ]; then \
-						if pushd "tagged/$$dir"; then \
-							echo "$$feat && ($$src || $$dst)" \
+						if pushd "tagged/$$dir" >/dev/null; then \
+							echo "$$feat $$dirtags" \
 							| tags2lists . \
-							| xargs -r cp -v -pLt "$$destdir" --; \
-							popd; \
+							| xargs -r cp -vpLt "$$destdir" --; \
+							popd >/dev/null; \
 						fi; \
 					fi; \
 				fi; \
 			done; \
 			if type -t git >&/dev/null && \
-			   pushd "$(BUILDDIR)/$$dst/"; then \
+			   pushd "$(BUILDDIR)/$$dst/" >/dev/null; then \
 				test -n "`git status -s`" && \
 				git add . && \
 				if [ -n "$$dst" ]; then \
@@ -67,20 +78,20 @@ all:
 					the="toplevel"; \
 				fi && \
 				git commit -qam "$$feat feature: $$the part added"; \
-				popd; \
+				popd >/dev/null; \
 			fi; \
 		done; \
 		if [ -x "generate.sh" ]; then sh generate.sh; fi; \
 		if [ -s "generate.mk" ]; then $(MAKE) -f generate.mk; fi; \
 		if type -t git >&/dev/null && \
-		   pushd "$(BUILDDIR)/"; then \
+		   pushd "$(BUILDDIR)/" >/dev/null; then \
 			if test -n "`git status -s`"; then \
 				git add . && \
 				git commit -qam "$$feat feature generation complete"; \
 			fi; \
-			popd; \
+			popd >/dev/null; \
 		fi; \
-		popd; \
+		popd >/dev/null; \
 	done
 	@find "$(BUILDDIR)/" -name '*~' \
 	| sed "s,$(BUILDDIR)/,** warning: file clash: ," >&2
