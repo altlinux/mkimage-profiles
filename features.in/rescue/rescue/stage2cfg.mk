@@ -7,6 +7,6 @@ IMAGE_PACKAGES = $(COMMON_PACKAGES) \
 
 MKI_PACK_RESULTS = squash:rescue
 
-debug:
+debug::
 	@echo "** rescue: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
 	@echo "** rescue: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"

@@ -43,4 +43,4 @@ all: | $(GLOBAL_DEBUG) build-image run-image-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
 # dummy
-debug: ;
+debug:: ;

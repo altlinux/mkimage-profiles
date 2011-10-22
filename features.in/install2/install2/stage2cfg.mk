@@ -11,7 +11,7 @@ HSH_EXCLUDE_DOCS = 1
 # pass downstream
 GLOBAL_BASE_BOOTLOADER := $(BASE_BOOTLOADER)
 
-debug:
+debug::
 	@echo "** install2: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
 	@echo "** install2: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"
 	@echo "** install2: CLEANUP_PACKAGES: $(CLEANUP_PACKAGES)"
