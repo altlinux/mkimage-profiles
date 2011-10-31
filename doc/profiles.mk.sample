@@ -8,3 +8,6 @@
 
 # spares tmpfs, quite recommended unless you need raw workdir chroots
 #CLEAN = 1
+
+# try and draw attention when done (depends on readline/terminal settings)
+#BELL = 1
