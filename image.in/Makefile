@@ -41,7 +41,7 @@ postprocess:
 	echo "** image: $(IMAGE_OUTFILE)" && \
 	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_FILE)" && \
 	ln -sf "$(IMAGE_FILE)" "$(IMAGEDIR)/$(LINKPREFIX).$(IMAGE_TYPE)"; \
-	ln -sf "$$OUTPATH" "$(IMAGE_FILE)"; \
+	ln -sf "$${OUTPATH#`pwd`/}" "$(IMAGE_FILE)"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		cp -a build.log "$$OUTPATH.log"; \
 		cp -a distcfg.mk "$$OUTPATH.cfg"; \

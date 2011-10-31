@@ -23,8 +23,7 @@ add_user()
 	fi
     done
 
-    /usr/sbin/useradd -p "" -G "$groups" "$1" ||:
-    chown -R "$1:auth" "/etc/tcb/$1"
+    useradd -p "" -G "$groups" "$1" ||:
     chown -R "$1:$1" /home/$1
 
     if [ -n "$GLOBAL_CRYPT_HOMES" ]; then
@@ -39,13 +38,14 @@ add_user()
     else
         verbose "Can't find writable $sudoers file."
     fi
+
+    echo "Hello friend, say \`$1' to log in at \\l" >> /etc/issue
 }
 
 verbose "has started"
 
 verbose "Clear password for root account"
-/usr/sbin/usermod -p "" root
-chown -R root.auth /etc/tcb/root
+usermod -p "" root
 
 add_user altlinux
 

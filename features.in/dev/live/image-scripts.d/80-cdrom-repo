@@ -1,0 +1,9 @@
+#!/bin/sh -efu
+# configure local image repository provided by sub/main
+
+# TODO: some integration with sub/main to ensure that it is there
+
+{
+	echo "# for real stuff you'll need full repo, see apt-repo"
+	echo "rpm file:/image ALTLinux main"
+} > /etc/apt/sources.list.d/cdrom.list

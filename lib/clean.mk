@@ -15,7 +15,7 @@ endif
 # ordinary clean: destroys workdirs but not the corresponding results
 clean:
 	@echo '** cleaning up $(WARNING)'
-	@find -name '*~' -delete >&/dev/null
+	@find -name '*~' -delete >&/dev/null ||:
 	@if [ -L build -a -d build/ ]; then \
 		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) ||:; \
 	fi
@@ -28,6 +28,6 @@ distclean: clean
 		rm -rf build/.git; \
 		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) || \
 			rm -rf build/; \
-		rm -r $(shell readlink build); \
+		rm -rf $(shell readlink build); \
 	fi
-	@rm -f build
+	@rm -f build ||:

@@ -11,7 +11,7 @@ SYMLINK = build
 ifndef BUILDDIR
 BUILDDIR := $(shell [ -s "$(SYMLINK)" ] \
         && realpath "$(SYMLINK)" \
-        || bin/mktmpdir mkimage-profiles.build)
+        || bin/mktmpdir mkimage-profiles)
 endif
 
 # even smart caching only hurts when every build goes from scratch
@@ -26,36 +26,43 @@ RC := $(HOME)/.mkimage/profiles.mk
 
 # holds a postprocessor; shell test executes in particular situation
 # NB: not exported, for toplevel use only
-SHORTEN = $(shell [ "$(DEBUG)" != 2 -a -s "$(SYMLINK)" ] \
-	  && echo "| sed 's,$(BUILDDIR),$(SYMLINK),'")
+SHORTEN = $(shell \
+		if [ -s "$(SYMLINK)" ]; then \
+			echo "| sed 's,$(BUILDDIR),$(SYMLINK),'"; \
+		else \
+			echo "| sed 's,$(TMP),\$$TMP,'"; \
+		fi;)
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
 	@echo -n "** initializing BUILDDIR: "
 	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
+	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
 	@$(call put,ifndef DISTCFG_MK)
 	@$(call put,DISTCFG_MK = 1)
-	@{ \
-		git show-ref --head -d -s -- HEAD && \
-		git status -s && \
-		echo; \
-	} $(LOG)
-	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
-	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
-		git init -q && \
-		git add . && \
-		git commit -qam 'derivative profile initialized'; \
+	@if type -t git >&/dev/null; then \
+		if [ -d .git ]; then \
+			git show-ref --head -d -s -- HEAD && \
+			git status -s && \
+			echo; \
+		fi $(LOG); \
+		if cd $(BUILDDIR); then \
+			git init -q && \
+			git add . && \
+			git commit -qam 'derivative profile initialized'; \
+		fi; \
 	fi
-	@rm -f "$(SYMLINK)" && \
-		if [ -w . ]; then \
-			ln -sf "$(BUILDDIR)" "$(SYMLINK)" && \
-			echo "$(SYMLINK)/"; \
-		else \
-			echo "$(BUILDDIR)/"; \
-		fi
+	@if [ -w . ]; then \
+		rm -f "$(SYMLINK)" && \
+		ln -sf "$(BUILDDIR)" "$(SYMLINK)" && \
+		echo "$(SYMLINK)/"; \
+	else \
+		echo "$(BUILDDIR)/" $(SHORTEN); \
+	fi $(SHORTEN)
 
 profile/bare: profile/init
-	@echo "** preparing distro configuration$${DEBUG:+: see $(CONFIG)}" $(SHORTEN)
+	@echo "** preparing distro config$${DEBUG:+: see $(CONFIG)}" \
+		$(SHORTEN)
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(IMAGEDIR))
