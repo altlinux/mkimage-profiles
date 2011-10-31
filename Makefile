@@ -20,13 +20,18 @@ IMAGE_TYPE   := $(IMAGE_TYPE:.%=%)#		iso
 
 # most of the actual work done elsewhere
 include lib/*.mk
+include conf.d/*.mk
 include features.in/*/config.mk
 
+DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
+		lib/distro.mk $(wildcard conf.d/*.mk) | sort)
+VE_TARGETS := $(shell sed -n 's,^\(ve/[^:.]\+\):.*$$,\1,p' \
+		lib/ve.mk $(wildcard conf.d/*.mk) | sort)
 DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS)) 
 VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 IMAGES  := $(DISTROS) $(VES)
 
-.PHONY: $(IMAGES)
+.PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS)
 
 help:
 	@echo '** available distribution targets:'
