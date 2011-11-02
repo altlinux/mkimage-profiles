@@ -3,9 +3,9 @@
 
 # hope there aren't spaces in RM's $HOME are they?
 DIRS="$TMP $TMPDIR $HOME/hasher /tmp /var/tmp"
-MINSIZE=1048576		# face control criterion
+MINSIZE=262144		# face control criterion
 
-# pick existing, writeable, >1Gb free space dirs
+# pick existing, writeable, >256M free space dirs
 # rank them wrt type: tmpfs > realfs > rootfs
 choose_tmpdir() {
 	for i in $DIRS; do
@@ -26,4 +26,4 @@ choose_tmpdir() {
 }
 
 DIR="`choose_tmpdir`"
-mktemp -d "${1:-tmpdir}.XXXXXXXXXX" --tmpdir="${DIR:-`realpath ..`}"
+mktemp -d "${1:-tmpdir}.XXXXXXX" --tmpdir="${DIR:-`realpath ..`}"
