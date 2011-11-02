@@ -1,0 +1,2 @@
+spec: .gear/mkimage-profiles.spec
+tar: v@version@:.
