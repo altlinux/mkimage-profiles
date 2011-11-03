@@ -18,12 +18,7 @@ COPY_TREE = ./files
 # outdir shouldn't be wiped clean before use
 CLEANUP_OUTDIR ?=
 
-APTCONF := $(wildcard $(APTCONF))
-ifeq (,$(APTCONF))
-GLOBAL_HSH_APT_CONFIG = /etc/apt/apt.conf
-else
-GLOBAL_HSH_APT_CONFIG = $(APTCONF)
-endif
+GLOBAL_HSH_APT_CONFIG := $(wildcard $(APTCONF))
 
 # the lib/build-*.mk comes from features.in/build-*/lib
 include lib/*.mk

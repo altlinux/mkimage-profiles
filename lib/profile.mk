@@ -46,6 +46,16 @@ profile/init: distclean
 			git status -s && \
 			echo; \
 		fi $(LOG); \
+	fi
+	@{ \
+		eval `apt-config shell $${APTCONF:+-c=$(wildcard $(APTCONF))} \
+			SOURCELIST Dir::Etc::sourcelist/f \
+			SOURCEPARTS Dir::Etc::sourceparts/d`; \
+		find "$$SOURCEPARTS" -name '*.list' \
+		| xargs egrep -Rhv '^#|^[[:blank:]]*$$' "$$SOURCELIST" && \
+		echo; \
+	} $(LOG)
+	@if type -t git >&/dev/null; then \
 		if cd $(BUILDDIR); then \
 			git init -q && \
 			git add . && \
