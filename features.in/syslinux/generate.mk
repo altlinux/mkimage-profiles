@@ -45,9 +45,11 @@ cfg = $(wildcard cfg.in/??$(1).cfg)
 #
 # arguments get evaluated before recipe body execution thus prep
 all: prep debug
-	cp -pLt $(DSTDIR) -- $(sort \
+	@cp -pLt $(DSTDIR) -- $(sort \
 		$(foreach C,$(SYSLINUX_CFG),$(call cfg,$(C))) \
 		$(foreach M,$(SYSLINUX_MODULES),$(call cfg,$(M))))
+	@### proper text branding should be implemented
+	@sed -i 's,@mkimage-profiles@,$(IMAGE_NAME),' $(DSTDIR)/*.cfg
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/files.list
 	@echo $(BOOTLOADER) > $(DSTDIR)/bootloader
