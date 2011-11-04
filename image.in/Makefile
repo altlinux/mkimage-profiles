@@ -33,7 +33,7 @@ $(IMAGEDIR):
 
 postprocess:
 	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
-	echo "** image: $(IMAGE_OUTFILE)" && \
+	echo "** image: $$OUTPATH" >&2 && \
 	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_FILE)" && \
 	ln -sf "$(IMAGE_FILE)" "$(IMAGEDIR)/$(LINKPREFIX).$(IMAGE_TYPE)"; \
 	ln -sf "$${OUTPATH#`pwd`/}" "$(IMAGE_FILE)"; \

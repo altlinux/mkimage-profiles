@@ -71,7 +71,8 @@ profile/init: distclean
 	fi $(SHORTEN)
 
 profile/bare: profile/init
-	@echo "$(TIME) preparing distro config$${DEBUG:+: see $(CONFIG)}" \
+	@NOTE="$${GLOBAL_VERBOSE:+: $(CONFIG)}"; \
+		echo "$(TIME) preparing distro config$$NOTE" \
 		$(SHORTEN)
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)

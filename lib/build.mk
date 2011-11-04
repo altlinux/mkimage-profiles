@@ -11,6 +11,9 @@ ifdef NICE
 START := nice $(shell ionice -c3 echo "ionice -c3" 2>/dev/null)
 endif
 
+# in kilobytes (a kilometer is 1024 meters, you know)
+LOWSPACE = 1024
+
 # it's also nice to know how long and much it takes
 START += time -f "%E %PCPU %Mk"
 
@@ -34,15 +37,16 @@ build: profile/populate
 		fi; \
 	fi
 	@if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
-		echo "$(TIME) build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
-			|| echo "no log"`)"; \
+		echo "$(TIME) done (`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
+		tail -200 "$(BUILDLOG)" \
+		| grep --color=always '^\*\* image: .*' $(SHORTEN) ||:; \
 	else \
-		echo "$(TIME) build failed, see log: $(BUILDLOG)" $(SHORTEN); \
+		echo "$(TIME) failed, see log: $(BUILDLOG)" $(SHORTEN); \
 		if [ -z "$(DEBUG)" ]; then \
 			echo "$(TIME) (you might want to re-run with DEBUG=1)"; \
 		fi; \
-		tail -100 "$(BUILDLOG)" | egrep "^E:|[Ee]rror|[Ww]arning"; \
-		df -P $(BUILDDIR) | awk 'END { if ($$4 < 1024) \
+		tail -200 "$(BUILDLOG)" | egrep "^(E:|[Ee]rror|[Ww]arning).*"; \
+		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi
 	@if [ -n "$(BELL)" ]; then echo -ne '\a' >&2; fi
