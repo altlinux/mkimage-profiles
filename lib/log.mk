@@ -22,6 +22,8 @@ MAKE += -s
 LOG = 2>>$(BUILDLOG) >/dev/null
 endif
 
+# in build.mk, naive TIME gets expanded a bit too early (no need to export btw)
 DATE = $(shell date +%Y%m%d)
+TIME = `date +%H:%M:%S`
 
 export BUILDLOG DATE DEBUG GLOBAL_DEBUG GLOBAL_VERBOSE LOG MAKE SHELL

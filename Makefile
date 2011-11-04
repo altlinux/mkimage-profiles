@@ -42,10 +42,15 @@ help:
 
 ### suboptimal but at least clear, reliable and convenient
 all:
-	@for i in $(DISTROS); do \
-		echo "** building $$i:"; \
-		$(MAKE) --no-print-directory BUILDDIR=$(BUILDDIR) $$i; \
+	@n=1; sum=$(words $(DISTROS)); \
+	for distro in $(DISTROS); do \
+		echo "** building $$distro:"; \
+		$(MAKE) --no-print-directory \
+			ALL=$$n/$$sum \
+			BUILDDIR=$(BUILDDIR) \
+			$$distro; \
 		echo; \
+		n=$$(($$n+1)); \
 	done
 
 $(IMAGES): debug \

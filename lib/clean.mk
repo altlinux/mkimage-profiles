@@ -8,16 +8,17 @@
 ifdef CLEAN
 export GLOBAL_CLEAN_WORKDIR = clean-current
 ifdef DEBUG
-WARNING = (both CLEAN and DEBUG defined, debug options will be limited)
+WARNING = (NB: DEBUG scope is limited when CLEAN is enabled)
 endif
 endif
 
 # ordinary clean: destroys workdirs but not the corresponding results
 clean:
-	@echo '** cleaning up $(WARNING)'
+	@echo "$(TIME) cleaning up $(WARNING)"
 	@find -name '*~' -delete >&/dev/null ||:
 	@if [ -L build -a -d build/ ]; then \
-		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) ||:; \
+		$(MAKE) -C build $@ \
+			GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) ||:; \
 	fi
 
 # there can be some sense in writing log here even if normally
@@ -26,7 +27,8 @@ clean:
 distclean: clean
 	@if [ -L build -a -d build/ ]; then \
 		rm -rf build/.git; \
-		$(MAKE) -C build $@ GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) || \
+		$(MAKE) -C build $@ \
+			GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) || \
 			rm -rf build/; \
 		rm -rf $(shell readlink build); \
 	fi

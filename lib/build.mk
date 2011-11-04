@@ -14,24 +14,28 @@ IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
 	|| echo "$(BUILDDIR)/out" )
 
 build: profile/populate
-	@echo -n "** starting image build"
+	@echo -n "$(TIME) starting image build"
 	@if [ -n "$(DEBUG)" ]; then \
 		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
 	else \
-		echo " (coffee time)"; \
+		if [ -n "$(ALL)" ]; then \
+			echo " [$(ALL)]"; \
+		else \
+			echo " (coffee time)"; \
+		fi; \
 	fi
 	@if time -f "%E %PCPU %Mk" $(ARCH) \
 		$(MAKE) -C $(BUILDDIR)/ $(LOG); \
 	then \
-		echo "** build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
+		echo "$(TIME) build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
 			|| echo "no log"`)"; \
 	else \
-		echo "** build failed, see log: $(BUILDLOG)" $(SHORTEN); \
+		echo "$(TIME) build failed, see log: $(BUILDLOG)" $(SHORTEN); \
 		if [ -z "$(DEBUG)" ]; then \
-			echo "   (you might want to re-run with DEBUG=1)"; \
+			echo "$(TIME) (you might want to re-run with DEBUG=1)"; \
 		fi; \
 		tail -100 "$(BUILDLOG)" | egrep "^E:|[Ee]rror|[Ww]arning"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < 1024) \
-			{ print "** NB: low space on "$$6" ("$$5" used)"}}'; \
+			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi
 	@if [ -n "$(BELL)" ]; then echo -ne '\a' >&2; fi

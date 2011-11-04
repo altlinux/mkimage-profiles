@@ -35,7 +35,7 @@ SHORTEN = $(shell \
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
-	@echo -n "** initializing BUILDDIR: "
+	@echo -n "$(TIME) initializing BUILDDIR: "
 	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
 	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
 	@$(call put,ifndef DISTCFG_MK)
@@ -71,7 +71,7 @@ profile/init: distclean
 	fi $(SHORTEN)
 
 profile/bare: profile/init
-	@echo "** preparing distro config$${DEBUG:+: see $(CONFIG)}" \
+	@echo "$(TIME) preparing distro config$${DEBUG:+: see $(CONFIG)}" \
 		$(SHORTEN)
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
