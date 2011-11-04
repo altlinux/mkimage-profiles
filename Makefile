@@ -18,6 +18,9 @@ IMAGE_NAME   := $(basename $(IMAGE_FILE))#	server-base
 IMAGE_TYPE   := $(suffix $(IMAGE_FILE))#	.iso (fix this too)
 IMAGE_TYPE   := $(IMAGE_TYPE:.%=%)#		iso
 
+# preferences
+-include $(HOME)/.mkimage/profiles.mk
+
 # most of the actual work done elsewhere
 include lib/*.mk
 include conf.d/*.mk
