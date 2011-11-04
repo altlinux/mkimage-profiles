@@ -4,9 +4,18 @@ ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
 endif
 
-# NB: /usr/bin/{i586,x86_64} are setarch(8) symlinks
-
 export ARCH ?= $(shell arch | sed 's/i686/i586/')
+
+# try not to bog down the system, both CPU and I/O wise
+ifdef NICE
+START := nice $(shell ionice -c3 echo "ionice -c3" 2>/dev/null)
+endif
+
+# it's also nice to know how long and much it takes
+START += time -f "%E %PCPU %Mk"
+
+# /usr/bin/{i586,x86_64} are setarch(8) symlinks
+START += $(ARCH)
 
 # to be passed into distcfg.mk
 IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
@@ -24,9 +33,7 @@ build: profile/populate
 			echo " (coffee time)"; \
 		fi; \
 	fi
-	@if time -f "%E %PCPU %Mk" $(ARCH) \
-		$(MAKE) -C $(BUILDDIR)/ $(LOG); \
-	then \
+	@if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
 		echo "$(TIME) build done (`tail -1 $(BUILDLOG) | cut -f1 -d. \
 			|| echo "no log"`)"; \
 	else \

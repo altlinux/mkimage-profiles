@@ -9,5 +9,8 @@
 # spares tmpfs, quite recommended unless you need raw workdir chroots
 #CLEAN = 1
 
+# run with lower CPU and I/O priorities
+#NICE = 1
+
 # try and draw attention when done (depends on readline/terminal settings)
 #BELL = 1
