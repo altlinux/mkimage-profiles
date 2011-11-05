@@ -1,0 +1,12 @@
+#!/bin/sh -efu
+# if no means for locale setup are employed,
+# it should still be somewhat reasonable
+# NB: keyboard layout not included!
+
+mkdir -p /etc/sysconfig
+cat >> /etc/sysconfig/i18n << _EOF_
+# mkimage-profiles live 20-locale hook
+SYSFONT=UniCyr_8x16
+LANG=en_US.utf8
+_EOF_
+:
