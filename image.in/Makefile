@@ -1,14 +1,15 @@
 # stage 4: dive into mkimage
 
 GLOBAL_BUILDDIR ?= $(shell pwd)
-LINKPREFIX := mkimage-profiles
+CURRENT_LINK := mkimage-profiles
+OUT_LINK := out
 
 include distcfg.mk
 include functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
 # reconstruct instead of passing yet another variable
-IMAGE_FILE := $(IMAGE_NAME).$(IMAGE_TYPE)
+IMAGE_LINK := $(IMAGE_NAME).$(IMAGE_TYPE)
 IMAGE_OUTFILE := $(IMAGE_NAME)-$(DATE)-$(ARCH).$(IMAGE_TYPE)
 MKI_PACK_RESULTS = $(IMAGE_PACKTYPE):$(IMAGE_OUTFILE)
 
@@ -34,9 +35,9 @@ $(IMAGEDIR):
 postprocess:
 	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
 	echo "** image: $$OUTPATH" >&2 && \
-	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_FILE)" && \
-	ln -sf "$(IMAGE_FILE)" "$(IMAGEDIR)/$(LINKPREFIX).$(IMAGE_TYPE)"; \
-	ln -sf "$${OUTPATH#`pwd`/}" "$(IMAGE_FILE)"; \
+	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_LINK)" && \
+	ln -sf "$${IMAGEDIR#`pwd`/}" "$(OUT_LINK)"; \
+	ln -sf "$(IMAGE_LINK)" $(OUT_LINK)/"$(CURRENT_LINK).$(IMAGE_TYPE)"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		cp -a build.log "$$OUTPATH.log"; \
 		cp -a distcfg.mk "$$OUTPATH.cfg"; \
