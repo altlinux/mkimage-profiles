@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.4.2
+Version: 0.4.3
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -58,5 +58,11 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Nov 07 2011 Michael Shigorin <mike@altlinux.org> 0.4.3-alt1
+- enhancements to logging
+- NICE variable: employ nice(1) and ionice(1) if available
+- features.in/syslinux: banner tweaked to include target name
+- features.in/live: set up unicode locale/consolefont
+
 * Wed Nov 02 2011 Michael Shigorin <mike@altlinux.org> 0.4.2-alt1
 - initial package
