@@ -1,4 +1,4 @@
-Добавление модуля hdt (Hardware Detection Tool COM32 module) к syslinux;
+Добавление модуля hdt (Hardware Detection Tool) к syslinux;
 может быть востребовано для инсталяторов, live/rescue.
 
 Фича не только требует фичу syslinux (и соответствующий пакет,
