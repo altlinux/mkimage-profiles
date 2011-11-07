@@ -5,6 +5,10 @@
 
 # tmpfs-sparing extra rule: cleanup workdir after completing each stage
 # (as packed results are saved this only lowers RAM pressure)
+# NB: it's useful enough to be enabled by default in DEBUG abscence
+ifndef DEBUG
+CLEAN ?= 1
+endif
 ifdef CLEAN
 export GLOBAL_CLEAN_WORKDIR = clean-current
 ifdef DEBUG
