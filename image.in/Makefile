@@ -4,9 +4,22 @@ GLOBAL_BUILDDIR ?= $(shell pwd)
 CURRENT_LINK := mkimage-profiles
 OUT_LINK := out
 
+# there were mkimage fixes induced by mkimage-profile development
+MKI_VER_MINIMAL = 0.1.7
+MKI_VER_OPTIMAL = 0.2.0
+
 include distcfg.mk
 include functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
+
+ifeq (-,$(shell rpmvercmp $(MKI_VERSION) $(MKI_VER_MINIMAL) | tr -d [0-9]))
+$(info error: mkimage-$(MKI_VERSION) is too old, please upgrade)
+$(error mkimage is too old, $(MKI_VER_MINIMAL) is minimal supported version)
+endif
+ifeq (-,$(shell rpmvercmp $(MKI_VERSION) $(MKI_VER_OPTIMAL) | tr -d [0-9]))
+$(info warning: mkimage-$(MKI_VERSION) is suboptimal, consider upgrading)
+$(warning consider upgrading mkimage to $(MKI_VER_OPTIMAL) or better)
+endif
 
 # reconstruct instead of passing yet another variable
 IMAGE_LINK := $(IMAGE_NAME).$(IMAGE_TYPE)
