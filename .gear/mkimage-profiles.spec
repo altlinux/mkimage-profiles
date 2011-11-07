@@ -1,6 +1,6 @@
 Name: mkimage-profiles
 Version: 0.4.3
-Release: alt1
+Release: alt2
 
 Summary: ALT Linux based distribution metaprofile
 License: GPLv2+
@@ -53,11 +53,14 @@ mkdir -p %buildroot%mpdir
 cp -a * %buildroot%mpdir
 
 %files
-%mpdir/*
+%mpdir/
 %doc doc/
 %doc README QUICKSTART
 
 %changelog
+* Mon Nov 07 2011 Michael Shigorin <mike@altlinux.org> 0.4.3-alt2
+- include %mpdir/ itself as well
+
 * Mon Nov 07 2011 Michael Shigorin <mike@altlinux.org> 0.4.3-alt1
 - enhancements to logging
 - NICE variable: employ nice(1) and ionice(1) if available
