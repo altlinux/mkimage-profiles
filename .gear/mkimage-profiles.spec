@@ -1,6 +1,6 @@
 Name: mkimage-profiles
-Version: 0.4.3
-Release: alt2
+Version: 0.4.3.1
+Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
 License: GPLv2+
@@ -58,6 +58,9 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Nov 07 2011 Michael Shigorin <mike@altlinux.org> 0.4.3.1-alt1
+- CLEAN by default unless DEBUG
+
 * Mon Nov 07 2011 Michael Shigorin <mike@altlinux.org> 0.4.3-alt2
 - include %mpdir/ itself as well
 
