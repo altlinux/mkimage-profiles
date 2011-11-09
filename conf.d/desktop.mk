@@ -6,7 +6,7 @@ distro/desktop-base: distro/installer sub/main \
 
 distro/icewm: distro/desktop-base \
 	use/lowmem use/x11/xdm use/x11/runlevel5 \
-	use/bootloader/lilo use/powerbutton/acpi \
+	use/bootloader/lilo use/power/acpi/button \
 	use/cleanup/alterator
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 

@@ -1,12 +1,12 @@
 # live images
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/live: distro/.base use/live/base
+distro/live: distro/.base use/live/base use/power/acpi/cpufreq
 distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 distro/dos: distro/.init use/dos use/syslinux/ui-menu
 
 distro/live-builder: distro/.base sub/main \
-	use/live/base use/dev/mkimage
+	use/live/base use/dev/mkimage use/power/acpi/button
 	@$(call add,LIVE_LISTS,$(call tags,base && (server || builder)))
 	@$(call add,LIVE_PACKAGES,livecd-tmpfs livecd-online-repo)
 	@$(call add,LIVE_PACKAGES,mkimage-profiles)
