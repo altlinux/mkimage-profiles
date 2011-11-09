@@ -255,3 +255,5 @@ scsi_mod.ko
 sd_mod.ko
 serio_raw.ko
 sr_mod.ko
+sdhci.ko
+sdhci_pci.ko
