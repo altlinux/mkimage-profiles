@@ -17,7 +17,7 @@ endif
 all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
 
-prep: $(GLOBAL_DEBUG) dot-disk $(METADATA) $(IMAGEDIR)
+prep: $(GLOBAL_DEBUG) dot-disk $(METADATA) imagedir
 
 metadata: dot-base
 	@mkdir -p files/Metadata

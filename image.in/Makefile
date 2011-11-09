@@ -40,9 +40,11 @@ include $(MKIMAGE_PREFIX)/targets.mk
 
 # specified only for the final image (target-specific)
 pack-image: OUTDIR = $(IMAGEDIR)
-pack-image: $(IMAGEDIR)
+pack-image: imagedir
 
-$(IMAGEDIR):
+.PHONY: imagedir postprocess debug
+
+imagedir:
 	@mkdir -p "$(IMAGEDIR)"
 
 postprocess:
