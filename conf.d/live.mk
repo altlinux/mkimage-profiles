@@ -5,6 +5,9 @@ distro/live: distro/.base use/live/base use/power/acpi/cpufreq
 distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 distro/dos: distro/.init use/dos use/syslinux/ui-menu
 
+distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
+	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
+
 distro/live-builder: distro/.base sub/main \
 	use/live/base use/dev/mkimage use/power/acpi/button
 	@$(call add,LIVE_LISTS,$(call tags,base && (server || builder)))
