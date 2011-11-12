@@ -10,4 +10,6 @@ distro/icewm: distro/desktop-base \
 	use/cleanup/alterator
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 
+distro/desktop-systemd: distro/icewm use/systemd
+
 endif

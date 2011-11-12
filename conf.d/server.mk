@@ -12,6 +12,8 @@ distro/server-mini: distro/server-base use/cleanup/x11-alterator
 		$(call tags,base && (server || network || security || pkg)))
 	@$(call add,BASE_LISTS,$(call tags,extra network))
 
+distro/server-systemd: distro/server-mini use/systemd
+
 distro/server-ovz: distro/server-base \
 	use/hdt use/rescue use/firmware/server use/power/acpi/button \
 	use/cleanup/x11-alterator

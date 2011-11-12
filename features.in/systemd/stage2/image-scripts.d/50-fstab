@@ -1,0 +1,4 @@
+#!/bin/sh -efu
+# aufs2 root is rw in reality
+
+echo "/dev/root / auto  defaults 0 0" >>/etc/fstab
