@@ -18,6 +18,7 @@ xorg-drv-vesa
 xorg-drv-video
 xorg-drv-void
 xorg-drv-wacom
+xorg-drv-wizardpen
 xorg-drv-qxl
 
 # for those who need these

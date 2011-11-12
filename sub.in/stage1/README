@@ -18,3 +18,7 @@ STAGE1_KMODULES_REGEXP -- будет подмножество модулей
 (в силу зависимости stage2 от stage1).
 
 Результат -- каталог syslinux/ для копирования в образ.
+
+TODO (3.2+): "The network drivers directory (drivers/net)
+has been massively rearranged with most drivers moved into
+media-specific or protocol-specific subdirectories."
