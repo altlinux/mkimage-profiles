@@ -1,11 +1,11 @@
 #!/bin/sh -efu
-# create a postinstall script to drop temporarily needed packages
+### create a postinstall script to drop temporarily needed packages
 
 if [ -n "$GLOBAL_VERBOSE" ]; then
 	echo "** GLOBAL_CLEANUP_PACKAGES: $GLOBAL_CLEANUP_PACKAGES"
 fi >&2
 
-SCRIPT="/usr/share/install2/postinstall.d/01+install2+cleanup"
+SCRIPT="/usr/share/install2/postinstall.d/01-remove-pkgs"
 cat > "$SCRIPT" << EOF
 #!/bin/sh -efu
 

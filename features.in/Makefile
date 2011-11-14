@@ -24,9 +24,6 @@ include $(BUILDDIR)/distcfg.mk
 #     -- then both src/ and dst/ can hold the addons;
 #     still both pieces go into a single destination
 
-### {image-,}scripts.d/ get rsynced twice :-/
-### still we don't want the trimmed-down case
-
 ### sorry for somewhat complicated and overly long lines
 all:
 	@echo "** starting feature configuration"
@@ -40,33 +37,50 @@ all:
 		fi; \
 		pushd "$$feat" >/dev/null && \
 		for sub in / $(SUBPROFILES); do \
-			src="$${sub%/*}"; \
-			dst="$${sub#*/}"; \
-			if [ -d "$$src" ]; then \
-				rsync -qab "$$src/" "$(BUILDDIR)/$$dst/"; \
-				dirtags="&& $$src"; \
-			fi; \
-			if [ -d "$$dst" ]; then \
-				rsync -qab "$$dst/" "$(BUILDDIR)/$$dst/"; \
-				if [ "$$dst" != "$$src" ]; then \
+			dirtags=; \
+			if [ "$$sub" = / ]; then \
+				parts=lib; \
+				srcdirs="."; \
+				dst="."; \
+			else \
+				parts=; \
+				src="$${sub%/*}"; \
+				dst="$${sub#*/}"; \
+				srcdirs=; \
+				if [ -d "$$src" ]; then \
+					srcdirs="$$src"; \
+					dirtags="&& $$src"; \
+				fi; \
+				if [ -d "$$dst" -a "$$dst" != "$$src" ]; then \
+					srcdirs="$$srcdirs $$dst"; \
 					dirtags="&& ($$src || $$dst)"; \
 				fi; \
+				for srcdir in $$srcdirs; do \
+					rsync -qab --exclude tagged \
+						"$$srcdir/" "$(BUILDDIR)/$$dst/"; \
+				done; \
 			fi; \
-			for dir in lib {image-,}scripts.d; do \
-				destdir="$(BUILDDIR)/$$dst/$$dir/"; \
-				if [ -d "$$destdir" ]; then \
-					if [ -d "$$dir" ]; then \
-						rsync -qab "$$dir/" "$$destdir/"; \
+			if [ -n "$(GLOBAL_DEBUG)" ]; then \
+				echo "** src=[$$src] dst=[$$dst] srcdirs=[$$srcdirs]"; \
+			fi; \
+			for srcdir in $$srcdirs; do \
+				[ -d "$$srcdir" ] || continue; \
+				pushd "$$srcdir" >&/dev/null; \
+				for part in $$parts {image-,}scripts.d; do \
+					destdir="$(BUILDDIR)/$$dst/$$part"; \
+					[ -d "$$destdir" ] || continue; \
+					if [ "$$sub" = / -a -d "$$part" ]; then \
+						rsync -qab "$$part/" "$$destdir/"; \
 					fi; \
-					if [ -d "tagged/$$dir" ]; then \
-						if pushd "tagged/$$dir" >/dev/null; then \
-							echo "$$feat $$dirtags" \
-							| tags2lists . \
-							| xargs -r cp -vpLt "$$destdir" --; \
-							popd >/dev/null; \
-						fi; \
-					fi; \
-				fi; \
+					[ -d "tagged/$$part" ] || continue; \
+					[ "$$srcdir" != "." ] || continue; \
+					pushd "tagged/$$part" >/dev/null; \
+					echo "$$feat $$dirtags" \
+					| tags2lists . \
+					| xargs -r cp -vpLt "$$destdir" --; \
+					popd >/dev/null; \
+				done; \
+				popd >&/dev/null; \
 			done; \
 			if type -t git >&/dev/null && \
 			   pushd "$(BUILDDIR)/$$dst/" >/dev/null; then \
