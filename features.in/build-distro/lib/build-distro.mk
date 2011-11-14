@@ -4,8 +4,6 @@
 # take the latter part
 SUBDIRS = $(notdir $(SUBPROFILES))
 
-# "main" subprofile needs genbasedir
-CHROOT_PACKAGES = apt-utils
 BOOT_TYPE = isolinux
 
 # Metadata/ needed only for installers (and not for e.g. syslinux.iso)

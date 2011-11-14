@@ -1,7 +1,7 @@
 # server distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/server-base: distro/installer sub/main \
+distro/server-base: distro/installer use/repo/main \
 	use/syslinux/ui-menu use/memtest use/bootloader/grub
 	@$(call add,BASE_LISTS,server-base)
 

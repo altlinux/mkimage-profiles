@@ -1,0 +1,10 @@
+#!/bin/sh -efu
+# configure package repository of the image (provided by sub/main);
+# this script will be run iff both live and repo features are used
+
+DIR=/etc/apt/sources.list.d
+
+mkdir -p $DIR && {
+	echo "# for real stuff you'll need full repo, see apt-repo"
+	echo "rpm file:/image ALTLinux main"
+} > $DIR/main.list

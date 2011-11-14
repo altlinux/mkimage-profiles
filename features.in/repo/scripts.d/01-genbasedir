@@ -1,0 +1,28 @@
+#!/bin/sh -efu
+
+PREFIX=ALTLinux
+cd "$WORKDIR/$PREFIX"
+
+COMPS="$(find -mindepth 1 -maxdepth 1 -type d -name 'RPMS.*' -printf '%f\n' |
+	sed 's/^RPMS\.//')"
+
+[ -z "$GLOBAL_VERBOSE" ] || echo "** COMPS=$COMPS" >&2
+[ -n "$COMPS" ] || exit 1
+
+genbasedir \
+	--topdir="$WORKDIR" \
+	--no-oldhashfile \
+	--partial \
+	--xz \
+	--bz2 \
+	--create \
+	--notautomatic=false \
+	${INFO_ARCH:+--architecture="$INFO_ARCH"} \
+	${INFO_NAME:+--archive="$INFO_NAME"} \
+	${INFO_VERSION:+--version="$INFO_VERSION"} \
+	${INFO_ORIGIN:+--origin="$INFO_ORIGIN"} \
+	${INFO_LABEL:+--label="$INFO_LABEL"} \
+	$PREFIX $COMPS
+
+### drop this when genbasedir is fixed (--no-uncompressed)
+for c in $COMPS; do rm -f base/{pkg,src}list.$c; done

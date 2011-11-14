@@ -1,7 +1,7 @@
 # desktop distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/desktop-base: distro/installer sub/main \
+distro/desktop-base: distro/installer use/repo/main \
 	use/syslinux/ui-vesamenu use/x11/xorg use/bootloader/grub
 
 distro/icewm: distro/desktop-base \
