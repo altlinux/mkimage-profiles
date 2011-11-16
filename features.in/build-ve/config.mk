@@ -1,2 +1,2 @@
 use/build-ve:
-	@$(call add,FEATURES,build-ve)
+	@$(call add_feature)

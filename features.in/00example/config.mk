@@ -9,5 +9,5 @@
 # for somewhat more involved example, see syslinux feature
 
 use/00example: sub/main use/anotherfeature
-	@$(call add,FEATURES,00example)
+	@$(call add_feature)
 	@$(call add,MAIN_PACKAGES,hello)

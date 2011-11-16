@@ -1,4 +1,4 @@
 use/repo:
-	@$(call add,FEATURES,repo)
+	@$(call add_feature)
 
 use/repo/main: sub/main use/repo

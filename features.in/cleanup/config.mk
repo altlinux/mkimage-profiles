@@ -1,5 +1,5 @@
 use/cleanup:
-	@$(call add,FEATURES,cleanup)
+	@$(call add_feature)
 
 use/cleanup/installer: use/cleanup
 	@$(call add,CLEANUP_PACKAGES,'installer-*')

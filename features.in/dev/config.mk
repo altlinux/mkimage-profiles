@@ -1,5 +1,5 @@
 use/dev:
-	@$(call add,FEATURES,dev)
+	@$(call add_feature)
 	@$(call add,COMMON_PACKAGES,git-core hasher gear)
 
 use/dev/mkimage: use/dev

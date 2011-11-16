@@ -1,5 +1,5 @@
 use/live: use/stage2 sub/stage2/live
-	@$(call add,FEATURES,live)
+	@$(call add_feature)
 
 use/live/base: use/live use/syslinux/ui-menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))

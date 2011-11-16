@@ -2,7 +2,7 @@ DISTRO_EXTS := .iso
 VE_EXTS     := .tar .tgz
 
 use/pack:
-	@$(call add,FEATURES,pack)
+	@$(call add_feature)
 
 use/pack/iso: use/pack boot/isolinux
 ifeq (distro,$(IMAGE_CLASS))

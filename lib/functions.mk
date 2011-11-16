@@ -42,6 +42,9 @@ define log_body
 	grep -q '^# $@$$' "$(CONFIG)" || printf '# %s\n' '$@' >> "$(CONFIG)"; }
 endef
 
+# in a use/feature/particularly target, we need a "feature" bit
+add_feature = $(call add,FEATURES,$(word 2,$(subst /, ,$@)))
+
 # convert tag list into a list of relative package list paths
 # NB: tags can do boolean expressions: (tag1 && !(tag2 || tag3))
 tags = $(and $(strip $(1)),$(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists pkg.in/lists/tagged)))
