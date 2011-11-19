@@ -21,10 +21,16 @@ distro/server-ovz: distro/server-mini \
 	@$(call add,KMODULES,bcmwl ndiswrapper rtl8168 rtl8192)
 	@$(call add,KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
 	@$(call add,KMODULES,drbd83 kvm)
+	@$(call add,INSTALL2_PACKAGES,curl)	### should become curl-mini
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,MAIN_LISTS,kernel-wifi)
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
 	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)
 	@$(call add,MAIN_GROUPS,monitoring diag-tools)
+
+# tiny network-only server-ovz installer (stage2 comes over net too)
+distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
+	use/syslinux/ui-menu use/memtest
+	@$(call add,SYSLINUX_CFG,netinstall2)
 
 endif
