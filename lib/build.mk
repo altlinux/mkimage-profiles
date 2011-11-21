@@ -1,4 +1,6 @@
 # step 4 is kicked off here but actually done by image.in/Makefile
+ANSI_OK   ?= 1;32
+ANSI_FAIL ?= 1;31
 
 ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
@@ -25,6 +27,7 @@ IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
 	&& echo "$$HOME/out" \
 	|| echo "$(BUILDDIR)/out" )
 
+# poehali
 build: profile/populate
 	@echo -n "$(TIME) starting image build"
 	@if [ -n "$(DEBUG)" ]; then \
@@ -39,13 +42,16 @@ build: profile/populate
 	@if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
 		echo "$(TIME) done (`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
 		tail -200 "$(BUILDLOG)" \
-		| grep --color=always '^\*\* image: .*' $(SHORTEN) ||:; \
+		| GREP_COLOR="$(ANSI_OK)" \
+		  grep --color=always '^\*\* image: .*' $(SHORTEN) ||:; \
 	else \
 		echo "$(TIME) failed, see log: $(BUILDLOG)" $(SHORTEN); \
 		if [ -z "$(DEBUG)" ]; then \
 			echo "$(TIME) (you might want to re-run with DEBUG=1)"; \
 		fi; \
-		tail -200 "$(BUILDLOG)" | egrep "^(E:|[Ee]rror|[Ww]arning).*"; \
+		tail -200 "$(BUILDLOG)" \
+		| GREP_COLOR="$(ANSI_FAIL)" \
+		  egrep --color=always "^(E:|[Ee]rror|[Ww]arning).*"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi
