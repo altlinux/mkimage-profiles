@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.4.3.2
+Version: 0.5.0
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -59,6 +59,11 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Nov 21 2011 Michael Shigorin <mike@altlinux.org> 0.5.0-alt1
+- add_feature for autoregistration (simple but invasive)
+- added features: isomd5sum, repo, systemd
+- changed features: powerbutton -> power
+
 * Tue Nov 08 2011 Michael Shigorin <mike@altlinux.org> 0.4.3.2-alt1
 - mkimage version required/checked
 
