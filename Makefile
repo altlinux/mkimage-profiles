@@ -10,7 +10,10 @@ MKIMAGE_PROFILES = $(dir $(lastword $(MAKEFILE_LIST)))
 
 # only process the first target (inter-target cleanup is tricky)
 IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	distro/server-base.iso
-IMAGE_CONF   := $(basename $(MAKECMDGOALS))#	distro/server-base
+ifeq (./,$(dir $(IMAGE_TARGET)))#		convenience fallback
+IMAGE_TARGET := distro/$(IMAGE_TARGET)#		for omitted "distro/"
+endif
+IMAGE_CONF   := $(basename $(IMAGE_TARGET))#	distro/server-base
 IMAGE_CLASS  := $(dir $(IMAGE_TARGET))#		distro/ (let's fix it)
 IMAGE_CLASS  := $(IMAGE_CLASS:%/=%)#		distro
 IMAGE_FILE   := $(notdir $(IMAGE_TARGET))#	server-base.iso
@@ -35,13 +38,7 @@ VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 IMAGES  := $(DISTROS) $(VES)
 
 .PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS)
-
-help:
-	@echo '** available distribution targets:'
-	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
-	@echo
-	@echo '** available virtual environment targets:'
-	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
+.DEFAULT: help
 
 ### suboptimal but at least clear, reliable and convenient
 all:
@@ -62,6 +59,16 @@ $(IMAGES): debug \
 	config/name/$(IMAGE_NAME) \
 	config/pack/$(IMAGE_TYPE) \
 	build; @:
+
+# convenience shortcut
+$(DISTROS:distro/%=%): %: distro/%
+
+help:
+	@echo '** available distribution targets:'
+	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
+	@echo
+	@echo '** available virtual environment targets:'
+	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
 
 debug:
 ifeq (2,$(DEBUG))
