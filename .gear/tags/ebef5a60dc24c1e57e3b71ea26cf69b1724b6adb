@@ -1,6 +1,0 @@
-object 67828082236deb07175f359795487552d57702d5
-type commit
-tag v0.4.3.2
-tagger Michael Shigorin <mike@altlinux.org> 1320703844 +0200
-
-mkimage >= 0.2.0
