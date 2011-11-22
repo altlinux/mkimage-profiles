@@ -11,7 +11,7 @@ use/power/acpi/button: use/power/acpi
 	@$(call add,COMMON_PACKAGES,acpid-events-power)
 
 use/power/acpi/cpufreq: use/power/acpi
-	@$(call add,COMMON_PACKAGES,cpufreq-simple)
+	@$(call add,COMMON_PACKAGES,installer-feature-cpufreq-stage3)
 
 use/power/acpi/powersave: use/power/acpi
 	@$(call add,COMMON_PACKAGES,powersave)
