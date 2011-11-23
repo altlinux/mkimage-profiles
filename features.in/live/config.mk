@@ -7,3 +7,7 @@ use/live/base: use/live use/syslinux/ui-menu
 use/live/icewm: use/live/base
 	@$(call add,LIVE_LISTS,\
 		$(call tags,(base || desktop) && (live || network || icewm)))
+
+# this is a manual installation script (text-based)
+use/live/install: use/live/base
+	@$(call add,LIVE_PACKAGES,live-install)
