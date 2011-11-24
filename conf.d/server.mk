@@ -30,7 +30,7 @@ distro/server-ovz: distro/server-mini \
 
 # tiny network-only server-ovz installer (stage2 comes over net too)
 distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
-	use/syslinux/ui-menu use/memtest
+	use/syslinux/ui-menu use/syslinux/localboot.cfg use/memtest
 	@$(call add,SYSLINUX_CFG,netinstall2)
 
 endif

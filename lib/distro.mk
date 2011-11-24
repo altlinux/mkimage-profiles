@@ -20,7 +20,7 @@ distro/.init: profile/bare
 
 # NB: the last flavour in KFLAVOURS gets to be the default one;
 # the kernel packages regexp evaluation has to take place at build stage
-distro/.base: distro/.init use/syslinux/localboot.cfg
+distro/.base: distro/.init
 	@$(call set,KFLAVOURS,std-def)
 
 # bootloader test target
@@ -30,7 +30,7 @@ distro/syslinux: distro/.init \
 
 # something marginally useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader
-distro/installer: distro/.base use/install2
+distro/installer: distro/.base use/install2 use/syslinux/localboot.cfg
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 

@@ -7,7 +7,7 @@ distro/dos: distro/.init use/dos use/syslinux/ui-menu
 
 distro/live-systemd: distro/.base use/live/base use/systemd
 
-distro/live-install: distro/.base use/live/install
+distro/live-install: distro/.base use/live/install use/syslinux/localboot.cfg
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
