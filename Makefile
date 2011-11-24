@@ -16,17 +16,15 @@ help:
 MKIMAGE_PROFILES = $(dir $(lastword $(MAKEFILE_LIST)))
 
 # only process the first target (inter-target cleanup is tricky)
-IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	distro/server-base.iso
+IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	ve/generic.tar.gz
 ifeq (./,$(dir $(IMAGE_TARGET)))#		convenience fallback
 IMAGE_TARGET := distro/$(IMAGE_TARGET)#		for omitted "distro/"
 endif
-IMAGE_CONF   := $(basename $(IMAGE_TARGET))#	distro/server-base
-IMAGE_CLASS  := $(dir $(IMAGE_TARGET))#		distro/ (let's fix it)
-IMAGE_CLASS  := $(IMAGE_CLASS:%/=%)#		distro
-IMAGE_FILE   := $(notdir $(IMAGE_TARGET))#	server-base.iso
-IMAGE_NAME   := $(basename $(IMAGE_FILE))#	server-base
-IMAGE_TYPE   := $(suffix $(IMAGE_FILE))#	.iso (fix this too)
-IMAGE_TYPE   := $(IMAGE_TYPE:.%=%)#		iso
+IMAGE_CONF    := $(firstword $(subst ., ,$(IMAGE_TARGET)))# ve/generic
+IMAGE_CLASS   := $(firstword $(subst /, ,$(IMAGE_TARGET)))# ve
+IMAGE_FILE    := $(lastword  $(subst /, ,$(IMAGE_TARGET)))# generic.tar.gz
+IMAGE_NAME    := $(firstword $(subst ., ,$(IMAGE_FILE)))#   generic
+IMAGE_TYPE    := $(subst $(IMAGE_NAME).,,$(IMAGE_FILE))#    tar.gz
 
 # preferences
 -include $(HOME)/.mkimage/profiles.mk
