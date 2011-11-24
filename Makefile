@@ -6,6 +6,13 @@
 # --- in BUILDDIR
 # 4. build subprofiles and subsequently an image
 
+help:
+	@echo '** available distribution targets:'
+	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
+	@echo
+	@echo '** available virtual environment targets:'
+	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
+
 MKIMAGE_PROFILES = $(dir $(lastword $(MAKEFILE_LIST)))
 
 # only process the first target (inter-target cleanup is tricky)
@@ -38,7 +45,6 @@ VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 IMAGES  := $(DISTROS) $(VES)
 
 .PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS)
-.DEFAULT: help
 
 ### suboptimal but at least clear, reliable and convenient
 all:
@@ -62,13 +68,6 @@ $(IMAGES): debug \
 
 # convenience shortcut
 $(DISTROS:distro/%=%): %: distro/%
-
-help:
-	@echo '** available distribution targets:'
-	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
-	@echo
-	@echo '** available virtual environment targets:'
-	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
 
 debug:
 ifeq (2,$(DEBUG))
