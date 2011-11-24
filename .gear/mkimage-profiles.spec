@@ -6,7 +6,7 @@ Summary: ALT Linux based distribution metaprofile
 License: GPLv2+
 Group: Development/Other
 
-Url: http://www.altlinux.org/Mkimage/Profiles/next
+Url: http://www.altlinux.org/Mkimage/Profiles/m-p
 Source: %name-%version.tar
 Packager: Michael Shigorin <mike@altlinux.org>
 
