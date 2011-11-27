@@ -1,0 +1,25 @@
+ltsp-server
+ltsp-server-basic
+
+alterator-ltsconf
+
+alsa-plugins
+alsa-plugins-pulse
+
+syslinux
+mkisofs
+
+#kde-settings-kded-no_media_popup
+
+#docs-install_ltsp
+#docs-issue-desktop_personal
+
+installer-feature-ltsp-stage3
+
+# Set available online repository and some useful utilites from /sbin
+installer-feature-symlinks-from-sbin
+installer-feature-online-repo
+
+####
+vim-console
+cpio

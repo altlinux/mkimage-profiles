@@ -1,0 +1,7 @@
+ltsp-client
+ltsp-client-full
+ltsp-client-nxsession
+kernel-image-ltsp-client
+kernel-modules-drm-ltsp-client
+kernel-modules-alsa-ltsp-client
+mc
