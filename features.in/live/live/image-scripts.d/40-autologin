@@ -1,0 +1,34 @@
+#!/bin/sh -ef
+USER=altlinux
+
+# setup runlevel
+INITTAB=/etc/inittab
+if [ -f "$INITTAB" ]; then
+	[ -z "$runlevel" ] && runlevel=5
+	subst "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," "$INITTAB"
+fi
+
+# autologin^2
+if [ -x /usr/sbin/autologin ]; then
+	cat << E_O_F >> /etc/sysconfig/autologin
+USER=$USER
+AUTOLOGIN=yes
+E_O_F
+fi
+
+# gdm2 autologin
+GDM_CONF=/etc/X11/gdm/custom.conf
+if [ -f "$GDM_CONF" ]; then
+	sed -i -e '/\[daemon\]/aAutomaticLoginEnable=true\nAutomaticLogin='$USER \
+		"$GDM_CONF"
+fi
+
+# kdm3 autologin
+# TODO: iterate over kdm{,4} if feasible
+KDMRC=/etc/X11/kdm/kdmrc
+if [ -f "$KDMRC" ]; then
+	sed -i \
+		-e '/AutoLoginEnable/ s,^.*$,AutoLoginEnable=true,' \
+		-e '/AutoLoginUser/ s,^.*$,AutoLoginUser='$USER',' \
+		"$KDMRC"
+fi
