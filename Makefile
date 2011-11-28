@@ -35,9 +35,9 @@ include conf.d/*.mk
 include features.in/*/config.mk
 
 DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
-		lib/distro.mk $(wildcard conf.d/*.mk) | sort)
+		lib/distro.mk $(wildcard conf.d/*.mk) | sort -u)
 VE_TARGETS := $(shell sed -n 's,^\(ve/[^:.]\+\):.*$$,\1,p' \
-		lib/ve.mk $(wildcard conf.d/*.mk) | sort)
+		lib/ve.mk $(wildcard conf.d/*.mk) | sort -u)
 DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS)) 
 VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 IMAGES  := $(DISTROS) $(VES)
