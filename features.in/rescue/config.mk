@@ -1,4 +1,4 @@
 use/rescue: use/stage2 sub/stage2/rescue
 	@$(call add_feature)
-	@$(call add,RESCUE_LISTS,$(call tags,base && (rescue || network)))
-	@$(call add,RESCUE_LISTS,$(call tags,extra network))
+	@$(call add,RESCUE_LISTS, \
+		$(call tags,(base || extra) && (rescue || network)))

@@ -1,5 +1,3 @@
-fdisk
 parted
 mdadm
-rsync
 etcnet-full

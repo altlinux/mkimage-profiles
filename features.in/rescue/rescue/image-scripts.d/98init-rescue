@@ -4,8 +4,10 @@
 mv -f -- /etc/inittab.rescue /etc/inittab
 
 # enable NFS mounts
-chkconfig rpcbind on
-sed -i 's,#\(RPCBIND_ARGS="-l".*\),\1,' /etc/sysconfig/rpcbind
+if [ -x /etc/rc.d/init.d/rpcbind ]; then
+	chkconfig rpcbind on
+	sed -i 's,#\(RPCBIND_ARGS="-l".*\),\1,' /etc/sysconfig/rpcbind
+fi
 
 # remove unwanted startup scripts
 find /etc/rc.d/rc{2,3,4,5}.d/ -type l -name 'S*' \
