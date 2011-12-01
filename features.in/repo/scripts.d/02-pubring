@@ -1,0 +1,4 @@
+#!/bin/sh
+# generate current plaintext rpm pubring representation
+
+gpg --export --armor --homedir=/usr/lib/alt-gpgkeys >$WORKDIR/RPM-GPG-KEY
