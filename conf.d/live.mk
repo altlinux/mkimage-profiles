@@ -9,8 +9,9 @@ distro/live-install: distro/.base use/live/install use/syslinux/localboot.cfg
 distro/live-icewm: distro/live use/live/icewm
 
 distro/live-rescue: distro/live-icewm
-	@$(call add,LIVE_LISTS,$(call tags,extra && (rescue || network)))
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (live || x11)))
+	@$(call add,LIVE_LISTS, \
+		$(call tags,(base || extra) && (archive || rescue || network)))
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)

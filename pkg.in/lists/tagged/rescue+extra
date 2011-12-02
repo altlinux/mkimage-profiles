@@ -27,6 +27,7 @@ partimage
 # Applications
 binutils
 dmidecode
+gnupg
 hexedit
 pciutils
 procps
@@ -36,14 +37,6 @@ sharutils
 time
 openssl
 
-# Applications/Archiving
-arj
-bzip2
-gzip
-unrar
-unzip
-zip
-
 # Applications/Editors
 vim-console
 
@@ -51,7 +44,6 @@ vim-console
 findutils
 file
 less
-mtools
 
 # Filesystem utils
 dosfstools

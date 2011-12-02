@@ -1,0 +1,30 @@
+#gzrt
+lzip
+lzop
+p7zip
+pax
+rzip
+star
+unrar
+unzip
+xar
+
+# parallel (de)compression
+lbzip2
+pbzip2
+pigz
+plzip
+pxz
+
+# legacy
+arj
+cabextract
+ha
+lha
+mscompress
+nomarch
+ncompress
+unace
+unarj
+unzoo
+uudeview

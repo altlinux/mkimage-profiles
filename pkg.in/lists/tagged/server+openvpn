@@ -1,0 +1,11 @@
+apt
+basesystem
+sysklogd
+etcnet
+glibc-nss
+openvpn
+netlist
+#alterator-fbi
+openssh-server
+passwd
+less
