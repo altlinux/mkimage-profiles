@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.5.0
+Version: 0.5.1
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -59,6 +59,10 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Fri Dec 02 2011 Michael Shigorin <mike@altlinux.org> 0.5.1-alt1
+- generic VE archive type (added cpio and xz either)
+- minor additions/fixes
+
 * Mon Nov 21 2011 Michael Shigorin <mike@altlinux.org> 0.5.0-alt1
 - add_feature for autoregistration (simple but invasive)
 - added features: isomd5sum, repo, systemd
