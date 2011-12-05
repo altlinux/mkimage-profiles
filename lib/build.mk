@@ -29,8 +29,12 @@ IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
 
 # poehali
 build: profile/populate
-	@echo -n "$(TIME) starting image build"
-	@if [ -n "$(DEBUG)" ]; then \
+	@if [ -n "$(CHECK)" ]; then \
+		echo "$(TIME) skipping actual image build (CHECK is set)"; \
+		exit; \
+	fi; \
+	echo -n "$(TIME) starting image build"; \
+	if [ -n "$(DEBUG)" ]; then \
 		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
 	else \
 		if [ -n "$(ALL)" ]; then \
@@ -38,8 +42,8 @@ build: profile/populate
 		else \
 			echo " (coffee time)"; \
 		fi; \
-	fi
-	@if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
+	fi; \
+	if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
 		echo "$(TIME) done (`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
 		tail -200 "$(BUILDLOG)" \
 		| GREP_COLOR="$(ANSI_OK)" \
@@ -54,5 +58,5 @@ build: profile/populate
 		  egrep --color=always "^(E:|[Ee]rror|[Ww]arning).*"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
-	fi
-	@if [ -n "$(BELL)" ]; then echo -ne '\a' >&2; fi
+	fi; \
+	if [ -n "$(BELL)" ]; then echo -ne '\a' >&2; fi
