@@ -8,6 +8,7 @@ BOOT_TYPE = isolinux
 
 # Metadata/ needed only for installers (and not for e.g. syslinux.iso)
 # FIXME: installable live needs it too, don't move to install2 feature
+### see also .../pkg.in/lists/Makefile
 ifneq (,$(findstring install2,$(FEATURES)))
 METADATA = metadata
 endif
@@ -28,7 +29,7 @@ metadata: dot-base
 
 dot-base:
 	@{ \
-		echo -e "\n## added by image.in/Makefile"; \
+		echo -e "\n## added by build-distro.mk"; \
 		echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))"; \
 	} >> $(call list,.base)
 
