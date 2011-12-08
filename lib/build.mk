@@ -45,9 +45,9 @@ build: profile/populate
 	fi; \
 	if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
 		echo "$(TIME) done (`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
-		tail -200 "$(BUILDLOG)" \
+		tail -200 "$(BUILDLOG)" $(SHORTEN) \
 		| GREP_COLOR="$(ANSI_OK)" \
-		  grep --color=always '^\*\* image: .*' $(SHORTEN) ||:; \
+		  grep --color=auto '^\*\* image: .*' ||:; \
 	else \
 		echo "$(TIME) failed, see log: $(BUILDLOG)" $(SHORTEN); \
 		if [ -z "$(DEBUG)" ]; then \
@@ -55,7 +55,7 @@ build: profile/populate
 		fi; \
 		tail -200 "$(BUILDLOG)" \
 		| GREP_COLOR="$(ANSI_FAIL)" \
-		  egrep --color=always "^(E:|[Ee]rror|[Ww]arning).*"; \
+		  egrep --color=auto "^(E:|[Ee]rror|[Ww]arning).*"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi; \
