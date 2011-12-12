@@ -3,7 +3,9 @@ DISTRO_EXTS := .iso
 use/pack:
 	@$(call add_feature)
 
-use/pack/iso: use/pack boot/isolinux
+# conventional ISO9660 image hybridization
+# for direct bootable usbflash imaging
+use/pack/iso: use/pack boot/isolinux $(ISOHYBRID:%=use/isohybrid)
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call set,IMAGE_PACKTYPE,isoboot)
 else

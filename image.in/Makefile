@@ -47,7 +47,7 @@ pack-image: imagedir
 imagedir:
 	@mkdir -p "$(IMAGEDIR)"
 
-postprocess: $(addprefix postprocess-,$(POSTPROCESS_TARGETS))
+postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
 	echo "** image: $$OUTPATH" >&2 && \
 	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_LINK)" && \
