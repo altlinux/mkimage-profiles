@@ -11,7 +11,7 @@ sub/%:
 	@$(call add,SUBPROFILES,$(@:sub/%=%))
 
 # install media bootloader
-boot/%: profile/bare use/syslinux
+boot/%: use/syslinux
 	@$(call set,BOOTLOADER,$*)
 
 # fundamental targets
@@ -25,8 +25,8 @@ distro/.base: distro/.init
 
 # bootloader test target
 distro/syslinux: distro/.init \
-	use/syslinux use/syslinux/localboot.cfg \
-	use/syslinux/ui-vesamenu use/hdt use/memtest
+	use/syslinux/localboot.cfg use/syslinux/ui-vesamenu \
+	use/hdt use/memtest
 
 # something marginally useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader
