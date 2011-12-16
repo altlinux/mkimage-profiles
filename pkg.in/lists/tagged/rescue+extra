@@ -12,6 +12,8 @@ evms
 evms-ncurses
 fdisk
 gpart
+iotop
+iperf
 hdparm
 lvm2
 mdadm

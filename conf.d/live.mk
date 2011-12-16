@@ -9,7 +9,7 @@ distro/live-install: distro/.base use/live/install use/syslinux/localboot.cfg
 distro/live-icewm: distro/live use/live/icewm
 
 distro/live-rescue: distro/live-icewm
-	@$(call add,LIVE_LISTS,$(call tags,rescue && (live || x11)))
+	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
