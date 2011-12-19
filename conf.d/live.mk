@@ -28,6 +28,10 @@ distro/live-icewm: distro/live use/live/autologin
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || icewm)))
 
+distro/live-razorqt: distro/live use/live/autologin
+	@$(call add,LIVE_LISTS, \
+		$(call tags,(base || desktop) && (live || network || razorqt)))
+
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
 	@$(call add,LIVE_LISTS, \
