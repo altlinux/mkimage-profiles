@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.5.1
+Version: 0.5.2
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -59,6 +59,10 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Dec 19 2011 Michael Shigorin <mike@altlinux.org> 0.5.2-alt1
+- THE_{KMODULES,PACKAGES,LISTS,GROUPS}
+- incremental development, refactoring and bugfixing
+
 * Fri Dec 02 2011 Michael Shigorin <mike@altlinux.org> 0.5.1-alt1
 - generic VE archive type (added cpio and xz either)
 - minor additions/fixes
