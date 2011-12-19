@@ -1,8 +1,11 @@
 # stage2 mod: livecd
 
-IMAGE_PACKAGES = $(COMMON_PACKAGES) \
-		 $(LIVE_PACKAGES) \
-		 $(call map,list,$(LIVE_LISTS) $(LIVE_GROUPS)) \
+STAGE2_KMODULES = $(THE_KMODULES) $(LIVE_KMODULES)
+
+IMAGE_PACKAGES = $(COMMON_PACKAGES) $(THE_PACKAGES) $(LIVE_PACKAGES) \
+		 $(call map,list, \
+			$(THE_LISTS) $(THE_GROUPS) \
+			$(LIVE_LISTS) $(LIVE_GROUPS)) \
 		 interactivesystem
 
 MKI_PACK_RESULTS = squash:live

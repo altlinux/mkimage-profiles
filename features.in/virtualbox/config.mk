@@ -1,4 +1,4 @@
 use/virtualbox/guest:
 	@$(call add_feature)
-	@$(call add,KMODULES,virtualbox-addition)
-	@$(call add,BASE_PACKAGES,virtualbox-guest-additions)
+	@$(call add,THE_KMODULES,virtualbox-addition)
+	@$(call add,THE_PACKAGES,virtualbox-guest-additions)

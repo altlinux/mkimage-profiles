@@ -7,7 +7,8 @@ distro/server-base: distro/installer use/repo/main \
 
 distro/server-mini: distro/server-base use/cleanup/x11-alterator
 	@$(call set,KFLAVOURS,el-smp)
-	@$(call add,KMODULES,e1000e igb)
+	@$(call add,THE_KMODULES,e1000e igb)
+	@$(call add,STAGE1_KMODULES,e1000e igb)
 	@$(call add,BASE_LISTS,\
 		$(call tags,base && (server || network || security || pkg)))
 	@$(call add,BASE_LISTS,$(call tags,extra network))
@@ -18,9 +19,10 @@ distro/server-ovz: distro/server-mini \
 	use/hdt use/rescue use/firmware/server use/power/acpi/button
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
-	@$(call add,KMODULES,bcmwl ndiswrapper rtl8168 rtl8192)
-	@$(call add,KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
-	@$(call add,KMODULES,drbd83 kvm)
+	@$(call add,BASE_KMODULES,rtl8168 rtl8192)
+	@$(call add,MAIN_KMODULES,bcmwl ndiswrapper)
+	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
+	@$(call add,MAIN_KMODULES,drbd83 kvm)
 	@$(call add,INSTALL2_PACKAGES,curl)	### should become curl-mini
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,MAIN_LISTS,kernel-wifi)

@@ -32,7 +32,9 @@ endif
 
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there
-IMAGE_PACKAGES_REGEXP = $(call kpackages,$(STAGE1_KMODULES),$(STAGE1_KFLAVOUR))
+IMAGE_PACKAGES_REGEXP = $(call kpackages, \
+			$(STAGE1_KMODULES) $(STAGE2_KMODULES), \
+			$(STAGE1_KFLAVOUR))
 
 include $(MKIMAGE_PREFIX)/targets.mk
 

@@ -24,6 +24,7 @@ all: $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE)
 			$(shell cp --parents -at $(TARGET) \
 				-- $(value $V))))
 
+### FIXME: move to iterator/static pattern rule
 dot-base:
 	@# construct .base packagelist for alterator-pkg
 	@{ \
@@ -37,15 +38,21 @@ dot-base:
 		if [ -n "$(COMMON_PACKAGES)" ]; then \
 			echo -e "\n## COMMON_PACKAGES\n$(COMMON_PACKAGES)"; \
 		fi; \
+		if [ -n "$(THE_PACKAGES)" ]; then \
+			echo -e "\n## THE_PACKAGES\n$(THE_PACKAGES)"; \
+		fi; \
 		if [ -n "$(BASE_PACKAGES)" ]; then \
 			echo -e "\n## BASE_PACKAGES\n$(BASE_PACKAGES)"; \
+		fi; \
+		if [ -n "$(THE_LISTS)" ]; then \
+			echo -e "\n## THE_LISTS"; cat $(THE_LISTS); \
 		fi; \
 		if [ -n "$(BASE_LISTS)" ]; then \
 			echo -e "\n## BASE_LISTS"; cat $(BASE_LISTS); \
 		fi; \
 	} | sed -re '/^[^[:space:]#]/ s/[[:space:]]+/\n/g' >$(TARGET)/.base
-	@if [ -n "$(MAIN_GROUPS)" ]; then \
-		cp -at $(TARGET) -- $(MAIN_GROUPS); \
+	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
+		cp -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
 	fi
 	@if type -t git >&/dev/null && cd $(TARGET); then \
 		if [ -n "`git status -s`" ]; then \

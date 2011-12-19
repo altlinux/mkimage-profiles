@@ -29,8 +29,9 @@ STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
 ifneq "$(STAGE1_KFLAVOUR)" ""
 BUILD_PROPAGATOR = build-propagator
-CHROOT_PACKAGES_REGEXP := $(call kpackages,$(STAGE1_KMODULES_REGEXP),$(STAGE1_KFLAVOUR))
 INFO_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
+CHROOT_PACKAGES_REGEXP := $(call kpackages, \
+	$(STAGE1_KMODULES_REGEXP),$(STAGE1_KFLAVOUR))
 endif
 
 CHROOT_PACKAGES_REGEXP += $(STAGE1_PACKAGES_REGEXP)

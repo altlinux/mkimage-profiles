@@ -28,10 +28,8 @@ metadata: dot-base
 		   | sed 's,$(PKGDIR)/*,,g')
 
 dot-base:
-	@{ \
-		echo -e "\n## added by build-distro.mk"; \
-		echo "$(call kpackages,$(KMODULES),$(KFLAVOURS))"; \
-	} >> $(call list,.base)
+	@p="$(call kpackages,$(THE_KMODULES) $(BASE_KMODULES),$(KFLAVOURS))"; \
+	echo -e "\n## added by build-distro.mk\n$$p" >> $(call list,.base)
 
 dot-disk:
 	@mkdir -p files/.disk

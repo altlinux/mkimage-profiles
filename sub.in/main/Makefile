@@ -12,14 +12,19 @@ include $(MKIMAGE_PREFIX)/config.mk
 
 CHROOT_PACKAGES = apt-utils rsync
 
-IMAGE_PACKAGES_REGEXP = $(call kpackages,$(KMODULES),$(KFLAVOURS)) \
-			$(MAIN_PACKAGES_REGEXP)
+IMAGE_PACKAGES_REGEXP = $(MAIN_PACKAGES_REGEXP) \
+			$(call kpackages, \
+			       $(THE_KMODULES) \
+			       $(BASE_KMODULES) \
+			       $(MAIN_KMODULES), \
+			       $(KFLAVOURS))
 
-IMAGE_PACKAGES = $(call map,list,$(BASE_LISTS) $(MAIN_LISTS) $(MAIN_GROUPS)) \
-		 $(SYSTEM_PACKAGES) \
-		 $(COMMON_PACKAGES) \
-		 $(BASE_PACKAGES) \
-		 $(MAIN_PACKAGES)
+IMAGE_PACKAGES = $(call map,list, \
+			$(THE_LISTS) $(THE_GROUPS) \
+			$(BASE_LISTS) \
+			$(MAIN_LISTS) $(MAIN_GROUPS)) \
+		 $(SYSTEM_PACKAGES) $(COMMON_PACKAGES) \
+		 $(THE_PACKAGES) $(BASE_PACKAGES) $(MAIN_PACKAGES)
 
 MKI_DESTDIR = ALTLinux/RPMS.main
 MKI_PACK_RESULTS = data
