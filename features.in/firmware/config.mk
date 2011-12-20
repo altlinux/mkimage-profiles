@@ -12,8 +12,8 @@ use/firmware/server: use/firmware
 use/firmware/wireless: use/firmware
 	@$(call add,MAIN_PACKAGES,firmware-acx100)
 	@$(call add,MAIN_PACKAGES,firmware-i2400m)
-	@$(call add,MAIN_PACKAGES,firmware-carl9170)
+	@$(call add,MAIN_PACKAGES_REGEXP,firmware-carl9170.*)
 	@$(call add,MAIN_PACKAGES_REGEXP,firmware-ipw.*)
-	@$(call add,MAIN_PACKAGES_REGEXP,firmware-iwl.*)
+	@#$(call add,MAIN_PACKAGES_REGEXP,firmware-iwl.*)
 	@$(call add,MAIN_PACKAGES_REGEXP,firmware-rt.*)
 	@$(call add,MAIN_PACKAGES_REGEXP,firmware-zd.*)
