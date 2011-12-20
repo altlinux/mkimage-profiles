@@ -7,4 +7,5 @@ mdadm
 openssh-server
 openssh-clients
 openssh-blacklist
+screen
 acpid

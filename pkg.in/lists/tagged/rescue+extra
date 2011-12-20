@@ -67,8 +67,10 @@ iftop
 iproute2
 iptables
 iputils
+lft
 lftp
 mailx
+mtr
 netcat
 netlist
 nfs-utils
