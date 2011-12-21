@@ -8,8 +8,10 @@ bonnie++
 cfdisk
 ddrescue
 disktype
-evms
-evms-ncurses
+# NB: EVMS must be off by default as "normal" /dev/sd*
+#     would suddenly get busy otherwise
+#evms
+#evms-ncurses
 fdisk
 gpart
 iotop
