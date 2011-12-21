@@ -41,12 +41,12 @@ CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(SYSTEM_PACKAGES)
 # NB: we pass tested squashfs options for ../install2/Makefile
 all: | debug prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \
 	copy-$(BOOTLOADER) $(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
-	@if test -s $(OUTDIR)/squashcfg.mk; then \
+	@if [ -s $(OUTDIR)/squashcfg.mk ]; then \
 		cp $(OUTDIR)/squashcfg.mk $(GLOBAL_BUILDDIR)/; \
 	fi
 
 debug:
-	@if test -n "$(GLOBAL_VERBOSE)"; then \
+	@if [ -n "$(GLOBAL_VERBOSE)" ]; then \
 		echo "** BRANDING: $(BRANDING)"; \
 		echo "** IMAGE_INIT_LIST: $(IMAGE_INIT_LIST)"; \
 		echo "** STAGE1_PACKAGES: $(STAGE1_PACKAGES)"; \

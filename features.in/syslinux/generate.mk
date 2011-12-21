@@ -58,7 +58,7 @@ prep:
 	@mkdir -p $(DSTDIR)
 
 debug:
-	@if test -n "$(DEBUG)"; then \
+	@if [ -n "$(DEBUG)" ]; then \
 		echo "** BOOTLOADER: $(BOOTLOADER)"; \
 		echo "** SYSLINUX_UI: $(SYSLINUX_UI)"; \
 		echo "** SYSLINUX_CFG: $(SYSLINUX_CFG)"; \

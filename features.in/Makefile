@@ -108,7 +108,7 @@ $(FEATURES):
 	if [ -s "generate.mk" ]; then $(MAKE) -f generate.mk; fi; \
 	if type -t git >&/dev/null && \
 	   pushd "$(BUILDDIR)/" >/dev/null; then \
-		if test -n "`git status -s`"; then \
+		if [ -n "`git status -s`" ]; then \
 			git add . && \
 			git commit -qam "$$feat feature generation complete"; \
 		fi; \
