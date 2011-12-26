@@ -5,9 +5,12 @@
 #   remote syslog if you do care for reliable data anyways)
 # credits: vvk@, thresh@ (2010)
 
-sed -i \
-	-e 's,/dev/tty12,/var/log/syslog/console,' \
-	-e 's,^.*/var/log/syslog/console$,#&,' \
-	-e 's,-/var/log/,/var/log/,g' \
-	-e 's,/var/log/,-/var/log/,g' \
-	/etc/syslog.conf
+CONFIG=/etc/syslog.conf
+
+[ ! -f "$CONFIG" ] || \
+	sed -i \
+		-e 's,/dev/tty12,/var/log/syslog/console,' \
+		-e 's,^.*/var/log/syslog/console$,#&,' \
+		-e 's,-/var/log/,/var/log/,g' \
+		-e 's,/var/log/,-/var/log/,g' \
+		"$CONFIG"
