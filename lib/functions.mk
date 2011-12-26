@@ -25,7 +25,7 @@ endef
 set = $(and $(1),$(2),$(set_body))
 define set_body
 { $(log_body); \
-subst 's|^$(1)[ 	]*[+?]*=.*$$|#& # overridden by $@|' "$(CONFIG)"; \
+sed -i 's|^$(1)[ 	]*[+?]*=.*$$|#& # overridden by $@|' "$(CONFIG)"; \
 printf '%s = %s\n' '$(1)' '$(2)' >> "$(CONFIG)"; }
 endef
 

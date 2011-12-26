@@ -29,7 +29,7 @@ fi
 # $TMP
 TMP="/tmp/.private/$USER"
 control pam_mktemp enabled
-subst '/^%_tmppath.*tmp$/d' "$HOME/.rpmmacros"
+sed -i '/^%_tmppath.*tmp$/d' "$HOME/.rpmmacros"
 echo "%_tmppath	$TMP" >> "$HOME/.rpmmacros"
 
 # ~/hasher

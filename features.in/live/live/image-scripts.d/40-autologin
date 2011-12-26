@@ -5,7 +5,7 @@ USER=altlinux
 INITTAB=/etc/inittab
 if [ -f "$INITTAB" ]; then
 	[ -z "$runlevel" ] && runlevel=5
-	subst "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," "$INITTAB"
+	sed -i "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," "$INITTAB"
 fi
 
 # autologin^2

@@ -5,7 +5,7 @@
 
 # FIXME: move to plymouth feature
 #if [ -f /etc/plymouth/plymouthd.conf ];then 
-#    subst 's/#\([T\[]\)/\1/' /etc/plymouth/plymouthd.conf
+#    sed -i 's/#\([T\[]\)/\1/' /etc/plymouth/plymouthd.conf
 #    echo 'FEATURES += plymouth' >> /etc/initrd.mk
 #fi
 
