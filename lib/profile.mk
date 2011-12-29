@@ -85,7 +85,9 @@ profile/bare: profile/init
 	@$(call try,IMAGEDIR,$(IMAGEDIR))
 	@$(call try,LOGDIR,$(LOGDIR))
 	@$(call try,BRANDING,altlinux-sisyphus)
+ifeq (,$(REPO:altlinux%=))
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
+endif
 	@mp-commit "$(BUILDDIR)" "image configuration defaults set"
 
 # put the derived SUBPROFILE_DIRS here to get it logged in clear text by the way
