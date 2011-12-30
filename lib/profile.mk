@@ -4,14 +4,19 @@ endif
 
 SYMLINK = build
 
-# this could have come from environment;
-# if not, can be symlinked if r/w, or made anew
+# this could have come from env; or could be symlinked; or is made anew
+# (the reuse rationale is avoiding extra tmpdir lookups)
 # NB: immediate assignment matters
-# NB: PATH has no effect here
 ifndef BUILDDIR
-BUILDDIR := $(shell [ -s "$(SYMLINK)" ] \
-        && realpath "$(SYMLINK)" \
-        || bin/mktmpdir mkimage-profiles)
+BUILDLINK := $(realpath $(SYMLINK))
+BUILDDIR  := $(shell \
+if [ -s "$(SYMLINK)" -a "$(NUM_TARGETS)" = 1 ] && \
+   [ -n "$(findstring $(BUILDDIR_PREFIX).,$(BUILDLINK))" ]; \
+then \
+	echo "$(BUILDLINK)"; \
+else \
+	bin/mktmpdir $(BUILDDIR_PREFIX) || exit 127; \
+fi; )
 endif
 
 # even smart caching only hurts when every build goes from scratch
@@ -23,15 +28,6 @@ export BUILDDIR NO_CACHE PATH
 
 CONFIG := $(BUILDDIR)/distcfg.mk
 RC := $(HOME)/.mkimage/profiles.mk
-
-# holds a postprocessor; shell test executes in particular situation
-# NB: not exported, for toplevel use only
-SHORTEN = $(shell \
-		if [ -s "$(SYMLINK)" ]; then \
-			echo "| sed 's,$(BUILDDIR),$(SYMLINK),'"; \
-		else \
-			echo "| sed 's,$(TMP),\$$TMP,'"; \
-		fi;)
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
@@ -68,7 +64,7 @@ profile/init: distclean
 	fi
 	@if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
-		ln -sf "$(BUILDDIR)" "$(SYMLINK)" && \
+		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
 		echo "$(SYMLINK)/"; \
 	else \
 		echo "$(BUILDDIR)/" $(SHORTEN); \

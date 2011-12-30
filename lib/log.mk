@@ -8,7 +8,7 @@ endif
 
 BUILDLOG ?= $(BUILDDIR)/build.log
 
-# LOG holds a postprocessor
+# LOG holds a redirecting postprocessor
 ifdef DEBUG
 # 1) makefile target; 2) also passed to script hooks
 GLOBAL_DEBUG := debug
@@ -27,3 +27,12 @@ DATE = $(shell date +%Y%m%d)
 TIME = `date +%H:%M:%S`
 
 export BUILDLOG DATE GLOBAL_DEBUG GLOBAL_VERBOSE LOG MAKE SHELL
+
+# brevity postprocessor; not exported, for toplevel use only
+SHORTEN = $(shell \
+	echo -n "| sed"; \
+	if [ -s "$(SYMLINK)" ]; then \
+		echo -n " -e 's,$(BUILDDIR),$(SYMLINK),'"; \
+	fi; \
+	echo -n " -e 's,$(TMP),\$$TMP,' -e 's,$(HOME),~,'"; \
+)

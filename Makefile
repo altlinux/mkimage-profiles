@@ -1,75 +1,35 @@
-# steps to build a distribution image:
-# --- here
-# 1. initialize new profile (BUILDDIR) as a copy of image.in/
-# 2. configure distro
-# 3. copy the needed bits from metaprofile to a new profile
-# --- in BUILDDIR
-# 4. build subprofiles and subsequently an image
+# umbrella mkimage-profiles makefile:
+# iterate over multiple goals/arches
 
-help:
-	@echo '** available distribution targets:'
-	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
-	@echo
-	@echo '** available virtual environment targets:'
-	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
-
-MKIMAGE_PROFILES = $(dir $(lastword $(MAKEFILE_LIST)))
-
-# only process the first target (inter-target cleanup is tricky)
-IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	ve/generic.tar.gz
-ifeq (./,$(dir $(IMAGE_TARGET)))#		convenience fallback
-IMAGE_TARGET := distro/$(IMAGE_TARGET)#		for omitted "distro/"
+# immediate assignment
+ifndef ARCHES
+ifdef ARCH
+ARCHES := $(ARCH)
+else
+ARCHES := $(shell arch | sed 's/i686/i586/')
 endif
-IMAGE_CONF    := $(firstword $(subst ., ,$(IMAGE_TARGET)))# ve/generic
-IMAGE_CLASS   := $(firstword $(subst /, ,$(IMAGE_TARGET)))# ve
-IMAGE_FILE    := $(lastword  $(subst /, ,$(IMAGE_TARGET)))# generic.tar.gz
-IMAGE_NAME    := $(firstword $(subst ., ,$(IMAGE_FILE)))#   generic
-IMAGE_TYPE    := $(subst $(IMAGE_NAME).,,$(IMAGE_FILE))#    tar.gz
-
-# preferences
--include $(HOME)/.mkimage/profiles.mk
-
-# most of the actual work done elsewhere
-include lib/*.mk
-include conf.d/*.mk
-include features.in/*/config.mk
-
-DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
-		lib/distro.mk $(wildcard conf.d/*.mk) | sort -u)
-VE_TARGETS := $(shell sed -n 's,^\(ve/[^:.]\+\):.*$$,\1,p' \
-		lib/ve.mk $(wildcard conf.d/*.mk) | sort -u)
-DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS)) 
-VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
-IMAGES  := $(DISTROS) $(VES)
-
-.PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS)
-
-### suboptimal but at least clear, reliable and convenient
-all:
-	@n=1; sum=$(words $(DISTROS)); \
-	for distro in $(DISTROS); do \
-		echo "** building $$distro:"; \
-		$(MAKE) --no-print-directory \
-			ALL=$$n/$$sum \
-			BUILDDIR=$(BUILDDIR) \
-			$$distro; \
-		echo; \
-		n=$$(($$n+1)); \
-	done
-
-$(IMAGES): debug \
-	config/with/$(IMAGE_CONF) \
-	config/like/$(IMAGE_CLASS) \
-	config/name/$(IMAGE_NAME) \
-	config/pack/$(IMAGE_TYPE) \
-	build; @:
-
-# convenience shortcut
-$(DISTROS:distro/%=%): %: distro/%
-
-debug:
-ifeq (2,$(DEBUG))
-	@$(foreach v,\
-		$(filter IMAGE_%,$(sort $(.VARIABLES))),\
-		$(warning $v = $($v)))
 endif
+export ARCHES
+
+# recursive make considered useful for m-p
+MAKE += --no-print-directory
+
+.PHONY: clean distclean help
+clean distclean help:
+	@$(MAKE) -f main.mk $@
+
+export NUM_TARGETS := $(words $(MAKECMDGOALS))
+
+%:
+	@n=1; \
+	if [ "$(NUM_TARGETS)" -gt 1 ]; then \
+		n="`echo $(MAKECMDGOALS) \
+		| tr '[[:space:]]' '\n' \
+		| grep -nx "$@" \
+		| cut -d: -f1`"; \
+		echo "** goal: $@ [$$n/$(NUM_TARGETS)]"; \
+	fi; \
+	for ARCH in $(ARCHES); do \
+		$(MAKE) -f main.mk ARCH=$$ARCH $@; \
+	done; \
+	if [ "$$n" -lt "$(NUM_TARGETS)" ]; then echo; fi

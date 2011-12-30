@@ -13,3 +13,6 @@ config/pack/%: use/pack/%
 # just preconfigure
 config/name/%:
 	@$(call set,IMAGE_NAME,$*)
+
+# the final thing will pull the rest in
+build: postclean

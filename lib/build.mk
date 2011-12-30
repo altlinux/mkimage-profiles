@@ -6,8 +6,6 @@ ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
 endif
 
-export ARCH ?= $(shell arch | sed 's/i686/i586/')
-
 # try not to bog down the system, both CPU and I/O wise
 ifdef NICE
 START := nice $(shell ionice -c3 echo "ionice -c3" 2>/dev/null)
@@ -22,13 +20,18 @@ START += time -f "%E %PCPU %Mk"
 # /usr/bin/{i586,x86_64} are setarch(8) symlinks
 START += $(ARCH)
 
-# to be passed into distcfg.mk
-IMAGEDIR ?= $(shell [ -d "$$HOME/out" -a -w "$$HOME/out" ] \
-	&& echo "$$HOME/out" \
-	|| echo "$(BUILDDIR)/out" )
+# to be passed into distcfg.mk; suggestions are welcome
+IMAGEDIR ?= $(shell \
+	if [ -d "$$HOME/out" -a -w "$$HOME/out" ]; then \
+		echo "$$HOME/out"; \
+	else \
+		dir="`dirname $(BUILDDIR)`/out"; \
+		mkdir -p "$$dir" && echo "$$dir" || echo "/tmp"; \
+	fi; \
+)
 
-# poehali
-build: profile/populate
+# actual build starter
+build-image: profile/populate
 	@if [ -n "$(CHECK)" ]; then \
 		echo "$(TIME) skipping actual image build (CHECK is set)"; \
 		exit; \
@@ -37,11 +40,7 @@ build: profile/populate
 	if [ -n "$(DEBUG)" ]; then \
 		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
 	else \
-		if [ -n "$(ALL)" ]; then \
-			echo " [$(ALL)]"; \
-		else \
-			echo " (coffee time)"; \
-		fi; \
+		echo " (coffee time)"; \
 	fi; \
 	if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
 		echo "$(TIME) done (`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
@@ -49,9 +48,12 @@ build: profile/populate
 		| GREP_COLOR="$(ANSI_OK)" \
 		  grep --color=auto '^\*\* image: .*' ||:; \
 	else \
-		echo "$(TIME) failed, see log: $(BUILDLOG)" $(SHORTEN); \
+		echo -n "$(TIME) failed, see log"; \
 		if [ -z "$(DEBUG)" ]; then \
-			echo "$(TIME) (you might want to re-run with DEBUG=1)"; \
+			echo ": $(BUILDLOG)" $(SHORTEN); \
+			echo "$(TIME) (you might want to rerun with DEBUG=1)"; \
+		else \
+			echo " above"; \
 		fi; \
 		tail -200 "$(BUILDLOG)" \
 		| GREP_COLOR="$(ANSI_FAIL)" \

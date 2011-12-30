@@ -60,5 +60,6 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 
 debug:
 	@echo "TOPDIR=$(TOPDIR)"
+	@echo "IMAGEDIR=$(IMAGEDIR)"
 	@echo "ARCH=$(ARCH)"
 	@echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
