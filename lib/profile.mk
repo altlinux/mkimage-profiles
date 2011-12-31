@@ -35,8 +35,12 @@ SHORTEN = $(shell \
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 profile/init: distclean
+	@if [ "`realpath "$(BUILDDIR)/"`" = / ]; then \
+		echo "$(TIME) ERROR: invalid BUILDDIR: \`$(BUILDDIR)'"; \
+		exit 128; \
+	fi;
 	@echo -n "$(TIME) initializing BUILDDIR: "
-	@rsync -qaH --delete image.in/ "$(BUILDDIR)"/
+	@rsync -qaxH --delete-after image.in/ "$(BUILDDIR)"/
 	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
 	@$(call put,ifndef DISTCFG_MK)
 	@$(call put,DISTCFG_MK = 1)

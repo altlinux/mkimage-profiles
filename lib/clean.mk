@@ -3,6 +3,8 @@
 # drop stock predefined rules
 .DEFAULT:
 
+SYMLINK = build
+
 # tmpfs-sparing extra rule: cleanup workdir after completing each stage
 # (as packed results are saved this only lowers RAM pressure)
 # NB: it's useful enough to be enabled by default in DEBUG abscence
@@ -18,22 +20,26 @@ endif
 
 # ordinary clean: destroys workdirs but not the corresponding results
 clean:
-	@echo "$(TIME) cleaning up $(WARNING)"
 	@find -name '*~' -delete >&/dev/null ||:
-	@if [ -L build -a -d build/ ]; then \
-		$(MAKE) -C build $@ \
-			GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) ||:; \
+	@if [ -L "$(SYMLINK)" -a -d "$(SYMLINK)"/ ]; then \
+		echo "$(TIME) cleaning up $(WARNING)"; \
+		$(MAKE) -C "$(SYMLINK)" $@ \
+			GLOBAL_BUILDDIR="$(realpath $(SYMLINK))" $(LOG) ||:; \
 	fi
 
 # there can be some sense in writing log here even if normally
 # $(BUILDDIR)/ gets purged: make might have failed,
 # and BUILDLOG can be specified by hand either
 distclean: clean
-	@if [ -L build -a -d build/ ]; then \
-		rm -rf build/.git; \
-		$(MAKE) -C build $@ \
-			GLOBAL_BUILDDIR=$(shell readlink build) $(LOG) || \
-			rm -rf build/; \
-		rm -rf $(shell readlink build); \
+	@if [ -L "$(SYMLINK)" -a -d "$(SYMLINK)"/ ]; then \
+		build="$(realpath $(SYMLINK)/)"; \
+		if [ "$$build" = / ]; then \
+			echo "** ERROR: invalid \`"$(SYMLINK)"' symlink" >&2; \
+			exit 128; \
+		else \
+			$(MAKE) -C "$(SYMLINK)" $@ \
+				GLOBAL_BUILDDIR="$$build" $(LOG) ||: \
+			rm -rf "$$build"; \
+		fi; \
 	fi
-	@rm -f build ||:
+	@rm -f "$(SYMLINK)"
