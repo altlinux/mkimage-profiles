@@ -1,0 +1,6 @@
+object 672125b9e588b0a0bc6587680faf164da9f25af7
+type commit
+tag v0.5.3
+tagger Michael Shigorin <mike@altlinux.org> 1325530888 +0200
+
+main.mk
