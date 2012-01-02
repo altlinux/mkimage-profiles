@@ -2,7 +2,7 @@
 # analyze free space, preferring tmpfs over really many gigaz
 
 # hope there aren't spaces in RM's $HOME are they?
-DIRS="$TMP $TMPDIR $HOME/hasher /tmp /var/tmp"
+DIRS="$TMP $TMPDIR $HOME/hasher /tmp /var/tmp .."
 MINSIZE=262144		# face control criterion
 
 # pick existing, writeable, >256M free space dirs
@@ -25,5 +25,7 @@ choose_tmpdir() {
 	| cut -f2 -d' '
 }
 
-DIR="`choose_tmpdir`"
-mktemp -d "${1:-tmpdir}.XXXXXXX" --tmpdir="${DIR:-`realpath ..`}"
+DIR="`choose_tmpdir`/`dirname "$1"`"
+NAME="`basename "${1:-tmpdir}"`"
+mkdir -p "$DIR"	# in case $1 contains slash(es)
+mktemp -d "$NAME.XXXXXXX" --tmpdir="${DIR%/.}"
