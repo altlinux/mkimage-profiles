@@ -21,6 +21,7 @@
 - от имени пользователя (после повторного входа):
 $ git config --global user.email "my@email"
 $ git config --global user.name "My Name"
+$ mkdir ~/out
 
 - тестовая сборка (см. тж. lib/distro.mk, doc/variables.txt):
 $ make distro/icewm.iso
