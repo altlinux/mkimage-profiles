@@ -1,4 +1,10 @@
 #!/bin/sh -ef
+
+if [ ! -x /usr/bin/X ]; then
+	echo "warning: autologin feature requested but X not installed" >&2
+	exit 0
+fi
+
 USER=altlinux
 
 # setup runlevel
