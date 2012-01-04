@@ -15,7 +15,7 @@
 команды
 ~~~~~~~
 - от имени root:
-# apt-get install hasher git-core
+# apt-get install mkimage hasher git-core
 # hasher-useradd USER
 
 - от имени пользователя (после повторного входа):

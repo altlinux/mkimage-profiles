@@ -10,8 +10,10 @@ MKI_VER_OPTIMAL = 0.2.0
 
 include distcfg.mk
 include functions.mk
-include $(MKIMAGE_PREFIX)/config.mk
 
+ifeq (,$(realpath $(MKIMAGE_PREFIX)/config.mk))
+$(error please apt-get install mkimage and have a look at QUICKSTART as well)
+endif
 ifeq (-,$(shell rpmvercmp $(MKI_VERSION) $(MKI_VER_MINIMAL) | tr -d [0-9]))
 $(info error: mkimage-$(MKI_VERSION) is too old, please upgrade)
 $(error mkimage is too old, $(MKI_VER_MINIMAL) is minimal supported version)
@@ -20,6 +22,8 @@ ifeq (-,$(shell rpmvercmp $(MKI_VERSION) $(MKI_VER_OPTIMAL) | tr -d [0-9]))
 $(info warning: mkimage-$(MKI_VERSION) is suboptimal, consider upgrading)
 $(warning consider upgrading mkimage to $(MKI_VER_OPTIMAL) or better)
 endif
+
+include $(MKIMAGE_PREFIX)/config.mk
 
 # reconstruct instead of passing yet another variable
 IMAGE_LINK := $(IMAGE_NAME).$(IMAGE_TYPE)
