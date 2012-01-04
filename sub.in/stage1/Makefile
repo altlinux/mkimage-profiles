@@ -11,6 +11,7 @@ include $(MKIMAGE_PREFIX)/config.mk
 ifndef BOOTLOADER
 $(error BOOTLOADER not defined)
 endif
+GLOBAL_BOOTLOADER := $(BOOTLOADER)
 
 MKI_PACK_RESULTS = data
 PROPAGATOR_VERSION = ALT Linux

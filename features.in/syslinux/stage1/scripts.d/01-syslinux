@@ -7,15 +7,15 @@ MODDIR="/usr/lib/syslinux"
 mkdir -p "$WORKDIR/syslinux"
 cd "$WORKDIR/syslinux"
 
-# validate just in case (written by ../../generate.mk)
-BOOTLOADER="$(cat .in/bootloader)"
-case "$BOOTLOADER" in
+# validate just in case (see also stage1 Makefile)
+case "$GLOBAL_BOOTLOADER" in
 	isolinux|syslinux) ;;
-	*) echo "$0: error: weird BOOTLOADER: $BOOTLOADER" >&2; exit 1;;
+	*) echo "error: weird GLOBAL_BOOTLOADER: \`$GLOBAL_BOOTLOADER'" >&2;
+	   exit 1;;
 esac
 
 # copy extra files, if any
-SYSLINUX_FILES="$(cat .in/files.list)"
+SYSLINUX_FILES="$(cat .in/syslinux.list)"
 if [ -n "${SYSLINUX_FILES% }" ]; then
 	cp -a $SYSLINUX_FILES .
 fi
@@ -30,7 +30,7 @@ if [ -n "$SYSLINUX_MODULES" ]; then
 fi
 
 # number ordering sponsored by shell's pathname expansion
-grep -hv '^#' .in/[0-9][0-9]*.cfg > "$BOOTLOADER.cfg"
+grep -hv '^#' .in/[0-9][0-9]*.cfg > "$GLOBAL_BOOTLOADER.cfg"
 
 # snippets are not going into the actual image
 if [ "$DEBUG" != 2 ]; then rm -r .in/; fi

@@ -51,8 +51,7 @@ all: prep debug
 	@### proper text branding should be implemented
 	@sed -i 's,@mkimage-profiles@,$(IMAGE_NAME),' $(DSTDIR)/*.cfg
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
-	@echo $(SYSLINUX_FILES) > $(DSTDIR)/files.list
-	@echo $(BOOTLOADER) > $(DSTDIR)/bootloader
+	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
 
 prep:
 	@mkdir -p $(DSTDIR)
