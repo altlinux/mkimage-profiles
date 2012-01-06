@@ -1,14 +1,40 @@
 #!/bin/sh
 # analyze free space, preferring tmpfs over really many gigaz
+# and taking into account configured hasher workdir prefices
 
 # hope there aren't spaces in RM's $HOME are they?
 DIRS="$TMP $TMPDIR $HOME/hasher /tmp /var/tmp .."
 MINSIZE=262144		# face control criterion
 
+# poor man's SourceIfExists()
+try_source() { [ -f "$1" ] && . "$1"; }
+
+# hasher accepted ones
+get_prefices()
+{
+	try_source /etc/hasher-priv/system
+	try_source `/usr/libexec/hasher-priv/getconf.sh`
+	echo "$prefix" | tr ':' '\n' | while read i; do realpath "$i"; done
+}
+
+# drop candidates that hasher won't handle anyways
+# NB: doesn't take --number into account,
+# prefix lists are defined by the primary configuration
+contemplate_dirs()
+{
+	for d in "$@"; do
+		D="`realpath "$d"`";
+		for p in `get_prefices`; do
+			[ "${D#$p}" = "$D" ] || echo "$D";
+		done;
+	done \
+	| uniq	# _not_ sort -u
+}
+
 # pick existing, writeable, >256M free space dirs
 # rank them wrt type: tmpfs > realfs > rootfs
 choose_tmpdir() {
-	for i in $DIRS; do
+	for i in "$@"; do
 		[ -d "$i" -a -w "$i" ] || continue
 		echo -n "$i "
 		df -Tl "$i" | tail -1
@@ -25,7 +51,15 @@ choose_tmpdir() {
 	| cut -f2 -d' '
 }
 
-DIR="`choose_tmpdir`/`dirname "$1"`"
+# bringing it all together
+TMPDIRS="`contemplate_dirs $DIRS`"
+if [ -z "$TMPDIRS" ]; then
+	echo "error: no suitable directories found" >&2
+	echo "please check docs, filesystem and hasher setup" >&2
+	exit 1
+fi
+
+DIR="`choose_tmpdir $TMPDIRS`/`dirname "$1"`"
 NAME="`basename "${1:-tmpdir}"`"
 mkdir -p "$DIR"	# in case $1 contains slash(es)
 mktemp -d "$NAME.XXXXXXX" --tmpdir="${DIR%/.}"
