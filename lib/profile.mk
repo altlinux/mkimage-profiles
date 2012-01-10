@@ -19,6 +19,10 @@ else \
 fi; )
 endif
 
+ifeq (,$(BUILDDIR))
+$(error suitable BUILDDIR unavailable)
+endif
+
 # even smart caching only hurts when every build goes from scratch
 NO_CACHE ?= 1
 

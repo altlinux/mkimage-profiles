@@ -31,6 +31,12 @@ contemplate_dirs()
 	| uniq	# _not_ sort -u
 }
 
+# hasher emits no meaningful errors regarding those, sigh
+check_options()
+{
+	! egrep -q "^$1 $2 .*no(dev|exec)" /proc/mounts
+}
+
 # pick existing, writeable, >256M free space dirs
 # rank them wrt type: tmpfs > realfs > rootfs
 choose_tmpdir() {
@@ -41,6 +47,7 @@ choose_tmpdir() {
 	done \
 	| sort -unk6 \
 	| while read dir dev fstype size used free percent mnt; do
+		check_options "$dev" "$mnt" || continue
 		[ "$free" -gt "$MINSIZE" ] || continue
 		[ "$fstype" = "tmpfs" ] && { echo "2 $dir $free"; continue; }
 		[ "$mnt" = "/" ] && { echo "0 $dir $free"; continue; }
@@ -54,12 +61,21 @@ choose_tmpdir() {
 # bringing it all together
 TMPDIRS="`contemplate_dirs $DIRS`"
 if [ -z "$TMPDIRS" ]; then
-	echo "error: no suitable directories found" >&2
+	echo "error: no suitable directories found;" >&2
 	echo "please check docs, filesystem and hasher setup" >&2
+	echo "(mount enough tmpfs into /tmp or fix hasher-priv prefix?)" >&2
 	exit 1
 fi
 
-DIR="`choose_tmpdir $TMPDIRS`/`dirname "$1"`"
+TEMP="`choose_tmpdir $TMPDIRS`"
+if [ -z "$TEMP" ]; then
+	echo "error: no suitable directories found;" >&2
+	echo "please check hasher docs and filesystem setup" >&2
+	echo "(nodev and/or noexec on an otherwise suitable filesystem?)" >&2
+	exit 1
+fi
+
+DIR="$TEMP/`dirname "$1"`"
 NAME="`basename "${1:-tmpdir}"`"
 mkdir -p "$DIR"	# in case $1 contains slash(es)
 mktemp -d "$NAME.XXXXXXX" --tmpdir="${DIR%/.}"
