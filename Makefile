@@ -20,6 +20,7 @@ clean distclean help:
 
 export NUM_TARGETS := $(words $(MAKECMDGOALS))
 
+# real targets need real work
 %:
 	@n=1; \
 	if [ "$(NUM_TARGETS)" -gt 1 ]; then \
