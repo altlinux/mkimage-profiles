@@ -39,7 +39,7 @@ CHROOT_PACKAGES_REGEXP += $(STAGE1_PACKAGES_REGEXP)
 CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(SYSTEM_PACKAGES)
 
 # scripts prepare bootloader configuration, too
-# NB: we pass tested squashfs options for ../install2/Makefile
+# NB: we pass tested squashfs options for ../stage2/Makefile to include
 all: | debug prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \
 	copy-$(BOOTLOADER) $(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
 	@if [ -s $(OUTDIR)/squashcfg.mk ]; then \
