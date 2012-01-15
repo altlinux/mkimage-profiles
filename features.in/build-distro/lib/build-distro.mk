@@ -13,6 +13,9 @@ ifneq (,$(findstring install2,$(FEATURES)))
 METADATA = metadata
 endif
 
+# see also ../scripts.d/01-isosort; needs mkimage-0.2.2+
+MKI_SORTFILE := /tmp/isosort
+
 all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
 
