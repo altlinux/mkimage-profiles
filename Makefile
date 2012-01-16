@@ -31,6 +31,8 @@ export NUM_TARGETS := $(words $(MAKECMDGOALS))
 		echo "** goal: $@ [$$n/$(NUM_TARGETS)]"; \
 	fi; \
 	for ARCH in $(ARCHES); do \
+		if [ "$$ARCH" != "$(firstword $(ARCHES))" ]; then echo; fi; \
+		echo "** ARCH: $$ARCH"; \
 		$(MAKE) -f main.mk ARCH=$$ARCH $@; \
 	done; \
 	if [ "$$n" -lt "$(NUM_TARGETS)" ]; then echo; fi

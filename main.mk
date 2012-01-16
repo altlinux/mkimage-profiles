@@ -61,11 +61,8 @@ everything:
 	@n=1; sum=$(words $(DISTROS)); \
 	for distro in $(DISTROS); do \
 		echo "** building $$distro [$$n/$$sum]:"; \
-		$(MAKE) --no-print-directory \
-			COUNT=$$n/$$sum \
-			BUILDDIR=$(BUILDDIR) \
-			$$distro; \
-		echo; \
+		$(MAKE) -f main.mk --no-print-directory $$distro; \
+		[ "$$n" -lt "$$sum" ] && echo; \
 		n=$$(($$n+1)); \
 	done
 
