@@ -9,6 +9,9 @@ ifeq (ve,$(IMAGE_CLASS))
 ve/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,basesystem)
 
+ve/bare: ve/.bare
+	@$(call add,BASE_PACKAGES,apt)
+
 ve/generic: ve/.bare
 	@$(call add,BASE_LISTS,\
 		$(call tags,base && (server || network || security || pkg)))
