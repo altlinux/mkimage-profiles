@@ -1,6 +1,9 @@
 #!/bin/sh
 # check relevant kernel features availability
 
+GZ_OPTS="-comp gzip"
+XZ_OPTS="-comp xz -b 524288 -noI"
+
 # test for installer-required filesystems support
 for opt in CONFIG_SQUASHFS CONFIG_AUFS_FS; do
 	if grep -q "^$opt=[my]$" /boot/config-*; then
@@ -16,7 +19,14 @@ done
 # squashfs options: not really neccessary but better than none
 # NB: this config file should be carried over into install2
 if grep -q '^CONFIG_SQUASHFS_XZ=y$' /boot/config-*; then
-	echo "PACK_SQUASHFS_OPTS=-comp xz -Xbcj x86" > /.image/squashcfg.mk
+	# TODO: figure out if it's generally worth it even on x86:
+	#       if binaries account for less than ~70% of blocks,
+	#       the decompression filter overhead might hurt
+	# NB: there are arm, powerpc and some other filters too
+	if grep -q "^CONFIG_X86" /boot/config-*; then
+		XZ_OPTS="$XZ_OPTS -Xbcj x86"
+	fi
+	echo "PACK_SQUASHFS_OPTS=$XZ_OPTS" > /.image/squashcfg.mk
 else
-	echo "PACK_SQUASHFS_OPTS=-comp gzip" >> /.image/squashcfg.mk
+	echo "PACK_SQUASHFS_OPTS=$GZ_OPTS" > /.image/squashcfg.mk
 fi
