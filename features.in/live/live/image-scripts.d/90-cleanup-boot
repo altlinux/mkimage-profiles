@@ -1,0 +1,6 @@
+#!/bin/sh
+# we don't really need the kernel in live root,
+# it's been booted already
+
+rm -f /boot/*
+:
