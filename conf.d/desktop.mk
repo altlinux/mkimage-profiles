@@ -16,6 +16,7 @@ distro/ltsp-icewm: distro/icewm use/ltsp use/firmware
 	@$(call add,BASE_LISTS,$(call tags,base network))
 	@$(call add,BASE_LISTS,ltsp)
 	@$(call add,BASE_PACKAGES,apt-repo)
+	@$(call add,BASE_PACKAGES,firefox)
 
 distro/desktop-systemd: distro/icewm use/systemd
 
