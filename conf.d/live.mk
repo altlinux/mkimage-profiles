@@ -6,6 +6,8 @@ distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 distro/live: distro/.base use/live/base use/power/acpi/cpufreq
 distro/live-systemd: distro/.base use/live/base use/systemd
 
+distro/.live-x11: distro/live use/live/autologin use/power/acpi/button
+
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
 
@@ -24,11 +26,11 @@ distro/live-builder: distro/.base use/repo/main \
 distro/live-install: distro/.base use/live/base use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
-distro/live-icewm: distro/live use/live/autologin
+distro/live-icewm: distro/.live-x11
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || icewm)))
 
-distro/live-razorqt: distro/live use/live/autologin
+distro/live-razorqt: distro/.live-x11
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || razorqt)))
 
