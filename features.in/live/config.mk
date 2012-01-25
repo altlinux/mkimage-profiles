@@ -11,3 +11,6 @@ use/live/x11: use/live/base use/x11/xorg use/x11/wacom use/virtualbox/guest
 #     *but* it only configures some of the *existing* means; let's add one
 use/live/autologin: use/live/x11
 	@$(call add,LIVE_PACKAGES,autologin xinit)
+
+use/live/hooks: use/live
+	@$(call add,LIVE_PACKAGES,livecd-run-hooks)
