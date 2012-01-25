@@ -39,7 +39,7 @@ distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
-distro/live-webkiosk: distro/.live-x11
+distro/live-webkiosk: distro/.live-x11 use/live/hooks
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 
