@@ -11,7 +11,7 @@ distro/server-mini: distro/server-base use/cleanup/x11-alterator
 	@$(call add,STAGE1_KMODULES,e1000e igb)
 	@$(call add,BASE_LISTS,\
 		$(call tags,base && (server || network || security || pkg)))
-	@$(call add,BASE_LISTS,$(call tags,extra network))
+	@$(call add,BASE_LISTS,$(call tags,extra (server || network)))
 
 distro/server-systemd: distro/server-mini use/systemd
 
