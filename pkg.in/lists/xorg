@@ -21,11 +21,12 @@ xorg-drv-wacom
 xorg-drv-wizardpen
 xorg-drv-qxl
 
+# #25044?
+xorg-dri-intel
+
 # for those who need these
 xorg-drv-keyboard
 xorg-drv-mouse
-
-#xorg-dri-*
 
 xauth
 xorg-utils
