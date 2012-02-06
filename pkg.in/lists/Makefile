@@ -16,13 +16,27 @@ ifneq (,$(findstring install2,$(FEATURES)))
 DOTBASE := dot-base
 endif
 
-all: $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE)
+all: $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE) copy-lists copy-groups
+	@if type -t git >&/dev/null && cd $(TARGET); then \
+		if [ -n "`git status -s`" ]; then \
+			git add . && \
+			git commit -qam "requested $(SUFFIX) copied over"; \
+		fi; \
+		cd - >&/dev/null; \
+	fi
+
+copy-lists:
 	@# env | sort -u | grep _LISTS | xargs cp
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
 			$(shell cp --parents -at $(TARGET) \
 				-- $(value $V))))
+
+copy-groups:
+	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
+		cp -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
+	fi
 
 # args: name, suffix, command
 define dump-THEM
@@ -39,16 +53,6 @@ dot-base:
 		$(foreach p,SYSTEM COMMON THE BASE,$(call dump-PACKAGES,$(p))) \
 		$(foreach l,THE BASE,$(call dump-LISTS,$(l))) \
 	} | sed -re '/^[^[:space:]#]/ s/[[:space:]]+/\n/g' >$(TARGET)/.base
-	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
-		cp -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
-	fi
-	@if type -t git >&/dev/null && cd $(TARGET); then \
-		if [ -n "`git status -s`" ]; then \
-			git add . && \
-			git commit -qam "requested $(SUFFIX) copied over"; \
-		fi; \
-		cd - >&/dev/null; \
-	fi
 
 # do beforehand as foreach gets expanded before recipe execution
 $(TARGET):
