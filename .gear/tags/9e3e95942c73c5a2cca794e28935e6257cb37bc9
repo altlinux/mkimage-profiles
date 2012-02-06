@@ -1,6 +1,0 @@
-object 8473fda02d9c0e194ac54a95159ebf49df8a0ace
-type commit
-tag v0.5.4
-tagger Michael Shigorin <mike@altlinux.org> 1326746252 +0200
-
-apt-get install hasher
