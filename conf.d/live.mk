@@ -1,6 +1,10 @@
 # live images
 ifeq (distro,$(IMAGE_CLASS))
 
+distro/syslinux: distro/.init \
+	use/syslinux/localboot.cfg use/syslinux/ui-vesamenu \
+	use/hdt use/memtest
+
 distro/dos: distro/.init use/dos use/syslinux/ui-menu
 distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 distro/live: distro/.base use/live/base use/power/acpi/cpufreq

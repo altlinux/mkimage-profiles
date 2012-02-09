@@ -23,15 +23,12 @@ distro/.init: profile/bare
 distro/.base: distro/.init
 	@$(call set,KFLAVOURS,std-def)
 
-# bootloader test target
-distro/syslinux: distro/.init \
-	use/syslinux/localboot.cfg use/syslinux/ui-vesamenu \
-	use/hdt use/memtest
-
 # something marginally useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader
 distro/installer: distro/.base use/install2 use/syslinux/localboot.cfg
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
+
+distro/.installer: distro/installer use/bootloader/grub use/repo/main
 
 endif

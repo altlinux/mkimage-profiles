@@ -1,8 +1,8 @@
 # desktop distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/desktop-base: distro/installer use/repo/main \
-	use/syslinux/ui-vesamenu use/x11/xorg use/bootloader/grub
+distro/desktop-base: distro/.installer \
+	use/syslinux/ui-vesamenu use/x11/xorg
 	@$(call set,INSTALLER,desktop)
 
 distro/desktop-mini: distro/desktop-base \

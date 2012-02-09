@@ -1,8 +1,7 @@
 # server distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/server-base: distro/installer use/repo/main \
-	use/syslinux/ui-menu use/memtest use/bootloader/grub
+distro/server-base: distro/.installer use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
 
 distro/server-mini: distro/server-base use/cleanup/x11-alterator
