@@ -1,6 +1,13 @@
 #!/bin/sh -efu
 # attempt to autoconfigure ethernet
 
+[ -x /sbin/dhcpcd -o -x /sbin/dhclient ] || {
+	echo "NOT configuring DHCP for eth0" >&2
+	exit 0
+}
+
+echo "configuring DHCP for eth0" >&2
+
 mkdir -p /etc/net/ifaces/eth0 && {
 	echo TYPE=eth
 	echo BOOTPROTO=dhcp
