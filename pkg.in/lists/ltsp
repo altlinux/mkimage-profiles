@@ -1,10 +1,12 @@
 ltsp-server
 ltsp-server-basic
 
-alterator-ltsconf
+#alterator-ltsconf
+#alterator-standalone
 
 alsa-plugins
 alsa-plugins-pulse
+aplay
 
 syslinux
 mkisofs
