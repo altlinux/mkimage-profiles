@@ -12,3 +12,7 @@ use/x11/runlevel5: use/x11/xorg
 ### xdm: see also #23108
 use/x11/xdm: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,xdm installer-feature-no-xconsole)
+
+### : some set()-like thing might be better?
+use/x11/lightdm: use/x11/runlevel5
+	@$(call add,THE_PACKAGES,lightdm)

@@ -34,7 +34,7 @@ distro/live-icewm: distro/.live-x11
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || icewm)))
 
-distro/live-razorqt: distro/.live-x11 use/syslinux/ui-vesamenu
+distro/live-razorqt: distro/.live-x11 use/x11/lightdm use/syslinux/ui-vesamenu
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || razorqt)))
 
