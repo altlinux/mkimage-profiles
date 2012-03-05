@@ -10,7 +10,8 @@ distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 distro/live: distro/.base use/live/base use/power/acpi/cpufreq
 distro/live-systemd: distro/.base use/live/base use/systemd
 
-distro/.live-x11: distro/live use/live/autologin use/power/acpi/button
+distro/.live-x11: distro/live use/firmware use/live/autologin \
+	use/power/acpi/button
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
