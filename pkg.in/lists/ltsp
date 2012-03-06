@@ -6,6 +6,7 @@ ltsp-server-basic
 
 alsa-plugins
 alsa-plugins-pulse
+alsa-utils
 aplay
 
 syslinux
