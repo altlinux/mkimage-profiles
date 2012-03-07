@@ -22,6 +22,15 @@ AUTOLOGIN=yes
 E_O_F
 fi
 
+# lightdm autologin
+LIGHTDM_CONF=/etc/lightdm/lightdm.conf
+if [ -f "$LIGHTDM_CONF" ]; then
+	sed -i \
+		-e "s/^#\(autologin-user=\).*$/\1$USER/" \
+		-e "s/^#\(autologin-user-timeout=0\)/\1/" \
+		"$LIGHTDM_CONF"
+fi
+
 # gdm2 autologin
 GDM_CONF=/etc/X11/gdm/custom.conf
 if [ -f "$GDM_CONF" ]; then

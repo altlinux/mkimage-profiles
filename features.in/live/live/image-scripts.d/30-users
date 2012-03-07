@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/sh -x
 # * reset password for root
 # * add user `altlinux' (without password)
+
+NPG="nopasswdlogin"
+GRPLIST="users scanner audio radio proc cdrom cdwriter wheel fuse $NPG"
 
 verbose()
 {
@@ -12,8 +15,9 @@ verbose()
 add_user()
 {
     verbose "Add $1 user"
+    groupadd -r "$NPG"
     local groups=
-    for g in users scanner audio radio proc cdrom cdwriter wheel fuse; do
+    for g in $GRPLIST; do
 	if groupmod $g 2>/dev/null; then
 	    if [ -n "$groups" ]; then
 		groups="$groups,$g"
