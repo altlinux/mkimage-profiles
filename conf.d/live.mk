@@ -10,8 +10,7 @@ distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
 distro/live: distro/.base use/live/base use/power/acpi/cpufreq
 distro/live-systemd: distro/.base use/live/base use/systemd
 
-distro/.live-x11: distro/live use/firmware use/live/autologin \
-	use/power/acpi/button
+distro/.live-x11: distro/live use/firmware use/power/acpi/button
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
@@ -31,7 +30,7 @@ distro/live-builder: distro/.base use/repo/main \
 distro/live-install: distro/.base use/live/base use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
-distro/live-icewm: distro/.live-x11
+distro/live-icewm: distro/.live-x11 use/live/autologin
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || icewm)))
 
@@ -44,7 +43,7 @@ distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
-distro/live-webkiosk: distro/.live-x11 use/live/hooks
+distro/live-webkiosk: distro/.live-x11 use/live/autologin use/live/hooks
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 
