@@ -1,5 +1,6 @@
 ltsp-server
 ltsp-server-basic
+openssh-server
 
 #alterator-ltsconf
 #alterator-standalone
@@ -8,9 +9,12 @@ alsa-plugins
 alsa-plugins-pulse
 alsa-utils
 aplay
+mplayer
 
 syslinux
 mkisofs
+
+iftop
 
 #kde-settings-kded-no_media_popup
 
