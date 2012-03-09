@@ -13,6 +13,9 @@ use/x11/runlevel5: use/x11/xorg
 use/x11/xdm: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,xdm installer-feature-no-xconsole)
 
+use/x11/kdm: use/x11/runlevel5
+	@$(call add,THE_PACKAGES,kdebase-kdm)
+
 ### : some set()-like thing might be better?
 use/x11/lightdm: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,lightdm)
