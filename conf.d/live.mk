@@ -38,6 +38,10 @@ distro/live-razorqt: distro/.live-x11 use/x11/lightdm use/syslinux/ui-vesamenu
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || desktop) && (live || network || razorqt)))
 
+distro/live-tde: distro/.live-x11 use/x11/kdm use/syslinux/ui-vesamenu
+	@$(call add,LIVE_LISTS, \
+		$(call tags,(base || desktop) && (live || network || tde)))
+
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
 	@$(call add,LIVE_LISTS, \

@@ -12,7 +12,13 @@ distro/desktop-mini: distro/desktop-base \
 distro/icewm: distro/desktop-mini
 	@$(call add,BASE_LISTS,$(call tags,icewm desktop))
 
+distro/tde: distro/desktop-mini use/x11/kdm
+	@$(call add,BASE_LISTS, \
+		$(call tags,(base || desktop) && (network || tde)))
+
 distro/ltsp-icewm: distro/icewm use/ltsp/base
+
+distro/ltsp-tde: distro/tde use/ltsp/base
 
 distro/desktop-systemd: distro/icewm use/systemd
 
