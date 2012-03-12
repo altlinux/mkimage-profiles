@@ -1,10 +1,10 @@
 # server distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/server-base: distro/.installer use/syslinux/ui-menu use/memtest
+distro/.server-base: distro/.installer use/syslinux/ui-menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
 
-distro/server-mini: distro/server-base use/cleanup/x11-alterator
+distro/server-mini: distro/.server-base use/cleanup/x11-alterator
 	@$(call set,KFLAVOURS,el-smp)
 	@$(call add,THE_KMODULES,e1000e igb)
 	@$(call add,STAGE1_KMODULES,e1000e igb)
