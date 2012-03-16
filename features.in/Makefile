@@ -2,15 +2,29 @@
 #         (only regarding the needed subprofiles)
 
 ifndef BUILDDIR
-help all:
+
+help/plus all: banner
+	@$(call grepper,'^+')
+
+help/features: banner
+	@$(call grepper,'^use/')
+
+banner:
 	@echo "** BUILDDIR not defined; available features:"
+
+grepper = $(and $(1),$(grepper_body))
+define grepper_body
 	@for dir in */; do \
-		echo -n "$$dir: "; \
-		grep -h '^use/' $$dir/config.mk \
+		out="`grep -h $(1) $$dir/config.mk \
 		| cut -f1 -d: \
+		| tr ' 	' '\n\n' \
+		| grep $(1) \
 		| tr '\n' ' ' \
-		| sort -u; \
+		| sort -u`"; \
+		[ -z "$$out" ] || echo "$$dir: $$out"; \
 	done
+endef
+
 else
 
 include $(BUILDDIR)/distcfg.mk
