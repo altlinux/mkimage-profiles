@@ -1,4 +1,4 @@
-+live: use/live/desktop
++live: use/live/desktop; @:
 
 # copy stage2 as live
 use/live: use/stage2 sub/stage2/live

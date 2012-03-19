@@ -1,4 +1,4 @@
-+ltsp: use/ltsp/base
++ltsp: use/ltsp/base; @:
 
 use/ltsp:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-ltsp-stage2)

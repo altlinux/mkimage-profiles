@@ -2,15 +2,14 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/syslinux: distro/.init \
-	use/syslinux/localboot.cfg use/syslinux/ui-vesamenu \
-	use/hdt use/memtest
+	use/syslinux/localboot.cfg use/syslinux/ui-vesamenu use/hdt; @:
 
-distro/dos: distro/.init use/dos use/syslinux/ui-menu
-distro/rescue: distro/.base use/rescue use/syslinux/ui-menu
-distro/live-systemd: distro/.base use/live/base use/systemd
+distro/dos: distro/.init use/dos use/syslinux/ui-menu; @:
+distro/rescue: distro/.base use/rescue use/syslinux/ui-menu; @:
+distro/live-systemd: distro/.base use/live/base use/systemd; @:
 
-distro/.live-base: distro/.base use/live/base use/power/acpi/button
-distro/.live-desktop: distro/.base use/syslinux/ui-vesamenu +live
+distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
+distro/.live-desktop: distro/.base use/syslinux/ui-vesamenu +live; @:
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
@@ -26,9 +25,9 @@ distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo
 distro/live-install: distro/.live-base use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
-distro/live-icewm: distro/.live-desktop use/live/autologin +icewm
-distro/live-razorqt: distro/.live-desktop +razorqt
-distro/live-tde: distro/.live-desktop +tde
+distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
+distro/live-razorqt: distro/.live-desktop +razorqt; @:
+distro/live-tde: distro/.live-desktop +tde; @:
 
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))

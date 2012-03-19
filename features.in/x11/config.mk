@@ -1,6 +1,6 @@
-+icewm: use/x11/icewm
-+razorqt: use/x11/razorqt use/x11/lightdm
-+tde: use/x11/tde use/x11/kdm
++icewm: use/x11/icewm; @:
++razorqt: use/x11/razorqt use/x11/lightdm; @:
++tde: use/x11/tde use/x11/kdm; @:
 
 use/x11/xorg:
 	@$(call add,THE_LISTS,xorg)

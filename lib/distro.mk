@@ -11,12 +11,12 @@ sub/%:
 	@$(call add,SUBPROFILES,$(@:sub/%=%))
 
 # install media bootloader
-boot/%: use/syslinux
+boot/%:
 	@$(call set,BOOTLOADER,$*)
 
 # fundamental targets
 
-distro/.init: profile/bare
+distro/.init: profile/bare; @:
 
 # NB: the last flavour in KFLAVOURS gets to be the default one;
 # the kernel packages regexp evaluation has to take place at build stage
@@ -29,6 +29,6 @@ distro/installer: distro/.base use/install2 use/syslinux/localboot.cfg
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 
-distro/.installer: distro/installer use/bootloader/grub use/repo/main
+distro/.installer: distro/installer use/bootloader/grub use/repo/main; @:
 
 endif
