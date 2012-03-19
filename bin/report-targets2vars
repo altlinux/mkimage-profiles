@@ -1,0 +1,52 @@
+#!/bin/sh
+
+DISTCFG=build/distcfg.mk
+[ -s "$DISTCFG" ] || exit 1
+
+VARIABLES=
+
+echo "graph { rankdir=LR;"
+echo "  { node [height=.1,width=.3,fontname=Helvetica,fontsize=10];"
+
+feat_vars()
+{
+FEATURE=
+	while read first second rest; do
+		case "$first" in
+		\#[A-Z]*)
+			continue;;	# overridden feature
+		\#)			# feature mark
+			case "$second" in
+			profile/*)
+				FEATURE=;;
+			*)
+				FEATURE="$second";;
+			esac
+			;;
+		*)
+			case "$second" in
+			=|+=|?=)
+				case "$first" in
+				DISTCFG_MK|SUBPROFILES|FEATURES|IMAGE*|MKIMAGE_*)
+					continue;;
+				*)
+					VAR="$first"
+					VARIABLES="$VARIABLES; $VAR"
+					;;
+				esac
+				;;
+			*)
+				continue;;
+			esac
+			;;
+		esac
+		[ -n "$FEATURE" -a -n "$VAR" ] || continue
+		echo "  \"$FEATURE\" -- \"$VAR\";"
+	done < "$DISTCFG"
+	echo "  { node [shape=box]$VARIABLES; }"
+}
+
+feat_vars | LC_COLLATE=C sort -ru
+
+echo "  }"
+echo "}"

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+echo "digraph {"
+echo "  { node [fontname=Helvetica,fontsize=20];"
+
+while read first second third rest; do
+	FROM=; TO=
+	case "$first" in
+	"trace:building")
+		case "$third" in
+		"->")
+			FROM="$second"; TO="$rest";;
+		*)
+			continue;;
+		esac
+		;;
+	*)
+		continue;;
+	esac
+	[ -n "$FROM" -a -n "$TO" ] || continue
+	for to in $TO; do
+		out="  \"$FROM\" -> \"$to\""
+		case $to in
+		*distro/*)
+			echo "$out [weight=10];";;
+		*)
+			echo "$out";;
+		esac
+	done
+done
+
+echo "  }"
+echo "}"

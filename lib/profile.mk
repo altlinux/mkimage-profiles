@@ -34,50 +34,57 @@ CONFIG := $(BUILDDIR)/distcfg.mk
 RC := $(HOME)/.mkimage/profiles.mk
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
+# NB: our output MUST go into stderr to escape POSTPROC
 profile/init: distclean
-	@if [ "`realpath "$(BUILDDIR)/"`" = / ]; then \
+	@{ \
+	if [ "`realpath "$(BUILDDIR)/"`" = / ]; then \
 		echo "$(TIME) ERROR: invalid BUILDDIR: \`$(BUILDDIR)'"; \
 		exit 128; \
-	fi;
-	@echo -n "$(TIME) initializing BUILDDIR: "
-	@rsync -qaxH --delete-after image.in/ "$(BUILDDIR)"/
-	@mkdir "$(BUILDDIR)"/.mki	# mkimage toplevel marker
+	fi; \
+	echo -n "$(TIME) initializing BUILDDIR: "; \
+	rsync -qaxH --delete-after image.in/ "$(BUILDDIR)"/; \
+	mkdir "$(BUILDDIR)"/.mki; \
+	} >&2
 	@$(call put,ifndef DISTCFG_MK)
 	@$(call put,DISTCFG_MK = 1)
-	@if type -t git >&/dev/null; then \
+	@{ \
+	if type -t git >&/dev/null; then \
 		if [ -d .git ]; then \
 			git show-ref --head -d -s -- HEAD && \
 			git status -s && \
 			echo; \
 		fi $(LOG); \
-	fi
-	@{ \
+	fi; \
+	{ \
 		eval `apt-config shell $${APTCONF:+-c=$(wildcard $(APTCONF))} \
 			SOURCELIST Dir::Etc::sourcelist/f \
 			SOURCEPARTS Dir::Etc::sourceparts/d`; \
 		find "$$SOURCEPARTS" -name '*.list' \
 		| xargs egrep -Rhv '^#|^[[:blank:]]*$$' "$$SOURCELIST" && \
 		echo; \
-	} $(LOG)
-	@if type -t git >&/dev/null; then \
+	} $(LOG); \
+	if type -t git >&/dev/null; then \
 		if cd $(BUILDDIR); then \
 			git init -q && \
 			git add . && \
 			git commit -qam 'derivative profile initialized'; \
+			cd ->&/dev/null; \
 		fi; \
-	fi
-	@if [ -w . ]; then \
+	fi; \
+	if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
 		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
 		echo "$(SYMLINK)/"; \
 	else \
-		echo "$(BUILDDIR)/" $(SHORTEN); \
-	fi $(SHORTEN)
+		echo "$(BUILDDIR)/"; \
+	fi $(SHORTEN); \
+	} >&2
 
 profile/bare: profile/init
-	@NOTE="$${GLOBAL_VERBOSE:+: $(CONFIG)}"; \
-		echo "$(TIME) preparing distro config$$NOTE" \
-		$(SHORTEN)
+	@{ \
+	NOTE="$${GLOBAL_VERBOSE:+: $(CONFIG)}"; \
+	echo "$(TIME) preparing distro config$$NOTE" $(SHORTEN); \
+	} >&2
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(IMAGEDIR))
@@ -106,7 +113,7 @@ profile/dump-vars:
 	fi $(LOG)
 
 # step 3 entry point: copy the needed parts into BUILDDIR
-profile/populate: profile/init profile/finalize profile/dump-vars
+profile/populate: profile/finalize profile/dump-vars
 	@for dir in sub.in features.in pkg.in; do \
 		$(MAKE) -C $$dir $(LOG); \
 	done
