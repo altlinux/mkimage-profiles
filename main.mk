@@ -45,17 +45,6 @@ IMAGES  := $(DISTROS) $(VES)
 .PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS)
 .PHONY: debug everything help space
 
-distro/help:
-	@echo '** available distribution targets:'
-	@echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
-
-ve/help:
-	@echo '** available virtual environment targets:'
-	@echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
-
-help: | distro/help space ve/help
-space:; @echo
-
 ### duplicate but still needed
 everything:
 	@n=1; sum=$(words $(DISTROS)); \
@@ -75,7 +64,7 @@ $(IMAGES): debug \
 	build; @:
 
 # convenience shortcut
-$(DISTROS:distro/%=%): %: distro/%
+$(DISTROS:distro/%=%): %: distro/%; @:
 
 debug:
 ifeq (2,$(DEBUG))
