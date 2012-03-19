@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.5.7
+Version: 0.6.0
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -14,6 +14,8 @@ BuildArch: noarch
 Requires: rsync git-core
 Requires: time schedutils
 Requires: mkimage >= 0.2.0
+
+# Recommends: graphviz
 
 %define mpdir %_datadir/%name
 %add_findreq_skiplist %mpdir/*.in/*
@@ -59,6 +61,9 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Mar 19 2012 Michael Shigorin <mike@altlinux.org> 0.6.0-alt1
+- reports (targets graph)
+
 * Mon Mar 12 2012 Michael Shigorin <mike@altlinux.org> 0.5.7-alt1
 - distro tweaks
 
