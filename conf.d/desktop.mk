@@ -1,17 +1,14 @@
 # desktop distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/.desktop-base: distro/.installer \
-	use/syslinux/ui-vesamenu use/x11/xorg
+distro/.desktop-base: distro/.installer use/syslinux/ui-vesamenu use/x11/xorg
 	@$(call set,INSTALLER,desktop)
 
-distro/.desktop-mini: distro/.desktop-base \
-	use/lowmem use/x11/xdm use/power/acpi/button \
-	use/cleanup/alterator; @:
+distro/.desktop-mini: distro/.desktop-base use/lowmem use/x11/xdm \
+	use/power/acpi/button use/cleanup/alterator; @:
 
 distro/tde: distro/.desktop-mini +tde
-	@$(call add,BASE_LISTS, \
-		$(call tags,(base || desktop) && network))
+	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && network))
 
 distro/icewm: distro/.desktop-mini +icewm; @:
 distro/ltsp-icewm: distro/icewm +ltsp; @:

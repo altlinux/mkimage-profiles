@@ -10,7 +10,7 @@ PREFS := $(.VARIABLES)
 DISTCFG := $(.VARIABLES)
 
 # a separator variable
--- := --
+-- = --
 
 .PHONY: dump-vars
 

@@ -14,7 +14,7 @@ distro/server-mini: distro/.server-base use/cleanup/x11-alterator
 
 distro/server-systemd: distro/server-mini use/systemd use/bootloader/lilo; @:
 
-distro/server-ovz: distro/server-mini \
+distro/server-ovz: distro/server-mini use/install2/net \
 	use/hdt use/rescue use/firmware/server use/power/acpi/button
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
@@ -22,7 +22,6 @@ distro/server-ovz: distro/server-mini \
 	@$(call add,MAIN_KMODULES,bcmwl ndiswrapper)
 	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
-	@$(call add,INSTALL2_PACKAGES,curl)	### should become curl-mini
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,MAIN_LISTS,kernel-wifi)
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
