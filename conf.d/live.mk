@@ -34,8 +34,10 @@ distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
-distro/live-webkiosk: distro/.live-desktop use/live/autologin use/live/hooks
+distro/live-webkiosk: distro/.live-desktop use/live/autologin \
+	use/live/hooks use/live/ru use/cleanup
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
+	@$(call add,CLEANUP_PACKAGES,'installer*' 'alterator*' 'libqt4*')
 
 endif

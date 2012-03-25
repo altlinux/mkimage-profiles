@@ -1,0 +1,6 @@
+#!/bin/sh -efu
+# remove extra packages from a bare livecd
+
+list="$(rpmquery -a --qf='%{NAME}\n' $GLOBAL_CLEANUP_PACKAGES)"
+[ -z "$list" ] || apt-get remove -f -y -- $list
+:

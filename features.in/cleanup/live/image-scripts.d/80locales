@@ -1,0 +1,11 @@
+#!/bin/sh
+# FIXME: there should be less brutal i18n tuning
+
+cd /usr/share/locale
+for i in */; do
+	case "$i" in
+	be*|en*|ru*|uk*) continue;;
+	esac
+	rm -r "$i"
+done
+:

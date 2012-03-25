@@ -20,3 +20,6 @@ use/live/autologin: use/live/desktop
 
 use/live/hooks: use/live
 	@$(call add,LIVE_PACKAGES,livecd-run-hooks)
+
+use/live/ru: use/live
+	@$(call add,LIVE_PACKAGES,livecd-ru)
