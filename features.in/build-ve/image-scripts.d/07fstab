@@ -1,0 +1,6 @@
+#!/bin/sh
+
+[ -s /etc/fstab ] || cat >> /etc/fstab <<-EOF
+proc /proc proc nosuid,noexec,gid=proc 0 0
+devpts /dev/pts devpts gid=5,mode=620 0 0
+EOF
