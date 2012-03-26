@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.6.0
+Version: 0.6.1
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -39,7 +39,7 @@ Virtual environment template caches (OpenVZ/LXC) can be made either.
 In short, setup hasher (http://en.altlinux.org/hasher) and here we go:
   cd %mpdir
   head README
-  make distro/syslinux.iso
+  make syslinux.iso
 
 But if you're into regular distro hacking and are not afraid of make
 and modest metaprogramming (some code generation and introspection),
@@ -61,6 +61,10 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Mar 26 2012 Michael Shigorin <mike@altlinux.org> 0.6.1-alt1
+- ISO9660 metadata support
+- initial alien VE image
+
 * Mon Mar 19 2012 Michael Shigorin <mike@altlinux.org> 0.6.0-alt1
 - reports (targets graph)
 
