@@ -4,7 +4,17 @@
 # take the latter part
 SUBDIRS = $(notdir $(SUBPROFILES))
 
-BOOT_TYPE = isolinux
+# proxy over the ISO metadata collected; see also genisoimagerc(5)
+BOOT_SYSI := $(META_SYSTEM_ID)
+BOOT_PUBL := $(META_PUBLISHER)
+BOOT_PREP := $(META_PREPARER)
+BOOT_APPI := $(META_APP_ID)
+BOOT_VOLI := $(META_VOL_ID)
+BOOT_VOLS := $(META_VOL_SET)
+BOOT_BIBL := $(META_BIBLIO)
+BOOT_ABST := $(META_ABSTRACT)
+
+BOOT_TYPE := isolinux
 
 # Metadata/ needed only for installers (and not for e.g. syslinux.iso)
 # FIXME: installable live needs it too, don't move to install2 feature
