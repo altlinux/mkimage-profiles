@@ -15,7 +15,7 @@ if [ -s "$(SYMLINK)" -a "$(NUM_TARGETS)" = 1 ] && \
 then \
 	echo "$(BUILDLINK)"; \
 else \
-	bin/mktmpdir $(BUILDDIR_PREFIX) || exit 127; \
+	bin/mktmpdir $(BUILDDIR_PREFIX) || exit 200; \
 fi; )
 endif
 
