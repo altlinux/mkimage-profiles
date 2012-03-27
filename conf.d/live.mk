@@ -40,4 +40,7 @@ distro/live-webkiosk: distro/.live-desktop use/live/autologin \
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 	@$(call add,CLEANUP_PACKAGES,'installer*' 'alterator*' 'libqt4*')
 
+distro/live-flightgear: distro/live-icewm use/x11/3d-free use/x11/3d-proprietary
+	@$(call add,LIVE_PACKAGES,FlightGear fgo)
+
 endif
