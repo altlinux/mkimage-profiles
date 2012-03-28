@@ -4,10 +4,21 @@
 
 use/x11/xorg:
 	@$(call add,THE_LISTS,xorg)
-	@$(call add,THE_KMODULES,drm)
 
 use/x11/wacom: use/x11/xorg
 	@$(call add,THE_PACKAGES,xorg-drv-wacom)
+
+use/x11/drm: use/x11/xorg
+	@$(call add,THE_KMODULES,drm drm-radeon)
+
+use/x11/3d-free: use/x11/drm
+	@$(call add,THE_KMODULES,drm-nouveau)
+
+### fglrx is broken with xorg-1.12 so far
+use/x11/3d-proprietary: use/x11/xorg
+	@$(call add,THE_KMODULES,fglrx nvidia)
+	@$(call add,THE_PACKAGES,nvidia-settings nvidia-xconfig)
+	@$(call add,THE_PACKAGES,fglrx_glx fglrx-tools)
 
 ### strictly speaking, runlevel5 should require a *dm, not vice versa
 use/x11/runlevel5: use/x11/xorg
