@@ -61,7 +61,8 @@ imagedir:
 
 postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
-	echo "** image: $$OUTPATH" >&2 && \
+	OUTSIZE="`ls -lh "$$OUTPATH" | cut -f5 -d' '`"; \
+	echo "** image: $$OUTPATH [$$OUTSIZE]" >&2 && \
 	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_LINK)" && \
 	ln -sf "$${IMAGEDIR#`pwd`/}" "$(OUT_LINK)"; \
 	ln -sf "$(IMAGE_LINK)" $(OUT_LINK)/"$(CURRENT_LINK).$(IMAGE_TYPE)"; \
