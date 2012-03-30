@@ -6,7 +6,7 @@ use/x11/xorg:
 	@$(call add,THE_LISTS,xorg)
 
 use/x11/wacom: use/x11/xorg
-	@$(call add,THE_PACKAGES,xorg-drv-wacom)
+	@$(call add,THE_PACKAGES,xorg-drv-wacom xorg-drv-wizardpen)
 
 use/x11/drm: use/x11/xorg
 	@$(call add,THE_KMODULES,drm drm-radeon)
