@@ -2,11 +2,11 @@
 
 help/distro:
 	@echo '** available distribution targets:'; \
-	echo $(DISTROS) | fmt -sw"$$((COLUMNS>>1))" | column -t
+	bin/columnize $(sort $(DISTROS:distro/%=%))
 
 help/ve:
 	@echo '** available virtual environment targets:'; \
-	echo $(VES) | fmt -sw"$$((COLUMNS>>1))" | column -t
+	bin/columnize $(sort $(VES))
 
 help: | help/distro help/space help/ve; @:
 help/space:; @echo
