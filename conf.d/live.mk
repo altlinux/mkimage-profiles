@@ -9,7 +9,13 @@ distro/rescue: distro/.base use/rescue use/syslinux/ui-menu; @:
 distro/live-systemd: distro/.base use/live/base use/systemd; @:
 
 distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
-distro/.live-desktop: distro/.base use/syslinux/ui-vesamenu +live; @:
+distro/.live-desktop: distro/.base +live use/syslinux/ui-vesamenu; @:
+
+distro/.live-kiosk: distro/.base use/live use/live/autologin \
+	use/power/acpi/button use/power/acpi/cpufreq use/cleanup
+	@$(call add,LIVE_LISTS,$(call tags,base network))
+	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu)
+	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
@@ -34,11 +40,12 @@ distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS, \
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
-distro/live-webkiosk: distro/.live-desktop use/live/autologin \
-	use/live/hooks use/live/ru use/cleanup
+distro/live-webkiosk-mini: distro/.live-kiosk use/live/hooks use/live/ru
+	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
-	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
-	@$(call add,CLEANUP_PACKAGES,'installer*' 'alterator*' 'libqt4*')
+	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
+
+distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
 distro/live-flightgear: distro/live-icewm use/x11/3d-free use/x11/3d-proprietary
 	@$(call add,LIVE_PACKAGES,FlightGear fgo)
