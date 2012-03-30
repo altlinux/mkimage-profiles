@@ -1,7 +1,7 @@
 # server distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/.server-base: distro/.installer use/syslinux/ui-menu use/memtest
+distro/.server-base: distro/.installer use/syslinux/ui/menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
 
 distro/server-mini: distro/.server-base use/cleanup/x11-alterator
@@ -30,7 +30,7 @@ distro/server-ovz: distro/server-mini use/install2/net \
 
 # tiny network-only server-ovz installer (stage2 comes over net too)
 distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
-	use/syslinux/ui-menu use/syslinux/localboot.cfg use/memtest
+	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest
 	@$(call add,SYSLINUX_CFG,netinstall2)
 
 endif

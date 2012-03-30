@@ -2,18 +2,17 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/syslinux: distro/.init \
-	use/syslinux/localboot.cfg use/syslinux/ui-vesamenu use/hdt; @:
+	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
-distro/dos: distro/.init use/dos use/syslinux/ui-menu; @:
-distro/rescue: distro/.base use/rescue use/syslinux/ui-menu; @:
+distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
+distro/rescue: distro/.base use/rescue use/syslinux/ui/menu; @:
 distro/live-systemd: distro/.base use/live/base use/systemd; @:
 
 distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
-distro/.live-desktop: distro/.base +live use/syslinux/ui-vesamenu; @:
+distro/.live-desktop: distro/.base +live use/syslinux/ui/vesamenu; @:
 
-distro/.live-kiosk: distro/.base use/live use/live/autologin \
-	use/power/acpi/button use/power/acpi/cpufreq use/cleanup
-	@$(call add,LIVE_LISTS,$(call tags,base network))
+distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
+	use/syslinux/timeout/1 use/cleanup +power
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu)
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 

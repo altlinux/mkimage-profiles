@@ -1,5 +1,8 @@
 ifdef BUILDDIR
 
+# in deciseconds
+DEFAULT_TIMEOUT = 90
+
 # prepare data for syslinux installation;
 # see also stage1/scripts.d/01-syslinux
 
@@ -44,14 +47,26 @@ cfg = $(wildcard cfg.in/??$(1).cfg)
 # and files involved will appear inside instrumental chroot
 #
 # arguments get evaluated before recipe body execution thus prep
-all: prep debug
-	@cp -pLt $(DSTDIR) -- $(sort \
-		$(foreach C,$(SYSLINUX_CFG),$(call cfg,$(C))) \
-		$(foreach M,$(SYSLINUX_MODULES),$(call cfg,$(M))))
+
+all: debug timeout
 	@### proper text branding should be implemented
 	@sed -i 's,@mkimage-profiles@,$(IMAGE_NAME),' $(DSTDIR)/*.cfg
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
+
+# integerity check
+timeout: copy
+	@if [ "$(SYSLINUX_TIMEOUT)" -ge 0 ] 2>/dev/null; then \
+		TIMEOUT="$(SYSLINUX_TIMEOUT)"; \
+	else \
+		TIMEOUT="$(DEFAULT_TIMEOUT)"; \
+	fi; \
+	sed -i "s,@timeout@,$$TIMEOUT," $(DSTDIR)/*.cfg
+
+copy: prep
+	@cp -pLt $(DSTDIR) -- $(sort \
+		$(foreach C,$(SYSLINUX_CFG),$(call cfg,$(C))) \
+		$(foreach M,$(SYSLINUX_MODULES),$(call cfg,$(M))))
 
 prep:
 	@mkdir -p $(DSTDIR)

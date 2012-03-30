@@ -1,3 +1,5 @@
++power: use/power/acpi/button use/power/acpi/cpufreq; @:
+
 # common
 # TODO: invent multi-target scripts and integrate that 08-powerbutton
 use/power:

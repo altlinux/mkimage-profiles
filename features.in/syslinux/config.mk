@@ -5,7 +5,7 @@ use/syslinux: sub/stage1
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
 
 # UI is overwritten
-use/syslinux/ui-%: use/syslinux
+use/syslinux/ui/%: use/syslinux
 	@$(call set,SYSLINUX_UI,$*)
 	@if [ "$*" == gfxboot ]; then \
 		$(call add,STAGE1_PACKAGES,gfxboot); \
@@ -18,3 +18,6 @@ use/syslinux/%.com use/syslinux/%.c32: use/syslinux
 
 use/syslinux/%.cfg: use/syslinux
 	@$(call add,SYSLINUX_CFG,$*)
+
+use/syslinux/timeout/%: use/syslinux
+	@$(call set,SYSLINUX_TIMEOUT,$*)
