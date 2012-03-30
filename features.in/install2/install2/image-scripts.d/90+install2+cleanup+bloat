@@ -27,6 +27,4 @@ rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 rpmquery -a bind-utils libbind \
 | xargs -r rpmi -e --
 
-# outstanding binaries
-rm -f /sbin/{sln,tc}
-rm -f /usr/bin/openssl
+:

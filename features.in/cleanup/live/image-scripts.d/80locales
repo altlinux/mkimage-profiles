@@ -2,6 +2,7 @@
 # FIXME: there should be less brutal i18n tuning
 
 cd /usr/share/locale
+rm -r *@*
 for i in */; do
 	case "$i" in
 	be*|en*|ru*|uk*) continue;;

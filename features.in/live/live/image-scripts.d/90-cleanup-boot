@@ -1,6 +1,0 @@
-#!/bin/sh
-# we don't really need the kernel in live root,
-# it's been booted already (unless it's a live-install)
-
-rpm -q live-install || rm -f /boot/*
-:

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# blacklisted kernel modules
+sed -n 's/^blacklist[[:space:]]\+\([^[:space:]]\+\).*/\1/p' /etc/modprobe.d/* |
+	while read i; do
+		find /lib/modules/ -type f -name "$i.ko" -delete
+	done

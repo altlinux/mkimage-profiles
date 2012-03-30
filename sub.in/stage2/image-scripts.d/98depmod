@@ -1,0 +1,8 @@
+#!/bin/sh
+# regenerate module dependencies after pruning kernel modules
+# (this script must run after anything touching /lib/modules)
+
+cd /lib/modules
+for i in *.*; do
+	depmod -a -F /boot/System.map-$i $i
+done

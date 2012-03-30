@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 # create a barebone bootable freedos floppy
 # TODO: some sub-framework to populate it as well
 

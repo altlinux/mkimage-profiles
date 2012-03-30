@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 # * reset password for root
 # * add user `altlinux' (without password)
 

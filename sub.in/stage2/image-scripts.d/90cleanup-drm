@@ -1,0 +1,5 @@
+#!/bin/sh
+# no sense in xorg-dri-* without kernel-modules-drm*
+
+stat /lib/modules/*/kernel/drivers/gpu/drm >&/dev/null \
+|| rm -rf /usr/lib*/X11/modules/dri/

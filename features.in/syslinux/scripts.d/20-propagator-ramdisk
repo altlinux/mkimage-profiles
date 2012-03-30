@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 # postprocess isolinux configuration
 # when the image sizes are finally known
 

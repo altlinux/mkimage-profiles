@@ -1,3 +1,15 @@
 #!/bin/sh
-# remove rpm, apt databases and cache
-find /var/lib/rpm /var/lib/apt /var/cache/apt -type f -delete
+# dump what's here by this point
+echo "** live packages before rpmdb purge:"
+rpmquery -a --qf='%{NAME} %{VERSION}-%{RELEASE}\n'
+
+# remove apt database and cache
+find /var/lib/apt /var/cache/apt -type f -delete
+
+# not going to need them without rpmdb, it's not even rescue anymore
+rpm -e --nodeps apt libapt rpm librpmbuild librpm 2>/dev/null ||:
+
+# finally, drop rpmdb
+find /var/lib/rpm -type f -delete
+
+:
