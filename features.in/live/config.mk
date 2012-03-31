@@ -10,7 +10,8 @@ use/live/base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
 
 # optimized out: use/x11/xorg
-use/live/desktop: use/live/base use/x11/wacom use/virtualbox/guest +power
+use/live/desktop: use/live/base use/x11/wacom use/virtualbox/guest \
+	use/live/sound +power
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 	@$(call add,SYSLINUX_CFG,localboot)
@@ -26,3 +27,6 @@ use/live/hooks: use/live
 
 use/live/ru: use/live
 	@$(call add,LIVE_PACKAGES,livecd-ru)
+
+use/live/sound: use/live
+	@$(call add,LIVE_PACKAGES,amixer alsa-utils aplay udev-alsa)
