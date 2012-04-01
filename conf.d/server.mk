@@ -4,6 +4,11 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/.server-base: distro/.installer use/syslinux/ui/menu use/memtest
 	@$(call add,BASE_LISTS,server-base)
 
+distro/server-nano: distro/.server-base \
+	use/cleanup/x11-alterator use/bootloader/lilo
+	@$(call add,BASE_LISTS,$(call tags,server network))
+	@$(call add,BASE_PACKAGES,dhcpcd cpio)
+
 distro/server-mini: distro/.server-base use/cleanup/x11-alterator
 	@$(call set,KFLAVOURS,el-smp)
 	@$(call add,THE_KMODULES,e1000e igb)
