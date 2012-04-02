@@ -1,12 +1,12 @@
 Welcome to mkimage-profiles!
 
-English quickstart: make distro/server-base.iso;
+English quickstart: make server-mini.iso;
 see http://en.altlinux.org/Hasher (and a large tmpfs).
 
 Configurables: ~/.mkimage/profiles.mk;
-see doc/profiles.mk.sample and libdistro.mk
+see doc/variables.txt and conf.d/README
 
-License: GPLv2+, see COPYING.
+License: GPLv2+, see COPYING
 
 Most docs are in Russian, welcome to learn it or ask for English.
 См. тж. http://www.altlinux.org/Mkimage/Profiles/m-p
@@ -34,7 +34,7 @@ Most docs are in Russian, welcome to learn it or ask for English.
 Объекты:
 - дистрибутивы и виртуальные окружения:
   + описываются в conf.d/*.mk или соответственно lib/{distro,ve}.mk
-  + могут основываться одно на другом
+  + могут основываться на предшественниках, расширяя их
   + дистрибутивы также:
     - включают один или более субпрофилей по надобности
   + желательно избегать множественного наследования, см. тж. фичи
@@ -58,3 +58,4 @@ Most docs are in Russian, welcome to learn it or ask for English.
   + указанный явно,
   + либо ~/out/ (если возможно),
   + или $(BUILDDIR)/out/ иначе
+- формируются отчёты, если запрошены (REPORTS)

@@ -1,4 +1,5 @@
 # sample ~/.mkimage/profiles.mk
+# NB: REPORT doesn't work here, it's somewhat special
 
 # where to look for apt.conf; system one used by default
 #APTCONF = ~/apt/apt.conf.$(ARCH)
