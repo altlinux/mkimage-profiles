@@ -6,6 +6,14 @@ ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
 endif
 
+# 1.3.22 fixes http://bugzilla.altlinux.org/26217
+HSH_VER_OPTIMAL = 1.3.22
+HSH_VERSION := $(shell hsh -V | sed -n 's/^.* version \([0-9.]\+\).*$$/\1/p')
+
+ifeq (-,$(shell rpmvercmp $(HSH_VERSION) $(HSH_VER_OPTIMAL) | tr -d [0-9]))
+$(info warning: hasher-$(HSH_VERSION) is suboptimal, consider upgrading)
+endif
+
 BUILDLOG ?= $(BUILDDIR)/build.log
 
 # LOG holds a redirecting postprocessor
