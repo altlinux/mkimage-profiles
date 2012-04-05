@@ -47,7 +47,7 @@ distro/live-webkiosk-mini: distro/.live-kiosk use/live/hooks use/live/ru
 distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
 distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
-	@$(call add,LIVE_PACKAGES,FlightGear fgo)
+	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
 endif
