@@ -15,7 +15,7 @@ if [ -s "$(SYMLINK)" -a "$(NUM_TARGETS)" = 1 ] && \
 then \
 	echo "$(BUILDLINK)"; \
 else \
-	bin/mktmpdir $(BUILDDIR_PREFIX) || exit 200; \
+	mktmpdir $(BUILDDIR_PREFIX) || exit 200; \
 fi; )
 endif
 
@@ -26,9 +26,7 @@ endif
 # even smart caching only hurts when every build goes from scratch
 NO_CACHE ?= 1
 
-PATH := $(CURDIR)/bin:$(PATH)
-
-export BUILDDIR NO_CACHE PATH
+export BUILDDIR NO_CACHE
 
 CONFIG := $(BUILDDIR)/distcfg.mk
 RC := $(HOME)/.mkimage/profiles.mk

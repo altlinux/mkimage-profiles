@@ -12,10 +12,12 @@ endif
 endif
 export ARCHES
 
+export PATH := $(CURDIR)/bin:$(PATH)
+
 # supervise target tracing; leave stderr alone
 ifdef REPORT
 export REPORT_PATH := $(shell mktemp --tmpdir mkimage-profiles.report.XXXXXXX)
-POSTPROC := | bin/report-filter > $(REPORT_PATH)
+POSTPROC := | report-filter > $(REPORT_PATH)
 endif
 
 # recursive make considered useful for m-p

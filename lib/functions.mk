@@ -47,7 +47,8 @@ add_feature = $(call add,FEATURES,$(word 2,$(subst /, ,$@)))
 
 # convert tag list into a list of relative package list paths
 # NB: tags can do boolean expressions: (tag1 && !(tag2 || tag3))
-tags = $(and $(strip $(1)),$(addprefix tagged/,$(shell echo "$(1)" | bin/tags2lists pkg.in/lists/tagged)))
+tags = $(and $(strip $(1)),$(addprefix tagged/,$(shell echo "$(1)" \
+       | tags2lists pkg.in/lists/tagged)))
 
 # toplevel Makefile convenience
 addsuffices = $(foreach s,$(1),$(call addsuffix,$s,$(2)))

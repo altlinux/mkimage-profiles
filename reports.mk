@@ -7,7 +7,7 @@ reports/targets:
 		BUILDDIR="`sed -n 's/^.* BUILDDIR = \(.*\)/\1/p' \
 			"$$REPORT_PATH"`"; \
 		REPORT_IMAGE="$$BUILDDIR/targets.png"; \
-		bin/report-targets < "$$REPORT_PATH" \
+		report-targets < "$$REPORT_PATH" \
 		| dot -Tpng -o "$$REPORT_IMAGE" \
 		&& echo "** target graph report: $$REPORT_IMAGE" \
 		&& mv "$$REPORT_PATH" "$$BUILDDIR/targets.log"; \

@@ -6,7 +6,7 @@
 # --- in BUILDDIR
 # 4. build subprofiles and subsequently an image
 
-MKIMAGE_PROFILES = $(dir $(lastword $(MAKEFILE_LIST)))
+MKIMAGE_PROFILES := $(dir $(lastword $(MAKEFILE_LIST)))
 
 # deal with one target at a time
 IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	ve/generic.tar.gz
