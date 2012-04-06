@@ -1,0 +1,48 @@
+#!/bin/sh -e
+# tally up sizes of chroot's ELF binaries for squashfs tuning
+
+# NB: it's unclear so far whether mksquashfs -sort is beneficial
+if [ -z "$GLOBAL_SQUASHFS_SORT" -o "$GLOBAL_SQUASHFS" != "tight" ]; then
+	echo "SKIP elf-stats: looks like it's not needed" >&2
+	exit 0
+fi
+
+exit_handler()
+{
+	local rc=$1
+	rm -f -- "$TMPFILE"
+	exit $rc
+}
+
+# it's controlled environment
+TMPFILE="$(mktemp)"
+
+trap 'exit_handler $?' EXIT HUP PIPE INT QUIT TERM
+
+# a list of ELF binaries (both executables and shared libraries)
+ELFLIST=/.our/elf.lst
+
+cd "$WORKDIR"
+
+# let's parallelize a bit, chroot should be on tmpfs or just-cached
+du -bsx | cut -f1 > "$TMPFILE" &
+
+elf="$(find {,usr/}{lib*,{,s}bin} \
+		-path lib/modules -prune -o \
+		-path usr/lib/locale -prune -o \
+		-type f \
+	| file -nN -e ascii -e compress -e tar -e elf -f - \
+	| sed -n "/: ELF /s/: .*$//p" \
+	| tee "$ELFLIST.in" \
+	| tr '\n' '\0' \
+	| du -cb --files0-from=- \
+	| tail -1 \
+	| cut -f1)"
+
+wait
+read root < "$TMPFILE"
+
+echo "** live chroot ELF ratio: $((100*$elf/$root))% ($elf/$root)" >&2
+
+# add priorities
+sed 's,^.*$,& 1,' < "$ELFLIST.in" > "$ELFLIST"

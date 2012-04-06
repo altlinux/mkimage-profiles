@@ -31,17 +31,29 @@ $(error STAGE1_KFLAVOUR is utterly empty; cannot guess either)
 endif
 
 # need kernel modules only (which require corresponding kernel-image);
-# these go into work chroot; NB: no vmlinuz there
+# these go into work chroot; NB: no vmlinuz there (unless live-install)
 IMAGE_PACKAGES_REGEXP = $(call kpackages, \
 			$(STAGE1_KMODULES) $(STAGE2_KMODULES), \
 			$(STAGE1_KFLAVOUR))
+
+# see also scripts.d/99-elf-stats
+ifdef GLOBAL_SQUASHFS_SORT
+ifeq (tight,$(SQUASHFS))
+CHROOT_PACKAGES += file
+pack-image: PACK_SQUASHFS_OPTS += -sort /.our/elf.lst
+pack-image: CLEANUP_OUTDIR=
+endif
+endif
+
+GLOBAL_SQUASHFS := $(SQUASHFS)
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
 # NB: it's a collector variable, add()ing to a GLOBAL_ results in lost hair
 GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 
-all: | $(GLOBAL_DEBUG) build-image run-image-scripts pack-image \
+all: |  $(GLOBAL_DEBUG) \
+	build-image run-image-scripts run-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
 # dummy
