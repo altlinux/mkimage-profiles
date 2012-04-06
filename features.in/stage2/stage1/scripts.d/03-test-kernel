@@ -2,7 +2,7 @@
 # check relevant kernel features availability
 
 GZ_OPTS="-comp gzip"
-XZ_OPTS="-comp xz -b 524288 -noI"
+XZ_OPTS="-comp xz -b 262144 -noI"
 
 # test for installer-required filesystems support
 for opt in CONFIG_SQUASHFS CONFIG_AUFS_FS; do
