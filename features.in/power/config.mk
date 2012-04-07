@@ -20,4 +20,4 @@ use/power/acpi/powersave: use/power/acpi
 
 # legacy power management
 use/power/apm: use/power
-	@$(call add,COMMON_PACKAGES,apmd)
+	@$(call add,COMMON_PACKAGES,apmd lphdisk)
