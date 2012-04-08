@@ -1,32 +1,48 @@
 #!/bin/sh
+# NB: -f prohibited in this shebang
 # check relevant kernel features availability
 
+CONFIGS=/boot/config-*
 GZ_OPTS="-comp gzip"
 XZ_OPTS="-comp xz -b 262144 -noI"
+LZO_OPTS="-comp lzo"
+
+verbose() { [ -n "$GLOBAL_VERBOSE" ] && echo "** $@" >&2; }
+fatal() { echo "** error: $@" >&2; exit 1; }
+
+configured()
+{
+	local option="CONFIG_$1"
+	if grep -q "^$option" $CONFIGS; then
+		verbose "${option%=*} available"
+		return 0
+	else
+		return 1
+	fi
+}
+
+ls $CONFIGS >&/dev/null || fatal "no stage1 kernel config found in /boot"
 
 # test for installer-required filesystems support
-for opt in CONFIG_SQUASHFS CONFIG_AUFS_FS; do
-	if grep -q "^$opt=[my]$" /boot/config-*; then
-		[ -n "$GLOBAL_VERBOSE" ] && echo "** $opt available"
-	else
-		if [ "$?" = 1 ]; then	# a file exists but lacks the pattern
-			echo "** error: stage1 kernel must have $opt support" >&2
-			exit 1
-		fi
-	fi
+for opt in SQUASHFS AUFS_FS; do
+	configured "$opt=[my]" || fatal "stage1 kernel must have $opt support"
 done
+
+verbose "GLOBAL_SQUASHFS: $GLOBAL_SQUASHFS"
 
 # squashfs options: not really neccessary but better than none
 # NB: this config file should be carried over into install2
-if grep -q '^CONFIG_SQUASHFS_XZ=y$' /boot/config-*; then
-	# TODO: figure out if it's generally worth it even on x86:
-	#       if binaries account for less than ~70% of blocks,
-	#       the decompression filter overhead might hurt
+if [ "$GLOBAL_SQUASHFS" != "fast" ] && configured "SQUASHFS_XZ=y"; then
+	# NB: the decompression filter overhead might hurt
 	# NB: there are arm, powerpc and some other filters too
-	if grep -q "^CONFIG_X86" /boot/config-*; then
+	if [ "$GLOBAL_SQUASHFS" = "tight" ] && configured "X86"; then
 		XZ_OPTS="$XZ_OPTS -Xbcj x86"
 	fi
-	echo "PACK_SQUASHFS_OPTS=$XZ_OPTS" > /.image/squashcfg.mk
-else
-	echo "PACK_SQUASHFS_OPTS=$GZ_OPTS" > /.image/squashcfg.mk
-fi
+	echo "PACK_SQUASHFS_OPTS=$XZ_OPTS"
+else	# go fast, or even faster if possible
+	if configured "SQUASHFS_LZO=y"; then
+		echo "PACK_SQUASHFS_OPTS=$LZO_OPTS"
+	else	# safe default
+		echo "PACK_SQUASHFS_OPTS=$GZ_OPTS"
+	fi
+fi > /.image/squashcfg.mk

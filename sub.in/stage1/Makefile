@@ -38,6 +38,9 @@ endif
 CHROOT_PACKAGES_REGEXP += $(STAGE1_PACKAGES_REGEXP)
 CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(SYSTEM_PACKAGES)
 
+# pass for use/stage2
+GLOBAL_SQUASHFS := $(SQUASHFS)
+
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for ../stage2/Makefile to include
 all: | debug prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \

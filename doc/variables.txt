@@ -81,6 +81,14 @@
   + значение: пусто (по умолчанию) либо любая строка
   + см. ../image.in/Makefile
 
+- SQUASHFS
+  + определяет характер сжатия squashfs для stage2
+  + значение:
+    - пусто (по умолчанию) либо normal: xz
+    - tight: xz с -Xbcj по платформе (лучше, но дольше -- подбор в два прохода)
+    - fast: gzip/lzo (быстрее запаковывается и распаковывается, меньше степень)
+  + см. ../features.in/stage2/stage1/scripts.d/03-test-kernel
+
 пример
 ~~~~~~
 make DEBUG=1 CLEAN=1 distro/syslinux.iso
