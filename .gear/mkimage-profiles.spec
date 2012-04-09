@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.6.2
+Version: 0.6.3
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -61,6 +61,9 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Apr 09 2012 Michael Shigorin <mike@altlinux.org> 0.6.3-alt1
+- massive squashfs tuning
+
 * Mon Apr 02 2012 Michael Shigorin <mike@altlinux.org> 0.6.2-alt1
 - better live-webkiosk and initial live-flightgear
 - cleanup, syslinux, xorg feature tweaks
