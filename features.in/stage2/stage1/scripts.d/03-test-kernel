@@ -3,9 +3,9 @@
 # check relevant kernel features availability
 
 CONFIGS=/boot/config-*
-GZ_OPTS="-comp gzip"
-XZ_OPTS="-comp xz -b 262144 -noI"
-LZO_OPTS="-comp lzo"
+GZ_OPTS="-comp gzip -noI"
+XZ_OPTS="-comp xz"
+LZO_OPTS="-comp lzo -noI"
 
 verbose() { [ -n "$GLOBAL_VERBOSE" ] && echo "** $@" >&2; }
 fatal() { echo "** error: $@" >&2; exit 1; }
@@ -30,19 +30,26 @@ done
 
 verbose "GLOBAL_SQUASHFS: $GLOBAL_SQUASHFS"
 
-# squashfs options: not really neccessary but better than none
-# NB: this config file should be carried over into install2
-if [ "$GLOBAL_SQUASHFS" != "fast" ] && configured "SQUASHFS_XZ=y"; then
-	# NB: the decompression filter overhead might hurt
-	# NB: there are arm, powerpc and some other filters too
-	if [ "$GLOBAL_SQUASHFS" = "tight" ] && configured "X86"; then
-		XZ_OPTS="$XZ_OPTS -Xbcj x86"
+options()
+{
+	# squashfs options: not really neccessary but better than none
+	# NB: this config file should be carried over into install2
+	if [ "$GLOBAL_SQUASHFS" != "fast" ] && configured "SQUASHFS_XZ=y"; then
+		# NB: the decompression filter overhead might hurt
+		# NB: there are arm, powerpc and some other filters too
+		if [ "$GLOBAL_SQUASHFS" = "tight" ] && configured "X86"; then
+			XZ_OPTS="$XZ_OPTS -b 524288 -Xbcj x86"
+		else
+			XZ_OPTS="$XZ_OPTS -b 262144 -noI"
+		fi
+		echo "$XZ_OPTS"
+	else	# go fast, or even faster if possible
+		if configured "SQUASHFS_LZO=y"; then
+			echo "$LZO_OPTS"
+		else	# safe default
+			echo "$GZ_OPTS"
+		fi
 	fi
-	echo "PACK_SQUASHFS_OPTS=$XZ_OPTS"
-else	# go fast, or even faster if possible
-	if configured "SQUASHFS_LZO=y"; then
-		echo "PACK_SQUASHFS_OPTS=$LZO_OPTS"
-	else	# safe default
-		echo "PACK_SQUASHFS_OPTS=$GZ_OPTS"
-	fi
-fi > /.image/squashcfg.mk
+}
+
+echo "PACK_SQUASHFS_OPTS=-no-recovery `options`" > /.image/squashcfg.mk
