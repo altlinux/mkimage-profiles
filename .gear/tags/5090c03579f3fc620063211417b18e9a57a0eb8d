@@ -1,0 +1,6 @@
+object d190759717b97a39e5d0de0ffb555424d6b1c335
+type commit
+tag v0.6.3
+tagger Michael Shigorin <mike@altlinux.org> 1334001608 +0300
+
+squash!
