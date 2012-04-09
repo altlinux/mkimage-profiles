@@ -3,4 +3,4 @@
 # (unless it's a live-install):
 # it's been booted already
 
-[ -x /usr/sbin/live-install ] || rm -f /boot/*
+[ -x /usr/sbin/live-install ] || [ -x /usr/sbin/livecd-install ] || rm -f /boot/*
