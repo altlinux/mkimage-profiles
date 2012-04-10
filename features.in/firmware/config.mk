@@ -7,13 +7,17 @@ use/firmware:
 
 use/firmware/server: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
-	@$(call add,MAIN_PACKAGES_REGEXP,firmware-ql.*)
+	@$(call add,THE_PACKAGES_REGEXP,firmware-ql.*)
 
+# NB: individual firmwarez would sometimes conflict
+#     with ones newly merged into firmware-linux
 use/firmware/wireless: use/firmware
-	@$(call add,MAIN_PACKAGES,firmware-acx100)
-	@$(call add,MAIN_PACKAGES,firmware-i2400m)
-	@$(call add,MAIN_PACKAGES_REGEXP,firmware-carl9170.*)
-	@$(call add,MAIN_PACKAGES_REGEXP,firmware-ipw.*)
-	@#$(call add,MAIN_PACKAGES_REGEXP,firmware-iwl.*)
-	@$(call add,MAIN_PACKAGES_REGEXP,firmware-rt.*)
-	@$(call add,MAIN_PACKAGES_REGEXP,firmware-zd.*)
+	@$(call add,THE_KMODULES,bcmwl ndiswrapper)
+	@$(call add,THE_PACKAGES,firmware-acx100)
+	@#$(call add,THE_PACKAGES,firmware-i2400m)
+	@$(call add,THE_PACKAGES_REGEXP,firmware-carl9170.*)
+	@$(call add,THE_PACKAGES_REGEXP,firmware-prism.*)
+	@$(call add,THE_PACKAGES_REGEXP,firmware-ipw.*)
+	@#$(call add,THE_PACKAGES_REGEXP,firmware-iwl.*)
+	@#$(call add,THE_PACKAGES_REGEXP,firmware-rt.*)
+	@$(call add,THE_PACKAGES_REGEXP,firmware-zd.*)
