@@ -1,0 +1,24 @@
+#mintmenu
+homebank
+aspell-uk
+libreoffice-langpack-ru
+stardict-slovnyk_ru-en
+stardict-slovnyk_en-uk
+stardict-slovnyk_uk-en
+stardict-slovnyk_uk-ru
+
+# NVIDIA drivers
+kernel-modules-nvidia-std-def
+nvidia-xconfig
+
+# ATI proprietary driver
+fglrx_glx
+fglrx-tools
+kernel-modules-fglrx-std-def
+
+vlock
+
+hplip-PPDs
+
+tango-icon-theme
+tango-icon-theme-extras

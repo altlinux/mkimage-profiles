@@ -53,4 +53,7 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
+distro/live-simply: distro/livecd-install use/slinux use/systemd \
+	use/firmware/wireless use/x11/drm use/x11/3d-proprietary; @:
+
 endif

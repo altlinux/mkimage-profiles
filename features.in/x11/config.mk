@@ -35,6 +35,9 @@ use/x11/lightdm: use/x11/runlevel5
 use/x11/kdm: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,kdebase-kdm)
 
+use/x11/gdm2.20: use/x11/runlevel5
+	@$(call add,THE_PACKAGES,gdm2.20)
+
 use/x11/icewm: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,icewm desktop))
 
@@ -43,3 +46,6 @@ use/x11/razorqt: use/x11/xorg
 
 use/x11/tde: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,tde desktop))
+
+use/x11/xfce: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,xfce desktop))
