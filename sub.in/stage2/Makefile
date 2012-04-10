@@ -32,9 +32,9 @@ endif
 
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there (unless live-install)
-IMAGE_PACKAGES_REGEXP = $(call kpackages, \
-			$(STAGE1_KMODULES) $(STAGE2_KMODULES), \
-			$(STAGE1_KFLAVOUR))
+IMAGE_PACKAGES_REGEXP += $(call kpackages, \
+			 $(STAGE1_KMODULES) $(STAGE2_KMODULES), \
+			 $(STAGE1_KFLAVOUR))
 
 # see also scripts.d/99-elf-stats
 ifdef GLOBAL_SQUASHFS_SORT

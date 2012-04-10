@@ -12,7 +12,9 @@ include $(MKIMAGE_PREFIX)/config.mk
 
 CHROOT_PACKAGES = apt-utils rsync
 
-IMAGE_PACKAGES_REGEXP = $(MAIN_PACKAGES_REGEXP) \
+IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
+			$(BASE_PACKAGES_REGEXP) \
+			$(MAIN_PACKAGES_REGEXP) \
 			$(call kpackages, \
 			       $(THE_KMODULES) \
 			       $(BASE_KMODULES) \
