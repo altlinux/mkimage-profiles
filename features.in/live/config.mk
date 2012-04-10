@@ -10,8 +10,7 @@ use/live/base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
 
 # optimized out: use/x11/xorg
-use/live/desktop: use/live/base use/x11/wacom use/virtualbox/guest \
-	use/live/sound +power
+use/live/desktop: use/live/base use/x11/wacom use/live/sound +vmguest +power
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 	@$(call add,SYSLINUX_CFG,localboot)

@@ -31,7 +31,8 @@ distro/.base: distro/.init
 
 # something marginally useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader
-distro/installer: distro/.base use/install2 use/syslinux/localboot.cfg
+distro/installer: distro/.base use/install2 use/install2/kvm \
+	use/syslinux/localboot.cfg
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 
