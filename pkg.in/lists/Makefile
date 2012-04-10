@@ -2,8 +2,17 @@
 #         (and only those!) over to $(BUILDDIR)
 
 ifndef BUILDDIR
-$(error BUILDDIR not defined)
-endif
+
+pkgdups:
+	@find -type f ! -name README ! -name Makefile \
+	| grep -v '~$$' \
+	| sed 's,^\./,,g' \
+	| xargs ../../bin/pkgdups
+
+%:
+	$(error BUILDDIR not defined)
+
+else
 
 include $(BUILDDIR)/distcfg.mk
 SUFFIX := pkg/lists
@@ -46,6 +55,7 @@ endef
 dump-PACKAGES = $(call dump-THEM,$(1),PACKAGES,echo)
 dump-LISTS = $(call dump-THEM,$(1),LISTS,cat)
 
+# BASE_PACKAGES, BASE_LISTS and whatever else goes into base install
 dot-base:
 	@# construct .base packagelist for alterator-pkg
 	@{ \
@@ -64,3 +74,5 @@ debug:
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
 			$(shell echo '\\n"**"' $V: $(value $V)))) '\n'
+
+endif

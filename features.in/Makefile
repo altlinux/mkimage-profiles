@@ -25,6 +25,9 @@ define grepper_body
 	done
 endef
 
+%:
+	$(error BUILDDIR not defined)
+
 else
 
 include $(BUILDDIR)/distcfg.mk
