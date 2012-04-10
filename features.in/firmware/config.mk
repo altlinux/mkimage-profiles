@@ -11,6 +11,7 @@ use/firmware/server: use/firmware
 
 # NB: individual firmwarez would sometimes conflict
 #     with ones newly merged into firmware-linux
+# FIXME: kernel modules rather belong to use/hardware
 use/firmware/wireless: use/firmware
 	@$(call add,THE_KMODULES,bcmwl ndiswrapper)
 	@$(call add,THE_PACKAGES,firmware-acx100)
