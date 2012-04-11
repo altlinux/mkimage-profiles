@@ -49,3 +49,6 @@ use/x11/tde: use/x11/xorg
 
 use/x11/xfce: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,xfce desktop))
+
+use/x11/cinnamon: use/x11/xorg use/x11/drm
+	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))

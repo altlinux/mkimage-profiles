@@ -56,4 +56,7 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 distro/live-simply: distro/livecd-install use/slinux use/systemd \
 	use/firmware/wireless use/x11/drm use/x11/3d-proprietary; @:
 
+distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
+	use/x11/cinnamon use/x11/3d-free
+
 endif
