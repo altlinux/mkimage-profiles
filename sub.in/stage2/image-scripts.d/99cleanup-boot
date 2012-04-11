@@ -1,6 +1,9 @@
 #!/bin/sh
-# no need for the kernel in live root
-# (unless it's a live-install):
-# it's been booted already
 
-[ -x /usr/sbin/live-install ] || [ -x /usr/sbin/livecd-install ] || rm -f /boot/*
+# don't cripple the image to be copied over
+[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install ] && exit 0
+
+# no need for the kernel in live root otherwise: it's been booted already
+rm -f /boot/*
+
+:
