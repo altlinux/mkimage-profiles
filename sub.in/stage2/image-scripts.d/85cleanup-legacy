@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # remove unused legacy/tiny fonts
-cd /usr/share/fonts/bitmap/misc/ && rm -f *ISO* *KOI* [1456]*
+#cd /usr/share/fonts/bitmap/misc/ && rm -f *ISO* *KOI* [1456]*
+cd /usr/share/fonts/bitmap/misc/ && rm -f [1456]*
 
 # l10n
 cd /usr/share/X11/locale/ && rm -rf *[^C8]/ iso*
@@ -10,6 +11,7 @@ cd /usr/share/X11/locale/ && rm -rf *[^C8]/ iso*
 cd /usr/share/X11/xkb/symbols && rm -rf *_vndr
 
 # gconv
-cd /usr/lib*/gconv && rm -f CP* ISO* *JIS* KOI* HP* MAC*
+#cd /usr/lib*/gconv && rm -f CP* ISO* *JIS* KOI* HP* MAC*
+cd /usr/lib*/gconv && rm -f CP* *JIS* HP* MAC*
 
 :
