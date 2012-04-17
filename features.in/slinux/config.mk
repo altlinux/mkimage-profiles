@@ -12,3 +12,6 @@ use/slinux: use/x11/xfce use/x11/gdm2.20
 	@$(call add,THE_LISTS,slinux/xfce)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,THE_PACKAGES,apt-conf-sisyphus)
+
+use/slinux-live: use/slinux
+	@$(call add,THE_LISTS,slinux/live-install)

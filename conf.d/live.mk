@@ -31,7 +31,7 @@ distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo
 distro/live-install: distro/.live-base use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
-distro/livecd-install: distro/.live-base use/syslinux/localboot.cfg
+distro/.livecd-install: distro/.live-base
 	@$(call add,LIVE_PACKAGES,livecd-install)
 
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
@@ -54,8 +54,15 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
-distro/live-simply: distro/livecd-install use/slinux use/systemd \
-	use/firmware/wireless use/x11/drm use/x11/3d-proprietary; @:
+distro/live-simply: distro/.livecd-install use/isohybrid use/slinux-live use/systemd \
+	use/firmware/wireless use/x11/drm use/x11/3d-proprietary use/syslinux/ui/gfxboot
+	@$(call set,BRANDING,simply-linux)
+
+distro/live-simply-fast: distro/live-simply
+	@$(call set,SQUASHFS,fast)
+
+distro/live-simply-tight: distro/live-simply
+	@$(call set,SQUASHFS,tight)
 
 distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
 	use/x11/cinnamon use/x11/3d-free

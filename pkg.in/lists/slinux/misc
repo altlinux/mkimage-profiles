@@ -3,8 +3,6 @@ fvwm-full-
 altlinux-freedesktop-menu-shallow-menu
 altlinux-freedesktop-menu-icon-theme-default
 #altlinux-freedesktop-menu-common
-branding-simply-linux-xfce-settings
-branding-simply-linux-menu
 docs-simply-linux
 docs-linux_intro
 fonts-ttf-droid
@@ -15,11 +13,17 @@ gnome-system-monitor
 gnome-icon-theme
 #tango-icon-theme
 #tango-icon-theme-extras
-gdm2.20
-gdm-theme-simply
 gdm2.20-help
 ntfsprogs-
 driconf-
+
+# Branding things
+branding-simply-linux-xfce-settings
+branding-simply-linux-menu
+
+#added through use/syslinux/gfx... ?
+#branding-simply-linux-bootloader
+gdm-theme-simply
 
 kde4libs-
 kde-common-
@@ -68,14 +72,17 @@ alterator-xkb
 alterator-pkg
 alterator-packages
 alterator-datetime
+alterator-standalone
+alterator-sysconfig
 
-#additional
+# Additional
 gnome-search-tool
 yelp
 
-#compiz
-#python-module-fusion-icon-gtk
-#compiz-gtk
+# Compiz things
+compiz
+python-module-fusion-icon-gtk
+compiz-gtk
 
 #aen
 #elinks-
