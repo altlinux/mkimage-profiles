@@ -1,0 +1,42 @@
+#!/bin/sh
+# see also m-p-d::profiles/live/image-scripts.d/init3-services
+
+[ -x /sbin/chkconfig ] || exit 0
+
+ENABLE="
+alteratord
+livecd-evms
+livecd-fstab
+livecd-hostname
+livecd-save-nfs
+livecd-setauth
+livecd-setlocale
+network
+NetworkManager
+random
+rpcbind
+"
+
+# NB: dnsmasq: https://bugzilla.altlinux.org/show_bug.cgi?id=18799
+# NB: sshd might be needed for some particular cases
+DISABLE="
+anacron
+bridge
+clamd
+crond
+dhcpd
+dnsmasq
+mdadm
+netfs
+openvpn
+rawdevices
+slapd
+smartd
+sshd
+update_wms
+xinetd
+"
+
+for i in $ENABLE;  do chkconfig $i on  2>/dev/null; done
+for i in $DISABLE; do chkconfig $i off 2>/dev/null; done
+:
