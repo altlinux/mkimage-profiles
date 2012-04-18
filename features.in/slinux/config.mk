@@ -1,4 +1,5 @@
 use/slinux: use/x11/xfce use/x11/gdm2.20
+	@$(call add_feature)
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,THE_LISTS,slinux/$(ARCH))
 	@$(call add,THE_LISTS,slinux/games)

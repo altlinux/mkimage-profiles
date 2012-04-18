@@ -3,6 +3,7 @@
 #     for mkmodpack to use
 
 use/firmware:
+	@$(call add_feature)
 	@$(call add,SYSTEM_PACKAGES,firmware-linux)
 
 use/firmware/server: use/firmware

@@ -3,6 +3,7 @@
 # common
 # TODO: invent multi-target scripts and integrate that 08-powerbutton
 use/power:
+	@$(call add_feature)
 	@$(call add,COMMON_PACKAGES,installer-feature-powerbutton-stage3)
 
 # modern power management

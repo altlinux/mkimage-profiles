@@ -3,6 +3,7 @@
 +tde: use/x11/tde use/x11/kdm; @:
 
 use/x11/xorg:
+	@$(call add_feature)
 	@$(call add,THE_LISTS,xorg)
 
 use/x11/wacom: use/x11/xorg
