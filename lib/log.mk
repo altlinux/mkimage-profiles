@@ -14,7 +14,7 @@ ifeq (-,$(shell rpmvercmp $(HSH_VERSION) $(HSH_VER_OPTIMAL) | tr -d [0-9]))
 $(info warning: hasher-$(HSH_VERSION) is suboptimal, consider upgrading)
 endif
 
-BUILDLOG ?= $(BUILDDIR)/build.log
+BUILDLOG ?= $(BUILDDIR)/$(BUILD_LOG)
 
 # LOG holds a redirecting postprocessor
 ifdef DEBUG
@@ -35,12 +35,3 @@ DATE = $(shell date +%Y%m%d)
 TIME = `date +%H:%M:%S`
 
 export BUILDLOG DATE GLOBAL_DEBUG GLOBAL_VERBOSE LOG MAKE SHELL
-
-# brevity postprocessor; not exported, for toplevel use only
-SHORTEN = $(shell \
-	echo -n "| sed"; \
-	if [ -s "$(SYMLINK)" ]; then \
-		echo -n " -e 's,$(BUILDDIR),$(SYMLINK),'"; \
-	fi; \
-	echo -n " -e 's,$(TMP),\$$TMP,' -e 's,$(HOME),~,'"; \
-)
