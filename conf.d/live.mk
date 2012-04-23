@@ -21,6 +21,7 @@ distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 
 distro/live-builder: pkgs := livecd-tmpfs livecd-online-repo mkimage-profiles
 distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo
+	@$(call set,KFLAVOURS,$(BIGRAM))
 	@$(call add,LIVE_LISTS,$(call tags,base && (server || builder)))
 	@$(call add,LIVE_PACKAGES,zsh sudo)
 	@$(call add,LIVE_PACKAGES,$(pkgs))
