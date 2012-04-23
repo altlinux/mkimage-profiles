@@ -1,9 +1,10 @@
 # collect what's left
 
+ifneq (,$(REPORT))
+
 BUILDDIR := $(shell sed -n 's/^.* BUILDDIR = \(.*\)/\1/p' "$$REPORT_PATH")
 
 include lib/common.mk
-
 all: reports/targets reports/scripts
 
 reports/prep:
@@ -19,7 +20,8 @@ reports/scripts: reports/prep
 	&& echo "** scripts report: $(BUILDDIR)/$@.log" $(SHORTEN)
 
 reports/targets: reports/prep
-	@if type -t dot >&/dev/null; then \
+	@if [ ! -s "$$REPORT_PATH" ]; then exit 0; fi; \
+	if type -t dot >&/dev/null; then \
 		REPORT_IMAGE="$(BUILDDIR)/$@.png"; \
 		report-targets < "$$REPORT_PATH" \
 		| dot -Tpng -o "$$REPORT_IMAGE" \
@@ -31,3 +33,7 @@ reports/targets: reports/prep
 			"target graph dot file: $$REPORT_DOT"; \
 	fi $(SHORTEN); \
 	mv "$$REPORT_PATH" "$(BUILDDIR)/$@.log"
+
+else
+all:; @:
+endif
