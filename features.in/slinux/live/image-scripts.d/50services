@@ -1,0 +1,38 @@
+#!/bin/sh -x
+
+SYSTEMCTL=/bin/systemctl
+CHKCONFIG=/sbin/chkconfig
+
+turn_on() {
+	if [ -x $SYSTEMCTL ]; then
+		$SYSTEMCTL enable ${*}.service
+	else if [ -x $CHKCONFIG ]; then
+		$CHKCONFIG $* on
+	else
+		exit 0
+	fi
+fi
+}
+
+turn_off() {
+	if [ -x $SYSTEMCTL ]; then
+		$SYSTEMCTL disable ${*}.service
+	else if [ -x $CHKCONFIG ]; then
+		$CHKCONFIG $* off
+	else
+		exit 0
+	fi
+fi
+}
+
+SERVICES_TO_ENABLE="NetworkManager"
+SERVICES_TO_DISABLE=
+
+for i in $SERVICES_TO_ENABLE; do
+	turn_on $i;
+done
+
+for i in $SERVICES_TO_DISABLE; do
+	turn_off $i;
+done
+:

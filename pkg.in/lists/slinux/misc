@@ -1,3 +1,6 @@
+strace
+pm-utils
+
 fvwm-
 fvwm-full-
 altlinux-freedesktop-menu-shallow-menu
@@ -46,6 +49,7 @@ gcalctool
 synaptic
 synaptic-usermode
 apt-indicator
+gksu
 cups
 ghostscript-cups
 cups-pdf
