@@ -11,6 +11,7 @@ MKI_VER_OPTIMAL = 0.2.0
 include distcfg.mk
 include functions.mk
 
+# check the build environment
 ifeq (,$(realpath $(MKIMAGE_PREFIX)/config.mk))
 $(error please apt-get install mkimage and have a look at QUICKSTART as well)
 endif
@@ -26,9 +27,19 @@ $(info warning: mkimage-$(MKI_VERSION) is suboptimal, consider upgrading)
 $(warning consider upgrading mkimage to $(MKI_VER_OPTIMAL) or better)
 endif
 
+# additional means to reduce havoc in IMAGEDIR
+IMAGE_SORTDIR := $(SORTDIR)
+
 # reconstruct instead of passing yet another variable
-IMAGE_LINK := $(IMAGE_NAME).$(IMAGE_TYPE)
-IMAGE_OUTFILE := $(IMAGE_NAME)-$(DATE)-$(ARCH).$(IMAGE_TYPE)
+IMAGE_OUTDIR   := $(IMAGEDIR)$(IMAGE_SORTDIR:%=/%)
+IMAGE_OUTFILE  := $(IMAGE_NAME)-$(DATE)-$(ARCH).$(IMAGE_TYPE)
+IMAGE_OUTPATH  := $(IMAGE_OUTDIR)/$(IMAGE_OUTFILE)
+IMAGE_RELPATH  := $(IMAGE_SORTDIR:%=%/)$(IMAGE_OUTFILE)
+IMAGE_RELDIR   := $(IMAGE_OUTDIR:$(GLOBAL_BUILDDIR)/%=%)
+IMAGE_LINK     := $(IMAGE_NAME).$(IMAGE_TYPE)
+IMAGE_LINKPATH := $(IMAGEDIR)/$(IMAGE_LINK)
+
+### multi-pack can be useful (think netinst iso/tree)
 MKI_PACK_RESULTS = $(IMAGE_PACKTYPE):$(IMAGE_OUTFILE)
 
 # these get opied over as is
@@ -44,7 +55,7 @@ include lib/*.mk
 include $(MKIMAGE_PREFIX)/targets.mk
 
 # specified only for the final image (target-specific)
-pack-image: OUTDIR = $(IMAGEDIR)
+pack-image: OUTDIR = $(IMAGE_OUTDIR)
 pack-image: imagedir
 
 copy-tree: $(SAVE_PROFILE:%=save-profile)
@@ -57,18 +68,18 @@ save-profile:
 .PHONY: imagedir postprocess debug
 
 imagedir:
-	@mkdir -p "$(IMAGEDIR)"
+	@mkdir -p "$(IMAGE_OUTDIR)"
 
 postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
-	@OUTPATH="$(IMAGEDIR)/$(IMAGE_OUTFILE)"; \
-	OUTSIZE="`ls -lh "$$OUTPATH" | cut -f5 -d' '`"; \
-	echo "** image: $$OUTPATH [$$OUTSIZE]" >&2 && \
-	ln -sf "$(IMAGE_OUTFILE)" "$(IMAGEDIR)/$(IMAGE_LINK)" && \
-	ln -sf "$${IMAGEDIR#`pwd`/}" "$(OUT_LINK)"; \
-	ln -sf "$(IMAGE_LINK)" $(OUT_LINK)/"$(CURRENT_LINK).$(IMAGE_TYPE)"; \
+	@OUTSIZE="`ls -lh "$(IMAGE_OUTPATH)" | cut -f5 -d' '`"; \
+	echo "** image: $(IMAGE_OUTPATH) [$$OUTSIZE]" >&2 && \
+	echo "IMAGE_OUTPATH = $(IMAGE_OUTPATH)" && \
+	ln -sf "$(IMAGE_RELPATH)" "$(IMAGE_LINKPATH)" && \
+	ln -sf "$(IMAGE_RELDIR)" "$(OUT_LINK)" && \
+	ln -sf "$(IMAGE_LINK)" "$(IMAGEDIR)/$(CURRENT_LINK).$(IMAGE_TYPE)"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
-		cp -a build.log "$$OUTPATH.log"; \
-		cp -a distcfg.mk "$$OUTPATH.cfg"; \
+		cp -a build.log "$(IMAGE_OUTPATH).log"; \
+		cp -a distcfg.mk "$(IMAGE_OUTPATH).cfg"; \
 	fi
 
 debug:

@@ -89,6 +89,12 @@
     - fast: gzip/lzo (быстрее запаковывается и распаковывается, меньше степень)
   + см. ../features.in/stage2/stage1/scripts.d/03-test-kernel
 
+- SORTDIR
+  + дополнительно структурирует каталог собранных образов
+  + значение: пусто (по умолчанию) либо строка
+    - например, '$(IMAGE_NAME)/$(DATE)'
+  + см. ../image.in/Makefile
+
 пример
 ~~~~~~
 make DEBUG=1 CLEAN=1 distro/syslinux.iso
