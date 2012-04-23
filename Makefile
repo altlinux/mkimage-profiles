@@ -43,7 +43,10 @@ export NUM_TARGETS := $(words $(MAKECMDGOALS))
 	for ARCH in $(ARCHES); do \
 		if [ "$$ARCH" != "$(firstword $(ARCHES))" ]; then say; fi; \
 		say "** ARCH: $$ARCH" >&2; \
-		$(MAKE) -f main.mk ARCH=$$ARCH $@ $(POSTPROC); \
-		$(MAKE) -f reports.mk ARCH=$$ARCH; \
+		if $(MAKE) -f main.mk ARCH=$$ARCH $@ $(POSTPROC); then \
+			if [ -n "$$REPORT" ]; then \
+				$(MAKE) -f reports.mk ARCH=$$ARCH; \
+			fi; \
+		fi; \
 	done; \
 	if [ "$$n" -lt "$(NUM_TARGETS)" ]; then say; fi
