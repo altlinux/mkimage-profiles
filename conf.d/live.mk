@@ -58,12 +58,6 @@ distro/live-simply: distro/.livecd-install use/isohybrid use/slinux-live use/sys
 	use/firmware/wireless use/x11/drm use/x11/3d-proprietary use/syslinux/ui/gfxboot
 	@$(call set,BRANDING,simply-linux)
 
-distro/live-simply-fast: distro/live-simply
-	@$(call set,SQUASHFS,fast)
-
-distro/live-simply-tight: distro/live-simply
-	@$(call set,SQUASHFS,tight)
-
 distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
 	use/x11/cinnamon use/x11/3d-free
 
