@@ -23,8 +23,9 @@ endif
 # recursive make considered useful for m-p
 MAKE += -r --no-print-directory
 
-.PHONY: clean distclean help
-clean distclean help:
+DIRECT_TARGETS := clean distclean check help
+.PHONY: $(DIRECT_TARGETS)
+$(DIRECT_TARGETS):
 	@$(MAKE) -f main.mk $@
 
 export NUM_TARGETS := $(words $(MAKECMDGOALS))
