@@ -19,5 +19,9 @@ NULL :=
 SPACE := $(NULL) # the officially documented way of getting a space
 
 list2re = $(subst $(SPACE),|,$(strip $(1)))
+
 # args: KMODULES, KFLAVOURS
 kpackages = ^kernel-(image|modules-($(call list2re,$(1))))-($(call list2re,$(2)))$$
+
+# arg: branding subpackages
+branding = ^branding-$(BRANDING)-($(call list2re,$(1)))$$

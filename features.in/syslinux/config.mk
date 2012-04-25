@@ -9,7 +9,7 @@ use/syslinux/ui/%: use/syslinux
 	@$(call set,SYSLINUX_UI,$*)
 	@if [ "$*" == gfxboot ]; then \
 		$(call add,STAGE1_PACKAGES,gfxboot); \
-		$(call add,STAGE1_PACKAGES,branding-$$(BRANDING)-bootloader); \
+		$(call add,STAGE1_BRANDING,bootloader); \
 	fi
 
 # modules and config snippets just add up

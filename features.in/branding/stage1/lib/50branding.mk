@@ -1,0 +1,1 @@
+CHROOT_PACKAGES_REGEXP += $(call branding,$(STAGE1_BRANDING))
