@@ -36,6 +36,8 @@ IMAGE_PACKAGES_REGEXP += $(call kpackages, \
 			 $(STAGE1_KMODULES) $(STAGE2_KMODULES), \
 			 $(STAGE1_KFLAVOUR))
 
+-include lib/*.mk
+
 # see also scripts.d/99-elf-stats
 ifdef GLOBAL_SQUASHFS_SORT
 ifeq (tight,$(SQUASHFS))
