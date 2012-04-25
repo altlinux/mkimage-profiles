@@ -2,7 +2,8 @@
 ANSI_OK   ?= 1;32
 ANSI_FAIL ?= 1;31
 
-GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (Stop|failed)\.))$$
+MAX_ERRORS = 3
+GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (conflicts|Depends:) .*)|(.* (Stop|failed)\.))$$
 
 ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
@@ -51,7 +52,9 @@ build-image: profile/populate
 		tail -200 "$(BUILDLOG)" $(SHORTEN) \
 		| GREP_COLOR="$(ANSI_OK)" GREP_OPTIONS="--color=auto" \
 		  grep '^\*\* image: .*$$' ||:; \
+		RETVAL=0; \
 	else \
+		RETVAL=$$?; \
 		echo -n "$(TIME) failed, see log"; \
 		if [ -z "$(DEBUG)" ]; then \
 			echo ": $(BUILDLOG)" $(SHORTEN); \
@@ -61,9 +64,10 @@ build-image: profile/populate
 		fi; \
 		tail -200 "$(BUILDLOG)" \
 		| GREP_COLOR="$(ANSI_FAIL)" GREP_OPTIONS="--color=auto" \
-		  egrep "$(GOTCHA)"; \
+		  egrep -m "$(MAX_ERRORS)" "$(GOTCHA)"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi; \
 	if [ -n "$(BELL)" ]; then echo -ne '\a'; fi; \
+	exit $$RETVAL; \
 	} >&2

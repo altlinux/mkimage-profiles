@@ -30,9 +30,13 @@ $(DIRECT_TARGETS):
 
 export NUM_TARGETS := $(words $(MAKECMDGOALS))
 
+# for pipefail
+SHELL = /bin/bash
+
 # real targets need real work
 %:
 	@n=1; \
+	set -o pipefail; \
 	say() { echo "$$@" >&2; }; \
 	if [ "$(NUM_TARGETS)" -gt 1 ]; then \
 		n="`echo $(MAKECMDGOALS) \
