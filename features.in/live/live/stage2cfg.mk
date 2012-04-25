@@ -12,3 +12,7 @@ IMAGE_PACKAGES = $(COMMON_PACKAGES) $(THE_PACKAGES) $(LIVE_PACKAGES) \
 		 interactivesystem
 
 MKI_PACK_RESULTS = squash:live
+
+debug::
+	@echo "** live: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
+	@echo "** live: IMAGE_PACKAGES_REGEXP: $(IMAGE_PACKAGES_REGEXP)"
