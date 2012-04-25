@@ -20,23 +20,6 @@ gdm2.20-help
 ntfsprogs-
 driconf-
 
-# Branding things
-branding-simply-linux-xfce-settings
-branding-simply-linux-menu
-branding-simply-linux-alterator
-branding-sisyphus-server-light-alterator-
-
-#branding-simply-linux-bootloader
-#branding-simply-linux-bootsplash
-branding-simply-linux-graphics
-branding-simply-linux-indexhtml
-branding-simply-linux-notes
-#branding-simply-linux-release
-branding-simply-linux-slideshow
-
-
-#added through use/syslinux/gfx... ?
-#branding-simply-linux-bootloader
 gdm-theme-simply
 
 kde4libs-

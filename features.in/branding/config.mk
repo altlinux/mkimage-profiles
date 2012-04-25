@@ -10,4 +10,3 @@ use/branding/full: use/branding use/syslinux/ui/gfxboot
 
 use/branding/complete: use/branding/full
 	@$(call add,INSTALL2_BRANDING,notes slideshow)
-	@$(call add,THE_BRANDING,menu)	### not sure if it's generic enough
