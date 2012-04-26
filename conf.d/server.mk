@@ -27,7 +27,6 @@ distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
 	@$(call add,BASE_LISTS,ovz-server)
-	@$(call add,MAIN_LISTS,kernel-wifi)
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
 	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)
 	@$(call add,MAIN_GROUPS,monitoring diag-tools)
