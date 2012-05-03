@@ -1,38 +1,29 @@
-#!/bin/sh -x
+#!/bin/sh
+# see also m-p-d::profiles/live/image-scripts.d/init3-services
 
-SYSTEMCTL=/bin/systemctl
-CHKCONFIG=/sbin/chkconfig
+#[ -x /bin/systemctl ] || exit 0
+#[ -x /bin/systemctl ] || exit 0
 
-turn_on() {
-	if [ -x $SYSTEMCTL ]; then
-		$SYSTEMCTL enable ${*}.service
-	else if [ -x $CHKCONFIG ]; then
-		$CHKCONFIG $* on
-	else
-		exit 0
-	fi
-fi
-}
+ENABLE="
+network
+NetworkManager
+lvm2-monitor
+mdadm
+"
 
-turn_off() {
-	if [ -x $SYSTEMCTL ]; then
-		$SYSTEMCTL disable ${*}.service
-	else if [ -x $CHKCONFIG ]; then
-		$CHKCONFIG $* off
-	else
-		exit 0
-	fi
-fi
-}
+# NB: dnsmasq: https://bugzilla.altlinux.org/show_bug.cgi?id=18799
+# NB: sshd might be needed for some particular cases
+DISABLE="
+sshd
+"
 
-SERVICES_TO_ENABLE="NetworkManager"
-SERVICES_TO_DISABLE=
-
-for i in $SERVICES_TO_ENABLE; do
-	turn_on $i;
+for i in $ENABLE;  do
+	[ -x /bin/systemctl ] && /bin/systemctl enable ${i}.service
+	[ -x /sbin/chkconfig ] && /sbin/chkconfig $i on
 done
 
-for i in $SERVICES_TO_DISABLE; do
-	turn_off $i;
+for i in $DISABLE; do
+	[ -x /bin/systemctl ] && /bin/systemctl disable ${i}.service
+	[ -x /sbin/chkconfig ] && /sbin/chkconfig $i off
 done
 :
