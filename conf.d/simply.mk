@@ -8,4 +8,8 @@ distro/live-simply: distro/.livecd-install use/isohybrid use/slinux \
 	@$(call add,THE_PACKAGES,apt-conf-sisyphus)
 	@$(call add,THE_LISTS,slinux/live-install)
 
+distro/dvd-simply: distro/live-simply
+	@$(call set,BRANDING,simply-linux)
+	@$(call set,INSTALLER,desktop)
+
 endif
