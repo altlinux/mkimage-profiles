@@ -57,4 +57,11 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
 	use/x11/cinnamon use/x11/3d-free
 
+distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
+	@$(call add,LIVE_PACKAGES,gimp tintii immix fim)
+	@$(call add,LIVE_PACKAGES,cvltonemap darktable geeqie rawstudio ufraw)
+	@$(call add,LIVE_PACKAGES,macrofusion python-module-pygtk-libglade)
+	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync)
+	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
+
 endif
