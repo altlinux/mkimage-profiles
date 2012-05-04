@@ -31,7 +31,7 @@ distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo
 distro/live-install: distro/.live-base use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
-distro/.livecd-install: distro/.live-base
+distro/.livecd-install: distro/.live-base use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,livecd-install)
 
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
