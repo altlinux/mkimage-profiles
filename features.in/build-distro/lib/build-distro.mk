@@ -42,7 +42,10 @@ metadata: dot-base
 
 dot-base:
 	@p="$(call kpackages,$(THE_KMODULES) $(BASE_KMODULES),$(KFLAVOURS))"; \
-	echo -e "\n## added by build-distro.mk\n$$p" >> $(call list,.base)
+	echo -e "\n## added by build-distro.mk\n$$p" >> $(call list,.base); \
+	if [ -n "$$DOT_BASE" ]; then \
+		echo -e "\n## DOT_BASE\n$$DOT_BASE" >> $(call list,.base); \
+	fi
 
 dot-disk:
 	@mkdir -p files/.disk

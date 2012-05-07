@@ -1,0 +1,1 @@
+IMAGE_PACKAGES_REGEXP += $(call branding,$(INSTALL2_BRANDING))
