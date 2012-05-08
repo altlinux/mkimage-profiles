@@ -5,11 +5,13 @@ PKGDIR := $(GLOBAL_BUILDDIR)/pkg
 ARCH ?= $(shell arch | sed 's/i686/i586/')
 DATE ?= $(shell date +%Y%m%d)
 
-# prefix pkglist name with its directory to form a path
-list = $(1:%=$(PKGDIR)/lists/%)
+# prefix pkglist name with its directory to form a path (relative/absolute)
+rlist = $(1:%=lists/%)
+list  = $(addprefix $(PKGDIR)/,$(call rlist,$(1)))
 
-# prefix/suffix group name to form a path
-group = $(1:%=$(PKGDIR)/groups/%.directory)
+# prefix/suffix group name to form a path (relative/absolute)
+rgroup = $(1:%=groups/%.directory)
+group  = $(addprefix $(PKGDIR)/,$(call rgroup,$(1)))
 
 # map first argument (a function) onto second one (an argument list)
 map = $(foreach a,$(2),$(call $(1),$(a)))
