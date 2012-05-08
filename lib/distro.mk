@@ -30,10 +30,9 @@ distro/.base: distro/.init use/kernel
 
 # something marginally useful (as a network-only installer)
 # NB: doesn't carry stage3 thus cannot use/bootloader
-distro/installer: distro/.base use/install2 use/install2/kvm \
-	use/syslinux/localboot.cfg
+distro/installer: distro/.base use/syslinux/localboot.cfg \
+	use/install2 use/install2/kms use/install2/kvm
 	@$(call set,INSTALLER,altlinux-generic)
-	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)	# for KMS
 
 distro/.installer: distro/installer use/bootloader/grub use/repo/main; @:
 

@@ -1,3 +1,4 @@
+# alterator-based installer, second (livecd) stage
 use/install2: use/stage2 sub/stage2/install2 use/metadata use/cleanup/installer
 	@$(call add_feature)
 	@$(call set,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
@@ -7,6 +8,10 @@ use/install2: use/stage2 sub/stage2/install2 use/metadata use/cleanup/installer
 
 use/install2/net: use/install2
 	@$(call add,INSTALL2_PACKAGES,curl)
+
+# modern free xorg drivers for mainstream hardware requires KMS support
+use/install2/kms:
+	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)
 
 # see also use/vm/kvm/guest; qxl included in xorg pkglist
 use/install2/kvm:
