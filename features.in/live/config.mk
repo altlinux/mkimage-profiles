@@ -16,6 +16,14 @@ use/live/desktop: use/live/base use/x11/wacom use/live/sound +vmguest +power
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 	@$(call add,SYSLINUX_CFG,localboot)
 
+# alterator-based permanent installation
+use/live/install: use/metadata use/syslinux/localboot.cfg
+	@$(call add,LIVE_PACKAGES,livecd-install)
+
+# text-based installation script
+use/live/textinstall: use/syslinux/localboot.cfg
+	@$(call add,LIVE_PACKAGES,live-install)
+
 # NB: there's an unconditional live/image-scripts.d/40-autologin script
 #     *but* it only configures some of the *existing* means; let's add one
 #     for the cases when there should be no display manager
