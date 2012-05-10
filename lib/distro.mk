@@ -25,7 +25,7 @@ distro/.init: profile/bare
 # the kernel packages regexp evaluation has to take place at build stage
 distro/.base: distro/.init use/kernel
 	@$(call set,META_SYSTEM_ID,LINUX)
-	@$(call set,META_VOL_ID,ALT Linux $(ARCH))
+	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)/$(ARCH))
 	@$(call set,META_VOL_SET,ALT Linux)
 
 # something marginally useful (as a network-only installer)
