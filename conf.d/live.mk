@@ -52,7 +52,7 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
 distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
-	use/x11/cinnamon use/x11/3d-free
+	use/x11/cinnamon use/x11/3d-proprietary
 
 distro/live-enlightenment: distro/.live-desktop use/live/autologin use/live/ru use/x11/3d-free
 	@$(call add,LIVE_PACKAGES,enlightenment)
