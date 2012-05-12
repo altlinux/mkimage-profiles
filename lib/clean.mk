@@ -53,7 +53,7 @@ distclean: clean
 # than BUILDDIR is -- usually it's unneeded afterwards so just zap it
 postclean: build-image
 	@{ \
-	if [ "$(NUM_TARGETS)" -gt 1 -a -z "$(DEBUG)" ] || \
+	if [ "$(NUM_TARGETS)" -gt 1 -a -z "$(DEBUG)" -a -z "$(__frontend)" ] ||\
 	    [ ! -L "$(SYMLINK)" -a "0$(DEBUG)" -lt 2 ]; then \
 		echo "$(TIME) cleaning up after build"; \
 		$(MAKE) -C "$(BUILDDIR)" distclean \

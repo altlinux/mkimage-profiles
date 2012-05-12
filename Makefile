@@ -23,7 +23,7 @@ endif
 # recursive make considered useful for m-p
 MAKE += -r --no-print-directory
 
-DIRECT_TARGETS := clean distclean check help
+DIRECT_TARGETS := clean distclean check help help/distro help/ve
 .PHONY: $(DIRECT_TARGETS)
 $(DIRECT_TARGETS):
 	@$(MAKE) -f main.mk $@
