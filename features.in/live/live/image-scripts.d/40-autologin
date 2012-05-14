@@ -1,4 +1,4 @@
-#!/bin/sh -ef
+#!/bin/sh -e
 
 if [ ! -x /usr/bin/X ]; then
 	echo "SKIP autologin: X not installed" >&2
@@ -7,14 +7,14 @@ fi
 
 USER=altlinux
 
-# setup runlevel
+## setup runlevel
 INITTAB=/etc/inittab
 if [ -f "$INITTAB" ]; then
 	[ -z "$runlevel" ] && runlevel=5
 	sed -i "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," "$INITTAB"
 fi
 
-# autologin^2
+## autologin^2
 if [ -x /usr/sbin/autologin ]; then
 	cat << E_O_F >> /etc/sysconfig/autologin
 USER=$USER
@@ -22,7 +22,7 @@ AUTOLOGIN=yes
 E_O_F
 fi
 
-# lightdm autologin
+## lightdm autologin
 LIGHTDM_CONF=/etc/lightdm/lightdm.conf
 if [ -f "$LIGHTDM_CONF" ]; then
 	sed -i \
@@ -31,14 +31,14 @@ if [ -f "$LIGHTDM_CONF" ]; then
 		"$LIGHTDM_CONF"
 fi
 
-# gdm2 autologin
+## gdm2 autologin
 GDM_CONF=/etc/X11/gdm/custom.conf
 if [ -f "$GDM_CONF" ]; then
 	sed -i -e '/\[daemon\]/aAutomaticLoginEnable=true\nAutomaticLogin='$USER \
 		"$GDM_CONF"
 fi
 
-# kdm3 autologin
+## kdm3 autologin
 # TODO: iterate over kdm{,4} if feasible
 KDMRC=/etc/X11/kdm/kdmrc
 if [ -f "$KDMRC" ]; then
@@ -47,3 +47,66 @@ if [ -f "$KDMRC" ]; then
 		-e '/AutoLoginUser/ s,^.*$,AutoLoginUser='$USER',' \
 		"$KDMRC"
 fi
+
+## nodm autologin (the last since the most intrusive)
+# FIXME nodm and xinitrc should be modified (also in p6)
+NODM_RC=/etc/sysconfig/nodm
+NODM_EXE=/usr/sbin/nodm
+
+if [ -x "$NODM_EXE" ]; then
+	cat << E_O_F >> "$NODM_RC"
+export NODM_USER=$USER
+E_O_F
+else
+	exit 0
+fi
+
+# FIXME: drop when #27449 is fixed
+PREFDM=/etc/X11/prefdm
+if [ -f "$PREFDM" ] && ! grep -q nodm "$PREFDM"; then
+	sed -i \
+		-e '/AUTOLOGIN_EXE=/ s,^.*$,AUTOLOGIN_EXE='$NODM_EXE',' \
+		-e '/AUTOLOGIN_CFG=/ s,^.*$,AUTOLOGIN_CFG='$NODM_RC',' \
+		"$PREFDM"
+fi
+
+# FIXME: drop when #27451 is fixed
+NODM_PAM=/etc/pam.d/nodm
+for module in pam_console.so pam_ck_connector.so; do
+	if [ -f /lib*/security/$module ]; then
+		str="-session	optional	$module"
+		grep -q "^$str$" "$NODM_PAM" || echo -e "$str" >> "$NODM_PAM"
+	fi
+done
+
+NODM_POLKIT_CONFDIR=/etc/polkit-1/localauthority/50-local.d
+NODM_POLKIT_CONF=org.freedesktop.NetworkManager.pkla
+if [ -d "$NODM_POLKIT_CONFDIR" ]; then
+	cat > "$NODM_POLKIT_CONFDIR/$NODM_POLKIT_CONF" << _EOF_
+[nm-applet]
+Identity=unix-group:users
+Action=org.freedesktop.NetworkManager.*
+ResultAny=yes
+ResultInactive=no
+ResultActive=yes
+_EOF_
+fi
+
+NODM_DBUS_NM_CONF=/etc/dbus-1/system.d/nm-applet.conf
+if [ -f "$NODM_DBUS_NM_CONF" ]; then
+	sed -i "s/at_console=\"true\"/user=\"$USER\"/" "$NODM_DBUS_NM_CONF"
+fi
+
+NODM_G2KR_DIR=/etc/skel/.gnome2/keyrings
+mkdir -p "$NODM_G2KR_DIR"
+echo -n login > "$NODM_G2KR_DIR"/default
+cat > "$NODM_G2KR_DIR"/login.keyring << _EOF_
+[keyring]
+display-name=login
+ctime=0
+mtime=0
+lock-on-idle=false
+lock-after=false
+_EOF_
+
+:

@@ -9,6 +9,10 @@ use/live: use/stage2 sub/stage2/live
 use/live/base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
 
+# a very simplistic one
+use/live/x11: use/live use/x11/xorg
+	@$(call add,LIVE_PACKAGES,xinit)
+
 # optimized out: use/x11/xorg
 use/live/desktop: use/live/base use/x11/wacom use/live/sound +vmguest +power
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
@@ -26,9 +30,12 @@ use/live/textinstall: use/syslinux/localboot.cfg
 
 # NB: there's an unconditional live/image-scripts.d/40-autologin script
 #     *but* it only configures some of the *existing* means; let's add one
-#     for the cases when there should be no display manager
-use/live/autologin: use/live use/x11/xorg
-	@$(call add,LIVE_PACKAGES,autologin xinit)
+#     or another for the cases when there should be no display manager
+use/live/autologin: use/live/x11
+	@$(call add,LIVE_PACKAGES,autologin)
+
+use/live/nodm: use/live/x11
+	@$(call add,LIVE_PACKAGES,nodm)
 
 use/live/hooks: use/live
 	@$(call add,LIVE_PACKAGES,livecd-run-hooks)
