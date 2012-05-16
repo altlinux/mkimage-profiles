@@ -32,7 +32,7 @@ distro/live-install: distro/.live-base use/live/textinst; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
 
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
-distro/live-razorqt: distro/.live-desktop +razorqt; @:
+distro/live-razorqt: distro/.live-desktop use/live/autologin +razorqt; @:
 distro/live-tde: distro/.live-desktop use/live/ru +tde; @:
 
 distro/live-rescue: distro/live-icewm
@@ -54,7 +54,8 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
 	use/x11/cinnamon use/x11/3d-proprietary
 
-distro/live-enlightenment: distro/.live-desktop use/live/autologin use/live/ru use/x11/3d-free
+distro/live-enlightenment: distro/.live-desktop use/live/autologin \
+	use/live/ru use/x11/3d-free
 	@$(call add,LIVE_PACKAGES,enlightenment)
 
 distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
