@@ -9,3 +9,9 @@ check:
 	| while read line; do \
 		echo "chmod 755 $$line"; \
 	done
+	@find features.in -maxdepth 1 -type d \
+	| while read dir; do \
+		if [ ! -s "$$dir/README" ]; then \
+			echo "$$dir: missing README"; \
+		fi; \
+	done
