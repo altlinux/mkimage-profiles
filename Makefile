@@ -2,6 +2,9 @@
 # iterate over multiple goals/arches,
 # collect proceedings
 
+# preferences
+-include $(HOME)/.mkimage/profiles.mk
+
 # for immediate assignment
 ifndef ARCHES
 ifdef ARCH
