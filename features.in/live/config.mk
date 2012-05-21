@@ -42,7 +42,7 @@ use/live/x11: use/live/base use/syslinux/localboot.cfg \
 # this target specifically pulls free xorg drivers in (and a few more bits);
 # a browser is requested too, the recommended one can be overridden downstream
 use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
-	use/browser/firefox/live use/xdg-user-dirs/deep +vmguest; @:
+	use/l10n use/browser/firefox/live use/xdg-user-dirs/deep +vmguest; @:
 
 # preconfigure apt for both live and installed-from-live systems
 use/live/repo: use/live
@@ -78,6 +78,8 @@ use/live/nodm: use/live/.x11
 use/live/hooks: use/live
 	@$(call add,LIVE_PACKAGES,livecd-run-hooks)
 
-# a crude hack to make sure Russian is supported in a particular image
-use/live/ru: use/live
-	@$(call add,LIVE_PACKAGES,livecd-ru)
+# a crude hack to make sure Russian is the default in a particular image
+use/live/ru: use/live use/l10n/default/ru_RU; @:
+
+use/live/sound: use/live
+	@$(call add,LIVE_PACKAGES,amixer alsa-utils aplay udev-alsa)

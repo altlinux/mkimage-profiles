@@ -19,6 +19,7 @@ map = $(foreach a,$(2),$(call $(1),$(a)))
 # kernel package list generation; see also #24669
 NULL :=
 SPACE := $(NULL) # the officially documented way of getting a space
+COMMA := ,
 
 list2re = $(subst $(SPACE),|,$(strip $(1)))
 

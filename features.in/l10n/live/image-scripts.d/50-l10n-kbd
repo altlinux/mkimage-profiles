@@ -1,0 +1,17 @@
+#!/bin/sh
+# partial port of livecd-setlocale (kbd bits)
+
+CONFIG=/etc/sysconfig/keyboard
+
+# Requires: console-scripts
+if [ -s "$CONFIG" ]; then
+	echo "** l10n-kbd: expected $CONFIG to be an empty file" >&2
+	exit 0
+fi
+
+if [ -z "$GLOBAL_KEYTABLE" ]; then
+	echo "** l10n-kbd: empty GLOBAL_KEYTABLE" >&2
+	exit 0
+fi
+
+echo "KEYTABLE=$GLOBAL_KEYTABLE" > "$CONFIG"

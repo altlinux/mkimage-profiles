@@ -1,0 +1,19 @@
+#!/bin/sh
+# partial port of livecd-setlocale (xkb bits)
+
+PREFIX=/etc/X11/xinit
+
+# Requires: xinitrc
+if [ ! -d "$PREFIX" ]; then
+	echo "** l10n-xkb: expected $PREFIX to exist (xinitrc)" >&2
+	exit 0
+fi
+
+if [ -z "$GLOBAL_XKB_VARIANTS" -o -z "$GLOBAL_XKB_KEYMAPS" ]; then
+	echo "** l10n-xkb: empty GLOBAL_XKB_VARIANTS/GLOBAL_XKB_KEYMAPS" >&2
+	exit 0
+fi
+
+echo "-option $GLOBAL_XKB_SWITCH${GLOBAL_XKB_LED:+,$GLOBAL_XKB_LED} \
+${GLOBAL_XKB_VARIANTS:+-variant $GLOBAL_XKB_VARIANTS} \
+-layout $GLOBAL_XKB_KEYMAPS" > "$PREFIX"/Xkbmap
