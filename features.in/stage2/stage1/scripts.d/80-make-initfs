@@ -1,15 +1,26 @@
 #!/bin/sh -efu
 # NB: /etc/initrd.mk carefully prepared by earlier scripts
 
-kver="$(rpm -qa 'kernel-image*' --qf '%{installtime} %{version}-%{name}-%{release}\n' \
+kver="$(rpm -qa 'kernel-image*' \
+	    --qf '%{installtime} %{version}-%{name}-%{release}\n' \
 	| sort -n \
 	| tail -n 1 \
 	| cut -f 2 -d ' ' \
 	| sed 's/kernel-image-//')"
 
-make-initrd --no-checks -k $kver \
-&& gzip < /boot/initrd-$kver.img > $(getconf LIBDIR)/propagator/initfs \
-|| exit 1
+MAKE_INITRD_OPTS="--no-checks -k $kver"
+MAKE_INITRD_VER="`make-initrd -V \
+	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
+
+if [ "`rpmvercmp "$MAKE_INITRD_VER" "0.7.8"`" != "-1" ]; then
+	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS --no-depmod"
+fi
+
+if make-initrd $MAKE_INITRD_OPTS; then
+	gzip < /boot/initrd-$kver.img > $(getconf LIBDIR)/propagator/initfs
+else
+	exit 1
+fi
 
 [ -h /boot/vmlinuz ] || ln -s vmlinuz-$kver /boot/vmlinuz
 [ -h /boot/initrd.img ] || ln -s initrd-$kver.img /boot/initrd.img
