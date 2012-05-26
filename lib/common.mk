@@ -7,10 +7,17 @@ BUILD_LOG = build.log
 SYMLINK = build
 
 # brevity postprocessor; not exported, for toplevel use only
-SHORTEN = $(shell \
-	echo -n "| sed"; \
+SHORTEN = $(shell FILTER=; \
 	if [ -s "$(SYMLINK)" ]; then \
-		echo -n " -e 's,$(BUILDDIR),$(SYMLINK),'"; \
+		FILTER=" -e 's,$(BUILDDIR),$(SYMLINK),'"; \
 	fi; \
-	echo -n " -e 's,$(TMP),\$$TMP,' -e 's,$(HOME),~,'"; \
+	if [ -n "$$TMP" ]; then \
+		FILTER="$$FILTER -e 's,$$TMP,\$$TMP,'"; \
+	fi; \
+	if [ -n "$$HOME" ]; then \
+		FILTER="$$FILTER -e 's,$$HOME,~,'"; \
+	fi; \
+	if [ -n "$$FILTER" ]; then \
+		echo -n "| sed $$FILTER"; \
+	fi; \
 )
