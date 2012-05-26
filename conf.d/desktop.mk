@@ -7,7 +7,8 @@ distro/.desktop-base: distro/.installer use/syslinux/ui/vesamenu use/x11/xorg
 distro/.desktop-mini: distro/.desktop-base use/x11/xdm +power; @:
 
 distro/.desktop-network: distro/.desktop-mini +vmguest
-	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && network))
+	@$(call add,BASE_LISTS, \
+		$(call tags,(base || desktop) && (l10n || network)))
 
 distro/icewm: distro/.desktop-network use/lowmem +icewm; @:
 distro/tde: distro/.desktop-mini +tde; @:
