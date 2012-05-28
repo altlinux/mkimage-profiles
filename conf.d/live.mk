@@ -55,8 +55,8 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
 	use/x11/cinnamon use/x11/3d-proprietary; @:
 
-distro/live-mate: distro/.live-desktop use/live/autologin use/live/ru
-	@$(call add,LIVE_LISTS,$(call tags,desktop && mate))
+distro/live-mate: distro/.live-desktop use/live/nodm use/live/ru use/x11/3d-free
+	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && mate))
 
 distro/live-enlightenment: distro/.live-desktop use/live/autologin \
 	use/live/ru use/x11/3d-free
