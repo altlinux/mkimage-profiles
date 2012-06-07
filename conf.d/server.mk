@@ -17,7 +17,8 @@ distro/server-mini: distro/.server-base use/cleanup/x11-alterator
 		$(call tags,base && (server || network || security || pkg)))
 	@$(call add,BASE_LISTS,$(call tags,extra (server || network)))
 
-distro/server-systemd: distro/server-mini use/systemd use/bootloader/lilo; @:
+distro/server-systemd: distro/server-mini use/systemd
+	@$(call set,KFLAVOURS,std-def)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/wireless use/power/acpi/button
