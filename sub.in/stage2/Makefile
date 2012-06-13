@@ -20,7 +20,7 @@ include $(MKIMAGE_PREFIX)/config.mk
 include stage2cfg.mk
 
 # requisite stuff
-IMAGE_PACKAGES += $(SYSTEM_PACKAGES)
+IMAGE_PACKAGES += $(SYSTEM_PACKAGES) $(STAGE2_PACKAGES)
 
 # here we also try and come up with the stage1 kernel/modules, if any;
 # no kernel flavour specified will result in no modules for stage1 vmlinuz
@@ -33,7 +33,8 @@ endif
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there (unless live-install)
 IMAGE_PACKAGES_REGEXP += $(call kpackages, \
-			 $(STAGE1_KMODULES) $(STAGE2_KMODULES), \
+			 $(STAGE1_KMODULES) $(STAGE1_KMODULES_REGEXP) \
+			 $(STAGE2_KMODULES) $(STAGE2_KMODULES_REGEXP), \
 			 $(STAGE1_KFLAVOUR))
 
 -include lib/*.mk

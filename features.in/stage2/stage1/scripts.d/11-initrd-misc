@@ -2,10 +2,3 @@
 
 # FIXME: move somewhere else
 #echo 'FEATURES += nfs' >> /etc/initrd.mk
-
-# FIXME: move to plymouth feature
-#if [ -f /etc/plymouth/plymouthd.conf ];then 
-#    sed -i 's/#\([T\[]\)/\1/' /etc/plymouth/plymouthd.conf
-#    echo 'FEATURES += plymouth' >> /etc/initrd.mk
-#fi
-

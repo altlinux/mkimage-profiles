@@ -34,6 +34,7 @@ distro/.livecd-install: distro/.live-base use/live/install; @:
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
 distro/live-razorqt: distro/.live-desktop use/live/autologin +razorqt; @:
 distro/live-tde: distro/.live-desktop use/live/ru +tde; @:
+distro/live-plymouth: distro/.live-base use/plymouth/stage2; @:
 
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))

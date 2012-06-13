@@ -18,6 +18,7 @@ IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
 			$(call kpackages, \
 			       $(THE_KMODULES) \
 			       $(BASE_KMODULES) \
+			       $(BASE_KMODULES_REGEXP) \
 			       $(MAIN_KMODULES), \
 			       $(KFLAVOURS))
 

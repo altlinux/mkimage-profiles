@@ -6,6 +6,9 @@ METADIR := files/Metadata
 # preparation targets of ../../build-distro/lib/build-distro.mk
 WHATEVER += metadata
 
+# handle these too
+DOT_BASE += $(BASE_PACKAGES_REGEXP)
+
 # args: name, suffix, command
 define dump-THEM
 if [ -n "$($(1)_$(2))" ]; then echo -e "\n## $(1)_$(2)"; $(3) $($(1)_$(2)); fi;

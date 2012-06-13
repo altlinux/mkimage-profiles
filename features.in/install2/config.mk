@@ -10,8 +10,8 @@ use/install2/net: use/install2
 	@$(call add,INSTALL2_PACKAGES,curl)
 
 # modern free xorg drivers for mainstream hardware requires KMS support
-use/install2/kms:
-	@$(call set,STAGE1_KMODULES_REGEXP,drm.*)
+use/install2/kms: use/stage2/kms
+	@$(call add,BASE_KMODULES_REGEXP,drm.*)
 
 # see also use/vm/kvm/guest; qxl included in xorg pkglist
 use/install2/kvm:

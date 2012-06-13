@@ -15,5 +15,6 @@ distro/tde: distro/.desktop-mini +tde; @:
 distro/ltsp-tde: distro/tde +ltsp; @:
 distro/ltsp-icewm: distro/icewm +ltsp; @:
 distro/desktop-systemd: distro/icewm use/systemd; @:
+distro/desktop-plymouth: distro/icewm +plymouth; @:
 
 endif

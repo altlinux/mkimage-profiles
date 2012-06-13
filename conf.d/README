@@ -21,6 +21,7 @@
   THE_PACKAGES, THE_LISTS, THE_GROUPS, THE_PACKAGES_REGEXP
 - для строго направленного действия служат:
   + STAGE1_PACKAGES, STAGE1_PACKAGES_REGEXP (первая стадия загрузки)
+  + STAGE2_PACKAGES (инсталятор и спасательная/"живая" система)
   + INSTALL2_PACKAGES (инсталятор)
   + BASE_PACKAGES, BASE_LISTS, BASE_PACKAGES_REGEXP (базовая система)
   + MAIN_PACKAGES, MAIN_LISTS, MAIN_PACKAGES_REGEXP (дополнительные пакеты)
