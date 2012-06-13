@@ -48,14 +48,14 @@ cfg = $(wildcard cfg.in/??$(1).cfg)
 #
 # arguments get evaluated before recipe body execution thus prep
 
-all: debug timeout bootargs
+all: debug timeout
 	@### proper text branding should be implemented
 	@sed -i 's,@mkimage-profiles@,$(IMAGE_NAME),' $(DSTDIR)/*.cfg
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
 
 # integerity check
-timeout: copy
+timeout: bootargs
 	@if [ "$(SYSLINUX_TIMEOUT)" -ge 0 ] 2>/dev/null; then \
 		TIMEOUT="$(SYSLINUX_TIMEOUT)"; \
 	else \
@@ -64,11 +64,16 @@ timeout: copy
 	sed -i "s,@timeout@,$$TIMEOUT," $(DSTDIR)/*.cfg
 
 # pass over additional parameters, if any
-bootargs: copy
+bootargs: clean
 	@if [ -n "$(INSTALL2_BOOTARGS)" ]; then \
 		sed -i "s,@bootargs@,$(INSTALL2_BOOTARGS)," $(DSTDIR)/*.cfg; \
 	fi; \
 	sed -i "s,@bootargs@,," $(DSTDIR)/*.cfg
+
+clean: copy
+	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
+		sed -i "s,\^,," $(DSTDIR)/*.cfg; \
+	fi
 
 copy: prep
 	@cp -pLt $(DSTDIR) -- $(sort \
