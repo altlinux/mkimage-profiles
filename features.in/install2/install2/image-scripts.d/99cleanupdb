@@ -3,9 +3,6 @@
 echo "** install2 packages before rpmdb purge:"
 rpmquery -a --qf='%{NAME} %{VERSION}-%{RELEASE}\n'
 
-# not going to need them without rpmdb, it's not even rescue anymore
-apt-get remove -f -y apt libapt
-
 # remove rpm, apt databases and cache
 find /var/lib/rpm /var/lib/apt /var/cache/apt -type f -delete
 
