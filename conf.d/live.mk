@@ -9,7 +9,7 @@ distro/rescue: distro/.base use/rescue use/syslinux/ui/menu; @:
 distro/live-systemd: distro/.base use/live/base use/systemd; @:
 
 distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
-distro/.live-desktop: distro/.base +live use/syslinux/ui/vesamenu; @:
+distro/.live-desktop: distro/.base +live use/plymouth/live; @:
 
 distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup +power
@@ -33,8 +33,8 @@ distro/.livecd-install: distro/.live-base use/live/install; @:
 
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
 distro/live-razorqt: distro/.live-desktop use/live/autologin +razorqt; @:
-distro/live-tde: distro/.live-desktop use/live/ru +tde; @:
-distro/live-plymouth: distro/.live-base use/plymouth/stage2; @:
+distro/live-tde: distro/.live-desktop use/live/ru use/live/install +tde; @:
+distro/live-plymouth: distro/.live-base use/plymouth/live; @:
 
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
