@@ -8,6 +8,8 @@ BUILDDIR := $(shell sed -n 's/^.* BUILDDIR = \(.*\)/\1/p' "$(REPORT_PATH)")
 BUILDLOG := $(BUILDDIR)/$(BUILD_LOG)
 REPORTDIR := $(BUILDDIR)/reports
 IMAGE_OUTPATH := $(shell sed -n 's/^IMAGE_OUTPATH = \(.*\)/\1/p' $(BUILDLOG))
+IMAGE_OUTFILE := $(shell sed -n 's/^IMAGE_OUTFILE = \(.*\)/\1/p' $(BUILDLOG))
+LOGDIR := $(shell sed -n 's/^LOGDIR = \(.*\)/\1/p' $(BUILDLOG))
 
 # for a multi-image build there's no sense to refer to buildroot
 # contained reports as these are very ephemeral between builds
@@ -17,7 +19,7 @@ endif
 
 all: reports/targets reports/scripts
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
-		cp -a $(REPORTDIR) $(IMAGE_OUTPATH).reports; \
+		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 	fi
 
 reports/prep:

@@ -33,6 +33,8 @@ IMAGEDIR ?= $(shell \
 	fi; \
 )
 
+LOGDIR ?= $(IMAGEDIR)
+
 # actual build starter
 # NB: our output MUST go into stderr to escape POSTPROC
 build-image: profile/populate

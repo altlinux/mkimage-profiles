@@ -74,12 +74,14 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	@OUTSIZE="`ls -lh "$(IMAGE_OUTPATH)" | cut -f5 -d' '`"; \
 	echo "** image: $(IMAGE_OUTPATH) [$$OUTSIZE]" >&2 && \
 	echo "IMAGE_OUTPATH = $(IMAGE_OUTPATH)" && \
+	echo "IMAGE_OUTFILE = $(IMAGE_OUTFILE)" && \
 	ln -sf "$(IMAGE_RELPATH)" "$(IMAGE_LINKPATH)" && \
 	ln -sf "$(IMAGE_RELDIR)" "$(OUT_LINK)" && \
 	ln -sf "$(IMAGE_LINK)" "$(IMAGEDIR)/$(CURRENT_LINK).$(IMAGE_TYPE)"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
-		cp -a build.log "$(IMAGE_OUTPATH).log"; \
-		cp -a distcfg.mk "$(IMAGE_OUTPATH).cfg"; \
+		mkdir -p "$(LOGDIR)"; \
+		cp -a build.log "$(LOGDIR)/$(IMAGE_OUTFILE).log"; \
+		cp -a distcfg.mk "$(LOGDIR)/$(IMAGE_OUTFILE).cfg"; \
 	fi
 
 debug:

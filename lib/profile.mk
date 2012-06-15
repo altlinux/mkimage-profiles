@@ -84,6 +84,7 @@ profile/bare: profile/init
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(IMAGEDIR))
+	@$(call try,LOGDIR,$(LOGDIR))
 	@$(call try,BRANDING,altlinux-sisyphus)
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
