@@ -1,3 +1,4 @@
+# distributions
 DISTRO_EXTS := .iso
 
 use/pack:
@@ -12,6 +13,7 @@ else
 	@$(call set,IMAGE_PACKTYPE,isodata)
 endif
 
+# virtual environments
 VE_ARCHIVES := tar cpio
 VE_COMPRESSORS := gz xz# there's no sense in bzip2 by now
 VE_ZIPS := $(call addsuffices, \
@@ -34,3 +36,8 @@ $(foreach c,$(VE_ARCHIVES), \
 	$(eval $(call PACK_containers,$(c))) \
 	$(foreach z,$(VE_COMPRESSORS), \
 		$(eval $(call PACK_compressors,$(c),$(z)))))
+
+# virtual machines
+VM_EXTS := .img
+
+use/pack/img: use/pack; @:

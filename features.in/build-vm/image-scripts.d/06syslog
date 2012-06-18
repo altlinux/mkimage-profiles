@@ -1,0 +1,16 @@
+#!/bin/sh -e
+# tweak syslog configuration to:
+# - avoid logging to a nonexistent tty;
+# - avoid hard sync logging (one is better off doing
+#   remote syslog if you do care for reliable data anyways)
+# credits: vvk@, thresh@ (2010)
+
+CONFIG=/etc/syslog.conf
+
+[ ! -f "$CONFIG" ] || \
+	sed -i \
+		-e 's,/dev/tty12,/var/log/syslog/console,' \
+		-e 's,^.*/var/log/syslog/console$,#&,' \
+		-e 's,-/var/log/,/var/log/,g' \
+		-e 's,/var/log/,-/var/log/,g' \
+		"$CONFIG"

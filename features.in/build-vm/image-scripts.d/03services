@@ -1,0 +1,9 @@
+#!/bin/sh
+# VMs might have no means to communicate with the outer
+# world except for networking
+
+[ -x /sbin/chkconfig ] || exit 0
+
+for i in network random syslogd; do chkconfig $i on; done
+for i in fbsetfont netfs rawdevices; do chkconfig $i off; done
+:

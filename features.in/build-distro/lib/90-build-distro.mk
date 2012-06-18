@@ -23,7 +23,6 @@ all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
 
 prep: $(GLOBAL_DEBUG) dot-disk $(WHATEVER) imagedir
-#prep: $(GLOBAL_DEBUG) dot-disk metadata imagedir
 
 dot-disk:
 	@mkdir -p files/.disk

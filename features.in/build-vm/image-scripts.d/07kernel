@@ -1,0 +1,13 @@
+#!/bin/sh
+# predictable file locations make bootloader configuration simple;
+# this script relates to .../features.in/stage2/stage1/scripts.d/80-make-initfs
+
+kver="$(rpm -qa 'kernel-image*' \
+            --qf '%{installtime} %{version}-%{name}-%{release}\n' \
+        | sort -n \
+        | tail -n 1 \
+        | cut -f 2 -d ' ' \
+        | sed 's/kernel-image-//')"
+
+ln -s vmlinuz-$kver /boot/vmlinuz
+ln -s initrd-$kver.img /boot/initrd.img

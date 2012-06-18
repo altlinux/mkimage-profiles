@@ -1,0 +1,4 @@
+#!/bin/sh -e
+# we don't need no extra gettys in VMs
+[ -s /etc/inittab ] || exit 0
+sed -i 's,^[3-9]\+:[0-9]\+:respawn:/sbin/mingetty.*,#&,' /etc/inittab

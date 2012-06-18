@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ROOTPW="${GLOBAL_ROOTPW:-root}"
+
+if type -t chpasswd >&/dev/null; then
+	echo "root:$ROOTPW" | chpasswd
+fi

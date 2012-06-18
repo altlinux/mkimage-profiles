@@ -34,15 +34,19 @@ include lib/*.mk
 include conf.d/*.mk
 include features.in/*/config.mk
 
+# starts to look copypastey
 DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
 		lib/distro.mk $(wildcard conf.d/*.mk) | sort -u)
 VE_TARGETS := $(shell sed -n 's,^\(ve/[^:.]\+\):.*$$,\1,p' \
 		lib/ve.mk $(wildcard conf.d/*.mk) | sort -u)
+VM_TARGETS := $(shell sed -n 's,^\(vm/[^:.]\+\):.*$$,\1,p' \
+		lib/vm.mk $(wildcard conf.d/*.mk) | sort -u)
 DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS))
 VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
-IMAGES  := $(DISTROS) $(VES)
+VMS     := $(call addsuffices,$(VM_EXTS),$(VM_TARGETS))
+IMAGES  := $(DISTROS) $(VES) $(VMS)
 
-.PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS)
+.PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS) $(VM_TARGETS)
 .PHONY: debug everything help space
 
 ### duplicate but still needed

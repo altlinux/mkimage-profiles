@@ -6,7 +6,7 @@ define help_body
 endef
 else
 define help_body
-	@echo '** available $(1) targets:'; \
+	echo '** available $(1) targets:'; \
 	columnize $(2)
 endef
 endif
@@ -14,11 +14,15 @@ endif
 help = $(and $(2),$(help_body))
 
 help/distro:
-	$(call help,distribution,$(sort $(DISTROS:distro/%=%)))
+	@$(call help,distribution,$(sort $(DISTROS:distro/%=%)))
 
 help/ve:
-	@echo '** available virtual environment targets:'; \
-	columnize $(sort $(VES))
+	@[ -n "$(SPACE)" ] && echo; \
+	$(call help,virtual environment,$(sort $(VES)))
 
-help: | help/distro help/space help/ve; @:
-help/space:; @echo
+help/vm:
+	@[ -n "$(SPACE)" ] && echo; \
+	$(call help,virtual machine,$(sort $(VMS)))
+
+help: SPACE = 1
+help: help/distro help/ve help/vm; @:
