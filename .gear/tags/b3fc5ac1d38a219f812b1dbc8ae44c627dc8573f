@@ -1,0 +1,6 @@
+object 4de50be84cc18ac73fea00b6f4feae589c92c880
+type commit
+tag v0.7.0
+tagger Michael Shigorin <mike@altlinux.org> 1340045914 +0300
+
+build-vm
