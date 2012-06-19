@@ -6,9 +6,8 @@ endif
 
 ifeq (vm,$(IMAGE_CLASS))
 
-#vm/.bare: profile/bare use/bootloader/grub
 vm/.bare: profile/bare
-	@$(call add,BASE_PACKAGES,basesystem interactivesystem lilo passwd shadow-utils e2fsprogs mingetty)
+	@$(call add,BASE_PACKAGES,interactivesystem lilo shadow-utils e2fsprogs)
 	@$(call set,KFLAVOURS,std-def)
 
 vm/bare: vm/.bare
