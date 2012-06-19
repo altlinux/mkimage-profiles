@@ -1,6 +1,7 @@
 # virtual machines
 ifeq (vm,$(IMAGE_CLASS))
 
-vm/icewm: vm/bare use/x11/xdm +icewm; @:
+# NB: use/x11 employs some installer-feature packages
+vm/icewm: vm/bare use/cleanup/installer use/x11/xdm +icewm; @:
 
 endif

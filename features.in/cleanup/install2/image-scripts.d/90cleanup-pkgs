@@ -14,7 +14,7 @@ cat > "$SCRIPT" << EOF
 # don't override the script start message on the same line
 echo "removing $GLOBAL_CLEANUP_PACKAGES"
 
-# remove extra packages from installed system
+# remove temporary packages from the installed system
 list="\$(exec_chroot rpmquery -a --qf='%{NAME}\\n' $GLOBAL_CLEANUP_PACKAGES)"
 [ -z "\$list" ] || exec_chroot apt-get remove -f -y  -- \$list
 EOF

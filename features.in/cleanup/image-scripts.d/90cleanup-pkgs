@@ -1,0 +1,5 @@
+#!/bin/sh -efu
+# remove temporary packages from the installed system
+
+list="$(rpmquery -a --qf='%{NAME}\n' $GLOBAL_CLEANUP_PACKAGES)"
+[ -z "$list" ] || apt-get remove -f -y  -- $list
