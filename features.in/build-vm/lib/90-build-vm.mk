@@ -9,6 +9,7 @@ IMAGE_PACKAGES = $(SYSTEM_PACKAGES) \
 
 # intermediate chroot archive
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
+VM_RAWDISK := $(IMAGE_OUTDIR)/$(IMAGE_NAME).raw
 
 check-sudo:
 	@if ! type -t sudo >&/dev/null; then \
@@ -16,15 +17,29 @@ check-sudo:
 		exit 1; \
 	fi
 
-convert-image: check-sudo
+prepare-image: check-sudo
 	@if ! sudo $(TOPDIR)/bin/tar2vm \
-		"$(VM_TARBALL)" "$(IMAGE_OUTPATH)" $$VM_SIZE; then \
+		"$(VM_TARBALL)" "$(VM_RAWDISK)" $$VM_SIZE; then \
 		echo "** error: sudo tar2vm failed, see also doc/vm.txt" >&2; \
 		exit 1; \
 	fi
 
+convert-image: prepare-image
+	@case "$(IMAGE_TYPE)" in \
+	"img") VM_FORMAT="raw";; \
+	"vhd") VM_FORMAT="vpc";; \
+	*) VM_FORMAT="$(IMAGE_TYPE)"; \
+	esac; \
+	if ! type -t qemu-img >&/dev/null; then \
+		echo "** warning: qemu-img not available" >&2; \
+	else \
+		qemu-img convert -O "$$VM_FORMAT" \
+			"$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; \
+	fi
+
 run-image-scripts: GLOBAL_ROOTPW := $(ROOTPW)
 
+# override
 pack-image: MKI_PACK_RESULTS := tar:$(VM_TARBALL)
 
 all: $(GLOBAL_DEBUG) build-image copy-tree run-image-scripts pack-image \

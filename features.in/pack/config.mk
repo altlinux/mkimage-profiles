@@ -1,3 +1,5 @@
+### this might really belong to build-*...
+
 # distributions
 DISTRO_EXTS := .iso
 
@@ -38,6 +40,6 @@ $(foreach c,$(VE_ARCHIVES), \
 		$(eval $(call PACK_compressors,$(c),$(z)))))
 
 # virtual machines
-VM_EXTS := .img
+VM_EXTS := .img .qcow2 .vdi .vmdk .vhd
 
-use/pack/img: use/pack; @:
+$(VM_EXTS:.%=use/pack/%): use/pack; @:
