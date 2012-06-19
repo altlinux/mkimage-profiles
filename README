@@ -58,4 +58,4 @@ Most docs are in Russian, welcome to learn it or ask for English.
   + указанный явно,
   + либо ~/out/ (если возможно),
   + или $(BUILDDIR)/out/ иначе
-- формируются отчёты, если запрошены (REPORTS)
+- формируются отчёты, если запрошены (REPORT)
