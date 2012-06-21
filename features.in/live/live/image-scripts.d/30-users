@@ -28,6 +28,8 @@ add_user()
     done
 
     useradd -p "" -G "$groups" "$1" ||:
+    # Workaround for ALT#13213
+    chown -R "$1:auth" "/etc/tcb/$1"
     chown -R "$1:$1" /home/$1
 
     if [ -n "$GLOBAL_CRYPT_HOMES" ]; then
