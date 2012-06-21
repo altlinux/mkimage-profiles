@@ -13,6 +13,6 @@ use/install2/net: use/install2
 use/install2/kms: use/stage2/kms
 	@$(call add,BASE_KMODULES_REGEXP,drm.*)
 
-# see also use/vm/kvm/guest; qxl included in xorg pkglist
+# see also use/vmguest/kvm; qxl included in xorg pkglist
 use/install2/kvm:
 	@$(call add,INSTALL2_PACKAGES,spice-vdagent xorg-drv-qxl)

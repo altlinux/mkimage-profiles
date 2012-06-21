@@ -1,12 +1,12 @@
-+vmguest: use/vm/virtualbox/guest use/vm/kvm/guest; @:
++vmguest: use/vmguest/virtualbox use/vmguest/kvm; @:
 
-use/vm/virtualbox/guest:
+use/vmguest/virtualbox:
 	@$(call add_feature)
 	@$(call add,THE_KMODULES,virtualbox-addition drm)
 	@$(call add,THE_PACKAGES,virtualbox-guest-additions)
 
 # NB: only reasonable for X11-bearing images
-use/vm/kvm/guest:
+use/vmguest/kvm:
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,spice-vdagent)
 
