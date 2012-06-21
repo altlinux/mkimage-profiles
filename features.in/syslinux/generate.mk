@@ -65,8 +65,8 @@ timeout: bootargs
 
 # pass over additional parameters, if any
 bootargs: clean
-	@if [ -n "$(INSTALL2_BOOTARGS)" ]; then \
-		sed -i "s,@bootargs@,$(INSTALL2_BOOTARGS)," $(DSTDIR)/*.cfg; \
+	@if [ -n "$(STAGE2_BOOTARGS)" ]; then \
+		sed -i "s,@bootargs@,$(STAGE2_BOOTARGS)," $(DSTDIR)/*.cfg; \
 	fi; \
 	sed -i "s,@bootargs@,," $(DSTDIR)/*.cfg
 
