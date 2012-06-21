@@ -46,6 +46,12 @@ distro/live-webkiosk-mini: distro/.live-kiosk use/live/hooks use/live/ru
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
+# NB: flash/java plugins are predictable security holes
+distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live +vmguest
+	@$(call add,LIVE_PACKAGES,mozilla-plugin-adobe-flash)
+	@$(call add,LIVE_PACKAGES,mozilla-plugin-java-1.6.0-sun)
+	@$(call add,LIVE_PACKAGES,alsa-utils udev-alsa)
+
 distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
 distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
