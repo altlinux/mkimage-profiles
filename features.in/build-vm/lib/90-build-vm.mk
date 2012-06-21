@@ -11,6 +11,10 @@ IMAGE_PACKAGES = $(SYSTEM_PACKAGES) \
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
 VM_RAWDISK := $(IMAGE_OUTDIR)/$(IMAGE_NAME).raw
 
+ifeq (,$(ROOTPW))
+$(error please provide root password via ROOTPW)
+endif
+
 check-sudo:
 	@if ! type -t sudo >&/dev/null; then \
 		echo "** error: sudo not available, see doc/vm.txt" >&2; \

@@ -30,6 +30,8 @@ endef
 
 else
 
+export BUILDDIR
+
 include $(BUILDDIR)/distcfg.mk
 
 # first rsync what's static, and make backups (*~) --
