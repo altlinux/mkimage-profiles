@@ -1,0 +1,4 @@
+#!/bin/sh
+# Turn on xdg-user-dirs.
+
+control xdg-user-dirs enabled
