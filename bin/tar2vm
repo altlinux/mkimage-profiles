@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 . shell-error
 
@@ -27,10 +27,10 @@ IMG="$2"
 
 # image size in bytes (256M is a fallback)
 TARSIZE="$(stat -Lc %s "$TAR")"
-DEFSIZE="$(expr 3 '*' "$TARSIZE" '/' 2)"
+DEFSIZE="$((3 * $TARSIZE / 2))"
 DISKSIZE="${3:-${DEFSIZE:-268435456}}"
 # ...and in megabytes
-DISKSIZEM="$(expr "$DISKSIZE" / 1048576)"
+DISKSIZEM="$(($DISKSIZE / 1048576))"
 
 # tested to work: ext[234], jfs
 ROOTFSTYPE="${4:-ext4}"
@@ -68,7 +68,8 @@ trap exit_handler EXIT
 
 # prepare disk image and a filesystem inside it
 rm -f -- "$IMG"
-dd if=/dev/zero of="$IMG" bs=1 count=1 seek="$DISKSIZE" conv=notrunc
+dd if=/dev/zero of="$IMG" conv=notrunc \
+	bs=1 count=1 seek="$(($DISKSIZE - 1))"
 losetup "$LOOPDEV" "$IMG"
 
 parted --script "$LOOPDEV" mklabel msdos
