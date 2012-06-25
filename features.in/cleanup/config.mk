@@ -1,5 +1,6 @@
 use/cleanup:
 	@$(call add_feature)
+	@$(call xport,CLEANUP_PACKAGES)
 
 use/cleanup/installer: use/cleanup
 	@$(call add,CLEANUP_PACKAGES,'installer-*')

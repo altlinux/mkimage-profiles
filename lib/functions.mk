@@ -36,6 +36,14 @@ define try_body
 printf '%s ?= %s\n' '$(1)' '$(2)' >> "$(CONFIG)"; }
 endef
 
+# xport() requests a variable to be exported to the scripts
+xport = $(and $(1),$(xport_body))
+define xport_body
+{ $(log_body); \
+v='$(1:GLOBAL_%=%)'; \
+printf 'export GLOBAL_%s = $$(%s)\n' "$$v" "$$v" >> "$(CONFIG)"; }
+endef
+
 # if the rule being executed isn't logged yet, log it
 define log_body
 { [ -s "$(CONFIG)" ] && \
