@@ -38,7 +38,7 @@ distro/live-plymouth: distro/.live-base use/plymouth/live; @:
 
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
-	@$(call add,LIVE_LISTS, \
+	@$(call add,LIVE_LISTS,openssh \
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
 distro/live-webkiosk-mini: distro/.live-kiosk use/live/hooks use/live/ru

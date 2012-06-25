@@ -13,8 +13,7 @@ ve/bare: ve/.bare
 	@$(call add,BASE_PACKAGES,apt)
 
 ve/generic: ve/.bare
-	@$(call add,BASE_PACKAGES,openssh-server openssh-blacklist openssh-clients)
-	@$(call add,BASE_LISTS,\
+	@$(call add,BASE_LISTS,openssh \
 		$(call tags,base && (server || network || security || pkg)))
 
 ve/openvpn: ve/.bare

@@ -4,8 +4,5 @@ vim-console
 sfdisk
 mdadm
 
-openssh-server
-openssh-clients
-openssh-blacklist
 screen
 acpid

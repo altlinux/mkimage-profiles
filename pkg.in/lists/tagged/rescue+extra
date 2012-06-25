@@ -78,8 +78,6 @@ netlist
 nfs-utils
 ngrep
 nmap
-openssh-clients
-openssh-server
 p0f
 postfix
 rsync

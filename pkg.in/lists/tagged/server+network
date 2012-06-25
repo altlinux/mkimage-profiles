@@ -8,9 +8,6 @@ lftp
 mailx
 netcat
 netlist
-openssh-clients
-openssh-server
-openssh-blacklist
 rsync
 traceroute
 vlan-utils

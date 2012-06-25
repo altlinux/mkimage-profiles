@@ -2,7 +2,7 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/.server-base: distro/.installer use/syslinux/ui/menu use/memtest
-	@$(call add,BASE_LISTS,server-base)
+	@$(call add,BASE_LISTS,server-base openssh)
 
 distro/server-nano: distro/.server-base \
 	use/cleanup/x11-alterator use/bootloader/lilo
