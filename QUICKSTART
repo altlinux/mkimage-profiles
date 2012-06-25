@@ -1,3 +1,6 @@
+English quickstart: make server-mini.iso; see also
+http://en.altlinux.org/Hasher (a large tmpfs is nice).
+
 требуется
 ~~~~~~~~~
 - ALT Linux 6.0 или выше (возможна адаптация "вниз")
@@ -18,13 +21,13 @@
 # apt-get install mkimage hasher git-core
 # hasher-useradd USER
 
-- от имени пользователя (после повторного входа):
+- от имени указанного пользователя (после повторного входа):
 $ git config --global user.email "my@email"
 $ git config --global user.name "My Name"
 $ mkdir ~/out
 
-- тестовая сборка (см. тж. lib/distro.mk, doc/variables.txt):
-$ make distro/icewm.iso
+- тестовая сборка (см. тж. lib/distro.mk, doc/params.txt):
+$ make icewm.iso
 
 ссылки
 ~~~~~~
