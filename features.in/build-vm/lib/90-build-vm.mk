@@ -30,7 +30,7 @@ prepare-image: check-sudo
 
 convert-image: prepare-image
 	@case "$(IMAGE_TYPE)" in \
-	"img") VM_FORMAT="raw";; \
+	"img") mv "$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; exit 0;; \
 	"vhd") VM_FORMAT="vpc";; \
 	*) VM_FORMAT="$(IMAGE_TYPE)"; \
 	esac; \
@@ -39,6 +39,7 @@ convert-image: prepare-image
 	else \
 		qemu-img convert -O "$$VM_FORMAT" \
 			"$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; \
+		rm "$(VM_RAWDISK)"; \
 	fi
 
 run-image-scripts: GLOBAL_ROOTPW := $(ROOTPW)
