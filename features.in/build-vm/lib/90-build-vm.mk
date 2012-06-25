@@ -42,6 +42,7 @@ convert-image: prepare-image
 		rm "$(VM_RAWDISK)"; \
 	fi
 
+run-image-scripts: GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 run-image-scripts: GLOBAL_ROOTPW := $(ROOTPW)
 
 # override
