@@ -1,4 +1,6 @@
 #!/bin/sh
 # Turn on xdg-user-dirs.
+# NB: not yet available on t6/p6 hence the warning
 
-control xdg-user-dirs enabled
+control xdg-user-dirs enabled ||
+	echo "** warning: control xdg-user-dirs failed" >&2
