@@ -1,0 +1,5 @@
+#!/bin/bash
+# Set system time to local time.
+
+CONFIG="/etc/sysconfig/clock"
+sed -i 's/^UTC=true/UTC=false/' "$CONFIG"
