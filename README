@@ -10,7 +10,7 @@ Most docs are in Russian, welcome to learn it or ask for English.
 См. тж. http://www.altlinux.org/Mkimage/Profiles/m-p и doc/*.txt:
 - params.txt: переменные, указываемые при запуске сборки
 - features.txt: обзор подключаемых особенностей
-- vars-conf.txt: переменные, влияющие на конфигурацию образа
+- pkglists.txt: формирование состава образа
 
 Задача:
 - конфигурирование и создание образов на базе ALT Linux
