@@ -1,0 +1,53 @@
+#!/bin/sh
+# Setup network settings
+# 1. Init /etc/hosts with "127.0.0.1 localhost"
+# 2. Set hostname, domainname
+# 3. Set defaults for NetworkManager or
+#    attempt to autoconfigure eth0 by etcnet.
+
+. shell-config
+
+verbose()
+{
+	if [ -n "$GLOBAL_VERBOSE" ]; then
+		echo "HOOK: 50-setup-network: $@"
+	fi
+}
+
+verbose "has started"
+
+# At startup time hostname may be changed by live-hostname package.
+HOSTNAME="localhost.localdomain"
+DOMAINNAME="localdomain"
+
+verbose "Init /etc/hosts with 127.0.0.1 localhost"
+echo "127.0.0.1 localhost localhost.localdomain" > /etc/hosts
+
+netcfg="/etc/sysconfig/network"
+
+verbose "Enable networking, set hostname to $HOSTNAME, domainname to $DOMAINNAME"
+shell_config_set "$netcfg" NETWORKING yes
+shell_config_set "$netcfg" HOSTNAME "$HOSTNAME" 
+shell_config_set "$netcfg" DOMAINNAME "$DOMAINNAME" 
+
+
+if  [ -x /usr/sbin/NetworkManager ] ; then
+	verbose "Setup defaults for NetworkManager"
+	shell_config_set /etc/net/ifaces/default/options-eth NM_CONTROLLED yes
+	shell_config_set /etc/net/ifaces/default/options-eth DISABLED yes
+	shell_config_set /etc/net/ifaces/default/options-eth BOOTPROTO dhcp
+else
+	# attempt to autoconfigure ethernet by etcnet
+	if [ -x /sbin/dhcpcd -o -x /sbin/dhclient ]; then
+		verbose "configuring DHCP for eth0"
+
+		mkdir -p /etc/net/ifaces/eth0 && {
+		echo TYPE=eth
+		echo BOOTPROTO=dhcp
+		} > /etc/net/ifaces/eth0/options
+	else
+		verbose "NOT configuring DHCP for eth0"
+	fi
+fi
+
+verbose "finished"
