@@ -27,8 +27,8 @@ netcfg="/etc/sysconfig/network"
 
 verbose "Enable networking, set hostname to $HOSTNAME, domainname to $DOMAINNAME"
 shell_config_set "$netcfg" NETWORKING yes
-shell_config_set "$netcfg" HOSTNAME "$HOSTNAME" 
-shell_config_set "$netcfg" DOMAINNAME "$DOMAINNAME" 
+shell_config_set "$netcfg" HOSTNAME "$HOSTNAME"
+shell_config_set "$netcfg" DOMAINNAME "$DOMAINNAME"
 
 
 if  [ -x /usr/sbin/NetworkManager ] ; then
@@ -46,7 +46,7 @@ else
 		echo BOOTPROTO=dhcp
 		} > /etc/net/ifaces/eth0/options
 	else
-		verbose "NOT configuring DHCP for eth0"
+		verbose "NOT configuring eth0 for DHCP"
 	fi
 fi
 
