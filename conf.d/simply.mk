@@ -6,6 +6,6 @@ distro/live-simply: distro/.livecd-install use/slinux/full
 	@$(call add,THE_LISTS,slinux/live-install)
 
 distro/simply: distro/.installer use/slinux/full
-	@$(call set,INSTALLER,desktop)
+	@$(call set,INSTALLER,simply-linux)
 
 endif
