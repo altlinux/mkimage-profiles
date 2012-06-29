@@ -7,6 +7,14 @@ fi
 
 USER=altlinux
 
+add_nopasswdlogin_group()
+{
+	[ -f "/etc/pam.d/$1" ] &&
+	egrep -qs '^auth.+user[[:blank:]]+ingroup[[:blank:]]+nopasswdlogin' "/etc/pam.d/$1" &&
+	groupadd -r nopasswdlogin &&
+	gpasswd -a "$USER" nopasswdlogin
+}
+
 ## setup runlevel
 INITTAB=/etc/inittab
 if [ -f "$INITTAB" ]; then
@@ -29,6 +37,7 @@ if [ -f "$LIGHTDM_CONF" ]; then
 		-e "s/^#\(autologin-user=\).*$/\1$USER/" \
 		-e "s/^#\(autologin-user-timeout=0\)/\1/" \
 		"$LIGHTDM_CONF"
+	add_nopasswdlogin_group lightdm ||:
 fi
 
 ## gdm2 autologin
@@ -36,6 +45,7 @@ GDM_CONF=/etc/X11/gdm/custom.conf
 if [ -f "$GDM_CONF" ]; then
 	sed -i -e '/\[daemon\]/aAutomaticLoginEnable=true\nAutomaticLogin='$USER \
 		"$GDM_CONF"
+	add_nopasswdlogin_group gdm ||:
 fi
 
 ## kdm3 autologin
