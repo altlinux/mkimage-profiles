@@ -65,7 +65,6 @@ $(FEATURES):
 	fi; \
 	pushd "$$feat" >/dev/null && \
 	for sub in / $(SUBPROFILES); do \
-		dirtags=; \
 		if [ "$$sub" = / ]; then \
 			srcdirs="."; \
 			dst="."; \
@@ -75,11 +74,9 @@ $(FEATURES):
 			srcdirs=; \
 			if [ -d "$$src" ]; then \
 				srcdirs="$$src"; \
-				dirtags="&& $$src"; \
 			fi; \
 			if [ -d "$$dst" -a "$$dst" != "$$src" ]; then \
 				srcdirs="$$srcdirs $$dst"; \
-				dirtags="&& ($$src || $$dst)"; \
 			fi; \
 			for srcdir in $$srcdirs; do \
 				rsync -qab --exclude tagged \
@@ -98,13 +95,6 @@ $(FEATURES):
 				if [ "$$sub" = / -a -d "$$part" ]; then \
 					rsync -qab "$$part/" "$$destdir/"; \
 				fi; \
-				[ -d "tagged/$$part" ] || continue; \
-				[ "$$srcdir" != "." ] || continue; \
-				pushd "tagged/$$part" >/dev/null; \
-				echo "$$feat $$dirtags" \
-				| tags2lists . \
-				| xargs -r cp -vpLt "$$destdir" --; \
-				popd >/dev/null; \
 			done; \
 			popd >&/dev/null; \
 		done; \
