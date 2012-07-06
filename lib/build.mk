@@ -20,8 +20,10 @@ LOWSPACE = 1024
 # it's also nice to know how long and much it takes
 START += time -f "%E %PCPU %Mk"
 
-# /usr/bin/{i586,x86_64} are setarch(8) symlinks
+ifneq (,$(wildcard $(subst :,/$(ARCH) ,$(PATH):)))
+# /usr/bin/{i586,x86_64} are setarch(8) symlinks but arm is not
 START += $(ARCH)
+endif
 
 # to be passed into distcfg.mk; suggestions are welcome
 IMAGEDIR ?= $(shell \
