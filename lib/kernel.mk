@@ -6,5 +6,5 @@ endif
 ifeq (i586,$(ARCH))
 BIGRAM := std-pae
 else
-BUGRAM := std-def
+BIGRAM := std-def
 endif
