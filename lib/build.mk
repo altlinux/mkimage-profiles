@@ -3,7 +3,7 @@ ANSI_OK   ?= 1;32
 ANSI_FAIL ?= 1;31
 
 MAX_ERRORS = 3
-GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (conflicts|Depends:) .*)|(.* (Stop|failed)\.))$$
+GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (conflicts|Depends:) .*)|(.* (Stop|failed|not found)\.))$$
 
 ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
@@ -20,8 +20,13 @@ LOWSPACE = 1024
 # it's also nice to know how long and much it takes
 START += time -f "%E %PCPU %Mk"
 
-ifneq (,$(wildcard $(subst :,/$(ARCH) ,$(PATH):)))
-# /usr/bin/{i586,x86_64} are setarch(8) symlinks but arm is not
+# /usr/bin/{i586,x86_64} are setarch(8) symlinks but arm is not;
+# also check whether non-x86 build is running native
+ifeq (,$(wildcard $(subst :,/$(ARCH) ,$(PATH):)))
+ifeq (,$(findstring $(ARCH),$(shell uname -m)))
+export GLOBAL_HSH_USE_QEMU=$(ARCH)
+endif
+else
 START += $(ARCH)
 endif
 

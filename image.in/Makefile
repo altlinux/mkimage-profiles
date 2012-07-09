@@ -48,6 +48,7 @@ COPY_TREE = ./files
 # outdir shouldn't be wiped clean before use
 CLEANUP_OUTDIR ?=
 
+GLOBAL_TARGET := $(ARCH)
 GLOBAL_HSH_APT_CONFIG := $(wildcard $(APTCONF))
 
 # the lib/build-*.mk comes from features.in/build-*/lib
@@ -88,4 +89,6 @@ debug:
 	@echo "TOPDIR=$(TOPDIR)"
 	@echo "IMAGEDIR=$(IMAGEDIR)"
 	@echo "ARCH=$(ARCH)"
+	@echo "GLOBAL_TARGET=$(GLOBAL_TARGET)"
 	@echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
+	@echo "GLOBAL_HSH_USE_QEMU=$(GLOBAL_HSH_USE_QEMU)"

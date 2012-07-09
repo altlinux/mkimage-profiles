@@ -52,13 +52,25 @@ profile/init: distclean
 		fi $(LOG); \
 	fi; \
 	{ \
-		eval `apt-config shell $${APTCONF:+-c=$(wildcard $(APTCONF))} \
+		APTCONF="$(wildcard $(APTCONF))"; \
+		echo "** using $${APTCONF:-system apt configuration}:"; \
+		eval `apt-config shell $${APTCONF:+-c=$$APTCONF} \
 			SOURCELIST Dir::Etc::sourcelist/f \
 			SOURCEPARTS Dir::Etc::sourceparts/d`; \
 		find "$$SOURCEPARTS" -name '*.list' \
-		| xargs egrep -Rhv '^#|^[[:blank:]]*$$' "$$SOURCELIST" && \
+		| xargs egrep -Rhv '^#|^[[:blank:]]*$$' "$$SOURCELIST" \
+		| tee $(BUILDDIR)/sources.list; \
 		echo; \
 	} $(LOG); \
+	if ! grep -q "[	 ]$(ARCH)[ 	]" $(BUILDDIR)/sources.list; then \
+		echo -n "requested arch '$$ARCH' unavailable" >&2; \
+		if [ -z "$(APTCONF)" ]; then \
+			echo " (no APTCONF)"; \
+		else \
+			echo; \
+		fi >&2; \
+		exit 1; \
+	fi; \
 	if type -t git >&/dev/null; then \
 		if cd $(BUILDDIR); then \
 			git init -q && \
