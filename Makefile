@@ -36,6 +36,9 @@ export NUM_TARGETS := $(words $(MAKECMDGOALS))
 # for pipefail
 SHELL = /bin/bash
 
+# don't even consider remaking a configuration file
+.PHONY: $(HOME)/.mkimage/profiles.mk
+
 # real targets need real work
 %:
 	@n=1; \
