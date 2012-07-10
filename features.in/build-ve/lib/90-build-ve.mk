@@ -15,5 +15,3 @@ IMAGE_PACKAGES = $(call list,$(BASE_LISTS)) \
 
 all: $(GLOBAL_DEBUG) build-image copy-tree run-image-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
-
-prep: imagedir

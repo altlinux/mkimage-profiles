@@ -50,5 +50,3 @@ pack-image: MKI_PACK_RESULTS := tar:$(VM_TARBALL)
 
 all: $(GLOBAL_DEBUG) build-image copy-tree run-image-scripts pack-image \
 	convert-image postprocess $(GLOBAL_CLEAN_WORKDIR)
-
-prep: imagedir

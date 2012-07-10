@@ -68,6 +68,8 @@ save-profile:
 
 .PHONY: imagedir postprocess debug
 
+prep: imagedir
+
 imagedir:
 	@mkdir -p "$(IMAGE_OUTDIR)"
 
