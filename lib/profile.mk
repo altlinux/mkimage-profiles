@@ -88,7 +88,9 @@ profile/bare: profile/init
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 	@mp-commit "$(BUILDDIR)" "image configuration defaults set"
 
+# put the derived SUBPROFILE_DIRS here to get it logged in clear text by the way
 profile/finalize:
+	@$(call put,SUBPROFILE_DIRS = $$(notdir $$(subst @,/,$$(SUBPROFILES))))
 	@if [ -s $(RC) ]; then $(call put,-include $(RC)); fi
 	@$(call put,endif)
 	@mp-commit "$(BUILDDIR)" "image configuration finalized"

@@ -1,8 +1,7 @@
 # step 4: build the distribution image
 
-# for complex-specified subprofiles like stage2/live,
-# take the latter part
-SUBDIRS = $(notdir $(SUBPROFILES))
+# take the latter part for complex-specified subprofiles like stage2@live
+SUBDIRS = $(SUBPROFILE_DIRS)
 
 # proxy over the ISO metadata collected; see also genisoimagerc(5)
 BOOT_SYSI := $(META_SYSTEM_ID)

@@ -69,14 +69,14 @@ $(FEATURES):
 			srcdirs="."; \
 			dst="."; \
 		else \
-			src="$${sub%/*}"; \
-			dst="$${sub#*/}"; \
+			src="$${sub%@*}"; \
+			dst="$${sub#*@}"; \
 			srcdirs=; \
 			if [ -d "$$src" ]; then \
 				srcdirs="$$src"; \
 			fi; \
 			if [ -d "$$dst" -a "$$dst" != "$$src" ]; then \
-				srcdirs="$$srcdirs $$dst"; \
+				srcdirs="$${srcdirs:+$$srcdirs }$$dst"; \
 			fi; \
 			for srcdir in $$srcdirs; do \
 				rsync -qab --exclude tagged \

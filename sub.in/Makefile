@@ -10,8 +10,8 @@ include $(BUILDDIR)/distcfg.mk
 # take src/ and put it as dst/ (for stage2 variants)
 all:
 	@for sub in $(SUBPROFILES); do \
-		src="$${sub%/*}" && \
-		dst="$${sub#*/}" && \
+		src="$${sub%@*}" && \
+		dst="$${sub#*@}" && \
 		neq="$${src#$$dst}" && \
 		rsync -qa "$$src/" "$(BUILDDIR)/$$dst/" && \
 		mp-commit "$(BUILDDIR)/$$dst/" \
@@ -20,7 +20,7 @@ all:
 
 clean:
 	@for sub in $(SUBPROFILES); do \
-		dst="${sub#*/}" && \
+		dst="${sub#*@}" && \
 		if [ -n "$$dst" -a -n "$(BUILDDIR)" ]; then \
 			rm -r "$(BUILDDIR)/$$dst" && \
 			mkdir -p "$(BUILDDIR)/$$dst"; \

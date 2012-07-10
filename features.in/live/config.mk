@@ -2,7 +2,7 @@
 
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
-use/live: use/stage2 sub/stage2/live
+use/live: use/stage2 sub/stage2@live
 	@$(call add_feature)
 	@$(call add,CLEANUP_PACKAGES,'installer*')
 
