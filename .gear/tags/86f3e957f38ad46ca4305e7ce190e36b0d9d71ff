@@ -1,0 +1,6 @@
+object 0a3aaf15c2a8d8860e6e05729ad8ad3a706675a9
+type commit
+tag v0.7.4
+tagger Michael Shigorin <mike@altlinux.org> 1342463836 +0300
+
+ppc builds
