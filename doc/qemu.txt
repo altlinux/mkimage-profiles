@@ -1,0 +1,26 @@
+Для сборки с применением трансляции посредством QEMU
+выполните от имени root следующие команды:
+
+apt-get install qemu-user-binfmt_misc
+modprobe binfmt_misc
+echo 32768 > /proc/sys/vm/mmap_min_addr
+
+и сконфигурируйте его применение для требуемых платформ:
+
+echo ":arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/.host/qemu-arm:" > /proc/sys/fs/binfmt_misc/register
+echo ':ppc:M::\x7fELF\x01\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x14:\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/.host/qemu-ppc:' > /proc/sys/fs/binfmt_misc/register
+
+Если файл /proc/sys/fs/binfmt_misc/register не существует,
+потребуется установить и загрузить иное ядро (например, std-def).
+
+Также нужен sources.list с указанием соответствующего репозитория
+и ссылающийся на него apt.conf (см. apt.conf.sample); например:
+
+--- sources.list.sisyphus.arm
+rpm http://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus arm classic
+---
+
+--- sources.list.4.1.ppc
+rpm http://ftp.altlinux.org/pub/people/wart/repos/lioka/powerpc ppc classic
+rpm http://ftp.altlinux.org/pub/people/wart/repos/lioka/powerpc noarch classic
+---
