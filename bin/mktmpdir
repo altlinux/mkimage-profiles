@@ -43,7 +43,7 @@ choose_tmpdir() {
 	for i in "$@"; do
 		[ -d "$i" -a -w "$i" ] || continue
 		echo -n "$i "
-		df -Tl "$i" | tail -1
+		df -PT "$i" | tail -1
 	done \
 	| sort -unk6 \
 	| while read dir dev fstype size used free percent mnt; do
