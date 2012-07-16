@@ -13,10 +13,10 @@ HOME="/home/$USER"
 install -dm750 -o "$USER" -g "$USER" "$HOME"
 
 # we honestly don't know much more
-if type -t git >&/dev/null; then
+if type -t git && type -t su; then
 	su - -c "git config --global user.email $USER@localhost" "$USER"
 	su - -c "git config --global user.name 'live builder'" "$USER"
-fi
+fi >&/dev/null
 
 # developer should feel comfortable, eh? ;-)
 ZSHELL="/bin/zsh"

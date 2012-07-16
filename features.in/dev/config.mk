@@ -3,7 +3,7 @@ use/dev:
 	@$(call add,THE_PACKAGES,git-core hasher gear)
 
 use/dev/mkimage: use/dev
-	@$(call add,THE_PACKAGES,mkimage shadow-change)
+	@$(call add,THE_PACKAGES,mkimage shadow-change su)
 
 use/dev/repo: use/dev use/repo/main
 	@$(call add,THE_PACKAGES,apt-repo)
