@@ -12,7 +12,7 @@ try_source() { [ -f "$1" ] && . "$1"; }
 # hasher accepted ones
 get_prefices()
 {
-	try_source /etc/hasher-priv/system
+	try_source /etc/hasher-priv/system || exit 1
 	try_source `/usr/libexec/hasher-priv/getconf.sh`
 	echo "$prefix" | tr ':' '\n' | while read i; do realpath "$i"; done
 }
@@ -61,19 +61,19 @@ choose_tmpdir() {
 # bringing it all together
 TMPDIRS="`contemplate_dirs $DIRS`"
 if [ -z "$TMPDIRS" ]; then
-	echo "error: no suitable directories found;" >&2
-	echo "please check docs, filesystem and hasher setup" >&2
-	echo "(mount enough tmpfs into /tmp or fix hasher-priv prefix?)" >&2
+	echo "error: no suitable directories found;"
+	echo "please check QUICKSTART, filesystem and hasher setup"
+	echo "(mount enough tmpfs into /tmp or fix hasher-priv prefix?)"
 	exit 1
-fi
+fi >&2
 
 TEMP="`choose_tmpdir $TMPDIRS`"
 if [ -z "$TEMP" ]; then
-	echo "error: no suitable directories found;" >&2
-	echo "please check hasher docs and filesystem setup" >&2
-	echo "(nodev and/or noexec on an otherwise suitable filesystem?)" >&2
+	echo "error: no suitable directories found;"
+	echo "please check hasher docs and filesystem setup"
+	echo "(nodev and/or noexec on an otherwise suitable filesystem?)"
 	exit 1
-fi
+fi >&2
 
 DIR="$TEMP/`dirname "$1"`"
 NAME="`basename "${1:-tmpdir}"`"
