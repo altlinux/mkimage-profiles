@@ -10,7 +10,7 @@
 
 Попросту говоря, copy-paste -- тревожный признак.
 
-По переменным (см. тж. ../doc/vars-conf.txt):
+По переменным (см. тж. ../doc/pkglists.txt):
 
 - для пользовательского окружения (live, main) предназначены
   THE_PACKAGES, THE_LISTS, THE_GROUPS, THE_PACKAGES_REGEXP
