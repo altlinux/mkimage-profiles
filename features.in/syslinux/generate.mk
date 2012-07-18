@@ -26,7 +26,6 @@ endif
 # 01defaults.cfg is included indefinitely
 SYSLINUX_CFG := $(SYSLINUX_CFG) $(notdir $(SUBPROFILES)) defaults
 
-### have to operate BUILDDIR, not pretty...
 DSTDIR := $(BUILDDIR)/stage1/files/syslinux/.in
 
 # we can do SYSLINUX_{CFG,MODULES,FILES}

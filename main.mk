@@ -6,8 +6,6 @@
 # --- in BUILDDIR
 # 4. build subprofiles and subsequently an image
 
-MKIMAGE_PROFILES := $(dir $(lastword $(MAKEFILE_LIST)))
-
 # deal with one target at a time
 IMAGE_TARGET := $(firstword $(MAKECMDGOALS))#	ve/generic.tar.gz
 ifeq (./,$(dir $(IMAGE_TARGET)))#		convenience fallback
@@ -25,6 +23,8 @@ BUILDDIR_PREFIX ?= mkimage-profiles.build
 else
 BUILDDIR_PREFIX ?= mkimage-profiles.build/$(IMAGE_CONF).$(ARCH)
 endif
+
+export MKIMAGE_PROFILES := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 
 # preferences
 -include $(HOME)/.mkimage/profiles.mk
