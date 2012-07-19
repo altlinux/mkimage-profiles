@@ -34,7 +34,7 @@ use/x11/lightdm/qt use/x11/lightdm/gtk: use/x11/lightdm/%: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,lightdm-$*-greeter)
 
 use/x11/kdm: use/x11/runlevel5
-	@$(call add,THE_PACKAGES,kdebase-kdm)
+	@$(call add,THE_PACKAGES,kdebase-kdm<4)
 
 use/x11/gdm2.20: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,gdm2.20)
