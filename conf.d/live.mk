@@ -29,7 +29,7 @@ distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo \
 	@$(call add,MAIN_PACKAGES,$(pkgs))
 	@$(call add,MAIN_PACKAGES,syslinux pciids memtest86+ mkisofs)
 
-distro/live-install: distro/.live-base use/live/textinst; @:
+distro/live-install: distro/.live-base use/live/textinstall; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
 
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
