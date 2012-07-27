@@ -76,4 +76,7 @@ distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync)
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
 
+distro/live-testserver: distro/live-install use/server/mini
+	@$(call set,KFLAVOURS,std-def el-smp)
+
 endif

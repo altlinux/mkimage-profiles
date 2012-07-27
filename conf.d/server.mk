@@ -9,13 +9,8 @@ distro/server-nano: distro/.server-base \
 	@$(call add,BASE_LISTS,$(call tags,server network))
 	@$(call add,BASE_PACKAGES,dhcpcd cpio)
 
-distro/server-mini: distro/.server-base use/cleanup/x11-alterator
+distro/server-mini: distro/.server-base use/server/mini use/cleanup/x11-alterator
 	@$(call set,KFLAVOURS,el-smp)
-	@$(call add,THE_KMODULES,e1000e igb)
-	@$(call add,STAGE1_KMODULES,e1000e igb)
-	@$(call add,BASE_LISTS,\
-		$(call tags,base && (server || network || security || pkg)))
-	@$(call add,BASE_LISTS,$(call tags,extra (server || network)))
 
 distro/server-systemd: distro/server-mini use/systemd
 	@$(call set,KFLAVOURS,std-def)
