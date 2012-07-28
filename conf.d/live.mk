@@ -4,6 +4,8 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/syslinux: distro/.init \
 	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
+distro/syslinux-test: distro/.init use/hdt use/syslinux/timeout/1 use/syslinux/noescape.cfg; @:
+
 distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu; @:
 distro/live-systemd: distro/.base use/live/base use/systemd; @:

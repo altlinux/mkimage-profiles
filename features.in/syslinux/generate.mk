@@ -17,8 +17,8 @@ endif
 ifdef SYSLINUX_UI
 SYSLINUX_MODULES := $(SYSLINUX_MODULES) $(SYSLINUX_UI)
 else
-$(warning no syslinux ui configured, default is plain text prompt)
-SYSLINUX_UI := prompt
+$(warning no syslinux ui configured, default is now none)
+SYSLINUX_UI := none
 endif
 
 # SUBPROFILES are considered SYSLINUX_CFG too

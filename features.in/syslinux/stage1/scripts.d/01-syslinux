@@ -3,6 +3,7 @@
 # copy modules; see also ../../generate.mk
 
 MODDIR="/usr/lib/syslinux"
+CFG="$GLOBAL_BOOTLOADER.cfg"
 
 mkdir -p "$WORKDIR/syslinux"
 cd "$WORKDIR/syslinux"
@@ -30,7 +31,18 @@ if [ -n "$SYSLINUX_MODULES" ]; then
 fi
 
 # number ordering sponsored by shell's pathname expansion
-grep -hv '^#' .in/[0-9][0-9]*.cfg > "$GLOBAL_BOOTLOADER.cfg"
+grep -hv '^#' .in/[0-9][0-9]*.cfg > "$CFG"
+
+# there should be either DEFAULT or UI directive there
+if ! egrep -i '^(default|ui)' "$CFG"; then
+	DEFAULT="$(grep -i '^label ' "$CFG" | head -1 | cut -f2 -d' ')"
+	if [ -n "$DEFAULT" ]; then
+		echo "default $DEFAULT" >> "$CFG"
+	else
+		echo "error: no DEFAULT or UI directive and cannot guess" >&2
+		exit 1
+	fi
+fi
 
 # snippets are not going into the actual image
 if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
