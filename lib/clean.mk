@@ -50,11 +50,15 @@ distclean: clean
 	} >&2
 
 # builddir existing outside read-only metaprofile is less ephemeral
-# than BUILDDIR is -- usually it's unneeded afterwards so just zap it
+# than BUILDDIR variable is -- usually it's unneeded afterwards
+# so just zap it unless DEBUG has been requested (moreso for multi
+# image builds, UI based ones, and readonly metaprofile; or CHECK)
 postclean: build-image
 	@{ \
-	if [ "$(NUM_TARGETS)" -gt 1 -a -z "$(DEBUG)" -a -z "$(__frontend)" ] ||\
-	    [ ! -L "$(SYMLINK)" -a "0$(DEBUG)" -lt 2 ]; then \
+	if [ "0$(DEBUG)" -lt 2 -a -z "$(CHECK)" ] && \
+	     [ "$(NUM_TARGETS)" -gt 1 \
+	       -o -n "$(__frontend)" \
+	       -o ! -L "$(SYMLINK)" ]; then \
 		echo "$(TIME) cleaning up after build"; \
 		$(MAKE) -C "$(BUILDDIR)" distclean \
 			GLOBAL_BUILDDIR="$(BUILDDIR)" $(LOG) ||:; \
