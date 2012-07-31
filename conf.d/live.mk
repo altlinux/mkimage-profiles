@@ -1,14 +1,8 @@
 # live images
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/syslinux: distro/.init \
-	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
-
-distro/syslinux-test: distro/.init use/hdt use/syslinux/timeout/1 use/syslinux/noescape.cfg; @:
-
 distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu; @:
-distro/live-systemd: distro/.base use/live/base use/systemd; @:
 
 distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
 distro/.live-desktop: distro/.base +live use/plymouth/live; @:
@@ -17,9 +11,6 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup +power
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu)
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
-
-distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
-	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
 
 distro/live-builder: pkgs := livecd-tmpfs livecd-online-repo mkimage-profiles
 distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo \
@@ -38,7 +29,6 @@ distro/.livecd-install: distro/.live-base use/live/install; @:
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
 distro/live-razorqt: distro/.live-desktop use/live/autologin +razorqt; @:
 distro/live-tde: distro/.live-desktop use/live/ru use/live/install +tde; @:
-distro/live-plymouth: distro/.live-base use/plymouth/live; @:
 
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
@@ -78,8 +68,5 @@ distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
 	@$(call add,LIVE_PACKAGES,macrofusion python-module-pygtk-libglade)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync)
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
-
-distro/live-testserver: distro/live-install use/server/mini
-	@$(call set,KFLAVOURS,std-def el-smp)
 
 endif

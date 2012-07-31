@@ -12,9 +12,6 @@ distro/server-nano: distro/.server-base \
 distro/server-mini: distro/.server-base use/server/mini use/cleanup/x11-alterator
 	@$(call set,KFLAVOURS,el-smp)
 
-distro/server-systemd: distro/server-mini use/systemd
-	@$(call set,KFLAVOURS,std-def)
-
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/wireless use/power/acpi/button
 	@$(call set,STAGE1_KFLAVOUR,std-def)
@@ -26,10 +23,5 @@ distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
 	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)
 	@$(call add,MAIN_GROUPS,monitoring diag-tools)
-
-# tiny network-only server-ovz installer (stage2 comes over net too)
-distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
-	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest
-	@$(call add,SYSLINUX_CFG,netinstall2)
 
 endif
