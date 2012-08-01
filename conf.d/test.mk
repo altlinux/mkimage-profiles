@@ -18,6 +18,10 @@ distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
 distro/live-testserver: distro/live-install use/server/mini
 	@$(call set,KFLAVOURS,std-def el-smp)
 
+distro/live-gns3: distro/live-icewm
+	@$(call add,LIVE_LISTS,gns3)
+	@$(call add,LIVE_KMODULES,kvm virtualbox)
+
 distro/server-systemd: distro/server-mini use/systemd
 	@$(call set,KFLAVOURS,std-def)
 
