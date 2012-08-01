@@ -17,6 +17,7 @@ distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo \
 	use/syslinux/timeout/30
 	@$(call set,KFLAVOURS,$(BIGRAM))
 	@$(call add,LIVE_LISTS,$(call tags,base && (server || builder)))
+	@$(call add,LIVE_PACKAGES,livecd-qemu-arch strace)
 	@$(call add,LIVE_PACKAGES,qemu-user-binfmt_misc)
 	@$(call add,LIVE_PACKAGES,zsh sudo)
 	@$(call add,LIVE_PACKAGES,$(pkgs))
