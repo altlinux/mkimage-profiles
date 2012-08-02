@@ -2,8 +2,8 @@ ltsp-server
 ltsp-server-basic
 openssh-server
 
-#alterator-ltsconf
-#alterator-standalone
+alterator-ltsconf
+alterator-standalone
 
 alsa-plugins
 alsa-plugins-pulse
