@@ -54,13 +54,21 @@ all: debug timeout
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
 
 # integerity check
-timeout: bootargs
+timeout: distro
 	@if [ "$(SYSLINUX_TIMEOUT)" -ge 0 ] 2>/dev/null; then \
 		TIMEOUT="$(SYSLINUX_TIMEOUT)"; \
 	else \
 		TIMEOUT="$(DEFAULT_TIMEOUT)"; \
 	fi; \
 	sed -i "s,@timeout@,$$TIMEOUT," $(DSTDIR)/*.cfg
+
+distro: bootargs
+	@if [ -n "$(META_VOL_SET)" ]; then \
+		DISTRO="$(META_VOL_SET)"; \
+	else \
+		DISTRO="ALT Linux"; \
+	fi; \
+	sed -i "s,@distro@,$$DISTRO," $(DSTDIR)/*.cfg
 
 # pass over additional parameters, if any
 bootargs: clean

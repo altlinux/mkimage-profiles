@@ -13,6 +13,7 @@ use/slinux: use/x11/xfce use/x11/gdm2.20
 	@$(call add,THE_LISTS,slinux/network)
 	@$(call add,THE_LISTS,slinux/xfce)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
+	@$(call set,META_VOL_SET,Simply Linux)
 
 use/slinux/full: use/isohybrid use/slinux use/systemd \
 	use/firmware/wireless use/branding/complete \
