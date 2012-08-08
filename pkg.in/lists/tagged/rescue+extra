@@ -24,9 +24,11 @@ parted
 sdparm
 sfdisk
 smartmontools
-testdisk
 mtools
 partimage
+gdisk
+cgdisk
+fixparts
 
 # Applications
 binutils
@@ -60,6 +62,11 @@ reiserfsprogs
 xfsprogs
 btrfs-progs
 ext3grep
+dmsdos
+extundelete
+scalpel
+testdisk
+testdisk-doc
 
 # Applications/Networking
 arpwatch
