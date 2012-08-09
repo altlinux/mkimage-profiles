@@ -67,6 +67,8 @@ extundelete
 scalpel
 testdisk
 testdisk-doc
+zerofree
+wipefreespace
 
 # Applications/Networking
 arpwatch
