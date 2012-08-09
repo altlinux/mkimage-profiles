@@ -1,0 +1,21 @@
+#!/bin/sh
+# commit the directory ($1) with a message ($2) to git
+
+. shell-error
+
+[ -d "$1" ] || fatal "$1 is not an existing directory"
+
+if type -t git >&/dev/null && pushd "$1" >/dev/null; then
+	if [ -z "$(git config --global user.name)" ]; then
+		exit 0
+	fi
+	if [ ! -d .git ]; then
+		git init -q || fatal "git init failed"
+	fi
+	if [ -n "$(git status -s)" ]; then
+		git add . \
+		&& git commit -qam "$2" \
+		|| fatal "git add/commit failed"
+	fi
+	popd >/dev/null
+fi

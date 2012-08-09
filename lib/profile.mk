@@ -44,13 +44,7 @@ profile/init: distclean
 	@$(call put,ifndef DISTCFG_MK)
 	@$(call put,DISTCFG_MK = 1)
 	@{ \
-	if type -t git >&/dev/null; then \
-		if [ -d .git ]; then \
-			git show-ref --head -d -s -- HEAD && \
-			git status -s && \
-			echo; \
-		fi $(LOG); \
-	fi; \
+	mp-showref $(LOG); \
 	{ \
 		APTCONF="$(wildcard $(APTCONF))"; \
 		echo "** using $${APTCONF:-system apt configuration}:"; \
@@ -71,14 +65,7 @@ profile/init: distclean
 		fi >&2; \
 		exit 1; \
 	fi; \
-	if type -t git >&/dev/null; then \
-		if cd $(BUILDDIR); then \
-			git init -q && \
-			git add . && \
-			git commit -qam 'derivative profile initialized'; \
-			cd ->&/dev/null; \
-		fi; \
-	fi; \
+	mp-commit "$(BUILDDIR)" "derivative profile initialized"; \
 	if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
 		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
@@ -99,20 +86,12 @@ profile/bare: profile/init
 	@$(call try,LOGDIR,$(LOGDIR))
 	@$(call try,BRANDING,altlinux-sisyphus)
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
-	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
-		git init -q && \
-		git add . && \
-		git commit -qam 'image configuration defaults set'; \
-	fi
+	@mp-commit "$(BUILDDIR)" "image configuration defaults set"
 
 profile/finalize:
 	@if [ -s $(RC) ]; then $(call put,-include $(RC)); fi
 	@$(call put,endif)
-	@if type -t git >&/dev/null && cd $(BUILDDIR); then \
-		git init -q && \
-		git add . && \
-		git commit -qam 'image configuration finalized'; \
-	fi
+	@mp-commit "$(BUILDDIR)" "image configuration finalized"
 
 # requires already formed distcfg.mk for useful output
 profile/dump-vars:

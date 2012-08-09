@@ -24,6 +24,7 @@ all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 
 prep: $(GLOBAL_DEBUG) dot-disk $(WHATEVER)
 
+# can't use mp-showref which belongs to the metaprofile
 dot-disk:
 	@mkdir -p files/.disk
 	@echo "ALT Linux based" >files/.disk/info

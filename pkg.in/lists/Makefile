@@ -19,13 +19,7 @@ SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
 all: $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE) copy-lists copy-groups
-	@if type -t git >&/dev/null && cd $(TARGET); then \
-		if [ -n "`git status -s`" ]; then \
-			git add . && \
-			git commit -qam "requested $(SUFFIX) copied over"; \
-		fi; \
-		cd - >&/dev/null; \
-	fi
+	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
 copy-lists:
 	@# env | sort -u | grep _LISTS | xargs cp

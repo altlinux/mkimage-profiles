@@ -14,13 +14,8 @@ all:
 		dst="$${sub#*/}" && \
 		neq="$${src#$$dst}" && \
 		rsync -qa "$$src/" "$(BUILDDIR)/$$dst/" && \
-		if type -t git >&/dev/null && cd "$(BUILDDIR)/$$dst/"; then \
-			if [ -n "`git status -s`" ]; then \
-				git add . && \
-				git commit -qam "$$dst subprofile initialized$${neq:+ (using $$src)}"; \
-			fi; \
-			cd - >&/dev/null; \
-		fi; \
+		mp-commit "$(BUILDDIR)/$$dst/" \
+			"$$dst subprofile initialized$${neq:+ (using $$src)}"; \
 	done
 
 clean:

@@ -108,29 +108,16 @@ $(FEATURES):
 			done; \
 			popd >&/dev/null; \
 		done; \
-		if type -t git >&/dev/null && \
-		   pushd "$(BUILDDIR)/$$dst/" >/dev/null; then \
-			test -n "`git status -s`" && \
-			git add . && \
-			if [ -n "$$dst" ]; then \
-				the="$$sub subprofile"; \
-			else \
-				the="toplevel"; \
-			fi && \
-			git commit -qam "$$feat feature: $$the part added"; \
-			popd >/dev/null; \
+		if [ -n "$$dst" ]; then \
+			the="$$sub subprofile"; \
+		else \
+			the="toplevel"; \
 		fi; \
+		mp-commit "$(BUILDDIR)/$$dst/" "$$feat feature: $$the part added"; \
 	done; \
 	if [ -x "generate.sh" ]; then sh generate.sh; fi; \
 	if [ -s "generate.mk" ]; then $(MAKE) -f generate.mk; fi; \
-	if type -t git >&/dev/null && \
-	   pushd "$(BUILDDIR)/" >/dev/null; then \
-		if [ -n "`git status -s`" ]; then \
-			git add . && \
-			git commit -qam "$$feat feature generation complete"; \
-		fi; \
-		popd >/dev/null; \
-	fi; \
+	mp-commit "$(BUILDDIR)" "$$feat feature generation complete"; \
 	popd >/dev/null
 
 finalize:

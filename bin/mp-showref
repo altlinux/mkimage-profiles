@@ -1,0 +1,11 @@
+#!/bin/sh
+# report on git repo in the current directory
+
+if type -t git >&/dev/null; then
+	if pushd "$1" >/dev/null && [ -d .git ]; then
+		git show-ref --head -ds -- HEAD
+		git status -s
+		echo
+		popd >/dev/null
+	fi
+fi
