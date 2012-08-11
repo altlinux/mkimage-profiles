@@ -1,5 +1,5 @@
-English quickstart: make server-mini.iso; see also
-http://en.altlinux.org/Hasher (a large tmpfs is nice).
+English quickstart: make syslinux.iso (after setting up
+http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 
 требуется
 ~~~~~~~~~
@@ -27,11 +27,11 @@ $ git config --global user.name "My Name"
 $ mkdir ~/out
 
 - тестовая сборка (см. тж. lib/distro.mk, doc/params.txt):
-$ make icewm.iso
+$ make syslinux.iso
 
 ссылки
 ~~~~~~
 - http://www.altlinux.org/tmpfs
 - http://www.altlinux.org/hasher
 - http://www.altlinux.org/mkimage
-- http://www.altlinux.org/Mkimage/Profiles/m-p
+- http://www.altlinux.org/m-p
