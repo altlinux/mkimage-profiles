@@ -32,6 +32,7 @@ distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
 
 distro/desktop-systemd: distro/icewm use/systemd; @:
 distro/desktop-plymouth: distro/icewm +plymouth; @:
+distro/live-mate-systemd: distro/live-mate use/systemd use/live/install; @:
 
 endif # IMAGE_CLASS: distro
 
