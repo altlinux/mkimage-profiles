@@ -1,8 +1,8 @@
 +plymouth: use/plymouth/full; @:
 
-# and a few silent aliases
-use/plymouth/live: use/plymouth/stage2
-use/plymouth/install2: use/plymouth/stage2
+# and a few aliases
+use/plymouth/live: use/plymouth/stage2; @:
+use/plymouth/install2: use/plymouth/stage2; @:
 
 use/plymouth:
 	@$(call add_feature)
