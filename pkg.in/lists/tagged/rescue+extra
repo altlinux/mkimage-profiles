@@ -75,6 +75,7 @@ arpwatch
 elinks
 hostinfo
 iftop
+ipmitool
 iproute2
 iptables
 iputils
