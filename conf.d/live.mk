@@ -57,6 +57,9 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
+distro/live-gnome: distro/.live-desktop-ru use/systemd use/live/nodm use/x11/3d-proprietary
+	@$(call add,LIVE_PACKAGES,gnome3-default)
+
 distro/live-cinnamon: distro/.live-desktop-ru use/live/autologin \
 	use/x11/cinnamon use/x11/3d-proprietary; @:
 
