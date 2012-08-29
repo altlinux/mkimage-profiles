@@ -8,6 +8,7 @@ distro/syslinux: distro/.init \
 
 distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
 distro/.live-desktop: distro/.base +live use/plymouth/live; @:
+distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
 distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup +power
@@ -31,7 +32,7 @@ distro/.livecd-install: distro/.live-base use/live/install; @:
 
 distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
 distro/live-razorqt: distro/.live-desktop use/live/autologin +razorqt; @:
-distro/live-tde: distro/.live-desktop use/live/ru use/live/install +tde; @:
+distro/live-tde: distro/.live-desktop-ru use/live/install +tde; @:
 
 distro/live-rescue: distro/live-icewm
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
@@ -56,15 +57,14 @@ distro/live-flightgear: distro/live-icewm use/live/sound use/x11/3d-proprietary
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
-distro/live-cinnamon: distro/.live-desktop use/live/autologin use/live/ru \
+distro/live-cinnamon: distro/.live-desktop-ru use/live/autologin \
 	use/x11/cinnamon use/x11/3d-proprietary; @:
 
-distro/live-mate: distro/.live-desktop use/live/nodm use/live/ru use/x11/3d-free
+distro/live-mate: distro/.live-desktop-ru use/live/nodm use/x11/3d-free
 	@$(call add,LIVE_LISTS,openssh $(call tags,(desktop || mobile) && mate))
 	@$(call set,KFLAVOURS,un-def)	# the newest one
 
-distro/live-enlightenment: distro/.live-desktop use/live/autologin \
-	use/live/ru use/x11/3d-free
+distro/live-enlightenment: distro/.live-desktop-ru use/live/autologin use/x11/3d-free
 	@$(call add,LIVE_PACKAGES,enlightenment)
 
 distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
