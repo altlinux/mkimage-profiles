@@ -8,7 +8,7 @@ ifeq (vm,$(IMAGE_CLASS))
 
 vm/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,interactivesystem lilo shadow-utils e2fsprogs)
-	@$(call set,KFLAVOURS,std-def)
+	@$(call set,KFLAVOURS,un-def)
 
 vm/bare: vm/.bare
 	@$(call add,BASE_PACKAGES,apt)

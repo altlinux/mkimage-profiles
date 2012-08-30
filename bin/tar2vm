@@ -1,4 +1,6 @@
 #!/bin/bash -e
+# usage:
+# tar2vm chroot.tar image.raw [size_in_bytes]
 
 . shell-error
 
@@ -27,7 +29,7 @@ IMG="$2"
 
 # image size in bytes (256M is a fallback)
 TARSIZE="$(stat -Lc %s "$TAR")"
-DEFSIZE="$((3 * $TARSIZE / 2))"
+DEFSIZE="$((2 * $TARSIZE))"
 DISKSIZE="${3:-${DEFSIZE:-268435456}}"
 # ...and in megabytes
 DISKSIZEM="$(($DISKSIZE / 1048576))"
