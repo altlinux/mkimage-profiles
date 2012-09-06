@@ -1,0 +1,17 @@
+#!/bin/sh -efu
+# create a postinstall script to some tuning 
+
+if [ -n "$GLOBAL_VERBOSE" ]; then
+	echo "** Change altlinux-release accirding to MENUITEM"
+fi >&2
+
+SCRIPT="/usr/share/install2/postinstall.d/91-change-release"
+cat > "$SCRIPT" << EOF
+
+a= . install2-init-functions
+
+exec_chroot sh -c 'sed -i "s,^.*,$GLOBAL_MENUITEM," /etc/altlinux-release'
+exec_chroot sh -c 'grub-mkconfig -o /boot/grub/grub.cfg'
+
+EOF
+chmod +x "$SCRIPT"

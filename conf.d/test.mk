@@ -25,7 +25,7 @@ distro/live-gns3: distro/live-icewm
 distro/server-systemd: distro/server-mini use/systemd
 	@$(call set,KFLAVOURS,std-def)
 
-distro/server-test: distro/server-mini
+distro/server-test: distro/server-mini use/menuitem-grub
 	@$(call set,MENUITEM,TeSt-SeRVer)
 
 # tiny network-only server-ovz installer (stage2 comes over net too)
