@@ -52,6 +52,7 @@ all: debug timeout
 	@sed -i 's,@mkimage-profiles@,$(IMAGE_NAME),' $(DSTDIR)/*.cfg
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
+	@sed -i 's,@menuitem@,$(MENUITEM),' $(DSTDIR)/*.cfg
 
 # integerity check
 timeout: distro

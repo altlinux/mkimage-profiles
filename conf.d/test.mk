@@ -25,6 +25,9 @@ distro/live-gns3: distro/live-icewm
 distro/server-systemd: distro/server-mini use/systemd
 	@$(call set,KFLAVOURS,std-def)
 
+distro/server-test: distro/server-mini
+	@$(call set,MENUITEM,TeSt-SeRVer)
+
 # tiny network-only server-ovz installer (stage2 comes over net too)
 distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
 	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest
