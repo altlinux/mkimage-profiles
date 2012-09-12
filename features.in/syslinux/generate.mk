@@ -53,7 +53,7 @@ all: debug timeout
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
 	@sed -i \
 		-e 's,@mkimage-profiles@,$(IMAGE_NAME),' \
-		-e 's,@menuitem@,$(MENUITEM),' \
+		-e 's,@relname@,$(RELNAME),' \
 		$(DSTDIR)/*.cfg
 
 # integerity check

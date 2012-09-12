@@ -1,0 +1,15 @@
+#!/bin/sh -efu
+# create a postinstall script to perform the change afterwards
+
+if [ -n "$GLOBAL_VERBOSE" ]; then
+	echo "** Change /etc/altlinux-release contents to '$RELNAME'"
+fi >&2
+
+SCRIPT="/usr/share/install2/postinstall.d/91-relname"
+cat > "$SCRIPT" << EOF
+#!/bin/sh
+a= . install2-init-functions
+exec_chroot sh -c 'echo "$GLOBAL_RELNAME" > /etc/altlinux-release'
+exec_chroot sh -c 'grub-mkconfig -o /boot/grub/grub.cfg >&/dev/null ||:'
+EOF
+chmod +x "$SCRIPT"

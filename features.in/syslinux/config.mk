@@ -3,7 +3,7 @@ use/syslinux: sub/stage1
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,syslinux)
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
-	@$(call set,MENUITEM,ALT Linux ($(IMAGE_NAME)))
+	@$(call set,RELNAME,ALT Linux ($(IMAGE_NAME)))
 
 # UI is overwritten
 use/syslinux/ui/%: use/syslinux
