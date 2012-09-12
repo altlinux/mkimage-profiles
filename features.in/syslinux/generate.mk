@@ -49,10 +49,12 @@ cfg = $(wildcard cfg.in/??$(1).cfg)
 
 all: debug timeout
 	@### proper text branding should be implemented
-	@sed -i 's,@mkimage-profiles@,$(IMAGE_NAME),' $(DSTDIR)/*.cfg
 	@echo $(SYSLINUX_MODULES) > $(DSTDIR)/modules.list
 	@echo $(SYSLINUX_FILES) > $(DSTDIR)/syslinux.list
-	@sed -i 's,@menuitem@,$(MENUITEM),' $(DSTDIR)/*.cfg
+	@sed -i \
+		-e 's,@mkimage-profiles@,$(IMAGE_NAME),' \
+		-e 's,@menuitem@,$(MENUITEM),' \
+		$(DSTDIR)/*.cfg
 
 # integerity check
 timeout: distro
