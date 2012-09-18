@@ -2,6 +2,7 @@ vzctl
 vzdump
 #vzautolimit
 #vzfree
+vzquota
 #vzvalidate
 htop
 yabeda
