@@ -51,11 +51,9 @@ distclean: clean
 
 # builddir existing outside read-only metaprofile is less ephemeral
 # than BUILDDIR variable is -- usually it's unneeded afterwards
-# so just zap it unless DEBUG has been requested (moreso for multi
-# image builds, UI based ones, and readonly metaprofile; or CHECK)
 postclean: build-image
 	@{ \
-	if [ "0$(DEBUG)" -lt 2 -a -z "$(CHECK)" ] && \
+	if [ "0$(DEBUG)" -lt 2 -a -z "$(CHECK)$(REPORT)" ] && \
 	     [ "$(NUM_TARGETS)" -gt 1 \
 	       -o -n "$(__frontend)" \
 	       -o ! -L "$(SYMLINK)" ]; then \
