@@ -11,7 +11,7 @@ distro/.desktop-network: distro/.desktop-mini +vmguest
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
 
-distro/icewm: distro/.desktop-network use/lowmem +icewm; @:
+distro/icewm: distro/.desktop-network use/lowmem use/install2/fs +icewm; @:
 distro/tde: distro/.desktop-mini +tde; @:
 distro/ltsp-tde: distro/tde +ltsp; @:
 distro/ltsp-icewm: distro/icewm +ltsp; @:

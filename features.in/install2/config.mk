@@ -17,3 +17,15 @@ use/install2/kms: use/stage2/kms
 # see also use/vmguest/kvm; qxl included in xorg pkglist
 use/install2/kvm:
 	@$(call add,INSTALL2_PACKAGES,spice-vdagent xorg-drv-qxl)
+
+# filesystems handling
+use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
+
+use/install2/xfs:
+	@$(call add,INSTALL2_PACKAGES,xfsprogs)
+
+use/install2/jfs:
+	@$(call add,INSTALL2_PACKAGES,jfsutils)
+
+use/install2/reiserfs:
+	@$(call add,INSTALL2_PACKAGES,reiserfsprogs)
