@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.8.1
+Version: 0.8.2
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -61,6 +61,9 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Sep 24 2012 Michael Shigorin <mike@altlinux.org> 0.8.2-alt1
+- fixed build with recent make-initrd-propagator
+
 * Mon Sep 03 2012 Michael Shigorin <mike@altlinux.org> 0.8.1-alt1
 - misc fixes
 
