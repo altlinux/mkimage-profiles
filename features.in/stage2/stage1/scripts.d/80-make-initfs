@@ -17,7 +17,10 @@ if [ "`rpmvercmp "$MAKE_INITRD_VER" "0.7.8"`" != "-1" ]; then
 fi
 
 if make-initrd $MAKE_INITRD_OPTS; then
-	gzip < /boot/initrd-$kver.img > $(getconf LIBDIR)/propagator/initfs
+	pdir="$(getconf LIBDIR)/propagator/initfs"
+	if [ -d "$pdir" ]; then		# p5/t6
+		gzip < /boot/initrd-$kver.img > "$pdir"/initfs
+	fi
 else
 	exit 1
 fi
