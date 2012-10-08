@@ -26,7 +26,7 @@ distro/server-systemd: distro/server-mini use/systemd
 	@$(call set,KFLAVOURS,std-def)
 
 distro/server-test: distro/server-mini use/relname
-	@$(call set,RELNALE,Test-Server)
+	@$(call set,RELNAME,Test-Server)
 
 # tiny network-only server-ovz installer (stage2 comes over net too)
 distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
