@@ -2,7 +2,7 @@
 # create a postinstall script to perform the change afterwards
 
 if [ -n "$GLOBAL_VERBOSE" ]; then
-	echo "** Change /etc/altlinux-release contents to '$RELNAME'"
+	echo "** Change /etc/altlinux-release contents to 'RELNAME'"
 fi >&2
 
 SCRIPT="/usr/share/install2/postinstall.d/91-relname"
