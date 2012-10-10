@@ -2,5 +2,5 @@
 # prepare base make-initrd configuration for stage1
 # see also http://www.altlinux.org/Make-initrd-propagator
 
-sed -i 's/AUTODETECT/#AUTODETECT/' /etc/initrd.mk
+sed -i 's/AUTODETECT/#&/' /etc/initrd.mk
 echo 'FEATURES += propagator' >> /etc/initrd.mk
