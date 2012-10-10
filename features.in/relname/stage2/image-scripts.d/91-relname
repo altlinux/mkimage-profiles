@@ -1,9 +1,14 @@
-#!/bin/sh -efu
+#!/bin/sh -ef
 # create a postinstall script to perform the change afterwards
 
+if [ -z "$GLOBAL_RELNAME" ]; then
+	echo "** warning: relname feature enabled but RELNAME not set" >&2
+	exit 0
+fi
+
 if [ -n "$GLOBAL_VERBOSE" ]; then
-	echo "** Change /etc/altlinux-release contents to 'RELNAME'"
-fi >&2
+	echo "** Change /etc/altlinux-release contents to the release name" >&2
+fi
 
 SCRIPT="/usr/share/install2/postinstall.d/91-relname"
 cat > "$SCRIPT" << EOF
