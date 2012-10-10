@@ -30,7 +30,7 @@ export MKIMAGE_PROFILES := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 -include $(HOME)/.mkimage/profiles.mk
 
 # most of the actual work done elsewhere
-include lib/*.mk
+include $(sort $(wildcard lib/*.mk))
 include conf.d/*.mk
 include features.in/*/config.mk
 

@@ -29,7 +29,7 @@ IMAGE_PACKAGES = $(call map,list, \
 		 $(SYSTEM_PACKAGES) $(COMMON_PACKAGES) \
 		 $(THE_PACKAGES) $(BASE_PACKAGES) $(MAIN_PACKAGES)
 
--include lib/*.mk
+-include $(sort $(wildcard lib/*.mk))
 
 MKI_DESTDIR = ALTLinux/RPMS.main
 MKI_PACK_RESULTS = data

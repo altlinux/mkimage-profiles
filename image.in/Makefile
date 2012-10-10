@@ -52,7 +52,7 @@ GLOBAL_TARGET := $(ARCH)
 GLOBAL_HSH_APT_CONFIG := $(wildcard $(APTCONF))
 
 # the lib/build-*.mk comes from features.in/build-*/lib
-include lib/*.mk
+include $(sort $(wildcard lib/*.mk))
 include $(MKIMAGE_PREFIX)/targets.mk
 
 # specified only for the final image (target-specific)
