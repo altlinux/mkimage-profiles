@@ -1,5 +1,7 @@
-#!/bin/sh -efu
+#!/bin/sh -efux
 # NB: /etc/initrd.mk carefully prepared by earlier scripts
+
+verbose() { [ -n "$GLOBAL_VERBOSE" ] && echo "** 80-make-initfs: $@" >&2; }
 
 kver="$(rpm -qa 'kernel-image*' \
 	    --qf '%{installtime} %{version}-%{name}-%{release}\n' \
@@ -12,14 +14,20 @@ MAKE_INITRD_OPTS="--no-checks -k $kver"
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
 
+# make-initrd >= 0.7.8
 if [ "`rpmvercmp "$MAKE_INITRD_VER" "0.7.8"`" != "-1" ]; then
 	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS --no-depmod"
 fi
 
+[ -z "$GLOBAL_VERBOSE" ] || MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
+
 if make-initrd $MAKE_INITRD_OPTS; then
-	pdir="$(getconf LIBDIR)/propagator/initfs"
+	pdir="$(getconf LIBDIR)/propagator"
 	if [ -d "$pdir" ]; then		# p5/t6
+		verbose "$pdir exists"
 		gzip < /boot/initrd-$kver.img > "$pdir"/initfs
+	else
+		verbose "$pdir missing, no-op"
 	fi
 else
 	exit 1
@@ -27,3 +35,4 @@ fi
 
 [ -h /boot/vmlinuz ] || ln -s vmlinuz-$kver /boot/vmlinuz
 [ -h /boot/initrd.img ] || ln -s initrd-$kver.img /boot/initrd.img
+:
