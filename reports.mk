@@ -17,13 +17,38 @@ ifneq (1,$(NUM_TARGETS))
 SHORTEN := >/dev/null
 endif
 
-all: reports/targets reports/scripts
+all: reports/targets reports/scripts reports/cleanlog
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
 		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 	fi
 
 reports/prep:
 	@mkdir -p "$(REPORTDIR)"
+
+# try to drop common noise rendering diff(1) mostly useless
+reports/cleanlog: reports/prep
+	@OUT="$(REPORTDIR)/$(@F).log"; \
+	sed -r \
+		-e 's,$(BUILDDIR),,g' \
+		-e '/\/var\/lib\/apt\/lists/d' \
+		-e 's/... .. ..:..:..//g' \
+		-e 's/\[[0-9]+\]//g' \
+		-e '/^(Reading Package Lists|Building Dependency Tree)/d' \
+		-e '/^(Fetched|Need to get|After unpacking) /d' \
+		-e '/^(Preparing packages for installation|Done\.)/d' \
+		-e '/^hsh(|-(initroot|install|fakedev|(mk|rm)chroot|run)): /d' \
+		-e '/^(hasher-priv|mkaptbox|(mk|rm)dir): /d' \
+		-e '/^mki-((invalidate-|)cache|check-obsolete|prepare): /d' \
+		-e '/^(mode of|changed (group|ownership)|removed) /d' \
+		-e '/^chroot\/.in\//d' \
+		-e '/ has started executing\.$$/d' \
+		-e '/\/var\/log\/apt\.log$$/d' \
+		-e '/\/usr\/share\/apt\/scripts\/log\.lua/d' \
+		-e '/\.rpm$$/d' \
+		-e "/' -> '/d" \
+		< $(BUILDLOG) \
+		> "$(REPORTDIR)/$(@F).log" \
+	&& echo "** diffable log: $$OUT" $(SHORTEN)
 
 reports/scripts: reports/prep
 	@OUT="$(REPORTDIR)/$(@F).log"; \
