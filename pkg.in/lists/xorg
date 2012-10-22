@@ -6,6 +6,7 @@ xorg-drv-fbdev
 xorg-drv-intel
 xorg-drv-joystick
 xorg-drv-mga
+xorg-drv-modesetting
 xorg-drv-multimedia
 xorg-drv-nouveau
 xorg-drv-nv
