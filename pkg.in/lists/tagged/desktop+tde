@@ -7,7 +7,7 @@ kdegraphics-ksnapshot
 kdegraphics-kview
 kdeutils-laptop
 kdepim-akregator
-gtk2-themes-qtcurve
+#gtk2-themes-qtcurve
 #kde-styles-qtcurve
 kdeutils-ark
 #kdebluetooth
