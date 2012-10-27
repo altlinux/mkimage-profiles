@@ -10,7 +10,7 @@ use/live/base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
 
 # a very simplistic one
-use/live/x11: use/live use/x11/xorg
+use/live/x11: use/live use/firmware use/x11/xorg
 	@$(call add,LIVE_PACKAGES,xinit)
 
 # optimized out: use/x11/xorg
