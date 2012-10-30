@@ -1,0 +1,74 @@
+= mkimage-profiles =
+Michael Shigorin <mike@altlinux.org>
+:DocVersion: v0.1.0
+:DocDate:  Oct 2012
+
+= Введение =
+
+mkimage-profiles, или m-p — результат осмысления и обобщения опыта создания семейств дистрибутивов.
+
+*Цели*
+
+* пригодность к применению как очень крутыми хакерами, так и новичками
+* относительно низкая трудоёмкость использования
+* поощрение совместной работы
+
+*Средства*
+
+Двухуровневость:
+метапрофиль более объёмен и сложен, но выгоден для долгосрочной разработки
+сгенерированный дистрибутивный профиль более легко обозрим и модифицируем как одноразовый форк
+наследственность на уровне индивидуальных особенностей и образов в целом
+прозрачность и диагностируемость формирования конфигурации
+документированность
+
+*Примеры использования*
+
+Выполняем начальные инструкции по документации
+
+  git clone git://git.altlinux.org/people/mike/packages/mkimage-profiles.git
+  cd mkimage-profiles
+  make distro/icewm.iso
+
+include::README[]
+
+= Основы =
+
+== Предположения об окружении ==
+
+include::doc/assumptions.txt[]
+
+include::doc/debug.txt[]
+
+include::doc/features.txt[]
+
+include::doc/params.txt[]
+
+include::doc/pkglists.txt[]
+
+include::doc/qemu.txt[]
+
+include::doc/style.txt[]
+
+include::doc/vm.txt[]
+
+
+= Каталоги =
+
+include::conf.d/README[]
+
+include::features.in/README[]
+
+include::image.in/README[]
+
+include::lib/README[]
+
+include::pkg.in/README[]
+
+include::sub.in/README[]
+
+include::sub.in/main/README[]
+
+include::sub.in/stage1/README[]
+
+include::sub.in/stage2/README[]

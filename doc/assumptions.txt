@@ -1,44 +1,46 @@
-предположения фрагментов кода об окружении
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Предположения фрагментов кода об окружении*
+
 NB: пути приводятся от верхнего уровня; проект в целом предполагает
 ALT Linux 6.0+ и GNU make 3.81 (на которых и разрабатывается),
 но может быть портирован вместе с mkimage.
 
-- lib/report.mk
-  + ожидает, что каждая подлежащая трассированию цель каждого
+* lib/report.mk
+** ожидает, что каждая подлежащая трассированию цель каждого
     makefile при сборке конфигурации образа содержит непустой
     recipe -- хотя бы "; @:" -- т.к. зависит от запуска $(SHELL)
-  + характерный признак пропуска -- разрыв графа (report-targets.png)
+** характерный признак пропуска -- разрыв графа (report-targets.png)
 
-- pkg.in/lists/Makefile
-  + ожидает, что названия пакаджлистов указываются в переменных
+* pkg.in/lists/Makefile
+** ожидает, что названия пакаджлистов указываются в переменных
     вида *_LISTS, и копирует в генерируемый профиль только их
-  + если задать имя файла пакаджлиста непосредственно в Makefile
+** если задать имя файла пакаджлиста непосредственно в Makefile
     субпрофиля, он не будет скопирован
-  + характерное сообщение об ошибке:
+** характерное сообщение об ошибке:
+
     E: Couldn't find package
 
-- features.in/stage2/stage1/scripts.d/02-kdefault
-- features.in/stage2/stage1/scripts.d/03-test-kernel
-- sub.in/stage1/Makefile
-  + ожидают, что в stage1 попадёт строго одно ядро сообразно
+* features.in/stage2/stage1/scripts.d/02-kdefault
+* features.in/stage2/stage1/scripts.d/03-test-kernel
+* sub.in/stage1/Makefile
+** ожидают, что в stage1 попадёт строго одно ядро сообразно
     явному указанию в STAGE1_KFLAVOUR (либо последнее указанное
     в KFLAVOURS)
-  + если добавить какой-либо kernel-image в STAGE1_PACKAGES*,
+** если добавить какой-либо kernel-image в STAGE1_PACKAGES*,
     результат может быть неожиданным
-  + вероятная ошибка: незагрузка полученного squashfs
+** вероятная ошибка: незагрузка полученного squashfs
 
-- features.in/install2/install2/stage2cfg.mk
-- features.in/live/live/stage2cfg.mk
-- features.in/rescue/rescue/stage2cfg.mk
-- features.in/syslinux/cfg.in/15live.cfg
-- features.in/syslinux/cfg.in/20install2.cfg
-- features.in/syslinux/cfg.in/80rescue.cfg
-- features.in/syslinux/scripts.d/20-propagator-ramdisk
-  + ожидают, что названия squashfs-образов второй стадии инсталятора,
+* features.in/install2/install2/stage2cfg.mk
+* features.in/live/live/stage2cfg.mk
+* features.in/rescue/rescue/stage2cfg.mk
+* features.in/syslinux/cfg.in/15live.cfg
+* features.in/syslinux/cfg.in/20install2.cfg
+* features.in/syslinux/cfg.in/80rescue.cfg
+* features.in/syslinux/scripts.d/20-propagator-ramdisk
+** ожидают, что названия squashfs-образов второй стадии инсталятора,
     livecd и спасательной системы соответственно altinst, live и rescue
 
-- image.in/Makefile
-  + ожидает, что конфигурация будет в distcfg.mk (см. тж. lib/profile.mk),
+* image.in/Makefile
+** ожидает, что конфигурация будет в distcfg.mk (см. тж. lib/profile.mk),
     а лог сборки -- в build.log (см. тж. lib/log.mk); альтернативой было
     бы пробрасывание переменных с полным путём ради единственного места
