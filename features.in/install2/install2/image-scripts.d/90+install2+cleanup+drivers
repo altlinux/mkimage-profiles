@@ -17,7 +17,7 @@ rm -rf /lib/modules/*/kernel/drivers/char/{ipmi,hw_random,mwave,tpm}
 rm -rf /lib/modules/*/kernel/drivers/char/watchdog
 rm -rf /lib/modules/*/kernel/drivers/cpufreq
 rm -rf /lib/modules/*/kernel/drivers/edac
-rm -rf /lib/modules/*/kernel/drivers/firmware	###
+#rm -rf /lib/modules/*/kernel/drivers/firmware	### EFI
 rm -rf /lib/modules/*/kernel/drivers/gpio
 rm -rf /lib/modules/*/kernel/drivers/hwmon
 rm -rf /lib/modules/*/kernel/drivers/infiniband	###

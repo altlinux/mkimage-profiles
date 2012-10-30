@@ -1,0 +1,6 @@
+Фича добавляет в образы необходимое для поддержки EFI/UEFI.
+
+См. тж.:
+* http://www.altlinux.org/UEFI
+* http://www.rodsbooks.com/efi-bootloaders/
+* https://bugzilla.altlinux.org/showdependencytree.cgi?id=27804

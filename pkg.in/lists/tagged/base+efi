@@ -1,0 +1,7 @@
+gdisk
+parted
+dosfstools
+grub2-efi
+elilo
+efibootmgr
+installer-feature-efi-stage3
