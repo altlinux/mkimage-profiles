@@ -1,0 +1,6 @@
+object cebabf992f29ac406170ea6d349ddcf1e4a827b1
+type commit
+tag v0.8.6
+tagger Michael Shigorin <mike@altlinux.org> 1352123574 +0400
+
+make docs
