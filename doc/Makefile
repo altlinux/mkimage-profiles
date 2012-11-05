@@ -25,7 +25,7 @@ pdf: $(TOPLEVEL_DOC)
 	$(A2X) --verbose --fop --fop-opts='-c .fop.xconf' -d book -f pdf -a lang=ru \
 	  --xsltproc-opts=' \
 	  --stringparam toc.max.depth 3 \
-	  --stringparam title.font.family "Arial" \
-	  --stringparam body.font.family "Verdana" \
-	  --stringparam monospace.font.family "Arial"' \
+	  --stringparam title.font.family "DejaVu Sans" \
+	  --stringparam body.font.family "DejaVu Serif" \
+	  --stringparam monospace.font.family "DejaVu Sans Mono"' \
 	  $<
