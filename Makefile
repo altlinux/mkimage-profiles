@@ -61,3 +61,6 @@ SHELL = /bin/bash
 		fi; \
 	done; \
 	if [ "$$n" -lt "$(NUM_TARGETS)" ]; then say; fi
+
+docs:
+	@$(MAKE) -C doc

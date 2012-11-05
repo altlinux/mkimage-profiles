@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!-- $Id: fop.xconf 901793 2010-01-21 17:37:07Z jeremias $ -->
- 
+
 <!-- NOTE: This is the version of the configuration -->
 <fop version="1.0">
- 
+
   <base>.</base>
   <source-resolution>72</source-resolution>
   <target-resolution>72</target-resolution>
@@ -13,42 +13,42 @@
       <filterList>
         <value>flate</value>
       </filterList>
- 
+
       <fonts>
-          <auto-detect/> 
+          <auto-detect/>
       </fonts>
     </renderer>
- 
+
     <renderer mime="application/x-afp">
       <images mode="b+w" bits-per-pixel="8"/>
       <renderer-resolution>240</renderer-resolution>
       <resource-group-file>resources.afp</resource-group-file>
     </renderer>
- 
+
     <renderer mime="application/postscript">
     </renderer>
- 
+
     <renderer mime="application/vnd.hp-PCL">
     </renderer>
- 
+
     <renderer mime="image/svg+xml">
       <format type="paginated"/>
       <link value="true"/>
       <strokeText value="false"/>
     </renderer>
- 
+
     <renderer mime="application/awt">
     </renderer>
- 
+
     <renderer mime="image/png">
     </renderer>
- 
+
     <renderer mime="image/tiff">
     </renderer>
- 
+
     <renderer mime="text/xml">
     </renderer>
- 
+
   </renderers>
- 
+
 </fop>

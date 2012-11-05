@@ -1,7 +1,7 @@
 PROJECT = mkimage-profiles
 TOPLEVEL_DOC = mkimage-profiles.asciidoc
 HTMLPAGE = $(TOPLEVEL_DOC:.asciidoc=.html)
-RESOURCE_FILES = /etc/asciidoc/
+RESOURCE_FILES = /etc/asciidoc
 
 A2X = a2x
 
@@ -11,18 +11,18 @@ all: $(HTMLPAGE)
 
 %.html: %.asciidoc
 	$(A2X) -d book -f xhtml -a lang=ru \
-	  --icons -r $(RESOURCE_FILES) -r ./ \
+	  --icons -r $(RESOURCE_FILES) -r . \
 	  --xsltproc-opts='--stringparam toc.max.depth 3' \
 	  $<
 
 chunked: $(TOPLEVEL_DOC)
 	$(A2X) -d book -f chunked -a lang=ru \
-	  --icons -r /etc/asciidoc/ -r ./ \
+	  --icons -r $(RESOURCE_FILES) -r . \
 	  --xsltproc-opts='--stringparam toc.max.depth 3' \
 	  $<
 
 pdf: $(TOPLEVEL_DOC)
-	$(A2X) --verbose --fop --fop-opts='-c fop.xconf' -d book -f pdf -a lang=ru \
+	$(A2X) --verbose --fop --fop-opts='-c .fop.xconf' -d book -f pdf -a lang=ru \
 	  --xsltproc-opts=' \
 	  --stringparam toc.max.depth 3 \
 	  --stringparam title.font.family "Arial" \
