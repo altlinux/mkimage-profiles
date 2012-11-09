@@ -128,6 +128,9 @@ ne.ko
 netconsole.ko
 netwave_cs.ko
 nfs.ko
+nfsv2.ko
+nfsv3.ko
+nfsv4.ko
 ni52.ko
 ni65.ko
 nls_cp866.ko
