@@ -1,7 +1,7 @@
 #!/bin/sh -efux
 # NB: /etc/initrd.mk carefully prepared by earlier scripts
 
-verbose() { [ -n "$GLOBAL_VERBOSE" ] && echo "** 80-make-initfs: $@" >&2; }
+verbose() { [ -z "$GLOBAL_VERBOSE" ] || echo "** 80-make-initfs: $@" >&2; }
 
 kver="$(rpm -qa 'kernel-image*' \
 	    --qf '%{installtime} %{version}-%{name}-%{release}\n' \
