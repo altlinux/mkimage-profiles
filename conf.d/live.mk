@@ -3,6 +3,8 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu; @:
+distro/syslinux: distro/.init \
+	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
 distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
 distro/.live-desktop: distro/.base +live use/plymouth/live; @:

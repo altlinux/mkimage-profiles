@@ -3,9 +3,6 @@ ifneq (,$(DEBUG))
 
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/syslinux: distro/.init \
-	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
-
 distro/syslinux-auto: distro/.init use/hdt use/syslinux/timeout/1; @:
 distro/syslinux-noescape: distro/syslinux-auto use/syslinux/noescape.cfg; @:
 
