@@ -56,7 +56,7 @@ profile/init: distclean
 		| tee $(BUILDDIR)/sources.list; \
 		echo; \
 	} $(LOG); \
-	if ! grep -q "[	 ]$(ARCH)[ 	]" $(BUILDDIR)/sources.list; then \
+	if ! grep -q "\<$(ARCH)\>" $(BUILDDIR)/sources.list; then \
 		echo -n "requested arch '$$ARCH' unavailable" >&2; \
 		if [ -z "$(APTCONF)" ]; then \
 			echo " (no APTCONF)"; \
