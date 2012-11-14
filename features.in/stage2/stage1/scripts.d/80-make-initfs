@@ -23,13 +23,10 @@ fi
 
 if make-initrd $MAKE_INITRD_OPTS; then
 	pdir="$(getconf LIBDIR)/propagator"
-	if [ -d "$pdir" ]; then		# p5/t6
-		verbose "$pdir exists"
-		gzip < /boot/initrd-$kver.img > "$pdir"/initfs
-	else
-		verbose "$pdir missing, no-op"
-	fi
+	mkdir -p "$pdir"
+	gzip < /boot/initrd-$kver.img > "$pdir"/initfs
 else
+	verbose "make-initrd failed"
 	exit 1
 fi
 
