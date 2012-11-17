@@ -24,6 +24,9 @@ rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 	make make-initrd x11vnc xorg-xvfb \
 | xargs -r rpmi -e --nodeps --
 
+### TODO: unless LUKS luks feature is requested we can also drop
+###       gnupg libgcrypt libgnutls\* libgpg-error
+
 rpmquery -a bind-utils libbind \
 | xargs -r rpmi -e --
 

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# FIXME: move into luks feature
+echo 'FEATURES += luks' >> /etc/initrd.mk
