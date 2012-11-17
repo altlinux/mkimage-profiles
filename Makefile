@@ -10,7 +10,8 @@ ifndef ARCHES
 ifdef ARCH
 ARCHES := $(ARCH)
 else
-ARCHES := $(shell arch | sed 's/i686/i586/; s/armv.*/arm/; s/ppc.*/ppc/')
+ARCHES := $(shell arch \
+	| sed 's/i686/i586/; s/armv7.*/armh/; s/armv.*/arm/; s/ppc.*/ppc/')
 endif
 endif
 export ARCHES
