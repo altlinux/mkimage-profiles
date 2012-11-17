@@ -36,6 +36,7 @@ distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
 	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest
 	@$(call add,SYSLINUX_CFG,netinstall2)
 
+distro/desktop-luks: distro/icewm use/luks; @:
 distro/desktop-systemd: distro/icewm use/systemd; @:
 distro/desktop-plymouth: distro/icewm +plymouth; @:
 distro/live-mate-systemd: distro/live-mate use/systemd use/live/install; @:
