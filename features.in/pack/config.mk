@@ -16,7 +16,7 @@ else
 endif
 
 # virtual environments
-VE_ARCHIVES := tar cpio
+VE_ARCHIVES := tar cpio ubifs
 VE_COMPRESSORS := gz xz# there's no sense in bzip2 by now
 VE_ZIPS := $(call addsuffices, \
 		$(addprefix .,$(VE_COMPRESSORS)), \
