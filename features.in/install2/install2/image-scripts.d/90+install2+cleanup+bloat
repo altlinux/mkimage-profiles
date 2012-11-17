@@ -19,7 +19,7 @@ rm -rf /usr/share/awk/
 ### TODO: x11vnc, xorg-xvfb: fix installer-common-stage2
 rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
-	gnupg libgcrypt libgnutls\* libgpg-error libsoup\* \
+	libsoup\* \
 	libGL glxinfo xdriinfo \
 	make make-initrd x11vnc xorg-xvfb \
 | xargs -r rpmi -e --nodeps --
