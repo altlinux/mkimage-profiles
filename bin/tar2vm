@@ -42,7 +42,7 @@ ROOTFSTYPE="${4:-ext4}"
 ROOTDEV="/dev/sda1"
 
 # last preparations...
-for i in losetup parted kpartx mkfs."$ROOTFSTYPE"; do
+for i in losetup sfdisk parted kpartx mkfs."$ROOTFSTYPE"; do
 	if ! type -t "$i" >&/dev/null; then
 		fatal "$i required but not found"
 	fi
@@ -98,8 +98,8 @@ chroot "$ROOTFS" make-initrd -k "$KERNEL"
 sed -i "s,$LOOPDEV1,$ROOTDEV," "$ROOTFS/etc/fstab"
 
 # configure and install bootloader
-REGEXP='^([0-9]+) heads, ([0-9]+) sectors/track, ([0-9]+) cylinders.*$'
-set -- $(fdisk -l "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
+REGEXP='^Disk .*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
+set -- $(sfdisk -l "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
 
 LILO_COMMON="lba32
 delay=1
@@ -113,9 +113,9 @@ cat > "$ROOTFS"/etc/lilo-loop.conf << EOF
 boot=$LOOPDEV
 disk=$LOOPDEV
   bios=0x80
-  heads=$1
-  sectors=$2
-  cylinders=$3
+  cylinders=$1
+  heads=$2
+  sectors=$3
   partition=$LOOPDEV1
   start=63
 $LILO_COMMON

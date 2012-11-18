@@ -15,10 +15,10 @@ BuildRequires: rsync asciidoc-a2x xmlgraphics-fop fonts-ttf-dejavu
 BuildRequires: /proc
 
 Requires: rsync git-core
-Requires: time schedutils
+Requires: time schedutils sfdisk
 Requires: mkimage >= 0.2.0
 
-# Recommends: graphviz
+# Recommends: graphviz qemu-img
 
 %define mpdir %_datadir/%name
 %add_findreq_skiplist %mpdir/*.in/*
