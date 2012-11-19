@@ -1,0 +1,6 @@
+object a5ec5f257792941c753e21d581c08f251217eb3e
+type commit
+tag v0.9.0
+tagger Michael Shigorin <mike@altlinux.org> 1353360826 +0200
+
+uefi, luks, armh
