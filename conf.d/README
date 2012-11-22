@@ -25,19 +25,19 @@
   что обязано быть и в инсталяторе, и в готовой системе
 
 - для направленного действия служат:
-  + STAGE1_PACKAGES, STAGE1_PACKAGES_REGEXP (первая стадия загрузки)
-  + STAGE2_PACKAGES (инсталятор и спасательная/"живая" система)
-  + INSTALL2_PACKAGES (инсталятор)
-  + BASE_PACKAGES, BASE_LISTS, BASE_PACKAGES_REGEXP (базовая система)
-  + MAIN_PACKAGES, MAIN_LISTS, MAIN_PACKAGES_REGEXP (дополнительные пакеты)
-  + LIVE_PACKAGES, LIVE_LISTS, LIVE_PACKAGES_REGEXP ("живая" система)
+  * STAGE1_PACKAGES, STAGE1_PACKAGES_REGEXP (первая стадия загрузки)
+  * STAGE2_PACKAGES (инсталятор и спасательная/"живая" система)
+  * INSTALL2_PACKAGES (инсталятор)
+  * BASE_PACKAGES, BASE_LISTS, BASE_PACKAGES_REGEXP (базовая система)
+  * MAIN_PACKAGES, MAIN_LISTS, MAIN_PACKAGES_REGEXP (дополнительные пакеты)
+  * LIVE_PACKAGES, LIVE_LISTS, LIVE_PACKAGES_REGEXP ("живая" система)
 
 - аналогично по модулям ядра:
-  + THE_KMODULES попадут в "пользовательскую" среду (live, main)
-  + STAGE1_KMODULES доступны в производных от stage2 (install2, live, rescue)
-  + BASE_KMODULES попадут в установку по умолчанию
-  + MAIN_KMODULES будут доступны для установки с носителя
-  + LIVE_KMODULES предназначены для LiveCD/LiveFlash
+  * THE_KMODULES попадут в "пользовательскую" среду (live, main)
+  * STAGE1_KMODULES доступны в производных от stage2 (install2, live, rescue)
+  * BASE_KMODULES попадут в установку по умолчанию
+  * MAIN_KMODULES будут доступны для установки с носителя
+  * LIVE_KMODULES предназначены для LiveCD/LiveFlash
 
 Не стоит бояться такого разнообразия, для большинства задач достаточно THE_*.
 

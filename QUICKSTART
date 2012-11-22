@@ -10,8 +10,8 @@ http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 полезно
 ~~~~~~~
 - смонтированный tmpfs на несколько гигабайт
-  + например, в /tmp или /home/USER/hasher
-  + каталог из prefix в /etc/hasher-priv/system
+  * например, в /tmp или /home/USER/hasher
+  * каталог из prefix в /etc/hasher-priv/system
 - установленный git-core
 - настроенный ~/.gitconfig
 
