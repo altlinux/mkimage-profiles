@@ -16,7 +16,7 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 
 distro/live-builder: pkgs := livecd-tmpfs livecd-online-repo mkimage-profiles
-distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo \
+distro/live-builder: distro/.live-base use/dev/mkimage use/dev \
 	use/syslinux/timeout/30
 	@$(call set,KFLAVOURS,$(BIGRAM))
 	@$(call add,LIVE_LISTS,$(call tags,base && (server || builder)))
@@ -24,8 +24,6 @@ distro/live-builder: distro/.live-base use/dev/mkimage use/dev/repo \
 	@$(call add,LIVE_PACKAGES,qemu-user-binfmt_misc)
 	@$(call add,LIVE_PACKAGES,zsh sudo)
 	@$(call add,LIVE_PACKAGES,$(pkgs))
-	@$(call add,MAIN_PACKAGES,$(pkgs))
-	@$(call add,MAIN_PACKAGES,syslinux pciids memtest86+ mkisofs)
 
 distro/live-install: distro/.live-base use/live/textinstall; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
