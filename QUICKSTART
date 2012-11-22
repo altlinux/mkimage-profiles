@@ -17,17 +17,23 @@ http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 
 команды
 ~~~~~~~
-- от имени root:
+от имени root::
+----
 # apt-get install mkimage hasher git-core
 # hasher-useradd USER
+----
 
-- от имени указанного пользователя (после повторного входа):
+от имени указанного пользователя (после повторного входа)::
+----
 $ git config --global user.email "my@email"
 $ git config --global user.name "My Name"
 $ mkdir ~/out
+----
 
-- тестовая сборка (см. тж. lib/distro.mk, doc/params.txt):
+тестовая сборка (см. тж. lib/distro.mk, doc/params.txt)::
+----
 $ make syslinux.iso
+----
 
 ссылки
 ~~~~~~
