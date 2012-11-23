@@ -34,7 +34,8 @@ include $(sort $(wildcard lib/*.mk))
 include conf.d/*.mk
 include features.in/*/config.mk
 
-# starts to look copypastey
+# FIXME: this is buggy since *.mk can expose parts conditionally
+#        (e.g. test.mk does DEBUG-only bits) and these will fail
 DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
 		lib/distro.mk $(wildcard conf.d/*.mk) | sort -u)
 VE_TARGETS := $(shell sed -n 's,^\(ve/[^:.]\+\):.*$$,\1,p' \
