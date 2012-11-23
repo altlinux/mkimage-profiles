@@ -7,7 +7,7 @@ GZ_OPTS="-comp gzip -noI"
 XZ_OPTS="-comp xz"
 LZO_OPTS="-comp lzo -noI"
 
-verbose() { [ -n "$GLOBAL_VERBOSE" ] && echo "** $@" >&2; }
+verbose() { [ -z "$GLOBAL_VERBOSE" ] || echo "** $@" >&2; }
 fatal() { echo "** error: $@" >&2; exit 1; }
 
 configured()
