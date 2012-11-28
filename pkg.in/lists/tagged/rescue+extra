@@ -29,6 +29,7 @@ partimage
 gdisk
 cgdisk
 fixparts
+whdd
 
 # Applications
 binutils
