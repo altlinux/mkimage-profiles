@@ -10,7 +10,7 @@ endif
 HSH_VER_OPTIMAL = 1.3.22
 HSH_VERSION := $(shell hsh -V | sed -n 's/^.* version \([0-9.]\+\).*$$/\1/p')
 
-ifeq (-,$(shell rpmvercmp $(HSH_VERSION) $(HSH_VER_OPTIMAL) | tr -d [0-9]))
+ifeq (-,$(shell rpmvercmp $(HSH_VERSION) $(HSH_VER_OPTIMAL) | tr -d '[0-9]'))
 $(info warning: hasher-$(HSH_VERSION) is suboptimal, consider upgrading)
 endif
 
