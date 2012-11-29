@@ -1,7 +1,7 @@
 +icewm: use/x11/icewm; @:
 +razorqt: use/x11/razorqt use/x11/lightdm/qt; @:
 +tde: use/x11/tde use/x11/kdm; @:
-+kde: use/x11/kde use/x11/kdm; @:
++kde: use/x11/kde use/x11/kdm4; @:
 
 use/x11/xorg:
 	@$(call add_feature)

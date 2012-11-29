@@ -1,0 +1,28 @@
+# Disk utils
+parted
+quota
+time
+acl
+
+# Applications/Editors
+vim-console
+
+# Filesystem utils
+dosfstools
+ntfs-3g
+reiserfsprogs
+cifs-utils
+extundelete
+
+# Applications/Networking
+lftp
+rsync
+tcpdump
+telnet
+
+# Applications/Shells
+bc
+mc
+
+# Development/Debuggers
+strace

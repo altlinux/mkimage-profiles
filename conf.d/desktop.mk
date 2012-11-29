@@ -11,12 +11,17 @@ distro/.desktop-network: distro/.desktop-mini +vmguest
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
 
+distro/.desktop-extra:
+	@$(call add,BASE_LISTS,$(call tags,(archive || base) && (extra)))
+
 distro/tde: distro/.desktop-mini +tde
 	@$(call set,KFLAVOURS,led-ws)
+
+distro/kde-lite: distro/.desktop-mini distro/.desktop-network distro/.desktop-extra +kde
+	@$(call set,KFLAVOURS,std-def)
 
 distro/icewm: distro/.desktop-network use/lowmem use/install2/fs +icewm; @:
 distro/ltsp-tde: distro/tde +ltsp; @:
 distro/ltsp-icewm: distro/icewm +ltsp; @:
-distro/kde: distro/.desktop-mini +kde; @:
 
 endif
