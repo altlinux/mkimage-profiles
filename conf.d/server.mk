@@ -11,7 +11,7 @@ distro/server-nano: distro/.server-base \
 
 distro/server-mini: distro/.server-base use/server/mini \
 	use/cleanup/x11-alterator use/efi
-	@$(call set,KFLAVOURS,led-ws)
+	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/wireless use/power/acpi/button
