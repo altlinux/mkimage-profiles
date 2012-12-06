@@ -17,7 +17,7 @@ distro/.desktop-extra:
 distro/tde: distro/.desktop-mini +tde
 	@$(call set,KFLAVOURS,led-ws)
 
-distro/kde-lite: distro/.desktop-mini distro/.desktop-network distro/.desktop-extra +kde
+distro/kde4-lite: distro/.desktop-mini distro/.desktop-network distro/.desktop-extra +kde4-lite
 	@$(call set,KFLAVOURS,std-def)
 
 distro/icewm: distro/.desktop-network use/lowmem use/install2/fs +icewm; @:
