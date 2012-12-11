@@ -10,7 +10,7 @@ use/pack:
 # for direct bootable usbflash imaging
 use/pack/iso: use/pack boot/isolinux $(ISOHYBRID:%=use/isohybrid)
 ifeq (distro,$(IMAGE_CLASS))
-	@$(call set,IMAGE_PACKTYPE,isoboot)
+	@$(call set,IMAGE_PACKTYPE,boot)
 else
 	@$(call set,IMAGE_PACKTYPE,isodata)
 endif

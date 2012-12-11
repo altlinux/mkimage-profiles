@@ -5,8 +5,10 @@ CURRENT_LINK := mkimage-profiles
 OUT_LINK := out
 
 # there were mkimage fixes induced by mkimage-profile development
+# - minimal version is bumped for critical bugfixes/features
+# - optimal one relates to the less universally relevant bits
 MKI_VER_MINIMAL = 0.1.7
-MKI_VER_OPTIMAL = 0.2.0
+MKI_VER_OPTIMAL = 0.2.5
 
 include distcfg.mk
 include functions.mk

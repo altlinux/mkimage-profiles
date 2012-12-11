@@ -14,9 +14,6 @@ endif
 GLOBAL_BOOTLOADER := $(BOOTLOADER)
 
 MKI_PACK_RESULTS = data
-PROPAGATOR_VERSION = ALT Linux
-PROPAGATOR_MAR_MODULES = ./modules
-PROPAGATOR_INITFS = ./initfs
 COPY_TREE = ./files
 
 include $(MKIMAGE_PREFIX)/targets.mk
@@ -29,6 +26,9 @@ STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
 
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
 ifneq "$(STAGE1_KFLAVOUR)" ""
+PROPAGATOR_VERSION = ALT Linux
+PROPAGATOR_MAR_MODULES = ./modules
+PROPAGATOR_INITFS = ./initfs
 BUILD_PROPAGATOR = build-propagator
 INFO_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 CHROOT_PACKAGES_REGEXP := $(call kpackages, \
