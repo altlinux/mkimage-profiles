@@ -40,6 +40,7 @@ distro/desktop-luks: distro/icewm use/luks; @:
 distro/desktop-systemd: distro/icewm use/systemd; @:
 distro/desktop-plymouth: distro/icewm +plymouth; @:
 distro/live-mate-systemd: distro/live-mate use/systemd use/live/install; @:
+distro/server-efi: distro/server-mini use/efi/debug; @:
 
 endif # IMAGE_CLASS: distro
 
