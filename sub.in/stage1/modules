@@ -8,6 +8,8 @@ kernel/drivers/rtc
 kernel/drivers/scsi
 kernel/drivers/usb/host
 kernel/drivers/usb/storage
+kernel/drivers/virtio
+kernel/lib
 3c501.ko
 3c503.ko
 3c505.ko
