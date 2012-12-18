@@ -1,3 +1,5 @@
+ifeq (x86_64,$(ARCH))
+
 use/efi:
 	@$(call add_feature)
 	@$(call set,MKI_VER_MINIMAL,0.2.5)	# see #28219
@@ -8,3 +10,10 @@ use/efi:
 use/efi/debug: use/efi
 	@$(call add,STAGE2_PACKAGES,efibootmgr gdisk)
 	@$(call set,KFLAVOURS,led-ws)
+
+else
+
+# ignore on an unsupported target arch but make it hybrid at least
+use/efi use/efi/debug: use/isohybrid
+
+endif
