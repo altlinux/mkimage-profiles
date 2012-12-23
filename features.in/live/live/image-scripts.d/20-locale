@@ -1,7 +1,9 @@
 #!/bin/sh -efu
 # if no means for locale setup are employed,
-# it should still be somewhat reasonable
+# it should still be at least marginally reasonable
 # NB: keyboard layout not included!
+
+if [ -s /etc/sysconfig/i18n ]; then exit 0; fi
 
 mkdir -p /etc/sysconfig
 cat >> /etc/sysconfig/i18n << _EOF_
