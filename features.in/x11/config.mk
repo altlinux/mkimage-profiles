@@ -55,6 +55,9 @@ use/x11/tde: use/x11/xorg
 use/x11/kde: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,kde desktop))
 
+use/x11/kde4: use/x11/xorg
+	@$(call add,THE_PACKAGES,kde4-default)
+
 use/x11/xfce: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,xfce desktop))
 
