@@ -1,12 +1,2 @@
-xfce4-taskmanager
-xfce4-appfinder
-xfce4-settings
-xfcalendar
-xfce4-mixer
-gst-plugins-base
-xfce4-minimal
-xfce4-panel
-xfce4-icon-theme
-xfce4-session
-xfconf-utils
-Thunar
+xfce4-full
+gnome-icon-theme
