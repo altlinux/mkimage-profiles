@@ -68,8 +68,8 @@ distro/live-mate: distro/.live-desktop-ru use/live/nodm use/x11/3d-free
 	@$(call add,LIVE_LISTS,openssh $(call tags,(desktop || mobile) && mate))
 	@$(call set,KFLAVOURS,un-def)	# the newest one
 
-distro/live-enlightenment: distro/.live-desktop-ru use/live/autologin use/x11/3d-free
-	@$(call add,LIVE_PACKAGES,enlightenment)
+distro/live-e17: distro/.live-desktop-ru use/live/autologin \
+	use/x11/e17 use/x11/gdm2.20; @:
 
 distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
 	@$(call add,LIVE_PACKAGES,gimp tintii immix fim)
