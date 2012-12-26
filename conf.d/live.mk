@@ -35,7 +35,7 @@ distro/live-icewm: distro/.live-desktop use/live/autologin +icewm; @:
 distro/live-razorqt: distro/.live-desktop use/live/autologin +razorqt; @:
 distro/live-tde: distro/.live-desktop-ru use/live/install +tde; @:
 
-distro/live-rescue: distro/live-icewm
+distro/live-rescue: distro/live-icewm use/efi
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
 	@$(call add,LIVE_LISTS,openssh \
 		$(call tags,(base || extra) && (archive || rescue || network)))
