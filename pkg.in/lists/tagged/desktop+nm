@@ -1,0 +1,10 @@
+NetworkManager
+NetworkManager-vpnc
+NetworkManager-openvpn
+NetworkManager-pptp
+#NetworkManager-l2tp
+NetworkManager-openvpn-gnome
+NetworkManager-pptp-gnome
+NetworkManager-vpnc-gnome
+#NetworkManager-l2tp-gnome
+usb-modeswitch
