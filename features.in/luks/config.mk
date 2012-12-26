@@ -1,2 +1,5 @@
+LUKS_LISTS := $(call tags,security luks)
+
 use/luks:
-	@$(call add,BASE_PACKAGES,make-initrd-luks cryptsetup alterator-luks)
+	@$(call add,THE_LISTS,$(LUKS_LISTS))
+	@$(call add,RESCUE_LISTS,$(LUKS_LISTS))
