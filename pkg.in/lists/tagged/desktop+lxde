@@ -1,0 +1,22 @@
+openbox
+
+pcmanfm2
+
+lxde-common
+lxde-lxpanel
+lxde-lxsession
+lxde-lxsession-edit
+lxde-lxrandr
+lxde-lxtask
+lxde-lxshortcut
+lxde-lxappearance
+lxde-lxappearance-obconf
+
+menu-cache
+altlinux-freedesktop-menu-lxde
+
+# lxterminal is reportedly sub-par
+#lxde-lxterminal
+sakura
+
+tango-icon-theme

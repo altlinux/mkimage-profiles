@@ -1,0 +1,13 @@
+tango-icon-theme-extras
+
+leafpad
+galculator
+deadbeef
+mtpaint
+parcellite
+
+# gqview has thumbnails support, gpicview doesn't
+gqview
+
+# file-roller is recommended over xarchiver and not that fatty yet
+file-roller

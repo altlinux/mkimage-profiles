@@ -66,3 +66,6 @@ use/x11/cinnamon: use/x11/xorg use/x11/drm
 
 use/x11/e17: use/x11/xorg use/x11/3d-free
 	@$(call add,THE_PACKAGES,e17-default)
+
+use/x11/lxde: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,lxde desktop))
