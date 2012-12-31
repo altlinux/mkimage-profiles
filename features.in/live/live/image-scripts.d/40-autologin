@@ -48,15 +48,20 @@ if [ -f "$GDM_CONF" ]; then
 	add_nopasswdlogin_group gdm ||:
 fi
 
-## kdm3 autologin
-# TODO: iterate over kdm{,4} if feasible
-KDMRC=/etc/X11/kdm/kdmrc
-if [ -f "$KDMRC" ]; then
+autologin_kdm() {
 	sed -i \
 		-e '/AutoLoginEnable/ s,^.*$,AutoLoginEnable=true,' \
 		-e '/AutoLoginUser/ s,^.*$,AutoLoginUser='$USER',' \
-		"$KDMRC"
-fi
+		"$1"
+}
+
+## kdm3 autologin
+KDMRC=/etc/X11/kdm/kdmrc
+if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
+
+## kdm4 autologin
+KDMRC=/etc/X11/kdm4/kdmrc
+if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
 
 ## nodm autologin (the last since the most intrusive)
 # FIXME nodm and xinitrc should be modified (also in p6)
