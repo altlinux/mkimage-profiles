@@ -21,9 +21,15 @@ use/live/desktop: use/live/base use/x11/wacom use/live/sound +vmguest +power
 	@$(call add,LIVE_PACKAGES,pciutils)
 	@$(call add,SYSLINUX_CFG,localboot)
 
+# preconfigure apt for both live and installed-from-live systems
+use/live/repo:
+	@$(call add,LIVE_PACKAGES,livecd-online-repo)
+	@$(call add,LIVE_PACKAGES,installer-feature-online-repo)
+
 # alterator-based permanent installation
 use/live/install: use/metadata use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,livecd-install)
+	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 
 # text-based installation script
 use/live/textinstall: use/syslinux/localboot.cfg
