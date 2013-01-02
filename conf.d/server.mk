@@ -9,8 +9,9 @@ distro/server-nano: distro/.server-base \
 	@$(call add,BASE_LISTS,$(call tags,server network))
 	@$(call add,BASE_PACKAGES,dhcpcd cpio)
 
-distro/server-mini: distro/.server-base use/server/mini use/cleanup/x11-alterator
-	@$(call set,KFLAVOURS,el-smp)
+distro/server-mini: distro/.server-base use/server/mini \
+	use/cleanup/x11-alterator use/efi
+	@$(call set,KFLAVOURS,led-ws)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/wireless use/power/acpi/button
