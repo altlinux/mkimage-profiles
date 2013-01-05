@@ -15,6 +15,7 @@ distro/.regular-desktop: distro/.base +live use/live/ru \
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_KMODULES,bcmwl rt3070 staging)
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
+	@$(call set,KFLAVOURS,std-def)
 	@$(call try,SAVE_PROFILE,yes)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/gdm2.20; @:
@@ -28,6 +29,7 @@ distro/regular-mate: distro/.regular-gtk
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17; @:
 	@$(call add,LIVE_PACKAGES,xterm xorg-xnest)
+	@$(call add,THE_KMODULES,sound)
 
 distro/regular-cinnamon: distro/.regular-desktop use/x11/cinnamon
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
