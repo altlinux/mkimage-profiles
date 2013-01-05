@@ -12,6 +12,7 @@ distro/.regular-desktop: distro/.base +live use/live/ru \
 	@$(call add,LIVE_PACKAGES,xdg-user-dirs)
 	@$(call add,LIVE_PACKAGES,synaptic-usermode)
 	@$(call add,LIVE_PACKAGES,firefox-ru)
+	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_KMODULES,bcmwl rt3070 staging)
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call try,SAVE_PROFILE,yes)
