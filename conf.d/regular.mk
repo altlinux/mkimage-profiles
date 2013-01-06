@@ -2,7 +2,7 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
-distro/.regular-desktop: distro/.base +live use/live/ru \
+distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/x11/3d-free use/systemd \
 	use/firmware/wireless use/efi use/luks +vmguest use/memtest \
 	use/branding use/syslinux/ui/gfxboot
@@ -13,7 +13,6 @@ distro/.regular-desktop: distro/.base +live use/live/ru \
 	@$(call add,LIVE_PACKAGES,synaptic-usermode)
 	@$(call add,LIVE_PACKAGES,firefox-ru)
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
-	@$(call add,THE_KMODULES,bcmwl rt3070 staging)
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call set,KFLAVOURS,std-def)
 	@$(call try,SAVE_PROFILE,yes)
