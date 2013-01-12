@@ -4,8 +4,8 @@ ifeq (distro,$(IMAGE_CLASS))
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/x11/3d-free use/systemd \
-	use/firmware/wireless use/efi/signed use/luks +vmguest use/memtest \
-	use/branding use/syslinux/ui/gfxboot
+	use/firmware/wireless use/efi/signed use/luks \
+	+vmguest use/memtest use/branding use/syslinux/ui/gfxboot
 	@$(call add,LIVE_PACKAGES,openssh strace alterator-standalone)
 	@$(call add,LIVE_PACKAGES,cpufreq-simple)
 	@$(call add,LIVE_PACKAGES,livecd-online-repo apt-repo)
@@ -22,7 +22,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/gdm2.20; @:
 
-distro/regular-icewm: distro/.regular-gtk +icewm; @:
+distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind; @:
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
 
