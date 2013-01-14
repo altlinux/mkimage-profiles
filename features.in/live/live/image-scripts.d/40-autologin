@@ -15,6 +15,28 @@ add_nopasswdlogin_group()
 	gpasswd -a "$USER" nopasswdlogin
 }
 
+BAK=".save"
+backup() {
+	[ -f "$1" -a ! -f "$1$BAK" ] || return 1
+	cp -av "$1" "$1$BAK"
+}
+
+restore_later() {
+	[ -n "$1" ] || return 0
+
+	local prefix="/usr/lib/alterator/hooks/livecd-preinstall.d"
+	[ -d "$prefix" ] || mkdir -p "$prefix"
+
+	local hook="$prefix/51-disable-autologin-again.sh"
+	[ -s "$hook" ] || cat >> "$hook" <<- EOF
+	#!/bin/sh
+	. livecd-functions
+	EOF
+
+	echo mv -v "\$destdir$1$BAK" "\$destdir$1" >> "$hook"
+	chmod +x "$hook"
+}
+
 ## setup runlevel
 INITTAB=/etc/inittab
 if [ -f "$INITTAB" ]; then
@@ -23,39 +45,62 @@ if [ -f "$INITTAB" ]; then
 fi
 
 ## autologin^2
+AUTOLOGIN_CFG=/etc/sysconfig/autologin
 if [ -x /usr/sbin/autologin ]; then
-	cat << E_O_F >> /etc/sysconfig/autologin
-USER=$USER
-AUTOLOGIN=yes
-E_O_F
+	backup "$AUTOLOGIN_CFG"
+	cat >> "$AUTOLOGIN_CFG" <<- EOF
+	USER=$USER
+	AUTOLOGIN=yes
+	EOF
+	restore_later "$AUTOLOGIN_CFG"
 fi
 
 ## lightdm autologin
 LIGHTDM_CONF=/etc/lightdm/lightdm.conf
 if [ -f "$LIGHTDM_CONF" ]; then
+	backup "$LIGHTDM_CONF"
 	sed -i \
 		-e "s/^#\(autologin-user=\).*$/\1$USER/" \
 		-e "s/^#\(autologin-user-timeout=0\)/\1/" \
 		"$LIGHTDM_CONF"
+	backup "/etc/group"
 	add_nopasswdlogin_group lightdm ||:
+
+	restore_later "$LIGHTDM_CONF"
+	restore_later "/etc/group"
 fi
 
 ## gdm2 autologin
 GDM_CONF=/etc/X11/gdm/custom.conf
 if [ -f "$GDM_CONF" ]; then
+	backup "$GDM_CONF"
 	sed -i -e '/\[daemon\]/aAutomaticLoginEnable=true\nAutomaticLogin='$USER \
 		"$GDM_CONF"
+	backup "/etc/group"
 	add_nopasswdlogin_group gdm ||:
+
+	restore_later "$GDM_CONF"
+	restore_later "/etc/group"
 fi
 
 autologin_kdm() {
+	backup "$1"
 	sed -i \
 		-e '/AutoLoginEnable/ s,^.*$,AutoLoginEnable=true,' \
 		-e '/AutoLoginUser/ s,^.*$,AutoLoginUser='$USER',' \
 		"$1"
+	restore_later "$1"
 }
 
 ## kdm3 autologin
+# FIXME: tde packages have kdmrc in /usr via an absolute symlink :-(
+KDM_ETC=/etc/X11/kdm
+KDM_USR=/usr/share/kde/config/kdm
+if [ "$(readlink "$KDM_ETC")" = "$KDM_USR" ]; then
+	rm -f "$KDM_ETC"
+	ln -s ../.."$KDM_USR" "$KDM_ETC"
+fi
+
 KDMRC=/etc/X11/kdm/kdmrc
 if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
 
@@ -67,22 +112,25 @@ if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
 # FIXME nodm and xinitrc should be modified (also in p6)
 NODM_RC=/etc/sysconfig/nodm
 NODM_EXE=/usr/sbin/nodm
-
 if [ -x "$NODM_EXE" ]; then
-	cat << E_O_F >> "$NODM_RC"
-export NODM_USER=$USER
-E_O_F
+	backup "$NODM_RC"
+	cat >> "$NODM_RC" <<- EOF
+	export NODM_USER=$USER
+	EOF
+	restore_later "$NODM_RC"
 else
 	exit 0
 fi
 
-# FIXME: drop when #27449 is fixed
+# FIXME: drop since #27449 is fixed
 PREFDM=/etc/X11/prefdm
 if [ -f "$PREFDM" ] && ! grep -q nodm "$PREFDM"; then
+	backup "$PREFDM"
 	sed -i \
 		-e '/AUTOLOGIN_EXE=/ s,^.*$,AUTOLOGIN_EXE='$NODM_EXE',' \
 		-e '/AUTOLOGIN_CFG=/ s,^.*$,AUTOLOGIN_CFG='$NODM_RC',' \
 		"$PREFDM"
+	restore_later "$PREFDM"
 fi
 
 # FIXME: drop when #27451 is fixed
