@@ -36,6 +36,8 @@ distro/regular-e17: distro/.regular-gtk use/x11/e17; @:
 distro/regular-cinnamon: distro/.regular-desktop use/x11/cinnamon
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
 
+distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3; @:
+
 distro/regular-tde: distro/.regular-desktop +tde
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 
