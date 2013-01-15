@@ -64,6 +64,9 @@ use/x11/xfce: use/x11/xorg
 use/x11/cinnamon: use/x11/xorg use/x11/drm
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
 
+use/x11/gnome3: use/x11/xorg use/x11/drm
+	@$(call add,THE_PACKAGES,gnome3-default)
+
 use/x11/e17: use/x11/xorg use/x11/3d-free
 	@$(call add,THE_LISTS,$(call tags,e17 desktop))
 
