@@ -22,7 +22,9 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/gdm2.20; @:
 
-distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind; @:
+distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind
+	@$(call add,LIVE_PACKAGES,xxkb)
+
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
 
