@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+echo 'KEYTABLE=ruwin_ct_sh-UTF-8' > /etc/sysconfig/keyboard
+cat <<EOF > /etc/sysconfig/i18n
+SYSFONT=UniCyr_8x16
+LANG=ru_RU.UTF-8
+SUPPORTED=ru_RU.UTF-8
+EOF

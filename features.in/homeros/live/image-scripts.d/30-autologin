@@ -1,0 +1,13 @@
+#!/bin/sh
+
+subst s/'^\(1:2345:respawn.*\)$'/'#\1'/ /etc/inittab 
+cat <<EOF >> /etc/inittab
+# yasr is always available on 1-st console;
+yasr:2345:respawn:/bin/openvt -w -f -c 1 -- su -l altlinux -c /usr/local/bin/yasr-with-linux-term
+EOF
+    cat <<EOF > /usr/local/bin/yasr-with-linux-term
+#!/bin/sh
+TERM=linux /usr/bin/yasr
+exit \$?
+EOF
+    chmod 755 /usr/local/bin/yasr-with-linux-term

@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+mkdir -p /etc/sudo.d
+chmod 700 /etc/sudo.d
+control su public
+control sudo public

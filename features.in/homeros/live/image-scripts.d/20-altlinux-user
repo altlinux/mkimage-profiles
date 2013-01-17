@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+useradd altlinux
+echo 'altlinux ALL=NOPASSWD:ALL' > /etc/sudo.d/altlinux
+chmod 400 /etc/sudo.d/altlinux
