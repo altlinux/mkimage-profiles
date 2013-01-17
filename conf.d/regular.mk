@@ -43,7 +43,9 @@ distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3; @:
 distro/regular-tde: distro/.regular-desktop +tde
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 
-distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4; @:
+distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4
+	@$(call add,LIVE_PACKAGES,plasma-applet-networkmanager)
+
 distro/regular-razorqt: distro/.regular-desktop +razorqt; @:
 
 endif
