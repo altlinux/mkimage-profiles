@@ -35,6 +35,6 @@ metadata-.base:
 metadata: metadata-.base
 	@mkdir -p $(METADIR); \
 	tar -C $(PKGDIR) -cvf - \
-		$(call rlist,$(MAIN_GROUPS) .base) \
-		$(call rgroup,$(MAIN_GROUPS)) \
+		$(call rlist,$(THE_GROUPS) $(MAIN_GROUPS) .base) \
+		$(call rgroup,$(THE_GROUPS) $(MAIN_GROUPS)) \
 	> $(METADIR)/pkg-groups.tar
