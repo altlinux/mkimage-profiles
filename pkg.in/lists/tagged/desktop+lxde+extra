@@ -11,3 +11,6 @@ gqview
 
 # file-roller is recommended over xarchiver and not that fatty yet
 file-roller
+
+# openbox behaviour, virtual desktops, etc
+obconf
