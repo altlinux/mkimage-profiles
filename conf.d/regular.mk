@@ -31,9 +31,8 @@ distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
 
-distro/regular-e17: distro/.regular-gtk use/x11/e17; @:
+distro/regular-e17: distro/.regular-gtk use/x11/e17
 	@$(call add,LIVE_PACKAGES,xterm xorg-xnest)
-	@$(call add,THE_KMODULES,sound)
 
 distro/regular-cinnamon: distro/.regular-desktop use/x11/cinnamon
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
