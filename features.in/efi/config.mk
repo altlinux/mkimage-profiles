@@ -7,6 +7,7 @@ use/efi:
 	@$(call set,MKI_VER_MINIMAL,0.2.5)	# see #28219
 	@$(call add,THE_LISTS,$(EFI_LISTS))
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
+	@$(call add,RESCUE_PACKAGES,refind)
 	@$(call add,INSTALL2_PACKAGES,dosfstools)
 	@$(call try,EFI_BOOTLOADER,elilo)	# default one
 
