@@ -32,6 +32,7 @@ livecd-setauth
 livecd-setlocale
 network
 NetworkManager
+connman
 random
 rpcbind
 "
