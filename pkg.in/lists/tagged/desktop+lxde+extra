@@ -16,5 +16,11 @@ gqview
 # file-roller is recommended over xarchiver (gns@) and not that fatty yet
 file-roller
 
+# for pcmanfm2 (aen@)
+gvfs
+gvfs-backends
+gvfs-utils
+fuse-gvfs
+
 # openbox behaviour, virtual desktops, etc
 obconf
