@@ -16,8 +16,4 @@ lxde-lxshortcut
 menu-cache
 altlinux-freedesktop-menu-lxde
 
-# lxterminal is reportedly sub-par
-#lxde-lxterminal
-sakura
-
 tango-icon-theme
