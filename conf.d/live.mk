@@ -2,7 +2,7 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
-distro/rescue: distro/.base use/rescue use/efi use/syslinux/ui/menu; @:
+distro/rescue: distro/.base use/rescue use/efi/signed use/syslinux/ui/menu; @:
 distro/syslinux: distro/.init \
 	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
