@@ -7,7 +7,7 @@ use/efi:
 	@$(call set,MKI_VER_MINIMAL,0.2.5)	# see #28219
 	@$(call add,THE_LISTS,$(EFI_LISTS))
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
-	@$(call add,RESCUE_PACKAGES,refind)
+	@$(call add,RESCUE_PACKAGES,refind efi-shell)
 	@$(call add,INSTALL2_PACKAGES,dosfstools)
 	@$(call try,EFI_BOOTLOADER,elilo)	# default one
 
@@ -16,6 +16,8 @@ use/efi/refind: use/efi
 
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)
+	@$(call add,RESCUE_PACKAGES,refind-signed efi-shell-signed)
+	@$(call add,RESCUE_PACKAGES,openssl sbsigntools)
 
 use/efi/debug: use/efi
 	@$(call add,STAGE2_PACKAGES,efibootmgr gdisk)
