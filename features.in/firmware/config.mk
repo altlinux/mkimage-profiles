@@ -5,6 +5,8 @@
 use/firmware:
 	@$(call add_feature)
 	@$(call add,SYSTEM_PACKAGES,firmware-linux)
+	@$(call add,THE_PACKAGES,firmware-amd-ucode)
+	@$(call add,THE_PACKAGES,microcode-data-intel microcode_ctl)
 
 use/firmware/server: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
