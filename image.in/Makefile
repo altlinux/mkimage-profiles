@@ -8,7 +8,7 @@ OUT_LINK := out
 # - minimal version is bumped for critical bugfixes/features
 # - optimal one relates to the less universally relevant bits
 MKI_VER_MINIMAL = 0.1.7
-MKI_VER_OPTIMAL = 0.2.5
+MKI_VER_OPTIMAL = 0.2.6
 
 include distcfg.mk
 include functions.mk
