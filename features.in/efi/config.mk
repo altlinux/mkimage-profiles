@@ -17,6 +17,7 @@ use/efi/refind: use/efi
 
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)
+	@$(call add,THE_PACKAGES,shim-signed)
 	@$(call set,EFI_SHELL,efi-shell-signed)	# even more useful
 	@$(call add,RESCUE_PACKAGES,refind-signed)
 	@$(call add,RESCUE_PACKAGES,openssl sbsigntools)
