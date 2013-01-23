@@ -3,4 +3,5 @@ gst-ffmpeg
 gnome-mplayer
 
 econnman
-connman
+
+e17-extra-modules
