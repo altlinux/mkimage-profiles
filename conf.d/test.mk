@@ -19,9 +19,6 @@ distro/live-gns3: distro/live-icewm
 	@$(call add,LIVE_LISTS,gns3)
 	@$(call add,LIVE_KMODULES,kvm virtualbox)
 
-distro/live-efi: distro/live-install use/efi
-	@$(call set,KFLAVOURS,un-def)	### CONFIG_FB_EFI
-
 distro/icewm-efi: distro/icewm use/efi/debug use/firmware
 	@$(call add,INSTALL2_PACKAGES,strace)
 
