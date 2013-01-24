@@ -1,4 +1,3 @@
-###
 use/kernel:
 	@$(call add_feature)
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,std-def)
