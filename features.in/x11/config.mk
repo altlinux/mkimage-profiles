@@ -16,7 +16,7 @@ use/x11/drm: use/x11/xorg
 use/x11/3d-free: use/x11/drm
 	@$(call add,THE_KMODULES,drm-nouveau)
 
-### fglrx is broken with xorg-1.12 so far
+### fglrx is broken with xorg-1.13 so far
 use/x11/3d-proprietary: use/x11/xorg
 	@$(call add,THE_KMODULES,fglrx nvidia)
 	@$(call add,THE_PACKAGES,nvidia-settings nvidia-xconfig)
