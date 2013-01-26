@@ -8,7 +8,7 @@ use/power:
 
 # modern power management
 use/power/acpi: use/power
-	@$(call add,COMMON_PACKAGES,acpid)
+	@$(call add,COMMON_PACKAGES,acpid acpi)
 
 use/power/acpi/button: use/power/acpi
 	@$(call add,COMMON_PACKAGES,acpid-events-power)
