@@ -6,17 +6,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/x11/3d-free use/systemd \
 	use/firmware/wireless use/efi/signed use/luks \
 	+vmguest use/memtest use/branding use/syslinux/ui/gfxboot
-	@$(call add,LIVE_PACKAGES,openssh strace alterator-standalone)
-	@$(call add,LIVE_PACKAGES,cpufreq-simple)
-	@$(call add,LIVE_PACKAGES,livecd-online-repo apt-repo)
-	@$(call add,LIVE_PACKAGES,xdg-user-dirs)
-	@$(call add,LIVE_PACKAGES,synaptic-usermode)
-	@$(call add,LIVE_PACKAGES,firefox-ru)
-	@$(call add,LIVE_PACKAGES,net-tools)
-	@$(call add,LIVE_PACKAGES,uvcview)
-	@$(call add,LIVE_PACKAGES,powertop)
-	@$(call add,LIVE_PACKAGES,acpi)
-	@$(call add,LIVE_PACKAGES,update-kernel)
+	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call set,KFLAVOURS,std-def)
