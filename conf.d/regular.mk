@@ -15,6 +15,8 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	@$(call add,LIVE_PACKAGES,net-tools)
 	@$(call add,LIVE_PACKAGES,uvcview)
 	@$(call add,LIVE_PACKAGES,powertop)
+	@$(call add,LIVE_PACKAGES,acpi)
+	@$(call add,LIVE_PACKAGES,update-kernel)
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call set,KFLAVOURS,std-def)
