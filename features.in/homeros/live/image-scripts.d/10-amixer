@@ -3,9 +3,9 @@
 cat <<EOF > /etc/rc.d/rc.local
 #!/bin/sh
 
-amixer set Master 100%
+amixer set Master 75%
 amixer set Master toggle
-amixer set PCM 100%
+amixer set PCM 75%
 amixer set PCM toggle
 
 EOF
