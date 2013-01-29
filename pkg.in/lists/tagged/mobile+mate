@@ -1,6 +1,6 @@
 NetworkManager
 NetworkManager-gnome
-wpa_gui
+NetworkManager-l2tp-gnome
 rfkill
 dbus-tools-gui
 fonts-ttf-droid
