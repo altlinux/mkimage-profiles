@@ -12,8 +12,11 @@ switch() {
 	esac
 
 	{
-		[ ! -x /bin/systemctl ] || /bin/systemctl $sc $1.service
-		[ ! -x /sbin/chkconfig ] || /sbin/chkconfig $1 $cc
+		[ ! -x /bin/systemctl ] ||
+			/bin/systemctl --no-reload $sc $1.service
+
+		[ ! -x /sbin/chkconfig ] ||
+			/sbin/chkconfig $1 $cc
 	} 2>/dev/null
 }
 

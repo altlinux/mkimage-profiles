@@ -18,12 +18,12 @@ sshd
 "
 
 for i in $ENABLE;  do
-	[ -x /bin/systemctl ] && /bin/systemctl enable ${i}.service
+	[ -x /bin/systemctl ] && /bin/systemctl --no-reload enable ${i}.service
 	[ -x /sbin/chkconfig ] && /sbin/chkconfig $i on
 done
 
 for i in $DISABLE; do
-	[ -x /bin/systemctl ] && /bin/systemctl disable ${i}.service
+	[ -x /bin/systemctl ] && /bin/systemctl --no-reload disable ${i}.service
 	[ -x /sbin/chkconfig ] && /sbin/chkconfig $i off
 done
 :
