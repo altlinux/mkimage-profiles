@@ -39,6 +39,7 @@ connman
 random
 rpcbind
 plymouth
+avahi-daemon
 "
 
 # NB: dnsmasq: https://bugzilla.altlinux.org/show_bug.cgi?id=18799
