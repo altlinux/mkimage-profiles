@@ -1,3 +1,5 @@
+mate-default
+
 altlinux-freedesktop-menu-mate
 mate-conf-gtk
 mate-control-center
@@ -29,7 +31,7 @@ mate-document-viewer-djvu
 mate-file-archiver
 mate-image-viewer
 mate-media
-mate-media-apps
+#mate-media-apps
 mate-netspeed
 mate-power-manager
 mate-screensaver
