@@ -42,7 +42,7 @@ IMAGEDIR ?= $(shell \
 	fi; \
 )
 
-LOGDIR ?= $(IMAGEDIR)
+LOGDIR ?= $(wildcard $(IMAGEDIR))
 
 # actual build starter
 # NB: our output MUST go into stderr to escape POSTPROC

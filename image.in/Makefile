@@ -29,8 +29,11 @@ $(info warning: mkimage-$(MKI_VERSION) is suboptimal, consider upgrading)
 $(warning consider upgrading mkimage to $(MKI_VER_OPTIMAL) or better)
 endif
 
+# glob it just in case
+IMAGEDIR := $(wildcard $(IMAGEDIR))
+
 # additional means to reduce havoc in IMAGEDIR
-IMAGE_SORTDIR := $(SORTDIR)
+IMAGE_SORTDIR := $(wildcard $(SORTDIR))
 
 # reconstruct instead of passing yet another variable
 IMAGE_OUTDIR   := $(IMAGEDIR)$(IMAGE_SORTDIR:%=/%)

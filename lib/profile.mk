@@ -82,8 +82,8 @@ profile/bare: profile/init
 	} >&2
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)
-	@$(call try,IMAGEDIR,$(IMAGEDIR))
-	@$(call try,LOGDIR,$(LOGDIR))
+	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
+	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
 	@$(call try,BRANDING,altlinux-sisyphus)
 ifeq (,$(REPO:altlinux%=))
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)

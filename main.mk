@@ -34,6 +34,12 @@ include $(sort $(wildcard lib/*.mk))
 include conf.d/*.mk
 include features.in/*/config.mk
 
+# ensure the outdir is created and globbable
+ifdef IMAGEDIR
+$(shell mkdir -p $(IMAGEDIR))
+IMAGEDIR := $(wildcard $(IMAGEDIR))
+endif
+
 # FIXME: this is buggy since *.mk can expose parts conditionally
 #        (e.g. test.mk does DEBUG-only bits) and these will fail
 DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
