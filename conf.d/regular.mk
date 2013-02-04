@@ -22,6 +22,7 @@ distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
 
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
+	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17
 	@$(call add,LIVE_PACKAGES,xterm xorg-xnest)
