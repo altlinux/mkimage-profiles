@@ -13,6 +13,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	@$(call try,SAVE_PROFILE,yes)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
+	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
@@ -22,7 +23,6 @@ distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
 
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
-	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17
 	@$(call add,LIVE_PACKAGES,xterm xorg-xnest)
