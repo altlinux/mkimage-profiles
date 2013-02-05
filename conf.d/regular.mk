@@ -12,7 +12,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	@$(call set,KFLAVOURS,std-def)
 	@$(call try,SAVE_PROFILE,yes)
 
-distro/.regular-gtk: distro/.regular-desktop use/x11/gdm2.20 +plymouth; @:
+distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
 distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
