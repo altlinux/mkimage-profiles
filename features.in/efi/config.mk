@@ -9,7 +9,7 @@ use/efi:
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
 	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
 	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL))
-	@$(call add,INSTALL2_PACKAGES,dosfstools)
+	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call try,EFI_BOOTLOADER,elilo)	# default one
 
 use/efi/refind: use/efi
