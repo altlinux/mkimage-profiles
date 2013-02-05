@@ -8,6 +8,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	+vmguest use/memtest use/branding use/syslinux/ui/gfxboot
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
+	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call set,KFLAVOURS,std-def)
 	@$(call try,SAVE_PROFILE,yes)
