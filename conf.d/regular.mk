@@ -4,7 +4,7 @@ ifeq (distro,$(IMAGE_CLASS))
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/x11/3d-free use/systemd \
-	use/firmware/wireless use/efi/signed use/luks +plymouth \
+	use/firmware/wireless use/efi/signed use/luks \
 	+vmguest use/memtest use/branding use/syslinux/ui/gfxboot
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
@@ -12,7 +12,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	@$(call set,KFLAVOURS,std-def)
 	@$(call try,SAVE_PROFILE,yes)
 
-distro/.regular-gtk: distro/.regular-desktop use/x11/gdm2.20; @:
+distro/.regular-gtk: distro/.regular-desktop use/x11/gdm2.20 +plymouth; @:
 
 distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
@@ -32,14 +32,15 @@ distro/regular-cinnamon: distro/.regular-desktop use/x11/cinnamon
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3; @:
 
-distro/regular-tde: distro/.regular-desktop +tde
+distro/regular-tde: distro/.regular-desktop +tde +plymouth
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_PACKAGES,kdegames kdeedu)
 
-distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4
+distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
 	@$(call add,LIVE_PACKAGES,kde4-regular)
 	@$(call add,LIVE_PACKAGES,plasma-applet-networkmanager)
 
-distro/regular-razorqt: distro/.regular-desktop use/x11/razorqt use/x11/kdm4; @:
+distro/regular-razorqt: distro/.regular-desktop use/x11/razorqt use/x11/kdm4 \
+	+plymouth; @:
 
 endif
