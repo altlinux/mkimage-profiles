@@ -1,5 +1,5 @@
 +icewm: use/x11/icewm; @:
-+razorqt: use/x11/razorqt use/x11/lightdm/qt; @:
++razorqt: use/x11/razorqt use/x11/lightdm/razorqt; @:
 +tde: use/x11/tde use/x11/kdm; @:
 +kde4-lite: use/x11/kde4-lite use/x11/kdm4; @:
 
@@ -31,7 +31,8 @@ use/x11/xdm: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,xdm installer-feature-no-xconsole-stage3)
 
 ### : some set()-like thing might be better?
-use/x11/lightdm/qt use/x11/lightdm/gtk: use/x11/lightdm/%: use/x11/runlevel5
+use/x11/lightdm/gtk use/x11/lightdm/qt use/x11/lightdm/razorqt \
+	use/x11/lightdm/kde: use/x11/lightdm/%: use/x11/runlevel5
 	@$(call add,THE_PACKAGES,lightdm-$*-greeter)
 
 use/x11/kdm: use/x11/runlevel5
