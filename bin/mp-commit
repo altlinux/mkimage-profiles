@@ -3,13 +3,19 @@
 
 . shell-error
 
+INIT=
+if [ "$1" = "-i" ]; then
+	INIT=yes
+	shift
+fi
+
 [ -d "$1" ] || fatal "$1 is not an existing directory"
 
 if type -t git >&/dev/null && pushd "$1" >/dev/null; then
 	if [ -z "$(git config --global user.name)" ]; then
 		exit 0
 	fi
-	if [ ! -d .git ]; then
+	if [ -n "$INIT" -a ! -d .git ]; then
 		git init -q || fatal "git init failed"
 	fi
 	if [ -n "$(git status -s)" ]; then

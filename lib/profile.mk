@@ -65,7 +65,7 @@ profile/init: distclean
 		fi >&2; \
 		exit 1; \
 	fi; \
-	mp-commit "$(BUILDDIR)" "derivative profile initialized"; \
+	mp-commit -i "$(BUILDDIR)" "derivative profile initialized"; \
 	if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
 		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
