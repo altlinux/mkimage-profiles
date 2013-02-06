@@ -43,7 +43,6 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
 	@$(call add,LIVE_PACKAGES,kde4-regular)
 	@$(call add,LIVE_PACKAGES,plasma-applet-networkmanager)
 
-distro/regular-razorqt: distro/.regular-desktop use/x11/razorqt use/x11/kdm4 \
-	+plymouth; @:
+distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
 endif
