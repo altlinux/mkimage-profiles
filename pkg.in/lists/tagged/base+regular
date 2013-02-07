@@ -5,6 +5,7 @@ strace
 powertop
 acpi
 
+livecd-net-eth
 livecd-online-repo
 apt-repo
 update-kernel

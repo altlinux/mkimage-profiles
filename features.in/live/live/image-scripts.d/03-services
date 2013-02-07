@@ -33,6 +33,7 @@ livecd-hostname
 livecd-save-nfs
 livecd-setauth
 livecd-setlocale
+livecd-net-eth
 network
 NetworkManager
 connman
