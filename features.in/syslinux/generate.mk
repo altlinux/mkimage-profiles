@@ -82,7 +82,7 @@ bootargs: clean
 
 clean: copy
 	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
-		sed -i "s,\^,," $(DSTDIR)/*.cfg; \
+		sed -i "s/\^//;/menu label /d" $(DSTDIR)/*.cfg; \
 	fi
 
 copy: prep
