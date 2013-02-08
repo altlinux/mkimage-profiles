@@ -11,6 +11,7 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call set,KFLAVOURS,std-def)
+	@$(call add,KMODULES,r8168)
 	@$(call try,SAVE_PROFILE,yes)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
