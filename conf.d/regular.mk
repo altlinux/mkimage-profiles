@@ -9,6 +9,8 @@ distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,LIVE_LISTS,domain-client)
+	@$(call add,STAGE1_PACKAGES,udev-rule-generator-net)
+	@$(call add,STAGE2_PACKAGES,udev-rule-generator-net)
 	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
 	@$(call set,KFLAVOURS,std-def)
 	@$(call add,KMODULES,r8168)
