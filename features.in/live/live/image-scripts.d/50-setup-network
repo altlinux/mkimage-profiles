@@ -23,6 +23,18 @@ DOMAINNAME="localdomain"
 verbose "Init /etc/hosts with 127.0.0.1 localhost"
 echo "127.0.0.1 localhost localhost.localdomain" > /etc/hosts
 
+prefix="/etc/net/ifaces"
+
+# seems like aufs bug on O_TRUNC writes:
+#   aufs au_lkup_neg:267:kworker/0:2[998]:
+#   I/O Error, resolv.conf should be negative on b0.
+# OTOH lo interface is now brought up in initrd
+# so this shoudn't really matter
+if [ -d "$prefix"/lo ]; then
+	echo 'nameserver 8.8.8.8' >> "$prefix"/lo/resolv.conf
+fi
+find /var -name resolv.conf -or -name nsswitch.conf -delete
+
 netcfg="/etc/sysconfig/network"
 
 verbose "Enable networking, set hostname to $HOSTNAME, domainname to $DOMAINNAME"
@@ -30,21 +42,22 @@ shell_config_set "$netcfg" NETWORKING yes
 shell_config_set "$netcfg" HOSTNAME "$HOSTNAME"
 shell_config_set "$netcfg" DOMAINNAME "$DOMAINNAME"
 
-
-if  [ -x /usr/sbin/NetworkManager ] ; then
-	verbose "Setup defaults for NetworkManager"
-	shell_config_set /etc/net/ifaces/default/options-eth NM_CONTROLLED yes
-	shell_config_set /etc/net/ifaces/default/options-eth DISABLED yes
-	shell_config_set /etc/net/ifaces/default/options-eth BOOTPROTO dhcp
+# NB: see also #28484 and livecd-net-eth for runtime configuration
+defcfg="$prefix/default/options-eth"
+if  [ -x /usr/sbin/NetworkManager -o -x /usr/sbin/connmand ] ; then
+	verbose "Setup defaults for NetworkManager/connman"
+	shell_config_set "$defcfg" NM_CONTROLLED yes
+	shell_config_set "$defcfg" DISABLED yes
+	shell_config_set "$defcfg" BOOTPROTO dhcp
 else
 	# attempt to autoconfigure ethernet by etcnet
-	if [ -x /sbin/dhcpcd -o -x /sbin/dhclient ]; then
+	if [ -x /lib/udev/write_net_rules ] &&
+	   [ -x /sbin/dhcpcd -o -x /sbin/dhclient ]; then
 		verbose "configuring DHCP for eth0"
-
-		mkdir -p /etc/net/ifaces/eth0 && {
+		mkdir -p "$prefix"/eth0 && {
 		echo TYPE=eth
 		echo BOOTPROTO=dhcp
-		} > /etc/net/ifaces/eth0/options
+		} > "$prefix"/eth0/options
 	else
 		verbose "NOT configuring eth0 for DHCP"
 	fi
