@@ -1,6 +1,0 @@
-object 5fcc2aaa78b5704b4bc4ec448322680efa2cc332
-type commit
-tag v0.9.6
-tagger Michael Shigorin <mike@altlinux.org> 1360001972 +0400
-
-assorted fixes
