@@ -72,3 +72,6 @@ use/x11/e17: use/x11/xorg use/x11/3d-free
 
 use/x11/lxde: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
+
+use/x11/fvwm: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,fvwm desktop))
