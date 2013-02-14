@@ -31,6 +31,7 @@ distro/regular-e17: distro/.regular-gtk use/x11/e17
 
 distro/regular-cinnamon: distro/.regular-desktop use/x11/cinnamon
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
+	@$(call add,LIVE_PACKAGES,fontconfig-infinality)
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3; @:
 
