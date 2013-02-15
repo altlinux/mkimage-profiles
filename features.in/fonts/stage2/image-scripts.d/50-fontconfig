@@ -1,0 +1,33 @@
+#!/bin/sh
+# fontconfig-config-config
+
+verbose="${GLOBAL_VERBOSE:+-v}"
+verbose() { [ -z "$GLOBAL_VERBOSE" ] || echo "HOOK: 50-fontconfig: $@"; }
+verbose "has started"
+
+CONF_DIR="/etc/fonts/conf.d"
+AVAIL_DIR="/etc/fonts/conf.avail"
+
+list() { ls "$1"/??-"$2".conf 2>/dev/null; }
+
+enable() {
+	for i in "$@"; do
+		if ! list "$CONF_DIR" "$i"; then
+			AVAIL="$(list "$AVAIL_DIR" "$i" | head -1)"
+			if [ -n "$AVAIL" ]; then
+				ln -s $verbose "$AVAIL" "$CONF_DIR/$CONF_ADD"
+			fi
+		fi
+	done
+}
+
+disable() {
+	for i in "$@"; do
+		$(list "$CONF_DIR" "$i") | xargs -r rm -f $verbose --
+	done
+}
+
+disable $GLOBAL_FONT_FEATURES_DISABLE
+enable  $GLOBAL_FONT_FEATURES_ENABLE
+
+:
