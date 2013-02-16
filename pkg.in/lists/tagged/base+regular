@@ -9,6 +9,7 @@ livecd-online-repo
 apt-repo
 update-kernel
 synaptic-usermode
+eepm
 
 alterator-standalone
 cpufreq-simple
