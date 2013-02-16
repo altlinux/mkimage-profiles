@@ -46,7 +46,7 @@ distro/live-webkiosk-mini: distro/.live-kiosk use/live/hooks use/live/ru
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
-	@$(call set,KFLAVOURS,led-ws)
+	@#$(call set,KFLAVOURS,led-ws)
 
 # NB: flash/java plugins are predictable security holes
 distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live +vmguest
