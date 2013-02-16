@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 if [ ! -x /usr/bin/X ]; then
 	echo "SKIP autologin: X not installed" >&2
