@@ -44,7 +44,7 @@ distro/live-rescue: distro/live-icewm use/efi
 
 distro/live-webkiosk-mini: distro/.live-kiosk use/live/hooks use/live/ru
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
-	@$(call add,LIVE_PACKAGES,livecd-webkiosk)
+	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 	@#$(call set,KFLAVOURS,led-ws)
 
