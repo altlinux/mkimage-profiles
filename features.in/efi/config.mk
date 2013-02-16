@@ -1,3 +1,5 @@
++efi: use/efi; @:
+
 ifeq (x86_64,$(ARCH))
 
 EFI_LISTS := $(call tags,base efi)

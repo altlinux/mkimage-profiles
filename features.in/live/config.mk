@@ -14,7 +14,8 @@ use/live/x11: use/live use/firmware use/x11/xorg
 	@$(call add,LIVE_PACKAGES,xinit)
 
 # optimized out: use/x11/xorg
-use/live/desktop: use/live/base use/x11/wacom use/live/sound +vmguest +power
+use/live/desktop: use/live/base use/x11/wacom use/live/sound \
+	+vmguest +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
