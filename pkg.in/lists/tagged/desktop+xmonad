@@ -1,0 +1,7 @@
+xmonad
+xmonad-contrib
+xmonad-utils
+xinit
+rxvt-unicode
+libXinerama-devel
+libXext-devel

@@ -1,5 +1,6 @@
 +icewm: use/x11/icewm; @:
 +razorqt: use/x11/razorqt use/x11/lightdm/razorqt; @:
++xmonad: use/x11/xmonad; @:
 +tde: use/x11/tde use/x11/kdm; @:
 +kde4-lite: use/x11/kde4-lite use/x11/kdm4; @:
 
@@ -85,3 +86,6 @@ use/x11/wmaker: use/x11/xorg
 
 use/x11/gnustep: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,gnustep desktop))
+
+use/x11/xmonad: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,xmonad desktop))
