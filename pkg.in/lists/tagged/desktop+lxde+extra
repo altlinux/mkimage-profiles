@@ -1,8 +1,8 @@
 tango-icon-theme-extras
 
-# lxterminal is reportedly sub-par (gns@) but official (aen@)
-lxde-lxterminal
-#sakura
+#lxde-lxterminal
+sakura
+fonts-bitmap-terminus
 
 leafpad
 galculator
