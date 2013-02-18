@@ -51,7 +51,8 @@ distro/regular-tde: distro/.regular-desktop +tde +plymouth
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_PACKAGES,kdegames kdeedu)
 
-distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
+distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
+	use/fonts/zerg +plymouth
 	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
