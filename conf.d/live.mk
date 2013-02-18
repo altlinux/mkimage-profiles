@@ -11,8 +11,8 @@ distro/.live-desktop: distro/.base +live use/live/install use/live/net-eth \
 	use/plymouth/live use/efi; @:
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
-distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
-	use/syslinux/timeout/1 use/cleanup +power use/efi/signed
+distro/.live-kiosk: distro/.base use/live/base use/live/autologin +power \
+	use/syslinux/timeout/1 use/cleanup use/efi/signed use/live/net-eth
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu)
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 
