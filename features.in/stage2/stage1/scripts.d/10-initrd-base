@@ -2,5 +2,13 @@
 # prepare base make-initrd configuration for stage1
 # see also http://www.altlinux.org/Make-initrd-propagator
 
-sed -i 's/AUTODETECT/#&/' /etc/initrd.mk
+MAKE_INITRD_VER="`make-initrd -V \
+	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
+
+if [ "`rpmvercmp "$MAKE_INITRD_VER" "0.8.1"`" != "-1" ]; then
+	echo 'AUTODETECT =' >> /etc/initrd.mk	# make-initrd >= 0.8.1
+else
+	sed -i 's/AUTODETECT/#&/' /etc/initrd.mk	# see also #28578
+fi
+
 echo 'FEATURES += propagator' >> /etc/initrd.mk
