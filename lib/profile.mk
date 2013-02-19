@@ -57,13 +57,15 @@ profile/init: distclean
 		echo; \
 	} $(LOG); \
 	if ! grep -q "\<$(ARCH)\>" $(BUILDDIR)/sources.list; then \
-		echo -n "requested arch '$$ARCH' unavailable" >&2; \
-		if [ -z "$(APTCONF)" ]; then \
-			echo " (no APTCONF)"; \
-		else \
-			echo; \
-		fi >&2; \
-		exit 1; \
+		if grep -q " noarch " $(BUILDDIR)/sources.list; then \
+			echo -n "requested arch '$$ARCH' unavailable" >&2; \
+			if [ -z "$(APTCONF)" ]; then \
+				echo " (no APTCONF)"; \
+			else \
+				echo; \
+			fi >&2; \
+			exit 1; \
+		fi; \
 	fi; \
 	mp-commit -i "$(BUILDDIR)" "derivative profile initialized"; \
 	if [ -w . ]; then \
