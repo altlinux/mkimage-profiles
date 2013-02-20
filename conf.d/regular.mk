@@ -42,6 +42,7 @@ distro/regular-tde: distro/.regular-desktop +tde +plymouth
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
 	@$(call add,LIVE_PACKAGES,kde4-regular)
 	@$(call add,LIVE_PACKAGES,plasma-applet-networkmanager)
+	@$(call add,LIVE_PACKAGES,settime-rfc867)	# time sync for kerberos
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
