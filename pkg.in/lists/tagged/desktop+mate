@@ -2,48 +2,16 @@ mate-default
 
 altlinux-freedesktop-menu-mate
 mate-conf-gtk
-mate-control-center
-mate-desktop
-mate-dialogs
-mate-file-manager
-mate-icon-theme
-mate-keyring
-mate-menus
-mate-mime-data
-mate-notification-daemon
-mate-panel
-mate-polkit
-mate-session
 #mate-session-manager
-mate-settings-daemon
-mate-themes
-mate-vfs gvfs-backends
-mate-vfs-smb
-mate-window-manager
+#mate-vfs
+#mate-vfs-smb
 
-mate-applets
-mate-bluetooth
-mate-calc
-mate-charmap
-mate-document-viewer
 mate-document-viewer-caja
 mate-document-viewer-djvu
-mate-file-archiver
-mate-image-viewer
-mate-media
 #mate-media-apps
-mate-netspeed
-mate-power-manager
-mate-screensaver
-mate-terminal
-mate-utils
 #mate-utils-mate-system-log
 
 mate-file-manager-extensions
-mate-file-manager-image-converter
-mate-file-manager-open-terminal
-mate-file-manager-sendto
-parcellite
 
 ### should be dropped at some stage; see bugreports within this thread:
 # http://lists.altlinux.org/pipermail/sisyphus/2012-August/358079.html
