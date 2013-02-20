@@ -1,15 +1,9 @@
 mate-default
 
 altlinux-freedesktop-menu-mate
-mate-conf-gtk
-#mate-session-manager
-#mate-vfs
-#mate-vfs-smb
 
 mate-document-viewer-caja
 mate-document-viewer-djvu
-#mate-media-apps
-#mate-utils-mate-system-log
 
 mate-file-manager-extensions
 
