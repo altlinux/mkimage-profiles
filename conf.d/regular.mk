@@ -14,7 +14,7 @@ distro/.regular-base: distro/.base +live +wireless use/live/ru \
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-base \
-	use/systemd use/syslinux/ui/gfxboot use/firmware/cpu use/efi/refind
+	use/systemd use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call set,KFLAVOURS,std-def)
