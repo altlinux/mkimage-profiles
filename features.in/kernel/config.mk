@@ -8,3 +8,6 @@ endif
 use/kernel:
 	@$(call add_feature)
 	@$(call set,KFLAVOURS,std-def)
+
+use/kernel/net:
+	@$(call add,THE_KMODULES,e1000e igb r8168 rtl8168)
