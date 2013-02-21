@@ -14,7 +14,7 @@ distro/server-mini: distro/.server-base use/server/mini \
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
-	use/firmware/server use/power/acpi/button +wireless
+	use/firmware/server use/firmware/cpu use/power/acpi/button +wireless
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call add,BASE_KMODULES,rtl8168)
