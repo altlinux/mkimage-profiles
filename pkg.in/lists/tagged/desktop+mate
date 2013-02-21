@@ -1,11 +1,6 @@
-mate-default
+mate-full
 
 altlinux-freedesktop-menu-mate
-
-mate-document-viewer-caja
-mate-document-viewer-djvu
-
-mate-file-manager-extensions
 
 ### should be dropped at some stage; see bugreports within this thread:
 # http://lists.altlinux.org/pipermail/sisyphus/2012-August/358079.html
