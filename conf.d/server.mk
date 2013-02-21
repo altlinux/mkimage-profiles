@@ -17,7 +17,8 @@ distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/cpu use/power/acpi/button +wireless
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
-	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
+	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring)
+	@$(call add,MAIN_KMODULES,xtables-addons)	# t6/branch
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
 	@$(call add,BASE_LISTS,ovz-server)
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
