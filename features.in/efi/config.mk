@@ -25,7 +25,7 @@ use/efi/signed: use/efi
 	@$(call add,RESCUE_PACKAGES,openssl sbsigntools)
 
 use/efi/shell: use/efi
-	@$(call set,EFI_SHELL,efi-shell)
+	@$(call try,EFI_SHELL,efi-shell)
 
 use/efi/debug: use/efi
 	@$(call add,STAGE2_PACKAGES,efibootmgr gdisk)
