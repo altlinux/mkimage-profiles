@@ -35,6 +35,11 @@ $ mkdir ~/out
 $ make syslinux.iso
 ----
 
+список доступных целей::
+----
+$ make help
+----
+
 ссылки
 ~~~~~~
 - http://www.altlinux.org/tmpfs
