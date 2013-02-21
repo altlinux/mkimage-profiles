@@ -15,7 +15,6 @@ use/slinux: use/x11/xfce use/x11/gdm2.20
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call set,META_VOL_SET,Simply Linux)
 
-use/slinux/full: use/isohybrid use/slinux use/systemd \
-	use/firmware/wireless use/branding/complete \
-	use/x11/drm use/x11/3d-proprietary
+use/slinux/full: use/isohybrid use/slinux use/systemd +wireless \
+	use/branding/complete use/x11/drm use/x11/3d-proprietary
 	@$(call add,THE_PACKAGES,apt-conf-sisyphus)

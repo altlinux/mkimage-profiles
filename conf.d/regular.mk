@@ -4,8 +4,7 @@ ifeq (distro,$(IMAGE_CLASS))
 # WM base target
 distro/.regular-base: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/live/net-eth use/x11/3d-free \
-	use/firmware/wireless use/efi/signed use/luks \
-	+vmguest use/memtest use/branding
+	use/efi/signed use/luks +vmguest use/memtest use/branding
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator)

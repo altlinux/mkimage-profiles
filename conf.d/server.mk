@@ -14,10 +14,10 @@ distro/server-mini: distro/.server-base use/server/mini \
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
-	use/firmware/server use/firmware/wireless use/power/acpi/button
+	use/firmware/server use/power/acpi/button +wireless
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
-	@$(call add,BASE_KMODULES,rtl8168 rtl8192)
+	@$(call add,BASE_KMODULES,rtl8168)
 	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring xtables-addons)
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
 	@$(call add,BASE_LISTS,ovz-server)
