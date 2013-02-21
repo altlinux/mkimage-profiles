@@ -1,24 +1,31 @@
 # regular build/usage images
 ifeq (distro,$(IMAGE_CLASS))
 
-# TODO: use/plymouth/live when luks+plymouth is done, see also #28255
-distro/.regular-desktop: distro/.base +live +wireless use/live/ru \
+# WM base target
+distro/.regular-base: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/live/net-eth use/x11/3d-free \
-	use/systemd use/firmware/wireless use/efi/signed use/luks \
-	+vmguest use/memtest use/branding use/syslinux/ui/gfxboot
+	use/firmware/wireless use/efi/signed use/luks \
+	+vmguest use/memtest use/branding
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
-	@$(call add,LIVE_LISTS,domain-client)
-	@$(call add,THE_BRANDING,indexhtml notes alterator bootloader)
-	@$(call set,KFLAVOURS,std-def)
+	@$(call add,THE_BRANDING,indexhtml notes alterator)
 	@$(call add,KMODULES,r8168)
 	@$(call try,SAVE_PROFILE,yes)
+
+# DE base target
+# TODO: use/plymouth/live when luks+plymouth is done, see also #28255
+distro/.regular-desktop: distro/.regular-base \
+	use/systemd use/syslinux/ui/gfxboot use/efi/refind
+	@$(call add,LIVE_LISTS,domain-client)
+	@$(call add,THE_BRANDING,bootloader)
+	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 	@$(call add,THE_BRANDING,graphics)
 
-distro/regular-icewm: distro/.regular-gtk +icewm use/efi/refind
+distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
+	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
@@ -42,7 +49,6 @@ distro/regular-tde: distro/.regular-desktop +tde +plymouth
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
 	@$(call add,LIVE_PACKAGES,kde4-regular)
 	@$(call add,LIVE_PACKAGES,plasma-applet-networkmanager)
-	@$(call add,LIVE_PACKAGES,settime-rfc867)	# time sync for kerberos
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 

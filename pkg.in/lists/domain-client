@@ -13,6 +13,8 @@ installer-feature-weak-passwd
 libnss-fallback
 libnss-mdns
 
+settime-rfc867
+
 krb5-ticket-watcher
 
 alterator-browser-qt
@@ -20,4 +22,3 @@ alterator-standalone
 
 alterator-auth
 alterator-net-shares
-
