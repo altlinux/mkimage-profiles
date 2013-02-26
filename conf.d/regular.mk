@@ -1,6 +1,8 @@
 # regular build/usage images
 ifeq (distro,$(IMAGE_CLASS))
 
+INFINALITY_PACKAGES := libfreetype-infinality fontconfig-infinality
+
 # WM base target
 distro/.regular-base: distro/.base +live +wireless use/live/ru \
 	use/live/install use/live/repo use/live/net-eth use/x11/3d-free \
@@ -28,7 +30,9 @@ distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
-distro/regular-lxde: distro/.regular-gtk use/x11/lxde; @:
+
+distro/regular-lxde: distro/.regular-gtk use/x11/lxde
+	@$(call add,LIVE_PACKAGES,$(INFINALITY_PACKAGES))
 
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
@@ -38,7 +42,7 @@ distro/regular-e17: distro/.regular-gtk use/x11/e17
 
 distro/regular-cinnamon: distro/.regular-desktop use/x11/cinnamon
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
-	@$(call add,LIVE_PACKAGES,fontconfig-infinality)
+	@$(call add,LIVE_PACKAGES,$(INFINALITY_PACKAGES))
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3; @:
 
