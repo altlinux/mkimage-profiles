@@ -42,7 +42,8 @@ distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 
-distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad; @:
+distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
+	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
