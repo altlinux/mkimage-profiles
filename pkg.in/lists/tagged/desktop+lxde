@@ -13,11 +13,13 @@ lxde-lxshortcut
 lxde-lxappearance
 lxde-lxappearance-obconf
 lxde-lxshortcut
+lxde-lxinput
 
 menu-cache
 altlinux-freedesktop-menu-lxde
 
 # NB: an lxde-settings is required by lxde-common
-lxde-settings-altlinux
+lxde-settings-upstream
 
+lxde-icon-theme
 tango-icon-theme
