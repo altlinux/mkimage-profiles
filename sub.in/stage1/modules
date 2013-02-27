@@ -168,7 +168,7 @@ qlogicfas408.ko
 qlogicfas.ko
 qlogicfc.ko
 qlogicisp.ko
-r8169.ko
+r8168.ko
 raid_class.ko
 reiserfs.ko
 rrunner.ko
