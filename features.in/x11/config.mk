@@ -79,3 +79,9 @@ use/x11/fvwm: use/x11/xorg
 
 use/x11/sugar: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,sugar desktop))
+
+use/x11/wmaker: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,wmaker desktop))
+
+use/x11/gnustep: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,gnustep desktop))

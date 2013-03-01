@@ -29,6 +29,13 @@ distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,deepsolver deepsolver-repo)
 	@$(call set,KFLAVOURS,un-def)
 
+distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
+	use/x11/wmaker
+	@$(call add,LIVE_PACKAGES,xxkb)
+
+distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep
+	@$(call add,THE_BRANDING,graphics)
+
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality
