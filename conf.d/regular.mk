@@ -33,6 +33,7 @@ distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde
 	@$(call add,LIVE_PACKAGES,$(INFINALITY_PACKAGES))
+	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
