@@ -9,3 +9,7 @@ use/fonts/zerg: use/fonts
 		hinting style-full sub-pixel-rgb)
 	@$(call set,FONT_FEATURES_DISABLE,no-antialias lcdfilter-none \
 		unhinted no-sub-pixel)
+
+# nothing configured to add_feature, let's skip that this time
+use/fonts/infinality:
+	@$(call add,THE_PACKAGES,libfreetype-infinality fontconfig-infinality)
