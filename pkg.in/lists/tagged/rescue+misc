@@ -1,0 +1,27 @@
+# BDB
+db4.8-utils
+
+# Networking
+drbd83-tools
+iscsitarget-utils
+ntp-utils
+
+# Optical media
+dvd+rw-tools
+readom
+xorriso
+
+# Magnetic tapes
+dvgrab
+mt-st
+mtx
+
+# Hardware
+irda-utils
+lm_sensors3
+lshw
+smbios-utils
+
+# Misc^2
+kexec-tools
+multipath-tools
