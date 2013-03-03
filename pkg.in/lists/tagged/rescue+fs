@@ -1,8 +1,5 @@
 #anyfs-tools
 cpipe
+pv
 dar
-ddrescue
-foremost
-sleuthkit
-xfsdump
-#zfs-fuse
+dmsdos

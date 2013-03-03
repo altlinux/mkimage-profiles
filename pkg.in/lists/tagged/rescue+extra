@@ -21,6 +21,7 @@ lvm2
 mdadm
 ms-sys
 parted
+partclone
 sdparm
 sfdisk
 smartmontools
@@ -52,24 +53,46 @@ findutils
 file
 less
 
-# Filesystem utils
-dosfstools
+# Filesystem maintenance
+btrfs-progs
 e2fsprogs
+f2fs-tools
 jfsprogs
-ntfs-3g
-recover
-recoverdm
+logfsprogs
+nilfs-utils
+reiser4progs
 reiserfsprogs
 xfsprogs
-btrfs-progs
+
+# Compressed filesystem image
+clicfs-utils
+cloop-utils
+squashfsprogs
+squashfsprogs3
+squashfsprogs-xz
+
+# Foreign filesystems
+dosfstools
+exofs-utils
+fuse-zfs
+hfsprogs
+ntfs-3g
+ocfs2-tools
+
+# Filesystem recovery/cleanup
 ext3grep
-dmsdos
 extundelete
+foremost
+magicrescue
+recover
+recoverdm
 scalpel
+sleuthkit
 testdisk
 testdisk-doc
-zerofree
 wipefreespace
+xfsdump
+zerofree
 
 # Applications/Networking
 arpwatch
@@ -87,6 +110,7 @@ mtr
 netcat
 netlist
 nfs-utils
+cifs-utils
 ngrep
 nmap
 p0f
