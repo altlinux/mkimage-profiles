@@ -3,12 +3,12 @@ ifeq (distro,$(IMAGE_CLASS))
 
 # common ground
 distro/.regular-bare: distro/.base +vmguest +wireless \
-	use/efi/signed use/luks use/memtest use/kernel/net
+	use/efi/signed use/luks use/memtest use/stage2/net-eth use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
 
 # WM base target
 distro/.regular-base: distro/.regular-bare +live use/live/ru use/live/install \
-	use/live/repo use/live/net-eth use/x11/3d-free use/luks use/branding
+	use/live/repo use/x11/3d-free use/luks use/branding
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator)

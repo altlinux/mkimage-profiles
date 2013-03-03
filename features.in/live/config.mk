@@ -53,8 +53,3 @@ use/live/ru: use/live
 
 use/live/sound: use/live
 	@$(call add,LIVE_PACKAGES,amixer alsa-utils aplay udev-alsa)
-
-# eth0 instead of enp0s3
-use/live/net-eth: use/live
-	@$(call add,STAGE1_PACKAGES,udev-rule-generator-net)
-	@$(call add,STAGE2_PACKAGES,udev-rule-generator-net livecd-net-eth)
