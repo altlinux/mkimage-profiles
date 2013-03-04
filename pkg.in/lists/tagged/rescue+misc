@@ -25,3 +25,10 @@ smbios-utils
 # Misc^2
 kexec-tools
 multipath-tools
+
+# initrd helpers
+make-initrd-devmapper
+make-initrd-mdadm
+make-initrd-lvm
+make-initrd-multipath
+make-initrd-nfs
