@@ -12,6 +12,7 @@ distro/.regular-base: distro/.regular-bare +live use/live/ru use/live/install \
 	@$(call add,LIVE_LISTS,$(call tags,base regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator)
+	@$(call add,THE_BRANDING,graphics)
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
@@ -22,7 +23,6 @@ distro/.regular-desktop: distro/.regular-base \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
-	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
