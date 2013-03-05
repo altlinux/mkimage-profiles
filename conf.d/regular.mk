@@ -24,6 +24,7 @@ distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
 distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
+	@$(call add,LIVE_PACKAGES,deepsolver deepsolver-repo)
 	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
@@ -50,9 +51,5 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
 	@$(call add,LIVE_PACKAGES,plasma-applet-networkmanager)
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
-
-distro/regular-deepsolver: distro/regular-icewm
-	@$(call add,LIVE_PACKAGES,deepsolver)
-	@$(call add,LIVE_PACKAGES,deepsolver-repo)
 
 endif
