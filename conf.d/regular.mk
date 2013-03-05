@@ -51,4 +51,8 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 +plymouth
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
+distro/regular-deepsolver: distro/regular-icewm
+	@$(call add,LIVE_PACKAGES,deepsolver)
+	@$(call add,LIVE_PACKAGES,deepsolver-repo)
+
 endif
