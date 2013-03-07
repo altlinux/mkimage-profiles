@@ -10,7 +10,7 @@ distro/server-nano: distro/.server-base \
 	@$(call add,BASE_PACKAGES,dhcpcd cpio)
 
 distro/server-mini: distro/.server-base use/server/mini use/kernel/net \
-	use/cleanup/x11-alterator use/efi
+	use/cleanup/x11-alterator use/efi use/stage2/net-eth
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
