@@ -10,7 +10,7 @@ xorg-drv-modesetting
 xorg-drv-multimedia
 xorg-drv-nouveau
 xorg-drv-nv
-xorg-drv-s3
+#xorg-drv-s3
 xorg-drv-s3virge
 xorg-drv-savage
 xorg-drv-sis
