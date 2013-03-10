@@ -3,3 +3,7 @@ ltsp-client-full
 ltsp-client-nxsession
 # ouch!
 mc
+
+kernel-image-led-ws
+kernel-modules-drm-led-ws
+kernel-modules-alsa-led-ws

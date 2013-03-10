@@ -3,7 +3,7 @@
 use/ltsp:
 	@$(call add_feature)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-ltsp-stage2)
-	@$(call add,MAIN_LISTS,ltsp-client ltsp-client.$(ARCH))
+	@$(call add,MAIN_LISTS,ltsp-client)
 	@$(call add,BASE_LISTS,ltsp)
 
 use/ltsp/base: use/ltsp use/firmware
