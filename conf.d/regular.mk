@@ -31,6 +31,7 @@ distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 
 distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
 	use/x11/wmaker
+	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
 
 distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep
