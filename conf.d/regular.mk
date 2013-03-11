@@ -34,7 +34,7 @@ distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
 
-distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep
+distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep +plymouth
 	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
