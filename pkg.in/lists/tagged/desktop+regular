@@ -9,7 +9,7 @@ alterator-auth
 alterator-nsswitch
 
 alterator-net-general
-alterator-net-pppoe
+alterator-net-pppoe rp-pppoe-client
 alterator-net-pptp
 alterator-net-openvpn
 alterator-net-eth
@@ -17,6 +17,9 @@ alterator-net-wifi
 
 alterator-net-shares
 alterator-proxy
+
+alterator-x11
+alterator-xkb
 
 #alterator-datetime
 
