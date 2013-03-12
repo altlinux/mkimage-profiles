@@ -9,7 +9,7 @@ distro/.regular-bare: distro/.base +vmguest +wireless \
 # WM base target
 distro/.regular-base: distro/.regular-bare +live use/live/ru use/live/install \
 	use/live/repo use/x11/3d-free use/luks use/branding
-	@$(call add,LIVE_LISTS,$(call tags,base regular))
+	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator)
 	@$(call add,THE_BRANDING,graphics)
