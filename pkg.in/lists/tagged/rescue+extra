@@ -74,6 +74,7 @@ squashfsprogs-xz
 # Foreign filesystems
 dosfstools
 exofs-utils
+fatresize
 fuse-zfs
 hfsprogs
 ntfs-3g
