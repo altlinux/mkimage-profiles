@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# a temporary workaround for #28669 (fall back to vesa)
+rm -f /usr/lib*/X11/modules/drivers/fbdev_drv.so
