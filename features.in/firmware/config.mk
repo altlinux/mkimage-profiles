@@ -23,7 +23,7 @@ use/firmware/wireless: use/firmware
 	@$(call add,THE_KMODULES,bcmwl ndiswrapper)
 	@$(call add,THE_PACKAGES,firmware-acx100)
 	@#$(call add,THE_PACKAGES,firmware-i2400m)
-	@$(call add,THE_PACKAGES_REGEXP,firmware-carl9170.*)
+	@#$(call add,THE_PACKAGES_REGEXP,firmware-carl9170.*)
 	@$(call add,THE_PACKAGES_REGEXP,firmware-prism.*)
 	@$(call add,THE_PACKAGES_REGEXP,firmware-ipw.*)
 	@#$(call add,THE_PACKAGES_REGEXP,firmware-iwl.*)
