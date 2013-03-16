@@ -83,7 +83,6 @@ distro/live-gimp: distro/live-icewm use/x11/3d-free use/live/ru
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync)
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
 
-distro/live-sugar: distro/.live-desktop use/live/nodm use/live/ru
-	@$(call add,LIVE_LISTS,$(call tags,desktop sugar))
+distro/live-sugar: distro/.live-desktop-ru use/x11/sugar; @:
 
 endif

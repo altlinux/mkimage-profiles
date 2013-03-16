@@ -76,3 +76,6 @@ use/x11/lxde: use/x11/xorg
 
 use/x11/fvwm: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,fvwm desktop))
+
+use/x11/sugar: use/x11/xorg
+	@$(call add,THE_LISTS,$(call tags,sugar desktop))

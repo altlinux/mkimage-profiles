@@ -56,6 +56,8 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
+distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
+
 distro/regular-rescue: distro/.regular-bare use/rescue \
 	use/syslinux/ui/menu use/hdt use/efi/refind
 	@$(call set,KFLAVOURS,un-def)
