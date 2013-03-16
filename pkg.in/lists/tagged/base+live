@@ -1,5 +1,6 @@
 wget
 rsync
 apt
+fdisk
 vim-console
 mc
