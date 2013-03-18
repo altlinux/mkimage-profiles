@@ -1,6 +1,0 @@
-object 6605eb61bdecf70b2de7ca5cf96d0b1fa341aab6
-type commit
-tag v0.9.9
-tagger Michael Shigorin <mike@altlinux.org> 1361826022 +0400
-
-regular refactoring

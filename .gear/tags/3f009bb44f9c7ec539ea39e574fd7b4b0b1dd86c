@@ -1,0 +1,6 @@
+object 890172bfedde3d3fda6d2d6fb83941710f5a573a
+type commit
+tag v0.9.10
+tagger Michael Shigorin <mike@altlinux.org> 1363617470 +0200
+
+fonts: axios!
