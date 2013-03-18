@@ -24,29 +24,7 @@ xorg-dri-intel
 
 xauth
 
-# former xorg-utils
-xinit
-setxkbmap
-sessreg
-xf86dga
-xsetroot
-xcmsdb
-xconsole
-xmodmap
-xrdb
-xdpyinfo
-xgamma
-xhost
-xrandr
-xrefresh
-xsetmode
-xstdcmap
-xvinfo
-xkbevd
-xkbprint
-xlsfonts
-xprop
-xset
+xorg-utils
 
 x-cursor-theme-jimmac
 
