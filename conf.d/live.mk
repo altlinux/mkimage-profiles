@@ -15,7 +15,7 @@ distro/.live-desktop: distro/.base +live use/live/install use/stage2/net-eth \
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
 distro/.live-kiosk: distro/.base use/live/base use/live/autologin +power \
-	use/syslinux/timeout/1 use/cleanup use/efi/signed use/stage2/net-eth
+	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu)
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 
