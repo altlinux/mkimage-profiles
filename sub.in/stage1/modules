@@ -87,6 +87,7 @@ eth16i.ko
 ewrk3.ko
 ext2
 ext3.ko
+ext4.ko
 fat.ko
 fdomain_cs.ko
 fdomain.ko

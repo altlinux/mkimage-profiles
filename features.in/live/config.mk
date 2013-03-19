@@ -9,6 +9,14 @@ use/live: use/stage2 sub/stage2@live
 use/live/base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
 
+# rw slice, see http://www.altlinux.org/make-initrd-propagator and #28289
+ifeq (,$(EFI_BOOTLOADER))
+use/live/rw: use/live use/syslinux
+	@$(call add,SYSLINUX_CFG,live_rw)
+else
+use/live/rw: use/live; @:
+endif
+
 # a very simplistic one
 use/live/x11: use/live use/firmware use/x11/xorg
 	@$(call add,LIVE_PACKAGES,xinit)
