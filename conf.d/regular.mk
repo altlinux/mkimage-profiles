@@ -7,8 +7,9 @@ distro/.regular-bare: distro/.base +vmguest +wireless \
 	@$(call try,SAVE_PROFILE,yes)
 
 # WM base target
-distro/.regular-base: distro/.regular-bare +live use/live/ru use/live/install \
-	use/live/repo use/x11/3d-free use/luks use/branding
+distro/.regular-base: distro/.regular-bare +live \
+	use/live/ru use/live/install use/live/repo use/live/rw \
+	use/x11/3d-free use/luks use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,THE_BRANDING,indexhtml notes alterator)
@@ -69,7 +70,7 @@ distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
-distro/regular-rescue: distro/.regular-bare use/rescue \
+distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	use/syslinux/ui/menu use/hdt use/efi/refind
 	@$(call set,KFLAVOURS,un-def)
 
