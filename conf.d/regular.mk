@@ -29,7 +29,7 @@ distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,xxkb mutt tray_mixer_plus)
 	@$(call add,LIVE_PACKAGES,screengrab gqview design-icewm-themes)
 	@$(call add,LIVE_PACKAGES,deepsolver deepsolver-repo)
-	@$(call add,LIVE_PACKAGES,sysklogd)
+	@$(call add,LIVE_PACKAGES,sysklogd SysVinit-usermode)
 	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
