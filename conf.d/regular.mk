@@ -28,6 +28,7 @@ distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,xxkb mutt)
 	@$(call add,LIVE_PACKAGES,deepsolver deepsolver-repo)
+	@$(call add,LIVE_PACKAGES,sysklogd)
 	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
