@@ -68,6 +68,7 @@ use/x11/cinnamon: use/x11/xorg use/x11/drm
 
 use/x11/gnome3: use/x11/xorg use/x11/drm
 	@$(call add,THE_PACKAGES,gnome3-default)
+	@$(call add,THE_PACKAGES,gst-libav pulseaudio-daemon)
 
 use/x11/e17: use/x11/xorg use/x11/3d-free
 	@$(call add,THE_LISTS,$(call tags,e17 desktop))
