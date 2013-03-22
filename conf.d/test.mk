@@ -22,6 +22,10 @@ distro/live-gns3: distro/live-icewm
 distro/icewm-efi: distro/icewm use/efi/debug use/firmware
 	@$(call add,INSTALL2_PACKAGES,strace)
 
+distro/razorqt-kz: distro/regular-razorqt
+	@$(call set,GLOBAL_BOOT_LANG,kk_KZ)
+	@$(call add,LIVE_PACKAGES,hunspell-kk)
+
 distro/server-systemd: distro/server-mini use/systemd
 	@$(call set,KFLAVOURS,std-def)
 
