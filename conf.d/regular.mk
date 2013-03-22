@@ -19,6 +19,7 @@ distro/.regular-base: distro/.regular-bare +vmguest +live \
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-base \
 	use/systemd use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind
+	@$(call add,LIVE_PACKAGES,fuse-exfat)
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call set,KFLAVOURS,std-def)
