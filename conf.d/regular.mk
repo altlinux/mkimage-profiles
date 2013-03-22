@@ -30,6 +30,7 @@ distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_PACKAGES,screengrab gqview design-icewm-themes)
 	@$(call add,LIVE_PACKAGES,deepsolver deepsolver-repo)
 	@$(call add,LIVE_PACKAGES,sysklogd SysVinit-usermode)
+	@$(call add,LIVE_PACKAGES,rp-pppoe-gui)
 	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
