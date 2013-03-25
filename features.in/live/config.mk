@@ -31,9 +31,14 @@ use/live/desktop: use/live/base use/x11/wacom use/live/sound \
 	@$(call add,SYSLINUX_CFG,localboot)
 
 # preconfigure apt for both live and installed-from-live systems
-use/live/repo:
-	@$(call add,LIVE_PACKAGES,livecd-online-repo)
+use/live/repo: use/live
 	@$(call add,LIVE_PACKAGES,installer-feature-online-repo)
+	@$(call try,LIVE_REPO,http/alt)
+	@$(call xport,LIVE_REPO)
+
+# preconfigure apt in runtime (less reliable)
+use/live/repo/online:
+	@$(call add,LIVE_PACKAGES,livecd-online-repo)
 
 # alterator-based permanent installation
 use/live/install: use/metadata use/syslinux/localboot.cfg

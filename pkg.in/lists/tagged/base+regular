@@ -5,7 +5,6 @@ strace
 powertop
 acpi
 
-livecd-online-repo
 apt-repo
 update-kernel
 synaptic-usermode
