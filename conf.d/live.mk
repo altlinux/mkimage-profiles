@@ -28,7 +28,8 @@ distro/live-builder-mini: distro/.live-base use/dev/mkimage use/dev \
 	@$(call add,LIVE_PACKAGES,qemu-user-binfmt_misc)
 	@$(call add,LIVE_PACKAGES,zsh sudo)
 
-distro/live-builder: distro/live-builder-mini use/live/repo use/dev/repo
+distro/live-builder: distro/live-builder-mini \
+	use/live/rw use/live/repo use/dev/repo
 	@$(call add,MAIN_LISTS,$(call tags,live builder))
 	@$(call add,MAIN_PACKAGES,syslinux pciids memtest86+ mkisofs)
 
