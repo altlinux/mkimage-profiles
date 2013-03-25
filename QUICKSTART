@@ -30,7 +30,7 @@ $ git config --global user.name "My Name"
 $ mkdir ~/out
 ----
 
-тестовая сборка (см. тж. lib/distro.mk, doc/params.txt)::
+тестовая сборка::
 ----
 $ make syslinux.iso
 ----
@@ -39,6 +39,11 @@ $ make syslinux.iso
 ----
 $ make help
 ----
+
+переменные, влияющие на результат (подробнее в doc/params.txt)::
+---
+$ make ARCH=i586 APTCONF=~/apt/apt.conf.i586 REPORT=1 ve/generic.tar
+---
 
 ссылки
 ~~~~~~
