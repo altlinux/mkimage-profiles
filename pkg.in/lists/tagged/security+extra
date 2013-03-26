@@ -7,3 +7,6 @@ md5deep
 osec
 osec-cronjob
 osec-mailreport
+
+# hardware reliability
+mcelog
