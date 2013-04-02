@@ -49,18 +49,24 @@ cpufreq-simple
 # NB: sshd might be needed for some particular cases
 DISABLE="
 anacron
+blk-availability
 bridge
 clamd
 crond
 dhcpd
 dnsmasq
+lvm2-lvmetad
+lvm2-monitor
 mdadm
 netfs
+o2cb
+ocfs2
 openvpn
 rawdevices
 slapd
 smartd
 sshd
+sysstat
 update_wms
 xinetd
 "
