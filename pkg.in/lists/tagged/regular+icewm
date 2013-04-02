@@ -5,10 +5,12 @@ deepsolver
 deepsolver-repo
 
 xxkb
+icewm-startup-xxkb-tray
 mutt
 elinks
 
 tray_mixer_plus
+icewm-startup-tray_mixer_plus
 leafpad
 
 gqview
