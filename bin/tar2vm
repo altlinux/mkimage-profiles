@@ -35,6 +35,7 @@ DISKSIZE="${3:-${DEFSIZE:-268435456}}"
 DISKSIZEM="$(($DISKSIZE / 1048576))"
 
 # tested to work: ext[234], jfs
+# NB: xfs doesn't have a spare sector for the bootloader
 ROOTFSTYPE="${4:-ext4}"
 
 # single root partition hardwired so far,
