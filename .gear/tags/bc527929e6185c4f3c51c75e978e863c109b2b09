@@ -1,6 +1,0 @@
-object 79a98d78341f5763edf074109ab718ed2e54e5d7
-type commit
-tag v0.9.11
-tagger Michael Shigorin <mike@altlinux.org> 1364244832 +0200
-
-persistent icewm
