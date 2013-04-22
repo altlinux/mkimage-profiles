@@ -1,18 +1,11 @@
 # Startup
 rootfiles
-sysvinit
-interactivesystem
-startup
-startup-rescue
-
-udev
 
 # Common
 coreutils
 glibc-locales
 glibc-nss
 glibc-utils
-lilo
 man
 man-pages
 sysfsutils
