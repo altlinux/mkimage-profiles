@@ -19,3 +19,6 @@ kdeaddons-konqueror
 #digikam-image-plugins
 kaffeine
 kdemultimedia-kmix
+
+# rom_as@ says it's still needed
+hal
