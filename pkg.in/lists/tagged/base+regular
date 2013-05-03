@@ -10,6 +10,7 @@ update-kernel
 synaptic-usermode
 eepm
 
+bash-completion
 alterator-standalone
 cpufreq-simple
 xdg-user-dirs
