@@ -1,3 +1,6 @@
+lvm2
+make-initrd-lvm
+
 openssh
 net-tools
 
