@@ -35,7 +35,6 @@ livecd-setauth
 livecd-setlocale
 livecd-net-eth
 livecd-install-wmaker
-livecd-virtualbox-noglx
 network
 NetworkManager
 connman
