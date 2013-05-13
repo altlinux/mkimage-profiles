@@ -1,0 +1,6 @@
+object 4b642fe5384d3b9a0c7f318fd373b027ba902e4c
+type commit
+tag v0.9.13
+tagger Michael Shigorin <mike@altlinux.org> 1368475772 +0300
+
+regular fixes
