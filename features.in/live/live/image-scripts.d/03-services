@@ -22,7 +22,6 @@ switch() {
 
 ENABLE="
 dm
-gdm
 kdm
 wdm
 prefdm
