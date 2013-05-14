@@ -62,6 +62,7 @@ netfs
 o2cb
 ocfs2
 openvpn
+postfix
 rawdevices
 slapd
 smartd
