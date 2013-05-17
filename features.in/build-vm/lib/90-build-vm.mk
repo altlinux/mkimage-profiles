@@ -1,11 +1,11 @@
 # step 4: build the virtual machine image
 
-IMAGE_PACKAGES = $(SYSTEM_PACKAGES) \
+IMAGE_PACKAGES = $(DOT_BASE) \
+		 $(SYSTEM_PACKAGES) \
 		 $(COMMON_PACKAGES) \
 		 $(BASE_PACKAGES) \
 		 $(THE_PACKAGES) \
-		 $(call list,$(BASE_LISTS) $(THE_LISTS)) \
-		 $(call kpackages,$(THE_KMODULES) $(BASE_KMODULES),$(KFLAVOURS))
+		 $(call list,$(BASE_LISTS) $(THE_LISTS))
 
 # intermediate chroot archive
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
