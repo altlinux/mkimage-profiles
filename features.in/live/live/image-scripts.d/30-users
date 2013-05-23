@@ -2,7 +2,7 @@
 # * reset password for root
 # * add user `altlinux' (without password)
 
-GRPLIST="users scanner audio radio proc cdrom cdwriter wheel fuse"
+GRPLIST="users scanner audio radio proc cdrom cdwriter wheel fuse netadmin"
 
 verbose()
 {
