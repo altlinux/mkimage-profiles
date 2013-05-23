@@ -12,6 +12,7 @@ distro/.regular-base: distro/.regular-bare +vmguest +live \
 	use/x11/3d-free use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
+	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,THE_BRANDING,indexhtml notes alterator)
 	@$(call add,THE_BRANDING,graphics)
 
