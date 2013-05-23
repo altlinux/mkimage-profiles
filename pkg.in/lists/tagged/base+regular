@@ -1,3 +1,9 @@
+xfsprogs
+jfsprogs
+ntfs-3g
+dosfstools
+fatresize
+
 lvm2
 make-initrd-lvm
 
