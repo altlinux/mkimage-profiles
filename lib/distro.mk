@@ -28,12 +28,7 @@ distro/.base: distro/.init use/kernel
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)/$(ARCH))
 	@$(call set,META_VOL_SET,ALT Linux)
 
-# something marginally useful (as a network-only installer)
-# NB: doesn't carry stage3 thus cannot use/bootloader
-distro/installer: distro/.base use/syslinux/localboot.cfg \
-	use/install2 use/install2/kms use/firmware use/install2/kvm
-	@$(call set,INSTALLER,altlinux-generic)
-
-distro/.installer: distro/installer use/bootloader/grub use/repo/main; @:
+# this one should not be fundamental as it appears (think armh)
+distro/.installer: distro/.base use/bootloader/grub +installer; @:
 
 endif

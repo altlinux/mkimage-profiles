@@ -32,6 +32,10 @@ distro/server-systemd: distro/server-mini use/systemd
 distro/server-test: distro/server-mini use/relname
 	@$(call set,RELNAME,Test-Server)
 
+# something marginally useful (as a network-only installer)
+# NB: doesn't carry stage3 thus cannot use/bootloader
+distro/netinst: distro/.base use/install2/net; @:
+
 # tiny network-only server-ovz installer (stage2 comes over net too)
 distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
 	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest

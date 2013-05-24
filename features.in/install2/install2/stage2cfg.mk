@@ -1,5 +1,9 @@
 # stage2 mod: build install2 subprofile (installer "live" part)
 
+ifndef INSTALLER
+$(error install2 feature enabled but INSTALLER undefined)
+endif
+
 IMAGE_PACKAGES = $(INSTALL2_PACKAGES) \
 		 udev e2fsprogs glibc-nss
 
