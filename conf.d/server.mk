@@ -1,16 +1,16 @@
 # server distributions
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/.server-base: distro/.installer use/syslinux/ui/menu use/memtest
+distro/.server-base: distro/.installer use/syslinux/ui/menu use/memtest \
+	use/cleanup/x11-alterator
 	@$(call add,BASE_LISTS,server-base openssh)
 
-distro/server-nano: distro/.server-base \
-	use/cleanup/x11-alterator use/bootloader/lilo +power
+distro/server-nano: distro/.server-base use/bootloader/lilo +power
 	@$(call add,BASE_LISTS,$(call tags,server network))
 	@$(call add,BASE_PACKAGES,dhcpcd cpio)
 
 distro/server-mini: distro/.server-base use/server/mini use/kernel/net \
-	use/cleanup/x11-alterator use/efi use/stage2/net-eth
+	use/efi use/stage2/net-eth
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
 
 distro/server-ovz: distro/server-mini use/install2/net use/hdt use/rescue \
