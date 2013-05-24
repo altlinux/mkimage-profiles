@@ -19,15 +19,8 @@ acpi
 
 apt-repo
 update-kernel
-synaptic-usermode
 eepm
 
 bash-completion
-alterator-standalone
 cpufreq-simple
-xdg-user-dirs
 eject
-
-firefox-ru
-firefox-uk
-firefox-kk
