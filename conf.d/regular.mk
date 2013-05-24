@@ -75,4 +75,8 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	use/syslinux/ui/menu use/hdt use/efi/refind
 	@$(call set,KFLAVOURS,un-def)
 
+distro/regular-server: distro/.regular-bare +installer \
+	use/bootloader/grub use/firmware use/server/mini
+	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
+
 endif
