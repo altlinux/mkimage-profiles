@@ -2,14 +2,14 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 # common ground
-distro/.regular-bare: distro/.base +wireless use/efi/signed use/luks \
+distro/.regular-bare: distro/.base +wireless use/efi/signed \
 	use/memtest use/stage2/net-eth use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
 
 # WM base target
 distro/.regular-base: distro/.regular-bare +vmguest +live \
 	use/live/ru use/live/install use/live/repo use/live/rw \
-	use/x11/3d-free use/branding
+	use/luks use/x11/3d-free use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
