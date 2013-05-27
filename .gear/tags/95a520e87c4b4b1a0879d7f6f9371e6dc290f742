@@ -1,0 +1,6 @@
+object 3fb5bbd846afc76b9d6b84ef071ac632d2bfa93c
+type commit
+tag v0.9.15
+tagger Michael Shigorin <mike@altlinux.org> 1369647839 +0400
+
++installer
