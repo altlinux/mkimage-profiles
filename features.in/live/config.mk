@@ -17,18 +17,16 @@ else
 use/live/rw: use/live; @:
 endif
 
-# a very simplistic one
-use/live/x11: use/live use/firmware use/x11
-	@$(call add,LIVE_PACKAGES,xinit)
-
-# optimized out: use/x11
-use/live/desktop: use/live/base use/x11/wacom use/live/sound \
-	+vmguest +power +efi
+# graphical target (not enforcing xorg drivers or blobs)
+use/live/x11: use/live/base use/x11-autologin use/live/sound +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 	@$(call add,LIVE_PACKAGES,pciutils)
 	@$(call add,SYSLINUX_CFG,localboot)
+
+# this target specifically pulls free xorg drivers in (and a few more bits)
+use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom +vmguest; @:
 
 # preconfigure apt for both live and installed-from-live systems
 use/live/repo: use/live
@@ -49,18 +47,22 @@ use/live/install: use/metadata use/syslinux/localboot.cfg
 use/live/textinstall: use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
-# NB: there's an unconditional live/image-scripts.d/40-autologin script
-#     *but* it only configures some of the *existing* means; let's add one
-#     or another for the cases when there should be no display manager
-use/live/autologin: use/live/x11
+# a very simplistic one
+use/live/.x11: use/live use/x11 use/x11-autologin
+	@$(call add,LIVE_PACKAGES,xinit)
+
+# NB: some implementation has to be added if it's not a display manager
+use/live/autologin: use/live/.x11
 	@$(call add,LIVE_PACKAGES,autologin)
 
-use/live/nodm: use/live/x11
+use/live/nodm: use/live/.x11
 	@$(call add,LIVE_PACKAGES,nodm)
 
+# see also http://www.altlinux.org/Netbook-live/hooks
 use/live/hooks: use/live
 	@$(call add,LIVE_PACKAGES,livecd-run-hooks)
 
+# a crude hack to make sure Russian is supported in a particular image
 use/live/ru: use/live
 	@$(call add,LIVE_PACKAGES,livecd-ru)
 

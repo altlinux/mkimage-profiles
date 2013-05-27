@@ -21,6 +21,8 @@ backup() {
 	cp -av "$1" "$1$BAK"
 }
 
+## this is only relevant for installable livecd
+### FIXME: this shouldn't proceed in other cases!
 restore_later() {
 	[ -n "$1" ] || return 0
 
