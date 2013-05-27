@@ -10,6 +10,6 @@ use/fonts/zerg: use/fonts
 	@$(call set,FONT_FEATURES_DISABLE,no-antialias lcdfilter-none \
 		unhinted no-sub-pixel)
 
-# nothing configured to add_feature, let's skip that this time
-use/fonts/infinality:
+# nothing configured to add_feature but let's not skip that for consistency
+use/fonts/infinality: use/fonts
 	@$(call add,THE_PACKAGES,libfreetype-infinality fontconfig-infinality)
