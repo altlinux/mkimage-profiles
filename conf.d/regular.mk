@@ -53,8 +53,8 @@ distro/regular-mate: distro/.regular-gtk
 distro/regular-e17: distro/.regular-gtk use/x11/e17
 	@$(call add,LIVE_PACKAGES,xterm)
 
-distro/regular-cinnamon: distro/.regular-desktop \
-	use/x11/cinnamon use/fonts/infinality +plymouth
+distro/regular-cinnamon: distro/.regular-gtk \
+	use/x11/cinnamon use/fonts/infinality
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
