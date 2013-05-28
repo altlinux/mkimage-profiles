@@ -1,3 +1,0 @@
-#!/bin/sh
-# Run scripts from /etc/firsttime.d at first start
-[ -f "/var/lock/TMP_1ST" ] || touch "/var/lock/TMP_1ST"

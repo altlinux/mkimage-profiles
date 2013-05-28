@@ -14,5 +14,9 @@ config/pack/%: use/pack/%
 config/name/%:
 	@$(call set,IMAGE_NAME,$*)
 
+# request particular image subprofile inclusion
+sub/%:
+	@$(call add,SUBPROFILES,$(@:sub/%=%))
+
 # the final thing will pull the rest in
 build: postclean; @:

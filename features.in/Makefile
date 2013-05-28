@@ -36,8 +36,8 @@ include $(BUILDDIR)/distcfg.mk
 
 # first rsync what's static, and make backups (*~) --
 # these might signal of file clashes (or plain dirt);
-# second, care for toplevel and tagged script dirs;
-# then handle two more ways of implementing a feature
+# second, care for toplevel dirs;
+# then handle feature generator scripts
 #
 # NB: some subprofiles will be specified as "src/dst"
 #     -- then both src/ and dst/ can hold the addons;
@@ -58,6 +58,11 @@ prep:
 	fi
 
 # feat
+# NB: this is somewhat complicated since it has to handle "$sub" like:
+#     - "/": copy feature's toplevel parts to the BUILDDIR toplevel
+#     - "stage1": copy feature's stage1 parts into stage1 subprofile
+#     - "stage2@live": copy feature's stage2 parts into live subprofile
+#     - "rootfs@/": copy feature's rootfs parts into BUILDDIR toplevel
 $(FEATURES):
 	@feat=$@; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
@@ -71,6 +76,13 @@ $(FEATURES):
 		else \
 			src="$${sub%@*}"; \
 			dst="$${sub#*@}"; \
+			if [ "$$src" = / ]; then \
+				echo "** src=/: you don't want this" >&2; \
+				exit 1; \
+			fi; \
+			if [ "$$dst" = / -o "$$dst" = "" ]; then \
+				dst="."; \
+			fi; \
 			srcdirs=; \
 			if [ -d "$$src" ]; then \
 				srcdirs="$$src"; \
@@ -78,9 +90,9 @@ $(FEATURES):
 			if [ -d "$$dst" -a "$$dst" != "$$src" ]; then \
 				srcdirs="$${srcdirs:+$$srcdirs }$$dst"; \
 			fi; \
+			: "why this overduplication was done? (still needed)"; \
 			for srcdir in $$srcdirs; do \
-				rsync -qab --exclude tagged \
-					"$$srcdir/" "$(BUILDDIR)/$$dst/"; \
+				rsync -qab "$$srcdir/" "$(BUILDDIR)/$$dst/"; \
 			done; \
 		fi; \
 		if [ -n "$(GLOBAL_DEBUG)" ]; then \
@@ -98,7 +110,7 @@ $(FEATURES):
 			done; \
 			popd >&/dev/null; \
 		done; \
-		if [ -n "$$dst" ]; then \
+		if [ -n "$$dst" -a "$$dst" != "." ]; then \
 			the="$$sub subprofile"; \
 		else \
 			the="toplevel"; \

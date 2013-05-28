@@ -8,14 +8,21 @@ include $(BUILDDIR)/distcfg.mk
 
 # if the subprofile is specified in src/dst notation,
 # take src/ and put it as dst/ (for stage2 variants)
+# NB: rootfs may come in first
 all:
 	@for sub in $(SUBPROFILES); do \
 		src="$${sub%@*}" && \
 		dst="$${sub#*@}" && \
 		neq="$${src#$$dst}" && \
+		dstdir=""$(BUILDDIR)/$$dst/"" && \
+		if [ -d "$$dstdir" ]; then \
+			action="complemented"; \
+		else \
+			action="initialized"; \
+		fi; \
 		rsync -qa "$$src/" "$(BUILDDIR)/$$dst/" && \
 		mp-commit "$(BUILDDIR)/$$dst/" \
-			"$$dst subprofile initialized$${neq:+ (using $$src)}"; \
+			"$$dst subprofile $$action$${neq:+ (using $$src)}"; \
 	done
 
 clean:

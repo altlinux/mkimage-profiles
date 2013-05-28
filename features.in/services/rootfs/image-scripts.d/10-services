@@ -1,0 +1,35 @@
+#!/bin/sh
+# this script implements the services regulation
+# according to what has been decided in the profile
+
+CHKCONFIG=
+SYSTEMCTL=
+
+[ ! -x /sbin/chkconfig ] || CHKCONFIG=1
+[ ! -x /bin/systemctl  ] || SYSTEMCTL=1
+
+[ -n "$CHKCONFIG$SYSTEMCTL" ] || exit 0
+
+switch() {
+	case "$2" in
+	on)
+		cc=on; sc=enable;;
+	off)
+		cc=off; sc=disable;;
+	esac
+
+	{
+		[ -z "$SYSTEMCTL" ] || /bin/systemctl --no-reload $sc $1.service
+		[ -z "$CHKCONFIG" ] || /sbin/chkconfig $1 $cc
+	} # 2>/dev/null
+}
+
+# defaults (most likely features.in ones)
+for i in $GLOBAL_DEFAULT_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour (e.g. via conf.d)
+for i in $GLOBAL_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
+
+:

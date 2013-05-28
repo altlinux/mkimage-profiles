@@ -6,10 +6,6 @@ endif
 
 ifeq (distro,$(IMAGE_CLASS))
 
-# request particular image subprofile inclusion
-sub/%:
-	@$(call add,SUBPROFILES,$(@:sub/%=%))
-
 # install media bootloader
 boot/%:
 	@$(call set,BOOTLOADER,$*)
