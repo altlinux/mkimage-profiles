@@ -109,7 +109,7 @@
 * VM_SIZE
 ** задаёт размер несжатого образа виртуальной машины в байтах
 ** значение: пусто (по умолчанию двойной размер чрута) или целое
-** см. ../features.in/build-vm/lib/90-build-vm.mk, ../bin/tar2vm
+** см. ../features.in/build-vm/lib/90-build-vm.mk, ../bin/tar2fs
 
 [float]
 === пример ===

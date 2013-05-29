@@ -10,6 +10,8 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 # intermediate chroot archive
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
 VM_RAWDISK := $(IMAGE_OUTDIR)/$(IMAGE_NAME).raw
+VM_FSTYPE ?= ext4
+VM_SIZE ?= 0
 
 check-sudo:
 	@if ! type -t sudo >&/dev/null; then \
@@ -18,9 +20,9 @@ check-sudo:
 	fi
 
 prepare-image: check-sudo
-	@if ! sudo $(TOPDIR)/bin/tar2vm \
-		"$(VM_TARBALL)" "$(VM_RAWDISK)" $$VM_SIZE; then \
-		echo "** error: sudo tar2vm failed, see also doc/vm.txt" >&2; \
+	@if ! sudo $(TOPDIR)/bin/tar2fs \
+		"$(VM_TARBALL)" "$(VM_RAWDISK)"  $(VM_SIZE) $(VM_FSTYPE); then \
+		echo "** error: sudo tar2fs failed, see also doc/vm.txt" >&2; \
 		exit 1; \
 	fi
 

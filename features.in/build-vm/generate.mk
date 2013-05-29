@@ -1,4 +1,4 @@
-# copy tar2vm helper into generated profile to enable standalone builds
+# copy tar2fs helper into generated profile to enable standalone builds
 
 all:
-	@install -pD $(MKIMAGE_PROFILES)/bin/tar2vm $(BUILDDIR)/bin/tar2vm
+	@install -pD $(MKIMAGE_PROFILES)/bin/tar2fs $(BUILDDIR)/bin/tar2fs
