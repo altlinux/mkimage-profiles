@@ -81,6 +81,7 @@ eepro100.ko
 eepro.ko
 eexpress.ko
 ehci-hcd.ko
+ehci_marvell.ko
 epic100.ko
 eql.ko
 eth16i.ko
