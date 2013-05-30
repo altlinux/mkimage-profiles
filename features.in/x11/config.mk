@@ -44,26 +44,22 @@ use/x11/fglrx: use/x11
 use/x11/wacom: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-wacom xorg-drv-wizardpen)
 
-### strictly speaking, runlevel5 should require a *dm, not vice versa
-use/x11/runlevel5: use/x11/xorg
-	@$(call add,THE_PACKAGES,installer-feature-runlevel5-stage3)
-
 ### xdm: see also #23108
-use/x11/xdm: use/x11/runlevel5
+use/x11/xdm: use/x11-autostart
 	@$(call add,THE_PACKAGES,xdm installer-feature-no-xconsole-stage3)
 
 ### : some set()-like thing might be better?
 use/x11/lightdm/gtk use/x11/lightdm/qt use/x11/lightdm/razorqt \
-	use/x11/lightdm/kde: use/x11/lightdm/%: use/x11/runlevel5
+	use/x11/lightdm/kde: use/x11/lightdm/%: use/x11-autostart
 	@$(call add,THE_PACKAGES,lightdm-$*-greeter)
 
-use/x11/kdm: use/x11/runlevel5
+use/x11/kdm: use/x11-autostart
 	@$(call add,THE_PACKAGES,kdebase-kdm<4)
 
-use/x11/kdm4: use/x11/runlevel5
+use/x11/kdm4: use/x11-autostart
 	@$(call add,THE_PACKAGES,kde4base-workspace-kdm)
 
-use/x11/gdm2.20: use/x11/runlevel5
+use/x11/gdm2.20: use/x11-autostart
 	@$(call add,THE_PACKAGES,gdm2.20)
 
 use/x11/icewm: use/x11

@@ -39,13 +39,6 @@ restore_later() {
 	chmod +x "$hook"
 }
 
-## setup runlevel
-INITTAB=/etc/inittab
-if [ -f "$INITTAB" ]; then
-	[ -z "$runlevel" ] && runlevel=5
-	sed -i "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," "$INITTAB"
-fi
-
 ## autologin^2
 AUTOLOGIN_CFG=/etc/sysconfig/autologin
 if [ -x /usr/sbin/autologin ]; then
