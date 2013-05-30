@@ -1,9 +1,0 @@
-#wm-select
-
-# for those who need these
-xorg-drv-keyboard
-xorg-drv-mouse
-
-#xorg-extensions*
-# :-/
-#*-debuginfo-

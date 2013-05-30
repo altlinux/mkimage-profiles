@@ -18,10 +18,10 @@ use/live/rw: use/live; @:
 endif
 
 # a very simplistic one
-use/live/x11: use/live use/firmware use/x11/xorg
+use/live/x11: use/live use/firmware use/x11
 	@$(call add,LIVE_PACKAGES,xinit)
 
-# optimized out: use/x11/xorg
+# optimized out: use/x11
 use/live/desktop: use/live/base use/x11/wacom use/live/sound \
 	+vmguest +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))

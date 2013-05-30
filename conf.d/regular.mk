@@ -6,12 +6,15 @@ distro/.regular-bare: distro/.base +wireless use/efi/signed \
 	use/memtest use/stage2/net-eth use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
 
-# WM base target
-distro/.regular-base: distro/.regular-bare +vmguest +live \
-	use/live/ru use/live/install use/live/repo use/live/rw \
-	use/luks use/x11/3d-free use/branding
+# graphical target (not enforcing xorg drivers or blobs)
+distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
+	use/live/x11 use/live/ru use/live/install use/live/repo use/live/rw \
+	use/luks use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
+
+# WM base target
+distro/.regular-base: distro/.regular-x11 use/x11/xorg
 	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,THE_BRANDING,indexhtml notes alterator)
 	@$(call add,THE_BRANDING,graphics)

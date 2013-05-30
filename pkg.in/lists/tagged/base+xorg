@@ -1,0 +1,14 @@
+xorg-server
+
+xorg-drv-evdev
+xorg-drv-synaptics
+
+xorg-drv-vesa
+xorg-drv-fbdev
+
+xauth
+xorg-utils
+
+x-cursor-theme-jimmac
+
+menu-icons-default
