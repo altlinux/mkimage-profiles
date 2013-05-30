@@ -72,18 +72,7 @@ distro/live-flightgear: distro/.live-x11 use/x11/lightdm/gtk use/x11/3d +icewm
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
-distro/live-gnome: distro/.live-desktop-ru use/systemd use/x11/blobs
-	@$(call add,LIVE_PACKAGES,gnome3-default)
-
-distro/live-cinnamon: distro/.live-desktop-ru use/live/autologin \
-	use/x11/cinnamon use/x11/3d-proprietary; @:
-
-distro/live-mate: distro/.live-desktop-ru use/live/nodm use/x11/3d-free
-	@$(call add,LIVE_LISTS,openssh $(call tags,(desktop || mobile) && mate))
-	@$(call set,KFLAVOURS,un-def)	# the newest one
-
-distro/live-e17: distro/.live-desktop-ru use/live/autologin \
-	use/x11/e17 use/x11/gdm2.20; @:
+distro/live-e17: distro/.live-desktop-ru use/x11/e17 use/x11/lightdm/gtk; @:
 
 distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,gimp tintii immix fim)
@@ -91,7 +80,5 @@ distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,macrofusion python-module-pygtk-libglade)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync)
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
-
-distro/live-sugar: distro/.live-desktop-ru use/x11/sugar; @:
 
 endif
