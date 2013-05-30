@@ -1,0 +1,11 @@
+#!/bin/sh
+# poor man's root switch
+# NB: 50-users creates predefined users
+
+control su public
+control sudo public
+
+cat >> /etc/openssh/sshd_config << EOF
+PermitRootLogin yes
+UseDNS no
+EOF
