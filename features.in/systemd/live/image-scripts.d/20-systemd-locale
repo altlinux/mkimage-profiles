@@ -1,4 +1,0 @@
-#!/bin/sh
-# Don't allow systemd to set LANG.
-
-echo 'LANG=' >/etc/locale.conf

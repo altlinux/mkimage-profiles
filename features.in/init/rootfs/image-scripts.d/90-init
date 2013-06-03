@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# the part below relates to systemd as init specifically
+rpm -q systemd-sysvinit || exit 0
+
+# file str [str...]
+# NB: str is also treated as a regex,
+#     be careful if you copy the function
+sub() {
+	local file="$1"
+	shift
+	for i in "$@"; do
+		grep -q "^$i" "$file" || echo "$i" >> "$file"
+	done
+}
+
+# tune make-initrd
+sub /etc/initrd.mk 'FEATURES += systemd' 'MODULES_PRELOAD += autofs4'
+
+# don't allow systemd to set LANG (see also #27408)
+sub /etc/locale.conf 'LANG='
+
+# aufs2 root is rw in reality; but don't bother if there's a record already
+grep -q '[[:space:]]/[[:space:]]' /etc/fstab ||
+	sub /etc/fstab '/dev/root / auto defaults 0 0'

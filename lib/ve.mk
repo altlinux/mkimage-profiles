@@ -10,9 +10,13 @@ ifeq (ve,$(IMAGE_CLASS))
 ve/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,basesystem)
 
+# add those
+ve/.base: ve/.bare
+	@$(call add,BASE_PACKAGES,etcnet apt)
+
 # no "vzctl enter"
-ve/bare: ve/.bare
-	@$(call add,BASE_PACKAGES,sysvinit etcnet apt)
+ve/bare: ve/.base
+	@$(call add,BASE_PACKAGES,sysvinit)
 
 # /dev/pty and friends start here
 ve/base: ve/bare

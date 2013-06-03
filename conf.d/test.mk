@@ -6,7 +6,7 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/syslinux-auto: distro/.init use/hdt use/syslinux/timeout/1; @:
 distro/syslinux-noescape: distro/syslinux-auto use/syslinux/noescape.cfg; @:
 
-distro/live-systemd: distro/.base use/live/base use/systemd; @:
+distro/live-systemd: distro/.base use/live/base +systemd; @:
 distro/live-plymouth: distro/.live-base use/plymouth/live; @:
 
 distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
@@ -26,7 +26,7 @@ distro/razorqt-kz: distro/regular-razorqt
 	@$(call set,GLOBAL_BOOT_LANG,kk_KZ)
 	@$(call add,LIVE_PACKAGES,hunspell-kk)
 
-distro/server-systemd: distro/server-mini use/systemd
+distro/server-systemd: distro/server-mini +systemd
 	@$(call set,KFLAVOURS,std-def)
 
 distro/server-test: distro/server-mini use/relname
@@ -42,7 +42,7 @@ distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
 	@$(call add,SYSLINUX_CFG,netinstall2)
 
 distro/desktop-luks: distro/icewm use/luks; @:
-distro/desktop-systemd: distro/icewm use/systemd; @:
+distro/desktop-systemd: distro/icewm +systemd; @:
 distro/desktop-plymouth: distro/icewm +plymouth; @:
 distro/live-mate-systemd: distro/live-mate use/systemd use/live/install; @:
 distro/server-efi: distro/server-mini use/efi/debug; @:

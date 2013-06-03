@@ -19,7 +19,7 @@ distro/.regular-base: distro/.regular-bare +vmguest +live \
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-base \
-	use/systemd use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind
+	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
 	@$(call add,LIVE_PACKAGES,fuse-exfat)
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
@@ -27,7 +27,8 @@ distro/.regular-desktop: distro/.regular-base \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
-distro/regular-icewm: distro/.regular-base use/x11/lightdm/gtk +icewm
+distro/regular-icewm: distro/.regular-base use/init/sysv \
+	use/x11/lightdm/gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 

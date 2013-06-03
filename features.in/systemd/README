@@ -1,2 +1,2 @@
-Эта фича заменяет в базовой системе sysvinit на systemd;
-см. тж. http://www.altlinux.org/systemd
+Эта фича заменяла в базовой системе sysvinit на systemd;
+в настоящее время является устаревшей, см. ../init/
