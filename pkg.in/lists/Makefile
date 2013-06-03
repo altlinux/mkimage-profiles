@@ -26,8 +26,7 @@ copy-lists:
 	@$(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
-			$(shell cp --parents -at $(TARGET) \
-				-- $(value $V))))
+			$(shell cp --parents -at $(TARGET) -- $($V))))
 
 copy-groups:
 	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
@@ -43,6 +42,6 @@ debug:
 	@echo -e $(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),\
-			$(shell echo '\\n"**"' $V: $(value $V)))) '\n'
+			$(shell echo '\\n"**"' $V: $($V)))) '\n'
 
 endif
