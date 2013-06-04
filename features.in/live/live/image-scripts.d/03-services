@@ -53,6 +53,7 @@ bridge
 clamd
 crond
 dhcpd
+dmeventd
 dnsmasq
 lvm2-lvmetad
 lvm2-monitor
