@@ -50,7 +50,7 @@ distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 distro/regular-mate: distro/.regular-gtk
 	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
 
-distro/regular-e17: distro/.regular-gtk use/x11/e17
+distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality
 	@$(call add,LIVE_PACKAGES,xterm)
 
 distro/regular-cinnamon: distro/.regular-gtk \
