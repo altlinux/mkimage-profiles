@@ -1,3 +1,2 @@
 Эта фича заменяет в базовой системе sysvinit на systemd;
-в настоящее время является экспериментальной, читайте
-http://www.altlinux.org/systemd
+см. тж. http://www.altlinux.org/systemd

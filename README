@@ -1,5 +1,6 @@
-[float]
-=== Welcome to mkimage-profiles! ===
+== Welcome to m-p! ==
+
+*Brief summary*
 
   Configurables: ~/.mkimage/profiles.mk;
   see doc/params.txt and conf.d/README
@@ -43,7 +44,7 @@
 * субпрофили:
 ** список собирается в $(SUBPROFILES)
 ** базовые комплекты помещены в подкаталогах под sub.in/;
-    их наборы скриптов могут расширяться фичами
+   их наборы скриптов могут расширяться фичами
 * фичи:
 ** законченные блоки функциональности (или наборы таковых)
 ** описываются в индивидуальных features.in/*/config.mk

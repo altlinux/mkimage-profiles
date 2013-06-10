@@ -1,11 +1,11 @@
 = mkimage-profiles =
 Michael Shigorin <mike@altlinux.org>
-:DocVersion: v0.2.0
-:DocDate:  Oct 2012
+:DocVersion: v1.0
+:DocDate: Jun 2013
 
 = Введение =
 
-mkimage-profiles, или m-p — результат осмысления и обобщения опыта создания
+mkimage-profiles, или _m-p_ — результат осмысления и обобщения опыта создания
 семейств дистрибутивов свободного программного обеспечения на базе ALT Linux.
 
 *Цели*
@@ -29,40 +29,25 @@ mkimage-profiles, или m-p — результат осмысления и об
 
   git clone git://git.altlinux.org/people/mike/packages/mkimage-profiles.git
   cd mkimage-profiles
-  make distro/icewm.iso
-
-include::../README[]
+  make icewm.iso
 
 = Основы =
 
-include::assumptions.txt[]
-
-include::debug.txt[]
-
-include::features.txt[]
+include::../README[]
 
 include::params.txt[]
 
+include::features.txt[]
+
 include::pkglists.txt[]
-
-include::qemu.txt[]
-
-include::style.txt[]
-
-include::vm.txt[]
-
 
 = Каталоги =
 
 include::../conf.d/README[]
 
-include::../features.in/README[]
-
 include::../image.in/README[]
 
-include::../lib/README[]
-
-include::../pkg.in/README[]
+include::../features.in/README[]
 
 include::../sub.in/README[]
 
@@ -71,3 +56,26 @@ include::../sub.in/main/README[]
 include::../sub.in/stage1/README[]
 
 include::../sub.in/stage2/README[]
+
+include::../pkg.in/README[]
+
+include::../pkg.in/lists/README[]
+
+include::../pkg.in/lists/tagged/README[]
+
+include::../pkg.in/groups/README[]
+
+include::../lib/README[]
+
+= Приложения =
+
+include::assumptions.txt[]
+
+include::debug.txt[]
+
+include::style.txt[]
+
+include::vm.txt[]
+
+include::qemu.txt[]
+

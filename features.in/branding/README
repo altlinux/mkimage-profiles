@@ -9,18 +9,18 @@
 
 Назначение и возможные значения (если требуются):
 
-- STAGE1_BRANDING
-  * относится к загрузке со сгенерированного образа (например, ISO)
-  * bootloader bootsplash (при старте)
+* STAGE1_BRANDING
+** относится к загрузке со сгенерированного образа (например, ISO)
+** bootloader bootsplash (при старте)
 
-- STAGE2_BRANDING
-  * общая часть для всех вариантов stage2
-  * bootsplash (при выключении)
+* STAGE2_BRANDING
+** общая часть для всех вариантов stage2
+** bootsplash (при выключении)
 
-- INSTALL2_BRANDING
-  * специфические пакеты брендирования инсталятора
-  * notes slideshow
+* INSTALL2_BRANDING
+** специфические пакеты брендирования инсталятора
+** notes slideshow
 
-- THE_BRANDING
-  * общий список для использования в установленной системе и LiveCD
-  * alterator bootsplash graphics indexhtml notes slideshow
+* THE_BRANDING
+** общий список для использования в установленной системе и LiveCD
+** alterator bootsplash graphics indexhtml notes slideshow

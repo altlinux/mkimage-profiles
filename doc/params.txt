@@ -114,4 +114,4 @@
 [float]
 === пример ===
 
-  make DEBUG=1 CLEAN=1 distro/syslinux.iso
+  make DEBUG=1 CLEAN=1 syslinux.iso

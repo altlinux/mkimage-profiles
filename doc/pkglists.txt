@@ -1,10 +1,11 @@
 == Списки пакетов ==
 
 Состав пакетной базы субпрофилей определяется значенями
-следующих переменных профиля (см. тж. ../conf.d/README):
+следующих переменных профиля (см. тж. ../conf.d/README;
+некоторые "*" ниже заэкранированы ради парсера asciidoc):
 
 * main: пакетная база для установки
-** sub.in/main/Makefile, features.in/*/main/lib/*.mk
+** sub.in/main/Makefile, features.in/\*/main/lib/*.mk
 ** THE_LISTS, BASE_LISTS, MAIN_LISTS
 ** THE_GROUPS, MAIN_GROUPS
 ** THE_PACKAGES, BASE_PACKAGES, MAIN_PACKAGES,
@@ -14,7 +15,7 @@
 *** KFLAVOURS
 
 * stage2: общая часть installer, live, rescue
-** sub.in/stage2/Makefile, features.in/*/stage2/lib/*.mk
+** sub.in/stage2/Makefile, features.in/\*/stage2/lib/*.mk
 ** SYSTEM_PACKAGES, STAGE2_PACKAGES
 ** STAGE1_KMODULES, STAGE1_KMODULES_REGEXP,
     STAGE2_KMODULES, STAGE2_KMODULES_REGEXP
@@ -23,13 +24,13 @@
 * installer: компактная "живая" система, содержащая только инсталятор
 ** см. stage2
 *** features.in/install2/install2/stage2cfg.mk,
-    features.in/*/install2/lib/*.mk
+    features.in/\*/install2/lib/*.mk
 *** INSTALL2_PACKAGES
 
 * live: пользовательский LiveCD (может содержать также инсталятор)
 ** см. stage2
 ** features.in/live/live/stage2cfg.mk,
-    features.in/*/live/lib/*.mk
+    features.in/\*/live/lib/*.mk
 ** THE_LISTS, LIVE_LISTS
 ** THE_GROUPS, LIVE_GROUPS
 ** THE_PACKAGES, LIVE_PACKAGES, COMMON_PACKAGES
@@ -43,7 +44,7 @@
 ** RESCUE_LISTS
 
 * stage1: ядро и загрузчик второй стадии
-** sub.in/stage1/Makefile, features.in/*/stage1/lib/*.mk
+** sub.in/stage1/Makefile, features.in/\*/stage1/lib/*.mk
 ** STAGE1_PACKAGES, SYSTEM_PACKAGES
 ** STAGE1_PACKAGES_REGEXP
 ** STAGE1_KMODULES_REGEXP
