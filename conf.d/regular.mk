@@ -51,8 +51,9 @@ distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
-distro/regular-mate: distro/.regular-gtk
-	@$(call add,LIVE_LISTS,$(call tags,(desktop || mobile) && (mate || nm)))
+distro/regular-mate: distro/.regular-gtk use/x11/mate
+	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
+	@$(call add,LIVE_LISTS,$(call tags,desktop nm))	### +nm?
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality
 	@$(call add,LIVE_PACKAGES,xterm)
