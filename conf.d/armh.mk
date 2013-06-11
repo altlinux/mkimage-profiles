@@ -56,7 +56,7 @@ vm/cubox-e17: vm/.cubox-gtk use/x11/e17
 vm/cubox-xfce: vm/.cubox-gtk use/x11/xfce
 	@$(call set,BRANDING,simply-linux)
 	@$(call add,THE_BRANDING,xfce-settings)
-	@$(call add,BASE_PACKAGES,docs-simply-linux docs-linux_intro)
+	@$(call add,BASE_LISTS,slinux/arm)
 
 vm/cubox-xfce-ru: vm/cubox-xfce
 	@$(call add,BASE_PACKAGES,livecd-ru)

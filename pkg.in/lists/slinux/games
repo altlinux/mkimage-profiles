@@ -3,7 +3,7 @@
 #gnome-games-glines
 #gnome-games-gnect
 #gnome-games-gnibbles
-gnome-games-gnobots
+#gnome-games-gnobots
 #gnome-games-quadrapassel
 gnome-games-gnomine
 gnome-games-gnotravex
@@ -13,5 +13,5 @@ gnome-games-gnotski
 gnome-games-mahjongg
 #gnome-games-swell-foop
 gnome-games-sol
-gnome-games-sudoku
+#gnome-games-sudoku
 gnome-games-glchess
