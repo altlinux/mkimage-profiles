@@ -26,4 +26,45 @@ ve/nexus7-xfce: ve/.nexus7-tablet use/x11/xfce use/x11/lightdm/gtk +systemd
 
 endif
 
+ifeq (vm,$(IMAGE_CLASS))
+
+# NB: early dependency on use/kernel is on intent
+vm/.arm-base: profile/bare use/kernel use/vm-net/dhcp use/vm-ssh; @:
+	@$(call add,BASE_PACKAGES,interactivesystem e2fsprogs)
+	@$(call add,BASE_PACKAGES,apt)
+	@$(call add,BASE_PACKAGES,mkinitrd uboot-tools)
+	@$(call set,BRANDING,altlinux-kdesktop)
+
+vm/.cubox-base: vm/.arm-base use/armh use/armh-cubox use/deflogin/altlinuxroot \
+	use/services/ssh use/cleanup/installer use/repo use/branding +systemd
+	@$(call set,KFLAVOURS,cubox)
+	@$(call set,BRANDING,altlinux-kdesktop)
+	@$(call add,THE_BRANDING,alterator graphics indexhtml menu notes)
+	@$(call add,BASE_PACKAGES,glibc-locales vim-console rsync)
+	@$(call add,BASE_PACKAGES,parole gst-ffmpeg gst-plugins-vmeta)
+	@$(call add,BASE_PACKAGES,gst-plugins-good gst-plugins-nice)
+	@$(call add,BASE_PACKAGES,gst-plugins-bad gst-plugins-ugly)
+	@$(call add,BASE_PACKAGES,fonts-ttf-droid fonts-ttf-ubuntu-font-family)
+	@$(call add,BASE_PACKAGES,fonts-ttf-liberation fonts-ttf-dejavu)
+	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
+
+vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk; @:
+
+vm/cubox-e17: vm/.cubox-gtk use/x11/e17
+	@$(call add,BASE_PACKAGES,xterm)
+
+vm/cubox-xfce: vm/.cubox-gtk use/x11/xfce
+	@$(call set,BRANDING,simply-linux)
+	@$(call add,THE_BRANDING,xfce-settings)
+	@$(call add,BASE_PACKAGES,docs-simply-linux docs-linux_intro)
+
+vm/cubox-xfce-ru: vm/cubox-xfce
+	@$(call add,BASE_PACKAGES,livecd-ru)
+	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
+
+vm/cubox-mate: vm/.cubox-gtk use/x11/mate
+	@$(call add,BASE_LISTS,$(call tags,desktop nm))
+
+endif
+
 endif
