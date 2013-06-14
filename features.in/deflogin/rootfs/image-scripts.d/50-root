@@ -1,0 +1,10 @@
+#!/bin/sh
+# set root password if any; no-op if it is unset
+
+test="${GLOBAL_ROOTPW=:unset}"
+
+if [ "$test" = ":unset" ]; then
+	echo "** warning: no root password provided, you're on your own" >&2
+else
+	echo "$GLOBAL_ROOTPW" | passwd --stdin root
+fi

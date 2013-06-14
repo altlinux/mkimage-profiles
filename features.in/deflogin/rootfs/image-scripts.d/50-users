@@ -1,0 +1,33 @@
+#!/bin/bash
+# add regular user(s) assigning passwords and attributes of power
+
+# NB: care that the utilities exist; shadow-utils is warranted
+
+add_user() {
+	useradd -m "$1" &&
+	usermod -p "" "$1" &&
+	if [ -n "$GLOBAL_GROUPS" ]; then
+		usermod -a --groups "${GLOBAL_GROUPS// /,}" "$1" # bashism
+	fi ||
+	echo "*** failed to add user '$1'"
+}
+
+set_password() { echo "$1:$2" | chpasswd; }
+
+set_admin() { usermod -a --groups "wheel" "$1"; }
+
+set_sudo() {
+	[ ! -w "/etc/sudoers" ] ||
+		echo "$1\tALL=(ALL) ALL" >> "/etc/sudoers"
+}
+
+# chpasswd is inteded for batch use but that would be less comprehensible
+[ -z "$GLOBAL_USERS" ] ||
+	echo "$GLOBAL_USERS" \
+	| tr ' ' '\n' \
+	| while IFS=':' read login passwd admin sudo; do
+		add_user "$login"
+		[ -z "$passwd" ] || set_password "$login" "$passwd"
+		[ -z "$admin" ] || set_admin "$login"
+		[ -z "$sudo" ] || set_sudo "$login"
+	done

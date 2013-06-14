@@ -11,10 +11,6 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
 VM_RAWDISK := $(IMAGE_OUTDIR)/$(IMAGE_NAME).raw
 
-ifeq (,$(ROOTPW))
-$(error please provide root password via ROOTPW)
-endif
-
 check-sudo:
 	@if ! type -t sudo >&/dev/null; then \
 		echo "** error: sudo not available, see doc/vm.txt" >&2; \
@@ -43,7 +39,6 @@ convert-image: prepare-image
 	fi
 
 run-image-scripts: GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
-run-image-scripts: GLOBAL_ROOTPW := $(ROOTPW)
 
 # override
 pack-image: MKI_PACK_RESULTS := tar:$(VM_TARBALL)
