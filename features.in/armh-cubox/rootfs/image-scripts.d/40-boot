@@ -1,0 +1,19 @@
+#!/bin/sh
+
+mkdir -p /boot
+
+# 1920x1080 version of the boot script
+cat > /boot/boot << EOF
+setenv bootargs 'console=ttyS0,115200 root=/dev/mmcblk0p2 ro video=dovefb:lcd0:1920x1080-32@60-edid clcd.lcd0_enable=1 clcd.lcd1_enable=0 vmalloc=128M panic=3'
+ext2load mmc 0:1 2000000 uimage
+ext2load mmc 0:1 2800000 uinitrd
+bootm 2000000 2800000
+EOF
+
+# 1280x720 version of the boot script (not used at the moment)
+cat > /boot/boot.720 << EOF
+setenv bootargs 'console=ttyS0,115200 root=/dev/mmcblk0p2 ro video=dovefb:lcd0:1280x720-24@60-edid clcd.lcd0_enable=1 clcd.lcd1_enable=0 vmalloc=128M panic=3'
+ext2load mmc 0:1 2000000 uimage
+ext2load mmc 0:1 2800000 uinitrd
+bootm 2000000 2800000
+EOF
