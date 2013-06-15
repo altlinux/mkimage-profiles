@@ -2,7 +2,7 @@
 ANSI_OK   ?= 1;32
 ANSI_FAIL ?= 1;31
 
-MAX_ERRORS = 3
+MAX_ERRORS = 5
 GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (FAILURE|FATAL|ERROR|conflicts|Depends:) .*)|(.* (Stop|failed|not found)\.))$$
 
 ifndef MKIMAGE_PROFILES

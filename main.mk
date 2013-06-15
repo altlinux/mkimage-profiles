@@ -56,6 +56,9 @@ IMAGES  := $(DISTROS) $(VES) $(VMS)
 .PHONY: $(IMAGES) $(DISTRO_TARGETS) $(VE_TARGETS) $(VM_TARGETS)
 .PHONY: debug everything help space
 
+# grepping for localized error messages is not trivial
+export LC_MESSAGES=C
+
 ### duplicate but still needed
 everything:
 	@n=1; sum=$(words $(DISTROS)); \
