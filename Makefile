@@ -29,8 +29,10 @@ MAKE += -r --no-print-directory
 
 DIRECT_TARGETS := help help/distro help/ve help/vm clean distclean check
 .PHONY: $(DIRECT_TARGETS)
+
+# these build nothing so no use of reports either
 $(DIRECT_TARGETS):
-	@$(MAKE) -f main.mk $@
+	@$(MAKE) -f main.mk REPORT= $@
 
 export NUM_TARGETS := $(words $(MAKECMDGOALS))
 
