@@ -40,8 +40,12 @@ distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
 
+ifeq (i586,$(ARCH))
 distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep +plymouth
 	@$(call add,THE_BRANDING,graphics)
+else
+	$(error $@ is known buggy on non-i586 at the moment)
+endif
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce; @:
 
