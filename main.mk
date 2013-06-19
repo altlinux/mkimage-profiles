@@ -40,14 +40,17 @@ $(shell mkdir -p $(IMAGEDIR))
 IMAGEDIR := $(wildcard $(IMAGEDIR))
 endif
 
-# FIXME: this is buggy since *.mk can expose parts conditionally
-#        (e.g. test.mk does DEBUG-only bits) and these will fail
-DISTRO_TARGETS := $(shell sed -n 's,^\(distro/[^:.]\+\):.*$$,\1,p' \
-		lib/distro.mk $(wildcard conf.d/*.mk) | sort -u)
-VE_TARGETS := $(shell sed -n 's,^\(ve/[^:.]\+\):.*$$,\1,p' \
-		lib/ve.mk $(wildcard conf.d/*.mk) | sort -u)
-VM_TARGETS := $(shell sed -n 's,^\(vm/[^:.]\+\):.*$$,\1,p' \
-		lib/vm.mk $(wildcard conf.d/*.mk) | sort -u)
+# conf.d/*.mk can expose parts conditionally (e.g. DEBUG-only bits)
+targets = $(shell \
+	  for i in conf.d/*.mk; do \
+		make IMAGE_CLASS=$(1) -s -r -p -f $$i 2>/dev/null; \
+	  done \
+	  | sed -rn 's,^($(1)/[^.:]+):.*,\1,p' \
+	  | sort -u)
+
+DISTRO_TARGETS := $(call targets,distro)
+VE_TARGETS := $(call targets,ve)
+VM_TARGETS := $(call targets,vm)
 DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS))
 VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 VMS     := $(call addsuffices,$(VM_EXTS),$(VM_TARGETS))
