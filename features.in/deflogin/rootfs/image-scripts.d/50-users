@@ -18,7 +18,7 @@ set_admin() { usermod -a --groups "wheel" "$1"; }
 
 set_sudo() {
 	[ ! -w "/etc/sudoers" ] ||
-		echo "$1\tALL=(ALL) ALL" >> "/etc/sudoers"
+		echo "$1	ALL=(ALL) ALL" >> "/etc/sudoers"
 }
 
 # chpasswd is inteded for batch use but that would be less comprehensible
