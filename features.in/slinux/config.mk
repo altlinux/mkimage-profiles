@@ -1,7 +1,10 @@
-use/slinux: use/x11/xfce use/x11/gdm2.20
+use/slinux: use/x11/xfce
 	@$(call add_feature)
 	@$(call set,BRANDING,simply-linux)
 	@$(call add,THE_BRANDING,menu xfce-settings)
+	@$(call set,META_VOL_SET,Simply Linux)
+
+use/slinux/base: use/slinux use/x11/gdm2.20
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,THE_LISTS,slinux/$(ARCH))
 	@$(call add,THE_LISTS,slinux/games)
@@ -13,8 +16,9 @@ use/slinux: use/x11/xfce use/x11/gdm2.20
 	@$(call add,THE_LISTS,slinux/network)
 	@$(call add,THE_LISTS,slinux/xfce)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
-	@$(call set,META_VOL_SET,Simply Linux)
 
-use/slinux/full: use/isohybrid use/slinux +systemd +wireless \
-	use/branding/complete use/x11/3d
-	@$(call add,THE_PACKAGES,apt-conf-sisyphus)
+use/slinux/full: use/isohybrid use/slinux/base +systemd +wireless \
+	use/branding/complete use/x11/3d; @:
+
+use/slinux/arm: use/slinux use/x11/lightdm/gtk
+	@$(call add,THE_LISTS,slinux/arm)
