@@ -1,0 +1,7 @@
+#!/bin/sh
+# Sisyphus/armh is not being signed as of June, 2013
+
+repo_source='/etc/apt/sources.list.d/alt.list'
+[ -s "$repo_source" ] || exit 0
+
+sed -i 's, \[alt\],,' "$repo_source" ||:
