@@ -1,0 +1,12 @@
+#!/bin/sh
+# this breaks the default configuration on intent
+# so that alterator-setup can run predictably
+
+TARGET=/lib/systemd/system/setup.target
+
+[ ! -s "$TARGET" ] ||
+	ln -s "$TARGET" /etc/systemd/system/default.target
+
+echo "LANG=en_US.utf-8" >> /etc/sysconfig/i18n
+
+:
