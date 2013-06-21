@@ -35,8 +35,8 @@ vm/.arm-base: profile/bare use/kernel use/vm-net/dhcp use/vm-ssh; @:
 	@$(call add,BASE_PACKAGES,mkinitrd uboot-tools)
 	@$(call set,BRANDING,altlinux-kdesktop)
 
-vm/.cubox-base: vm/.arm-base use/armh use/armh-cubox use/deflogin/altlinuxroot \
-	use/services/ssh use/cleanup/installer use/repo use/branding +systemd
+vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh \
+	use/cleanup/installer use/repo use/branding +systemd
 	@$(call set,KFLAVOURS,cubox)
 	@$(call set,BRANDING,altlinux-kdesktop)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml menu notes)
@@ -48,17 +48,12 @@ vm/.cubox-base: vm/.arm-base use/armh use/armh-cubox use/deflogin/altlinuxroot \
 	@$(call add,BASE_PACKAGES,fonts-ttf-liberation fonts-ttf-dejavu)
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 
+vm/.cubox-base: vm/.cubox-bare use/deflogin/altlinuxroot; @:
 vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk; @:
 
-vm/cubox-e17: vm/.cubox-gtk use/x11/e17
-	@$(call add,BASE_PACKAGES,xterm)
+vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem; @:
 
-vm/cubox-xfce: vm/.cubox-gtk use/x11/xfce
-	@$(call set,BRANDING,simply-linux)
-	@$(call add,THE_BRANDING,xfce-settings)
-	@$(call add,BASE_LISTS,slinux/arm)
-
-vm/cubox-xfce-ru: vm/cubox-xfce
+vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
 	@$(call add,BASE_PACKAGES,livecd-ru)
 	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 
