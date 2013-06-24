@@ -14,11 +14,14 @@ kdeutils-ark
 kdeutils-kcalc
 kdegraphics-kpdf
 kde-i18n-ru
+kde-i18n-uk
 kdeaddons-konqueror
+krusader
 #digikam
 #digikam-image-plugins
 kaffeine
 kdemultimedia-kmix
+amarok
 
 # rom_as@ says it's still needed
 hal
