@@ -51,7 +51,7 @@ vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh \
 vm/.cubox-base: vm/.cubox-bare use/deflogin/altlinuxroot; @:
 vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk; @:
 
-vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem; @:
+vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem use/net-usershares; @:
 
 vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
 	@$(call add,BASE_PACKAGES,livecd-ru)
