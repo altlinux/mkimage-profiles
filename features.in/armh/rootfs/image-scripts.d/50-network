@@ -34,40 +34,7 @@ DOMAINNAME="localdomain"
 HOSTNAME="localhost.localdomain"
 
 verbose "Init /etc/hosts with 127.0.0.1 localhost"
-/bin/echo "127.0.0.1 localhost localhost.localdomain" > /etc/hosts
+echo "127.0.0.1 localhost localhost.localdomain" > /etc/hosts
 
 verbose "Truncate /etc/resolv.conf"
-/bin/echo nameserver 8.8.8.8 >/etc/resolv.conf
-
-chkconfig network on
-
-netcfg="/etc/sysconfig/network"
-
-verbose "Enable networking, disable FORWARD_IPV4, set hostname to $HOSTNAME, domainname to $DOMAINNAME"
-shell_config_set "$netcfg" NETWORKING yes
-shell_config_set "$netcfg" FORWARD_IPV4 false
-shell_config_set "$netcfg" HOSTNAME "$HOSTNAME"
-shell_config_set "$netcfg" DOMAINNAME "$DOMAINNAME"
-
-if [ -x /etc/init.d/connmand ]; then
-	verbose "Enable connmand and finish"
-	chkconfig --add connmand && chkconfig connmand on
-	exit 0
-fi
-
-verbose "Setup defaults for NetworkManager"
-
-shell_config_set /etc/net/ifaces/default/options-eth BOOTPROTO dhcp
-
-if  [ -f /usr/sbin/NetworkManager ] ; then
-    chkconfig --add NetworkManager && chkconfig NetworkManager on
-    shell_config_set /etc/net/ifaces/default/options-eth NM_CONTROLLED yes
-    shell_config_set /etc/net/ifaces/default/options-eth DISABLED yes
-    #subst 's/NM_CONTROLLED=no/NM_CONTROLLED=yes/' /etc/net/ifaces/*/options ||:
-else
-    verbose "Did you install NetworkManager? Can't find them."
-    # Don't assign configuration to interfaces, untill ifplugd detects cable presence
-    subst 's/USE_IFPLUGD=no/USE_IFPLUGD=yes/' /etc/net/ifaces/default/options-eth
-fi
-
-verbose "finished"
+echo nameserver 8.8.8.8 >/etc/resolv.conf

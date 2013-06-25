@@ -29,7 +29,7 @@ endif
 ifeq (vm,$(IMAGE_CLASS))
 
 # NB: early dependency on use/kernel is on intent
-vm/.arm-base: profile/bare use/kernel use/vm-net/dhcp use/vm-ssh; @:
+vm/.arm-base: profile/bare use/kernel use/net-eth/dhcp use/vm-ssh; @:
 	@$(call add,BASE_PACKAGES,interactivesystem e2fsprogs)
 	@$(call add,BASE_PACKAGES,apt)
 	@$(call add,BASE_PACKAGES,mkinitrd uboot-tools)
@@ -49,16 +49,16 @@ vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh \
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 
 vm/.cubox-base: vm/.cubox-bare use/deflogin/altlinuxroot; @:
-vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk; @:
+vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk +nm; @:
 
-vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem use/net-usershares; @:
+vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem use/net-usershares \
+	use/domain-client
 
 vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
 	@$(call add,BASE_PACKAGES,livecd-ru)
 	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 
-vm/cubox-mate: vm/.cubox-gtk use/x11/mate
-	@$(call add,BASE_LISTS,$(call tags,desktop nm))
+vm/cubox-mate: vm/.cubox-gtk use/x11/mate +nm; @:
 
 endif
 
