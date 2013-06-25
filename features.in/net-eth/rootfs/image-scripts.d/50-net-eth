@@ -1,0 +1,50 @@
+#!/bin/sh
+# parse interface configuration tuples:
+#   iface:proto[:ipv4addr/netmask[:ipv4gw]]
+# and write it down as intended
+
+fatal() { echo "error: $*" >&2; exit 1; }
+
+# simple etcnet configurations are also picked up by NM
+if type -t NetworkManager >&/dev/null ||
+   type -t connmand >&/dev/null; then
+	NMCTL=yes
+else
+	NMCTL=no
+fi
+
+IFACEDIR="/etc/net/ifaces"
+
+# uses global variables
+write_iface() {
+	dir="$IFACEDIR/$iface"
+	mkdir -p "$dir"
+	case "$proto" in
+	dhcp)
+		;;
+	static)
+		[ -n "$ipv4addr" ] || fatal "ipv4addr missing"
+		echo "$ipv4addr" > "$dir/ipv4address"
+		[ -z "$ipv4gw" ] ||
+			echo "default via $ipv4gw" > "$dir/ipv4route"
+		;;
+	*)
+		fatal "unknown proto value: $proto"
+		;;
+	esac
+	{
+		echo "TYPE=eth"
+		echo "DISABLED=no"
+		echo "BOOTPROTO=$proto"
+		echo "NM_CONTROLLED=$NMCTL"
+		echo "USE_IFPLUGD=yes"
+	} > "$dir/options"
+}
+
+[ -z "$GLOBAL_NET_ETH" ] ||
+	echo "$GLOBAL_NET_ETH" \
+	| tr ' ' '\n' \
+	| while IFS=':' read iface proto ipv4addr ipv4gw; do
+		[ -n "$iface" -a -n "$proto" ] || continue
+		write_iface
+	done
