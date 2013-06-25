@@ -1,4 +1,6 @@
+pam-config
 pam_mount
+pam_ccreds
 
 samba4-client
 cifs-utils
@@ -12,6 +14,7 @@ installer-feature-network-shares-client-stage3
 installer-feature-weak-passwd
 libnss-fallback
 libnss-mdns
+nss-ldapd
 
 settime-rfc867
 
