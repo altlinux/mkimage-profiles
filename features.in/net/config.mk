@@ -1,6 +1,6 @@
 +nm: use/net/nm; @:
 
-use/net:
+use/net: use/services
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,etcnet)
 	@$(call add,DEFAULT_SERVICES_ENABLE,network)

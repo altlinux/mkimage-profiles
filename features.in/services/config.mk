@@ -7,8 +7,6 @@ use/services: sub/rootfs
 
 # some presets
 
-use/services/network: use/services
-	@$(call add,DEFAULT_SERVICES_ENABLE,network)
-
-use/services/ssh: use/services use/services/network
+use/services/ssh: use/services use/net
+	@$(call add,THE_LISTS,openssh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,sshd)
