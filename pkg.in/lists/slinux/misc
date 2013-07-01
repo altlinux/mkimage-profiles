@@ -36,7 +36,7 @@ unrar
 unarj
 dbus-tools-gui
 brasero
-medit
+#medit
 gcalctool
 synaptic
 synaptic-usermode
@@ -72,7 +72,7 @@ alterator-standalone
 alterator-sysconfig
 
 # Additional
-gnome-search-tool
+#gnome-search-tool
 yelp
 
 # Compiz things

@@ -46,6 +46,7 @@ vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh \
 	@$(call add,BASE_PACKAGES,gst-plugins-bad gst-plugins-ugly)
 	@$(call add,BASE_PACKAGES,fonts-ttf-droid fonts-ttf-ubuntu-font-family)
 	@$(call add,BASE_PACKAGES,fonts-ttf-liberation fonts-ttf-dejavu)
+	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 
 vm/.cubox-base: vm/.cubox-bare use/deflogin/altlinuxroot; @:
@@ -56,7 +57,6 @@ vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem use/net-usershares \
 
 vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
 	@$(call add,BASE_PACKAGES,livecd-ru)
-	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 
 vm/cubox-mate: vm/.cubox-gtk use/x11/mate +nm; @:
 

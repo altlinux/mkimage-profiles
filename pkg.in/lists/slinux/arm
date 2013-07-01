@@ -44,7 +44,7 @@ unrar
 unarj
 dbus-tools-gui
 brasero
-medit
+#medit
 gcalctool
 synaptic
 synaptic-usermode
@@ -77,7 +77,7 @@ alterator-datetime
 alterator-standalone
 alterator-sysconfig
 
-gnome-search-tool
+#gnome-search-tool
 yelp
 
 rpminstall
