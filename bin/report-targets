@@ -21,7 +21,7 @@ while read first second third rest; do
 	for to in $TO; do
 		out="  \"$FROM\" -> \"$to\""
 		case $to in
-		*distro/*)
+		*distro/*|*vm/*)
 			echo "$out [weight=10];";;
 		*)
 			echo "$out";;
