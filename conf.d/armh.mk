@@ -35,8 +35,8 @@ vm/.arm-base: profile/bare use/kernel use/net-eth/dhcp use/vm-ssh; @:
 	@$(call add,BASE_PACKAGES,mkinitrd uboot-tools)
 	@$(call set,BRANDING,altlinux-kdesktop)
 
-vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh \
-	use/cleanup/installer use/repo use/branding +systemd
+vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh +systemd \
+	use/cleanup/installer use/repo use/branding use/xdg-user-dirs/deep
 	@$(call set,KFLAVOURS,cubox)
 	@$(call set,BRANDING,altlinux-kdesktop)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml menu notes)

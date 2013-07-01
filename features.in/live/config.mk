@@ -26,7 +26,8 @@ use/live/x11: use/live/base use/x11-autologin use/live/sound +power +efi
 	@$(call add,SYSLINUX_CFG,localboot)
 
 # this target specifically pulls free xorg drivers in (and a few more bits)
-use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom +vmguest; @:
+use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
+	use/xdg-user-dirs/deep +vmguest; @:
 
 # preconfigure apt for both live and installed-from-live systems
 use/live/repo: use/live
