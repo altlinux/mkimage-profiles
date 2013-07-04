@@ -18,7 +18,7 @@ use/live/rw: use/live; @:
 endif
 
 # graphical target (not enforcing xorg drivers or blobs)
-use/live/x11: use/live/base use/x11-autologin use/live/sound +power +efi
+use/live/x11: use/live/base use/x11-autologin use/sound +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
@@ -66,6 +66,3 @@ use/live/hooks: use/live
 # a crude hack to make sure Russian is supported in a particular image
 use/live/ru: use/live
 	@$(call add,LIVE_PACKAGES,livecd-ru)
-
-use/live/sound: use/live
-	@$(call add,LIVE_PACKAGES,amixer alsa-utils aplay udev-alsa)
