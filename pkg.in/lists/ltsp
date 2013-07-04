@@ -7,8 +7,6 @@ alterator-standalone
 
 alsa-plugins
 alsa-plugins-pulse
-alsa-utils
-aplay
 mplayer
 
 syslinux

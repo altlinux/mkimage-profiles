@@ -1,6 +1,6 @@
 +ltsp: use/ltsp/base; @:
 
-use/ltsp:
+use/ltsp: use/sound
 	@$(call add_feature)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-ltsp-stage2)
 	@$(call add,MAIN_LISTS,ltsp-client)
