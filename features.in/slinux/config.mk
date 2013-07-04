@@ -4,7 +4,7 @@ use/slinux: use/x11/xfce
 	@$(call add,THE_BRANDING,menu xfce-settings)
 	@$(call set,META_VOL_SET,Simply Linux)
 
-use/slinux/base: use/slinux use/x11/gdm2.20
+use/slinux/base: use/slinux use/x11/gdm2.20 +pulse
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,THE_LISTS,slinux/$(ARCH))
 	@$(call add,THE_LISTS,slinux/games)

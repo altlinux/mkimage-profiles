@@ -52,10 +52,6 @@ printer-drivers-base
 udev-extras
 hostname-hook-hosts
 libnss-mdns
-pulseaudio-daemon
-pulseaudio-utils
-pavucontrol
-alsa-plugins-pulse
 fdisk
 cpufreq-simple
 attr

@@ -32,5 +32,4 @@ NetworkManager-vpnc-gnome
 #NetworkManager-l2tp-gnome
 usb-modeswitch
 
-alsa-utils
 dialog
