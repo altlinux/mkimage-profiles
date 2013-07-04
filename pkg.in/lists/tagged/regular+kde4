@@ -2,14 +2,13 @@ kde4-regular
 
 plasma-applet-networkmanager
 
-pulseaudio-daemon
-alsa-plugins-pulse
 phonon-gstreamer
-pavucontrol
 
 synaptic-kde
 synaptic-usermode-
+
 gtk2-theme-oxygen-gtk
 gtk3-theme-oxygen-gtk
+
 altlinux-freedesktop-menu-kde4
 altlinux-freedesktop-menu-shallow-menu
