@@ -5,7 +5,7 @@ ifeq (ve,$(IMAGE_CLASS))
 ve/.tegra3-base: ve/.base use/armh use/kernel
 	@$(call add,BASE_PACKAGES,nvidia-tegra)
 
-ve/.tegra3-tablet: ve/.tegra3-base use/armh-tegra3
+ve/.tegra3-tablet: ve/.tegra3-base use/armh-tegra3 +pulse
 	@$(call add,BASE_LISTS,$(call tags,base tablet))
 
 ve/.nexus7-tablet: ve/.tegra3-tablet use/armh-nexus7 \
@@ -36,7 +36,8 @@ vm/.arm-base: profile/bare use/kernel use/net-eth/dhcp use/vm-ssh; @:
 	@$(call set,BRANDING,altlinux-kdesktop)
 
 vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh +systemd \
-	use/cleanup/installer use/repo use/branding use/xdg-user-dirs/deep
+	use/cleanup/installer use/repo use/branding use/xdg-user-dirs/deep \
+	+pulse
 	@$(call set,KFLAVOURS,cubox)
 	@$(call set,BRANDING,altlinux-kdesktop)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml menu notes)

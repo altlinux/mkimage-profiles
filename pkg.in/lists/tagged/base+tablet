@@ -8,14 +8,6 @@ setxkbmap
 fonts-ttf-dejavu
 fonts-ttf-droid
 
-alsa-utils
-amixer
-aplay
-
-pulseaudio-daemon
-pulseaudio-utils
-pavucontrol
-
 rfkill
 wpa_supplicant
 
