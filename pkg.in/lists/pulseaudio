@@ -1,0 +1,6 @@
+pulseaudio-daemon
+
+pulseaudio-utils
+pavucontrol
+
+alsa-plugins-pulse
