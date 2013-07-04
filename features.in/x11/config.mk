@@ -83,9 +83,8 @@ use/x11/xfce: use/x11
 use/x11/cinnamon: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
 
-use/x11/gnome3: use/x11/xorg
-	@$(call add,THE_PACKAGES,gnome3-default)
-	@$(call add,THE_PACKAGES,gst-libav pulseaudio-daemon)
+use/x11/gnome3: use/x11/xorg +pulse
+	@$(call add,THE_PACKAGES,gnome3-default gst-libav)
 
 use/x11/e17: use/x11 use/net/connman
 	@$(call add,THE_LISTS,$(call tags,e17 desktop))
