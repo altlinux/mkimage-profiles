@@ -1,7 +1,7 @@
 # WARNING: the variable values are stored in build config/log!
 use/deflogin:
 	@$(call add_feature)
-	@$(call add,THE_PACKAGES,shadow-utils)
+	@$(call add,THE_PACKAGES,shadow-utils passwd)
 	@$(call xport,ROOTPW)
 	@$(call xport,USERS)
 	@$(call xport,GROUPS)
