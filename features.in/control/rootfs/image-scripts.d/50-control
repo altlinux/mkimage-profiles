@@ -1,0 +1,11 @@
+#!/bin/sh
+# setup control(8) states
+
+[ -z "$GLOBAL_CONTROL" ] ||
+	echo "$GLOBAL_CONTROL" \
+	| tr ' ' '\n' \
+	| while IFS=':' read facility state; do
+		[ -z "$facility" -o -z "$state" ] ||
+			control "$facility" "$state"
+	done
+:
