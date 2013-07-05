@@ -18,7 +18,7 @@ ve/.nexus7-tablet: ve/.tegra3-tablet use/armh-nexus7 \
 
 ve/nexus7-e17: ve/.nexus7-tablet use/x11/e17 use/x11/lightdm/gtk; @:
 
-ve/nexus7-kde4: ve/.nexus7-tablet use/x11/lightdm/kde +systemd
+ve/nexus7-kde4: ve/.nexus7-tablet use/x11/lightdm/kde +systemd +pulse +nm
 	@$(call add,BASE_LISTS,$(call tags,base kde4mobile))
 
 ve/nexus7-xfce: ve/.nexus7-tablet use/x11/xfce use/x11/lightdm/gtk +systemd
