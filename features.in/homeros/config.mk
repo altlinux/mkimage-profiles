@@ -1,4 +1,4 @@
-use/homeros:
+use/homeros: use/control/sudo-su
 	@$(call add_feature)
 #	@$(call set,BRANDING,simply-linux)
 #	@$(call add,THE_BRANDING,menu xfce-settings)
