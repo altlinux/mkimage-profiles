@@ -1,5 +1,6 @@
-use/xdg-user-dirs:
+use/xdg-user-dirs: use/control
 	@$(call add_feature)
+	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,THE_PACKAGES,xdg-user-dirs)
 	@$(call xport,XDG_USER_DIRS)
 

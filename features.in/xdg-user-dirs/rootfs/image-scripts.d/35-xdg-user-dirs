@@ -1,18 +1,15 @@
 #!/bin/sh
-# turn on xdg-user-dirs.and tweak its defaults if told so
-# (using tuples like "PHOTOS:Documents/Pictures")
+# tweak xdg-user-dirs defaults if told so
+# using tuples like "PHOTOS:Documents/Pictures"
 
 . shell-config
 
 CONFIG="/etc/xdg/user-dirs.defaults"
 
-if control xdg-user-dirs enabled; then
-	if [ -n "$GLOBAL_XDG_USER_DIRS" ]; then
-		echo "$GLOBAL_XDG_USER_DIRS" \
-		| tr ' ' '\n' \
+[ -z "$GLOBAL_XDG_USER_DIRS" ] ||
+	echo "$GLOBAL_XDG_USER_DIRS" \
+	| tr ' ' '\n' \
 		| while IFS=':' read k v; do
 			[ -n "$k" -a -n "$v" ] || continue
 			shell_config_set "$CONFIG" "$k" "$v"
 		done
-	fi
-fi
