@@ -1,6 +1,7 @@
-use/dev:
+use/dev: use/control
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,git-core hasher gear)
+	@$(call add,CONTROL,pam_mktemp:enabled)
 
 use/dev/mkimage: use/dev
 	@$(call add,THE_PACKAGES,mkimage shadow-change su)

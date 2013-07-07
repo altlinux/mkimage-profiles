@@ -28,7 +28,6 @@ fi
 
 # $TMP
 TMP="/tmp/.private/$USER"
-control pam_mktemp enabled
 sed -i '/^%_tmppath.*tmp$/d' "$HOME/.rpmmacros"
 echo "%_tmppath	$TMP" >> "$HOME/.rpmmacros"
 
