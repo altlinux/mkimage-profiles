@@ -20,7 +20,9 @@ fi
 [ -n "$GLOBAL_DEBUG" ] || message "WORKDIR: $WORKDIR"
 
 MB=1048576		# a parted's "megabyte" in bytes is *broken*
+
 SIZE_FACTOR=2		# multiply the sizes found by this value
+BOOT_SIZE_FACTOR=2	# multiply /boot size by this value additionally
 
 CUR_BOUNDARY=0		# align first partition at 1MB for performance (+1)
 
@@ -87,15 +89,15 @@ IMG="$2"
 ROOTSIZE="$3"
 [ -n "$ROOTSIZE" -a "$ROOTSIZE" != 0 ] || unset ROOTSIZE
 
-# image size in bytes (note the final ceil rounding to megabytes)
+# image size in bytes
 TARSIZE="$(stat -Lc %s "$TAR")"
 # /boot size in that tarball
 BOOTSIZE="$(boot_size "$TAR")"
 DEFSIZE="$(($SIZE_FACTOR * ($TARSIZE - $BOOTSIZE)))"	# (exact sizes)
-ROOTSIZE="$((${ROOTSIZE:-$DEFSIZE} + $MB - 1))"
+ROOTSIZE="$((${ROOTSIZE:-$DEFSIZE} + $MB - 1))"	# for ceil rounding to MB
 # image and /boot sizes in megabytes
 ROOTSIZEM="$(($ROOTSIZE / $MB))"
-BOOTSIZEM="$((($SIZE_FACTOR * $BOOTSIZE + $MB - 1) / $MB))"
+BOOTSIZEM="$((($SIZE_FACTOR * $BOOT_SIZE_FACTOR * $BOOTSIZE + $MB - 1) / $MB))"
 
 # tested to work: ext[234], jfs
 # NB: xfs doesn't have a spare sector for the bootloader
