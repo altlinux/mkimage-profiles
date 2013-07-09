@@ -49,7 +49,7 @@ endif
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce +nm; @:
 
-distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality +nm
+distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality +nm; @:
 
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
