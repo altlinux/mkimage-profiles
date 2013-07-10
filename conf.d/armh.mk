@@ -59,7 +59,7 @@ vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem use/net-usershares \
 vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
 	@$(call add,BASE_PACKAGES,livecd-ru)
 
-vm/cubox-mate: vm/.cubox-gtk use/x11/mate +nm; @:
+vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
 
 endif
 
