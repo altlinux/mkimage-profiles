@@ -23,3 +23,6 @@ lxde-settings-upstream
 
 lxde-icon-theme
 tango-icon-theme
+
+# reboot/poweroff in logout menu as of July, 2013
+ConsoleKit
