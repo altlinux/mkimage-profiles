@@ -60,6 +60,9 @@ vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
 
 vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
 
+vm/cubox-kde4: vm/.cubox-bare \
+	use/oem use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse +nm
+
 endif
 
 endif
