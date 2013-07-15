@@ -24,7 +24,7 @@ prep: $(GLOBAL_DEBUG) dot-disk $(WHATEVER)
 # can't use mp-showref which belongs to the metaprofile
 dot-disk:
 	@mkdir -p files/.disk
-	@echo "ALT Linux based" >files/.disk/info
+	@echo "$(META_VOL_ID)" >files/.disk/info
 	@echo "$(ARCH)" >files/.disk/arch
 	@echo "$(DATE)" >files/.disk/date
 	@if type -t git >&/dev/null; then \
