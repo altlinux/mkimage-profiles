@@ -157,13 +157,8 @@ fi
 # not ROOTSIZEM but "the rest"; somewhat non-trivial arithmetics lurk in parted
 mkpart
 
-kpartx -a "$LOOPDEV"
+kpartx -a -s "$LOOPDEV"
 LOOPROOT="/dev/mapper/$(basename "$LOOPDEV")p$ROOTPART"
-
-# might take a tiny bit of time to actually appear
-for i in `seq 10`; do
-	[ -b "$LOOPROOT" ] && break || sleep 0.1
-done
 
 mkfs."$ROOTFSTYPE" "$LOOPROOT"
 
