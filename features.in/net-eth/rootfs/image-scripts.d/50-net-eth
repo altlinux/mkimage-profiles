@@ -38,7 +38,7 @@ write_iface() {
 		echo "BOOTPROTO=$proto"
 		echo "NM_CONTROLLED=$NMCTL"
 		echo "DISABLED=$NMCTL"
-		echo "USE_IFPLUGD=yes"
+		echo "#USE_IFPLUGD=yes"
 	} > "$dir/options"
 }
 
