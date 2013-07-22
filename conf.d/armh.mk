@@ -49,19 +49,22 @@ vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh +systemd \
 	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 
-vm/.cubox-base: vm/.cubox-bare use/deflogin/altlinuxroot; @:
+vm/.cubox-base: vm/.cubox-bare use/oem; @:
+
+vm/cubox-xfce-ru: vm/.cubox-bare use/deflogin/altlinuxroot \
+	use/slinux/arm use/x11/lightdm/gtk use/x11-autologin +nm
+	@$(call add,BASE_PACKAGES,livecd-ru)
+
+# these images use a king of OEM setup
 vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk +nm; @:
 
-vm/cubox-xfce: vm/.cubox-bare use/slinux/arm use/oem use/net-usershares \
-	use/domain-client +nm; @:
-
-vm/cubox-xfce-ru: vm/.cubox-gtk use/slinux/arm use/x11-autologin
-	@$(call add,BASE_PACKAGES,livecd-ru)
+vm/cubox-xfce: vm/.cubox-gtk \
+	use/slinux/arm use/net-usershares use/domain-client; @:
 
 vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
 
-vm/cubox-kde4: vm/.cubox-bare \
-	use/oem use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse +nm
+vm/cubox-kde4: vm/.cubox-base use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse
+	@$(call add,BASE_LISTS,$(call tags,desktop && kde4 && !extra))
 
 endif
 
