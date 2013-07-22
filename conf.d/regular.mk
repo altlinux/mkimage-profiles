@@ -66,8 +66,9 @@ distro/regular-cinnamon: distro/.regular-gtk \
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
 
-distro/regular-tde: distro/.regular-desktop +tde +plymouth +nm
+distro/regular-tde: distro/.regular-desktop use/net-eth/dhcp +tde +plymouth
 	@$(call add,LIVE_PACKAGES,kdegames kdeedu)
+	@$(call add,LIVE_LISTS,openscada)
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
 	use/fonts/zerg +pulse +plymouth
