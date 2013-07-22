@@ -63,6 +63,9 @@ vm/cubox-xfce: vm/.cubox-gtk \
 
 vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
 
+vm/cubox-tde: vm/.cubox-base use/net-eth/dhcp use/x11-autostart +tde
+	@$(call add,BASE_LISTS,openscada)
+
 vm/cubox-kde4: vm/.cubox-base use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse
 	@$(call add,BASE_LISTS,$(call tags,desktop && kde4 && !extra))
 
