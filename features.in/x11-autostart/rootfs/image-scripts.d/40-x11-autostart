@@ -13,6 +13,7 @@ if [ -f "$INITTAB" ]; then
 fi
 
 ## ...and systemd, if any
-rm -f /etc/systemd/system/default.target
+## NB: alterator-setup's backup file can present a nice catch if left around
+rm -f /etc/systemd/system/default.target{,.bak}
 
 :
