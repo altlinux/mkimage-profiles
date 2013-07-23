@@ -62,6 +62,8 @@ vm/cubox-xfce: vm/.cubox-gtk \
 	use/slinux/arm use/net-usershares use/domain-client; @:
 
 vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
+	@$(call set,BRANDING,altlinux-centaurus)
+	@$(call add,THE_BRANDING,mate-settings)
 
 vm/cubox-tde: vm/.cubox-base use/net-eth/dhcp use/x11-autostart +tde
 	@$(call add,BASE_LISTS,openscada)
