@@ -49,8 +49,7 @@ distro/live-rescue: distro/live-icewm use/efi
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
 # NB: this one doesn't include the browser, needs to be chosen downstream
-distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru \
-	use/sound/alsa
+distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
