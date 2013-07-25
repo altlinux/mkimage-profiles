@@ -19,7 +19,6 @@ php5-memcache
 php5-mhash
 php5-mysql
 php5-pgsql
-php5-rrdtool
 php5-suhosin
 php5-xmlrpc
 php5-xsl
