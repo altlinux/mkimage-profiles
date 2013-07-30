@@ -1,4 +1,4 @@
-+nm: use/net/nm; @:
++nm: use/net/nm/nodelay; @:
 
 use/net: use/services
 	@$(call add_feature)
@@ -11,6 +11,9 @@ use/net/dhcp: use/net
 use/net/nm: use/net
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
+
+use/net/nm/nodelay: use/net/nm
+	@$(call add,DEFAULT_SERVICES_DISABLE,NetworkManager-wait-online)
 
 use/net/connman: use/net
 	@$(call add,THE_PACKAGES,connman)
