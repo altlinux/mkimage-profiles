@@ -10,8 +10,8 @@ deadbeef
 mtpaint
 parcellite
 
-# gqview has thumbnails support, gpicview doesn't
-gqview
+# gqview is long erm... stable, george@ suggested upgrading to geeqie
+geeqie
 
 # file-roller is recommended over xarchiver (gns@) and not that fatty yet
 file-roller
