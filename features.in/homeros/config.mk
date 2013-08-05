@@ -1,4 +1,4 @@
-use/homeros: use/control/sudo-su
+use/homeros: use/control/sudo-su use/services
 	@$(call add_feature)
 #	@$(call set,BRANDING,simply-linux)
 #	@$(call add,THE_BRANDING,menu xfce-settings)
@@ -8,3 +8,4 @@ use/homeros: use/control/sudo-su
 	@$(call add,THE_LISTS,homeros/yasr)
 	@$(call add,THE_LISTS,homeros/tools)
 #	@$(call set,META_VOL_SET,Homeros)
+	@$(call add,DEFAULT_SERVICES_ENABLE,sshd voiceman)
