@@ -6,15 +6,16 @@
 -include $(HOME)/.mkimage/profiles.mk
 
 # for immediate assignment
-ifndef ARCHES
-ifdef ARCH
-ARCHES := $(ARCH)
-else
-ARCHES := $(shell arch \
+ifndef ARCH
+ARCH := $(shell arch \
 	| sed 's/i686/i586/; s/armv7.*/armh/; s/armv.*/arm/; s/ppc.*/ppc/')
 endif
+
+ifndef ARCHES
+ARCHES := $(ARCH)
 endif
-export ARCHES
+
+export ARCHES ARCH
 
 export PATH := $(CURDIR)/bin:$(PATH)
 
