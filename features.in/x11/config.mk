@@ -10,10 +10,14 @@ use/x11:
 	@$(call add,THE_KMODULES,drm)	# required by recent nvidia.ko as well
 	@$(call add,THE_LISTS,$(call tags,base xorg))
 
-# free drivers for various hardware (might lack acceleration)
+# x86: free drivers for various hardware (might lack acceleration)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/x11/xorg: use/x11 use/x11/intel
 	@$(call add,THE_KMODULES,drm-radeon drm-nouveau)
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
+else
+use/x11/xorg: use/x11; @:
+endif
 
 # both free and excellent
 use/x11/intel: use/x11
