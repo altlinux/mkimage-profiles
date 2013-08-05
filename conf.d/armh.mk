@@ -49,13 +49,13 @@ vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh +systemd \
 	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 
-vm/.cubox-base: vm/.cubox-bare use/oem; @:
-
 vm/cubox-xfce-ru: vm/.cubox-bare use/deflogin/altlinuxroot \
 	use/slinux/arm use/x11/lightdm/gtk use/x11-autologin +nm
 	@$(call add,BASE_PACKAGES,livecd-ru)
 
-# these images use a king of OEM setup
+# these images use a kind of OEM setup
+vm/.cubox-base: vm/.cubox-bare use/oem; @:
+
 vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk +nm; @:
 
 vm/cubox-xfce: vm/.cubox-gtk \
