@@ -71,6 +71,11 @@ vm/cubox-tde: vm/.cubox-base use/net-eth/dhcp use/x11-autostart +tde
 vm/cubox-kde4: vm/.cubox-base use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse
 	@$(call add,BASE_LISTS,$(call tags,desktop && kde4 && !extra))
 
+vm/arm-server: vm/.arm-base use/net-eth/dhcp use/cleanup/installer
+	@$(call set,KFLAVOURS,armadaxp)
+	@$(call add,BASE_PACKAGES,agetty)
+	@$(call add,BASE_LISTS,$(call tags,extra (server || network)))
+
 endif
 
 endif
