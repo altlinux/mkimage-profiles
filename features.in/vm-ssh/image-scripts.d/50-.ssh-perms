@@ -1,5 +1,0 @@
-#!/bin/sh
-# tighten up permissions just in case
-
-[ ! -d /root/.ssh ] || chmod 700 /root/.ssh
-[ ! -f /root/.ssh/authorized_keys ] || chmod 600 /root/.ssh/authorized_keys

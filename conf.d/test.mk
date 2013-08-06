@@ -72,7 +72,7 @@ endif # IMAGE_CLASS: ve
 
 ifeq (vm,$(IMAGE_CLASS))
 
-vm/net-static: vm/bare use/vm-net/static use/vm-ssh
+vm/net-static: vm/bare use/vm-net/static use/net-ssh
 	@$(call set,VM_NET_IPV4ADDR,10.0.2.16/24)
 	@$(call set,VM_NET_IPV4GW,10.0.2.2)
 

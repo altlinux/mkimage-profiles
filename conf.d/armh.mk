@@ -35,13 +35,13 @@ endif
 ifeq (vm,$(IMAGE_CLASS))
 
 # NB: early dependency on use/kernel is on intent
-vm/.arm-base: profile/bare use/kernel use/net-eth/dhcp use/vm-ssh; @:
+vm/.arm-base: profile/bare use/kernel use/net-eth/dhcp use/net-ssh; @:
 	@$(call add,BASE_PACKAGES,interactivesystem e2fsprogs)
 	@$(call add,BASE_PACKAGES,apt)
 	@$(call add,BASE_PACKAGES,mkinitrd uboot-tools)
 	@$(call set,BRANDING,altlinux-kdesktop)
 
-vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/services/ssh +systemd \
+vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/net-ssh +systemd \
 	use/repo use/branding use/xdg-user-dirs/deep +pulse
 	@$(call set,KFLAVOURS,cubox)
 	@$(call set,BRANDING,altlinux-kdesktop)
