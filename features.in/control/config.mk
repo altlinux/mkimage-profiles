@@ -4,5 +4,5 @@ use/control:
 	@$(call xport,CONTROL)
 
 # some presets
-use/control/sudo-su:
+use/control/sudo-su: use/control
 	@$(call add,CONTROL,su:public sudo:public)
