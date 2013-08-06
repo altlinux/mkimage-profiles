@@ -4,7 +4,7 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/bare: vm/.bare
 	@$(call add,BASE_PACKAGES,apt)
 
-vm/net: vm/bare use/vm-net/dhcp use/net-ssh
+vm/net: vm/bare use/net-eth/dhcp use/net-ssh
 	@$(call add,BASE_PACKAGES,su)
 
 # NB: use/x11 employs some installer-feature packages
