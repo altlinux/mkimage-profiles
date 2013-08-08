@@ -41,12 +41,13 @@ vm/.arm-base: profile/bare use/kernel use/net-eth/dhcp use/net-ssh; @:
 	@$(call add,BASE_PACKAGES,mkinitrd uboot-tools)
 	@$(call set,BRANDING,altlinux-kdesktop)
 
-vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/net-ssh +systemd \
-	use/repo use/branding use/xdg-user-dirs/deep +pulse
-	@$(call set,KFLAVOURS,cubox)
+vm/.cubox-bare: vm/.arm-base use/armh-cubox use/net-ssh use/repo use/tty/S0
+	@$(call add,BASE_PACKAGES,glibc-locales vim-console rsync)
+
+vm/.cubox-desktop: vm/.cubox-bare use/armh-dovefb +systemd +pulse \
+	use/armh-cubox use/branding use/xdg-user-dirs/deep
 	@$(call set,BRANDING,altlinux-kdesktop)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml menu notes)
-	@$(call add,BASE_PACKAGES,glibc-locales vim-console rsync)
 	@$(call add,BASE_PACKAGES,parole gst-ffmpeg gst-plugins-vmeta)
 	@$(call add,BASE_PACKAGES,gst-plugins-good gst-plugins-nice)
 	@$(call add,BASE_PACKAGES,gst-plugins-bad gst-plugins-ugly)
@@ -55,14 +56,14 @@ vm/.cubox-bare: vm/.arm-base use/armh use/armh-cubox use/net-ssh +systemd \
 	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 
-vm/cubox-xfce-ru: vm/.cubox-bare use/deflogin/altlinuxroot \
+vm/cubox-xfce-ru: vm/.cubox-desktop use/deflogin/altlinuxroot \
 	use/slinux/arm use/x11/lightdm/gtk use/x11-autologin +nm
 	@$(call add,BASE_PACKAGES,livecd-ru)
 
 # these images use a kind of OEM setup
-vm/.cubox-base: vm/.cubox-bare use/oem; @:
+vm/.cubox-oem: vm/.cubox-desktop use/oem; @:
 
-vm/.cubox-gtk: vm/.cubox-base use/x11/lightdm/gtk +nm; @:
+vm/.cubox-gtk: vm/.cubox-oem use/x11/lightdm/gtk +nm; @:
 
 vm/cubox-xfce: vm/.cubox-gtk \
 	use/slinux/arm use/net-usershares use/domain-client; @:
@@ -71,11 +72,17 @@ vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
 	@$(call set,BRANDING,altlinux-centaurus)
 	@$(call add,THE_BRANDING,mate-settings)
 
-vm/cubox-tde: vm/.cubox-base use/net-eth/dhcp use/x11-autostart +tde
+vm/cubox-tde: vm/.cubox-oem use/net-eth/dhcp use/x11-autostart +tde
 	@$(call add,BASE_LISTS,openscada)
 
-vm/cubox-kde4: vm/.cubox-base use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse
+vm/cubox-kde4: vm/.cubox-oem use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse
 	@$(call add,BASE_LISTS,$(call tags,desktop && kde4 && !extra))
+
+vm/cubox-server: vm/.cubox-bare use/deflogin/altlinuxroot use/control/sudo-su \
+	+sysvinit
+	@$(call set,BRANDING,altlinux-centaurus)
+	@$(call add,BASE_PACKAGES,agetty fdisk)
+	@$(call add,BASE_LISTS,$(call tags,base security))
 
 vm/arm-server: vm/.arm-base use/net-eth/dhcp use/cleanup/installer
 	@$(call set,KFLAVOURS,armadaxp)
