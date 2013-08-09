@@ -84,7 +84,7 @@ vm/cubox-server: vm/.cubox-bare use/deflogin/altlinuxroot use/control/sudo-su \
 	@$(call add,BASE_PACKAGES,agetty fdisk)
 	@$(call add,BASE_LISTS,$(call tags,base security))
 
-vm/arm-server: vm/.arm-base use/net-eth/dhcp use/cleanup/installer
+vm/arm-server: vm/.arm-base use/net-eth/dhcp use/cleanup/installer +sysvinit
 	@$(call set,KFLAVOURS,armadaxp)
 	@$(call add,BASE_PACKAGES,agetty)
 	@$(call add,BASE_LISTS,$(call tags,extra (server || network)))
