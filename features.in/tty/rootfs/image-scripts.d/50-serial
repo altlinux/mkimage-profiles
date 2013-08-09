@@ -1,0 +1,18 @@
+#!/bin/sh
+# setup serial console access
+
+BIN=/sbin/agetty
+CFG=/etc/inittab
+SEC=/etc/securetty
+
+[ -n "$GLOBAL_TTY_DEV" -a -n "$GLOBAL_TTY_RATE" ] || exit 0
+[ -s "$CFG" -a -x "$BIN" ] || exit 0
+
+if ! grep -q "$BIN" "$CFG"; then
+	n=0
+	for t in $GLOBAL_TTY_DEV; do
+		grep -q "$t" "$SEC" || echo "$t" >> "$SEC"
+		echo "T$n:345:respawn:$BIN -L $t $GLOBAL_TTY_RATE vt100" >> $CFG
+		n=$(($n+1))
+	done
+fi
