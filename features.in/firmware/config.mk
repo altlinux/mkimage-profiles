@@ -9,7 +9,6 @@ use/firmware:
 use/firmware/full: use/firmware/server use/firmware/laptop
 
 use/firmware/cpu: use/firmware
-	@$(call add,THE_PACKAGES,firmware-amd-ucode)
 	@$(call add,THE_PACKAGES,microcode-data-intel microcode_ctl)
 
 use/firmware/server: use/firmware
