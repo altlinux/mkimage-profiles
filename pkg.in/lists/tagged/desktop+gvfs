@@ -1,0 +1,4 @@
+gvfs
+gvfs-backends
+gvfs-utils
+fuse-gvfs
