@@ -53,10 +53,14 @@ distclean: clean
 # than BUILDDIR variable is -- usually it's unneeded afterwards
 postclean: build-image
 	@{ \
-	if [ "0$(DEBUG)" -lt 2 -a -z "$(CHECK)$(REPORT)" ] && \
-	     [ "$(NUM_TARGETS)" -gt 1 \
+	if [ "$(CLEAN)" != 0 ] && \
+	   [ "0$(DEBUG)" -lt 2 ] && \
+	   [ -z "$(CHECK)" ] && \
+	   [ -z "$(REPORT)" ] && \
+	   [ "$(NUM_TARGETS)" -gt 1 \
 	       -o -n "$(__frontend)" \
-	       -o ! -L "$(SYMLINK)" ]; then \
+	       -o ! -L "$(SYMLINK)" ]; \
+	then \
 		echo "$(TIME) cleaning up after build"; \
 		$(MAKE) -C "$(BUILDDIR)" distclean \
 			GLOBAL_BUILDDIR="$(BUILDDIR)" $(LOG) ||:; \
