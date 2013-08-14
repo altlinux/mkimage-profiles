@@ -3,10 +3,10 @@ ifeq (armh,$(ARCH))
 ifeq (ve,$(IMAGE_CLASS))
 
 # aliases for autobuild
-ve/regular-arm-e17: ve/arm-e17; @:
-ve/regular-arm-kde4: ve/arm-kde4; @:
-ve/altlinux-p7-nexus7-e17: ve/arm-e17; @:
-ve/altlinux-p7-nexus7-kde4: ve/arm-kde4; @:
+ve/regular-nexus7-e17: ve/nexus7-e17; @:
+ve/regular-nexus7-kde4: ve/nexus7-kde4; @:
+ve/altlinux-p7-nexus7-e17: ve/nexus7-e17; @:
+ve/altlinux-p7-nexus7-kde4: ve/nexus7-kde4; @:
 
 ve/.tegra3-base: ve/.base use/armh use/kernel
 	@$(call add,BASE_PACKAGES,nvidia-tegra)
