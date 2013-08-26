@@ -1,6 +1,0 @@
-object 8b26752de99ccc00a7df82f09356c56941e8366d
-type commit
-tag v1.1.6
-tagger Michael Shigorin <mike@altlinux.org> 1376329985 +0400
-
-vm-net retired
