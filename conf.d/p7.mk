@@ -17,4 +17,6 @@ distro/altlinux-p7-rescue: distro/regular-rescue mixin/p7; @:
 distro/altlinux-p7-tde: distro/regular-tde mixin/p7; @:
 distro/altlinux-p7-xfce: distro/regular-xfce mixin/p7; @:
 
+distro/altlinux-p7-server: distro/regular-server mixin/p7; @:
+
 endif
