@@ -1,8 +1,7 @@
 ifeq (ve,$(IMAGE_CLASS))
 
 # no "vzctl enter"
-ve/bare: ve/.base
-	@$(call add,BASE_PACKAGES,sysvinit)
+ve/bare: ve/.base use/init/sysv; @:
 
 # /dev/pty and friends start here
 ve/base: ve/bare
