@@ -7,8 +7,9 @@ ve/bare: ve/.base use/init/sysv; @:
 ve/base: ve/bare
 	@$(call add,BASE_PACKAGES,interactivesystem)
 
-# this should be more or less deployable
+# this should be more or less convenient
 ve/generic: ve/base
+	@$(call add,BASE_PACKAGES,vim-console etckeeper)
 	@$(call add,BASE_LISTS,openssh \
 		$(call tags,base && (server || network || security || pkg)))
 
