@@ -8,7 +8,7 @@ ve/base: ve/bare
 	@$(call add,BASE_PACKAGES,interactivesystem)
 
 # this should be more or less convenient
-ve/generic: ve/base
+ve/generic: ve/base use/repo
 	@$(call add,BASE_PACKAGES,vim-console etckeeper)
 	@$(call add,BASE_LISTS,openssh \
 		$(call tags,base && (server || network || security || pkg)))
