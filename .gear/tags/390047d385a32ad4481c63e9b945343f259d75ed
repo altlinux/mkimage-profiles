@@ -1,6 +1,0 @@
-object 15a0e6769e8c490b4283845c8b8641cf345dd1c8
-type commit
-tag v1.1.7
-tagger Michael Shigorin <mike@altlinux.org> 1377526131 +0300
-
-minor fixes

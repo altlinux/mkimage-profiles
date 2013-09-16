@@ -1,0 +1,6 @@
+object 418cc7919575028dd15e1b7d9558522f802bc511
+type commit
+tag v1.1.8
+tagger Michael Shigorin <mike@altlinux.org> 1379353336 +0400
+
+armh/p7/ve fixes
