@@ -1,4 +1,5 @@
 systemd
 systemd-units
 systemd-sysvinit
+systemd-analyze
 chkconfig
