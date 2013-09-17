@@ -8,7 +8,7 @@ distro/.regular-bare: distro/.base +wireless use/efi/signed \
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
-	use/live/x11 use/live/ru use/live/install use/live/repo use/live/rw \
+	use/live/x11 use/live/install use/live/repo use/live/rw \
 	use/luks use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
