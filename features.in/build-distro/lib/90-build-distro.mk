@@ -13,6 +13,7 @@ BOOT_VOLI := $(shell echo $(META_VOL_ID) | cut -c1-32)
 BOOT_VOLS := $(META_VOL_SET)
 BOOT_BIBL := $(META_BIBLIO)
 BOOT_ABST := $(META_ABSTRACT)
+DATE_F    := $(shell date +%F)
 
 BOOT_TYPE := isolinux
 
@@ -24,7 +25,7 @@ prep: $(GLOBAL_DEBUG) dot-disk $(WHATEVER)
 # can't use mp-showref which belongs to the metaprofile
 dot-disk:
 	@mkdir -p files/.disk
-	@echo "$(META_VOL_ID)" >files/.disk/info
+	@echo "$(META_VOL_ID) $(DATE_F)" >files/.disk/info
 	@echo "$(ARCH)" >files/.disk/arch
 	@echo "$(DATE)" >files/.disk/date
 	@if type -t git >&/dev/null; then \
