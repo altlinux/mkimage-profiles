@@ -12,6 +12,8 @@ distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
 	use/luks use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
+	@$(call add,LIVE_PACKAGES,gpm)
+	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 
 # WM base target
 distro/.regular-base: distro/.regular-x11 use/x11/xorg
@@ -82,6 +84,7 @@ distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	use/syslinux/ui/menu use/hdt use/efi/refind
 	@$(call set,KFLAVOURS,un-def)
+	@$(call add,RESCUE_PACKAGES,gpm)
 
 distro/regular-server: distro/.regular-bare +installer +sysvinit +power \
 	use/install2/fs use/bootloader/lilo use/firmware use/server/mini
