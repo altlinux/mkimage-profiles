@@ -69,7 +69,7 @@ distro/regular-cinnamon: distro/.regular-gtk \
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
 
-distro/regular-tde: distro/.regular-desktop use/net-eth/dhcp +tde +plymouth
+distro/regular-tde: distro/.regular-desktop use/net-eth/dhcp +tde +plymouth +nm
 	@$(call add,LIVE_PACKAGES,kdegames kdeedu)
 	@$(call add,LIVE_LISTS,openscada)
 
