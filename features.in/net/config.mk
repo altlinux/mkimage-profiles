@@ -10,7 +10,9 @@ use/net/dhcp: use/net
 
 use/net/nm: use/net
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
+	@$(call add,LIVE_PACKAGES,livecd-save-nfs)
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
+	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-save-nfs)
 
 use/net/nm/nodelay: use/net/nm
 	@$(call add,DEFAULT_SERVICES_DISABLE,NetworkManager-wait-online)
