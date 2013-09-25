@@ -87,8 +87,11 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	@$(call add,RESCUE_PACKAGES,gpm)
 
 distro/regular-server: distro/.regular-bare +installer +sysvinit +power \
-	use/install2/fs use/bootloader/lilo use/firmware use/server/mini
+	use/install2/fs use/bootloader/lilo use/firmware use/server/mini \
+	use/branding
 	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
 	@$(call set,INSTALLER,desktop)
+	@$(call add,INSTALL2_BRANDING,alterator notes)
+	@$(call add,THE_BRANDING,alterator)
 
 endif
