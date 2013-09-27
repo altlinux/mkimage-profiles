@@ -12,7 +12,7 @@ distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
 	use/luks use/branding
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
-	@$(call add,LIVE_PACKAGES,gpm)
+	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 
 # WM base target
