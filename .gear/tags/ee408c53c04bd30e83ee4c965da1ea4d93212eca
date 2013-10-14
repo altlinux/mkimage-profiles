@@ -1,0 +1,6 @@
+object c5346a456e4f6690bdbd369ed28a48dea9402b4f
+type commit
+tag v1.1.11
+tagger Michael Shigorin <mike@altlinux.org> 1381770772 +0400
+
+luks better
