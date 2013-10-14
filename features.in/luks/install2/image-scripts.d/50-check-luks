@@ -1,0 +1,9 @@
+#!/bin/sh
+# let's check if support is there until installer-steps are dynamic
+
+CONFIG="/usr/share/install2/installer-steps"
+
+if ! grep -q '^luks$' "$CONFIG"; then
+	PKG="$(rpm -qf "$CONFIG")"
+	echo "** warning: luks step missing in ${PKG:-$CONFIG}" >&2
+fi
