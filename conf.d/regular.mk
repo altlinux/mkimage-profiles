@@ -88,9 +88,9 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 
 distro/regular-server: distro/.regular-bare +installer +sysvinit +power \
 	use/install2/fs use/bootloader/lilo use/firmware use/server/mini \
-	use/branding
+	use/branding use/luks
 	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
-	@$(call set,INSTALLER,desktop)
+	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
 
