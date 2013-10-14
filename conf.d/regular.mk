@@ -31,14 +31,14 @@ distro/.regular-desktop: distro/.regular-base \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
+distro/.regular-sysv: distro/.regular-base use/init/sysv; @:
+distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
 
-distro/regular-icewm: distro/.regular-base use/init/sysv \
-	use/x11/lightdm/gtk +icewm
+distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 
-distro/regular-wmaker: distro/.regular-desktop use/x11/lightdm/gtk \
-	use/x11/wmaker
+distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker use/efi/refind
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
 
@@ -70,8 +70,12 @@ distro/regular-cinnamon: distro/.regular-gtk \
 
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
 
-distro/regular-tde: distro/.regular-desktop use/net-eth/dhcp +tde +plymouth +nm
+distro/regular-tde: distro/.regular-desktop +tde +plymouth +nm
 	@$(call add,LIVE_PACKAGES,kdegames kdeedu)
+	@$(call add,LIVE_LISTS,openscada)
+
+distro/regular-tde-sysv: distro/.regular-sysv \
+	use/net-eth/dhcp use/efi/refind +tde +plymouth
 	@$(call add,LIVE_LISTS,openscada)
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
