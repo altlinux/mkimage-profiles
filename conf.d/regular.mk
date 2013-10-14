@@ -46,6 +46,7 @@ ifeq (i586,$(ARCH))
 distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep +plymouth
 	@$(call add,THE_BRANDING,graphics)
 else
+distro/regular-gnustep:
 	$(error $@ is known buggy on non-i586 at the moment)
 endif
 
