@@ -41,6 +41,7 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker use/efi/refind
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
+	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru)
 
 ifeq (i586,$(ARCH))
 distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep +plymouth
