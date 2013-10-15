@@ -1,0 +1,44 @@
+wmCalClock
+wmMatrix
+wmMoonClock
+wmappl
+wmbday
+#wmbeats	--> useless?
+wmcliphist
+wmclockmon
+wmctrl
+wmcube-gdk
+wmdiskmon
+wmeyes
+wmfishtime
+#wmfmio		--> requires hardware and setup
+wmforkplop
+wmfortune
+#wmgtemp	--> requires lm_sensors configuration
+#wmhdaps	--> requires that hdaps.ko be loaded
+wmhdplop
+wmibam
+#wmix		--> /dev/mixer
+wmlife
+wmmemload
+wmmenu
+wmmisc
+wmmon
+wmmsg
+wmnet
+wmnetload
+wmpager
+wmpiki
+#wmpinboard	--> hogs CPU somehow
+#wmpomme	--> very specific
+wmpower
+wmsysmon
+wmsystray
+wmtimer
+wmtop
+wmtunlo
+wmupmon
+#wmusic		--> libxmms
+#wmwifi		--> looks broken?
+#wmxkbru	--> quite specific
+#wmxmms		--> libxmms
