@@ -17,6 +17,7 @@ BuildRequires: /proc
 Requires: rsync git-core
 Requires: time schedutils sfdisk
 Requires: mkimage >= 0.2.5
+Requires: mkimage-preinstall
 
 # Recommends: graphviz qemu-img
 
