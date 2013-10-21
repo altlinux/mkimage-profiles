@@ -18,6 +18,7 @@ distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
 # WM base target
 distro/.regular-base: distro/.regular-x11 use/x11/xorg
 	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
+	@$(call add,LIVE_PACKAGES,alterator-notes)
 	@$(call add,THE_BRANDING,indexhtml notes alterator)
 	@$(call add,THE_BRANDING,graphics)
 
