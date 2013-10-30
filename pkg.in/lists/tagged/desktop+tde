@@ -26,3 +26,6 @@ amarok
 # rom_as@ says it's still needed
 hal
 arts
+
+# how could this get skipped?
+filelight
