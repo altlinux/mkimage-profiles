@@ -39,7 +39,8 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 
-distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker use/efi/refind
+distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker \
+	use/syslinux/ui/gfxboot use/efi/refind
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru)
