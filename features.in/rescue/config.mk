@@ -2,7 +2,11 @@ use/rescue: use/stage2 sub/stage2@rescue use/syslinux/sdab.cfg \
 	use/firmware/full +wireless
 	@$(call add_feature)
 	@$(call add,RESCUE_PACKAGES,interactivesystem sysvinit udev)
-	@$(call add,RESCUE_PACKAGES,startup startup-rescue lilo)
+	@$(call add,RESCUE_PACKAGES,startup startup-rescue)
+	@$(call add,RESCUE_PACKAGES,grub2-pc lilo syslinux)
+ifneq (,$(EFI_BOOTLOADER))
+	@$(call add,RESCUE_PACKAGES,grub2-efi)
+endif
 	@$(call add,RESCUE_LISTS, openssh \
 		$(call tags,(base || extra || server || backup || misc) && \
 			(rescue || comm || network || security || archive)))
