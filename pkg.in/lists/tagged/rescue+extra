@@ -1,4 +1,3 @@
-
 # CPU utils
 cpuburn
 x86info
@@ -22,9 +21,12 @@ mdadm
 ms-sys
 parted
 partclone
+recoverdm
 sdparm
 sfdisk
 smartmontools
+testdisk
+testdisk-doc
 mtools
 partimage
 gdisk
@@ -73,30 +75,32 @@ squashfsprogs-xz
 
 # Foreign filesystems
 dosfstools
+exfat-utils
 exofs-utils
 fatresize
 fuse-zfs
 hfsprogs
 ntfs-3g
 ocfs2-tools
+vmfs-tools
 
 # Filesystem recovery/cleanup
 ext3grep
 extundelete
 foremost
 magicrescue
+photorec
 recover
-recoverdm
 scalpel
 sleuthkit
-testdisk
-testdisk-doc
+srm
 wipefreespace
 xfsdump
 zerofree
 
 # Applications/Networking
 arpwatch
+cifs-utils
 elinks
 hostinfo
 iftop
@@ -108,15 +112,17 @@ lft
 lftp
 mailx
 mtr
+ncpfs
 netcat
 netlist
 nfs-utils
-cifs-utils
 ngrep
 nmap
 p0f
+rsh
 rsync
 scanssh
+#shellinabox
 #stunnel
 tcpdump
 tcptraceroute
@@ -139,3 +145,8 @@ sysstat
 
 # win32
 chntpw
+scrounge-ntfs
+wabread
+
+# Android
+android-tools

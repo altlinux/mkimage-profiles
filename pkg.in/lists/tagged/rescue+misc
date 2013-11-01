@@ -7,16 +7,20 @@ iscsitarget-utils
 ntp-utils
 
 # Optical media
+#dvdisaster
 dvd+rw-tools
 readom
+udftools
 xorriso
 
 # Magnetic tapes
 dvgrab
 mt-st
 mtx
+rmt
 
 # Hardware
+flashrom
 irda-utils
 lm_sensors3
 lshw
@@ -32,3 +36,14 @@ make-initrd-mdadm
 make-initrd-lvm
 make-initrd-multipath
 make-initrd-nfs
+
+# Filesystem archival tools
+fsarchiver
+
+# Filesystem maintenance
+hardlinkpy
+hardlink
+
+# Bootable FAT images
+makebootfat
+make-freedos-floppy

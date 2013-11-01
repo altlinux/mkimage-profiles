@@ -1,2 +1,6 @@
+aespipe
+bcrypt
 cryptmount
 cryptsetup
+cryptsetup-reencrypt
+steghide
