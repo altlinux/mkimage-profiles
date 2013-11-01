@@ -4,8 +4,8 @@ use/rescue: use/stage2 sub/stage2@rescue use/syslinux/sdab.cfg \
 	@$(call add,RESCUE_PACKAGES,interactivesystem sysvinit udev)
 	@$(call add,RESCUE_PACKAGES,startup startup-rescue lilo)
 	@$(call add,RESCUE_LISTS, openssh \
-		$(call tags,(base || extra || server || misc) && \
-			(rescue || network || security)))
+		$(call tags,(base || extra || server || backup || misc) && \
+			(rescue || comm || network || security || archive)))
 
 # rw slice, see also use/live/rw (don't use simultaneously)
 ifeq (,$(EFI_BOOTLOADER))
