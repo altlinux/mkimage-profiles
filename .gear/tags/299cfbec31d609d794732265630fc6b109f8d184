@@ -1,6 +1,0 @@
-object c104fd03419bfafeb31cdc502be79ec73b358442
-type commit
-tag v1.1.12
-tagger Michael Shigorin <mike@altlinux.org> 1382380626 +0400
-
-live-builder update
