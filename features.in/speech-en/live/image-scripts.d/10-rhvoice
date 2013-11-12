@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+/bin/ln -s /etc/tts.d/espeak.voiceman /etc/voiceman.d/espeak.output
