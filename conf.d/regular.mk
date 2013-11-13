@@ -74,16 +74,14 @@ distro/regular-cinnamon: distro/.regular-gtk \
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
 
 # reusable bits
-distro/.regular-tde-extras:
-	@$(call add,LIVE_PACKAGES,kdegames kdeedu)
-	@$(call add,LIVE_LISTS,openscada)
+mixin/regular-tde: use/syslinux/ui/gfxboot +tde +plymouth
+	@$(call add,THE_PACKAGES,kdegames kdeedu)
+	@$(call add,THE_LISTS,openscada)
 
-distro/regular-tde: distro/.regular-desktop distro/.regular-tde-extras \
-	+tde +plymouth +nm; @:
+distro/regular-tde: distro/.regular-desktop mixin/regular-tde +nm; @:
 
-distro/regular-tde-sysv: distro/.regular-sysv distro/.regular-tde-extras \
-	use/net-eth/dhcp use/syslinux/ui/gfxboot use/efi/refind \
-	+tde +plymouth; @:
+distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
+	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
 	use/fonts/zerg +pulse +plymouth
