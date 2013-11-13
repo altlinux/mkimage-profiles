@@ -4,7 +4,7 @@
 #       the last different one wins
 # - remember .base if adding yet another *_PACKAGES
 
-use/bootloader: use/install2 sub/main
+use/bootloader:
 	@$(call add_feature)
 	@$(call add,BASE_PACKAGES,alterator-$$(BASE_BOOTLOADER))
 

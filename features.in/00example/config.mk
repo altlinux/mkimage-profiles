@@ -8,6 +8,6 @@
 #
 # for somewhat more involved example, see syslinux feature
 
-use/00example: sub/main use/anotherfeature
+use/00example: use/repo/main use/anotherfeature
 	@$(call add_feature)
 	@$(call add,MAIN_PACKAGES,hello)

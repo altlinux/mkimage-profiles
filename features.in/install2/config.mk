@@ -2,7 +2,8 @@
 
 +installer: use/install2/full; @:
 
-use/install2: use/stage2 sub/stage2@install2 use/metadata use/cleanup/installer
+use/install2: use/stage2 sub/stage2@install2 use/metadata \
+	use/cleanup/installer use/bootloader
 	@$(call add_feature)
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
