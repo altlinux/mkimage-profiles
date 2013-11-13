@@ -14,14 +14,14 @@
 ** THE_KMODULES, BASE_KMODULES, MAIN_KMODULES, BASE_KMODULES_REGEXP
 *** KFLAVOURS
 
-* stage2: общая часть installer, live, rescue
+* stage2: общая часть install2, live, rescue
 ** sub.in/stage2/Makefile, features.in/\*/stage2/lib/*.mk
 ** SYSTEM_PACKAGES, STAGE2_PACKAGES
 ** STAGE1_KMODULES, STAGE1_KMODULES_REGEXP,
     STAGE2_KMODULES, STAGE2_KMODULES_REGEXP
 *** STAGE1_KFLAVOUR или последний из KFLAVOURS
 
-* installer: компактная "живая" система, содержащая только инсталятор
+* install2: компактная "живая" система, содержащая только инсталятор
 ** см. stage2
 *** features.in/install2/install2/stage2cfg.mk,
     features.in/\*/install2/lib/*.mk
