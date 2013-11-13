@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ -z "$GLOBAL_BASE_BOOTLOADER" ]; then
+	echo "** error: BASE_BOOTLOADER empty while bootloader feature requested" >&2
+	exit 1
+fi
