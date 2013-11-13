@@ -20,6 +20,8 @@ distro/altlinux-p7-tde-sysv: distro/regular-tde-sysv mixin/p7; @:
 distro/altlinux-p7-wmaker: distro/regular-wmaker mixin/p7; @:
 distro/altlinux-p7-xfce: distro/regular-xfce mixin/p7; @:
 
+distro/altlinux-p7-sysv-tde: distro/regular-sysv-tde mixin/p7; @:
+
 distro/altlinux-p7-server: distro/regular-server mixin/p7; @:
 
 endif
