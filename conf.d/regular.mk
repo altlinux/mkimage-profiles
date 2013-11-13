@@ -36,7 +36,7 @@ distro/.regular-sysv: distro/.regular-base +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
 
 distro/.regular-install: distro/.regular-bare \
-	use/branding +installer +sysvinit +power
+	use/branding use/bootloader/grub +installer +sysvinit +power
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
 	@$(call set,INSTALLER,desktop)
