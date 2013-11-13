@@ -32,8 +32,14 @@ distro/.regular-desktop: distro/.regular-base \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
-distro/.regular-sysv: distro/.regular-base use/init/sysv; @:
+distro/.regular-sysv: distro/.regular-base +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
+
+distro/.regular-install: distro/.regular-bare \
+	use/branding +installer +sysvinit +power
+	@$(call add,INSTALL2_BRANDING,alterator notes)
+	@$(call add,THE_BRANDING,alterator)
+	@$(call set,INSTALLER,desktop)
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
@@ -96,12 +102,9 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm)
 
-distro/regular-server: distro/.regular-bare +installer +sysvinit +power \
-	use/install2/fs use/bootloader/lilo use/firmware use/server/mini \
-	use/branding use/luks
+distro/regular-server: distro/.regular-install \
+	use/install2/fs use/bootloader/lilo use/server/mini use/luks
 	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
 	@$(call set,INSTALLER,altlinux-server)
-	@$(call add,INSTALL2_BRANDING,alterator notes)
-	@$(call add,THE_BRANDING,alterator)
 
 endif
