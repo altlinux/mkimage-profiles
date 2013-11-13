@@ -15,12 +15,14 @@ distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 
+# common WM live/installer bits
+mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
+	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
+	@$(call add,THE_PACKAGES,alterator-notes)
+	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
+
 # WM base target
-distro/.regular-base: distro/.regular-x11 use/x11/xorg
-	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
-	@$(call add,LIVE_PACKAGES,alterator-notes)
-	@$(call add,THE_BRANDING,indexhtml notes alterator)
-	@$(call add,THE_BRANDING,graphics)
+distro/.regular-base: distro/.regular-x11 mixin/regular-desktop
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
@@ -39,6 +41,8 @@ distro/.regular-install: distro/.regular-bare \
 	use/branding use/bootloader/grub +installer +sysvinit +power
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
+
+distro/.regular-install-x11: distro/.regular-install mixin/regular-desktop
 	@$(call set,INSTALLER,desktop)
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm
