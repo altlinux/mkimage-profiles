@@ -18,7 +18,8 @@ distro/.desktop-network: distro/.desktop-mini \
 distro/.desktop-extra:
 	@$(call add,BASE_LISTS,$(call tags,(archive || base) && (extra)))
 
-distro/kde4-lite: distro/.desktop-mini distro/.desktop-network distro/.desktop-extra +kde4-lite
+distro/kde4-lite: distro/.desktop-mini \
+	distro/.desktop-network distro/.desktop-extra +kde4-lite
 	@$(call set,KFLAVOURS,std-def)
 
 distro/tde: distro/.desktop-network +tde; @:
