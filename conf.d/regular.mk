@@ -37,8 +37,8 @@ distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 distro/.regular-sysv: distro/.regular-base +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
 
-distro/.regular-install: distro/.regular-bare \
-	use/branding use/bootloader/grub +installer +sysvinit +power
+distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
+	use/branding use/bootloader/grub use/luks
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
 
@@ -111,7 +111,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	use/net-eth/dhcp use/install2/fs use/efi/refind; @:
 
 distro/regular-server: distro/.regular-install \
-	use/install2/fs use/server/mini use/luks
+	use/install2/fs use/server/mini
 	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
 	@$(call set,INSTALLER,altlinux-server)
 
