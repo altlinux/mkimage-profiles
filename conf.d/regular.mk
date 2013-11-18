@@ -111,7 +111,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	use/net-eth/dhcp use/install2/fs use/efi/refind; @:
 
 distro/regular-server: distro/.regular-install \
-	use/install2/fs use/bootloader/lilo use/server/mini use/luks
+	use/install2/fs use/server/mini use/luks
 	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
 	@$(call set,INSTALLER,altlinux-server)
 
