@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-/bin/ln -s /etc/tts.d/rhvoice-en.voiceman /etc/voiceman.d/rhvoice-en.output
-/bin/ln -s /etc/tts.d/rhvoice.voiceman /etc/voiceman.d/rhvoice.output

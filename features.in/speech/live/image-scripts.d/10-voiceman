@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+case "$GLOBAL_SPEECH_LANG" in
+en)
+	ln -s ../tts.d/espeak.voiceman /etc/voiceman.d/espeak.output
+	;;
+ru)
+	ln -s ../tts.d/rhvoice-en.voiceman /etc/voiceman.d/rhvoice-en.output
+	ln -s ../tts.d/rhvoice.voiceman /etc/voiceman.d/rhvoice.output
+	;;
+*)
+	echo "** error: speech feature used with no language chosen" >&2
+	exit 1
+	;;
+esac
