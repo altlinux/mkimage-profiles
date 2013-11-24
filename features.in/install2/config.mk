@@ -13,7 +13,8 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call xport,BASE_BOOTLOADER)
 
 # doesn't use/install2/fs on purpose (at least so far)
-use/install2/full: use/install2/packages use/install2/kms use/install2/kvm \
+use/install2/full: use/install2/packages use/install2/kms \
+	use/install2/kvm use/install2/vbox \
 	use/syslinux/localboot.cfg use/syslinux/ui/menu; @:
 
 # stash local packages within installation media
@@ -30,6 +31,10 @@ use/install2/kms: use/stage2/kms
 # see also use/vmguest/kvm; qxl included in xorg pkglist
 use/install2/kvm:
 	@$(call add,INSTALL2_PACKAGES,spice-vdagent xorg-drv-qxl)
+
+# virtualbox guest support for installer
+use/install2/vbox:
+	@$(call add,STAGE1_KMODULES,virtualbox-addition)
 
 # filesystems handling
 use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
