@@ -6,7 +6,7 @@ distro/.desktop-base: distro/.installer use/syslinux/ui/vesamenu use/x11/xorg
 
 distro/.desktop-mini: distro/.desktop-base use/x11/xdm +power; @:
 
-mixin/desktop-installer: use/x11-autostart +vmguest
+mixin/desktop-installer: use/x11-autostart use/sound +vmguest
 	@$(call add,SYSTEM_PACKAGES,fonts-ttf-google-croscore-arimo)
 	@$(call add,BASE_PACKAGES,udev-rule-generator-net sysklogd)
 	@$(call add,BASE_LISTS, \
