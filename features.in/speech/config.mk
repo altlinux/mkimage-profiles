@@ -1,4 +1,4 @@
-use/speech:
+use/speech: use/sound
 	@$(call add_feature)
 	@$(call add,THE_LISTS,speech/voiceman speech/$$(SPEECH_LANG))
 	@$(call add,THE_LISTS,speech/emacspeak)
