@@ -1,6 +1,6 @@
 Name: mkimage-profiles
-Version: 1.0.0
-Release: alt1
+Version: 1.0.1
+Release: alt0.M70T.1
 
 Summary: ALT Linux based distribution metaprofile
 License: GPLv2+
@@ -78,6 +78,10 @@ cp -a * %buildroot%mpdir
 %doc %docs/*
 
 %changelog
+* Mon Nov 25 2013 Michael Shigorin <mike@altlinux.org> 1.0.1-alt0.M70T.1
+- important bugfix: THE_PACKAGES weren't getting through to .base
+  (backported from 1.1.14)
+
 * Mon Jun 17 2013 Michael Shigorin <mike@altlinux.org> 1.0.0-alt1
 - 1.0
 
