@@ -12,6 +12,7 @@ mixin/desktop-installer: use/x11-autostart use/sound +vmguest
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
+	@$(call add,BASE_PACKAGES,os-prober)
 
 distro/.desktop-network: distro/.desktop-mini \
 	mixin/desktop-installer use/stage2/net-eth; @:
