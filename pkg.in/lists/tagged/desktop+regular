@@ -12,7 +12,6 @@ alterator-standalone
 
 alterator-root
 alterator-users
-alterator-auth
 alterator-nsswitch
 
 alterator-net-general
@@ -22,7 +21,6 @@ alterator-net-openvpn
 alterator-net-eth
 alterator-net-wifi
 
-alterator-net-shares
 alterator-proxy
 
 #alterator-x11
