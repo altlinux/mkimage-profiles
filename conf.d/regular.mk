@@ -38,11 +38,13 @@ distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
 
 distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks
+	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
 
 distro/.regular-install-x11: distro/.regular-install mixin/regular-desktop
 	@$(call set,INSTALLER,desktop)
+	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
@@ -111,7 +113,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 
 distro/regular-server: distro/.regular-install \
 	use/install2/fs use/server/mini
-	@$(call add,THE_LISTS,$(call tags,(base || server) && regular))
+	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call set,INSTALLER,altlinux-server)
 
 endif
