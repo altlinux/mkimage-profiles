@@ -1,6 +1,7 @@
 xdm
 xinit
 xinitrc
+livecd-firefox
 livecd-setlocale
 installer-feature-runlevel5-stage3
 os-prober
