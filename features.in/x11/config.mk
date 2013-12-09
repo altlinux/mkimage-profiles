@@ -93,6 +93,9 @@ use/x11/gnome3: use/x11/xorg +pulse
 use/x11/e17: use/x11 use/net/connman
 	@$(call add,THE_LISTS,$(call tags,e17 desktop))
 
+use/x11/e18: use/x11 use/net/connman
+	@$(call add,THE_LISTS,$(call tags,e18 desktop))
+
 use/x11/lxde: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
 
