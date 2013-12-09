@@ -78,6 +78,9 @@ distro/regular-mate: distro/.regular-gtk use/x11/mate +nm
 distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality
 	@$(call add,LIVE_PACKAGES,xterm)
 
+distro/regular-e18: distro/.regular-gtk use/x11/e18 use/fonts/infinality
+	@$(call add,LIVE_PACKAGES,xterm)
+
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
