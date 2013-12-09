@@ -1,6 +1,0 @@
-object af6b3282d74d806fabb00c3268de7c282786856d
-type commit
-tag v1.1.15
-tagger Michael Shigorin <mike@altlinux.org> 1386002712 +0400
-
-{regular,desktop}.mk fixups
