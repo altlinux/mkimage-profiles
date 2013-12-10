@@ -8,8 +8,8 @@ ifneq (,$(EFI_BOOTLOADER))
 	@$(call add,RESCUE_PACKAGES,grub2-efi)
 endif
 	@$(call add,RESCUE_LISTS, openssh \
-		$(call tags,(base || extra || server || backup || misc) && \
-			(rescue || comm || network || security || archive)))
+		$(call tags,(base || extra || server || backup || misc || fs) \
+			&& (rescue || comm || network || security || archive)))
 
 # rw slice, see also use/live/rw (don't use simultaneously)
 ifeq (,$(EFI_BOOTLOADER))
