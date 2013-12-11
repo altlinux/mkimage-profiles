@@ -41,6 +41,8 @@ make-initrd-nfs
 fsarchiver
 
 # Filesystem maintenance
+duff
+fdupes
 hardlinkpy
 hardlink
 
