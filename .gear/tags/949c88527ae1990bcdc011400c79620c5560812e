@@ -1,0 +1,6 @@
+object 55819f05772d7f4580c13cc1bc514a83816371a3
+type commit
+tag v1.1.17
+tagger Michael Shigorin <mike@altlinux.org> 1387230041 +0200
+
+refind branding
