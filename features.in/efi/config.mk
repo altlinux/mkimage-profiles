@@ -26,6 +26,9 @@ use/efi/signed: use/efi
 use/efi/shell: use/efi
 	@$(call try,EFI_SHELL,efi-shell)
 
+use/efi/memtest86: use/efi/refind
+	@$(call set,EFI_MEMTEST86,efi-memtest86)
+
 use/efi/debug: use/efi
 	@$(call add,STAGE2_PACKAGES,efibootmgr gdisk)
 	@$(call set,KFLAVOURS,led-ws)
