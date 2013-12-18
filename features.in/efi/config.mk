@@ -21,7 +21,7 @@ use/efi/signed: use/efi
 	@$(call set,MKI_VER_MINIMAL,0.2.7)	# refind->elilo handoff ### 0.2.11
 	@$(call set,EFI_CERT,altlinux)
 	@$(call add,THE_PACKAGES,shim-signed)
-	@$(call add,RESCUE_PACKAGES,openssl sbsigntools)
+	@$(call add,RESCUE_PACKAGES,openssl pesign sbsigntools)
 
 use/efi/shell: use/efi
 	@$(call try,EFI_SHELL,efi-shell)
