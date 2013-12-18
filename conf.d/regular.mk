@@ -106,7 +106,8 @@ distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
 distro/regular-rescue: distro/.regular-bare use/rescue/rw \
-	use/syslinux/ui/menu use/hdt use/efi/refind use/efi/shell
+	use/efi/refind use/efi/shell use/efi/memtest86 \
+	use/syslinux/ui/menu use/hdt
 	@#$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm)
 
