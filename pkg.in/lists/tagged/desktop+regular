@@ -31,3 +31,4 @@ alterator-xkb
 #system-config-printer
 
 glxgears
+xorg-conf-synaptics
