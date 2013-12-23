@@ -43,7 +43,7 @@ distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 	@$(call add,THE_BRANDING,alterator)
 
 distro/.regular-install-x11: distro/.regular-install mixin/regular-desktop
-	@$(call set,INSTALLER,desktop)
+	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm
