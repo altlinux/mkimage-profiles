@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 1.0.1
+Version: 1.0.2
 Release: alt0.M70T.1
 
 Summary: ALT Linux based distribution metaprofile
@@ -16,7 +16,7 @@ BuildRequires: /proc
 
 Requires: rsync git-core
 Requires: time schedutils sfdisk
-Requires: mkimage >= 0.2.5
+Requires: mkimage >= 0.2.12
 
 # Recommends: graphviz qemu-img
 
@@ -78,6 +78,9 @@ cp -a * %buildroot%mpdir
 %doc %docs/*
 
 %changelog
+* Mon Dec 23 2013 Michael Shigorin <mike@altlinux.org> 1.0.2-alt0.M70T.1
+- backported adaptations to handle EFI signed binaries the current way
+
 * Mon Nov 25 2013 Michael Shigorin <mike@altlinux.org> 1.0.1-alt0.M70T.1
 - important bugfix: THE_PACKAGES weren't getting through to .base
   (backported from 1.1.14)
