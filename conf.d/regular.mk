@@ -48,7 +48,7 @@ distro/.regular-install-x11: distro/.regular-install mixin/regular-desktop
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
-	@#$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,un-def)
 
 distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker \
 	use/syslinux/ui/gfxboot use/efi/refind
@@ -108,7 +108,7 @@ distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/syslinux/ui/menu use/hdt
-	@#$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm)
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
