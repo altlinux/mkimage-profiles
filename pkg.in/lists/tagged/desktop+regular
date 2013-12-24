@@ -12,7 +12,6 @@ alterator-standalone
 
 alterator-root
 alterator-users
-alterator-nsswitch
 
 alterator-net-general
 alterator-net-pppoe rp-pppoe-client
