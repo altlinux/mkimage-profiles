@@ -116,6 +116,8 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	use/branding/complete use/net-eth/dhcp use/install2/fs \
 	use/efi/refind use/efi/shell use/rescue/base
 	@$(call set,KFLAVOURS,led-ws)
+	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
+	@$(call add,THE_PACKAGES,alterator-x11 htop k3b pm-utils)
 
 distro/regular-server: distro/.regular-install \
 	use/install2/fs use/server/mini
