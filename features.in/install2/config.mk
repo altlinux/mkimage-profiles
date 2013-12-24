@@ -34,7 +34,7 @@ use/install2/kvm:
 
 # virtualbox guest support for installer
 use/install2/vbox:
-	@$(call add,STAGE1_KMODULES,virtualbox-addition)
+	@$(call add,STAGE1_KMODULES,virtualbox-addition vboxguest)
 
 # filesystems handling
 use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
