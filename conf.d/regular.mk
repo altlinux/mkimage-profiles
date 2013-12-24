@@ -42,7 +42,8 @@ distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
 
-distro/.regular-install-x11: distro/.regular-install mixin/regular-desktop
+distro/.regular-install-x11: distro/.regular-install \
+	mixin/regular-desktop +vmguest
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
