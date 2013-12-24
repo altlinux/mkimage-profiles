@@ -112,8 +112,9 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 	@$(call add,RESCUE_PACKAGES,gpm)
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
-	mixin/desktop-installer mixin/regular-tde use/branding/complete \
-	use/net-eth/dhcp use/install2/fs use/efi/refind; @:
+	mixin/desktop-installer mixin/regular-tde \
+	use/branding/complete use/net-eth/dhcp use/install2/fs \
+	use/efi/refind use/efi/shell use/rescue/base; @:
 
 distro/regular-server: distro/.regular-install \
 	use/install2/fs use/server/mini
