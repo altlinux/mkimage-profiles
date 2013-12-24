@@ -1,0 +1,6 @@
+object d9f11e6fee5b83d05dc0c2c3c95c12197d6d0b37
+type commit
+tag v1.0.2
+tagger Michael Shigorin <mike@altlinux.org> 1387851343 +0200
+
+efi updates
