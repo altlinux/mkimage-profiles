@@ -6,4 +6,5 @@ if [ -f "$CONFIG" ]; then
 	grep -q '^Theme=' "$CONFIG" || sed -i 's/#\([T\[]\)/\1/' "$CONFIG"
 fi
 
-cp -a /usr/share/plymouth/default-install-duration /var/lib/plymouth/boot-duration
+cp -a /usr/share/plymouth/default-install-duration \
+	/var/lib/plymouth/boot-duration ||:
