@@ -121,7 +121,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,THE_PACKAGES,alterator-x11 htop k3b pm-utils)
 
 distro/regular-server: distro/.regular-install \
-	use/install2/fs use/server/mini
+	use/install2/fs use/server/mini use/rescue/base
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call set,INSTALLER,altlinux-server)
 
