@@ -19,7 +19,7 @@ http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 ~~~~~~~
 от имени root::
 ----
-# apt-get install mkimage hasher git-core
+# apt-get install mkimage mkimage-preinstall hasher git-core
 # hasher-useradd USER
 ----
 
