@@ -123,6 +123,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 distro/regular-server: distro/.regular-install \
 	use/install2/fs use/server/mini use/rescue/base
 	@$(call add,THE_LISTS,$(call tags,regular server))
+	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
 
 endif
