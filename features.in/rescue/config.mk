@@ -2,9 +2,10 @@ use/rescue/.base: use/stage2 sub/stage2@rescue
 	@$(call add_feature)
 	@$(call add,RESCUE_LISTS,sysvinit)
 	@$(call add,RESCUE_PACKAGES,startup startup-rescue udev)
-	@$(call add,RESCUE_LISTS, openssh)
+	@$(call add,RESCUE_LISTS,openssh)
 
 use/rescue/base: use/rescue/.base
+	@$(call add,RESCUE_PACKAGES,pciutils)
 	@$(call add,RESCUE_LISTS,\
 		$(call tags,base && (rescue || network || security || archive)))
 

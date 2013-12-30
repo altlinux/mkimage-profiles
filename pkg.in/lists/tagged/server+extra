@@ -8,3 +8,6 @@ ntfs-3g
 sfdisk
 usbutils
 xfsprogs
+
+# misc
+pciutils

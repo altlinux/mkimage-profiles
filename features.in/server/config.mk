@@ -6,4 +6,4 @@ use/server/mini: use/server use/net-ssh
 	@$(call add,STAGE1_KMODULES,e1000e igb)
 	@$(call add,THE_LISTS,\
 		$(call tags,base && (server || network || security || pkg)))
-	@$(call add,THE_LISTS,$(call tags,extra (server || network)))
+	@$(call add,THE_LISTS,$(call tags,extra && (server || network)))
