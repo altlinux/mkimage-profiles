@@ -40,10 +40,10 @@ use/install2/vbox:
 use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
 
 use/install2/xfs:
-	@$(call add,INSTALL2_PACKAGES,xfsprogs)
+	@$(call add,SYSTEM_PACKAGES,xfsprogs)
 
 use/install2/jfs:
-	@$(call add,INSTALL2_PACKAGES,jfsutils)
+	@$(call add,SYSTEM_PACKAGES,jfsutils)
 
 use/install2/reiserfs:
-	@$(call add,INSTALL2_PACKAGES,reiserfsprogs)
+	@$(call add,SYSTEM_PACKAGES,reiserfsprogs)
