@@ -1,5 +1,6 @@
 kernel/drivers/ata
 kernel/drivers/block
+kernel/drivers/crypto
 kernel/drivers/gpu/drm
 kernel/drivers/hid
 kernel/drivers/md
@@ -36,6 +37,7 @@ aha1542.ko
 aic7xxx.ko
 aic7xxx_old.ko
 amd8111e.ko
+arc4.ko
 at1700.ko
 ata_piix.ko
 atl1.ko
@@ -54,6 +56,7 @@ catc.ko
 cciss.ko
 cdrom.ko
 ch.ko
+cifs.ko
 cpqarray.ko
 cs5535.ko
 cs89x0.ko
@@ -122,6 +125,7 @@ libiscsi.ko
 lockd.ko
 loop.ko
 lp486e.ko
+md4.ko
 megaraid.ko
 megaraid_mbox.ko
 mii.ko
@@ -198,6 +202,8 @@ sd_mod.ko
 seeq8005.ko
 serial_cs.ko
 sg.ko
+sha256_generic.ko
+sha256-ssse3.ko
 shaper.ko
 sis190.ko
 sis900.ko
