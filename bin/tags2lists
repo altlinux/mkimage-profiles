@@ -30,4 +30,7 @@ transformed="$(sed \
 	-e "s, *) *, ) ,g")"
 
 [ "$DEBUG" = 2 ] && echo "`basename $0`: transformed = \"$transformed\"" >&2
-[ -z "$transformed" ] || find $transformed | sed 's,^\./,,' | grep -v '\.sw.$'
+[ -z "$transformed" ] ||
+	find $transformed \
+	| sed 's,^\./,,' \
+	| egrep -v '(\.sw.|~)$'
