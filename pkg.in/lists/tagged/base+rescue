@@ -3,7 +3,6 @@ rootfiles
 
 # Common
 coreutils
-glibc-locales
 glibc-nss
 glibc-utils
 man

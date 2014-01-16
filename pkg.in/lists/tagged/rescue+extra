@@ -149,3 +149,6 @@ wabread
 
 # Android
 android-tools
+
+# l10n
+glibc-locales
