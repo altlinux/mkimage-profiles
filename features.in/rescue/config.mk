@@ -26,3 +26,9 @@ use/rescue/rw: use/rescue use/syslinux
 else
 use/rescue/rw: use/rescue; @:
 endif
+
+test/rescue:
+	@$(call xport,TEST_RESCUE)
+
+test/rescue/no-x11: test/rescue
+	@$(call add,TEST_RESCUE,no-x11)

@@ -1,0 +1,13 @@
+#!/bin/sh -efu
+
+no_x11() {
+	if rpmquery libX11 >&/dev/null; then
+		echo "** rescue image contains libX11 which is prohibited" >&2
+		exit 1
+	fi
+}
+
+case "${GLOBAL_TEST_RESCUE:-}" in
+*no-x11*)
+	no_x11;;
+esac
