@@ -79,6 +79,7 @@ exofs-utils
 fatresize
 fuse-zfs
 hfsprogs
+ifuse
 ntfs-3g
 ocfs2-tools
 vmfs-tools
@@ -87,6 +88,7 @@ vmfs-tools
 ext3grep
 extundelete
 foremost
+fuse-convmvfs
 magicrescue
 photorec
 recover
@@ -100,7 +102,10 @@ zerofree
 # Applications/Networking
 arpwatch
 cifs-utils
+curlftpfs
+davfs2
 elinks
+fuse-sshfs
 hostinfo
 iftop
 ipmitool
