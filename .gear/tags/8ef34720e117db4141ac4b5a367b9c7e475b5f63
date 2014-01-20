@@ -1,0 +1,6 @@
+object c5d543510c1441dd87874558861ae4df1e47a134
+type commit
+tag v1.1.21
+tagger Michael Shigorin <mike@altlinux.org> 1390246293 +0400
+
+rescue tweaks
