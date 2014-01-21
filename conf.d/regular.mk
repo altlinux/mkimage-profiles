@@ -57,13 +57,8 @@ distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker \
 	@$(call add,LIVE_PACKAGES,xxkb)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru)
 
-ifeq (i586,$(ARCH))
 distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep +plymouth
 	@$(call add,THE_BRANDING,graphics)
-else
-distro/regular-gnustep:
-	$(error $@ is known buggy on non-i586 at the moment)
-endif
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce +nm; @:
 
