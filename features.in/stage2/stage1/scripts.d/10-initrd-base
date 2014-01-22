@@ -12,3 +12,6 @@ else
 fi
 
 echo 'FEATURES += propagator' >> /etc/initrd.mk
+
+# FIXME: #29705 workaround
+echo 'MODULES_PRELOAD += ahci' >> /etc/initrd.mk
