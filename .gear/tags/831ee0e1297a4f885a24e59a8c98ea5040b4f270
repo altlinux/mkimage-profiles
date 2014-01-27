@@ -1,0 +1,6 @@
+object 0385f90637e1a554e7ba26f16981a61c22e15b40
+type commit
+tag v1.1.22
+tagger Michael Shigorin <mike@altlinux.org> 1390852715 +0400
+
+ahci kludge
