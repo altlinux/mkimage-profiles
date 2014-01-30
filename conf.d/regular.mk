@@ -114,6 +114,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_PACKAGES,alterator-x11 htop k3b pm-utils)
+	@$(call add,THE_LISTS,$(call tags,base desktop))
 
 distro/regular-server: distro/.regular-install \
 	use/install2/fs use/server/mini use/rescue/base
