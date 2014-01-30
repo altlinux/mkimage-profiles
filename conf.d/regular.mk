@@ -85,7 +85,7 @@ distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
 
 # reusable bits
 mixin/regular-tde: use/syslinux/ui/gfxboot +tde +plymouth
-	@$(call add,THE_PACKAGES,kdegames kdeedu)
+	@$(call add,THE_PACKAGES,kdeedu)
 	@$(call add,THE_LISTS,openscada)
 
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde +nm; @:
