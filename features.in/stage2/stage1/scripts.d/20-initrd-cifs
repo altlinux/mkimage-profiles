@@ -1,0 +1,4 @@
+#!/bin/sh
+# add mount.cifs to for get image from samba server
+
+echo 'PUT_FILES += /sbin/mount.cifs' >> /etc/initrd.mk
