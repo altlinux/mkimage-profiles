@@ -13,6 +13,7 @@ disktype
 #evms-ncurses
 fdisk
 gpart
+idle3ctl
 iotop
 iperf
 hdparm
