@@ -9,6 +9,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
 	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)
 	@$(call add,BASE_PACKAGES,branding-$$(BRANDING)-release)
+	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,BASE_LISTS,$(call tags,basesystem))
 	@$(call xport,BASE_BOOTLOADER)
 
