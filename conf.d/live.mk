@@ -22,7 +22,8 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin +power \
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 
 distro/live-builder-mini: distro/.live-base use/dev/mkimage use/dev \
-	use/stage2/net-eth use/net-eth/dhcp use/syslinux/timeout/30
+	use/stage2/net-eth use/net-eth/dhcp use/syslinux/timeout/30 \
+	use/efi/signed
 	@$(call set,KFLAVOURS,$(BIGRAM))
 	@$(call add,LIVE_LISTS,\
 		$(call tags,(base || live) && (server || builder)))
