@@ -57,6 +57,7 @@ else
 		mkdir -p "$prefix"/eth0 && {
 		echo TYPE=eth
 		echo BOOTPROTO=dhcp
+		echo DHCP_TIMEOUT=3
 		} > "$prefix"/eth0/options
 	else
 		verbose "NOT configuring eth0 for DHCP"
