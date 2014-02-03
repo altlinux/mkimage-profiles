@@ -45,7 +45,7 @@ use/live/install: use/metadata use/xdg-user-dirs use/syslinux/localboot.cfg
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 
 # text-based installation script
-use/live/textinstall: use/syslinux/localboot.cfg
+use/live/textinstall: use/syslinux/lateboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
 
 # a very simplistic one
