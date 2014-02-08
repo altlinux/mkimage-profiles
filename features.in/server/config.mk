@@ -8,3 +8,4 @@ use/server/mini: use/server use/net-ssh
 		$(call tags,base && (server || network || security || pkg)))
 	@$(call add,THE_LISTS,$(call tags,extra && (server || network)))
 	@$(call add,MAIN_LISTS,osec)
+	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus lvm2-lvmetad)
