@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# this script piggybacks service status information
+# into the system to be installed (instead of applying
+# it to rootfs being formed immediately)
+
+# NB:install2 is not a rootfs, handling differs either
+
+STATUS=`mktemp`
+
+. shell-config
+
+switch() {
+	case "$2" in
+	on|off)
+		shell_config_set "$STATUS" "$1" "$2";;
+	esac
+}
+
+# defaults (most likely features.in ones)
+for i in $GLOBAL_DEFAULT_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour (e.g. via conf.d)
+for i in $GLOBAL_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
+
+SERVICES="$GLOBAL_DEFAULT_SERVICES_ENABLE $GLOBAL_DEFAULT_SERVICES_DISABLE"
+SERVICES="$SERVICES $GLOBAL_SERVICES_ENABLE $GLOBAL_SERVICES_DISABLE"
+SERVICES="$(echo $SERVICES | sort -u)"
+
+# TODO: provide systemd-specific hooks too?
+for i in $SERVICES; do
+	onoff="$(shell_config_get "$STATUS" "$i")"
+	[ -n "$onoff" ] || continue
+	echo "$i" >> /usr/share/install2/services-"$onoff"
+done
+
+rm "$STATUS"
+
+:
