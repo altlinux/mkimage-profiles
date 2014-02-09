@@ -28,7 +28,7 @@ use/x11/intel: use/x11
 # NB: blobs won't Just Work (TM) with use/x11/xorg,
 #     nouveau gets prioritized during autodetection
 #use/x11/3d: use/x11/intel use/x11/nvidia use/x11/fglrx; @:
-use/x11/3d: use/x11/intel use/x11/nvidia use/x11/radeon; @:
+use/x11/3d: use/x11/intel use/x11/nvidia/optimus use/x11/radeon; @:
 
 # has performance problems but is getting better, just not there yet
 use/x11/radeon: use/x11
@@ -39,6 +39,10 @@ use/x11/radeon: use/x11
 use/x11/nvidia: use/x11
 	@$(call add,THE_KMODULES,nvidia)
 	@$(call add,THE_PACKAGES,nvidia-settings nvidia-xconfig)
+
+use/x11/nvidia/optimus: use/x11/nvidia
+	@$(call add,THE_KMODULES,bbswitch)
+	@$(call add,THE_PACKAGES,bumblebee primus)
 
 # oftenly broken with current xorg-server, use radeon then
 use/x11/fglrx: use/x11
