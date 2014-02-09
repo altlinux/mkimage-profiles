@@ -67,7 +67,13 @@ distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 distro/live-webkiosk-chromium: distro/.live-webkiosk
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-chromium)
 
-distro/live-flightgear: distro/.live-x11 use/x11/lightdm/gtk use/x11/3d +icewm
+distro/.live-3d: distro/.live-x11 use/x11/3d \
+	use/x11/lightdm/gtk +icewm +sysvinit
+	@$(call add,LIVE_PACKAGES,glxgears glxinfo)
+
+distro/live-glxgears: distro/.live-3d; @:
+
+distro/live-flightgear: distro/.live-3d
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
