@@ -76,6 +76,7 @@ distro/live-glxgears: distro/.live-3d; @:
 distro/live-flightgear: distro/.live-3d
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
+	@$(call add,LIVE_PACKAGES,FlightGear-tu154b)
 	@$(call add,LIVE_PACKAGES,icewm-startup-tray_mixer_plus)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
 
