@@ -73,7 +73,7 @@ distro/.live-3d: distro/.live-x11 use/x11/3d \
 
 distro/live-glxgears: distro/.live-3d; @:
 
-distro/live-flightgear: distro/.live-3d
+distro/live-flightgear: distro/.live-3d use/stage2/net-eth use/net-eth/dhcp
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,FlightGear fgo input-utils)
 	@$(call add,LIVE_PACKAGES,FlightGear-tu154b)
