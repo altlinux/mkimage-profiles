@@ -1,6 +1,0 @@
-object 47c3a86547550b4fb338a4e7a9cb3bf8240bb473
-type commit
-tag v1.1.23
-tagger Michael Shigorin <mike@altlinux.org> 1391457256 +0400
-
-syslinux fixes

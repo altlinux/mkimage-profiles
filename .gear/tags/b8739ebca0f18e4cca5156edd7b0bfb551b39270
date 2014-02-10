@@ -1,0 +1,6 @@
+object 25b983f8776ee3af779ba46efcb50c04b515609f
+type commit
+tag v1.1.24
+tagger Michael Shigorin <mike@altlinux.org> 1392062970 +0200
+
+service bridge
