@@ -9,3 +9,16 @@ use/server/mini: use/server use/net-ssh
 	@$(call add,THE_LISTS,$(call tags,extra && (server || network)))
 	@$(call add,MAIN_LISTS,osec)
 	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus lvm2-lvmetad)
+
+use/server/ovz: use/server
+	@$(call set,STAGE1_KFLAVOUR,std-def)
+	@$(call set,KFLAVOURS,std-def ovz-el)
+	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring)
+	@$(call add,MAIN_KMODULES,xtables-addons)	# t6/branch
+	@$(call add,MAIN_KMODULES,drbd83 kvm)
+	@$(call add,BASE_LISTS,ovz-server)
+
+use/server/groups/base: use/server
+	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
+	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)
+	@$(call add,MAIN_GROUPS,monitoring diag-tools)
