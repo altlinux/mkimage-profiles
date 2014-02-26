@@ -122,4 +122,7 @@ distro/regular-server: distro/.regular-install \
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
 
+distro/regular-server-ovz: distro/regular-server \
+	use/server/ovz use/server/groups/base; @:
+
 endif
