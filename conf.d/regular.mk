@@ -37,7 +37,7 @@ distro/.regular-sysv: distro/.regular-base +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
 
 distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
-	use/branding use/bootloader/grub use/luks
+	use/branding use/bootloader/grub use/luks use/install2/fs
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
@@ -109,15 +109,14 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-tde \
-	use/branding/complete use/net-eth/dhcp use/install2/fs \
+	use/branding/complete use/net-eth/dhcp \
 	use/efi/refind use/efi/shell use/rescue/base
 	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_PACKAGES,alterator-x11 htop k3b pm-utils)
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 
-distro/regular-server: distro/.regular-install \
-	use/install2/fs use/server/mini use/rescue/base
+distro/regular-server: distro/.regular-install use/server/mini use/rescue/base
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
