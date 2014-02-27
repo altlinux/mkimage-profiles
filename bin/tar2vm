@@ -78,7 +78,7 @@ losetup "$LOOPDEV" "$IMG"
 parted --script "$LOOPDEV" mklabel msdos
 parted --script "$LOOPDEV" mkpart primary ext2 1 "$DISKSIZEM"
 
-kpartx -a "$LOOPDEV"
+kpartx -a -s "$LOOPDEV"
 LOOPDEV1="/dev/mapper/$(basename "$LOOPDEV")p1"
 
 mkfs."$ROOTFSTYPE" "$LOOPDEV1"
