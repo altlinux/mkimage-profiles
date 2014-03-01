@@ -9,7 +9,8 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,sysklogd syslogd sysvinit interactivesystem)
 	@$(call add,BASE_PACKAGES,lilo shadow-utils e2fsprogs)
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,led-ws)
+	@$(call add,BASE_KMODULES,guest)
 
 vm/bare: vm/.bare
 	@$(call add,BASE_PACKAGES,apt)
