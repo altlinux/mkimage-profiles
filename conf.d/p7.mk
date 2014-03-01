@@ -1,8 +1,9 @@
 # p7 base kits
-ifeq (distro,$(IMAGE_CLASS))
 
 mixin/p7:
 	@$(call set,BRANDING,altlinux-starterkit)
+
+ifeq (distro,$(IMAGE_CLASS))
 
 ### kludge compatibility: introspection stub for ../main.mk :-/
 distro/altlinux-p7-cinnamon: distro/regular-cinnamon mixin/p7; @:
@@ -17,4 +18,8 @@ distro/altlinux-p7-rescue: distro/regular-rescue mixin/p7; @:
 distro/altlinux-p7-tde: distro/regular-tde mixin/p7; @:
 distro/altlinux-p7-xfce: distro/regular-xfce mixin/p7; @:
 
+endif
+
+ifeq (vm,$(IMAGE_CLASS))
+vm/altlinux-p7-vm-net: vm/net mixin/p7; @:
 endif
