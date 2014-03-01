@@ -1,7 +1,7 @@
 # virtual machines
 ifeq (vm,$(IMAGE_CLASS))
 
-vm/bare: vm/.bare
+vm/bare: vm/.bare +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
 vm/net: vm/bare use/net-eth/dhcp use/net-ssh use/repo
