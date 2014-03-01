@@ -31,3 +31,7 @@ endif
 ifeq (ve,$(IMAGE_CLASS))
 ve/altlinux-p7-ovz-generic: ve/generic mixin/p7; @:
 endif
+
+ifeq (vm,$(IMAGE_CLASS))
+vm/altlinux-p7-vm-net: vm/net mixin/p7; @:
+endif
