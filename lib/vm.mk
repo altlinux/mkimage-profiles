@@ -7,7 +7,8 @@ endif
 ifeq (vm,$(IMAGE_CLASS))
 
 vm/.bare: profile/bare
-	@$(call add,BASE_PACKAGES,interactivesystem lilo shadow-utils e2fsprogs)
+	@$(call add,BASE_PACKAGES,sysklogd syslogd sysvinit interactivesystem)
+	@$(call add,BASE_PACKAGES,lilo shadow-utils e2fsprogs)
 	@$(call set,KFLAVOURS,un-def)
 
 vm/bare: vm/.bare
