@@ -29,5 +29,5 @@ distro/altlinux-p7-server-ovz: distro/regular-server-ovz mixin/p7; @:
 endif
 
 ifeq (ve,$(IMAGE_CLASS))
-ve/altlinux-p7: ve/generic mixin/p7; @:
+ve/altlinux-p7-ovz-generic: ve/generic mixin/p7; @:
 endif
