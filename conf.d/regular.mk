@@ -74,7 +74,7 @@ distro/.regular-install-x11: distro/.regular-install \
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
-distro/regular-icewm: distro/.regular-sysv-gtk +icewm
+distro/regular-icewm: distro/.regular-sysv-gtk use/syslinux/ui/gfxboot +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 
