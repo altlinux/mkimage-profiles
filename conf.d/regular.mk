@@ -46,9 +46,9 @@ distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 # - no +power or even use/power/acpi/button on intent
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos: distro/.base +sysvinit \
-	use/install2/packages use/branding use/bootloader/lilo \
-	use/syslinux/lateboot.cfg use/cleanup/x11-alterator \
-	use/net use/kernel/net use/stage2/net-eth
+	use/install2/packages use/install2/kvm use/install2/vbox \
+	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
+	use/cleanup/x11-alterator use/net use/kernel/net use/stage2/net-eth
 	@$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
 	@$(call add,BASE_KMODULES,guest vboxguest)
 	@$(call set,INSTALLER,altlinux-generic)
