@@ -1,0 +1,6 @@
+object ee09a917e86302594b3611bdc196af8aa8121094
+type commit
+tag v1.0.3
+tagger Michael Shigorin <mike@altlinux.org> 1393863286 +0400
+
+vm fixes
