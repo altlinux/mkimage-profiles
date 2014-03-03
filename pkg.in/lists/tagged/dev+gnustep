@@ -1,0 +1,15 @@
+# development
+#gnustep-charsets
+gnustep-dbuskit
+gnustep-gdl2
+gnustep-pdfkit
+gnustep-projectcenter
+gnustep-renaissance
+gnustep-simplewebkit
+gnustep-sqlclient
+gnustep-steptalk
+gnustep-systempreferences
+gnustep-ucsdata
+gnustep-Wrapper
+gnustep-xcode
+#libgnustep-objc2
