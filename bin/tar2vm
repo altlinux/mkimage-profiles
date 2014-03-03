@@ -89,9 +89,9 @@ mount "$LOOPDEV1" "$ROOTFS"
 tar -C "$ROOTFS" --numeric-owner -xf "$TAR"
 for i in /dev /proc /sys; do mount --bind "$i" "$ROOTFS$i"; done
 
-# NB: different storage modules might be needed for non-kvm
+# NB: different storage modules might be needed for different VMs
 echo "$LOOPDEV1 / $ROOTFSTYPE defaults 1 1" >> "$ROOTFS/etc/fstab"
-echo "MODULES_PRELOAD=sd_mod ata_piix $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
+echo "MODULES_PRELOAD += sd_mod ata_piix $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
 
 KERNEL="$(readlink $ROOTFS/boot/vmlinuz | sed 's,vmlinuz-,,')"
 chroot "$ROOTFS" make-initrd -k "$KERNEL"
