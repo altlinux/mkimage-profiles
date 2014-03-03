@@ -38,9 +38,10 @@ DISKSIZEM="$(($DISKSIZE / 1048576))"
 # NB: xfs doesn't have a spare sector for the bootloader
 ROOTFSTYPE="${4:-ext4}"
 
-# single root partition hardwired so far,
-# add another image for swap if needed
-ROOTDEV="/dev/sda1"
+# SCSI case hardwired so far;
+# use virtio_scsi setup if performance is critical
+# *and* updating the image is going to occur
+BOOTDEV="/dev/sda"
 
 # last preparations...
 for i in losetup sfdisk parted kpartx mkfs."$ROOTFSTYPE"; do
@@ -83,6 +84,13 @@ LOOPDEV1="/dev/mapper/$(basename "$LOOPDEV")p1"
 
 mkfs."$ROOTFSTYPE" "$LOOPDEV1"
 
+ROOTUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPDEV1")"
+if [ -n "$ROOTUUID" ]; then
+	ROOTDEV="UUID=$ROOTUUID"
+else
+	ROOTDEV="${BOOTDEV}1"
+fi
+
 # mount and populate it
 mkdir -pm755 "$ROOTFS"
 mount "$LOOPDEV1" "$ROOTFS"
@@ -90,8 +98,10 @@ tar -C "$ROOTFS" --numeric-owner -xf "$TAR"
 for i in /dev /proc /sys; do mount --bind "$i" "$ROOTFS$i"; done
 
 # NB: different storage modules might be needed for different VMs
+VIRTIO_MODULES="virtio_pci virtio_blk virtio_scsi"
 echo "$LOOPDEV1 / $ROOTFSTYPE defaults 1 1" >> "$ROOTFS/etc/fstab"
-echo "MODULES_PRELOAD += sd_mod ata_piix $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
+echo "MODULES_PRELOAD += sd_mod ata_piix $VIRTIO_MODULES $ROOTFSTYPE" \
+	>> "$ROOTFS/etc/initrd.mk"
 
 KERNEL="$(readlink $ROOTFS/boot/vmlinuz | sed 's,vmlinuz-,,')"
 chroot "$ROOTFS" make-initrd -k "$KERNEL"
@@ -125,7 +135,7 @@ EOF
 chroot "$ROOTFS" lilo -C /etc/lilo-loop.conf
 
 cat > "$ROOTFS"/etc/lilo.conf << EOF
-boot=${ROOTDEV%[0-9]*}
+boot=$BOOTDEV
 $LILO_COMMON
 EOF
 
