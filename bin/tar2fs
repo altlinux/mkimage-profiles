@@ -187,7 +187,7 @@ if [ -n "$BOOTPART" ]; then
 	echo "$BOOTDEV /boot $BOOTFSTYPE defaults 1 2" >> "$ROOTFS/etc/fstab"
 fi
 
-echo "MODULES_PRELOAD=$INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
+echo "MODULES_PRELOAD += $INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
 
 KERNEL="$(readlink $ROOTFS/boot/vmlinuz | sed 's,vmlinuz-,,')"
 chroot "$ROOTFS" make-initrd -k "$KERNEL"
