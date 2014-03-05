@@ -5,7 +5,7 @@ mixin/p7:
 
 ifeq (distro,$(IMAGE_CLASS))
 
-### kludge compatibility: introspection stub for ../main.mk :-/
+### kludge compatibility: introspection stub for main.mk :-/
 distro/altlinux-p7-cinnamon: distro/regular-cinnamon mixin/p7; @:
 distro/altlinux-p7-e17: distro/regular-e17 mixin/p7; @:
 distro/altlinux-p7-icewm: distro/regular-icewm mixin/p7; @:

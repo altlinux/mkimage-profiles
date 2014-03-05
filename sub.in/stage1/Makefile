@@ -44,7 +44,7 @@ GLOBAL_SQUASHFS := $(SQUASHFS)
 -include $(sort $(wildcard lib/*.mk))
 
 # scripts prepare bootloader configuration, too
-# NB: we pass tested squashfs options for ../stage2/Makefile to include
+# NB: we pass tested squashfs options for sub.in/stage2/Makefile to include
 all: | debug prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \
 	copy-$(BOOTLOADER) $(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
 	@if [ -s $(OUTDIR)/squashcfg.mk ]; then \

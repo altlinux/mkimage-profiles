@@ -13,7 +13,8 @@ include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
-# this might have been prepared by ../stage1/scripts.d/03-test-kernel
+# this might have been prepared
+# by features.in/stage2/stage1/scripts.d/03-test-kernel
 -include $(GLOBAL_BUILDDIR)/squashcfg.mk
 
 # this should be brought in by corresponding specific stage2 feature
@@ -39,7 +40,7 @@ IMAGE_PACKAGES_REGEXP += $(call kpackages, \
 
 -include $(sort $(wildcard lib/*.mk))
 
-# see also scripts.d/99-elf-stats
+# see also ./scripts.d/99-elf-stats
 ifdef GLOBAL_SQUASHFS_SORT
 ifeq (tight,$(SQUASHFS))
 CHROOT_PACKAGES += file

@@ -6,4 +6,4 @@
 списке, которым является значение переменной MAIN_GROUPS).
 
 В данный момент перенесено почти 1:1 из mkimage-profiles-desktop,
-требует увязки с ../lists/tagged/.
+требует увязки с pkg.in/lists/tagged/

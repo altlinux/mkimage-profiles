@@ -3,7 +3,7 @@
 # package lists are needed for installer and live-install images
 METADIR := files/Metadata
 
-# preparation targets of ../../build-distro/lib/build-distro.mk
+# preparation targets of features.in/build-distro/lib/build-distro.mk
 WHATEVER += metadata
 
 # handle these too
