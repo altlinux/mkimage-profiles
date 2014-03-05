@@ -10,7 +10,8 @@ use/rescue/base: use/rescue/.base
 		$(call tags,base && (rescue || network || security || archive)))
 
 use/rescue: use/rescue/.base use/syslinux/sdab.cfg \
-	use/firmware/full +wireless
+	use/services use/firmware/full +wireless
+	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind)
 	@$(call add,RESCUE_PACKAGES,grub2-pc lilo syslinux)
 ifneq (,$(EFI_BOOTLOADER))
 	@$(call add,RESCUE_PACKAGES,grub2-efi)
