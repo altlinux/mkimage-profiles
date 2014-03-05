@@ -30,7 +30,7 @@ mkimage-profiles, или _m-p_ — результат осмысления и о
 
   git clone git://git.altlinux.org/people/mike/packages/mkimage-profiles.git
   cd mkimage-profiles
-  make icewm.iso
+  make rescue.iso
 
 = Основы =
 
