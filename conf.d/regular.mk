@@ -141,7 +141,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_PACKAGES,alterator-datetime alterator-x11)
-	@$(call add,THE_PACKAGES,htop k3b ntpd pm-utils)
+	@$(call add,THE_PACKAGES,htop k3b openntpd pm-utils)
 	@$(call add,THE_PACKAGES,lm_sensors3 hdparm sdparm smartmontools)
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 
