@@ -34,7 +34,8 @@ distro/.regular-desktop: distro/.regular-base \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 distro/.regular-sysv: distro/.regular-base +sysvinit; @:
-distro/.regular-sysv-gtk: distro/.regular-sysv use/x11/lightdm/gtk; @:
+distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
+	use/x11/lightdm/gtk; @:
 
 distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks use/install2/fs
@@ -74,12 +75,11 @@ distro/.regular-install-x11: distro/.regular-install \
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
-distro/regular-icewm: distro/.regular-sysv-gtk use/syslinux/ui/gfxboot +icewm
+distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 
-distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker \
-	use/syslinux/ui/gfxboot use/efi/refind
+distro/regular-wmaker: distro/.regular-sysv-gtk use/x11/wmaker use/efi/refind
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,xxkb)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru)
