@@ -136,8 +136,8 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw \
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-tde \
-	use/branding/complete use/net-eth/dhcp \
-	use/efi/refind use/efi/shell use/rescue/base
+	use/branding/complete use/branding/slideshow/once \
+	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
 	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_PACKAGES,alterator-datetime alterator-x11)
