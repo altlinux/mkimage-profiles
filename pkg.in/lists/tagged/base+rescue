@@ -13,3 +13,6 @@ util-linux
 
 # Package management
 apt-repo
+
+# Partition management
+fdisk
