@@ -9,3 +9,8 @@ use/branding/full: use/branding use/syslinux/ui/gfxboot
 
 use/branding/complete: use/branding/full use/plymouth/full
 	@$(call add,INSTALL2_BRANDING,notes slideshow)
+
+# http://altlinux.org/branding/slideshow
+use/branding/slideshow/once: use/branding
+	@$(call add,INSTALL2_BRANDING_SLIDESHOW,once:true)
+	@$(call xport,INSTALL2_BRANDING_SLIDESHOW)
