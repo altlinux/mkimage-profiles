@@ -13,8 +13,10 @@ updates_re="${prefix_re}http:\/\/\([^[:space:]]\+\)[[:space:]]*"
 # architectures
 host_arch="$(rpm --eval '%_host_cpu')"
 [ "$host_arch" = "x86_64" ] && compat="x86_64-i586" || compat=
+[ "$host_arch" = 'armh' ] && noarch= || noarch='noarch'
 
 # turn on unconditionally
-for arch in "$host_arch" noarch "$compat"; do
+for arch in "$host_arch" "$noarch" "$compat"; do
+	[ -n "$arch" ] || continue
 	sed -i "s/^#\($updates_re$arch\)/\1/" "$repo_source"
 done
