@@ -1,10 +1,22 @@
 +live: use/live/desktop; @:
 
+# service defaults
+_ON = alteratord cpufreq-simple dm kdm wdm prefdm \
+      livecd-evms livecd-fstab livecd-hostname \
+      livecd-setauth livecd-setlocale livecd-net-eth livecd-install-wmaker \
+      random rpcbind plymouth avahi-daemon \
+
+_OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
+       lvm2-lvmetad lvm2-monitor mdadm netfs o2cb ocfs2 openvpn postfix \
+       rawdevices slapd smartd sshd sysstat update_wms xinetd
+
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
-use/live: use/stage2 sub/rootfs@live sub/stage2@live
+use/live: use/stage2 sub/rootfs@live sub/stage2@live use/services
 	@$(call add_feature)
 	@$(call add,CLEANUP_PACKAGES,'installer*')
+	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
+	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
 
 use/live/base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
