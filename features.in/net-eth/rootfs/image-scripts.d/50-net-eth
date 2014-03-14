@@ -36,7 +36,6 @@ write_iface() {
 	esac
 	{
 		echo "TYPE=eth"
-		echo "DISABLED=no"
 		echo "BOOTPROTO=$proto"
 		echo "NM_CONTROLLED=$NMCTL"
 		echo "DISABLED=$NMCTL"
