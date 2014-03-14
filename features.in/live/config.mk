@@ -17,6 +17,7 @@ use/live: use/stage2 sub/rootfs@live sub/stage2@live use/services
 	@$(call add,CLEANUP_PACKAGES,'installer*')
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
 	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
+	@$(call add,CONTROL,rpcbind:local)
 
 use/live/base: use/live use/net use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
