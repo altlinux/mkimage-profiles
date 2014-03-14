@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# offer some convenient servers for static configuration cases
+if [ -d /etc/net/ifaces/lo ]; then
+	{
+	echo "# yandex"
+	echo "#nameserver 77.88.8.1"
+	echo "# google"
+	echo "#nameserver 8.8.8.8"
+	echo "# level3"
+	echo "#nameserver 4.2.2.3"
+	} >> /etc/net/ifaces/lo/resolv.conf
+fi
+find /var -name resolv.conf -or -name nsswitch.conf -delete
+
+# hasher might have carried host /etc/hosts over, need to overwrite
+echo "127.0.0.1	localhost.localdomain localhost" > /etc/hosts

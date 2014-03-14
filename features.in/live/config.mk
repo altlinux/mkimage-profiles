@@ -18,7 +18,7 @@ use/live: use/stage2 sub/rootfs@live sub/stage2@live use/services
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
 	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
 
-use/live/base: use/live use/syslinux/ui/menu
+use/live/base: use/live use/net use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
 
 # rw slice, see http://www.altlinux.org/make-initrd-propagator and #28289
