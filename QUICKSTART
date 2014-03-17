@@ -27,7 +27,7 @@ http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 ----
 $ git config --global user.email "my@email"
 $ git config --global user.name "My Name"
-$ mkdir ~/out
+$ mkdir -p ~/out ~/tmp
 ----
 
 тестовая сборка::
