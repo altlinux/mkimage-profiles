@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 1.0.3
+Version: 1.0.4
 Release: alt0.M70T.1
 
 Summary: ALT Linux based distribution metaprofile
@@ -78,6 +78,9 @@ cp -a * %buildroot%mpdir
 %doc %docs/*
 
 %changelog
+* Mon Mar 17 2014 Michael Shigorin <mike@altlinux.org> 1.0.4-alt0.M70T.1
+- kernel: don't insist on k-m-r8168
+
 * Mon Mar 03 2014 Michael Shigorin <mike@altlinux.org> 1.0.3-alt0.M70T.1
 - vm fixes/backports
 
