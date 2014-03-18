@@ -103,10 +103,11 @@ distro/regular-e18: distro/.regular-gtk use/x11/e18 use/fonts/infinality; @:
 distro/regular-e18-sysv: distro/.regular-sysv-gtk use/x11/e18; @:
 
 distro/regular-cinnamon: distro/.regular-gtk \
-	use/x11/cinnamon use/fonts/infinality
+	use/x11/cinnamon use/fonts/infinality +nm
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
 
-distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth; @:
+# not .regular-gtk due to gdm vs lightdm
+distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth +nm; @:
 
 # reusable bits
 mixin/regular-tde: use/syslinux/ui/gfxboot +tde +plymouth
@@ -119,7 +120,7 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
-	use/fonts/zerg +pulse +plymouth
+	use/fonts/zerg +pulse +plymouth +nm
 	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
