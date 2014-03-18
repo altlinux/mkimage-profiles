@@ -1,7 +1,7 @@
 use/server:
 	@$(call add_feature)
 
-use/server/mini: use/server use/net-ssh
+use/server/mini: use/server use/net-ssh use/syslinux/timeout/600
 	@$(call add,THE_KMODULES,e1000e igb)
 	@$(call add,STAGE1_KMODULES,e1000e igb)
 	@$(call add,THE_LISTS,\
