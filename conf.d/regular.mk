@@ -107,6 +107,7 @@ distro/regular-e18-sysv: distro/.regular-sysv-gtk use/x11/e18; @:
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality +nm
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
+	@$(call set,KFLAVOURS,un-def)
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth +nm; @:
