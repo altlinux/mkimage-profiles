@@ -1,4 +1,5 @@
 #!/bin/sh
+# see also http://www.enricozini.org/2008/tips/lightweight-autologin/
 
 if [ ! -x /usr/bin/X ]; then
 	echo "SKIP autologin: X not installed" >&2
@@ -105,6 +106,7 @@ if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
 
 ## nodm autologin (the last since the most intrusive)
 # FIXME nodm and xinitrc should be modified (also in p6)
+# WARNING: check user PATH if things go weird!
 NODM_RC=/etc/sysconfig/nodm
 NODM_EXE=/usr/sbin/nodm
 if [ -x "$NODM_EXE" ]; then
