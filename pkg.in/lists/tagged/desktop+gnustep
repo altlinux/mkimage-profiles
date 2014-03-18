@@ -41,14 +41,6 @@ gnustep-DataBasin
 gnustep-easydiff
 #gnustep-ec
 gnustep-EdenMath
-gnustep-Etoile-AddressManager
-gnustep-Etoile-adgnumailconverter
-#gnustep-Etoile-adserver
-gnustep-Etoile-adtool
-#gnustep-Etoile-AZSwitch
-gnustep-Etoile-DictionaryReader
-gnustep-Etoile-LDAPAddressBook
-gnustep-Etoile-Vindaloo
 #gnustep-examples
 gnustep-Expense
 gnustep-FisicaLab
