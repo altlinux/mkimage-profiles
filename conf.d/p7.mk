@@ -25,6 +25,7 @@ distro/altlinux-p7-sysv-tde: distro/regular-sysv-tde mixin/p7; @:
 distro/altlinux-p7-jeos: distro/regular-jeos mixin/p7; @:
 distro/altlinux-p7-server: distro/regular-server mixin/p7; @:
 distro/altlinux-p7-server-ovz: distro/regular-server-ovz mixin/p7; @:
+distro/altlinux-p7-server-un-def: distro/regular-server-un-def mixin/p7; @:
 
 endif
 
