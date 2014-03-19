@@ -1,4 +1,4 @@
-+efi: use/efi; @:
++efi: use/efi/signed; @:
 
 ifeq (x86_64,$(ARCH))
 
