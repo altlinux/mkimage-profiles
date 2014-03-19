@@ -1,11 +1,15 @@
 kde4-regular
 
-plasma-applet-networkmanager
-
 phonon-gstreamer
 
 synaptic-kde
 synaptic-usermode-
+
+kde4-plasma-nm
+NetworkManager-applet-gtk-
+NetworkManager-openvpn-gtk-
+NetworkManager-pptp-gtk-
+NetworkManager-vpnc-gtk-
 
 gtk2-theme-oxygen-gtk
 gtk3-theme-oxygen-gtk
