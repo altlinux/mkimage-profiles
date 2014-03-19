@@ -32,7 +32,7 @@ gnustep-Cartotheque
 gnustep-CDPlayer
 gnustep-cenon
 gnustep-Chess
-gnustep-CodeEditor
+#gnustep-CodeEditor
 #gnustep-Connect
 gnustep-Cynthiune
 gnustep-DataBasin
@@ -63,7 +63,7 @@ gnustep-GSCommander
 #gnustep-GSDock
 gnustep-gshisen
 #gnustep-GSKrab
-gnustep-GSPdf
+gnustep-GSPdf ghostscript-classic
 gnustep-GTAMSAnalyzer
 gnustep-gworkspace
 gnustep-HelpViewer
@@ -71,7 +71,7 @@ gnustep-IconManager
 gnustep-ImageViewer
 gnustep-Ink
 gnustep-Innerspace
-gnustep-jigsaw
+#gnustep-jigsaw
 gnustep-KeyArcher
 gnustep-Ladder
 gnustep-LapisPuzzle
@@ -97,7 +97,7 @@ gnustep-Popup
 gnustep-Preview
 gnustep-PRICE
 gnustep-projectcenter
-gnustep-ProjectManager
+#gnustep-ProjectManager
 gnustep-quartzcore
 gnustep-RemoteDesk
 #gnustep-renaissance
@@ -116,7 +116,7 @@ gnustep-Ticker
 gnustep-TimeMon
 gnustep-Toolbox
 gnustep-Vespucci
-gnustep-ViewPDF
+#gnustep-ViewPDF
 #gnustep-Vindaloo
 #gnustep-VolumeControl
 gnustep-Waiho
