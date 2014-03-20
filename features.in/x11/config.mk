@@ -33,7 +33,7 @@ use/x11/3d: use/x11/intel use/x11/nvidia/optimus use/x11/radeon; @:
 # has performance problems but is getting better, just not there yet
 use/x11/radeon: use/x11
 	@$(call add,THE_KMODULES,drm-radeon)
-	@$(call add,THE_PACKAGES,xorg-drv-radeon)
+	@$(call add,THE_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
 # sometimes broken with current xorg-server
 use/x11/nvidia: use/x11
