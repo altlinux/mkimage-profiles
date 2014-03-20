@@ -25,7 +25,7 @@ gnustep-Affiche
 gnustep-Backbone
 gnustep-BatMon
 gnustep-Bean
-gnustep-Burn wodim
+#gnustep-Burn cdrdao genisoimage
 gnustep-Camera
 gnustep-CameraTransfer
 gnustep-Cartotheque
@@ -80,7 +80,7 @@ gnustep-Localize
 #gnustep-LoginPanel
 gnustep-LuserNET
 gnustep-Lynkeos
-gnustep-Mixer
+#gnustep-Mixer
 gnustep-Money
 gnustep-MPDCon
 gnustep-MusicBox
