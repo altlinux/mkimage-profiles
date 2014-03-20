@@ -167,6 +167,20 @@ if [ -n "$BOOTPART" ]; then
 	mkfs."$BOOTFSTYPE" "$LOOPBOOT"
 fi
 
+ROOTUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPROOT")"
+if [ -n "$ROOTUUID" ]; then
+       ROOTDEV="UUID=$ROOTUUID"
+else
+       ROOTDEV="$LOOPROOT"
+fi
+
+if [ -n "$BOOTPART" ]; then
+	BOOTUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPBOOT")"
+	if [ -n "$ROOTUUID" ]; then
+		BOOTDEV="UUID=$BOOTUUID"
+	fi
+fi
+
 # mount and populate it
 mkdir -pm755 "$ROOTFS"
 mount "$LOOPROOT" "$ROOTFS"
@@ -180,7 +194,7 @@ tar -C "$ROOTFS" --numeric-owner -xf "$TAR"
 for i in /dev /proc /sys; do mount --bind "$i" "$ROOTFS$i"; done
 
 # loop device so lilo could work...
-echo "$LOOPROOT / $ROOTFSTYPE relatime 1 1" >> "$ROOTFS/etc/fstab"
+echo "$ROOTDEV / $ROOTFSTYPE relatime 1 1" >> "$ROOTFS/etc/fstab"
 
 # target device at once
 if [ -n "$BOOTPART" ]; then
