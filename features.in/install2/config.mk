@@ -13,6 +13,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,BASE_LISTS,$(call tags,basesystem))
 	@$(call xport,BASE_BOOTLOADER)
 	@$(call xport,INSTALL2_CLEANUP_PACKAGES)
+	@$(call xport,INSTALL2_CLEANUP_KDRIVERS)
 
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: use/install2/packages use/install2/kms \

@@ -13,6 +13,15 @@ rm -f /lib*/evms/*/{bbr,csm,drivelink,ogfs,replace,snapshot}*
 # unneeded kernel modules
 ### some of these removals belong to a purge grade script
 ### TODO: mostly scsi-less and net-less cleanup for antique
+
+## dynamic part
+if [ -n "$GLOBAL_INSTALL2_CLEANUP_KDRIVERS" ]; then
+	for i in $GLOBAL_INSTALL2_CLEANUP_KDRIVERS; do
+		rm -rf /lib/modules/*/"$i"
+	done
+fi
+
+## static part
 rm -rf /lib/modules/*/kernel/arch
 rm -rf /lib/modules/*/kernel/drivers/atm
 rm -rf /lib/modules/*/kernel/drivers/bluetooth
@@ -20,7 +29,6 @@ rm -rf /lib/modules/*/kernel/drivers/char/{ipmi,hw_random,mwave,tpm}
 rm -rf /lib/modules/*/kernel/drivers/char/watchdog
 rm -rf /lib/modules/*/kernel/drivers/cpufreq
 rm -rf /lib/modules/*/kernel/drivers/edac
-#rm -rf /lib/modules/*/kernel/drivers/firmware	### EFI
 rm -rf /lib/modules/*/kernel/drivers/gpio
 rm -rf /lib/modules/*/kernel/drivers/hwmon
 rm -rf /lib/modules/*/kernel/drivers/infiniband	###
