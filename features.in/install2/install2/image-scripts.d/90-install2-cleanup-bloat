@@ -19,7 +19,8 @@ rm -rf /usr/share/awk/
 [ -L /sbin/init ] || rm -rf /lib/systemd/system
 
 ### could it be handled with any grace?
-rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
+rpmquery -a common-licenses \
+	cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
 	libsoup\* \
 	libGL glxinfo xdriinfo \
