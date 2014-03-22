@@ -22,6 +22,7 @@ rm -rf /usr/share/awk/
 rpmquery -a common-licenses \
 	cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
+	libmpfr\* libmpc\* \
 	libsoup\* \
 	libGL glxinfo xdriinfo \
 	xdg-utils xterm \
