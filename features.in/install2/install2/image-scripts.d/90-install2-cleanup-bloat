@@ -27,6 +27,7 @@ rpmquery -a common-licenses \
 	libwayland\* libgbm \
 	libGL libEGL glxinfo xdriinfo \
 	xdg-utils xterm \
+	mkfontscale mkfontdir \
 	make make-initrd \
 | xargs -r rpmi -e --nodeps --
 
