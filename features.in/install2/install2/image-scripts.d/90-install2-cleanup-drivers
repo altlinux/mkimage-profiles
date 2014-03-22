@@ -1,8 +1,11 @@
 #!/bin/sh
 # drop extra drivers et al, purge kernel image(s)
 
-# xorg modules
+# xorg-dri-*
 rm -r /usr/lib*/X11/modules/dri
+
+# no movies during installation so far
+rm -rf /usr/lib*/vdpau/ /usr/lib*/libXv*
 
 # evms modules; see http://evms.sourceforge.net/user_guide/
 rm -f /lib*/evms/*/{bbr,csm,drivelink,ogfs,replace,snapshot}*
