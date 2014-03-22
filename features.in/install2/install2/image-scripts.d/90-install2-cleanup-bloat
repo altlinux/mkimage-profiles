@@ -31,8 +31,7 @@ rpmquery -a common-licenses \
 	make make-initrd \
 | xargs -r rpmi -e --nodeps --
 
-rpmquery -a bind-utils libbind \
-	libisl\* libcloog-isl\* \
+rpmquery -a libisl\* libcloog-isl\* \
 | xargs -r rpmi -e --
 
 :
