@@ -69,3 +69,45 @@ use/install2/cleanup/x11-hwdrivers:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-r128 xorg-drv-radeon)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-s3virge xorg-drv-savage)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-sis)
+
+# massive purge of anything not critical to installer boot (l10n included!)
+use/install2/cleanup/everything: use/install2/cleanup/x11-hwdrivers \
+	use/install2/cleanup/vnc use/install2/cleanup/crypto
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,glibc-gconv-modules glibc-locales)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,libX11-locales alterator-l10n)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,kbd-data kbd console-scripts)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,shadow-convert)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,libXaw xmessage xconsole)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,libncurses libncursesw) # top
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,openssl) # net-functions
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,vitmp vim-minimal)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,udev-hwdb pciids)
+
+# this conflicts with efi (which needs efivars.ko)
+use/install2/cleanup/kernel/firmware:
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/firmware/)
+
+# drop drivers expected to be useless in virtual environment
+use/install2/cleanup/kernel/non-vm:
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/firewire/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/net/bonding/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/net/ppp/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/net/slip/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/net/team/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/net/usb/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/platform/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/tty/serial/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/net/bridge/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/net/openvswitch/)
+
+# this would need extra handling anyways
+use/install2/cleanup/kernel/storage:
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/block/aoe/)
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/block/drbd/)
+
+# burn it down
+use/install2/cleanup/kernel/everything: \
+	use/install2/cleanup/kernel/storage \
+	use/install2/cleanup/kernel/non-vm \
+	use/install2/cleanup/kernel/firmware
+	@$(call add,INSTALL2_CLEANUP_KDRIVERS,kernel/drivers/ata/pata_*)
