@@ -24,7 +24,8 @@ rpmquery -a common-licenses \
 	bind-utils libbind \
 	libmpfr\* libmpc\* \
 	libsoup\* \
-	libGL glxinfo xdriinfo \
+	libwayland\* libgbm \
+	libGL libEGL glxinfo xdriinfo \
 	xdg-utils xterm \
 	make make-initrd \
 | xargs -r rpmi -e --nodeps --
