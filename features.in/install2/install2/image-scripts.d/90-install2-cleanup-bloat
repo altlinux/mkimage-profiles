@@ -27,6 +27,7 @@ rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 | xargs -r rpmi -e --nodeps --
 
 rpmquery -a bind-utils libbind \
+	libisl\* libcloog-isl\* \
 | xargs -r rpmi -e --
 
 :
