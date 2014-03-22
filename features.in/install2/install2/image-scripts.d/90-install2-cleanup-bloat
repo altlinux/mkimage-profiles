@@ -15,6 +15,9 @@ rm -rf /usr/share/qt4/{doc,mkspecs,phrasebooks}
 rm -rf /usr/share/guile/*/{*.txt,scripts}
 rm -rf /usr/share/awk/
 
+# and no systemd either
+[ -L /sbin/init ] || rm -rf /lib/systemd/system
+
 ### could it be handled with any grace?
 rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
