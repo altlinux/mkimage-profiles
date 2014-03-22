@@ -53,3 +53,8 @@ use/install2/reiserfs:
 # when VNC installation is less welcome than a few extra megs
 use/install2/cleanup/vnc:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,x11vnc xorg-xvfb)
+
+# conflicts with luks feature
+use/install2/cleanup/crypto:
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,gnupg libgpg-error)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,libgcrypt* libgnutls*)
