@@ -1,6 +1,9 @@
 #!/bin/sh
 # drop unused l10n/i18n data
 
+# preparations
+rpm -e --nodeps glib2-locales
+
 # the fell swoop
 find /usr/share/locale/ -type f \! -name 'alterator*' -delete
 rm -rf /usr/share/zoneinfo/{posix,right}/
@@ -12,10 +15,10 @@ rm -f /usr/lib*/gconv/BIG5*
 rm -f /usr/lib*/gconv/EBCDIC*
 
 # en_* variations
-rm -rf /usr/{lib,share}/locale/en_[^U]*
+rm -rf /usr/{lib,share{,/X11}}/locale/en_[^U]*
 
 # mods
-rm -rf /usr/{lib,share}/locale/*@*
+rm -rf /usr/{lib,share{,/X11}}/locale/*@*
 
 # non-utf8 locales
 find /usr/lib/locale -mindepth 1 -maxdepth 1 -type d \! -name '*.utf8' -print0 |
