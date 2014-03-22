@@ -50,6 +50,7 @@ distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 distro/regular-jeos: distro/.base +sysvinit \
 	use/install2/packages use/install2/kvm use/install2/vbox \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
+	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/x11-alterator use/net use/kernel/net use/stage2/net-eth
 	@$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
 	@$(call add,BASE_KMODULES,guest vboxguest)
