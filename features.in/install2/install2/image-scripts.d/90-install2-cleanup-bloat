@@ -23,6 +23,7 @@ rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
 	libsoup\* \
 	libGL glxinfo xdriinfo \
+	xdg-utils xterm \
 	make make-initrd \
 | xargs -r rpmi -e --nodeps --
 
