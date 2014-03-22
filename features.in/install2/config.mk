@@ -12,6 +12,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,BASE_LISTS,$(call tags,basesystem))
 	@$(call xport,BASE_BOOTLOADER)
+	@$(call xport,INSTALL2_CLEANUP_PACKAGES)
 
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: use/install2/packages use/install2/kms \
@@ -48,3 +49,7 @@ use/install2/jfs:
 
 use/install2/reiserfs:
 	@$(call add,SYSTEM_PACKAGES,reiserfsprogs)
+
+# when VNC installation is less welcome than a few extra megs
+use/install2/cleanup/vnc:
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,x11vnc xorg-xvfb)

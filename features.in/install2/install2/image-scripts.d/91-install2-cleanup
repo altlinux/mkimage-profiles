@@ -1,0 +1,8 @@
+#!/bin/sh
+# this relates to install2 feature's cleanup script and executes later
+
+[ -n "$GLOBAL_INSTALL2_CLEANUP_PACKAGES" ] || exit 0
+
+rpmquery -a $GLOBAL_INSTALL2_CLEANUP_PACKAGES |
+	xargs -r rpmi -e --nodeps --
+:

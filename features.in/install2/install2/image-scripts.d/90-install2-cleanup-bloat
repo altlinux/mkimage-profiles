@@ -16,12 +16,11 @@ rm -rf /usr/share/guile/*/{*.txt,scripts}
 rm -rf /usr/share/awk/
 
 ### could it be handled with any grace?
-### TODO: x11vnc, xorg-xvfb: fix installer-common-stage2
 rpmquery -a cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
 	libsoup\* \
 	libGL glxinfo xdriinfo \
-	make make-initrd x11vnc xorg-xvfb \
+	make make-initrd \
 | xargs -r rpmi -e --nodeps --
 
 ### TODO: unless LUKS luks feature is requested we can also drop
