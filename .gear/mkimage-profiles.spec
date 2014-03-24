@@ -1,6 +1,6 @@
 Name: mkimage-profiles
-Version: 0.6.2
-Release: alt1
+Version: 0.6.2.1
+Release: alt0.M60T.1
 
 Summary: ALT Linux based distribution metaprofile
 License: GPLv2+
@@ -61,6 +61,9 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Mar 24 2014 Michael Shigorin <mike@altlinux.org> 0.6.2.1-alt0.M60T.1
+- altlinux-t6-server-ovz
+
 * Mon Apr 02 2012 Michael Shigorin <mike@altlinux.org> 0.6.2-alt1
 - better live-webkiosk and initial live-flightgear
 - cleanup, syslinux, xorg feature tweaks
