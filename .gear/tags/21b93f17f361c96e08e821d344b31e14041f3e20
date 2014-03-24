@@ -1,6 +1,0 @@
-object 784e7444d80414dfc0cd2ce4bdf026e8ce9cef06
-type commit
-tag v1.1.27
-tagger Michael Shigorin <mike@altlinux.org> 1395077043 +0400
-
-minor refactoring

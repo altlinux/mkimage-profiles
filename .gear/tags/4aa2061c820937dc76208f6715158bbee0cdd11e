@@ -1,0 +1,6 @@
+object 445c361a1533b1e01444953218b48d832da87e64
+type commit
+tag v1.1.28
+tagger Michael Shigorin <mike@altlinux.org> 1395691136 +0400
+
+install2 cleanup
