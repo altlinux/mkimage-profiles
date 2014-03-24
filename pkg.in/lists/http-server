@@ -5,7 +5,7 @@ php5-cgi
 php5-curl
 php5-dba
 php5-dom
-php5-eaccelerator
+#php5-eaccelerator
 php5-exif
 php5-facedetect
 php5-fileinfo
