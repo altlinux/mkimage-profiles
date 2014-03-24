@@ -1,0 +1,6 @@
+object 71c4404c4e405b547040f81931c1b8a7ea82134b
+type commit
+tag v0.6.2.1
+tagger Michael Shigorin <mike@altlinux.org> 1395691214 +0400
+
+altlinux-t6-server-ovz
