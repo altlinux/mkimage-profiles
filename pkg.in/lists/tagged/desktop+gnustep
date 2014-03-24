@@ -32,7 +32,6 @@ gnustep-Cartotheque
 gnustep-CDPlayer
 gnustep-cenon
 gnustep-Chess
-#gnustep-CodeEditor
 #gnustep-Connect
 gnustep-Cynthiune
 gnustep-DataBasin
@@ -60,7 +59,7 @@ gnustep-GRubik
 gnustep-GSBench
 gnustep-GScheme
 gnustep-GSCommander
-#gnustep-GSDock
+#gnustep-GSDock # i586-only, abandoned
 gnustep-gshisen
 #gnustep-GSKrab
 gnustep-GSPdf ghostscript-classic
@@ -97,7 +96,7 @@ gnustep-Popup
 gnustep-Preview
 gnustep-PRICE
 gnustep-projectcenter
-#gnustep-ProjectManager
+gnustep-ProjectManager
 gnustep-quartzcore
 gnustep-RemoteDesk
 #gnustep-renaissance

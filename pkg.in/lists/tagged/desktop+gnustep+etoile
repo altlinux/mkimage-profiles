@@ -10,12 +10,11 @@ gnustep-Etoile-LDAPAddressBook
 #gnustep-Etoile-MenuServer
 #gnustep-Etoile-ModelBuilder
 #gnustep-Etoile-ObjectManager
-#gnustep-Etoile-ProjectManager
 #gnustep-Etoile-Sandbox
 #gnustep-Etoile-ScriptServices
 #gnustep-Etoile-StepChat
 gnustep-Etoile-System
 gnustep-Etoile-Typewriter
 #gnustep-Etoile-VCFInspector
-#gnustep-Etoile-Vindaloo
+gnustep-Etoile-Vindaloo
 #gnustep-Etoile-Worktable
