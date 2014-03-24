@@ -9,6 +9,7 @@ COMPS="$(find -mindepth 1 -maxdepth 1 -type d -name 'RPMS.*' -printf '%f\n' |
 [ -z "$GLOBAL_VERBOSE" ] || echo "** COMPS=$COMPS" >&2
 [ -n "$COMPS" ] || exit 1
 
+# NB: bz2 still needed for apt-cdrom add to work
 genbasedir \
 	--topdir="$WORKDIR" \
 	--no-oldhashfile \
