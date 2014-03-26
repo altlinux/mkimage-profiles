@@ -81,15 +81,24 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 
-distro/regular-wmaker: distro/.regular-sysv \
-	use/efi/refind use/syslinux/ui/gfxboot use/live/autologin use/x11/wmaker
-	@$(call add,LIVE_PACKAGES,xxkb wdm)
+mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot use/x11/wmaker
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
-	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru)
+	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
 
-distro/regular-gnustep: distro/regular-wmaker use/x11/gnustep +plymouth
+# wdm can't do autologin so add standalone one for livecd
+distro/regular-wmaker: distro/.regular-sysv \
+	mixin/regular-wmaker use/live/autologin
+	@$(call add,LIVE_PACKAGES,wdm)
+
+# gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
+mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 +plymouth
 	@$(call add,THE_BRANDING,graphics)
+
+distro/regular-gnustep: distro/.regular-sysv \
+	mixin/regular-wmaker mixin/regular-gnustep; @:
+distro/regular-gnustep-systemd: distro/.regular-base +systemd \
+	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk use/x11/xfce +nm; @:
 
