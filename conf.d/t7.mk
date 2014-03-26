@@ -6,6 +6,7 @@ mixin/t7:
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/altlinux-t7-gnustep: distro/regular-gnustep mixin/t7; @:
+distro/altlinux-t7-gnustep-systemd: distro/regular-gnustep-systemd mixin/t7; @:
 distro/altlinux-t7-tde: distro/regular-tde mixin/t7; @:
 distro/altlinux-t7-sysv-tde: distro/regular-sysv-tde mixin/t7; @:
 
