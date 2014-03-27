@@ -1,6 +1,7 @@
 #!/bin/sh
 # postprocess isolinux configuration
 # when the image sizes are finally known
+# NB: install2_size, live_size, rescue_size get defined here
 
 cd "$WORKDIR"
 
