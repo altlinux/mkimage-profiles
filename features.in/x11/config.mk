@@ -12,7 +12,7 @@ use/x11:
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/x11/xorg: use/x11 use/x11/intel
+use/x11/xorg: use/x11 use/x11/intel use/firmware
 	@$(call add,THE_KMODULES,drm-radeon drm-nouveau)
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 else
@@ -31,7 +31,7 @@ use/x11/intel: use/x11
 use/x11/3d: use/x11/intel use/x11/nvidia/optimus use/x11/radeon; @:
 
 # has performance problems but is getting better, just not there yet
-use/x11/radeon: use/x11
+use/x11/radeon: use/x11 use/firmware
 	@$(call add,THE_KMODULES,drm-radeon)
 	@$(call add,THE_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
