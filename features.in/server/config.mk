@@ -1,4 +1,4 @@
-use/server:
+use/server: use/power/acpi/button
 	@$(call add_feature)
 
 use/server/mini: use/server use/net-ssh use/syslinux/timeout/600
