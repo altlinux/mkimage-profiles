@@ -157,6 +157,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,THE_PACKAGES,htop k3b openntpd pm-utils)
 	@$(call add,THE_PACKAGES,lm_sensors3 hdparm sdparm smartmontools)
 	@$(call add,THE_LISTS,$(call tags,base desktop))
+	@$(call add,MAIN_PACKAGES,man-whatis)
 
 distro/regular-server: distro/.regular-install use/server/mini use/rescue/base
 	@$(call add,THE_LISTS,$(call tags,regular server))
