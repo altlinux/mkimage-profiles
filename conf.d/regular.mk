@@ -36,7 +36,7 @@ distro/.regular-desktop: distro/.regular-base \
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 distro/.regular-sysv: distro/.regular-base +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
-	use/x11/lightdm/gtk; @:
+	use/x11/gdm2.20; @:
 
 distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks use/install2/fs
