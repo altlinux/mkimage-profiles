@@ -167,7 +167,7 @@ distro/regular-server: distro/.regular-install use/server/mini use/rescue/base
 distro/regular-server-ovz: distro/regular-server \
 	use/server/ovz use/server/groups/base; @:
 
-distro/regular-server-un-def: distro/regular-server
+distro/regular-server-hyperv: distro/regular-server
 	@$(call set,KFLAVOURS,un-def)
 
 endif
