@@ -1,7 +1,9 @@
 #!/bin/sh
 # everything needed should have been done within initrd when this boots
 
-rpm -e --nodeps apt libapt rpm librpmbuild librpm 2>/dev/null ||:
+list="$(rpm -qa apt diffutils libapt librpm* make rpm shadow-utils udev* vim*)"
+[ -z "$list" ] || rpm -e --nodeps $list 2>/dev/null ||:
+
 rm -rf /var/lib/apt /var/cache/apt /var/lib/rpm
 rm -rf /lib/modules
 rm -rf /usr/share
