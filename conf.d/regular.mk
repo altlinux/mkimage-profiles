@@ -92,7 +92,7 @@ distro/regular-wmaker: distro/.regular-sysv \
 	@$(call add,LIVE_PACKAGES,wdm)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
-mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 +plymouth
+mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck +plymouth
 	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-gnustep: distro/.regular-sysv \
