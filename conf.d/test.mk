@@ -8,9 +8,7 @@ distro/syslinux-noescape: distro/syslinux-auto use/syslinux/noescape.cfg; @:
 
 distro/live-systemd: distro/.base use/live/base +systemd; @:
 distro/live-plymouth: distro/.live-base use/plymouth/live; @:
-
-distro/live-isomd5sum: distro/.base use/live/base use/isomd5sum
-	@$(call add,LIVE_PACKAGES,livecd-isomd5sum)
+distro/live-mediacheck: distro/.base use/mediacheck; @:
 
 distro/live-testserver: distro/live-install use/server/mini
 	@$(call set,KFLAVOURS,std-def el-smp)
