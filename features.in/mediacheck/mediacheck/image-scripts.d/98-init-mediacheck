@@ -1,0 +1,3 @@
+#!/bin/sh
+mv -f -- /etc/inittab.mediacheck /etc/inittab
+:>/etc/rc.d/rc
