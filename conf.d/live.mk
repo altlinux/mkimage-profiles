@@ -93,4 +93,6 @@ distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync)
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
 
+distro/live-robo: distro/live-icewm +robotics use/live/ru; @:
+
 endif
