@@ -11,19 +11,31 @@ use/deflogin:
 # USERS variable chunk format is "login:passwd:admin:sudo"
 # GROUPS are just stashed there to include USERS logins created
 
-# livecd: root and altlinux users with no password at all
-use/deflogin/empty: use/deflogin use/deflogin/altlinux
+# basic livecd: root and altlinux users with no password at all
+use/deflogin/empty: use/deflogin
 	@$(call set,ROOTPW_EMPTY,1)
+	@$(call add,USERS,altlinux::1:1)
 
-# mostly used to allow access to videocard and desktop related hardware
-use/deflogin/xgrp: use/deflogin
-	@$(call add,GROUPS,xgrp)
-
-# appliances: "root:altlinux"; "altlinux:root" in "xgrp" group
-use/deflogin/altlinuxroot: use/deflogin/xgrp
-	@$(call try,ROOTPW,altlinux)
-	@$(call add,USERS,altlinux:root:1:1)
+# real thing: some control added
+use/deflogin/desktop: use/deflogin/empty \
+	use/deflogin/hardware use/deflogin/xgrp use/deflogin/privileges; @:
 
 # could also be passed on the commandline
 use/deflogin/root: use/deflogin
 	@$(call try,ROOTPW,altlinux)
+
+# appliances: "root:altlinux"; "altlinux:root" in "xgrp" group
+use/deflogin/altlinuxroot: use/deflogin/root use/deflogin/xgrp
+	@$(call add,USERS,altlinux:root:1:1)
+
+# peripherals
+use/deflogin/hardware: use/deflogin
+	@$(call add,GROUPS,cdwriter radio scanner)
+
+# videocard and desktop related hardware
+use/deflogin/xgrp: use/deflogin
+	@$(call add,GROUPS,xgrp audio)
+
+# potentially elevated privileges (NB: _not_ wheel)
+use/deflogin/privileges: use/deflogin
+	@$(call add,GROUPS,fuse netadmin proc users)

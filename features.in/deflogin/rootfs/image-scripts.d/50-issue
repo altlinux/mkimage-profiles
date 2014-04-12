@@ -1,0 +1,20 @@
+#!/bin/sh
+# issue welcome message if there's a guest user
+# (the first one configured with empty password)
+
+[ -n "$GLOBAL_USERS" ] || exit 1
+
+guest=
+for u in $GLOBAL_USERS; do
+	login="${u%%:*}"
+	[ -n "$login" ] || continue
+	rest="${u#*:}"
+	pass="${rest%%:*}"
+	[ -z "$pass" ] || continue
+	guest="$login"
+	break
+done
+
+[ -n "$guest" ] || exit 0
+
+echo "Hello friend, say \`$guest' to log in at \\l" >> /etc/issue
