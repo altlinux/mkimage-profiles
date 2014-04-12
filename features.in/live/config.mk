@@ -12,7 +12,8 @@ _OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
 
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
-use/live: use/stage2 sub/rootfs@live sub/stage2@live use/services
+use/live: use/stage2 sub/rootfs@live sub/stage2@live \
+	use/services use/deflogin/live
 	@$(call add_feature)
 	@$(call add,CLEANUP_PACKAGES,'installer*')
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
@@ -31,12 +32,12 @@ use/live/rw: use/live; @:
 endif
 
 # graphical target (not enforcing xorg drivers or blobs)
-use/live/x11: use/live/base use/x11-autologin use/sound +power +efi
+use/live/x11: use/live/base use/syslinux/localboot.cfg \
+	use/deflogin/desktop use/x11-autologin use/sound +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-ttf-droid)
 	@$(call add,LIVE_PACKAGES,pciutils)
-	@$(call add,SYSLINUX_CFG,localboot)
 
 # this target specifically pulls free xorg drivers in (and a few more bits)
 use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \

@@ -12,12 +12,12 @@ use/deflogin:
 # GROUPS are just stashed there to include USERS logins created
 
 # basic livecd: root and altlinux users with no password at all
-use/deflogin/empty: use/deflogin
+use/deflogin/live: use/deflogin
 	@$(call set,ROOTPW_EMPTY,1)
 	@$(call add,USERS,altlinux::1:1)
 
 # real thing: some control added
-use/deflogin/desktop: use/deflogin/empty \
+use/deflogin/desktop: use/deflogin/live \
 	use/deflogin/hardware use/deflogin/xgrp use/deflogin/privileges; @:
 
 # could also be passed on the commandline
