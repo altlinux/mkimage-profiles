@@ -1,6 +1,12 @@
 #!/bin/sh
-# set root password if any; no-op if it is empty
 
+# explicitly requested empty root password
+if [ -n "$GLOBAL_ROOTPW_EMPTY" ]; then
+	usermod -p "" root
+	exit 0
+fi
+
+# set root password if any; no-op if it is empty
 if [ -z "$GLOBAL_ROOTPW" ]; then
 	echo "** warning: no root password provided, skipping" >&2
 else

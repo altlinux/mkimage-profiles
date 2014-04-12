@@ -2,6 +2,7 @@
 use/deflogin:
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,shadow-utils passwd)
+	@$(call xport,ROOTPW_EMPTY)
 	@$(call xport,ROOTPW)
 	@$(call xport,USERS)
 	@$(call xport,GROUPS)
@@ -12,8 +13,7 @@ use/deflogin:
 
 # livecd: root and altlinux users with no password at all
 use/deflogin/empty: use/deflogin use/deflogin/altlinux
-	@$(call set,ROOTPW,)
-	@$(call add,USERS,altlinux::1:1)
+	@$(call set,ROOTPW_EMPTY,1)
 
 # mostly used to allow access to videocard and desktop related hardware
 use/deflogin/xgrp: use/deflogin
