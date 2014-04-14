@@ -19,4 +19,6 @@ distro/server-ovz: distro/server-mini use/server/ovz use/server/groups/base \
 	use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/cpu +wireless; @:
 
+distro/server-zabbix: distro/server-mini use/server/zabbix; @:
+
 endif

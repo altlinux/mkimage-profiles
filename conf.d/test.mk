@@ -17,6 +17,11 @@ distro/live-gns3: distro/live-icewm
 	@$(call add,LIVE_LISTS,gns3)
 	@$(call add,LIVE_KMODULES,kvm virtualbox)
 
+# NB: requires runtime Server/ServerActive setup in zabbix_agentd.conf
+distro/live-zabbix: distro/live-icewm use/net-eth
+	@$(call add,THE_PACKAGES,zabbix-agent)
+	@$(call add,DEFAULT_SERVICES_ENABLE,zabbix_agentd)
+
 distro/icewm-efi: distro/icewm use/efi/debug use/firmware
 	@$(call add,INSTALL2_PACKAGES,strace)
 
@@ -43,6 +48,8 @@ distro/desktop-luks: distro/icewm use/luks; @:
 distro/desktop-systemd: distro/icewm +systemd; @:
 distro/desktop-plymouth: distro/icewm +plymouth; @:
 distro/server-efi: distro/server-mini use/efi/debug; @:
+
+distro/server-zabbix: distro/server-mini use/server/zabbix use/net-eth
 
 endif # IMAGE_CLASS: distro
 
