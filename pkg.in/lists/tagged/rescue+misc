@@ -29,6 +29,7 @@ smbios-utils
 # Misc^2
 kexec-tools
 multipath-tools
+lsof
 
 # initrd helpers
 make-initrd-devmapper
