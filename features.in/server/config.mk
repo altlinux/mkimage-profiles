@@ -18,6 +18,13 @@ use/server/ovz: use/server
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
 	@$(call add,BASE_LISTS,ovz-server)
 
+# NB: examine zabbix-preinstall package, initialization is NOT automatic!
+use/server/zabbix: use/server use/services use/control
+	@$(call add,THE_LISTS,$(call tags,server zabbix))
+	@$(call add,DEFAULT_SERVICES_ENABLE,zabbix_mysql zabbix_agentd)
+	@$(call add,DEFAULT_SERVICES_ENABLE,httpd2 mysqld postfix)
+	@$(call add,CONTROL,postfix:server)
+
 use/server/groups/base: use/server
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
 	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)

@@ -1,0 +1,16 @@
+zabbix-server-mysql
+zabbix-phpfrontend-apache2-mod_php5
+zabbix-agent
+
+zabbix-preinstall
+
+MySQL-server
+MySQL-client
+
+php5-gd2
+php5-mbstring
+php5-mysqli
+php5-sockets
+
+postfix
+mailx
