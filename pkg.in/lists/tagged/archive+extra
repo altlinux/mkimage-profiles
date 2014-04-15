@@ -8,6 +8,7 @@ star
 unrar
 unzip
 xar
+xbiso
 
 # parallel (de)compression
 lbzip2
@@ -21,6 +22,7 @@ arj
 cabextract
 ha
 lha
+mdbtools
 mscompress
 nomarch
 ncompress
