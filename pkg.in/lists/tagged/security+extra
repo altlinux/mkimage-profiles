@@ -1,12 +1,18 @@
 apg
 #chkrootkit
-dcfldd
 john
+hashalot
 #logcheck
 md5deep
+ssdeep
+
+# integrity check
 osec
 osec-cronjob
 osec-mailreport
 
 # hardware reliability
 mcelog
+
+# networking
+chaosreader

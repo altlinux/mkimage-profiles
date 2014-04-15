@@ -1,5 +1,6 @@
-# BDB
+# Databases
 db4.8-utils
+sqlite3
 
 # Networking
 drbd83-tools

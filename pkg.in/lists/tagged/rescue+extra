@@ -5,6 +5,7 @@ x86info
 # Disk utils
 bonnie++
 cfdisk
+dcfldd
 ddrescue
 disktype
 # NB: EVMS must be off by default as "normal" /dev/sd*
@@ -47,6 +48,7 @@ time
 openssl
 
 # Applications/Editors
+biew
 vim-console
 
 # Applications/File
@@ -76,6 +78,7 @@ squashfsprogs-xz
 dosfstools
 exfat-utils
 exofs-utils
+fatback
 fatresize
 fuse-zfs
 hfsprogs
@@ -105,8 +108,11 @@ cifs-utils
 curlftpfs
 davfs2
 elinks
+fping
 fuse-sshfs
 hostinfo
+hping2
+hping3
 iftop
 ipmitool
 iproute2
@@ -129,7 +135,13 @@ scanssh
 #shellinabox
 #stunnel
 tcpdump
+tcpflow
+tcpreen
+tcpreplay
+tcptrace
 tcptraceroute
+tcputils
+tcpxtract
 telnet
 traceroute
 wget
@@ -144,6 +156,8 @@ gpm
 mc
 
 # Development/Debuggers
+gdb
+ltrace
 strace
 sysstat
 
