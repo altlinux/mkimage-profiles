@@ -8,7 +8,6 @@ iscsitarget-utils
 ntp-utils
 
 # Optical media
-#dvdisaster
 dvd+rw-tools
 readom
 udftools

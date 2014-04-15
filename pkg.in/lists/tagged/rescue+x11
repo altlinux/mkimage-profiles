@@ -1,7 +1,12 @@
+# mostly X11 counterparts/GUIs to some rescue+extra packages
 binwalk
-qt4-fsarchiver
+dissy
+dsniff-X11
+dvdisaster
 gparted
+gsmartcontrol
 jhead
 ht
 libpst-tools
 ntop
+qt4-fsarchiver
