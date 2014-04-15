@@ -20,10 +20,12 @@ mtx
 rmt
 
 # Hardware
+cmospwd
 flashrom
 irda-utils
 lm_sensors3
 lshw
+nvramtool
 smbios-utils
 
 # Misc^2
@@ -40,6 +42,7 @@ make-initrd-nfs
 
 # Filesystem archival tools
 fsarchiver
+wimtools
 
 # Filesystem maintenance
 duff

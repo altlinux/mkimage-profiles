@@ -3,4 +3,5 @@ bcrypt
 cryptmount
 cryptsetup
 cryptsetup-reencrypt
+stegdetect
 steghide
