@@ -6,6 +6,7 @@ x86info
 bonnie++
 cfdisk
 dcfldd
+dc3dd
 ddrescue
 disktype
 # NB: EVMS must be off by default as "normal" /dev/sd*
@@ -23,6 +24,7 @@ ms-sys
 parted
 partclone
 recoverdm
+safecopy
 sdparm
 sfdisk
 smartmontools
@@ -38,7 +40,6 @@ whdd
 binutils
 dmidecode
 gnupg
-hexedit
 pciutils
 procps
 quota
@@ -49,9 +50,14 @@ openssl
 
 # Applications/Editors
 biew
+hexedit
+lde
+tweak
 vim-console
 
 # Applications/File
+agrep-tre
+enca
 findutils
 file
 less
@@ -103,16 +109,21 @@ xfsdump
 zerofree
 
 # Applications/Networking
+adcfw-log
 arpwatch
 cifs-utils
 curlftpfs
 davfs2
+dhcpdump
+dsniff
 elinks
 fping
 fuse-sshfs
 hostinfo
 hping2
 hping3
+httpry
+httpry-scripts
 iftop
 ipmitool
 iproute2
@@ -132,6 +143,7 @@ p0f
 rsh
 rsync
 scanssh
+sflowtool
 #shellinabox
 #stunnel
 tcpdump
@@ -145,21 +157,25 @@ tcpxtract
 telnet
 traceroute
 wget
+whatmask
 whois
 
 # Applications/Shells
-zsh
 ash
 bash
 bc
 gpm
 mc
+pdksh
+zsh
 
 # Development/Debuggers
+btparser
 gdb
 ltrace
 strace
 sysstat
+udis86
 
 # win32
 chntpw
