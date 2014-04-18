@@ -16,3 +16,6 @@ apt-repo
 
 # Partition management
 fdisk
+
+# Serial console
+agetty
