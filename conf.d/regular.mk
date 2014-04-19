@@ -144,7 +144,7 @@ distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 distro/regular-rescue: distro/.regular-bare use/rescue/rw use/luks \
 	use/branding use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/ui/menu use/syslinux/rescue_fm.cfg \
-	use/syslinux/timeout/200 test/rescue/no-x11
+	use/syslinux/timeout/200 use/mediacheck test/rescue/no-x11
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm)
 
