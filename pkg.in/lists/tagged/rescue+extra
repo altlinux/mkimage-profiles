@@ -3,6 +3,7 @@ cpuburn
 x86info
 
 # Disk utils
+aff-tools
 bonnie++
 cfdisk
 dcfldd
