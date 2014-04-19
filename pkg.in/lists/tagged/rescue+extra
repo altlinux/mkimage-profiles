@@ -4,6 +4,7 @@ x86info
 
 # Disk utils
 aff-tools
+aimage
 bonnie++
 cfdisk
 dcfldd
