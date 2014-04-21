@@ -18,6 +18,7 @@ net-tools
 strace
 powertop
 pciutils
+usbutils
 acpi
 
 apt-repo
