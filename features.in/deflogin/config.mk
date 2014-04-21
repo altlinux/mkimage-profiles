@@ -30,7 +30,7 @@ use/deflogin/altlinuxroot: use/deflogin/root use/deflogin/xgrp
 
 # peripherals
 use/deflogin/hardware: use/deflogin
-	@$(call add,GROUPS,cdwriter radio scanner)
+	@$(call add,GROUPS,cdwriter radio scanner uucp)
 
 # videocard and desktop related hardware
 use/deflogin/xgrp: use/deflogin
