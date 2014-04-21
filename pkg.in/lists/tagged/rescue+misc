@@ -25,6 +25,7 @@ flashrom
 irda-utils
 lm_sensors3
 lshw
+mpt-status
 nvramtool
 smbios-utils
 
