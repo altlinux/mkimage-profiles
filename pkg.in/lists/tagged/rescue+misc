@@ -33,6 +33,7 @@ smbios-utils
 kexec-tools
 multipath-tools
 lsof
+parallel
 
 # initrd helpers
 make-initrd-devmapper
