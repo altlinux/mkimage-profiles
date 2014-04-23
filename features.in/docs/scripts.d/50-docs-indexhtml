@@ -1,0 +1,46 @@
+#!/bin/sh -e
+
+# trailing slash is important here
+dest="docs/"
+
+mkdir -p "$WORKDIR/$dest"
+cd $WORKDIR
+
+nonfatal() { echo "** $*" >&2; exit 0; }
+
+indexdir="/usr/share/doc/indexhtml"
+indexfile="$indexdir/index.html"
+
+[ -s "$indexfile" ] || nonfatal "$indexfile not found"
+
+[ -n "$GLOBAL_LOCALE" ] ||
+	echo "** warning: GLOBAL_LOCALE empty, maybe use/l10n" >&2
+
+LANG="$GLOBAL_LOCALE" indexhtml-update
+
+# http://unix.stackexchange.com/questions/94185/convert-soft-to-hardlinks
+cp -aH "$indexdir" "$dest"
+
+mkredir() {
+	cat >"${1}index.html" <<-EOF
+	<html>
+	<head>
+	<meta http-equiv="refresh" content="0;url=${2}indexhtml/index.html">
+	<title>Redirecting...</title>
+	</head>
+	<body>
+	<h1>Redirecting...</h1>
+	</body>
+	</html>
+	EOF
+}
+
+mkredir "" "$dest"	# /index.html -> docs/indexhtml/index.html
+mkredir "$dest" ""	# docs//index.html -> indexhtml/index.html
+
+docdir="/usr/share/doc/documentation"
+[ -d "$docdir" ] || nonfatal "$docdir not found"
+
+cp -aH "$docdir" "$dest"
+
+### no need to replace symlinks with hardlinks by now? (-aH)
