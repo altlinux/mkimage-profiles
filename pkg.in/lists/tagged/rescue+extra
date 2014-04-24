@@ -9,7 +9,9 @@ bonnie++
 cfdisk
 dcfldd
 dc3dd
+dd_rescue
 ddrescue
+ddrutility
 disktype
 # NB: EVMS must be off by default as "normal" /dev/sd*
 #     would suddenly get busy otherwise
