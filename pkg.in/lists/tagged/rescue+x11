@@ -1,4 +1,5 @@
 # mostly X11 counterparts/GUIs to some rescue+extra packages
+autopsy
 binwalk
 dissy
 dsniff-X11
