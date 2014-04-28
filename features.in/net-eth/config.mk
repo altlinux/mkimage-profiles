@@ -1,6 +1,9 @@
 use/net-eth: use/net
 	@$(call add_feature)
 	@$(call xport,NET_ETH)
+	@$(call add,BASE_PACKAGES,udev-rule-generator-net)
+
+# see also use/stage2/net-eth
 
 # typical boilerplate
 use/net-eth/dhcp: use/net-eth use/net/dhcp
