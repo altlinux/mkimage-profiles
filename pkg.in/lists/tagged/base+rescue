@@ -10,6 +10,7 @@ man-pages
 sysfsutils
 sysklogd
 util-linux
+eject
 
 # Package management
 apt-repo
