@@ -134,7 +134,7 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
 	use/fonts/zerg +pulse +plymouth +nm
-	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
+	@$(call add,LIVE_LISTS,$(call tags,(regular || network) && kde4))
 	@$(call add,LIVE_PACKAGES,rosa-imagewriter)
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:

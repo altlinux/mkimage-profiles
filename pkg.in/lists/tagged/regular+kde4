@@ -5,20 +5,6 @@ phonon-gstreamer
 synaptic-kde
 synaptic-usermode-
 
-kde4-plasma-nm
-kde4-plasma-nm-connect-l2tp
-kde4-plasma-nm-connect-mobile
-kde4-plasma-nm-connect-openconnect
-kde4-plasma-nm-connect-openvpn
-kde4-plasma-nm-connect-pptp
-kde4-plasma-nm-connect-strongswan
-kde4-plasma-nm-connect-vpnc
-
-NetworkManager-applet-gtk-
-NetworkManager-openvpn-gtk-
-NetworkManager-pptp-gtk-
-NetworkManager-vpnc-gtk-
-
 gtk2-theme-oxygen-gtk
 gtk3-theme-oxygen-gtk
 
