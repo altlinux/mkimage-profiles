@@ -1,9 +1,9 @@
-+vmguest: use/vmguest/virtualbox use/vmguest/kvm; @:
++vmguest: use/vmguest/vbox use/vmguest/kvm; @:
 
 use/vmguest:
 	@$(call add_feature)
 
-use/vmguest/virtualbox: use/vmguest
+use/vmguest/vbox: use/vmguest
 	@$(call add,THE_KMODULES,virtualbox-addition vboxguest drm)
 	@$(call add,THE_PACKAGES,virtualbox-guest-additions)
 
