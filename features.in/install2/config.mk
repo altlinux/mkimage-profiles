@@ -16,9 +16,11 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call xport,INSTALL2_CLEANUP_KDRIVERS)
 
 # doesn't use/install2/fs on purpose (at least so far)
-use/install2/full: use/install2/packages use/install2/kms \
-	use/install2/kvm use/install2/vbox \
+use/install2/full: use/install2/packages use/install2/kms use/install2/vmguest \
 	use/syslinux/localboot.cfg use/syslinux/ui/menu; @:
+
+# see also use/vmguest
+use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
 
 # stash local packages within installation media
 use/install2/packages: use/install2 use/repo/main; @:
@@ -38,6 +40,11 @@ use/install2/kvm:
 # virtualbox guest support for installer
 use/install2/vbox:
 	@$(call add,STAGE1_KMODULES,virtualbox-addition vboxguest)
+
+# see also use/vmguest/vmware
+use/install2/vmware:
+	@$(call add,STAGE1_KMODULES,scsi)	# mptspi in led-ws
+	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware)
 
 # filesystems handling
 use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
