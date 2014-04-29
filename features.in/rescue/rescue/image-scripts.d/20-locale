@@ -1,0 +1,12 @@
+#!/bin/sh -efu
+# NB: keyboard layout not included!
+
+if [ -s /etc/sysconfig/i18n ]; then exit 0; fi
+
+mkdir -p /etc/sysconfig
+cat >> /etc/sysconfig/i18n << _EOF_
+# mkimage-profiles live 20-locale hook
+SYSFONT=LatArCyrHeb-16
+LANG=en_US.utf8
+_EOF_
+:
