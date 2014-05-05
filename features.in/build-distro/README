@@ -3,3 +3,9 @@
 
 Дополняет финальную стадию сборки (lib/, scripts.d/)
 и тесно с ней связана.
+
+При желании более полно воспользоваться доступными средствами
+фиксации метаданных обратите внимание на следующие переменные:
+META_SYSTEM_ID, META_PUBLISHER, META_PREPARER, META_APP_ID,
+META_VOL_ID, META_VOL_SET, META_BIBLIO, META_ABSTRACT;
+см. тж. genisoimagerc(5) из пакета genisoimage.
