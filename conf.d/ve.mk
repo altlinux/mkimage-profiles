@@ -14,6 +14,8 @@ ve/ldv: ve/bare
 	@$(call add,BASE_PACKAGES,openssh-blacklist openssh-server)
 	@$(call add,BASE_PACKAGES,shadow-edit shadow-groups)
 
+ve/docker: ve/.base use/repo; @:
+
 # this should be more or less convenient
 ve/generic: ve/base use/repo
 	@$(call add,BASE_PACKAGES,vim-console etckeeper)
