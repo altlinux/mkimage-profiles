@@ -13,6 +13,7 @@ use/efi:
 	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call try,EFI_BOOTLOADER,elilo)	# default one
+	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFI_VARS FB_EFI)
 
 use/efi/refind: use/efi
 	@$(call set,EFI_BOOTLOADER,refind)
