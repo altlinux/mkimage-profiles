@@ -94,6 +94,10 @@ fatresize
 fuse-zfs
 hfsprogs
 ifuse
+liblnk-tools
+libregf-tools
+libuna-tools
+libvshadow-tools
 ntfs-3g
 ocfs2-tools
 vmfs-tools
