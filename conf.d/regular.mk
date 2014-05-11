@@ -50,13 +50,14 @@ distro/regular-jeos: distro/.base +sysvinit \
 	use/install2/packages use/install2/vmguest use/vmguest/base \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/x11-alterator use/net use/kernel/net use/stage2/net-eth
+	use/cleanup/x11-alterator use/net use/kernel/net use/stage2/net-eth \
+	use/power/acpi/button
 	@$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
-	@$(call add,THE_PACKAGES,apt basesystem openssh vim-console)
+	@$(call add,THE_PACKAGES,apt basesystem dhcpcd openssh vim-console)
 	@# a *lot* of stray things get pulled in by alterator modules
 	@$(call add,CLEANUP_PACKAGES,libICE 'libX*' libxcb libfreetype)
 	@$(call add,CLEANUP_PACKAGES,fontconfig 'glib2*' libffi 'libltdl*')
