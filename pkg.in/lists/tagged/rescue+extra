@@ -98,6 +98,7 @@ ifuse
 libevt-tools
 libevtx-tools
 liblnk-tools
+libpff-tools
 libregf-tools
 libuna-tools
 libvshadow-tools
