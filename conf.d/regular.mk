@@ -141,6 +141,9 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
+distro/regular-lxqt: distro/.regular-desktop \
+	use/x11/lxqt use/x11/lightdm/lxqt +plymouth; @:
+
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
 distro/regular-rescue: distro/.regular-bare use/rescue/rw use/luks \
