@@ -1,0 +1,50 @@
+# core components
+liblxqt-data
+lxmenu-data
+lxqt-about
+lxqt-common
+lxqt-globalkeys
+lxqt-notificationd
+lxqt-panel
+lxqt-powermanagement
+lxqt-qtplugin
+lxqt-runner
+lxqt-session
+pcmanfm-qt
+
+# optional components
+lxqt-appswitcher
+lxqt-openssh-askpass
+lxqt-policykit
+
+# system configuration tools
+compton-conf
+lxqt-config
+lxqt-config-randr
+obconf-qt
+
+# utilities
+lximage-qt
+
+# the rest is a combination of lxde and razorqt desktop lists
+openbox
+eject
+
+icon-theme-oxygen
+x-cursor-theme-jimmac
+
+qupzilla
+qterminal
+juffed
+juffed-plugins
+screengrab
+xscreensaver
+
+psi-plus
+psi-plus-plugin-birthdayreminder
+psi-plus-plugin-conferencelogger
+psi-plus-plugin-screenshot
+psi-plus-plugin-watcher
+
+# reboot/poweroff in logout menu as of May, 2014
+ConsoleKit
