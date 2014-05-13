@@ -101,7 +101,8 @@ distro/regular-gnustep: distro/.regular-sysv \
 distro/regular-gnustep-systemd: distro/.regular-base +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
-distro/regular-xfce: distro/.regular-gtk use/x11/xfce +nm; @:
+distro/regular-xfce: distro/.regular-gtk \
+	use/x11/xfce use/domain-client/full +nm; @:
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
@@ -109,7 +110,7 @@ distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality +nm
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
-distro/regular-mate: distro/.regular-gtk use/x11/mate +nm
+distro/regular-mate: distro/.regular-gtk use/x11/mate use/domain-client/full +nm
 	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality; @:
@@ -135,7 +136,7 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
-	use/fonts/zerg +pulse +plymouth +nm
+	use/fonts/zerg use/domain-client/full +pulse +plymouth +nm
 	@$(call add,LIVE_LISTS,$(call tags,(regular || network) && kde4))
 	@$(call add,LIVE_PACKAGES,rosa-imagewriter)
 
