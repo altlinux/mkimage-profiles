@@ -18,7 +18,7 @@ nss-ldapd
 
 settime-rfc867
 
-krb5-ticket-watcher
+#krb5-ticket-watcher
 
 alterator-browser-qt
 alterator-standalone
