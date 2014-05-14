@@ -197,8 +197,9 @@ chntpw
 scrounge-ntfs
 wabread
 
-# Android
+# Mobile
 android-tools
+gammu
 
 # l10n
 glibc-locales
