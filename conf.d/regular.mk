@@ -147,6 +147,11 @@ distro/regular-lxqt: distro/.regular-desktop \
 
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
+# NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
+#     kernel cmdline resulting in method:disk instead of method:cdrom
+#     which will change propagator's behaviour to probe additional
+#     filesystems (ro but no loop) thus potentially writing to
+#     an unrecovered filesystem's journal
 distro/regular-rescue: distro/.regular-bare use/rescue/rw use/luks \
 	use/branding use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/ui/menu use/syslinux/rescue_fm.cfg \
