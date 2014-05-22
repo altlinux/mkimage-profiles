@@ -67,6 +67,7 @@ enca
 findutils
 file
 less
+wdiff
 
 # Filesystem maintenance
 btrfs-progs
