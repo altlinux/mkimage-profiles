@@ -51,16 +51,15 @@ distro/live-rescue: distro/live-icewm use/efi
 
 # NB: this one doesn't include the browser, needs to be chosen downstream
 distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
-	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
+	@$(call add,LIVE_LISTS,$(call tags,live desktop))
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
 distro/live-webkiosk-mini: distro/.live-webkiosk
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
 # NB: flash/java plugins are predictable security holes
-distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live +vmguest
-	@$(call add,LIVE_PACKAGES,mozilla-plugin-adobe-flash)
-	@$(call add,LIVE_PACKAGES,mozilla-plugin-java-1.6.0-sun)
+distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live \
+	use/browser/plugin/flash use/browser/plugin/java +vmguest; @:
 
 distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
