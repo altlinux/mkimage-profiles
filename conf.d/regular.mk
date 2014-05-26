@@ -9,7 +9,7 @@ distro/.regular-bare: distro/.base +wireless use/efi/signed \
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
 	use/live/x11 use/live/install use/live/repo use/live/rw \
-	use/luks use/branding
+	use/luks use/branding use/browser/firefox/live use/browser/firefox/i18n
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
@@ -77,7 +77,7 @@ distro/.regular-install-x11: distro/.regular-install \
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
-distro/regular-icewm: distro/.regular-sysv-gtk +icewm
+distro/regular-icewm: distro/.regular-sysv-gtk use/browser/seamonkey/i18n +icewm
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call set,KFLAVOURS,un-def)
 
@@ -88,12 +88,13 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot use/x11/wmaker
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker: distro/.regular-sysv \
-	mixin/regular-wmaker use/live/autologin
+	mixin/regular-wmaker use/live/autologin use/browser/seamonkey/i18n
 	@$(call add,LIVE_PACKAGES,wdm)
 	@$(call set,KFLAVOURS,led-ws)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
-mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck +plymouth
+mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
+	use/browser/firefox/classic +plymouth
 	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-gnustep: distro/.regular-sysv \
@@ -102,7 +103,7 @@ distro/regular-gnustep-systemd: distro/.regular-base +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk \
-	use/x11/xfce use/domain-client/full +nm; @:
+	use/x11/xfce use/domain-client/full use/browser/firefox/classic +nm; @:
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
@@ -123,10 +124,12 @@ distro/regular-cinnamon: distro/.regular-gtk \
 	@$(call set,KFLAVOURS,un-def)
 
 # not .regular-gtk due to gdm vs lightdm
-distro/regular-gnome3: distro/.regular-desktop use/x11/gnome3 +plymouth +nm; @:
+distro/regular-gnome3: distro/.regular-desktop \
+	use/x11/gnome3 use/browser/epiphany +plymouth +nm; @:
 
 # reusable bits
-mixin/regular-tde: use/syslinux/ui/gfxboot +tde +plymouth
+mixin/regular-tde: use/syslinux/ui/gfxboot use/browser/firefox/classic \
+	+tde +plymouth
 	@$(call add,THE_PACKAGES,kdeedu)
 	@$(call add,THE_LISTS,openscada)
 
@@ -136,14 +139,15 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
-	use/fonts/zerg use/domain-client/full +pulse +plymouth +nm
+	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
+	+pulse +plymouth +nm
 	@$(call add,LIVE_LISTS,$(call tags,(regular || network) && kde4))
 	@$(call add,LIVE_PACKAGES,rosa-imagewriter)
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
 distro/regular-lxqt: distro/.regular-desktop \
-	use/x11/lxqt use/x11/lightdm/lxqt +plymouth; @:
+	use/x11/lxqt use/x11/lightdm/lxqt use/browser/qupzilla +plymouth; @:
 
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
