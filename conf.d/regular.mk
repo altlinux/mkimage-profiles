@@ -169,10 +169,8 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
 	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
-	@$(call add,THE_PACKAGES,alterator-datetime alterator-x11)
-	@$(call add,THE_PACKAGES,htop k3b openntpd pm-utils)
-	@$(call add,THE_PACKAGES,asoundconf asoundconf-gtk)
 	@$(call add,THE_LISTS,$(call tags,base desktop))
+	@$(call add,THE_LISTS,$(call tags,regular tde))
 	@$(call add,MAIN_PACKAGES,man-whatis)
 
 distro/regular-server: distro/.regular-install use/server/mini use/rescue/base
