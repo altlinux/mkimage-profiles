@@ -23,7 +23,10 @@ alterator-xkb
 
 #alterator-datetime
 
-#system-config-printer
-
 glxgears
 xorg-conf-synaptics
+
+hdparm
+lm_sensors3
+sdparm
+smartmontools
