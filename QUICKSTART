@@ -51,3 +51,4 @@ $ make ARCH=i586 APTCONF=~/apt/apt.conf.i586 REPORT=1 ve/generic.tar
 - http://www.altlinux.org/hasher
 - http://www.altlinux.org/mkimage
 - http://www.altlinux.org/m-p
+- http://www.altlinux.org/m-p-howto ("как поправить под себя")
