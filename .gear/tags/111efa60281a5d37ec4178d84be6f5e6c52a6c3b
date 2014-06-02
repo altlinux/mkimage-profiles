@@ -1,0 +1,6 @@
+object a3e0ad22fd98d0c743a76c8cb4b29faaf1f7f360
+type commit
+tag v1.1.38
+tagger Michael Shigorin <mike@altlinux.org> 1401737731 +0400
+
+mksquashfs-4.3
