@@ -39,5 +39,8 @@ ln -s "$TMP/hasher" "$HOME/hasher"
 echo "export share_network=1" >> /etc/profile.d/hasher.sh
 chmod +x /etc/profile.d/hasher.sh
 
+# squashfs-tools 4.3+
+echo "allowed_mountpoints=/proc" >> /etc/hasher-priv/system
+
 # requisite
 hasher-useradd "$USER"
