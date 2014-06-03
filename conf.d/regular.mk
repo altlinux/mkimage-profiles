@@ -172,7 +172,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,regular tde))
-	@$(call add,MAIN_PACKAGES,man-whatis)
+	@$(call add,MAIN_PACKAGES,man-whatis usb-modeswitch)
 
 distro/regular-server: distro/.regular-install use/server/mini use/rescue/base
 	@$(call add,THE_LISTS,$(call tags,regular server))
