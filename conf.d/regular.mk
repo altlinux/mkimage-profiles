@@ -166,7 +166,7 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw use/luks \
 	@$(call add,RESCUE_PACKAGES,gpm)
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
-	mixin/desktop-installer mixin/regular-tde use/install2/cleanup/vnc \
+	mixin/desktop-installer mixin/regular-tde \
 	use/branding/complete use/branding/slideshow/once \
 	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
 	@$(call set,KFLAVOURS,led-ws)
