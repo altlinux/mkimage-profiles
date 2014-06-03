@@ -47,6 +47,10 @@ use/install2/vmware:
 	@$(call add,STAGE1_KMODULES,scsi)	# mptspi in led-ws
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware)
 
+# NB: sort of conflicts with use/install2/cleanup/vnc
+use/install2/vnc:
+	@$(call add,INSTALL2_PACKAGES,x11vnc)
+
 # filesystems handling
 use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
 
