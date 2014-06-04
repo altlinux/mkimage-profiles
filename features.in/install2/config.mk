@@ -25,6 +25,10 @@ use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
 # stash local packages within installation media
 use/install2/packages: use/install2 use/repo/main; @:
 
+# set up remote repositories within installed system out-of-box
+use/install2/repo: use/install2
+	@$(call add,INSTALL2_PACKAGES,installer-feature-online-repo)
+
 # for alterator-pkg to use
 use/install2/net: use/install2
 	@$(call add,INSTALL2_PACKAGES,curl)
