@@ -73,7 +73,7 @@ reports/targets: reports/prep
 		OUT="$(BUILDDIR)/targets.dot"; \
 		report-targets < "$(REPORT_PATH)" > "$$OUT" \
 		&& if [ -s "$$OUT" ]; then \
-			echo "** graphviz missing, " \
+			echo "** graphviz missing," \
 				"target graph dot file: $$OUT"; \
 		fi; \
 	fi $(SHORTEN); \
