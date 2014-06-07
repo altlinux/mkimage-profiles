@@ -4,7 +4,7 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/dos: distro/.init use/dos use/syslinux/ui/menu
 	@$(call set,RELNAME,ALT FreeDOS)
 
-distro/rescue: distro/.base use/rescue use/syslinux/ui/menu \
+distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
 	use/efi/signed use/efi/refind use/efi/shell; @:
 
 distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
@@ -15,7 +15,7 @@ distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
 distro/syslinux: distro/.init \
 	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
-distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
+distro/.live-base: distro/.base use/live/base use/power/acpi/button use/stage2/cifs; @:
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
 distro/.live-desktop: distro/.base +live use/live/install use/stage2/net-eth \
