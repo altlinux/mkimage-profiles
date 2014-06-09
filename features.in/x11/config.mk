@@ -86,6 +86,11 @@ use/x11/kde4-lite: use/x11
 use/x11/kde4: use/x11
 	@$(call add,THE_PACKAGES,kde4-default)
 
+# handle both p7/t7 (p-a-nm) and sisyphus (k-p-nm) cases
+use/x11/kde4/nm: use/x11/kde4 use/net/nm
+	@$(call add,THE_PACKAGES_REGEXP,^kde4-plasma-nm.*)
+	@$(call add,THE_PACKAGES_REGEXP,^plasma-applet-networkmanager.*)
+
 use/x11/xfce: use/x11
 	@$(call add,THE_LISTS,$(call tags,xfce desktop))
 
