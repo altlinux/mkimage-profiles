@@ -140,10 +140,10 @@ distro/regular-tde: distro/.regular-desktop mixin/regular-tde +nm; @:
 distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
-distro/regular-kde4: distro/.regular-desktop use/x11/kde4 use/x11/kdm4 \
+distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
 	+pulse +plymouth +nm
-	@$(call add,LIVE_LISTS,$(call tags,(regular || network) && kde4))
+	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
 	@$(call add,LIVE_PACKAGES,rosa-imagewriter)
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
