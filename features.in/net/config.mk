@@ -8,8 +8,9 @@ use/net: use/services
 use/net/dhcp: use/net
 	@$(call add,THE_PACKAGES,dhcpcd)
 
+# base service, no GUI
 use/net/nm: use/net
-	@$(call add,THE_LISTS,$(call tags,desktop nm))
+	@$(call add,THE_LISTS,$(call tags,base nm))
 	@$(call add,LIVE_PACKAGES,livecd-save-nfs)
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-save-nfs) # keep interface up
