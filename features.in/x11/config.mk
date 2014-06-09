@@ -91,6 +91,9 @@ use/x11/kde4/nm: use/x11/kde4 use/net/nm
 	@$(call add,THE_PACKAGES_REGEXP,^kde4-plasma-nm.*)
 	@$(call add,THE_PACKAGES_REGEXP,^plasma-applet-networkmanager.*)
 
+use/x11/gtk/nm: use/net/nm
+	@$(call add,THE_LISTS,$(call tags,desktop nm))
+
 use/x11/xfce: use/x11
 	@$(call add,THE_LISTS,$(call tags,xfce desktop))
 
