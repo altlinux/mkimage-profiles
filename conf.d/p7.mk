@@ -10,6 +10,7 @@ distro/altlinux-p7-cinnamon: distro/regular-cinnamon mixin/p7; @:
 distro/altlinux-p7-e17: distro/regular-e17 mixin/p7; @:
 distro/altlinux-p7-icewm: distro/regular-icewm mixin/p7; @:
 distro/altlinux-p7-gnome3: distro/regular-gnome3 mixin/p7; @:
+distro/altlinux-p7-gnustep: distro/regular-gnustep mixin/p7; @:
 distro/altlinux-p7-kde4: distro/regular-kde4 mixin/p7; @:
 distro/altlinux-p7-lxde: distro/regular-lxde mixin/p7; @:
 distro/altlinux-p7-mate: distro/regular-mate mixin/p7; @:
