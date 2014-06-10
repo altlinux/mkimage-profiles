@@ -186,5 +186,6 @@ distro/regular-server-ovz: distro/regular-server \
 distro/regular-server-hyperv: distro/regular-server
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
+	@$(call add,THE_LISTS,$(call tags,server alterator))
 
 endif
