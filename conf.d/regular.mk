@@ -189,6 +189,6 @@ distro/regular-server-hyperv: distro/regular-server
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
-	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd cpufreq-simple)
 
 endif
