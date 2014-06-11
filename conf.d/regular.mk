@@ -186,6 +186,9 @@ distro/regular-server-ovz: distro/regular-server \
 distro/regular-server-hyperv: distro/regular-server
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
+	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
+	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
+	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd)
 
 endif
