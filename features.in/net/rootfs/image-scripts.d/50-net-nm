@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. shell-config
+
+defcfg=/etc/net/ifaces/default/options-eth
+
+if  [ -x /usr/sbin/NetworkManager -o -x /usr/sbin/connmand ]; then
+	shell_config_set "$defcfg" NM_CONTROLLED yes
+	if [ -x /sbin/dhcpcd -o -x /sbin/dhclient ]; then
+		shell_config_set "$defcfg" BOOTPROTO dhcp
+	fi
+fi
