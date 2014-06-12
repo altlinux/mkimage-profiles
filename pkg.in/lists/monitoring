@@ -9,7 +9,7 @@ collectd-cgi
 collectd-curl
 collectd-dbi
 collectd-ipmi
-collectd-libvirt
+#collectd-libvirt
 collectd-mysql
 collectd-nginx
 collectd-openvz
