@@ -105,9 +105,11 @@ distro/regular-gnustep-systemd: distro/.regular-base +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk \
-	use/x11/xfce use/domain-client/full use/browser/firefox/classic +nm; @:
+	use/x11/xfce use/domain-client/full use/browser/firefox/classic \
+	use/x11/gtk/nm +nm; @:
 
-distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality +nm
+distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
+	use/x11/gtk/nm +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
@@ -135,7 +137,8 @@ mixin/regular-tde: use/syslinux/ui/gfxboot use/browser/firefox/classic \
 	@$(call add,THE_PACKAGES,kdeedu)
 	@$(call add,THE_LISTS,openscada)
 
-distro/regular-tde: distro/.regular-desktop mixin/regular-tde +nm; @:
+distro/regular-tde: distro/.regular-desktop mixin/regular-tde \
+	use/x11/gtk/nm +nm; @:
 
 distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
