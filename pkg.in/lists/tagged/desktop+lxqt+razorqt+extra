@@ -24,3 +24,6 @@ qps
 arandr
 qbittorrent
 quiterss
+
+# doesn't integrate with pcmanfm-qt as of right now
+#qpdfview
