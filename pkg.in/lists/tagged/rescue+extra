@@ -67,6 +67,7 @@ enca
 findutils
 file
 less
+lnav
 wdiff
 
 # Filesystem maintenance
