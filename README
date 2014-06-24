@@ -65,7 +65,7 @@
 
 См. тж.:
 
-* http://altlinux.org/m-p
+* http://altlinux.org/m-p: обзорная документация, в т.ч. howto
 * doc/:
 ** params.txt: переменные, указываемые при запуске сборки
 ** pkglists.txt: формирование состава образа
