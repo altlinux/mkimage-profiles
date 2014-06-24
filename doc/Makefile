@@ -8,6 +8,9 @@ ifdef DEBUG
 VERBOSE = --verbose
 endif
 
+# avoid common DEBUG for the time being
+-include $(HOME)/.mkimage/profiles.mk
+
 PROJECT = mkimage-profiles
 TOPLEVEL_DOC = $(PROJECT).asciidoc
 RESOURCE_FILES = /etc/asciidoc
@@ -24,9 +27,18 @@ COMMON_ARGS = -d book -a lang="$L" $(DEST) $(VERBOSE) $(TOPLEVEL_DOC)
 HTML_ARGS = -a data-uri --icons -r $(RESOURCE_FILES) -r . \
 	    --xsltproc-opts='$(XSLT_ARGS)' $(COMMON_ARGS)
 
+# most convenient deliverables
+DOCS_OUT = $(PROJECT).pdf $(PROJECT).html docbook-xsl.css
+
 .PHONY: all prep chunked xhtml pdf clean
 
 all: chunked xhtml pdf
+
+# NB: destination defined externally
+publish: all
+	@if [ -n "$(DOCS_PUBLISH)" ]; then \
+		rsync -qa $(DOCS_OUT) "$(DOCS_PUBLISH)"; \
+	fi
 
 prep:
 	@if [ -n "$(BUILDDIR)" ]; then mkdir -p "$(BUILDDIR)"; fi
@@ -46,5 +58,4 @@ pdf: prep
 clean:
 	@echo "** cleaning up"
 	@if [ -d "$(BUILDDIR)" ]; then cd "$(BUILDDIR)"; fi; \
-	rm -f $(PROJECT).pdf $(PROJECT).html docbook-xsl.css; \
-	rm -rf $(PROJECT).chunked/
+	rm -rf $(DOCS_OUT) $(PROJECT).chunked/

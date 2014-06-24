@@ -68,3 +68,6 @@ SHELL = /bin/bash
 
 docs:
 	@$(MAKE) -C doc
+
+docs-publish:
+	@$(MAKE) -C doc publish
