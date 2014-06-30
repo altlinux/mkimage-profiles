@@ -1,0 +1,6 @@
+object 730303bbe8f73be74d24491a56daa8d7435ca736
+type commit
+tag v1.1.40
+tagger Michael Shigorin <mike@altlinux.org> 1404158399 +0400
+
+systemd-214
