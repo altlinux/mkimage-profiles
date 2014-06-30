@@ -30,6 +30,7 @@ distro/.regular-desktop: distro/.regular-base \
 	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
+	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
