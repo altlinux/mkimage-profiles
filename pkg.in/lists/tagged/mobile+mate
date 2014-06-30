@@ -3,7 +3,7 @@ NetworkManager-gnome
 NetworkManager-l2tp-gnome
 rfkill
 dbus-tools-gui
-fonts-ttf-droid
+fonts-otf-mozilla-fira
 xdg-user-dirs
 #gnome-minimal
 #gnome-mobile

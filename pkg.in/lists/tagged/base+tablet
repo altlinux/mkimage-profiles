@@ -6,7 +6,7 @@ twofing
 setxkbmap
 
 fonts-ttf-dejavu
-fonts-ttf-droid
+fonts-otf-mozilla-fira
 
 rfkill
 wpa_supplicant
