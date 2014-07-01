@@ -154,7 +154,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
 distro/regular-lxqt: distro/.regular-desktop \
-	use/x11/lxqt use/x11/lightdm/lxqt use/browser/qupzilla +plymouth; @:
+	use/x11/lxqt use/x11/lightdm/lxqt use/browser/qupzilla +plymouth +nm; @:
 
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
