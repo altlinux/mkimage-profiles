@@ -1,13 +1,14 @@
 +live: use/live/desktop; @:
 
 # service defaults
-_ON = alteratord cpufreq-simple livecd-fstab livecd-hostname \
+_ON = alteratord cpufreq-simple \
+      livecd-evms livecd-fstab livecd-hostname \
       livecd-setauth livecd-setlocale livecd-net-eth livecd-install-wmaker \
       random rpcbind plymouth avahi-daemon \
 
 _OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
-       livecd-evms lvm2-lvmetad lvm2-monitor mdadm netfs o2cb ocfs2 openvpn \
-       postfix rawdevices slapd smartd sshd sysstat update_wms xinetd
+       lvm2-lvmetad lvm2-monitor mdadm netfs o2cb ocfs2 openvpn postfix \
+       rawdevices slapd smartd sshd sysstat update_wms xinetd
 
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
