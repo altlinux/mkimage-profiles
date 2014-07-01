@@ -149,6 +149,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	+pulse +plymouth +nm
 	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
 	@$(call add,LIVE_PACKAGES,rosa-imagewriter)
+	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
