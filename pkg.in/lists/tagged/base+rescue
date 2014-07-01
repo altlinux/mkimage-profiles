@@ -7,7 +7,6 @@ glibc-nss
 glibc-utils
 man
 man-pages
-sysfsutils
 sysklogd
 util-linux
 eject
