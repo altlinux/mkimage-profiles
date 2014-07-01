@@ -22,7 +22,6 @@ dhcpcd
 openssh
 openssh-blacklist
 
-sysklogd
 nfs-clients
 
 zsh
