@@ -173,6 +173,7 @@ tcputils
 tcpxtract
 telnet
 traceroute
+wdfs
 wget
 whatmask
 whois
