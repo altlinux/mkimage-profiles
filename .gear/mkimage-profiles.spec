@@ -12,7 +12,6 @@ Packager: Michael Shigorin <mike@altlinux.org>
 
 BuildArch: noarch
 BuildRequires: rsync asciidoc-a2x xmlgraphics-fop fonts-ttf-dejavu
-BuildRequires: /proc
 
 Requires: rsync git-core
 Requires: time schedutils sfdisk
@@ -29,6 +28,7 @@ Requires: mkimage-preinstall
 %package doc
 Summary: %name documentation
 Group: Development/Documentation
+BuildRequires: java /proc
 
 %description
 mkimage-profiles is a collection of bits and pieces useful for
