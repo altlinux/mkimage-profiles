@@ -188,6 +188,10 @@ mc
 pdksh
 zsh
 
+# Terminals
+screen
+tmux
+
 # Development/Debuggers
 btparser
 gdb
