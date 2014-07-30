@@ -23,6 +23,7 @@ idle3-tools
 iotop
 iperf
 hdparm
+lsblk
 lvm2
 mdadm
 ms-sys
