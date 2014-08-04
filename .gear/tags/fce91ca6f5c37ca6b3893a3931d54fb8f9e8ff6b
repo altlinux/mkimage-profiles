@@ -1,0 +1,6 @@
+object c5f0493b33c129cc44b6c403618e6b9c395e479e
+type commit
+tag v1.1.43
+tagger Michael Shigorin <mike@altlinux.org> 1407171485 +0400
+
+fixed package build
