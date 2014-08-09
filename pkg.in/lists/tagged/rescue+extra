@@ -24,6 +24,7 @@ iotop
 iperf
 hdparm
 lsblk
+lsmount
 lvm2
 mdadm
 ms-sys
