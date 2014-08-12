@@ -30,6 +30,9 @@ HTML_ARGS = -a data-uri --icons -r $(RESOURCE_FILES) -r . \
 # most convenient deliverables
 DOCS_OUT = $(PROJECT).pdf $(PROJECT).html docbook-xsl.css
 
+# intermediate files
+DOCS_TMP = $(PROJECT).fo $(PROJECT).xml
+
 .PHONY: all prep chunked xhtml pdf clean
 
 all: chunked xhtml pdf
@@ -58,4 +61,4 @@ pdf: prep
 clean:
 	@echo "** cleaning up"
 	@if [ -d "$(BUILDDIR)" ]; then cd "$(BUILDDIR)"; fi; \
-	rm -rf $(DOCS_OUT) $(PROJECT).chunked/
+	rm -rf $(DOCS_OUT) $(DOCS_TMP) $(PROJECT).chunked/ .fop.xconf
