@@ -20,4 +20,4 @@ use/net/nm/nodelay: use/net/nm
 
 use/net/connman: use/net
 	@$(call add,THE_PACKAGES,connman)
-	@$(call add,DEFAULT_SERVICES_ENABLE,connmand)
+	@$(call add,DEFAULT_SERVICES_ENABLE,connmand connman)
