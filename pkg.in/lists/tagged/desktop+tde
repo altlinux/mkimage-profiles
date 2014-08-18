@@ -1,5 +1,4 @@
 kdebase
-###kde-icon-theme-tango
 kde-icon-theme-nuvola
 tango-icon-theme-extras
 kkbswitch
@@ -7,8 +6,6 @@ kdegraphics-ksnapshot
 kdegraphics-kview
 kdeutils-laptop
 kdepim-akregator
-#gtk2-themes-qtcurve
-#kde-styles-qtcurve
 kdeutils-ark
 #kdebluetooth
 kdeutils-kcalc
