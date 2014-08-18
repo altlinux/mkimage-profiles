@@ -1,2 +1,6 @@
+iosf_mbi.ko
+mmc_block.ko
+mmc_core.ko
+sdhci-acpi.ko
 sdhci-pci.ko
 sdhci.ko
