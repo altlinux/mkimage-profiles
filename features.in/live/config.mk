@@ -33,10 +33,10 @@ endif
 
 # graphical target (not enforcing xorg drivers or blobs)
 use/live/x11: use/live/base use/syslinux/localboot.cfg \
-	use/deflogin/desktop use/x11-autologin use/sound +power +efi
+	use/deflogin/desktop use/x11-autologin use/sound \
+	use/fonts/otf/adobe use/fonts/otf/mozilla +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
-	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu fonts-otf-mozilla-fira)
 	@$(call add,LIVE_PACKAGES,pciutils)
 
 # this target specifically pulls free xorg drivers in (and a few more bits);

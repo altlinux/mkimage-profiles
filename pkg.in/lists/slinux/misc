@@ -8,10 +8,11 @@ altlinux-freedesktop-menu-icon-theme-default
 #altlinux-freedesktop-menu-common
 docs-simply-linux
 docs-linux_intro
+fonts-otf-adobe-source-code-pro
+fonts-otf-adobe-source-sans-pro
 fonts-ttf-droid
-fonts-ttf-ubuntu-font-family
 fonts-ttf-liberation
-fonts-ttf-dejavu
+fonts-ttf-ubuntu-font-family
 gnome-system-monitor
 gnome-icon-theme
 #tango-icon-theme

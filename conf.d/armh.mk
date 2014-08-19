@@ -45,14 +45,13 @@ vm/.cubox-bare: vm/.arm-base use/armh-cubox use/net-ssh use/repo use/tty/S0
 	@$(call add,BASE_PACKAGES,glibc-locales vim-console rsync)
 
 vm/.cubox-desktop: vm/.cubox-bare use/armh-dovefb +systemd +pulse \
-	use/armh-cubox use/branding use/xdg-user-dirs/deep
+	use/armh-cubox use/branding use/xdg-user-dirs/deep \
+	use/fonts/otf/adobe use/fonts/ttf/redhat use/fonts/ttf/ubuntu
 	@$(call set,BRANDING,altlinux-kdesktop)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml menu notes)
 	@$(call add,BASE_PACKAGES,parole gst-ffmpeg gst-plugins-vmeta)
 	@$(call add,BASE_PACKAGES,gst-plugins-good gst-plugins-nice)
 	@$(call add,BASE_PACKAGES,gst-plugins-bad gst-plugins-ugly)
-	@$(call add,BASE_PACKAGES,fonts-ttf-droid fonts-ttf-ubuntu-font-family)
-	@$(call add,BASE_PACKAGES,fonts-ttf-liberation fonts-ttf-dejavu)
 	@$(call add,BASE_PACKAGES,LibreOffice4-full LibreOffice4-langpack-ru)
 	@$(call add,BASE_LISTS,$(call tags,(base || desktop) && regular))
 

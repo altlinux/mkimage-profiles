@@ -16,9 +16,9 @@ distro/.live-desktop: distro/.base +live use/live/install use/stage2/net-eth \
 	use/plymouth/live; @:
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
-distro/.live-kiosk: distro/.base use/live/base use/live/autologin +power \
-	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth
-	@$(call add,LIVE_PACKAGES,fonts-ttf-dejavu)
+distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
+	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
+	use/fonts/otf/adobe +power
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 
 distro/live-builder-mini: distro/.live-base use/dev/mkimage use/dev \

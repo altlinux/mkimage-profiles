@@ -5,7 +5,8 @@ xauth
 twofing
 setxkbmap
 
-fonts-ttf-dejavu
+fonts-otf-adobe-source-code-pro
+fonts-otf-adobe-source-sans-pro
 fonts-otf-mozilla-fira
 
 rfkill
