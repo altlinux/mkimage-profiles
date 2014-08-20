@@ -124,7 +124,7 @@ distro/regular-e18: distro/.regular-gtk use/x11/e18 use/fonts/infinality; @:
 distro/regular-e18-sysv: distro/.regular-sysv-gtk use/x11/e18; @:
 
 distro/regular-cinnamon: distro/.regular-gtk \
-	use/x11/cinnamon use/fonts/infinality +nm
+	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
 	@$(call set,KFLAVOURS,un-def)
 
@@ -139,14 +139,14 @@ mixin/regular-tde: use/syslinux/ui/gfxboot use/browser/firefox/classic \
 	@$(call add,THE_LISTS,openscada)
 
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde \
-	use/x11/gtk/nm +nm; @:
+	use/x11/gtk/nm use/net/nm/mmgui; @:
 
 distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
-	+pulse +plymouth +nm
+	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
 	@$(call add,LIVE_PACKAGES,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
