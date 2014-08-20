@@ -18,6 +18,9 @@ use/net/nm: use/net
 use/net/nm/nodelay: use/net/nm
 	@$(call add,DEFAULT_SERVICES_DISABLE,NetworkManager-wait-online)
 
+use/net/nm/mmgui: use/net/nm
+	@$(call add,THE_PACKAGES,modem-manager-gui)
+
 use/net/connman: use/net
 	@$(call add,THE_PACKAGES,connman)
 	@$(call add,DEFAULT_SERVICES_ENABLE,connmand connman)
