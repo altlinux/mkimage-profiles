@@ -2,8 +2,8 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 # common ground
-distro/.regular-bare: distro/.base +wireless use/efi/signed \
-	use/memtest use/stage2/net-eth use/kernel/net
+distro/.regular-bare: distro/.base +wireless +net-eth \
+	use/efi/signed use/memtest use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
 
 # graphical target (not enforcing xorg drivers or blobs)
@@ -48,12 +48,11 @@ distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 # NB:
 # - no +power or even use/power/acpi/button on intent
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos: distro/.base +sysvinit \
+distro/regular-jeos: distro/.base +sysvinit +net-eth \
 	use/install2/packages use/install2/vmguest use/vmguest/base \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/x11-alterator use/net use/kernel/net use/stage2/net-eth \
-	use/power/acpi/button
+	use/cleanup/x11-alterator use/net use/kernel/net use/power/acpi/button
 	@$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call set,INSTALLER,altlinux-generic)
