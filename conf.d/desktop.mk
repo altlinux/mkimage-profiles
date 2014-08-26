@@ -6,15 +6,14 @@ distro/.desktop-base: distro/.installer use/syslinux/ui/vesamenu use/x11/xorg
 
 distro/.desktop-mini: distro/.desktop-base use/x11/xdm +power; @:
 
-mixin/desktop-installer: use/x11-autostart use/net-eth use/sound +vmguest
+mixin/desktop-installer: use/x11-autostart use/sound +net-eth +vmguest
 	@$(call add,SYSTEM_PACKAGES,fonts-ttf-google-croscore-arimo)
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,BASE_PACKAGES,os-prober)
 
-distro/.desktop-network: distro/.desktop-mini \
-	mixin/desktop-installer use/stage2/net-eth; @:
+distro/.desktop-network: distro/.desktop-mini mixin/desktop-installer; @:
 
 distro/.desktop-extra:
 	@$(call add,BASE_LISTS,$(call tags,(archive || base) && (extra)))
