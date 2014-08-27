@@ -27,7 +27,7 @@ NO_CACHE ?= 1
 export BUILDDIR NO_CACHE
 
 CONFIG := $(BUILDDIR)/distcfg.mk
-RC := $(HOME)/.mkimage/profiles.mk
+RC = $(HOME)/.mkimage/profiles.mk
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 # NB: our output MUST go into stderr to escape POSTPROC
@@ -95,7 +95,7 @@ endif
 # put the derived SUBPROFILE_DIRS here to get it logged in clear text by the way
 profile/finalize:
 	@$(call put,SUBPROFILE_DIRS = $$(notdir $$(subst @,/,$$(SUBPROFILES))))
-	@if [ -s $(RC) ]; then $(call put,-include $(RC)); fi
+	@if [ -s $(RC) ]; then $(call put,-include $(value RC)); fi
 	@$(call put,endif)
 	@mp-commit "$(BUILDDIR)" "image configuration finalized"
 
