@@ -13,3 +13,6 @@ use/kernel:
 use/kernel/net:
 	@$(call add,THE_KMODULES,e1000e igb)
 	@$(call add,MAIN_KMODULES,r8168 rtl8168)
+
+use/kernel/wireless:
+	@$(call add,THE_KMODULES,bcmwl ndiswrapper)
