@@ -38,6 +38,7 @@ wmtimer
 wmtop
 wmtunlo
 wmupmon
+#wmvolman	--> needs udisks2 *running*
 #wmusic		--> libxmms
 #wmwifi		--> looks broken?
 #wmxkbru	--> quite specific
