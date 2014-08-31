@@ -127,6 +127,9 @@ wipefreespace
 xfsdump
 zerofree
 
+# Archiving/Compression
+archivemount
+
 # Applications/Networking
 adcfw-log
 arpwatch
