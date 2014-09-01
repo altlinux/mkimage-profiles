@@ -1,6 +1,0 @@
-object 0e2faed186ad012a185cea77196d647b8368e4a3
-type commit
-tag v1.1.44
-tagger Michael Shigorin <mike@altlinux.org> 1408391546 +0400
-
-connman fixup
