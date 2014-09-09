@@ -33,7 +33,7 @@ BOOTPART=
 case "`arch`" in	# NB: sudo => no GLOBAL_ will do either; mind qemu-*
 *86*)
 	# NB: different storage modules might be needed for non-kvm
-	INITRD_MODULES="sd_mod ata_piix"
+	INITRD_MODULES="sd_mod ata_piix ahci"
 	BLOCKDEV="/dev/sda"	# might be /dev/vda for virtio
 	ROOTPART="1"
 	;;
