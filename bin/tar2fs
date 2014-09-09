@@ -129,7 +129,7 @@ exit_handler() {
 		umount ${BOOTFS:+"$BOOTFS"} "$ROOTFS"{/dev,/proc,/sys,}
 
 		if [ -n "$LOOPDEV" ]; then
-			kpartx -d "$LOOPDEV"
+			kpartx -d -s "$LOOPDEV"
 			losetup --detach "$LOOPDEV"
 		fi
 		rm -r -- "$ROOTFS"
