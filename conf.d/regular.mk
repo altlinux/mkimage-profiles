@@ -48,7 +48,7 @@ distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
 # NB:
 # - no +power or even use/power/acpi/button on intent
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos: distro/.base +sysvinit +net-eth \
+distro/regular-jeos: distro/.base use/isohybrid +sysvinit +net-eth \
 	use/install2/packages use/install2/vmguest use/vmguest/base \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
