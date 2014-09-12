@@ -115,7 +115,8 @@ distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
-distro/regular-mate: distro/.regular-gtk use/x11/mate use/domain-client/full +nm
+distro/regular-mate: distro/.regular-gtk +nm \
+	use/x11/mate use/fonts/ttf/google use/domain-client/full
 	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality; @:
