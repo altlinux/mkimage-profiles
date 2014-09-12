@@ -54,7 +54,7 @@ distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
 	@$(call add,LIVE_LISTS,$(call tags,live desktop))
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
-distro/live-webkiosk-mini: distro/.live-webkiosk
+distro/live-webkiosk-mini: distro/.live-webkiosk use/fonts/otf/mozilla
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
 # NB: flash/java plugins are predictable security holes
@@ -63,8 +63,11 @@ distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live \
 
 distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
-distro/live-webkiosk-chromium: distro/.live-webkiosk
+distro/live-webkiosk-chromium: distro/.live-webkiosk use/fonts/ttf/google
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-chromium)
+
+distro/live-webkiosk-seamonkey: distro/.live-webkiosk use/fonts/ttf/google
+	@$(call add,LIVE_PACKAGES,livecd-webkiosk-seamonkey)
 
 distro/.live-3d: distro/.live-x11 use/x11/3d \
 	use/x11/lightdm/gtk +icewm +sysvinit
