@@ -172,7 +172,8 @@ distro/regular-rescue: distro/.regular-bare use/rescue/rw use/luks \
 distro/regular-sysv-tde: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-tde \
 	use/branding/complete use/branding/slideshow/once \
-	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
+	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base \
+	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_LISTS,$(call tags,base desktop))
