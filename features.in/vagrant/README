@@ -1,0 +1,11 @@
+Эта фича обеспечивает специфичную для vagrant предварительную
+настройку образа файловой системы виртуальной машины.
+
+Обратите внимание, что специфика включает широко известные:
+- пароли root и пользователя vagrant с беспарольным sudo;
+- "секретный" ключ от публичной части у пользователя vagrant.
+
+См. тж.:
+http://bugzilla.altlinux.org/28553
+http://docs.vagrantup.com/v2/boxes/base.html
+http://williamwalker.me/blog/creating-a-custom-vagrant-box.html

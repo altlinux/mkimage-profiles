@@ -1,0 +1,19 @@
+#!/bin/sh
+# NB: 50-vargant > 50-users (so homedir exists already)
+
+echo "UseDNS no" >> /etc/openssh/sshd_config
+
+# https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub
+pubkey="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key"
+sshkeys=~vagrant/.ssh/authorized_keys
+install -pDm400 -o vagrant -g vagrant /dev/null "$sshkeys"
+echo "$pubkey" > "$sshkeys"
+
+sudocfg=/etc/sudoers.d/vagrant
+install -pDm400 /dev/null "$sudocfg"
+cat > "$sudocfg" << EOF
+Defaults:vagrant  !requiretty
+vagrant ALL=(ALL) NOPASSWD:ALL
+EOF
+
+mkdir -p /vagrant
