@@ -23,7 +23,7 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 
 distro/live-builder-mini: distro/.live-base use/dev/mkimage use/dev \
 	use/stage2/net-eth use/net-eth/dhcp use/syslinux/timeout/30 \
-	use/efi/signed
+	use/isohybrid
 	@$(call set,KFLAVOURS,$(BIGRAM))
 	@$(call add,LIVE_LISTS,\
 		$(call tags,(base || live) && (server || builder)))
@@ -32,7 +32,7 @@ distro/live-builder-mini: distro/.live-base use/dev/mkimage use/dev \
 	@$(call add,LIVE_PACKAGES,zsh sudo)
 
 distro/live-builder: distro/live-builder-mini \
-	use/live/rw use/live/repo use/dev/repo
+	use/efi/signed use/live/rw use/live/repo use/dev/repo
 	@$(call add,MAIN_LISTS,$(call tags,live builder))
 	@$(call add,MAIN_PACKAGES,syslinux pciids memtest86+ mkisofs)
 
