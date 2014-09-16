@@ -21,3 +21,6 @@ use/vmguest/kvm: use/vmguest
 use/vmguest/vmware:
 	@$(call add,THE_KMODULES,vmware)
 	@$(call add,THE_KMODULES,scsi)	# mptspi.ko
+
+use/vmguest/vmware/x11: use/vmguest/vmware
+	@$(call add,THE_PACKAGES,xorg-drv-vmware)
