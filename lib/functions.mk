@@ -22,7 +22,8 @@ endef
 
 # ...set() comments out any previous definition
 # and then appends an assigning rule...
-set = $(and $(1),$(2),$(set_body))
+# NB: $(2) could be empty
+set = $(and $(1),$(set_body))
 define set_body
 { $(log_body); \
 sed -i 's|^$(1)[ 	]*[+?]*=.*$$|#& # overridden by $@|' "$(CONFIG)"; \
