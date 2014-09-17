@@ -1,10 +1,12 @@
 #!/bin/sh
 
 # explicitly requested empty root password
-if [ -n "$GLOBAL_ROOTPW_EMPTY" ]; then
+case "$GLOBAL_ROOTPW_EMPTY" in
+1|y|Y|yes)
 	usermod -p "" root
 	exit 0
-fi
+	;;
+esac
 
 # set root password if any; no-op if it is empty
 if [ -z "$GLOBAL_ROOTPW" ]; then
