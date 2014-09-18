@@ -27,7 +27,7 @@ ALT Linux 6.0+ и GNU make 3.81+ (на которых и разрабатыва�
 
     E: Couldn't find package
 
-* features.in/stage2/stage1/scripts.d/02-kdefault
+* features.in/kernel/stage1/scripts.d/80-make-initrd
 * features.in/stage2/stage1/scripts.d/03-test-kernel
 * sub.in/stage1/Makefile
 ** ожидают, что в stage1 попадёт строго одно ядро сообразно

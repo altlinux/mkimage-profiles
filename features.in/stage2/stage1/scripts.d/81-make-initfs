@@ -1,0 +1,13 @@
+#!/bin/sh -efu
+# NB: initrd.mk carefully built by an earlier script
+
+verbose() { [ -z "$GLOBAL_VERBOSE" ] || echo "** 81-make-initfs: $@" >&2; }
+
+if [ -h /boot/initrd.img ]; then
+	pdir="$(getconf LIBDIR)/propagator"
+	mkdir -p "$pdir"
+	gzip < /boot/initrd.img > "$pdir"/initfs
+else
+	verbose "/boot/initrd.img missing"
+	exit 1
+fi

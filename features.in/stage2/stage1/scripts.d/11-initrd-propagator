@@ -1,0 +1,7 @@
+#!/bin/sh
+# see also http://www.altlinux.org/Make-initrd-propagator
+
+echo 'FEATURES += propagator' >> /etc/initrd.mk
+
+# FIXME: #29705 workaround
+echo 'MODULES_PRELOAD += ahci' >> /etc/initrd.mk
