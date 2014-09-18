@@ -1,0 +1,4 @@
+#!/bin/sh
+# vi's +builtin_terms only cover ansi/xterm
+
+echo "PUT_FILES += /lib/terminfo/l/linux $GLOBAL_PID1_BIN" >> /etc/initrd.mk

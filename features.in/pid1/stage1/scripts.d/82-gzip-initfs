@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gzip < /boot/initrd.img > /boot/full.cz
