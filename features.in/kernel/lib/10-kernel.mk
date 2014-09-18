@@ -2,5 +2,5 @@
 #         take care for kernel bits
 
 DOT_BASE += $(call kpackages, \
-	    $(THE_KMODULES) $(BASE_KMODULES) $(BASE_KMODULES_REGEXP), \
-	    $(KFLAVOURS))
+	    $(KFLAVOURS), \
+	    $(THE_KMODULES) $(BASE_KMODULES) $(BASE_KMODULES_REGEXP))

@@ -34,9 +34,9 @@ endif
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there (unless live-install)
 IMAGE_PACKAGES_REGEXP += $(call kpackages, \
+			 $(STAGE1_KFLAVOUR), \
 			 $(STAGE1_KMODULES) $(STAGE1_KMODULES_REGEXP) \
-			 $(STAGE2_KMODULES) $(STAGE2_KMODULES_REGEXP), \
-			 $(STAGE1_KFLAVOUR))
+			 $(STAGE2_KMODULES) $(STAGE2_KMODULES_REGEXP))
 
 -include $(sort $(wildcard lib/*.mk))
 

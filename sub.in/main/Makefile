@@ -16,11 +16,11 @@ IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
 			$(BASE_PACKAGES_REGEXP) \
 			$(MAIN_PACKAGES_REGEXP) \
 			$(call kpackages, \
+			       $(KFLAVOURS), \
 			       $(THE_KMODULES) \
 			       $(BASE_KMODULES) \
 			       $(BASE_KMODULES_REGEXP) \
-			       $(MAIN_KMODULES), \
-			       $(KFLAVOURS))
+			       $(MAIN_KMODULES))
 
 IMAGE_PACKAGES = $(call map,list, \
 			$(THE_LISTS) $(THE_GROUPS) \

@@ -26,10 +26,10 @@ STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
 
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
 ifneq "$(STAGE1_KFLAVOUR)" ""
-INFO_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
+GLOBAL_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 CHROOT_PACKAGES_REGEXP := $(call kpackages, \
-	$(STAGE1_KMODULES_REGEXP),$(STAGE1_KFLAVOUR))
-ifneq "$(findstring stage2,$(SUBPROFILES))" ""
+	$(STAGE1_KFLAVOUR),$(STAGE1_KMODULES_REGEXP))
+ifneq "$(findstring stage2,$(SUBPROFILES))" ""	### assumes stage2 ~ propagator
 PROPAGATOR_VERSION = ALT Linux
 PROPAGATOR_MAR_MODULES = ./modules
 PROPAGATOR_INITFS = ./initfs
