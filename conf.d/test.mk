@@ -51,6 +51,23 @@ distro/server-efi: distro/server-mini use/efi/debug; @:
 
 distro/server-zabbix: distro/server-mini use/server/zabbix use/net-eth
 
+# a crop of images running stuff as PID 1
+distro/bash: distro/.base use/pid1
+	@$(call add,STAGE1_PACKAGES,bash)
+	@$(call set,PID1_BIN,/bin/bash)
+
+distro/vi: distro/.base use/pid1
+	@$(call add,STAGE1_PACKAGES,vim-minimal)
+	@$(call set,PID1_BIN,/bin/vi)
+
+distro/emacs: distro/.base use/pid1
+	@$(call add,STAGE1_PACKAGES,mg)
+	@$(call set,PID1_BIN,/usr/bin/mg)
+
+distro/elinks: distro/.base use/pid1/net
+	@$(call add,STAGE1_PACKAGES,elinks)
+	@$(call set,PID1_BIN,/usr/bin/elinks)
+
 endif # IMAGE_CLASS: distro
 
 ifeq (ve,$(IMAGE_CLASS))
