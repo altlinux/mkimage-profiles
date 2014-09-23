@@ -108,6 +108,7 @@ use/x11/e17: use/x11 use/net/connman
 
 use/x11/e19: use/x11 use/net/connman
 	@$(call add,THE_LISTS,$(call tags,e19 desktop))
+	@$(call add,DEFAULT_SERVICES_DISABLE,acpid)
 
 use/x11/lxde: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
