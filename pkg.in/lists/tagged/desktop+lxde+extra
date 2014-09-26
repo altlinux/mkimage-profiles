@@ -18,3 +18,6 @@ file-roller
 
 # openbox behaviour, virtual desktops, etc
 obconf
+
+# an asus eeepc inspired application launcher (needs integration)
+lxde-lxlauncher
