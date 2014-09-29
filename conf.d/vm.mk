@@ -1,6 +1,7 @@
 # virtual machines
 ifeq (vm,$(IMAGE_CLASS))
 
+# NB: interactivesystem pulls in network-config-subsystem anyways
 vm/bare: vm/.bare +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
