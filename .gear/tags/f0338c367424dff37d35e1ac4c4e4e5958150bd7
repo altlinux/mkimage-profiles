@@ -1,6 +1,0 @@
-object e13c7fddadc7461e0e979aba7d1313c5c7f61754
-type commit
-tag v1.1.47
-tagger Michael Shigorin <mike@altlinux.org> 1411401616 +0400
-
-kpackages() argswap
