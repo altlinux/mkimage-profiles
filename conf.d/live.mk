@@ -52,9 +52,11 @@ distro/live-rescue: distro/live-icewm use/efi
 # NB: this one doesn't include the browser, needs to be chosen downstream
 distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
 	@$(call add,LIVE_LISTS,$(call tags,live desktop))
+
+distro/.live-webkiosk-gtk: distro/.live-webkiosk
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
-distro/live-webkiosk-mini: distro/.live-webkiosk \
+distro/live-webkiosk-mini: distro/.live-webkiosk-gtk \
 	use/fonts/otf/mozilla use/isohybrid
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
@@ -70,6 +72,9 @@ distro/live-webkiosk-chromium: distro/.live-webkiosk use/fonts/ttf/google
 
 distro/live-webkiosk-seamonkey: distro/.live-webkiosk use/fonts/ttf/google
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-seamonkey)
+
+distro/live-webkiosk-qupzilla: distro/.live-webkiosk use/fonts/otf/mozilla
+	@$(call add,LIVE_PACKAGES,livecd-webkiosk-qupzilla)
 
 distro/.live-3d: distro/.live-x11 use/x11/3d \
 	use/x11/lightdm/gtk +icewm +sysvinit
