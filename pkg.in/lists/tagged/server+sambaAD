@@ -1,0 +1,10 @@
+samba-DC
+samba-DC-client
+samba-DC-common
+samba-DC-winbind
+samba-DC-winbind-clients
+python-module-samba-DC
+
+bind-utils
+krb5-kinit
+tdb-utils
