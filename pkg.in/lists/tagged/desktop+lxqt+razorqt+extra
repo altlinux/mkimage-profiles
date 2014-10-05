@@ -25,8 +25,8 @@ arandr
 qbittorrent
 quiterss
 
-# doesn't integrate with pcmanfm-qt as of right now
-#qpdfview
+### doesn't integrate with pcmanfm-qt as of right now
+qpdfview
 
 # useless but cute
 cool-retro-term
