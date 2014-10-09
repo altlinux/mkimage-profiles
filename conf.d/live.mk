@@ -106,4 +106,29 @@ distro/live-gimp: distro/live-icewm use/live/ru
 
 distro/live-robo: distro/live-icewm +robotics use/live/ru; @:
 
+# NB: use/browser won't do as it provides a *single* browser ATM
+distro/live-privacy: distro/.base +power +efi +systemd +vmguest \
+	use/live/base use/live/privacy use/live/ru \
+	use/x11/xorg use/x11/lightdm/gtk use/x11/mate use/x11-autologin \
+	use/browser/firefox/i18n use/sound \
+	use/fonts/otf/adobe use/fonts/otf/mozilla \
+	use/fonts/ttf/google use/fonts/ttf/redhat
+	@$(call set,KFLAVOURS,un-def)
+	@$(call add,LIVE_LISTS,$(call tags,base l10n))
+	@$(call add,LIVE_LISTS,$(call tags,archive extra))
+	@$(call add,LIVE_PACKAGES,chromium gedit mc-full pinta xchm livecd-ru)
+	@$(call add,LIVE_PACKAGES,LibreOffice4-langpack-ru java-1.7.0-openjdk)
+	@$(call add,LIVE_PACKAGES,mate-document-viewer-caja)
+	@$(call add,LIVE_PACKAGES,mate-document-viewer-djvu)
+	@$(call add,LIVE_PACKAGES,cups system-config-printer livecd-admin-cups)
+	@$(call add,LIVE_KMODULES,staging)
+	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
+	@$(call add,EFI_BOOTARGS,live_rw)
+
+distro/live-privacy-dev: distro/live-privacy use/live/rw use/live/repo \
+	use/dev/repo use/dev/mkimage use/dev use/control/sudo-su
+	@$(call add,LIVE_LISTS,$(call tags,(base || live) && builder))
+	@$(call add,MAIN_LISTS,$(call tags,live builder))
+	@$(call add,MAIN_PACKAGES,syslinux mkisofs)
+
 endif
