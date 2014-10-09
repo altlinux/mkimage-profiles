@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+if [ -n "$GLOBAL_LIVE_CLEANUP_KDRIVERS" ]; then
+	for i in $GLOBAL_LIVE_CLEANUP_KDRIVERS; do
+		rm -rf /lib/modules/*/"$i"
+	done
+fi
