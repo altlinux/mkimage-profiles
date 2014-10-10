@@ -97,6 +97,7 @@ exfat-utils
 exofs-utils
 fatback
 fatresize
+fuse-funion
 fuse-zfs
 hfsprogs
 ifuse
