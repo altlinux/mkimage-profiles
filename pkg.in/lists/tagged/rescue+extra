@@ -82,6 +82,7 @@ logfsprogs
 nilfs-utils
 reiser4progs
 reiserfsprogs
+shake
 xfsprogs
 
 # Compressed filesystem image
