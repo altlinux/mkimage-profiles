@@ -21,6 +21,7 @@ disktype
 gpart
 idle3-tools
 iotop
+iozone
 iperf
 hdparm
 lsblk
