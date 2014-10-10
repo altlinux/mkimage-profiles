@@ -93,11 +93,16 @@ squashfsprogs3
 squashfsprogs-xz
 
 # Foreign filesystems
+bindfs
 dosfstools
 exfat-utils
 exofs-utils
 fatback
 fatresize
+fuse-chironfs
+fuse-chunkfs
+fuse-ciopfs
+fuse-compFUSEd
 fuse-funion
 fuse-zfs
 hfsprogs
@@ -132,17 +137,19 @@ zerofree
 
 # Archiving/Compression
 archivemount
+fuse-7z
 
 # Applications/Networking
 adcfw-log
 arpwatch
 cifs-utils
-curlftpfs
 davfs2
 dhcpdump
 dsniff
 elinks
 fping
+fuse-curlftpfs
+fuse-lftpfs
 fuse-sshfs
 hostinfo
 hping2
@@ -214,6 +221,8 @@ wabread
 
 # Mobile
 android-tools
+fuse-obexfs
+fuse-siefs
 gammu
 
 # l10n
