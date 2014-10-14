@@ -78,7 +78,8 @@ distro/.regular-install-x11: distro/.regular-install \
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
-distro/regular-icewm: distro/.regular-sysv-gtk use/browser/seamonkey/i18n +icewm
+distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
+	use/browser/seamonkey/i18n use/fonts/ttf/redhat
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call add,LIVE_PACKAGES,gparted mnt)
 	@$(call set,KFLAVOURS,un-def)
