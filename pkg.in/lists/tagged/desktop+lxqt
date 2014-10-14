@@ -20,7 +20,6 @@ lxqt-policykit
 # system configuration tools
 compton-conf
 lxqt-config
-lxqt-config-randr
 obconf-qt
 
 # utilities
