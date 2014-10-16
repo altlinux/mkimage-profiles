@@ -13,6 +13,7 @@ distro/altlinux-p7-gnome3: distro/regular-gnome3 mixin/p7; @:
 distro/altlinux-p7-gnustep: distro/regular-gnustep mixin/p7; @:
 distro/altlinux-p7-kde4: distro/regular-kde4 mixin/p7; @:
 distro/altlinux-p7-lxde: distro/regular-lxde mixin/p7; @:
+distro/altlinux-p7-lxqt: distro/regular-lxqt mixin/p7; @:
 distro/altlinux-p7-mate: distro/regular-mate mixin/p7; @:
 distro/altlinux-p7-razorqt: distro/regular-razorqt mixin/p7; @:
 distro/altlinux-p7-rescue: distro/regular-rescue mixin/p7; @:
