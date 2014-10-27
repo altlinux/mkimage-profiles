@@ -44,7 +44,7 @@ distro/live-razorqt: distro/.live-desktop +razorqt; @:
 distro/live-tde: distro/.live-desktop-ru use/live/install +tde; @:
 distro/live-fvwm: distro/.live-desktop-ru use/x11/lightdm/gtk use/x11/fvwm; @:
 
-distro/live-rescue: distro/live-icewm use/efi
+distro/live-rescue: distro/live-icewm +efi
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
 	@$(call add,LIVE_LISTS,openssh \
 		$(call tags,(base || extra) && (archive || rescue || network)))
