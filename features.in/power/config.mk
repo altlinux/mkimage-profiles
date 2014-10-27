@@ -1,4 +1,4 @@
-+power: use/power/acpi/button use/power/acpi/cpufreq; @:
++power: use/power/acpi/button; @:
 
 # common
 use/power: sub/rootfs use/services
@@ -12,9 +12,6 @@ use/power/acpi: use/power
 
 use/power/acpi/button: use/power/acpi
 	@$(call add,COMMON_PACKAGES,acpid-events-power)
-
-use/power/acpi/cpufreq: use/power/acpi
-	@$(call add,COMMON_PACKAGES,installer-feature-cpufreq-stage3)
 
 use/power/acpi/powersave: use/power/acpi
 	@$(call add,COMMON_PACKAGES,powersave)
