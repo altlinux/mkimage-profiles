@@ -155,8 +155,13 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 
 distro/regular-razorqt: distro/.regular-desktop +razorqt +plymouth; @:
 
-distro/regular-lxqt: distro/.regular-desktop \
-	use/x11/lxqt use/x11/lightdm/lxqt use/browser/qupzilla +plymouth +nm; @:
+mixin/regular-lxqt: use/x11/lxqt use/x11/lightdm/lxqt \
+	use/browser/qupzilla +plymouth; @:
+
+distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +nm; @:
+
+distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
+	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
