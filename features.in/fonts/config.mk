@@ -32,6 +32,10 @@ use/fonts/ttf/google:
 	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-cousine)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-tinos)
 
+use/fonts/ttf/google/extra: use/fonts/ttf/google
+	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-caladea)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-carlito)
+
 use/fonts/ttf/redhat:
 	@$(call add,THE_PACKAGES,fonts-ttf-liberation)
 
