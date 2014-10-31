@@ -13,7 +13,6 @@ lxqt-session
 pcmanfm-qt
 
 # optional components
-lxqt-appswitcher
 lxqt-openssh-askpass
 lxqt-policykit
 
