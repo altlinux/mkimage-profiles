@@ -38,6 +38,7 @@ printf '%s ?= %s\n' '$(1)' '$(2)' >> "$(CONFIG)"; }
 endef
 
 # xport() requests a variable to be exported to the scripts
+# NB: immediate assignment would break accumulators like USERS
 xport = $(and $(1),$(xport_body))
 define xport_body
 { $(log_body); \
