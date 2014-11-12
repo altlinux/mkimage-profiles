@@ -133,3 +133,6 @@ use/x11/xmonad: use/x11
 
 use/x11/mate: use/x11
 	@$(call add,THE_LISTS,$(call tags,mate desktop))
+
+use/x11/dwm: use/x11
+	@$(call add,THE_LISTS,$(call tags,dwm desktop))
