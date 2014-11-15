@@ -12,16 +12,18 @@ _OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
 
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
-use/live: use/stage2 sub/rootfs@live sub/stage2@live \
-	use/services use/deflogin/live
+use/live: use/stage2 sub/rootfs@live sub/stage2@live use/services
 	@$(call add_feature)
 	@$(call add,CLEANUP_PACKAGES,'installer*')
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
 	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
 	@$(call add,CONTROL,rpcbind:local)
 
-use/live/base: use/live use/net use/syslinux/ui/menu
-	@$(call add,LIVE_LISTS,$(call tags,base && (live || network)))
+use/live/.base: use/live use/syslinux/ui/menu
+	@$(call add,LIVE_LISTS,$(call tags,base live))
+
+use/live/base: use/live/.base use/net use/deflogin/live
+	@$(call add,LIVE_LISTS,$(call tags,base network))
 
 # rw slice, see http://www.altlinux.org/make-initrd-propagator and #28289
 ifeq (,$(EFI_BOOTLOADER))
