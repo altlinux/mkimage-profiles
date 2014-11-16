@@ -3,7 +3,7 @@ http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 
 требуется
 ~~~~~~~~~
-- ALT Linux 6.0 или выше (возможна адаптация "вниз")
+- ALT Linux 7.0 или выше (возможна адаптация "вниз")
 - установленный mkimage (свежий, как и hasher)
 - пользователь с правом запуска hasher
 
