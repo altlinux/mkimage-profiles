@@ -19,6 +19,7 @@ disktype
 #evms
 #evms-ncurses
 gpart
+hddtemp
 idle3-tools
 iotop
 iozone
