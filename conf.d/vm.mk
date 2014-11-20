@@ -5,7 +5,9 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/bare: vm/.bare +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
-vm/net: vm/bare use/net-eth/dhcp use/net-ssh use/repo use/control/sudo-su
+# handle ROOTPW (through deflogin)
+vm/net: vm/bare use/net-eth/dhcp use/net-ssh \
+	use/repo use/control/sudo-su use/deflogin
 	@$(call add,BASE_PACKAGES,su)
 
 # NB: use/x11 employs some installer-feature packages
