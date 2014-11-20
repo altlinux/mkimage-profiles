@@ -2,7 +2,10 @@
 # issue welcome message if there's a guest user
 # (the first one configured with empty password)
 
-[ -n "$GLOBAL_USERS" ] || exit 1
+[ -n "$GLOBAL_USERS" ] || {
+	echo "** 50-issue: warning, no users created" >&1
+	exit 0
+}
 
 guest=
 for u in $GLOBAL_USERS; do
