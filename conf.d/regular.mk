@@ -131,7 +131,7 @@ distro/regular-cinnamon: distro/.regular-gtk \
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop \
 	use/x11/gnome3 use/browser/epiphany +plymouth +nm
-	@$(call add,LIVE_PACKAGES_REGEXP,^livecd-gnome3-nosetup.*)
+	@$(call add,LIVE_PACKAGES_REGEXP,^setup-gnome3-done.*)
 
 # reusable bits
 mixin/regular-tde: use/syslinux/ui/gfxboot use/browser/firefox/classic \
