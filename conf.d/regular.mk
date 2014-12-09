@@ -53,7 +53,7 @@ distro/regular-jeos: distro/.base use/isohybrid +sysvinit +net-eth \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/x11-alterator use/net use/kernel/net use/power/acpi/button
-	@$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
+	@#$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
@@ -93,7 +93,6 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot use/x11/wmaker
 distro/regular-wmaker: distro/.regular-sysv \
 	mixin/regular-wmaker use/live/autologin use/browser/seamonkey/i18n
 	@$(call add,LIVE_PACKAGES,wdm)
-	@$(call set,KFLAVOURS,led-ws)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
@@ -182,7 +181,6 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	use/branding/complete use/branding/slideshow/once \
 	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
-	@$(call set,KFLAVOURS,led-ws)
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,regular tde))

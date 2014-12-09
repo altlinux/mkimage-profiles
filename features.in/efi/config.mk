@@ -31,7 +31,6 @@ use/efi/memtest86: use/efi/refind
 
 use/efi/debug: use/efi
 	@$(call add,STAGE2_PACKAGES,efibootmgr gdisk)
-	@$(call set,KFLAVOURS,led-ws)
 
 else
 
