@@ -27,6 +27,7 @@ lm_sensors3
 lshw
 mpt-status
 nvramtool
+smartmontools
 smbios-utils
 
 # Misc^2
