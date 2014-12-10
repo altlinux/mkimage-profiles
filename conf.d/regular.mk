@@ -196,6 +196,7 @@ distro/regular-server-ovz: distro/regular-server \
 
 distro/regular-server-hyperv: distro/regular-server
 	@$(call set,KFLAVOURS,un-def)
+	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
