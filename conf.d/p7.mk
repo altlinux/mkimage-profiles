@@ -30,6 +30,8 @@ distro/altlinux-p7-server: distro/regular-server mixin/p7; @:
 distro/altlinux-p7-server-ovz: distro/regular-server-ovz mixin/p7; @:
 distro/altlinux-p7-server-hyperv: distro/regular-server-hyperv mixin/p7; @:
 
+distro/altlinux-p7-builder: distro/regular-builder mixin/p7; @:
+
 endif
 
 ifeq (ve,$(IMAGE_CLASS))

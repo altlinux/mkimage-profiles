@@ -203,4 +203,14 @@ distro/regular-server-hyperv: distro/regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge cpufreq-simple)
 
+distro/regular-builder: distro/.regular-bare \
+	use/dev/builder/full +efi +power +vmguest \
+	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
+	use/isohybrid use/syslinux/timeout/30 \
+	use/stage2/net-eth use/net-eth/dhcp
+	@$(call add,LIVE_PACKAGES,cifs-utils elinks lftp openssh wget)
+	@$(call add,LIVE_PACKAGES,bash-completion gpm screen tmux zsh)
+	@$(call add,LIVE_PACKAGES,ccache rpm-utils wodim)
+	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
+
 endif
