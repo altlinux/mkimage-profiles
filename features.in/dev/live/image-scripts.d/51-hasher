@@ -1,6 +1,33 @@
 #!/bin/sh -efu
 # configure hasher (implies that 30-users has been run already)
 
+ARCH="$(rpm --eval '%_host_cpu')"
+[ -n "$ARCH" ] || exit 2
+
+gray="$(echo -ne "\\033[0;37m")"
+white="$(echo -ne "\\033[1;37m")"
+cyan="$(echo -ne "\\033[1;36m")"
+
+# root
+cat >> /root/.bash_profile << EOF
+
+ram="\$(awk '/^MemTotal/ { print int(\$2/1024+0.5) }' /proc/meminfo)"
+swap="\$(awk '/^SwapTotal/ { print int(\$2/1024+0.5) }' /proc/meminfo)"
+tmpfs="\$(df -kT /tmp 2>/dev/null \\
+	| awk '/^[a-zA-Z_0-9/-]+[[:space:]]+tmpfs/ { print int(\$3/1024); }')"
+
+cat << EOH
+Welcome to live builder host system!
+
+Memory: $cyan\${ram}M$gray, swap: $cyan\${swap}M$gray
+Autoconfigured tmpfs on /tmp: $cyan\${tmpfs}M$gray
+
+Run ${white}swapon${gray}(8) on any local swaps you might like to employ
+followed by ${white}service livecd-tmpfs restart${gray} to reconfigure tmpfs
+
+EOH
+EOF
+
 # predefined passwordless livecd user
 USER="altlinux"
 if ! id "$USER" >&/dev/null; then
@@ -11,6 +38,9 @@ fi
 # ~
 HOME="/home/$USER"
 install -dm750 -o "$USER" -g "$USER" "$HOME"
+
+# http://altlinux.org/tmpfs
+TMP="/tmp/.private/$USER"
 
 # we honestly don't know much more
 if type -t git && type -t su; then
@@ -23,17 +53,56 @@ ZSHELL="/bin/zsh"
 if [ -x "$ZSHELL" ]; then
 	chsh -s "$ZSHELL" "$USER"
 	install -m755 -o "$USER" -g "$USER" /dev/null "$HOME/.zshrc"
-	echo "mkdir -p \"\$TMP/hasher\"" >> "$HOME/.zshrc"
 fi
 
-# $TMP
-TMP="/tmp/.private/$USER"
-sed -i '/^%_tmppath.*tmp$/d' "$HOME/.rpmmacros"
-echo "%_tmppath	$TMP" >> "$HOME/.rpmmacros"
+if type -t screen; then
+	cat >> "$HOME/.screenrc" <<-EOF
+	caption always "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+	defscrollback 1000
+	EOF
+fi >&/dev/null
 
-# ~/hasher
+cat >> "$HOME/.profile" << EOF
+alias l='ls -l'
+alias m='cd /usr/share/mkimage-profiles'
+clear
+cat << EOH
+Welcome to live builder environment!
+Here are some ALT Linux package/image build tools prepared for you:
+* ${white}gear${gray}(1) -- see ${cyan}http://en.altlinux.org/gear${gray};
+* ${white}hsh${gray}(1)  -- see ${cyan}http://en.altlinux.org/hasher${gray};
+* ${white}mkimage${gray} -- see ${cyan}http://en.altlinux.org/mkimage${gray};
+* ${white}mkimage-profiles${gray} described in Russian at ${cyan}http://altlinux.org/m-p${gray}
+
+Examples (use right/middle mouse button to paste):
+* ${white}git clone git://git.altlinux.org/gears/h/hello.git && cd hello && gear-hsh${gray}
+* ${white}make -C /usr/share/mkimage-profiles syslinux.iso${gray}
+
+EOH
+EOF
+
+# rpm
+sed -i '/^%_tmppath.*tmp$/d' "$HOME/.rpmmacros"
+cat << EOF >> "$HOME/.rpmmacros"
+%packager	Unknown <nobody@altlinux.org>
+%_target_cpu	$ARCH
+%_tmppath	$TMP
+%_sourcedir	%{_topsrcdir}/SOURCES/%name
+EOF
+
+# hasher
 WORKDIR="$TMP/hasher"
-ln -s "$TMP/hasher" "$HOME/hasher"
+ln -s "$WORKDIR" "$HOME/hasher"
+echo "rpm-dir file://$HOME/hasher/repo $ARCH hasher" \
+	>> /etc/apt/sources.list.d/hasher.list
+
+mkdir "$HOME/.hasher"
+cat >> "$HOME/.hasher/config" << EOF
+packager="\$(rpm --eval %packager)"
+def_target=$ARCH
+export GCC_USE_CCACHE=1
+mkdir -p "$WORKDIR"
+EOF
 
 # online repo needs network not isolation
 echo "export share_network=1" >> /etc/profile.d/hasher.sh
