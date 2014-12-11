@@ -9,7 +9,6 @@ icon-theme-simple
 
 # nice and useful qt4 apps
 bsc
-clementine
 fatrat
 focuswriter
 qt4-settings
@@ -17,6 +16,13 @@ qtparted
 tubularix
 smplayer
 qps
+
+# media player; see also #30556 though
+clementine
+gst-plugins-base
+gst-plugins-bad
+gst-plugins-good
+gst-plugins-ugly
 
 # upstream recommended
 #ptbatterysystemtray
