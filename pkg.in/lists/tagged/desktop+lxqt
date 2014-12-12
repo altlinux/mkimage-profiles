@@ -15,6 +15,9 @@ pcmanfm-qt
 # optional components
 lxqt-openssh-askpass
 lxqt-policykit
+qt4-dbus
+udisks2
+gvfs
 
 # system configuration tools
 compton-conf
@@ -44,7 +47,7 @@ psi-plus-plugin-conferencelogger
 psi-plus-plugin-screenshot
 psi-plus-plugin-watcher
 
-qxkb
+axkb
 
 # reboot/poweroff in logout menu as of May, 2014
 ConsoleKit
