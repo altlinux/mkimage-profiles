@@ -8,3 +8,6 @@ pm-utils
 
 asoundconf
 asoundconf-gtk
+
+kcpuload
+knetload
