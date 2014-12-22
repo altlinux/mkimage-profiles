@@ -1,5 +1,6 @@
 # Startup
 rootfiles
+servicectl
 
 # Common
 coreutils
