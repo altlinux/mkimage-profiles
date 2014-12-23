@@ -36,6 +36,7 @@ endif
 
 ifeq (ve,$(IMAGE_CLASS))
 ve/altlinux-p7-ovz-generic: ve/generic mixin/p7; @:
+ve/altlinux-p7-ovz-pgsql94: ve/pgsql94 mixin/p7; @:
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
