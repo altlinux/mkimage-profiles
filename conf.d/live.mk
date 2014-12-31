@@ -20,6 +20,7 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
 	use/fonts/otf/adobe +power
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
+	@$(call set,SYSLINUX_CFG,live)
 
 distro/live-builder-mini: distro/.live-base use/dev/builder/base \
 	use/syslinux/timeout/30 use/isohybrid \
