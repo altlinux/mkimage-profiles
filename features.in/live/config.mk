@@ -32,8 +32,7 @@ use/live/rw: use/live; @:
 endif
 
 # graphical target (not enforcing xorg drivers or blobs)
-use/live/x11: use/live/base use/syslinux/localboot.cfg \
-	use/deflogin/desktop use/x11-autologin use/sound \
+use/live/x11: use/live/base use/deflogin/desktop use/x11-autologin use/sound \
 	use/fonts/otf/adobe use/fonts/otf/mozilla +power +efi
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
@@ -42,7 +41,8 @@ use/live/x11: use/live/base use/syslinux/localboot.cfg \
 # this target specifically pulls free xorg drivers in (and a few more bits);
 # a browser is requested too, the recommended one can be overridden downstream
 use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
-	use/l10n use/browser/firefox/live use/xdg-user-dirs/deep +vmguest; @:
+	use/l10n use/browser/firefox/live use/xdg-user-dirs/deep \
+	use/syslinux/localboot.cfg +vmguest; @:
 
 # preconfigure apt for both live and installed-from-live systems
 use/live/repo: use/live
