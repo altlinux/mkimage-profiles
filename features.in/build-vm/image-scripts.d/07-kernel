@@ -1,6 +1,6 @@
 #!/bin/sh
 # predictable file locations make bootloader configuration simple;
-# this script relates to features.in/stage2/stage1/scripts.d/80-make-initfs
+# this script relates to features.in/stage2/stage1/scripts.d/81-make-initfs
 
 kver="$(rpm -qa 'kernel-image*' \
             --qf '%{installtime} %{version}-%{name}-%{release}\n' \
