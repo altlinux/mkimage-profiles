@@ -1,0 +1,6 @@
+object 78c3cab5ad5722b467d103aac18d9b25b219cc8e
+type commit
+tag v1.1.54
+tagger Michael Shigorin <mike@altlinux.org> 1420445973 +0300
+
+live != localboot
