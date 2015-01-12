@@ -2,6 +2,11 @@
 db4.8-utils
 sqlite3
 
+# Office files
+antiword
+docx2txt
+unrtf
+
 # Networking
 drbd83-tools
 iscsitarget-utils
