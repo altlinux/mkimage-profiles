@@ -21,12 +21,12 @@ TARGET := $(BUILDDIR)/$(SUFFIX)
 all: $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE) copy-lists copy-groups
 	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
+# env | sort -u | grep _LISTS | xargs cp
 copy-lists:
-	@# env | sort -u | grep _LISTS | xargs cp
-	@$(foreach V, \
-		$(filter %_LISTS,$(sort $(.VARIABLES))), \
-		$(if $(filter environment% file,$(origin $V)),\
-			$(shell cp --parents -at $(TARGET) -- $($V))))
+	@cp --parents -at $(TARGET) -- \
+		$(foreach V, \
+			$(filter %_LISTS,$(sort $(.VARIABLES))), \
+			$(if $(filter environment% file,$(origin $V)),$($V)))
 
 copy-groups:
 	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
