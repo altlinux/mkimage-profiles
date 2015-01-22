@@ -98,6 +98,7 @@ profile/bare: profile/init
 ifeq (,$(REPO:altlinux%=))
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 endif
+	@$(call xport,ARCH)
 	@mp-commit "$(BUILDDIR)" "image configuration defaults set"
 
 # put the derived SUBPROFILE_DIRS here to get it logged in clear text by the way

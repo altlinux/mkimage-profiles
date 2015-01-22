@@ -42,6 +42,8 @@ include::features.txt[]
 
 include::pkglists.txt[]
 
+include::archdep.txt[]
+
 = Каталоги =
 
 include::../conf.d/README[]

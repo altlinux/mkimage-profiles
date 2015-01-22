@@ -18,7 +18,7 @@ include $(BUILDDIR)/distcfg.mk
 SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
-all: $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE) copy-lists copy-groups
+all: | $(TARGET) $(GLOBAL_DEBUG) $(DOTBASE) copy-lists copy-groups grep-archdep
 	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
 # env | sort -u | grep _LISTS | xargs -r cp -t
@@ -32,6 +32,15 @@ copy-groups:
 	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
 		cp -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
 	fi
+
+grep-archdep: a = $(ARCH)
+grep-archdep: s = [:space:]
+grep-archdep:
+	# xargs -L 1024 -n 1024 ? -- breaks -I
+	@find $(TARGET) -type f \
+	| xargs -I '__' sh -c '\
+		sed -rni "s/\\<([^@ ]*)\\>|\\<([^@ ]*)@$a\\>/\\1\\2/pg" __; \
+		sed -i -r "s/\\<([^@ ]*)@[^@ ]+\\> *//g" __'
 
 # do beforehand as foreach gets expanded before recipe execution
 $(TARGET):
