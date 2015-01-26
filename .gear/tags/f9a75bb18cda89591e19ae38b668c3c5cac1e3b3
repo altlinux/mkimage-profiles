@@ -1,0 +1,6 @@
+object 521d837395195b3dea384e96080359bccde4d25c
+type commit
+tag v1.1.55
+tagger Michael Shigorin <mike@altlinux.org> 1422305963 +0300
+
+don't eval cp(1) output
