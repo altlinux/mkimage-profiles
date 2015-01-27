@@ -1,0 +1,8 @@
+#!/bin/sh -e
+# /etc/tcb/<user>/shadow* permissions can be wrong
+# if an account was created from installed package
+
+cd /etc/tcb
+for u in *; do
+	chown "$u":auth "$u"/shadow*
+done
