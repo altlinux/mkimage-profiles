@@ -45,6 +45,7 @@ distro/live-rescue: distro/live-icewm +efi
 # NB: this one doesn't include the browser, needs to be chosen downstream
 distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
 	@$(call add,LIVE_LISTS,$(call tags,live desktop))
+	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind)
 
 distro/.live-webkiosk-gtk: distro/.live-webkiosk
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
