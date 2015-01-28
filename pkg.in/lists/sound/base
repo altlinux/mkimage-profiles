@@ -1,0 +1,4 @@
+amixer
+alsa-utils
+aplay
+udev-alsa
