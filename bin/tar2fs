@@ -209,7 +209,7 @@ chroot "$ROOTFS" make-initrd -k "$KERNEL"
 # ...target device too
 sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"
 
-if [ -x /sbin/lilo ]; then
+if [ -x "$ROOTFS"/sbin/lilo ]; then
 	# configure and install bootloader
 	REGEXP='^Disk .*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
 	set -- $(sfdisk -l "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
