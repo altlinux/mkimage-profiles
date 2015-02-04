@@ -225,6 +225,7 @@ android-tools
 fuse-obexfs
 fuse-siefs
 gammu
+usbmuxd
 
 # l10n
 glibc-locales
