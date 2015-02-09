@@ -1,0 +1,6 @@
+object 4a1af47cbf4affda6a9bf074dca091ca1eed2b28
+type commit
+tag v1.1.57
+tagger Michael Shigorin <mike@altlinux.org> 1423513818 +0300
+
+fix the fix

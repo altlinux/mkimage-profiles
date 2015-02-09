@@ -1,6 +1,0 @@
-object 3177c23e70fb3f163870ca2c8bfacbd6f24f1ffb
-type commit
-tag v1.1.56
-tagger Michael Shigorin <mike@altlinux.org> 1422902936 +0300
-
-tar2fs lilo check
