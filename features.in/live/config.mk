@@ -82,4 +82,4 @@ use/live/hooks: use/live
 use/live/ru: use/live use/l10n/default/ru_RU; @:
 
 use/live/sound: use/live
-	@$(call add,LIVE_PACKAGES,amixer alsa-utils aplay udev-alsa)
+	@$(call add,LIVE_LISTS,sound/base)
