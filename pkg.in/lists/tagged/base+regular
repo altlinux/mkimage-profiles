@@ -24,6 +24,7 @@ usbutils
 acpi
 
 apt-repo
+apt-rsync
 update-kernel
 eepm
 

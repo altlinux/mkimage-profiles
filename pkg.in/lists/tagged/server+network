@@ -1,4 +1,5 @@
 # network tools
+apt-rsync
 curl
 elinks
 hostinfo
