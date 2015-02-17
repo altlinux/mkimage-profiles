@@ -22,11 +22,11 @@ mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
 	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
 
 # WM base target
-distro/.regular-base: distro/.regular-x11 mixin/regular-desktop
+distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
-distro/.regular-desktop: distro/.regular-base \
+distro/.regular-desktop: distro/.regular-wm \
 	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
@@ -34,7 +34,7 @@ distro/.regular-desktop: distro/.regular-base \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
-distro/.regular-sysv: distro/.regular-base +sysvinit; @:
+distro/.regular-sysv: distro/.regular-wm +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 	use/x11/gdm2.20; @:
 
@@ -101,7 +101,7 @@ mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
 
 distro/regular-gnustep: distro/.regular-sysv \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
-distro/regular-gnustep-systemd: distro/.regular-base +systemd \
+distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk \
