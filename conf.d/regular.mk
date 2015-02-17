@@ -2,12 +2,12 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 # common ground
-distro/.regular-bare: distro/.base +wireless +net-eth \
+distro/.regular-base: distro/.base +wireless +net-eth \
 	use/efi/signed use/memtest use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
 
 # graphical target (not enforcing xorg drivers or blobs)
-distro/.regular-x11: distro/.regular-bare use/x11/wacom +vmguest \
+distro/.regular-x11: distro/.regular-base use/x11/wacom +vmguest \
 	use/live/x11 use/live/install use/live/repo use/live/rw \
 	use/luks use/branding use/browser/firefox/live use/browser/firefox/i18n
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
@@ -38,7 +38,7 @@ distro/.regular-sysv: distro/.regular-wm +sysvinit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 	use/x11/gdm2.20; @:
 
-distro/.regular-install: distro/.regular-bare +installer +sysvinit +power \
+distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks \
 	use/install2/fs use/install2/vnc use/install2/repo
 	@$(call add,THE_LISTS,$(call tags,base regular))
@@ -170,7 +170,7 @@ distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 #     which will change propagator's behaviour to probe additional
 #     filesystems (ro but no loop) thus potentially writing to
 #     an unrecovered filesystem's journal
-distro/regular-rescue: distro/.regular-bare use/rescue/rw use/luks \
+distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	use/branding use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/ui/menu use/syslinux/rescue_fm.cfg \
 	use/syslinux/timeout/200 use/mediacheck test/rescue/no-x11
@@ -204,7 +204,7 @@ distro/regular-server-hyperv: distro/regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge cpufreq-simple)
 
-distro/regular-builder: distro/.regular-bare \
+distro/regular-builder: distro/.regular-base \
 	use/dev/builder/full +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/30 \
