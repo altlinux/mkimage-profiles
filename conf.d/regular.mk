@@ -1,10 +1,12 @@
 # regular build/usage images
 ifeq (distro,$(IMAGE_CLASS))
 
-# common ground
-distro/.regular-base: distro/.base +wireless +net-eth \
-	use/efi/signed use/memtest use/kernel/net
+# common ground (really lowlevel)
+distro/.regular-bare: distro/.base +net-eth use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
+
+# base target (for most images)
+distro/.regular-base: distro/.regular-bare use/memtest +efi +wireless; @:
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base use/x11/wacom +vmguest \
@@ -48,12 +50,11 @@ distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 # NB:
 # - no +power or even use/power/acpi/button on intent
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos: distro/.base use/isohybrid +sysvinit +net-eth \
+distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	use/install2/packages use/install2/vmguest use/vmguest/base \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/x11-alterator use/net use/kernel/net use/power/acpi/button
-	@#$(call set,KFLAVOURS,led-ws)	# led-vs might be nice here
+	use/cleanup/x11-alterator use/net use/power/acpi/button
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
@@ -204,8 +205,8 @@ distro/regular-server-hyperv: distro/regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge cpufreq-simple)
 
-distro/regular-builder: distro/.regular-base \
-	use/dev/builder/full +efi +power \
+distro/regular-builder: distro/.regular-bare \
+	use/dev/builder/full +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/30 \
 	use/stage2/net-eth use/net-eth/dhcp
