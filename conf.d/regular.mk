@@ -205,7 +205,7 @@ distro/regular-server-hyperv: distro/regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge cpufreq-simple)
 
 distro/regular-builder: distro/.regular-bare \
-	use/dev/builder/full +efi +power +vmguest \
+	use/dev/builder/full +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/30 \
 	use/stage2/net-eth use/net-eth/dhcp
