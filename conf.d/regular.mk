@@ -188,7 +188,8 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,THE_LISTS,$(call tags,regular tde))
 	@$(call add,MAIN_PACKAGES,man-whatis usb-modeswitch)
 
-distro/regular-server: distro/.regular-install use/server/mini use/rescue/base
+distro/regular-server: distro/.regular-install \
+	use/server/mini use/rescue/base use/cleanup/x11
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
