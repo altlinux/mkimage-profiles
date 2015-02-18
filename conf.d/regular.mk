@@ -130,8 +130,8 @@ distro/regular-cinnamon: distro/.regular-gtk \
 	@$(call set,KFLAVOURS,un-def)
 
 # not .regular-gtk due to gdm vs lightdm
-distro/regular-gnome3: distro/.regular-desktop \
-	use/x11/gnome3 use/browser/epiphany +plymouth +nm
+distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
+	use/x11/gnome3 use/browser/epiphany use/fonts/ttf/redhat
 	@$(call add,LIVE_PACKAGES_REGEXP,^setup-gnome3-done.*)
 
 # reusable bits
