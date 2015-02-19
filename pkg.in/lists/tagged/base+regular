@@ -25,6 +25,7 @@ acpi
 
 apt-repo
 apt-rsync
+apt-scripts
 update-kernel
 eepm
 
