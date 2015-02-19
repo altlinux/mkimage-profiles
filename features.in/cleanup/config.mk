@@ -6,7 +6,7 @@ use/cleanup/installer: use/cleanup
 	@$(call add,CLEANUP_PACKAGES,'installer-*')
 
 use/cleanup/x11: use/cleanup
-	@$(call add,CLEANUP_PACKAGES,libSM libXext libXmu libXi)
+	@$(call add,CLEANUP_PACKAGES,libICE libSM libxcb 'libX*')
 
 # as some alterator modules are installed into stage3 (the destination
 # root filesystem) to perform actions like bootloader setup, we might
