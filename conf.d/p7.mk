@@ -41,4 +41,5 @@ endif
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/altlinux-p7-vm-net: vm/net mixin/p7; @:
+vm/altlinux-p7-vagrant: vm/vagrant-base mixin/p7; @:
 endif
