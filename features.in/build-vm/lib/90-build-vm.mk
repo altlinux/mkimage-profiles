@@ -38,6 +38,7 @@ convert-image: prepare-image
 		qemu-img convert -O "$$VM_FORMAT" \
 			"$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; \
 		rm "$(VM_RAWDISK)"; \
+		if [ -z "$(DEBUG)" ]; then rm "$(VM_TARBALL)"; fi; \
 	fi
 
 run-image-scripts: GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
