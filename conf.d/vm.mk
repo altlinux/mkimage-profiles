@@ -27,6 +27,6 @@ vm/icewm-setup: vm/.desktop-bare mixin/icewm use/oem use/x11-autostart
 
 # some arbitrary gigabyte
 vm/vagrant-base: vm/net use/vagrant
-	@$(call set,VM_SIZE,1073741824)
+	@$(call set,VM_SIZE,10737418240)
 
 endif
