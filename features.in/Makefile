@@ -65,6 +65,8 @@ prep:
 #     - "rootfs@/": copy feature's rootfs parts into BUILDDIR toplevel
 $(FEATURES):
 	@feat=$@; \
+	args="-qab --exclude README --exclude config.mk"; \
+	args="$$args --exclude generate.mk --exclude generate.sh"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		echo "** adding $$feat feature"; \
 	fi; \
@@ -92,7 +94,7 @@ $(FEATURES):
 			fi; \
 			: "why this overduplication was done? (still needed)"; \
 			for srcdir in $$srcdirs; do \
-				rsync -qab "$$srcdir/" "$(BUILDDIR)/$$dst/"; \
+				rsync $$args "$$srcdir/" "$(BUILDDIR)/$$dst/"; \
 			done; \
 		fi; \
 		if [ -n "$(GLOBAL_DEBUG)" ]; then \
@@ -105,7 +107,7 @@ $(FEATURES):
 				destdir="$(BUILDDIR)/$$dst/$$part"; \
 				[ -d "$$destdir" ] || continue; \
 				if [ "$$sub" = / -a -d "$$part" ]; then \
-					rsync -qab "$$part/" "$$destdir/"; \
+					rsync $$args "$$part/" "$$destdir/"; \
 				fi; \
 			done; \
 			popd >&/dev/null; \
