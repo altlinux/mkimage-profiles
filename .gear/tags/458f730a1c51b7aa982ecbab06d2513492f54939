@@ -1,0 +1,6 @@
+object 92558ac8ba62d89d0f135e8dcf4d232a0c0322e0
+type commit
+tag v1.1.59
+tagger Michael Shigorin <mike@altlinux.org> 1424723639 +0300
+
+regular rebase
