@@ -1,0 +1,6 @@
+# net
+kernel/drivers/net/mii.ko
+kernel/drivers/net/phy
+kernel/drivers/net/ethernet
+kernel/drivers/net/usb
+#

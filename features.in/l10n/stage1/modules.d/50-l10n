@@ -1,0 +1,6 @@
+# l10n
+nls_base.ko
+nls_cp866.ko
+nls_koi8-r.ko
+nls_utf8.ko
+#

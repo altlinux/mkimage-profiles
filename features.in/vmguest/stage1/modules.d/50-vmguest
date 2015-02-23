@@ -1,0 +1,6 @@
+# vmguest
+kernel/drivers/virtio
+vmxnet3.ko
+hv_netvsc.ko
+virtio_net.ko
+#
