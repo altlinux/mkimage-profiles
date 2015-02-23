@@ -2,6 +2,7 @@
 use/stage2: sub/stage1
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,file make-initrd make-initrd-propagator propagator)
+	@$(call add,STAGE1_MODLISTS,$$(FEATURES))
 	@$(call xport,STAGE1_KCONFIG)
 
 use/stage2/kms:

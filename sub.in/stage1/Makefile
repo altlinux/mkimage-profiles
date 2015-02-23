@@ -33,7 +33,7 @@ ifneq "$(findstring stage2,$(SUBPROFILES))" ""	### assumes stage2 ~ propagator
 PROPAGATOR_VERSION = ALT Linux
 PROPAGATOR_MAR_MODULES = ./modules
 PROPAGATOR_INITFS = ./initfs
-BUILD_PROPAGATOR = build-propagator
+BUILD_PROPAGATOR = prepare-modules build-propagator
 endif
 endif
 
@@ -44,6 +44,10 @@ CHROOT_PACKAGES = $(STAGE1_PACKAGES) $(SYSTEM_PACKAGES)
 GLOBAL_SQUASHFS := $(SQUASHFS)
 
 -include $(sort $(wildcard lib/*.mk))
+
+prepare-modules:
+	@echo $(foreach V,$(STAGE1_MODLISTS),$(wildcard modules.d/??-$(V))) \
+	| xargs -r -- cat >> $(PROPAGATOR_MAR_MODULES)
 
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for sub.in/stage2/Makefile to include
