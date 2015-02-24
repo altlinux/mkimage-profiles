@@ -29,8 +29,10 @@ distro/razorqt-kz: distro/regular-razorqt
 	@$(call set,GLOBAL_BOOT_LANG,kk_KZ)
 	@$(call add,LIVE_PACKAGES,hunspell-kk)
 
-distro/server-systemd: distro/server-mini +systemd
-	@$(call set,KFLAVOURS,std-def)
+# a minimalistic systemd-based server installer
+distro/server-systemd: distro/server-nano \
+	use/install2/repo use/cleanup/x11-alterator use/net/networkd +systemd
+	@$(call add,CLEANUP_PACKAGES,glib2 iw libpython libwireless)
 
 distro/server-test: distro/server-mini use/relname
 	@$(call set,RELNAME,Test-Server)
