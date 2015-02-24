@@ -17,3 +17,6 @@ use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
 	@$(call add,BASE_PACKAGES,installer-feature-systemd-stage3)
 	@$(call add,BASE_PACKAGES,installer-feature-journald-tty)
+
+use/init/systemd/debug: use/init/systemd use/services
+	@$(call add,SERVICES_ENABLE,debug-shell)
