@@ -54,7 +54,7 @@ distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	use/install2/packages use/install2/vmguest use/vmguest/base \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/x11-alterator use/net use/power/acpi/button
+	use/cleanup/x11-alterator use/net/etcnet use/power/acpi/button
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
