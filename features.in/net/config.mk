@@ -27,3 +27,6 @@ use/net/nm/mmgui: use/net/nm
 use/net/connman: use/net
 	@$(call add,THE_PACKAGES,connman)
 	@$(call add,DEFAULT_SERVICES_ENABLE,connmand connman)
+
+use/net/networkd: use/net
+	@$(call add,THE_PACKAGES,systemd-networkd)
