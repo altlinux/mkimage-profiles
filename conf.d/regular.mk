@@ -133,6 +133,7 @@ distro/regular-cinnamon: distro/.regular-gtk \
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	use/x11/gnome3 use/browser/epiphany use/fonts/ttf/redhat
 	@$(call add,LIVE_PACKAGES_REGEXP,^setup-gnome3-done.*)
+	@$(call add,LIVE_PACKAGES,gnome3-regular)
 
 # reusable bits
 mixin/regular-tde: use/syslinux/ui/gfxboot use/browser/firefox/classic \
