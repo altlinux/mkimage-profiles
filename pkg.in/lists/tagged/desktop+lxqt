@@ -27,7 +27,7 @@ obconf-qt
 # utilities
 lximage-qt
 
-# the rest is a combination of lxde and razorqt desktop lists
+# the rest is a combination of lxde and former razorqt desktop lists
 openbox
 eject
 

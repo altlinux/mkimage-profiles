@@ -25,7 +25,7 @@ distro/live-zabbix: distro/live-icewm use/net-eth
 distro/icewm-efi: distro/icewm use/efi/debug use/firmware
 	@$(call add,INSTALL2_PACKAGES,strace)
 
-distro/razorqt-kz: distro/regular-razorqt
+distro/mate-kz: distro/regular-mate
 	@$(call set,GLOBAL_BOOT_LANG,kk_KZ)
 	@$(call add,LIVE_PACKAGES,hunspell-kk)
 

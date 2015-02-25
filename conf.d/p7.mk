@@ -16,7 +16,6 @@ distro/altlinux-p7-lxde: distro/regular-lxde mixin/p7; @:
 distro/altlinux-p7-lxqt: distro/regular-lxqt mixin/p7; @:
 distro/altlinux-p7-lxqt-sysv: distro/regular-lxqt-sysv mixin/p7; @:
 distro/altlinux-p7-mate: distro/regular-mate mixin/p7; @:
-distro/altlinux-p7-razorqt: distro/regular-razorqt mixin/p7; @:
 distro/altlinux-p7-rescue: distro/regular-rescue mixin/p7; @:
 distro/altlinux-p7-tde: distro/regular-tde mixin/p7; @:
 distro/altlinux-p7-tde-sysv: distro/regular-tde-sysv mixin/p7; @:
