@@ -61,8 +61,8 @@ distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd openssh vim-console)
 	@# a *lot* of stray things get pulled in by alterator modules
-	@$(call add,CLEANUP_PACKAGES,libICE 'libX*' libxcb libfreetype)
-	@$(call add,CLEANUP_PACKAGES,fontconfig 'glib2*' libffi 'libltdl*')
+	@$(call add,CLEANUP_PACKAGES,libfreetype fontconfig)
+	@$(call add,CLEANUP_PACKAGES,'glib2*' libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,liblcms libjpeg 'libpng*' 'libtiff*')
 	@$(call add,CLEANUP_PACKAGES,avahi-autoipd bridge-utils) # i-c-stage3
 	@$(call add,CLEANUP_PACKAGES,iw wpa_supplicant)
