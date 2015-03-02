@@ -51,8 +51,9 @@ distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 # - no +power or even use/power/acpi/button on intent
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
-	use/install2/packages use/install2/vmguest use/vmguest/base \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
+	use/install2/vmguest use/vmguest/base \
+	use/install2/repo use/install2/packages \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/x11-alterator use/net/etcnet use/power/acpi/button
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
