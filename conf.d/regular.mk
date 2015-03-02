@@ -61,6 +61,7 @@ distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd openssh vim-console)
+	@$(call add,THE_PACKAGES,bash-completion)
 	@# a *lot* of stray things get pulled in by alterator modules
 	@$(call add,CLEANUP_PACKAGES,libfreetype fontconfig)
 	@$(call add,CLEANUP_PACKAGES,'glib2*' libffi 'libltdl*')
