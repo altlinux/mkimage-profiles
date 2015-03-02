@@ -3,13 +3,14 @@
 use/vmguest:
 	@$(call add_feature)
 
-use/vmguest/base: use/vmguest/vbox/base use/vmguest/vmware; @:
-use/vmguest/complete: use/vmguest/base use/vmguest/vbox use/vmguest/kvm; @:
+use/vmguest/base: use/vmguest/vbox use/vmguest/vmware; @:
+use/vmguest/complete: use/vmguest/base use/vmguest/vbox/x11 use/vmguest/kvm; @:
 
-use/vmguest/vbox/base: use/vmguest
-	@$(call add,THE_KMODULES,virtualbox-addition vboxguest drm)
+use/vmguest/vbox: use/vmguest
+	@$(call add,THE_KMODULES,virtualbox-addition vboxguest)
 
-use/vmguest/vbox: use/vmguest/vbox/base
+use/vmguest/vbox/x11: use/vmguest/vbox
+	@$(call add,THE_KMODULES,drm)
 	@$(call add,THE_PACKAGES,virtualbox-guest-additions)
 
 # NB: only reasonable for X11-bearing images
