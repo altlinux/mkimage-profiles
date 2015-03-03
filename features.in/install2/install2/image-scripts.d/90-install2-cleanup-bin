@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# purge outstanding binaries (up to 1.5M each)
+rm -f /sbin/{sash,sln,tc}
+rm -f /usr/bin/{openssl,ipv6log*}
+rm -f /bin/ipv6calc
+
+:
