@@ -169,6 +169,7 @@ mtr
 ncpfs
 netcat
 netlist
+nfs-server
 nfs-utils
 ngrep
 nmap
