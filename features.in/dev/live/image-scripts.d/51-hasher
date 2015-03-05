@@ -74,7 +74,7 @@ Here are some ALT Linux package/image build tools prepared for you:
 * ${white}mkimage${gray} -- see ${cyan}http://en.altlinux.org/mkimage${gray};
 * ${white}mkimage-profiles${gray} described in Russian at ${cyan}http://altlinux.org/m-p${gray}
 
-Examples (use right/middle mouse button to paste):
+Examples (use right/middle mouse button to paste; see ~/hasher/repo/):
 * ${white}git clone git://git.altlinux.org/gears/h/hello.git && cd hello && gear-hsh${gray}
 * ${white}make -C /usr/share/mkimage-profiles syslinux.iso${gray}
 
