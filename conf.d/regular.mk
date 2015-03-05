@@ -99,7 +99,7 @@ distro/regular-wmaker: distro/.regular-sysv \
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
-	use/browser/firefox/classic +plymouth
+	use/browser/firefox/classic use/fonts/ttf/redhat +plymouth
 	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-gnustep: distro/.regular-sysv \
@@ -138,8 +138,8 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	@$(call add,LIVE_PACKAGES,gnome3-regular)
 
 # reusable bits
-mixin/regular-tde: use/syslinux/ui/gfxboot use/browser/firefox/classic \
-	+tde +plymouth
+mixin/regular-tde: +tde +plymouth \
+	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
 	@$(call add,THE_PACKAGES,kdeedu)
 	@$(call add,THE_LISTS,openscada)
 
