@@ -14,6 +14,8 @@ use/efi:
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call try,EFI_BOOTLOADER,elilo)	# default one
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFI_VARS FB_EFI)
+	@$(call set,MKI_VER_OPTIMAL,0.2.17)	# for EFI_BOOTARGS
+	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
 
 use/efi/refind: use/efi
 	@$(call set,EFI_BOOTLOADER,refind)
