@@ -153,7 +153,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
 	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
-	@$(call add,LIVE_PACKAGES,rosa-imagewriter gparted)
+	@$(call add,LIVE_PACKAGES,rosa-imagewriter gparted kde-gtk-config)
 	@$(call add,LIVE_PACKAGES,volumes-profile-lite)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
