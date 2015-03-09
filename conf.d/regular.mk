@@ -84,7 +84,7 @@ distro/.regular-install-x11: distro/.regular-install \
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
 	use/browser/seamonkey/i18n use/fonts/ttf/redhat
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
-	@$(call add,LIVE_PACKAGES,gparted mnt)
+	@$(call add,LIVE_PACKAGES,gparted mnt winswitch xpra)
 	@$(call set,KFLAVOURS,un-def)
 
 mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot use/x11/wmaker
