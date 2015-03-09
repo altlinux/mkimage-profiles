@@ -30,3 +30,6 @@ hdparm
 lm_sensors3
 sdparm
 smartmontools
+
+fonts-bitmap-terminus
+fonts-ttf-levien-inconsolata
