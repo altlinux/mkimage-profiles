@@ -16,6 +16,7 @@ distro/.regular-x11: distro/.regular-base use/x11/wacom +vmguest \
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
+	@$(call add,EFI_BOOTARGS,live_rw)
 
 # common WM live/installer bits
 mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
