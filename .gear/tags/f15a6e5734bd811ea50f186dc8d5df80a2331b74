@@ -1,6 +1,0 @@
-object c0b74931b5c814dcc705472ec10120a9ba917936
-type commit
-tag v1.1.60
-tagger Michael Shigorin <mike@altlinux.org> 1425321014 +0300
-
-rehash targets
