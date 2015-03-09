@@ -196,6 +196,7 @@ distro/regular-server: distro/.regular-install \
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
+	@$(call add,CLEANUP_PACKAGES,qt4-common)
 
 distro/regular-server-ovz: distro/regular-server \
 	use/server/ovz use/server/groups/base; @:
