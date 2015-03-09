@@ -75,6 +75,7 @@ distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	@$(call add,CLEANUP_PACKAGES,console-scripts console-vt-tools 'kbd*')
 	@$(call add,CLEANUP_PACKAGES,libsystemd-journal libsystemd-login)
 	@$(call add,CLEANUP_PACKAGES,dbus libdbus libcap-ng)
+	@$(call add,STAGE2_BOOTARGS,quiet)
 
 distro/.regular-install-x11: distro/.regular-install \
 	mixin/regular-desktop +vmguest
