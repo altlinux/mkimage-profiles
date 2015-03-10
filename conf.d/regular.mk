@@ -161,9 +161,10 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/lightdm/lxqt \
-	use/browser/qupzilla +plymouth; @:
+	use/net/connman use/browser/qupzilla +plymouth
+	@$(call add,THE_PACKAGES,qconnman-ui)
 
-distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +nm; @:
+distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt; @:
 
 distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
 	use/net-eth/dhcp use/efi/refind; @:
