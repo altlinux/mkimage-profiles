@@ -90,7 +90,8 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
 	@$(call add,LIVE_PACKAGES,gparted mnt winswitch xpra)
 	@$(call set,KFLAVOURS,un-def)
 
-mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot use/x11/wmaker
+mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
+	use/fonts/ttf/redhat use/x11/wmaker
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
@@ -102,7 +103,7 @@ distro/regular-wmaker: distro/.regular-sysv \
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
-	use/browser/firefox/classic use/fonts/ttf/redhat +plymouth
+	use/browser/firefox/classic +plymouth
 	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-gnustep: distro/.regular-sysv \
