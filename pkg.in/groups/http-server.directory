@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=HTTP Server (Apache2,PHP)
+Name=LAMP Server (Apache, MySQL, PHP)
 X-Alterator-PackageList=http-server
 X-Alterator-Required=no
-Name[ru_RU]=Сервер HTTP (Apache2,PHP)
+Name[ru_RU]=Сервер LAMP (Apache, MySQL, PHP)
 Categories=Server;Networking
 

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Virtualization over kvm
+Name=Virtualization with KVM
 X-Alterator-PackageList=kvm-server
 X-Alterator-Required=no
-Name[ru_RU]=Сервер виртуализации kvm
+Name[ru_RU]=Сервер виртуализации KVM
 Categories=Server;Virtualization
 
