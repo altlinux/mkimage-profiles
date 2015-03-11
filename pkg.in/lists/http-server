@@ -7,10 +7,10 @@ php5-dba
 php5-dom
 #php5-eaccelerator
 php5-exif
-php5-facedetect
+#php5-facedetect
 php5-fileinfo
 php5-gd2
-php5-imagick2
+#php5-imagick2
 php5-imap
 php5-ldap
 php5-mbstring
