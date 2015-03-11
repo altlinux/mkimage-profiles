@@ -63,6 +63,10 @@ use/install2/jfs:
 use/install2/reiserfs:
 	@$(call add,SYSTEM_PACKAGES,reiserfsprogs)
 
+# prepare bootloader for software suspend (see also live)
+use/install2/suspend:
+	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
+
 # when VNC installation is less welcome than a few extra megs
 use/install2/cleanup/vnc:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,x11vnc xorg-xvfb)

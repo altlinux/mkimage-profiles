@@ -83,3 +83,7 @@ use/live/ru: use/live use/l10n/default/ru_RU; @:
 
 use/live/sound: use/live
 	@$(call add,LIVE_LISTS,sound/base)
+
+# prepare bootloader for software suspend (see also install2)
+use/live/suspend: use/live
+	@$(call add,LIVE_PACKAGES,installer-feature-desktop-suspend-stage2)
