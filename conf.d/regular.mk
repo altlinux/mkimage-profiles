@@ -192,7 +192,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,THE_LISTS,$(call tags,regular tde))
 	@$(call add,MAIN_PACKAGES,man-whatis usb-modeswitch)
 
-distro/regular-server: distro/.regular-install \
+distro/.regular-server: distro/.regular-install \
 	use/server/mini use/rescue/base use/cleanup/x11
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call add,MAIN_PACKAGES,aptitude)
@@ -200,16 +200,20 @@ distro/regular-server: distro/.regular-install \
 	@$(call add,CLEANUP_PACKAGES,qt4-common)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge)
 
-distro/regular-server-ovz: distro/regular-server \
-	use/server/ovz use/server/groups/base; @:
+distro/regular-server: distro/.regular-server use/cleanup/x11-alterator; @:
 
-distro/regular-server-hyperv: distro/regular-server
-	@$(call set,KFLAVOURS,un-def)
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
-	@$(call add,THE_PACKAGES,hyperv-daemons)
+distro/.regular-server-managed: distro/.regular-server
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
+
+distro/regular-server-ovz: distro/.regular-server-managed \
+	use/server/ovz use/server/groups/base
+
+distro/regular-server-hyperv: distro/.regular-server-managed
+	@$(call set,KFLAVOURS,un-def)
+	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
+	@$(call add,THE_PACKAGES,hyperv-daemons)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge cpufreq-simple)
 
 distro/regular-builder: distro/.regular-bare \
