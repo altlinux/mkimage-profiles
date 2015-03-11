@@ -155,9 +155,8 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
 	use/net/nm/mmgui +pulse +plymouth
-	@$(call add,LIVE_LISTS,$(call tags,regular kde4))
-	@$(call add,LIVE_PACKAGES,rosa-imagewriter gparted kde-gtk-config)
-	@$(call add,LIVE_PACKAGES,volumes-profile-lite)
+	@$(call add,THE_LISTS,$(call tags,regular kde4))
+	@$(call add,THE_PACKAGES,volumes-profile-lite gparted)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/lightdm/lxqt \
