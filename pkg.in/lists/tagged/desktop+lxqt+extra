@@ -20,10 +20,7 @@ qps
 
 # media player; see also #30556 though
 clementine
-gst-plugins-base
-gst-plugins-bad
-gst-plugins-good
-gst-plugins-ugly
+clementine-codecs-full
 
 # upstream recommended
 #ptbatterysystemtray
