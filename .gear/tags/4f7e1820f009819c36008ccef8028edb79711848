@@ -1,6 +1,0 @@
-object 289b292a81327c11b8e22913020a46fc6ec5cb9f
-type commit
-tag v1.1.61
-tagger Michael Shigorin <mike@altlinux.org> 1425934849 +0300
-
-EFI_BOOTARGS
