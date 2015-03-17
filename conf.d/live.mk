@@ -75,16 +75,23 @@ distro/.live-3d: distro/.live-x11 use/x11/3d \
 
 distro/live-glxgears: distro/.live-3d; @:
 
-distro/live-flightgear: distro/.live-kiosk use/x11/3d use/sound \
+distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
 	use/stage2/net-eth use/net-eth/dhcp use/services +efi +sysvinit
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
-	@$(call add,LIVE_PACKAGES,FlightGear FlightGear-tu154b)
-	@$(call add,LIVE_PACKAGES,fgo input-utils livecd-fgfs)
-	@$(call add,LIVE_PACKAGES,glxgears glxinfo)
+	@$(call add,LIVE_PACKAGES,input-utils glxgears glxinfo)
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind alteratord messagebus)
 	@$(call add,SERVICES_DISABLE,livecd-net-eth)
+
+distro/live-flightgear: distro/.live-games
+	@$(call add,LIVE_PACKAGES,FlightGear FlightGear-tu154b)
+	@$(call add,LIVE_PACKAGES,fgo livecd-fgfs)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
+
+distro/live-0ad: distro/.live-games
+	@$(call add,STAGE2_BOOTARGS,quiet)
+	@$(call add,LIVE_PACKAGES,0ad livecd-0ad)
+	@$(call try,HOMEPAGE,http://play0ad.com/)
 
 distro/live-e17: distro/.live-desktop-ru use/x11/e17 use/x11/lightdm/gtk; @:
 
