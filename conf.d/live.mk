@@ -21,6 +21,8 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/fonts/otf/adobe +power
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 	@$(call set,SYSLINUX_CFG,live)
+	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind klogd syslogd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver fbsetfont keytable)
 
 distro/live-builder-mini: distro/.live-base use/dev/builder/base \
 	use/syslinux/timeout/30 use/isohybrid \
@@ -44,7 +46,6 @@ distro/live-rescue: distro/live-icewm +efi
 # NB: this one doesn't include the browser, needs to be chosen downstream
 distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
 	@$(call add,LIVE_LISTS,$(call tags,live desktop))
-	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind)
 
 distro/.live-webkiosk-gtk: distro/.live-webkiosk
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
