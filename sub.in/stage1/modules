@@ -270,3 +270,6 @@ serio_raw.ko
 sr_mod.ko
 sdhci.ko
 sdhci_pci.ko
+xhci-hcd.ko
+xhci-pci.ko
+uas.ko
