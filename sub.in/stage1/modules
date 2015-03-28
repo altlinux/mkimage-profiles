@@ -269,7 +269,7 @@ sd_mod.ko
 serio_raw.ko
 sr_mod.ko
 sdhci.ko
-sdhci_pci.ko
+sdhci-pci.ko
 xhci-hcd.ko
 xhci-pci.ko
 uas.ko
