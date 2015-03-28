@@ -41,6 +41,9 @@ distro/server-test: distro/server-mini use/relname
 # NB: doesn't carry stage3 thus cannot use/bootloader
 distro/netinst: distro/.base use/install2/net; @:
 
+distro/propagator-test: distro/.base use/mediacheck
+	@$(call add,STAGE2_BOOTARGS,propagator-debug)
+
 # tiny network-only server-ovz installer (stage2 comes over net too)
 distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
 	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest
