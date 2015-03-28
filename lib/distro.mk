@@ -5,11 +5,6 @@ $(error this makefile is designed to be included in toplevel one)
 endif
 
 ifeq (distro,$(IMAGE_CLASS))
-
-# install media bootloader
-boot/%:
-	@$(call set,BOOTLOADER,$*)
-
 # fundamental targets
 
 distro/.init: profile/bare
