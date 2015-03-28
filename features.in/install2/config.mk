@@ -3,7 +3,7 @@
 +installer: use/install2/full; @:
 
 use/install2: use/stage2 sub/stage2@install2 use/metadata \
-	use/cleanup/installer use/bootloader
+	use/cleanup/installer
 	@$(call add_feature)
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
@@ -17,7 +17,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: use/install2/packages use/install2/vmguest \
-	use/syslinux/localboot.cfg use/syslinux/ui/menu; @:
+	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader; @:
 
 # see also use/vmguest
 use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
