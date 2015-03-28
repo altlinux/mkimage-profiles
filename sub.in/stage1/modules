@@ -52,7 +52,6 @@ dl2k.ko
 dmfe.ko
 dmx3191d.ko
 dpt_i2o.ko
-dummy.ko
 e1000.ko
 e1000e.ko
 e100.ko
