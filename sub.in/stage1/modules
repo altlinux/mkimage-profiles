@@ -32,6 +32,7 @@ atl1e.ko
 atl2.ko
 atp870u.ko
 atp.ko
+aufs.ko
 axnet_cs.ko
 b44.ko
 bnx2.ko
@@ -57,6 +58,7 @@ e1000e.ko
 e100.ko
 eata.ko
 ehci-hcd.ko
+ehci_marvell.ko
 epic100.ko
 eql.ko
 ext2
@@ -83,6 +85,7 @@ kaweth.ko
 libata.ko
 libiscsi.ko
 lockd.ko
+loop.ko
 md4.ko
 megaraid.ko
 megaraid_mbox.ko
@@ -94,6 +97,7 @@ nfs.ko
 nfsv2.ko
 nfsv3.ko
 nfsv4.ko
+nls_base.ko
 nls_cp866.ko
 nls_koi8-r.ko
 nmclan_cs.ko
@@ -173,6 +177,7 @@ uhci-hcd.ko
 usbcore.ko
 usbhid.ko
 usbnet.ko
+usb-libusual.ko
 usb-storage.ko
 vfat.ko
 via-rhine.ko
