@@ -9,9 +9,10 @@ distro/.regular-bare: distro/.base +net-eth use/kernel/net
 distro/.regular-base: distro/.regular-bare use/memtest +efi +wireless; @:
 
 # graphical target (not enforcing xorg drivers or blobs)
-distro/.regular-x11: distro/.regular-base use/x11/wacom +vmguest \
-	use/live/x11 use/live/install use/live/repo use/live/rw \
-	use/luks use/branding use/browser/firefox/live use/browser/firefox/i18n
+distro/.regular-x11: distro/.regular-base +vmguest \
+	use/live/x11 use/live/install use/live/suspend \
+	use/live/repo use/live/rw use/luks use/x11/wacom \
+	use/branding use/browser/firefox/live use/browser/firefox/i18n
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
@@ -80,7 +81,7 @@ distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	@$(call add,STAGE2_BOOTARGS,quiet)
 
 distro/.regular-install-x11: distro/.regular-install \
-	mixin/regular-desktop +vmguest
+	use/install2/suspend mixin/regular-desktop +vmguest
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
