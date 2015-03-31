@@ -116,7 +116,8 @@ distro/regular-xfce: distro/.regular-gtk \
 	use/x11/xfce use/domain-client/full use/browser/firefox/classic \
 	use/x11/gtk/nm +nm; @:
 
-distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/x11/xfce; @:
+distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/x11/xfce
+	@$(call add,LIVE_PACKAGES,xfce4-mixer)
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
 	use/x11/gtk/nm +nm
