@@ -2,6 +2,7 @@
 ANSI_OK   ?= 1;32
 ANSI_FAIL ?= 1;31
 
+MAX_LINES = 200
 MAX_ERRORS = 5
 GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (FAILURE|FATAL|ERROR|conflicts|Depends:) .*)|(.* (Stop|failed|not found)\.))$$
 
@@ -52,28 +53,38 @@ build-image: profile/populate
 		echo "$(TIME) skipping actual image build (CHECK is set)"; \
 		exit; \
 	fi; \
-	echo -n "$(TIME) starting image build"; \
-	if [ -n "$(DEBUG)" ]; then \
-		echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
-	else \
-		echo " (coffee time)"; \
+	if [ -z "$(QUIET)" ]; then \
+		echo -n "$(TIME) starting image build"; \
+		if [ -n "$(DEBUG)" ]; then \
+			echo ": tail -f $(BUILDLOG)" $(SHORTEN); \
+		else \
+			echo " (coffee time)"; \
+		fi; \
 	fi; \
 	if $(START) $(MAKE) -C $(BUILDDIR)/ $(LOG); then \
-		echo "$(TIME) done (`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
-		tail -200 "$(BUILDLOG)" $(SHORTEN) \
-		| GREP_COLOR="$(ANSI_OK)" GREP_OPTIONS="--color=auto" \
-		  grep '^\*\* image: .*$$' ||:; \
+		DURATION="(`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
+		tail -n $(MAX_LINES) "$(BUILDLOG)" $(SHORTEN) \
+		| if [ -z "$(QUIET)" ]; then \
+			echo "$(TIME) done  $$DURATION"; \
+			GREP_COLOR="$(ANSI_OK)" GREP_OPTIONS="--color=auto" \
+			  grep '^\*\* image: .*$$' ||:; \
+		else \
+			echo -n "$(TIME) $$DURATION "; \
+			sed -rn 's/^\*\* image: (.*)$$/\1/p'; \
+		fi; \
 		RETVAL=0; \
 	else \
 		RETVAL=$$?; \
 		echo -n "$(TIME) failed, see log"; \
-		if [ -z "$(DEBUG)" ]; then \
+		if [ -z "$(DEBUG)" -o -n "$(QUIET)" ]; then \
 			echo ": $(BUILDLOG)" $(SHORTEN); \
-			echo "$(TIME) (you might want to rerun with DEBUG=1)"; \
 		else \
 			echo " above"; \
 		fi; \
-		tail -200 "$(BUILDLOG)" \
+		if [ -z "$(DEBUG)" ]; then \
+			echo "$(TIME) (you might want to rerun with DEBUG=1)"; \
+		fi; \
+		tail -n $(MAX_LINES) "$(BUILDLOG)" \
 		| GREP_COLOR="$(ANSI_FAIL)" GREP_OPTIONS="--color=auto" \
 		  egrep -m "$(MAX_ERRORS)" "$(GOTCHA)"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \

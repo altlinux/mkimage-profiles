@@ -37,7 +37,9 @@ profile/init: distclean
 		echo "$(TIME) ERROR: invalid BUILDDIR: \`$(BUILDDIR)'"; \
 		exit 128; \
 	fi; \
-	echo -n "$(TIME) initializing BUILDDIR: "; \
+	if [ -z $(QUIET) ]; then \
+		echo -n "$(TIME) initializing BUILDDIR: "; \
+	fi; \
 	rsync -qaxH --delete-after image.in/ "$(BUILDDIR)"/; \
 	mkdir "$(BUILDDIR)"/.mki; \
 	} >&2
@@ -71,16 +73,22 @@ profile/init: distclean
 	if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
 		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
-		echo "$(SYMLINK)/"; \
+		if [ -z $(QUIET) ]; then \
+			echo "$(SYMLINK)/"; \
+		fi; \
 	else \
-		echo "$(BUILDDIR)/"; \
+		if [ -z $(QUIET) ]; then \
+			echo "$(BUILDDIR)/"; \
+		fi; \
 	fi $(SHORTEN); \
 	} >&2
 
 profile/bare: profile/init
 	@{ \
 	NOTE="$${GLOBAL_VERBOSE:+: $(CONFIG)}"; \
-	echo "$(TIME) preparing distro config$$NOTE" $(SHORTEN); \
+	if [ -z "$(QUIET)" ]; then \
+		echo "$(TIME) preparing distro config$$NOTE" $(SHORTEN); \
+	fi; \
 	} >&2
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
 	@$(call try,GLOBAL_VERBOSE,)

@@ -56,8 +56,12 @@ SHELL = /bin/bash
 		say "** goal: $@ [$$n/$(NUM_TARGETS)]"; \
 	fi; \
 	for ARCH in $(ARCHES); do \
-		if [ "$$ARCH" != "$(firstword $(ARCHES))" ]; then say; fi; \
-		say "** ARCH: $$ARCH"; \
+		if [ -z "$(QUIET)" ]; then \
+			if [ "$$ARCH" != "$(firstword $(ARCHES))" ]; then \
+				say; \
+			fi; \
+			say "** ARCH: $$ARCH"; \
+		fi; \
 		if $(MAKE) -f main.mk ARCH=$$ARCH $@ $(POSTPROC); then \
 			if [ -n "$$REPORT" ]; then \
 				$(MAKE) -f reports.mk ARCH=$$ARCH; \
