@@ -1,15 +1,13 @@
 # this makefile holds the most helpful bits for the toplevel one
 
-ifdef __frontend
 define help_body
-	@for i in $(2); do echo $$i; done
-endef
-else
-define help_body
+if [ -t 1 ]; then \
 	echo '** available $(1) targets:'; \
-	columnize $(2)
+	columnize $(2); \
+else \
+	printf '%s\n' $(2); \
+fi
 endef
-endif
 
 help = $(and $(2),$(help_body))
 

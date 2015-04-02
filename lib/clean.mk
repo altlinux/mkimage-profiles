@@ -58,7 +58,7 @@ postclean: build-image
 	   [ -z "$(CHECK)" ] && \
 	   [ -z "$(REPORT)" ] && \
 	   [ "$(NUM_TARGETS)" -gt 1 \
-	       -o -n "$(__frontend)" \
+	       -o ! -t 1 \
 	       -o ! -L "$(SYMLINK)" ]; \
 	then \
 		echo "$(TIME) cleaning up after build"; \
