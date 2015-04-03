@@ -30,7 +30,7 @@ $ git config --global user.name "My Name"
 $ mkdir -p ~/out ~/tmp
 ----
 
-тестовая сборка::
+тестовая сборка (в каталоге mkimage-profiles)::
 ----
 $ make syslinux.iso
 ----
