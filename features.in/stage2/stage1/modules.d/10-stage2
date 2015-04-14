@@ -1,3 +1,4 @@
+# a copy of the old static modules file for compatibility
 kernel/drivers/ata
 kernel/drivers/block
 kernel/drivers/crypto

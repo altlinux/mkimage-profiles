@@ -1,0 +1,6 @@
+i82092.ko
+pcmcia.ko
+pcmcia_core.ko
+pd6729.ko
+serial_cs.ko
+yenta_socket.ko
