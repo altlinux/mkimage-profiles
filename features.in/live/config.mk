@@ -89,3 +89,19 @@ use/live/sound: use/live
 # prepare bootloader for software suspend (see also install2)
 use/live/suspend: use/live
 	@$(call add,LIVE_PACKAGES,installer-feature-desktop-suspend-stage2)
+
+# deny network/local drive access for security reasons
+use/live/privacy: use/services use/memclean use/deflogin
+	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-nodisks)
+	@$(call add,LIVE_PACKAGES,livecd-nodisks)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/net/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/net/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/ata/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/scsi/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/block/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/cdrom/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/firewire/)
+	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/bluetooth/)
+	@$(call set,STAGE1_MODLISTS,stage2-ata stage2-drm stage2-hid)
+	@$(call add,STAGE1_MODLISTS,stage2-mmc stage2-usb)
+	@$(call add,USERS,altlinux:::)
