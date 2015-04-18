@@ -69,6 +69,9 @@ use/x11/kdm4: use/x11-autostart
 use/x11/gdm2.20: use/x11-autostart
 	@$(call add,THE_PACKAGES,gdm2.20)
 
+use/x11/sddm: use/x11-autostart
+	@$(call add,THE_PACKAGES,sddm)
+
 use/x11/icewm: use/x11
 	@$(call add,THE_LISTS,$(call tags,icewm desktop))
 
