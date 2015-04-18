@@ -104,6 +104,23 @@ if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
 KDMRC=/etc/X11/kdm4/kdmrc
 if [ -f "$KDMRC" ]; then autologin_kdm "$KDMRC"; fi
 
+## sddm autologin
+SDDM_RC=/etc/X11/sddm/sddm.conf
+SDDM_SESSION=
+if [ -f "$SDDM_RC" ]; then
+	backup "$SDDM_RC"
+	sed -i "s,^User=$,&$USER," "$SDDM_RC"
+	if [ -f /usr/share/xsessions/lxqt.desktop ]; then
+		SDDM_SESSION=LXQt
+	elif [ -f /usr/share/xsessions/plasma.desktop ]; then
+		SDDM_SESSION=PLASMA
+	fi
+	if [ -n "$SDDM_SESSION" ]; then
+		sed -i "s,^Session=$,&$SDDM_SESSION," "$SDDM_RC"
+	fi
+	restore_later "$SDDM_RC"
+fi
+
 ## nodm autologin (the last since the most intrusive)
 # FIXME nodm and xinitrc should be modified (also in p6)
 # WARNING: check user PATH if things go weird!
