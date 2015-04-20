@@ -1,0 +1,6 @@
+object 50c053fb19c3a5807cbabf4fb35bd2a2936f03dd
+type commit
+tag v1.1.64
+tagger Michael Shigorin <mike@altlinux.org> 1429559676 +0300
+
+modules.d
