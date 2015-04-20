@@ -178,6 +178,9 @@ distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 distro/regular-leechcraft: distro/.regular-desktop \
 	use/x11/leechcraft use/x11/lightdm/lxqt; @:
 
+distro/regular-kde5: distro/.regular-desktop \
+	use/x11/kde5 use/x11/sddm use/fonts/zerg +nm +pulse +plymouth; @:
+
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
 #     kernel cmdline resulting in method:disk instead of method:cdrom
 #     which will change propagator's behaviour to probe additional
