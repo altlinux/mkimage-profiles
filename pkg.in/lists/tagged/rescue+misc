@@ -27,6 +27,8 @@ rmt
 # Hardware
 cmospwd
 flashrom
+hwinfo
+inxi
 irda-utils
 lm_sensors3
 lshw
