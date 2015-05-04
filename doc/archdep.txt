@@ -32,15 +32,15 @@
 
 Например, для Simply Linux в mkimage-profiles-desktop есть строчки:
 
-@I586_ONLY@haspd
-@X86_64_ONLY@i586-haspd
+  @I586_ONLY@haspd
+  @X86_64_ONLY@i586-haspd
 
 В случае mkimage-profiles они должны выглядеть так:
 
-haspd@i586
-i586-haspd@x86_64
+  haspd@i586
+  i586-haspd@x86_64
 
 Для преобразования можно воспользоваться следующей командой:
 
-sed -r -e 's/@I586_ONLY@([^\t ]+)/\1@i586/g' \
-       -e 's/@X86_64_ONLY@([^\t ]+)/\1@x86_64/g'
+  sed -r -e 's/@I586_ONLY@([^\t ]+)/\1@i586/g' \
+         -e 's/@X86_64_ONLY@([^\t ]+)/\1@x86_64/g'
