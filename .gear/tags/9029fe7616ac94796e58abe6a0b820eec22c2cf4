@@ -1,0 +1,6 @@
+object 243d5e373f500e3722a1fea5a28b0863a36a0dc9
+type commit
+tag v1.1.65
+tagger Michael Shigorin <mike@altlinux.org> 1430772947 +0300
+
+archdep
