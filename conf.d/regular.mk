@@ -221,6 +221,7 @@ distro/.regular-server-managed: distro/.regular-server
 
 distro/regular-server-ovz: distro/.regular-server-managed \
 	use/server/ovz use/server/groups/base
+	@$(call add,MAIN_GROUPS,vzstats)
 
 distro/regular-server-hyperv: distro/.regular-server-managed
 	@$(call set,KFLAVOURS,un-def)
