@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=VZstats (OpenVZ host survey)
+X-Alterator-PackageList=vzstats
+X-Alterator-Required=no
+Name[ru_RU]=VZstats (сбор статистики OpenVZ)
+Categories=Server;Monitoring
+
