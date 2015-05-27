@@ -34,6 +34,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
+	@$(call add,THE_PACKAGES,upower bluez)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call set,KFLAVOURS,std-def)
 
