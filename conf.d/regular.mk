@@ -176,7 +176,7 @@ distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
 distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
 
 distro/regular-leechcraft: distro/.regular-desktop \
-	use/x11/leechcraft use/x11/lightdm/lxqt; @:
+	use/x11/leechcraft use/x11/lightdm/lxqt +pulse; @:
 
 distro/regular-kde5: distro/.regular-desktop \
 	use/x11/kde5 use/x11/sddm use/fonts/zerg +nm +pulse +plymouth; @:
