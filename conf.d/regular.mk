@@ -147,12 +147,12 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	@$(call add,LIVE_PACKAGES,gnome3-regular)
 
 # reusable bits
-mixin/regular-tde: +tde +plymouth \
+mixin/regular-tde: +tde \
 	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
 	@$(call add,THE_PACKAGES,kdeedu)
 	@$(call add,THE_LISTS,openscada)
 
-distro/regular-tde: distro/.regular-desktop mixin/regular-tde \
+distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
 	use/x11/gtk/nm use/net/nm/mmgui; @:
 
 distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
