@@ -17,6 +17,7 @@ use/server/ovz: use/server
 	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring)
 	@$(call add,MAIN_KMODULES,xtables-addons)	# t6/branch
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
+	@$(call add,MAIN_KMODULES,staging)
 	@$(call add,BASE_PACKAGES,lftp wget)
 	@$(call add,BASE_LISTS,ovz-server)
 
