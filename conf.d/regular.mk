@@ -6,10 +6,10 @@ distro/.regular-bare: distro/.base +net-eth use/kernel/net
 	@$(call try,SAVE_PROFILE,yes)
 
 # base target (for most images)
-distro/.regular-base: distro/.regular-bare use/memtest +efi +wireless; @:
+distro/.regular-base: distro/.regular-bare use/memtest +efi; @:
 
 # graphical target (not enforcing xorg drivers or blobs)
-distro/.regular-x11: distro/.regular-base +vmguest \
+distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/live/x11 use/live/install use/live/suspend \
 	use/live/repo use/live/rw use/luks use/x11/wacom \
 	use/branding use/browser/firefox/live use/browser/firefox/i18n
@@ -82,7 +82,7 @@ distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	@$(call add,STAGE2_BOOTARGS,quiet)
 
 distro/.regular-install-x11: distro/.regular-install \
-	use/install2/suspend mixin/regular-desktop +vmguest
+	use/install2/suspend mixin/regular-desktop +vmguest +wireless
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
@@ -191,7 +191,8 @@ distro/regular-kde5: distro/.regular-desktop \
 distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	use/branding use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/ui/menu use/syslinux/rescue_fm.cfg \
-	use/syslinux/timeout/200 use/mediacheck test/rescue/no-x11
+	use/syslinux/timeout/200 use/mediacheck test/rescue/no-x11 \
+	+wireless
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm)
 
