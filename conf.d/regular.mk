@@ -150,11 +150,11 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 mixin/regular-tde: +tde \
 	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
 	@$(call add,THE_PACKAGES,kdeedu)
-	@$(call add,THE_LISTS,openscada)
 	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluez)
 
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
-	use/x11/gtk/nm use/net/nm/mmgui; @:
+	use/x11/gtk/nm use/net/nm/mmgui
+	@$(call add,THE_LISTS,openscada)
 
 distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
