@@ -13,6 +13,7 @@ mdadm
 make-initrd-mdadm
 
 openssh
+openssh-blacklist
 net-tools
 
 system-report
