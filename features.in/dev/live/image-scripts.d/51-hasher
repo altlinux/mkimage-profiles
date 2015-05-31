@@ -52,7 +52,11 @@ fi >&/dev/null
 ZSHELL="/bin/zsh"
 if [ -x "$ZSHELL" ]; then
 	chsh -s "$ZSHELL" "$USER"
-	install -m755 -o "$USER" -g "$USER" /dev/null "$HOME/.zshrc"
+	install -m644 -o "$USER" -g "$USER" /dev/null "$HOME/.zshrc"
+	cat >> "$HOME/.zsh_history" <<-EOF
+	make -C /usr/share/mkimage-profiles syslinux.iso
+	git clone git://git.altlinux.org/gears/h/hello.git && cd hello && gear-hsh
+	EOF
 fi
 
 if type -t screen; then
