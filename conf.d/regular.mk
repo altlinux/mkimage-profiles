@@ -203,7 +203,7 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,regular tde))
 	@$(call add,THE_PACKAGES,kpowersave)
-	@$(call add,MAIN_PACKAGES,man-whatis usb-modeswitch)
+	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
 distro/.regular-server: distro/.regular-install \
 	use/server/mini use/rescue/base use/cleanup/x11
