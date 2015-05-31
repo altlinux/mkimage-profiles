@@ -3,6 +3,7 @@
 # tar2fs chroot.tar image.raw [size_in_bytes [fstype]]
 
 . shell-error
+export LANG=C
 
 if [ $# -lt 2 ]; then
 	fatal "error: tar2fs needs at least two arguments"
@@ -211,8 +212,8 @@ sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"
 
 if [ -x "$ROOTFS"/sbin/lilo ]; then
 	# configure and install bootloader
-	REGEXP='^Disk .*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
-	set -- $(sfdisk -l "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
+	REGEXP='^.*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
+	set -- $(sfdisk -g "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
 
 	LILO_COMMON="lba32
 delay=1
