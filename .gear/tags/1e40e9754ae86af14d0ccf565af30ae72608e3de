@@ -1,0 +1,6 @@
+object a78e3b8ce11dadec9bf3903753e98203f4e54e85
+type commit
+tag v1.1.66
+tagger Michael Shigorin <mike@altlinux.org> 1433189615 +0300
+
+remote rescue
