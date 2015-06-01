@@ -190,11 +190,11 @@ distro/regular-kde5: distro/.regular-desktop \
 #     an unrecovered filesystem's journal
 distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	use/branding use/efi/refind use/efi/shell use/efi/memtest86 \
-	use/hdt use/syslinux/ui/menu use/syslinux/rescue_fm.cfg \
-	use/syslinux/timeout/200 use/mediacheck test/rescue/no-x11 \
-	+wireless
+	use/hdt use/syslinux/ui/menu use/syslinux/timeout/600 \
+	use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
+	use/mediacheck test/rescue/no-x11 +wireless
 	@$(call set,KFLAVOURS,un-def)
-	@$(call add,RESCUE_PACKAGES,gpm)
+	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-tde use/install2/fs \
