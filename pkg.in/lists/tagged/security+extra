@@ -5,6 +5,7 @@ hashalot
 #logcheck
 md5deep
 ssdeep
+pwgen
 
 # integrity check
 osec
