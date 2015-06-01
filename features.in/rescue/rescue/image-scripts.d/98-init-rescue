@@ -10,11 +10,14 @@ if [ -x /etc/rc.d/init.d/rpcbind ]; then
 fi
 
 # remove unwanted startup scripts
+echo "** removing initscripts:"
 find /etc/rc.d/rc{2,3,4,5}.d/ -type l -name 'S*' \
+	-not -name '*livecd-net-eth' \
 	-not -name '*logd' \
 	-not -name '*network' \
 	-not -name '*rpcbind' \
 	-not -name '*random' \
+	-not -name '*rescue-remote' \
 	-not -name '*sysreport' \
 	-not -name '*udev*' \
 	-delete -print
