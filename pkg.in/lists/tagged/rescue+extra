@@ -37,6 +37,7 @@ safecopy
 sdparm
 sfdisk
 smartmontools
+stress
 testdisk
 mtools
 partimage
@@ -221,6 +222,7 @@ udis86
 chntpw
 scrounge-ntfs
 wabread
+winusb
 
 # Mobile
 android-tools
