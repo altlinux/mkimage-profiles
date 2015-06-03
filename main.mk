@@ -20,7 +20,9 @@ IMAGE_FILE    := $(lastword  $(subst /, ,$(IMAGE_TARGET)))# generic.tar.gz
 IMAGE_NAME    := $(firstword $(subst ., ,$(IMAGE_FILE)))#   generic
 IMAGE_TYPE    := $(subst $(IMAGE_NAME).,,$(IMAGE_FILE))#    tar.gz
 ifeq ($(IMAGE_NAME),$(IMAGE_TYPE)$(IMAGE_GUESS))
+ifneq (help,$(IMAGE_CLASS))
 $(warning no image type/extension specified, run make help?)
+endif
 endif
 
 # readjustable
