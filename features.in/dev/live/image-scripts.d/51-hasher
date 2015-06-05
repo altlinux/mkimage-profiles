@@ -54,6 +54,7 @@ if [ -x "$ZSHELL" ]; then
 	chsh -s "$ZSHELL" "$USER"
 	install -m644 -o "$USER" -g "$USER" /dev/null "$HOME/.zshrc"
 	cat >> "$HOME/.zsh_history" <<-EOF
+	git clone git://git.altlinux.org/gears/m/mkimage-profiles.git && cd mkimage-profiles && make help/distro
 	make -C /usr/share/mkimage-profiles syslinux.iso
 	git clone git://git.altlinux.org/gears/h/hello.git && cd hello && gear-hsh
 	EOF
