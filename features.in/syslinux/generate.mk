@@ -21,10 +21,12 @@ $(warning no syslinux ui configured, default is now none)
 SYSLINUX_UI := none
 endif
 
+ifndef SYSLINUX_DIRECT
 # SUBPROFILES are considered SYSLINUX_CFG too
 # (note these can appear like stage2@live);
 # 01defaults.cfg is included indefinitely
 SYSLINUX_CFG := $(SYSLINUX_CFG) $(SUBPROFILE_DIRS) defaults
+endif
 
 DSTDIR := $(BUILDDIR)/stage1/files/syslinux/.in
 
