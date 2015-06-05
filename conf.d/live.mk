@@ -6,6 +6,11 @@ distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu \
 	use/efi/signed use/efi/refind use/efi/shell; @:
 
+distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
+	@$(call set,SYSLINUX_CFG,rescue_remote)
+	@$(call set,SYSLINUX_DIRECT,1)
+	@$(call add,RESCUE_PACKAGES,livecd-net-eth)
+
 distro/syslinux: distro/.init \
 	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
