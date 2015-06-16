@@ -118,7 +118,7 @@ distro/regular-xfce: distro/.regular-gtk \
 	use/x11/gtk/nm +nm; @:
 
 distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/x11/xfce
-	@$(call add,LIVE_PACKAGES,xfce4-mixer)
+	@$(call add,LIVE_PACKAGES,xfce4-mixer pm-utils bc elinks mpg123)
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
 	use/x11/gtk/nm +nm
