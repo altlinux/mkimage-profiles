@@ -117,8 +117,8 @@ distro/regular-xfce: distro/.regular-gtk \
 	use/x11/xfce use/domain-client/full use/browser/firefox/classic \
 	use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
 
-distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/x11/xfce \
-	use/fonts/ttf/redhat
+distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/init/sysv/polkit \
+	use/x11/xfce use/fonts/ttf/redhat
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_PACKAGES,xfce4-mixer pm-utils bc elinks mpg123)
 
