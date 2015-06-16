@@ -12,6 +12,9 @@ use/init/sysv: use/init
 	@$(call add,BASE_PACKAGES,syslogd)
 	@$(call add,BASE_PACKAGES_REGEXP,^systemd- ^systemd-services-)
 
+use/init/sysv/polkit: use/init/sysv
+	@$(call add,THE_PACKAGES,polkit-sysvinit)
+
 ### i-f should be dropped as soon as rootfs scripts are effective there
 use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
