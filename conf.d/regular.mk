@@ -115,9 +115,10 @@ distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 
 distro/regular-xfce: distro/.regular-gtk \
 	use/x11/xfce use/domain-client/full use/browser/firefox/classic \
-	use/x11/gtk/nm +nm; @:
+	use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
 
-distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/x11/xfce
+distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/x11/xfce \
+	use/fonts/ttf/redhat
 	@$(call add,LIVE_PACKAGES,xfce4-mixer pm-utils bc elinks mpg123)
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
