@@ -18,6 +18,7 @@ set_password() { echo "$1:$2" | chpasswd; }
 
 set_admin() { usermod -a --groups "wheel" "$1"; }
 
+# NB: one must care to purge this from LiveCD if it's installed permanently
 set_sudo() {
 	[ ! -w "/etc/sudoers" ] ||
 		echo "$1	ALL=(ALL) ALL" >> "/etc/sudoers"
