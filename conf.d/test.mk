@@ -44,11 +44,6 @@ distro/netinst: distro/.base use/install2/net; @:
 distro/propagator-test: distro/.base use/mediacheck
 	@$(call add,STAGE2_BOOTARGS,propagator-debug)
 
-# tiny network-only server-ovz installer (stage2 comes over net too)
-distro/server-ovz-netinst: distro/.base sub/stage1 use/stage2 \
-	use/syslinux/ui/menu use/syslinux/localboot.cfg use/memtest
-	@$(call add,SYSLINUX_CFG,netinstall2)
-
 distro/desktop-luks: distro/icewm use/luks; @:
 distro/desktop-systemd: distro/icewm +systemd; @:
 distro/desktop-plymouth: distro/icewm +plymouth; @:
