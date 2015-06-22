@@ -1,6 +1,0 @@
-object 5529041fba4086de38eedd418015ab7343b6f4b9
-type commit
-tag v1.1.67
-tagger Michael Shigorin <mike@altlinux.org> 1433793051 +0300
-
-post-1.1.66 tweaks
