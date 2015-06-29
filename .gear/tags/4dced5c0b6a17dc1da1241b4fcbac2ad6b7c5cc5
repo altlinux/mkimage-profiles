@@ -1,6 +1,0 @@
-object d2fe19c5778e481dbf03572c948417f568795364
-type commit
-tag v1.1.68
-tagger Michael Shigorin <mike@altlinux.org> 1435004402 +0300
-
-LIVE_CLEANUP_KDRIVERS

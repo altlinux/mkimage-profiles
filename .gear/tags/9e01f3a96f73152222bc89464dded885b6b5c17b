@@ -1,0 +1,6 @@
+object 0be4f885c532ed9a9f40bdae7b926825b1a39174
+type commit
+tag v1.1.69
+tagger Michael Shigorin <mike@altlinux.org> 1435602751 +0300
+
+^systemd-
