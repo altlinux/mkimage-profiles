@@ -193,7 +193,7 @@ distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	use/branding use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/ui/menu use/syslinux/timeout/600 \
 	use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
-	use/mediacheck test/rescue/no-x11 +wireless
+	use/mediacheck test/rescue/no-x11 +wireless +sysvinit
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
 
