@@ -102,8 +102,8 @@ distro/live-0ad: distro/.live-games
 distro/live-e17: distro/.live-desktop-ru use/x11/e17 use/x11/lightdm/gtk; @:
 
 distro/live-gimp: distro/live-icewm use/live/ru
+	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,LIVE_PACKAGES,gimp tintii immix fim)
-	@$(call add,LIVE_PACKAGES,sane sane-frontends xsane)
 	@$(call add,LIVE_PACKAGES,darktable geeqie rawstudio ufraw)
 	@$(call add,LIVE_PACKAGES,macrofusion python-module-pygtk-libglade)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync usbutils)
