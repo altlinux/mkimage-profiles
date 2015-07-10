@@ -4,5 +4,9 @@
 
 cd /lib/modules
 for i in *.*; do
+	if [ "$i" = "*.*" ]; then
+		echo "** error: no valid KFLAVOURS installed, bailing out" >&2
+		exit 1
+	fi
 	depmod -a -F /boot/System.map-$i $i
 done
