@@ -6,3 +6,4 @@ use/wireless:
 	@$(call add,THE_PACKAGES,wireless-tools rfkill crda iw)
 
 use/wireless/full: use/wireless use/firmware/wireless; @:
+	@$(call add,RESCUE_PACKAGES,wireless-tools rfkill crda iw)
