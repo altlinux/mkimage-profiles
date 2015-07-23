@@ -183,7 +183,8 @@ distro/regular-leechcraft: distro/.regular-desktop \
 	use/x11/leechcraft use/x11/lightdm/lxqt +pulse; @:
 
 distro/regular-kde5: distro/.regular-desktop \
-	use/x11/kde5 use/x11/sddm use/fonts/zerg +nm +pulse +plymouth; @:
+	use/x11/kde5 use/x11/sddm use/fonts/zerg +nm +pulse +plymouth
+	@$(call add,THE_PACKAGES,kde5-telepathy)
 
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
 #     kernel cmdline resulting in method:disk instead of method:cdrom
