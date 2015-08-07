@@ -47,7 +47,7 @@ IMAGE_LINKPATH := $(IMAGEDIR)/$(IMAGE_LINK)
 ### multi-pack can be useful (think netinst iso/tree)
 MKI_PACK_RESULTS = $(IMAGE_PACKTYPE):$(IMAGE_OUTFILE)
 
-# these get opied over as is
+# these get copied over as is
 COPY_TREE = ./files
 
 # outdir shouldn't be wiped clean before use
