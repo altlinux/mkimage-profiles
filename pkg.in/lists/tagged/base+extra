@@ -6,6 +6,7 @@ acl
 
 # Applications/Editors
 vim-console
+nano
 
 # Filesystem utils
 dosfstools
