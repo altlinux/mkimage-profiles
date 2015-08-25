@@ -1,5 +1,5 @@
 opensc
-pcsc-tools 
+pcsc-tools
 
 pcsc-lite
 pcsc-lite-acsccid
@@ -7,5 +7,3 @@ pcsc-lite-asedriveiiie-usb
 pcsc-lite-ccid
 pcsc-lite-openct
 pcsc-lite-rutokens
-pcsc-tools
-
