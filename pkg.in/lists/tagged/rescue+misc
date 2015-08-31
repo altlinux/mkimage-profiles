@@ -26,6 +26,7 @@ rmt
 
 # Hardware
 cmospwd
+encled
 flashrom
 hwinfo
 inxi
