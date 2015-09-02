@@ -1,0 +1,12 @@
+ibus
+ibus-gtk2
+ibus-gtk3
+ibus-qt4
+
+im-chooser
+imsettings
+imsettings-xim
+
+ibus-hangul
+ibus-pinyin
+ibus-unikey
