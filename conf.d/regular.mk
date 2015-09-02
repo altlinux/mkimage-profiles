@@ -122,7 +122,7 @@ distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/init/sysv/polkit \
 	@$(call add,LIVE_PACKAGES,xfce4-mixer pm-utils bc elinks mpg123)
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
-	use/x11/gtk/nm +nm
+	use/x11/gtk/nm use/im +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
@@ -138,7 +138,7 @@ distro/regular-e19: distro/.regular-gtk use/x11/e19 use/fonts/infinality; @:
 distro/regular-e19-sysv: distro/.regular-sysv-gtk use/x11/e19; @:
 
 distro/regular-cinnamon: distro/.regular-gtk \
-	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui
+	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
 	@$(call set,KFLAVOURS,un-def)
 
