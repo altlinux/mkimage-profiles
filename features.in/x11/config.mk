@@ -83,6 +83,7 @@ use/x11/kde4-lite: use/x11
 
 use/x11/kde4: use/x11
 	@$(call add,THE_PACKAGES,kde4-default)
+	@$(call add,IM_PACKAGES,imsettings-qt)
 
 # handle both p7/t7 (p-a-nm) and sisyphus (k-p-nm) cases
 use/x11/kde4/nm: use/x11/kde4 use/net/nm
@@ -94,12 +95,15 @@ use/x11/gtk/nm: use/net/nm
 
 use/x11/xfce: use/x11
 	@$(call add,THE_LISTS,$(call tags,xfce desktop))
+	@$(call add,IM_PACKAGES,imsettings-xfce)
 
 use/x11/cinnamon: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
+	@$(call add,IM_PACKAGES,imsettings-cinnamon)
 
 use/x11/gnome3: use/x11/xorg +pulse
 	@$(call add,THE_PACKAGES,gnome3-default)
+	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
 use/x11/e17: use/x11 use/net/connman
 	@$(call add,THE_LISTS,$(call tags,e17 desktop))
@@ -110,9 +114,11 @@ use/x11/e19: use/x11 use/net/connman
 
 use/x11/lxde: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
+	@$(call add,IM_PACKAGES,imsettings-lxde)
 
 use/x11/lxqt: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
+	@$(call add,IM_PACKAGES,imsettings-qt)
 
 use/x11/fvwm: use/x11
 	@$(call add,THE_LISTS,$(call tags,fvwm desktop))
@@ -131,6 +137,7 @@ use/x11/xmonad: use/x11
 
 use/x11/mate: use/x11
 	@$(call add,THE_LISTS,$(call tags,mate desktop))
+	@$(call add,IM_PACKAGES,imsettings-mate)
 
 use/x11/dwm: use/x11
 	@$(call add,THE_LISTS,$(call tags,dwm desktop))
