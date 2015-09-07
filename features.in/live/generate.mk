@@ -5,7 +5,7 @@ ifdef BUILDDIR
 include $(BUILDDIR)/distcfg.mk
 
 ifndef HOMEPAGE
-HOMEPAGE = http://www.altlinux.org/
+HOMEPAGE = http://wiki.altlinux.org/
 endif
 
 ifndef HOMENAME
