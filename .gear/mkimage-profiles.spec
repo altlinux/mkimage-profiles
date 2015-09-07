@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 0.6.2.2
+Version: 0.6.2.3
 Release: alt0.M60T.1
 
 Summary: ALT Linux based distribution metaprofile
@@ -61,6 +61,9 @@ cp -a * %buildroot%mpdir
 %doc README QUICKSTART
 
 %changelog
+* Mon Sep 07 2015 Michael Shigorin <mike@altlinux.org> 0.6.2.3-alt0.M60T.1
+- mktmpdir: fixed sort key
+
 * Mon Feb 02 2015 Michael Shigorin <mike@altlinux.org> 0.6.2.2-alt0.M60T.1
 - backported pkg/lists fix (and the commit before it)
 
