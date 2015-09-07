@@ -7,3 +7,5 @@ pcsc-lite-asedriveiiie-usb
 pcsc-lite-ccid
 pcsc-lite-openct
 pcsc-lite-rutokens
+
+pam_pkcs11
