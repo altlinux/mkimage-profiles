@@ -45,7 +45,7 @@ choose_tmpdir() {
 		echo -n "$i "
 		df -PT "$i" | tail -1
 	done \
-	| sort -unk6 \
+	| sort -unk5 \
 	| while read dir dev fstype size used free percent mnt; do
 		check_options "$dev" "$mnt" || continue
 		[ "$free" -gt "$MINSIZE" ] || continue
