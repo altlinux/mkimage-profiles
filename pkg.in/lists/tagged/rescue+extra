@@ -71,6 +71,7 @@ agrep-tre
 enca
 findutils
 file
+ldd-requires
 less
 lnav
 wdiff

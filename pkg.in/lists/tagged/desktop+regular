@@ -33,3 +33,5 @@ smartmontools
 
 fonts-bitmap-terminus
 fonts-ttf-levien-inconsolata
+
+ldd-requires
