@@ -49,24 +49,23 @@ distro/live-rescue: distro/live-icewm +efi
 		$(call tags,(base || extra) && (archive || rescue || network)))
 
 # NB: this one doesn't include the browser, needs to be chosen downstream
-distro/.live-webkiosk: distro/.live-kiosk use/live/hooks use/live/ru use/sound
+distro/.live-webkiosk: distro/.live-kiosk \
+	use/isohybrid use/live/hooks use/live/ru use/sound
 	@$(call add,LIVE_LISTS,$(call tags,live desktop))
 
 distro/.live-webkiosk-gtk: distro/.live-webkiosk
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
-distro/live-webkiosk-mini: distro/.live-webkiosk-gtk \
-	use/fonts/otf/mozilla use/isohybrid
+distro/live-webkiosk-mini: distro/.live-webkiosk-gtk use/fonts/otf/mozilla
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
 # NB: flash/java plugins are predictable security holes
 distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live \
-	use/browser/plugin/flash use/browser/plugin/java use/efi/signed \
-	+vmguest; @:
+	use/browser/plugin/flash use/browser/plugin/java +vmguest; @:
 
 distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
-distro/live-webkiosk-chromium: distro/.live-webkiosk use/fonts/ttf/google
+distro/live-webkiosk-chromium: distro/.live-webkiosk use/fonts/ttf/google +efi
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-chromium)
 
 distro/live-webkiosk-seamonkey: distro/.live-webkiosk use/fonts/ttf/google
