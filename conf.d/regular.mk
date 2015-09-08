@@ -198,6 +198,7 @@ distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	use/mediacheck test/rescue/no-x11 +wireless +sysvinit
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
+	@$(call add,RESCUE_LISTS,$(call tags,base smartcard))
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-tde use/install2/fs \
