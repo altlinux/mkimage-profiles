@@ -1,6 +1,6 @@
 # p7 base kits
 
-mixin/p7:
+mixin/p7: use/browser/firefox/esr
 	@$(call set,BRANDING,altlinux-starterkit)
 
 ifeq (distro,$(IMAGE_CLASS))

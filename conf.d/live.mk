@@ -56,7 +56,9 @@ distro/.live-webkiosk: distro/.live-kiosk \
 distro/.live-webkiosk-gtk: distro/.live-webkiosk
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
-distro/live-webkiosk-mini: distro/.live-webkiosk-gtk use/fonts/otf/mozilla
+# kiosk users rather prefer stability to latest bling
+distro/live-webkiosk-mini: distro/.live-webkiosk-gtk \
+	use/browser/firefox/esr use/fonts/otf/mozilla
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
 # NB: flash/java plugins are predictable security holes
