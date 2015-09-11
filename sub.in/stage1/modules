@@ -4,6 +4,7 @@ kernel/drivers/rtc
 af_packet.ko
 arc4.ko
 aufs.ko
+overlay.ko
 cdrom.ko
 evdev.ko
 ext4.ko

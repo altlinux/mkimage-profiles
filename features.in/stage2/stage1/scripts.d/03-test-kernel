@@ -24,7 +24,8 @@ configured()
 ls $CONFIGS >&/dev/null || fatal "no stage1 kernel config found in /boot"
 
 # test for installer-required filesystems support
-for opt in SQUASHFS AUFS_FS $GLOBAL_STAGE1_KCONFIG; do
+for opt in SQUASHFS AUFS_FS OVERLAY_FS $GLOBAL_STAGE1_KCONFIG; do
+	[ "$opt" = AUFS_FS ] && [ $(configured "OVERLAY_FS=[my]") -a $(configured "AUFS_FS=n") ] && continue
 	configured "$opt=[my]" || fatal "stage1 kernel must have $opt support"
 done
 
