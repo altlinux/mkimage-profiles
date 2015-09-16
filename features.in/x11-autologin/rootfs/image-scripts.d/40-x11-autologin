@@ -113,7 +113,7 @@ if [ -f "$SDDM_RC" ]; then
 	if [ -f /usr/share/xsessions/lxqt.desktop ]; then
 		SDDM_SESSION=LXQt
 	elif [ -f /usr/share/xsessions/plasma.desktop ]; then
-		SDDM_SESSION=PLASMA
+		SDDM_SESSION=plasma
 	fi
 	if [ -n "$SDDM_SESSION" ]; then
 		sed -i "s,^Session=$,&$SDDM_SESSION," "$SDDM_RC"
