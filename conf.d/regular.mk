@@ -117,8 +117,10 @@ distro/regular-xfce: distro/.regular-gtk \
 	use/x11/xfce use/domain-client/full use/browser/firefox/classic \
 	use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
 
-distro/regular-xfce-sysv: distro/.regular-sysv-gtk use/init/sysv/polkit \
-	use/x11/xfce use/fonts/ttf/redhat
+distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
+	use/init/sysv/polkit use/x11/xfce \
+	use/fonts/ttf/redhat use/fonts/otf/adobe use/fonts/otf/mozilla
+	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_PACKAGES,xfce4-mixer pm-utils bc elinks mpg123)
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
@@ -183,7 +185,9 @@ distro/regular-leechcraft: distro/.regular-desktop \
 	use/x11/leechcraft use/x11/lightdm/lxqt +pulse; @:
 
 distro/regular-kde5: distro/.regular-desktop \
-	use/x11/kde5 use/x11/sddm use/fonts/zerg +nm +pulse +plymouth
+	use/x11/kde5 use/x11/sddm \
+	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
+	+nm +pulse +plymouth
 	@$(call add,THE_PACKAGES,kde5-telepathy)
 
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
