@@ -29,11 +29,21 @@ SERVICES="$GLOBAL_DEFAULT_SERVICES_ENABLE $GLOBAL_DEFAULT_SERVICES_DISABLE"
 SERVICES="$SERVICES $GLOBAL_SERVICES_ENABLE $GLOBAL_SERVICES_DISABLE"
 SERVICES="$(echo $SERVICES | sort -u)"
 
-# TODO: provide systemd-specific hooks too?
 for i in $SERVICES; do
 	onoff="$(shell_config_get "$STATUS" "$i")"
 	[ -n "$onoff" ] || continue
 	echo "$i" >> /usr/share/install2/services-"$onoff"
+
+	# create systemd-specific hooks
+	case "$onoff" in
+		on)
+			action=enabled;;
+		off)
+			action=disabled;;
+		*)
+			continue;;
+	esac
+	echo "$i" >> /usr/share/install2/systemd-"$action"
 done
 
 rm "$STATUS"
