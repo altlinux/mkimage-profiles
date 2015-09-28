@@ -1,0 +1,6 @@
+object 1d77e3778b8a753d57b9b3fabe323b7f94731a90
+type commit
+tag v1.1.75
+tagger Michael Shigorin <mike@altlinux.org> 1443458021 +0300
+
+/usr/share/install2/systemd-*
