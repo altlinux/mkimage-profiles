@@ -1,0 +1,10 @@
+#!/bin/sh
+# basic NTP client configuration
+
+. shell-config
+
+CONFIG="/etc/ntpd.conf"
+[ -f "$CONFIG" ] || exit 0
+[ -n "$GLOBAL_NTP_SERVERS" ] || exit 0
+
+shell_config_set "$CONFIG" 'servers' "$GLOBAL_NTP_SERVERS" '[[:space:]]\+' ' '
