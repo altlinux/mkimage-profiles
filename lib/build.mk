@@ -66,8 +66,8 @@ build-image: profile/populate
 		tail -n $(MAX_LINES) "$(BUILDLOG)" $(SHORTEN) \
 		| if [ -z "$(QUIET)" ]; then \
 			echo "$(TIME) done  $$DURATION"; \
-			GREP_COLOR="$(ANSI_OK)" GREP_OPTIONS="--color=auto" \
-			  grep '^\*\* image: .*$$' ||:; \
+			GREP_COLOR="$(ANSI_OK)" \
+			  grep --color=auto '^\*\* image: .*$$' ||:; \
 		else \
 			echo -n "$(TIME) $$DURATION "; \
 			sed -rn 's/^\*\* image: (.*)$$/\1/p'; \
@@ -85,8 +85,8 @@ build-image: profile/populate
 			echo "$(TIME) (you might want to rerun with DEBUG=1)"; \
 		fi; \
 		tail -n $(MAX_LINES) "$(BUILDLOG)" \
-		| GREP_COLOR="$(ANSI_FAIL)" GREP_OPTIONS="--color=auto" \
-		  egrep -m "$(MAX_ERRORS)" "$(GOTCHA)"; \
+		| GREP_COLOR="$(ANSI_FAIL)" \
+		  egrep --color=auto -m "$(MAX_ERRORS)" "$(GOTCHA)"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi; \
