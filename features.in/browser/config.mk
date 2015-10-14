@@ -21,7 +21,7 @@ use/browser/konqueror4: use/browser
 	@$(call set,THE_BROWSER,kde4base-konqueror)
 
 # the complete lack of dependencies is intentional
-use/browser/firefox/esr:
+use/browser/firefox/esr: use/browser
 	@$(call set,FX_FLAVOUR,-esr)
 
 use/browser/firefox/live: use/browser/firefox
