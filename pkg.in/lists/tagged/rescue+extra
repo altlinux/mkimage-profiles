@@ -50,6 +50,7 @@ whdd
 binutils
 dmidecode
 gnupg
+htop
 pciutils
 procps
 quota
