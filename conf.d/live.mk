@@ -25,7 +25,9 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
 	use/fonts/otf/adobe +power
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
+	@$(call set,SYSLINUX_UI,none)
 	@$(call set,SYSLINUX_CFG,live)
+	@$(call add,STAGE2_BOOTARGS,quiet)
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind klogd syslogd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver fbsetfont keytable)
 
