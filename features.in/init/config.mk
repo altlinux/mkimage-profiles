@@ -22,5 +22,10 @@ use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-journald-tty)
 
+# http://www.freedesktop.org/wiki/Software/systemd/Debugging
 use/init/systemd/debug: use/init/systemd use/services
+	@$(call add,THE_PACKAGES,systemd-shutdown-debug-script)
 	@$(call add,SERVICES_ENABLE,debug-shell)
+	@$(call add,STAGE2_BOOTARGS,systemd.log_level=debug)
+	@$(call add,STAGE2_BOOTARGS,systemd.log_target=kmsg)
+	@$(call add,STAGE2_BOOTARGS,log_buf_len=1M enforcing=0)
