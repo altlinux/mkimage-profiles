@@ -108,8 +108,8 @@ use/x11/gnome3: use/x11/xorg +pulse
 use/x11/e17: use/x11 use/net/connman
 	@$(call add,THE_LISTS,$(call tags,e17 desktop))
 
-use/x11/e19: use/x11 use/net/connman
-	@$(call add,THE_LISTS,$(call tags,e19 desktop))
+use/x11/enlightenment: use/x11 use/net/connman
+	@$(call add,THE_LISTS,$(call tags,enlightenment desktop))
 	@$(call add,DEFAULT_SERVICES_DISABLE,acpid)
 
 use/x11/lxde: use/x11
