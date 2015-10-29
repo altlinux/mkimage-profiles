@@ -101,7 +101,7 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker: distro/.regular-sysv \
 	mixin/regular-wmaker use/live/autologin use/browser/seamonkey/i18n
-	@$(call add,LIVE_PACKAGES,wdm)
+	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
