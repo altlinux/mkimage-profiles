@@ -136,8 +136,12 @@ distro/regular-mate: distro/.regular-gtk +nm \
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 
 distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality; @:
-distro/regular-e19: distro/.regular-gtk use/x11/e19 use/fonts/infinality; @:
-distro/regular-e19-sysv: distro/.regular-sysv-gtk use/x11/e19; @:
+
+distro/regular-enlightenment: distro/.regular-gtk \
+	use/x11/enlightenment use/fonts/infinality; @:
+
+distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
+	use/x11/enlightenment; @:
 
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
