@@ -175,7 +175,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call add,THE_PACKAGES,volumes-profile-lite gparted)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
-mixin/regular-lxqt: use/x11/lxqt use/x11/lightdm/lxqt \
+mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 	use/net/connman use/browser/qupzilla +plymouth
 	@$(call add,THE_PACKAGES,qconnman-ui)
 
