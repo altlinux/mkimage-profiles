@@ -113,7 +113,7 @@ if [ -f "$SDDM_RC" ]; then
 	add_nopasswdlogin_group sddm ||:
 	sed -i "s,^User=$,&$USER," "$SDDM_RC"
 	if [ -f /usr/share/xsessions/lxqt.desktop ]; then
-		SDDM_SESSION=LXQt
+		SDDM_SESSION=lxqt
 	elif [ -f /usr/share/xsessions/plasma.desktop ]; then
 		SDDM_SESSION=plasma
 	fi
