@@ -16,7 +16,7 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
-	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
+	@$(call add,DEFAULT_SERVICES_ENABLE,gpm ntpd)
 	@$(call add,EFI_BOOTARGS,live_rw)
 
 # common WM live/installer bits
