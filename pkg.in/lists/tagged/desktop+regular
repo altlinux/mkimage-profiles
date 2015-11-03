@@ -21,7 +21,8 @@ alterator-proxy
 #alterator-x11
 alterator-xkb
 
-#alterator-datetime
+alterator-datetime
+openntpd
 
 glxgears
 xorg-conf-synaptics
