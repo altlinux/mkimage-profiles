@@ -89,7 +89,7 @@ distro/.regular-install-x11: distro/.regular-install \
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
 	use/browser/seamonkey/i18n use/fonts/ttf/redhat
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
-	@$(call add,LIVE_PACKAGES,gparted mnt winswitch xpra)
+	@$(call add,LIVE_PACKAGES,mnt winswitch xpra)
 	@$(call set,KFLAVOURS,un-def)
 
 mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
@@ -172,7 +172,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
 	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,THE_LISTS,$(call tags,regular kde4))
-	@$(call add,THE_PACKAGES,volumes-profile-lite gparted)
+	@$(call add,THE_PACKAGES,volumes-profile-lite)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
