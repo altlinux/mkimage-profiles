@@ -15,6 +15,7 @@ make-initrd-mdadm
 openssh
 openssh-blacklist
 net-tools
+nfs-utils
 
 system-report
 
