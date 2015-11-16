@@ -1,0 +1,5 @@
+#!/bin/sh -e
+# drop intermediate files not needed in the image
+# which receive broken permissions in fakeroot environment
+
+rm -f /etc/tcb/*/shadow{-,.lock}
