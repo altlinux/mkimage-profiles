@@ -146,11 +146,11 @@ distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
 	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
-	@$(call set,KFLAVOURS,un-def)
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	use/x11/gnome3 use/browser/epiphany use/fonts/ttf/redhat
+	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_PACKAGES_REGEXP,^setup-gnome3-done.*)
 	@$(call add,LIVE_PACKAGES,gnome3-regular xcalib templates)
 	@$(call add,LIVE_PACKAGES,gnome-flashback)
