@@ -258,6 +258,6 @@ distro/regular-builder: distro/.regular-bare \
 distro/regular-server-samba4: distro/regular-server
 	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))
 	@$(call add,THE_PACKAGES,alterator-fbi alterator-dhcp)
-	@$(call add,DEFAULT_SERVICES_DISABLE,smbd nmbd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,smbd nmbd winbind)
 
 endif
