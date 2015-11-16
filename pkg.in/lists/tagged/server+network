@@ -9,6 +9,7 @@ lftp
 mailx
 netcat
 netlist
+nfs-utils
 rsync
 traceroute
 vlan-utils
