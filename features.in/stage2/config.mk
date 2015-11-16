@@ -17,7 +17,8 @@ use/stage2/kms: use/stage2/drm
 	@$(call add,STAGE1_KMODULES_REGEXP,drm.*)
 
 # install mount.cifs to stage1
-use/stage2/cifs-install: use/stage2/net-cifs
+# NB: there's builtin nfsmount there, no reason for nfs-utils
+use/stage2/cifs: use/stage2/net-cifs
 	@$(call add,STAGE1_PACKAGES,cifs-utils)
 
 # eth0 instead of enp0s3
