@@ -138,10 +138,12 @@ distro/regular-mate: distro/.regular-gtk +nm \
 distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality; @:
 
 distro/regular-enlightenment: distro/.regular-gtk \
-	use/x11/enlightenment use/fonts/infinality; @:
+	use/x11/enlightenment use/fonts/infinality
+	@$(call set,META_VOL_ID,ALT Linux regular-E/$(ARCH))
 
 distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
-	use/x11/enlightenment; @:
+	use/x11/enlightenment
+	@$(call set,META_VOL_ID,ALT Linux regular-E-SysV/$(ARCH))
 
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
