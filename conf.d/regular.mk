@@ -11,12 +11,12 @@ distro/.regular-base: distro/.regular-bare use/memtest +efi; @:
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/live/x11 use/live/install use/live/suspend \
-	use/live/repo use/live/rw use/luks use/x11/wacom \
+	use/live/repo use/live/rw use/luks use/x11/wacom use/ntp/client \
 	use/branding use/browser/firefox/live use/browser/firefox/i18n
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
-	@$(call add,DEFAULT_SERVICES_ENABLE,gpm ntpd)
+	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 	@$(call add,EFI_BOOTARGS,live_rw)
 
 # common WM live/installer bits

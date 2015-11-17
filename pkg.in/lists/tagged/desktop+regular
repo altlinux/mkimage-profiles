@@ -16,13 +16,11 @@ alterator-net-openvpn
 alterator-net-eth
 alterator-net-wifi
 
+alterator-datetime
 alterator-proxy
 
 #alterator-x11
 alterator-xkb
-
-alterator-datetime
-openntpd
 
 glxgears
 xorg-conf-synaptics
