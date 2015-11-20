@@ -65,7 +65,7 @@ build-image: profile/populate
 		DURATION="(`tail -1 $(BUILDLOG) | cut -f1 -d.`)"; \
 		tail -n $(MAX_LINES) "$(BUILDLOG)" $(SHORTEN) \
 		| if [ -z "$(QUIET)" ]; then \
-			echo "$(TIME) done  $$DURATION"; \
+			echo "$(TIME) done $$DURATION"; \
 			GREP_COLOR="$(ANSI_OK)" \
 			  grep --color=auto '^\*\* image: .*$$' ||:; \
 		else \
