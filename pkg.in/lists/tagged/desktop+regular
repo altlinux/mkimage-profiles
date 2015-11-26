@@ -36,3 +36,5 @@ fonts-ttf-levien-inconsolata
 ldd-requires
 
 gparted
+
+x11-ssh-askpass
