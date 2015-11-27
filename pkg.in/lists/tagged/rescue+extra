@@ -223,6 +223,7 @@ udis86
 
 # win32
 chntpw
+hivex
 scrounge-ntfs
 wabread
 winusb
