@@ -6,7 +6,7 @@ cd /usr/share/fonts/bitmap/misc/ &&
 
 # drop unneeded translation
 # FIXME: whitelist is reasonable
-cd /usr/share/qt4/translations/ &&
+cd /usr/share/qt?/translations/ &&
 	rm -f *_ar* *_cs* *_da* *_de* *_es* *_fa* *_fr* \
 	      *_gl* *_he* *_hu* *_ko* *_pl* \
 	      *_sk* *_sl* *_sv*

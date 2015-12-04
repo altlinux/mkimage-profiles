@@ -8,7 +8,7 @@ cd /usr/share/fonts/bitmap/misc/ &&
 	rm -f *ja.* *ko.* han* gb* jis* k14* rk* *rk.* *kana* cl* *JIS*
 
 # drop unneeded translations
-cd /usr/share/qt4/translations/ && rm -f *_zh* *_ja*
+cd /usr/share/qt?/translations/ && rm -f *_zh* *_ja*
 
 # l10n
 cd /usr/share/X11/locale && rm -rf ja* ko* th* vi* zh*
