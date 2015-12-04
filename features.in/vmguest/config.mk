@@ -16,7 +16,7 @@ use/vmguest/vbox/x11: use/vmguest/vbox
 # NB: only reasonable for X11-bearing images
 # see also use/install2/kvm
 use/vmguest/kvm: use/vmguest
-	@$(call add,THE_PACKAGES,spice-vdagent)
+	@$(call add,THE_PACKAGES,spice-vdagent qemu-guest-agent)
 
 # see also use/install2/vmware
 use/vmguest/vmware:
