@@ -24,6 +24,8 @@ mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,THE_PACKAGES,alterator-notes)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
+	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
+	@$(call set,THE_IMAGEWRITER,imagewriter)
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop
@@ -175,11 +177,13 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,THE_LISTS,$(call tags,regular kde4))
 	@$(call add,THE_PACKAGES,volumes-profile-lite)
+	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 	use/net/connman use/browser/qupzilla +plymouth
 	@$(call add,THE_PACKAGES,qconnman-ui)
+	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt; @:
 
@@ -196,6 +200,7 @@ distro/regular-kde5: distro/.regular-desktop \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+nm +pulse +plymouth
 	@$(call add,THE_PACKAGES,kde5-telepathy)
+	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
 #     kernel cmdline resulting in method:disk instead of method:cdrom
