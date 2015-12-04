@@ -3,10 +3,10 @@
 use/net: use/services
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,network-config-subsystem)
-	@$(call add,DEFAULT_SERVICES_ENABLE,network)
 
 use/net/etcnet: use/net
 	@$(call add,THE_PACKAGES,etcnet)
+	@$(call add,DEFAULT_SERVICES_ENABLE,network)
 
 use/net/dhcp: use/net
 	@$(call add,THE_PACKAGES,dhcpcd)
@@ -15,6 +15,7 @@ use/net/dhcp: use/net
 use/net/nm: use/net
 	@$(call add,THE_LISTS,$(call tags,base nm))
 	@$(call add,LIVE_PACKAGES,livecd-save-nfs)
+	@$(call add,DEFAULT_SERVICES_ENABLE,network) #  need for NM?
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-save-nfs) # keep interface up
 
@@ -30,3 +31,4 @@ use/net/connman: use/net
 
 use/net/networkd: use/net
 	@$(call add,THE_PACKAGES,systemd-networkd)
+	@$(call add,DEFAULT_SERVICES_ENABLE,systemd-networkd)
