@@ -34,7 +34,7 @@ BOOTPART=
 case "`arch`" in	# NB: sudo => no GLOBAL_ will do either; mind qemu-*
 *86*)
 	# NB: different storage modules might be needed for non-kvm
-	INITRD_MODULES="sd_mod ata_piix ahci"
+	INITRD_MODULES="sd_mod ata_piix ahci virtio-scsi virtio-blk"
 	BLOCKDEV="/dev/sda"	# might be /dev/vda for virtio
 	ROOTPART="1"
 	;;
@@ -203,6 +203,7 @@ if [ -n "$BOOTPART" ]; then
 fi
 
 echo "MODULES_PRELOAD += $INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
+echo "FEATURES += qemu" >> "$ROOTFS/etc/initrd.mk"
 
 KERNEL="$(readlink $ROOTFS/boot/vmlinuz | sed 's,vmlinuz-,,')"
 chroot "$ROOTFS" make-initrd -k "$KERNEL"
@@ -220,7 +221,7 @@ delay=1
 vga=0
 image=/boot/vmlinuz
   initrd=/boot/initrd.img
-  append=\"root=$ROOTDEV rootdelay=3 quiet\"
+  append=\"root=$ROOTDEV rootdelay=3 console=tty1 console=ttyS0,115200n8\"
   label=linux"
 
 	cat > "$ROOTFS"/etc/lilo-loop.conf <<-EOF
