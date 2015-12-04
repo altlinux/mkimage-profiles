@@ -3,6 +3,7 @@ rootfiles
 servicectl
 
 # Common
+acl
 coreutils
 glibc-nss
 glibc-utils
