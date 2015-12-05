@@ -215,6 +215,7 @@ distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
 	@$(call add,RESCUE_LISTS,$(call tags,base smartcard))
+	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-tde use/install2/fs \
