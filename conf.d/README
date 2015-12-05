@@ -39,7 +39,7 @@
 ** MAIN_PACKAGES, MAIN_LISTS, MAIN_PACKAGES_REGEXP (дополнительные пакеты)
 ** LIVE_PACKAGES, LIVE_LISTS, LIVE_PACKAGES_REGEXP ("живая" система)
 
-* аналогично по модулям ядра:
+* аналогично по kernel-modules-*:
 ** THE_KMODULES попадут в "пользовательскую" среду (live, main)
 ** STAGE1_KMODULES доступны в производных от stage2 (install2, live, rescue)
 ** BASE_KMODULES попадут в установку по умолчанию
