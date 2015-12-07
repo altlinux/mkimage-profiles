@@ -88,7 +88,7 @@ distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
 	use/stage2/net-eth use/net-eth/dhcp use/services +efi +sysvinit
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
-	@$(call add,LIVE_PACKAGES,input-utils glxgears glxinfo)
+	@$(call add,LIVE_PACKAGES,pciutils input-utils glxgears glxinfo)
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind alteratord messagebus)
 	@$(call add,SERVICES_DISABLE,livecd-net-eth)
 
