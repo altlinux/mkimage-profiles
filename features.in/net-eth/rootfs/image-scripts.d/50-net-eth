@@ -13,11 +13,27 @@ else
 	NMCTL=no
 fi
 
-IFACEDIR="/etc/net/ifaces"
+ETCNET_IFDIR="/etc/net/ifaces"
+SYSTEMD_IFDIR="/etc/systemd/network"
 
-# uses global variables
 write_iface() {
-	dir="$IFACEDIR/$iface"
+	case "$proto" in
+	dhcp)
+		;;
+	static)
+		[ -n "$ipv4addr" ] || fatal "ipv4addr missing"
+		;;
+	*)
+		fatal "unknown proto value: $proto"
+		;;
+	esac
+	[ -d "$ETCNET_IFDIR" ] && write_etcnet_iface ||:
+	[ -d "$SYSTEMD_IFDIR" ] && write_systemd_iface ||:
+}
+
+# these use global variables
+write_etcnet_iface() {
+	dir="$ETCNET_IFDIR/$iface"
 	mkdir -p "$dir"
 	append=
 	case "$proto" in
@@ -25,13 +41,9 @@ write_iface() {
 		append="DHCP_TIMEOUT=3"
 		;;
 	static)
-		[ -n "$ipv4addr" ] || fatal "ipv4addr missing"
 		echo "$ipv4addr" > "$dir/ipv4address"
 		[ -z "$ipv4gw" ] ||
 			echo "default via $ipv4gw" > "$dir/ipv4route"
-		;;
-	*)
-		fatal "unknown proto value: $proto"
 		;;
 	esac
 	{
@@ -42,6 +54,28 @@ write_iface() {
 		echo "#USE_IFPLUGD=yes"
 		[ -z "$append" ] || echo "$append"
 	} > "$dir/options"
+}
+
+write_systemd_iface() {
+	case "$proto" in
+	dhcp)
+		echo "[Match]"
+		echo "Name=$iface"
+		echo
+		echo "[Network]"
+		echo "DHCP=yes"
+		;;
+	static)
+		echo "[Match]"
+		echo "Name=$iface"
+		echo
+		echo "[Network]"
+		echo "Address=$ipv4addr"
+		[ -z "$ipv4gw" ] ||
+			echo "Gateway=$ipv4gw"
+		echo "LinkLocalAddressing=no"
+		;;
+	esac > "$SYSTEMD_IFDIR/$iface.network"
 }
 
 [ -z "$GLOBAL_NET_ETH" ] ||
