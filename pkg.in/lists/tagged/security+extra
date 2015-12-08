@@ -2,6 +2,7 @@ apg
 #chkrootkit
 john
 hashalot
+hashcat
 #logcheck
 md5deep
 ssdeep
