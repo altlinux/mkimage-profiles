@@ -1,0 +1,10 @@
+# overall
+hardinfo
+unixbench
+
+# X11
+x11perf
+
+# stresstesting/burn-in
+autobench
+stressitout

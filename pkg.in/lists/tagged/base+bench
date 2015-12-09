@@ -1,0 +1,29 @@
+# overall
+dhrystone
+lmbench
+procbench
+sysbench
+whetstone
+
+# RAM
+bandwidth
+stream-mem
+
+# disk subsystem
+bonnie
+bonnie++
+iozone
+ffsb
+
+# networking
+dbench
+hammerhead
+nepim
+postal
+siege
+t50
+wrk
+
+# stresstesting/burn-in
+cpuburn
+stress
