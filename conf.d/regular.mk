@@ -214,7 +214,7 @@ distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	use/mediacheck test/rescue/no-x11 +wireless +sysvinit
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
-	@$(call add,RESCUE_LISTS,$(call tags,base smartcard))
+	@$(call add,RESCUE_LISTS,$(call tags,base && (smartcard || bench)))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
 distro/regular-sysv-tde: distro/.regular-install-x11 \
