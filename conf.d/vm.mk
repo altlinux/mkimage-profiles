@@ -13,8 +13,8 @@ vm/net: vm/bare use/net-eth/dhcp use/net-ssh \
 	use/repo use/control/sudo-su use/deflogin
 	@$(call add,BASE_PACKAGES,su)
 
-vm/systemd-net: vm/systemd use/net-eth/dhcp use/net-ssh \
-	use/repo use/control/sudo-su use/deflogin use/net/networkd
+vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
+	use/repo use/control/sudo-su use/deflogin
 	@$(call add,BASE_PACKAGES,su)
 
 # vm/net or vm/systemd-net
