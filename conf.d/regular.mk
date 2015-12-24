@@ -263,6 +263,15 @@ distro/regular-server-hyperv: distro/.regular-server-managed
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
 
+distro/.regular-server-openstack: distro/.regular-server-base \
+	use/firmware/qlogic use/server/groups/openstack
+	@$(call add,MAIN_GROUPS,ipmi monitoring)
+
+distro/regular-server-openstack: distro/.regular-server-openstack +systemd; @:
+
+distro/regular-server-openstack-sysv: distro/.regular-server-openstack +sysvinit
+	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
+
 distro/regular-builder: distro/.regular-bare \
 	use/dev/builder/full +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
