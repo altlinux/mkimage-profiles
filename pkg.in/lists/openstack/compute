@@ -1,0 +1,4 @@
+openntpd
+python-module-MySQLdb
+openstack-nova-compute
+openstack-neutron-openvswitch

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Storage Node
+X-Alterator-PackageList=openstack/storage
+X-Alterator-Required=no
+Name[ru_RU]=Узел хранения объектов
+

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Block Storage Node
+X-Alterator-PackageList=openstack/block
+X-Alterator-Required=no
+Name[ru_RU]=Узел хранения блочных устройств
+

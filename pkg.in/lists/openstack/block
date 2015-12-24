@@ -1,0 +1,5 @@
+openntpd
+python-module-MySQLdb
+lvm2
+openstack-cinder
+python-module-rtslib
