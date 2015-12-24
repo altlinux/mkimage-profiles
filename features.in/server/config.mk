@@ -41,3 +41,8 @@ use/server/groups/services: use/server
 	@$(call add,MAIN_GROUPS,pgsql-server)
 
 use/server/groups/base: use/server/groups/tools use/server/groups/services; @:
+
+use/server/groups/openstack: use/server
+	@$(call add,MAIN_GROUPS,openstack/block openstack/compute)
+	@$(call add,MAIN_GROUPS,openstack/controller openstack/network)
+	@$(call add,MAIN_GROUPS,openstack/storage)
