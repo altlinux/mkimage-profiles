@@ -230,6 +230,7 @@ winusb
 
 # Mobile
 android-tools
+jmtpfs
 fuse-obexfs
 fuse-siefs
 gammu
