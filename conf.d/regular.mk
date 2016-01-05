@@ -192,6 +192,8 @@ distro/regular-kde5: distro/.regular-desktop use/browser/falkon \
 	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
+distro/regular-robo: distro/regular-mate +robotics use/live/ru; @:
+
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
 	use/rescue/rw use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
