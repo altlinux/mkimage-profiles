@@ -115,7 +115,7 @@ distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync usbutils)
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
 
-distro/live-robo: distro/live-icewm +robotics use/live/ru; @:
+distro/live-robo: distro/live-tde +robotics use/live/ru; @:
 
 # NB: use/browser won't do as it provides a *single* browser ATM
 distro/live-privacy: distro/.base +power +efi +systemd +vmguest \
