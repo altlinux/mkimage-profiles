@@ -4,7 +4,7 @@ ANSI_FAIL ?= 1;31
 
 MAX_LINES = 200
 MAX_ERRORS = 5
-GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (FAILURE|FATAL|ERROR|conflicts|Depends:) .*)|(.* (Stop|failed|not found)\.))$$
+GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (FAILURE|FATAL|ERROR|conflicts|Depends:) .*)|(.* (Stop|failed|not found)\.)|(not allowed))$$
 
 ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
