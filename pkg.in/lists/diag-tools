@@ -1,4 +1,4 @@
-# diagnostic tools (see also disk-server-light.in)
+# diagnostic tools
 dsniff
 iftop
 lft
@@ -7,5 +7,6 @@ nmap
 scanssh
 tcptraceroute
 telnet
+traceroute
 whois
 
