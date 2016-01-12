@@ -1,10 +1,15 @@
 #!/bin/sh
 
 # don't cripple the image to be copied over
-[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install -o \
-  -x /usr/sbin/homeros-install -o -x /usr/sbin/luwrain-install ] && exit 0
+# NB: livecd-install has 50-restore-kernel.sh
+[ -x /usr/sbin/live-install -o \
+  -x /usr/sbin/homeros-install -o \
+  -x /usr/sbin/luwrain-install ] && exit 0
 
 # no need for the kernel in live root otherwise: it's been booted already
-rm -f /boot/*
+# NB: installkernel run by that livecd-install hook needs System.map
+rm -f -- /boot/{initrd,vmlinuz}*
+
+[ -x /usr/sbin/livecd-install ] || rm -f -- /boot/*
 
 :
