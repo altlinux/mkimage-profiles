@@ -17,6 +17,7 @@ openssh-blacklist
 net-tools
 nfs-utils
 
+smartmontools
 system-report
 
 strace
