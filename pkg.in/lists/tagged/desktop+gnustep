@@ -48,7 +48,7 @@ gnustep-Gemas
 gnustep-Ghack
 gnustep-gmastermind
 gnustep-gmines
-gnustep-GNUMail
+#gnustep-GNUMail
 gnustep-GNUWash
 gnustep-Gomoku
 gnustep-gorm
@@ -77,7 +77,7 @@ gnustep-LapisPuzzle
 gnustep-LaternaMagica
 gnustep-Localize
 #gnustep-LoginPanel
-gnustep-LuserNET
+#gnustep-LuserNET
 gnustep-Lynkeos
 #gnustep-Mixer
 gnustep-Money
@@ -101,7 +101,7 @@ gnustep-quartzcore
 gnustep-RemoteDesk
 #gnustep-renaissance
 gnustep-SequenceConverter
-gnustep-SimpleAgenda
+#gnustep-SimpleAgenda
 gnustep-SlideShow
 gnustep-Stepbill
 gnustep-Stepulator
