@@ -30,8 +30,8 @@ gnustep-Camera
 gnustep-CameraTransfer
 gnustep-Cartotheque
 gnustep-CDPlayer
-gnustep-cenon
-gnustep-Chess
+#gnustep-cenon
+#gnustep-Chess
 #gnustep-Connect
 gnustep-Cynthiune
 gnustep-DataBasin
@@ -56,7 +56,7 @@ gnustep-Graphos
 gnustep-Grouch
 gnustep-Grr
 gnustep-GRubik
-gnustep-GSBench
+#gnustep-GSBench
 gnustep-GScheme
 gnustep-GSCommander
 #gnustep-GSDock # i586-only, abandoned
@@ -95,7 +95,7 @@ gnustep-Poe
 gnustep-Popup
 gnustep-Preview
 gnustep-PRICE
-gnustep-projectcenter
+#gnustep-projectcenter
 gnustep-ProjectManager
 gnustep-quartzcore
 gnustep-RemoteDesk
@@ -110,7 +110,7 @@ gnustep-systempreferences
 gnustep-TalkSoup
 gnustep-terminal
 gnustep-TextEdit
-gnustep-thematic
+#gnustep-thematic
 gnustep-Ticker
 gnustep-TimeMon
 gnustep-Toolbox
