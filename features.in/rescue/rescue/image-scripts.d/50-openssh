@@ -1,0 +1,19 @@
+#!/bin/sh
+# re-enable insecure DSA and DH SHA1 support
+# see also: http://www.openssh.com/legacy.html
+
+# any openssh at all?
+[ -d /etc/openssh ] && cd /etc/openssh || exit 0
+
+# is it p7 or earlier (which won't grok the lines added below)?
+[ $(rpmvercmp $(rpmquery --qf='%{VERSION}' openssh-common) 7.0) != "-1" ] ||
+	exit 0
+
+KEY_TYPES="PubkeyAcceptedKeyTypes +ssh-dss,ssh-dss-cert-v01@openssh.com"
+KEX_ALGOS="KexAlgorithms +diffie-hellman-group1-sha1"
+
+grep -qs "^$KEY_TYPES" sshd_config || echo "$KEY_TYPES" >> sshd_config
+grep -qs "^$KEY_TYPES" ssh_config  || echo "$KEY_TYPES" >> ssh_config
+grep -qs "^$KEX_ALGOS" ssh_config  || echo "$KEX_ALGOS" >> ssh_config
+
+:
