@@ -94,9 +94,9 @@ plymouth
 
 # Office
 java-1.6.0-sun
-libreoffice
-libreoffice-gnome
-libreoffice-langpack-ru
+LibreOffice-integrated
+LibreOffice-gnome
+LibreOffice-langpack-ru
 evince
 stardict-gtk
 stardict-mueller7

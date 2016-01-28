@@ -19,6 +19,7 @@ xfce4-default
 gvfs
 gvfs-backends
 udisks2
+ntfs-3g
 
 #xfce-additional
 #xfprint
@@ -38,9 +39,9 @@ xscreensaver-modules-gl-
 #samba
 thunar-shares-plugin
 
-xfce4-wmdock-plugin-
-xfce4-radio-plugin-
-xfce4-genmon-plugin-
+#xfce4-wmdock-plugin-
+#xfce4-radio-plugin-
+#xfce4-genmon-plugin-
 
 xfwm4-themes
 #xfce4-dict
