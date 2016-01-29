@@ -76,8 +76,8 @@ distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
 	@$(call add,STAGE2_BOOTARGS,quiet)
 
 # NB: no +efi as it brings in grub2 (no ELILO support for system boot)
-distro/regular-jeos-ovz: distro/.regular-jeos use/server/ovz-base use/firmware
-	@$(call add,THE_PACKAGES,ipmitool mailx)
+distro/regular-jeos-ovz: distro/.regular-jeos \
+	use/server/ovz-base use/control/server/ldv use/firmware
 	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
 
 distro/.regular-install-x11: distro/.regular-install \
