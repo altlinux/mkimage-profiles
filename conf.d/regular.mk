@@ -52,37 +52,33 @@ distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
 
-# NB:
-# - no +power or even use/power/acpi/button on intent
-# - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
+# common base for the very bare distros
+distro/.regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
-	use/install2/vmguest use/vmguest/base \
 	use/install2/repo use/install2/packages \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/x11-alterator use/net/etcnet use/power/acpi/button
+	use/cleanup/jeos use/net/etcnet use/power/acpi/button
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm)
 	@$(call set,INSTALLER,altlinux-generic)
-	@$(call add,INSTALL2_PACKAGES,volumes-profile-jeos)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
-	@$(call add,THE_PACKAGES,apt basesystem dhcpcd openssh vim-console)
-	@$(call add,THE_PACKAGES,bash-completion)
-	@# a *lot* of stray things get pulled in by alterator modules
-	@$(call add,CLEANUP_PACKAGES,libfreetype fontconfig)
+	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console)
+	@$(call add,THE_LISTS,openssh)
+
+# NB:
+# - stock cleanup is not enough (or installer-common-stage3 deps soaring)
+distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
+	use/install2/vmguest use/vmguest/base
+	@$(call add,INSTALL2_PACKAGES,volumes-profile-jeos)
 	@$(call add,CLEANUP_PACKAGES,'glib2*' libffi 'libltdl*')
-	@$(call add,CLEANUP_PACKAGES,liblcms libjpeg 'libpng*' 'libtiff*')
-	@$(call add,CLEANUP_PACKAGES,avahi-autoipd bridge-utils) # i-c-stage3
-	@$(call add,CLEANUP_PACKAGES,iw wpa_supplicant)
-	@$(call add,CLEANUP_PACKAGES,openssl libpcsclite)
-	@# fully fledged interactivesystem isn't needed here either
-	@$(call add,CLEANUP_PACKAGES,interactivesystem 'groff*' man stmpclean)
-	@$(call add,CLEANUP_PACKAGES,glibc-gconv-modules gettext)
-	@$(call add,CLEANUP_PACKAGES,console-scripts console-vt-tools 'kbd*')
-	@$(call add,CLEANUP_PACKAGES,libsystemd-journal libsystemd-login)
-	@$(call add,CLEANUP_PACKAGES,dbus libdbus libcap-ng)
+	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,STAGE2_BOOTARGS,quiet)
+
+# NB: no +efi as it brings in grub2 (no ELILO support for system boot)
+distro/regular-jeos-ovz: distro/.regular-jeos use/server/ovz-base use/firmware
+	@$(call add,THE_PACKAGES,ipmitool mailx)
+	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
 
 distro/.regular-install-x11: distro/.regular-install \
 	use/install2/suspend mixin/regular-desktop +vmguest +wireless
