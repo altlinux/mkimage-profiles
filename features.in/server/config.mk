@@ -12,15 +12,18 @@ use/server/mini: use/server use/firmware/server \
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus lvm2-lvmetad)
 
-use/server/ovz: use/server
+use/server/ovz-base: use/server
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
+	@$(call add,BASE_PACKAGES,lftp wget)
+	@$(call add,BASE_LISTS,$(call tags,base openvz))
+
+use/server/ovz: use/server/ovz-base
 	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring)
 	@$(call add,MAIN_KMODULES,xtables-addons)	# t6/branch
 	@$(call add,MAIN_KMODULES,drbd83 kvm)
 	@$(call add,MAIN_KMODULES,staging)
-	@$(call add,BASE_PACKAGES,lftp wget)
-	@$(call add,BASE_LISTS,ovz-server)
+	@$(call add,BASE_LISTS,$(call tags,server openvz))
 
 # NB: examine zabbix-preinstall package, initialization is NOT automatic!
 use/server/zabbix: use/server use/services use/control
