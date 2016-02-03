@@ -146,4 +146,4 @@ use/x11/leechcraft: use/x11
 	@$(call add,THE_PACKAGES,leechcraft)
 
 use/x11/kde5: use/x11/xorg
-	@$(call add,THE_PACKAGES,kde5-big icon-theme-oxygen)
+	@$(call add,THE_PACKAGES,kde5-big kf5-i18n-ru kde5-i18n-ru)
