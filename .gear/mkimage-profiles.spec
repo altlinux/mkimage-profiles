@@ -67,11 +67,13 @@ as a book in HTML and PDF formats.
 make BUILDDIR=%docs docs
 
 %install
-mkdir -p %buildroot%mpdir
+mkdir -p %buildroot{%mpdir,%_man7dir}
 cp -a * %buildroot%mpdir
+mv %buildroot%mpdir/doc/mkimage-profiles.7 %buildroot%_man7dir/
 
 %files
 %mpdir/
+%_man7dir/*
 
 %files doc
 %doc README
