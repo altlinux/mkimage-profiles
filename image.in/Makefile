@@ -1,4 +1,4 @@
-# stage 4: dive into mkimage
+# step 4: dive into mkimage
 
 GLOBAL_BUILDDIR ?= $(shell pwd)
 CURRENT_LINK := mkimage-profiles
