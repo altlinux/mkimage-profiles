@@ -1,0 +1,6 @@
+object 9ecb784b075a7d798f1e3a07fc5e3493481281a2
+type commit
+tag v1.1.84
+tagger Michael Shigorin <mike@altlinux.org> 1454961904 +0300
+
+mkimage-profiles(7)
