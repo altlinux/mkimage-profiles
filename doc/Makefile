@@ -28,14 +28,14 @@ HTML_ARGS = -a data-uri --icons -r $(RESOURCE_FILES) -r . \
 	    --xsltproc-opts='$(XSLT_ARGS)' $(COMMON_ARGS)
 
 # most convenient deliverables
-DOCS_OUT = $(PROJECT).pdf $(PROJECT).html docbook-xsl.css
+DOCS_OUT = mkimage-profiles.7 $(PROJECT).pdf $(PROJECT).html docbook-xsl.css
 
 # intermediate files
 DOCS_TMP = $(PROJECT).fo $(PROJECT).xml
 
 .PHONY: all prep chunked xhtml pdf clean
 
-all: chunked xhtml pdf
+all: man chunked xhtml pdf
 
 # NB: destination defined externally
 publish: all
@@ -45,6 +45,13 @@ publish: all
 
 prep:
 	@if [ -n "$(BUILDDIR)" ]; then mkdir -p "$(BUILDDIR)"; fi
+
+man:
+	@VERSION="$$(sed -rn 's/^Version: ([0-9.]+).*$$/\1/p' \
+		../.gear/mkimage-profiles.spec)"; \
+	sed -e "s,@VERSION@,$$VERSION,g" \
+		< mkimage-profiles.7.in \
+		> mkimage-profiles.7
 
 chunked xhtml: prep
 	@echo "** building $@ book"

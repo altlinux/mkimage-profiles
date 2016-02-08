@@ -1,0 +1,141 @@
+.\" Copyright (C) 2010-2016 Michael Shigorin <mike@altlinux.org>
+.\"
+.\" Documentation for mkimage-profiles project.
+.\"
+.\" This file is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\" 
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+.\" GNU General Public License for more details.
+.\" 
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+.\" 
+.TH "MKIMAGE-PROFILES" "7" "February 2016" "mkimage-profiles @VERSION@" "ALT Linux"
+.SH "NAME"
+mkimage-profiles \- ALT Linux distribution family metaprofile
+.SH "SYNOPSIS"
+.B make
+.IR "" [ options ]
+.I "" [ <goal> ... ]
+.SH "DESCRIPTION"
+.BR mkimage-profiles
+builds operating environment images based on ALT Linux package repositories.
+
+Run
+.BR make\ help
+to obtain list of available goals.
+.SH "PREREQUISITES"
+mkimage-profiles only needs
+.BR make(1)
+and
+.BR rsync(1)
+to generate the build profile;
+.BR mkimage
+is used to actually run the build (which involves
+.BR hasher(7)
+quite a few times).
+
+.BR git(1)
+will be used if available so that the generated profile is an annotated
+git repository;
+.BR graphviz(1)
+can be used to obtain build dependency graphs.
+.SH "RATIONALE"
+Long time ago when Linux distribution images were worked upon by hand
+there was little need for generalization and sharing the common base.
+
+Building several "generic" ALT Linux distros in a team and maintaining
+their educational flavours at the same time proved the need to be able
+to describe what's common and what's different in a way that doesn't
+resemble more or less complete forks.
+
+Enter mkimage-profiles: choose what's closest to your dream image
+and add what's missing, or roll on your own using the rich library
+of existing parts and bits.
+.SH "REQUIREMENTS"
+The next-generation image build system for ALT Linux must:
+.TP
+1.
+provide reasonable means to describe common/differing aspects within
+image families;
+.TP
+2.
+ensure reproducible build results;
+.TP
+3.
+support distribution family maintenance workflows
+observed in the wild (e.g., with
+.BR mkimage-profiles-desktop
+or earlier);
+.TP
+4.
+help out with diagnosing build problems.
+.SH "ARCHITECTURE"
+.BR mkimage-profiles
+implements four steps to achieve the above goals:
+.TP
+1.
+initialize the off-tree mkimage profile (BUILDDIR);
+.TP
+2.
+build up distribution's configuration there;
+.TP
+3.
+copy over the needed subprofiles/features/lists/groups;
+.TP
+4.
+build the ISO/VE/VM image.
+.PP
+This results in a compact "as-needed" style per-image profile that can
+be actually studied in a short amount of time and might get included
+into the generated image as a tarball for better reproducibility.
+.SH "EXAMPLES"
+.BR make\ syslinux.iso
+should result in a minimal bootable ISO image.
+
+Another example is Regular Builds project yielding weekly images:
+.BR http://en.altlinux.org/regular
+.SH "AUTHOR"
+Written by Michael Shigorin <mike@altlinux.org>
+.SH "REPORTING BUGS"
+Report bugs to http://bugzilla.altlinux.org
+.br
+(Sisyphus project, mkimage-profiles component).
+.SH "COPYRIGHT"
+Copyright \(co) 2010-2016  Michael Shigorin <mike@altlinux.org>
+.br
+This is free software; see the source for copying conditions.
+There is NO WARRANTY; not even for MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.
+.SH "FURTHER READING"
+First and foremost:
+.BR /usr/share/mkimage-profiles/QUICKSTART
+
+Please refer to 
+.BR README
+files in the tree starting with the toplevel one for more
+information; these can be assembled into a handbook using
+.BR asciidoc(1)
+(available at
+.BR http://nightly.altlinux.org/docs/
+as weekly HTML/PDF updates).
+
+Specific topics are covered within
+.BR doc/
+subdirectory; e.g.
+.BR make
+options are described in
+.BR doc/params.txt
+file.
+.SH "SEE ALSO"
+.br
+.BR hsh(1),
+.BR mkimage,
+.br
+.BR http://www.vimeo.com/23522095
