@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 1.1.83
+Version: 1.1.84
 Release: alt1
 
 Summary: ALT Linux based distribution metaprofile
@@ -81,6 +81,9 @@ mv %buildroot%mpdir/doc/mkimage-profiles.7 %buildroot%_man7dir/
 %doc %docs/*
 
 %changelog
+* Mon Feb 08 2016 Michael Shigorin <mike@altlinux.org> 1.1.84-alt1
+- %name(7) :)
+
 * Mon Jan 25 2016 Michael Shigorin <mike@altlinux.org> 1.1.83-alt1
 - openssh 7.x (see also #31716)
 
