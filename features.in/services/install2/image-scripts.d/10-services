@@ -4,7 +4,7 @@
 # into the system to be installed (instead of applying
 # it to rootfs being formed immediately)
 
-# NB:install2 is not a rootfs, handling differs either
+# NB: install2 is not a rootfs, handling differs either
 
 STATUS=`mktemp`
 
