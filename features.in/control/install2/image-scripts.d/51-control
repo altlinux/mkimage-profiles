@@ -1,0 +1,7 @@
+#!/bin/sh
+# setup control(8) states for the installed system
+# FIXME: drop this when rootfs scripts/data get installer support
+
+[ -z "$GLOBAL_CONTROL" ] ||
+	echo "$GLOBAL_CONTROL" |
+		tr ' :' '\n ' > /usr/share/install2/control
