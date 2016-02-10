@@ -19,6 +19,9 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 use/install2/full: use/install2/packages use/install2/vmguest \
 	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader; @:
 
+# just an alias, better use its endpoint directly
+use/install2/fonts: use/fonts/install2
+
 # see also use/vmguest
 use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
 
