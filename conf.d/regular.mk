@@ -59,7 +59,7 @@ distro/.regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/jeos use/net/etcnet use/power/acpi/button
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
-	@$(call add,BASE_PACKAGES,make-initrd-mdadm)
+	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
