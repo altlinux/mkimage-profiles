@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Base Components
+X-Alterator-PackageList=slinux/graphics-base
+X-Alterator-Parent=slinux/graphics
+X-Alterator-Required=yes
+Name[ru_RU]=Основные компоненты
+X-Alterator-Conflicts=graphics
+Categories=XFCE

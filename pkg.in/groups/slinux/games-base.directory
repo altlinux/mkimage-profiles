@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Base Components
+X-Alterator-PackageList=slinux/games-base
+X-Alterator-Parent=slinux/games
+X-Alterator-Required=yes
+Name[ru_RU]=Основные компоненты
+Categories=XFCE

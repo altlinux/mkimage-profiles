@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Shotwell
+Name[ru_RU]=Программа управления фотографиями Shotwell
+X-Alterator-PackageList=slinux/graphics-full-shotwell
+X-Alterator-Parent=slinux/graphics
+X-Alterator-Required=yes
+X-Alterator-Conflicts=graphics
+Categories=XFCE

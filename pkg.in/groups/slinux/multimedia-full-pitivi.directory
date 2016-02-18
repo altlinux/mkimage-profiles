@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Pitivi Video Editor
+Name[ru_RU]=Видеоредактор Pitivi
+X-Alterator-PackageList=slinux/multimedia-full-pitivi
+X-Alterator-Parent=slinux/multimedia
+X-Alterator-Required=yes
+X-Alterator-Conflicts=multimedia
+Categories=XFCE

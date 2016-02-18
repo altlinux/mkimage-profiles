@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Graphics
+X-Alterator-PackageList=zero
+X-Alterator-Required=yes
+Name[ru_RU]=Работа с графикой
+X-Alterator-Conflicts=graphics
+Categories=XFCE

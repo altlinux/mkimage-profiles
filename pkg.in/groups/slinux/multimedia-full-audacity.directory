@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Audacity
+Name[ru_RU]=Редактор звуковых файлов Audacity
+X-Alterator-PackageList=slinux/multimedia-full-audacity
+X-Alterator-Parent=slinux/multimedia
+X-Alterator-Required=yes
+X-Alterator-Conflicts=multimedia
+Categories=XFCE

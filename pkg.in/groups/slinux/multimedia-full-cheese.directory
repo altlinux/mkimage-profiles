@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Cheese Webcam Booth
+Name[ru_RU]=Фотовидеобудка Cheese
+X-Alterator-PackageList=slinux/multimedia-full-cheese
+X-Alterator-Parent=slinux/multimedia
+X-Alterator-Required=yes
+X-Alterator-Conflicts=multimedia
+Categories=XFCE

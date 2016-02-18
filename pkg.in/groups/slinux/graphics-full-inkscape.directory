@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Inkscape
+Name[ru_RU]=Редактор векторной графики Inkscape
+X-Alterator-PackageList=slinux/graphics-full-inkscape
+X-Alterator-Parent=slinux/graphics
+X-Alterator-Required=yes
+X-Alterator-Conflicts=graphics
+Categories=XFCE

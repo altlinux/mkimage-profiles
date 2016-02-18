@@ -1,0 +1,191 @@
+# Basic packages
+tzdata
+vim-console
+openssh-server
+openssh-clients
+rsync
+
+bash-completion
+inxi
+fvwm-
+fvwm-full-
+#kernel-modules-staging-@KERNEL_MOD@
+altlinux-freedesktop-menu-shallow-menu
+altlinux-freedesktop-menu-icon-theme-default
+#altlinux-freedesktop-menu-common
+#branding-@BRANDING@-xfce-settings
+#branding-@BRANDING@-system-settings
+#branding-@BRANDING@-menu
+docs-linux_intro
+fonts-ttf-google-droid-.*
+fonts-ttf-ubuntu-font-family
+fonts-ttf-liberation
+fonts-ttf-dejavu
+gnome-system-monitor
+gnome-icon-theme
+gnome-icon-theme-symbolic
+gnome-keyring
+gcr
+#tango-icon-theme
+#tango-icon-theme-extras
+#ntfsprogs-
+driconf-
+
+kde4libs-
+kde-common-
+kde3-menu-common-
+kde3-menu-resources-
+kde4-menu-common-
+kde4-menu-resources-
+
+firefox-esr
+firefox-esr-ru
+firefox-esr-uk
+firefox-esr-be
+firefox-esr-kk
+#xulrunner-gnome-support
+file-roller
+unzip
+unrar
+unarj
+dbus-tools-gui
+brasero
+medit
+gcalctool
+synaptic
+synaptic-usermode
+apt-indicator
+gksu
+cups
+cups-filters
+cups-pdf
+avahi-daemon
+blueman
+update-kernel
+printer-drivers-base
+udev-extras
+hostname-hook-hosts
+libnss-mdns
+i586-glibc-nss@x86_64
+i586-libnss-mdns@x86_64
+i586-libnss-myhostname@x86_64
+
+pulseaudio-daemon
+pulseaudio-utils
+pavucontrol
+alsa-plugins-pulse
+# For pulseaudio support
+# in the xfce4-mixer
+gst-plugins-good
+
+fdisk
+cpufreq-simple
+attr
+rfkill
+cifs-utils
+
+# dm
+#gdm2.20
+#gdm-theme-simply
+#gdm2.20-help
+lightdm-gtk-greeter
+#gtk3-themes-xfce4
+gnome-themes-standard-data
+
+# Alterator
+alterator-browser-qt
+alterator-standalone
+
+alterator-auth
+alterator-datetime
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-packages
+alterator-pkg
+alterator-services
+alterator-sysconfig
+alterator-users
+alterator-x11
+alterator-xkb
+
+#additional
+tracker-search-tool
+yelp
+imagewriter
+
+#compiz
+python-module-fusion-icon-gtk
+compiz-gtk
+
+#aen
+#elinks-
+rpminstall
+system-config-printer
+system-config-printer-udev
+#krb5-ticket-watcher-
+apt-repo
+#krb5-ticket-watcher-
+rekonq-
+xdg-user-dirs
+x-cursor-theme-jimmac
+
+plymouth
+#branding-simply-linux-bootsplash
+
+# Office
+java-1.6.0-sun
+LibreOffice
+LibreOffice-gnome
+LibreOffice-langpack-ru
+LibreOffice-langpack-uk
+LibreOffice-langpack-es
+LibreOffice-langpack-kk
+LibreOffice-langpack-pt-BR
+atril-gtk
+atril-gtk-djvu
+atril-gtk-dvi
+atril-gtk-pixbuf
+atril-gtk-xps
+stardict-gtk
+stardict-mueller7
+
+# Owncloud
+owncloud-client
+
+# For work as guest in the virtualbox
+virtualbox-guest-additions
+xorg-drv-vboxvideo
+
+#For ALT domain
+settime-rfc867
+
+# Dirty hackaround for #28753
+alsa-set-initial-options
+udev-alsa
+
+# Fonts infinality
+libfreetype-infinality
+i586-libfreetype-infinality@x86_64
+fontconfig-infinality
+
+# For 1C installation
+#1c-preinstall
+
+# askpass
+gtk2-ssh-askpass
+
+# Systemd-specific
+systemd-analyze
+
+# Enable left mouse button by tapping by default
+xorg-conf-synaptics
+
+# Otherwise hunspell-ru  will be replace by it
+# during dist-upgrade
+hunspell-ru-lebedev
+
+# xkill is present in the live anyway somehow.
+# So explicitly add it for both live and install
+# versions.
+xkill

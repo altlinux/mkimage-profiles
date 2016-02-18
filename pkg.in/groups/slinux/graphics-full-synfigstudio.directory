@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Synfig Studio
+Name[ru_RU]=Программа для создания 2D анимации Synfig Studio
+X-Alterator-PackageList=slinux/graphics-full-synfigstudio
+X-Alterator-Parent=slinux/graphics
+X-Alterator-Required=yes
+X-Alterator-Conflicts=graphics
+Categories=XFCE

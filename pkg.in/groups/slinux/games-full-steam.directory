@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Steam
+Name[ru_RU]=Steam
+X-Alterator-PackageList=slinux/games-full-steam
+X-Alterator-Parent=slinux/games
+X-Alterator-Required=yes
+X-Alterator-Conflicts=games
+Categories=XFCE

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Multimedia
+X-Alterator-PackageList=zero
+X-Alterator-Required=yes
+Name[ru_RU]=Мультимедиа
+X-Alterator-Conflicts=multimedia
+Categories=XFCE

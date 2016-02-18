@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dropbox support
+X-Alterator-PackageList=slinux/dropbox
+X-Alterator-Required=no
+Name[ru_RU]=Поддержка Dropbox

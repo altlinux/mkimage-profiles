@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Emulators
+X-Alterator-PackageList=slinux/emulators-full
+Name[ru_RU]=Эмуляторы и виртуальные машины
+X-Alterator-Conflicts=wine-local
+Categories=XFCE

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Audio CD Extractor
+Name[ru_RU]=Программа копирования звуковых CD
+X-Alterator-PackageList=slinux/multimedia-full-sound-juicer
+X-Alterator-Parent=slinux/multimedia
+X-Alterator-Required=yes
+X-Alterator-Conflicts=multimedia
+Categories=XFCE

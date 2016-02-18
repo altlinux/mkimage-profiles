@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Extra Components
+X-Alterator-PackageList=slinux/games-full
+X-Alterator-Parent=slinux/games
+X-Alterator-Required=no
+Name[ru_RU]=Дополнительные компоненты
+Categories=XFCE
