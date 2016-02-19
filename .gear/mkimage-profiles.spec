@@ -11,7 +11,7 @@ Source: %name-%version.tar
 Packager: Michael Shigorin <mike@altlinux.org>
 
 BuildArch: noarch
-BuildRequires: rsync asciidoc-a2x xmlgraphics-fop fonts-ttf-dejavu
+BuildRequires: rsync asciidoc-a2x fop fonts-ttf-dejavu
 
 Requires: rsync git-core
 Requires: time schedutils sfdisk
