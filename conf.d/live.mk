@@ -93,9 +93,12 @@ distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
 	@$(call add,SERVICES_DISABLE,livecd-net-eth)
 
 distro/live-flightgear: distro/.live-games
-	@$(call add,LIVE_PACKAGES,FlightGear FlightGear-tu154b)
+	@$(call add,LIVE_PACKAGES,FlightGear)
 	@$(call add,LIVE_PACKAGES,fgo livecd-fgfs)
 	@$(call try,HOMEPAGE,http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html)
+
+distro/live-flightgear-tu154: distro/.live-games
+	@$(call add,LIVE_PACKAGES,FlightGear-tu154b)
 
 distro/live-0ad: distro/.live-games
 	@$(call add,STAGE2_BOOTARGS,quiet)
