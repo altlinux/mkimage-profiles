@@ -83,7 +83,7 @@ gnustep-Lynkeos
 gnustep-Money
 gnustep-MPDCon
 gnustep-MusicBox
-gnustep-MusicKit
+#gnustep-MusicKit
 gnustep-MyWiki
 #gnustep-NeXTGo
 gnustep-NoteBook
