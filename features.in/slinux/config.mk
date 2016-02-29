@@ -4,7 +4,7 @@ use/slinux: use/x11/xfce
 	@$(call add,THE_BRANDING,menu xfce-settings)
 	@$(call set,META_VOL_SET,Simply Linux)
 
-use/slinux/base: use/slinux use/x11/gdm2.20 +pulse
+use/slinux/base: use/slinux use/x11/lightdm/gtk +pulse
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,THE_LISTS,slinux/$(ARCH))
 	@$(call add,THE_LISTS,slinux/games)
@@ -17,7 +17,7 @@ use/slinux/base: use/slinux use/x11/gdm2.20 +pulse
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 
 use/slinux/full: use/isohybrid use/slinux/base +systemd +wireless \
-	use/branding/complete use/x11/3d; @:
+	use/branding/complete use/fonts/install2 use/x11/3d; @:
 
 use/slinux/arm: use/slinux use/x11/lightdm/gtk
 	@$(call add,THE_LISTS,slinux/arm)
