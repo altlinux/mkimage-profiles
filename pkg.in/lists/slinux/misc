@@ -30,7 +30,7 @@ kde4-menu-resources-
 
 firefox
 firefox-ru
-xulrunner-gnome-support
+#xulrunner-gnome-support
 file-roller
 unzip
 unrar

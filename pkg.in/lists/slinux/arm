@@ -38,7 +38,7 @@ kde4libs-
 
 firefox
 firefox-ru
-xulrunner-gnome-support
+#xulrunner-gnome-support
 file-roller
 unzip
 unrar
