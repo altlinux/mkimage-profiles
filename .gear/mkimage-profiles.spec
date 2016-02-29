@@ -23,12 +23,13 @@ Requires: mkimage-preinstall
 %define mpdir %_datadir/%name
 %add_findreq_skiplist %mpdir/*.in/*
 
+%def_with doc
 %define docs $HOME/docs
 
 %package doc
 Summary: %name documentation
 Group: Development/Documentation
-BuildRequires: java /proc
+%{?_with_doc:BuildRequires: java /proc}
 
 %description
 mkimage-profiles is a collection of bits and pieces useful for
@@ -64,21 +65,29 @@ as a book in HTML and PDF formats.
 %setup
 
 %build
+%if_with doc
 make BUILDDIR=%docs docs
+%endif
 
 %install
 mkdir -p %buildroot{%mpdir,%_man7dir}
 cp -a * %buildroot%mpdir
+%if_with doc
 mv %buildroot%mpdir/doc/mkimage-profiles.7 %buildroot%_man7dir/
+%endif
 
 %files
 %mpdir/
+%if_with doc
 %_man7dir/*
+%endif
 
+%if_with doc
 %files doc
 %doc README
 %doc QUICKSTART
 %doc %docs/*
+%endif
 
 %changelog
 * Mon Feb 15 2016 Michael Shigorin <mike@altlinux.org> 1.1.85-alt1
