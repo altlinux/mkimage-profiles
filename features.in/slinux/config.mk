@@ -9,7 +9,6 @@ use/slinux/base: use/slinux use/x11/gdm2.20 +pulse
 	@$(call add,THE_LISTS,slinux/$(ARCH))
 	@$(call add,THE_LISTS,slinux/games)
 	@$(call add,THE_LISTS,slinux/graphics)
-	@$(call add,THE_LISTS,slinux/live)
 	@$(call add,THE_LISTS,slinux/misc)
 	@$(call add,THE_LISTS,slinux/misc-dvd)
 	@$(call add,THE_LISTS,slinux/multimedia)
