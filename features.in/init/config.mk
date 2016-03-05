@@ -37,3 +37,7 @@ use/init/systemd/debug: use/init/systemd use/services
 	@$(call add,STAGE2_BOOTARGS,systemd.log_level=debug)
 	@$(call add,STAGE2_BOOTARGS,systemd.log_target=kmsg)
 	@$(call add,STAGE2_BOOTARGS,log_buf_len=1M enforcing=0)
+
+# set multi-user target by default
+use/init/systemd/multiuser: use/init/systemd
+	@$(call add,STAGE2_BOOTARGS,systemd.unit=multi-user.target)
