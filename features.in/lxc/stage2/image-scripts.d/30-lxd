@@ -1,0 +1,37 @@
+#!/bin/sh
+
+echo LXD configuration
+
+# Setup subordinate ID's for root
+usermod -v 1000000-1065535 -w 1000000-1065535 root
+
+# Configuration of LXD
+# By defult bridge provided by lxc-net service is used
+# but here we are ready to start own bridge
+cat <<E_O_F >/etc/sysconfig/lxd
+# FORCE_IMAGE_SYNC=true
+
+# lxdbr0 defaults to only setting up the standard IPv6 link-local network
+# to enable routable IPv4 and/or IPv6, please edit /etc/sysconfig/lxd
+
+# The values below are defaults
+USE_LXD_BRIDGE="true"
+LXD_BRIDGE="lxdbr0"
+LXD_CONFILE="/etc/lxd/dnsmasq.conf"
+#LXD_DOMAIN="lxd"
+
+# IPv4
+LXD_IPV4_ADDR="192.168.202.1"
+LXD_IPV4_NETMASK="255.255.255.0"
+LXD_IPV4_NETWORK="192.168.202.0"
+LXD_IPV4_DHCP_RANGE="192.168.202.100,192.168.202.199"
+LXD_IPV4_DHCP_MAX="100"
+LXD_IPV4_NAT="true"
+
+# IPv6
+#LXD_IPV6_ADDR=""
+#LXD_IPV6_MASK=""
+#LXD_IPV6_NETWORK=""
+#LXD_IPV6_NAT="false"
+LXD_IPV6_PROXY="true"
+E_O_F
