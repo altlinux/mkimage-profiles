@@ -38,7 +38,7 @@ write_etcnet_iface() {
 	append=
 	case "$proto" in
 	dhcp)
-		append="DHCP_TIMEOUT=3"
+		append="DHCP_TIMEOUT=7"
 		;;
 	static)
 		echo "$ipv4addr" > "$dir/ipv4address"
