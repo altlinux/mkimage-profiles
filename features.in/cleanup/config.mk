@@ -17,7 +17,7 @@ use/cleanup/x11: use/cleanup use/cleanup/libs
 # have to remove them (contrary to the usual build-up)...
 use/cleanup/alterator: use/cleanup
 	@$(call add,CLEANUP_PACKAGES,'alterator*' rpm-macros-alterator)
-	@$(call add,CLEANUP_PACKAGES,'guile*' libvhttpd)
+	@$(call add,CLEANUP_PACKAGES,'guile*' libvhttpd autologin-sh-functions)
 
 # for lightweight server distros
 use/cleanup/x11-alterator: use/cleanup/x11 use/cleanup/alterator
