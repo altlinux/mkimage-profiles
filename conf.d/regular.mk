@@ -12,7 +12,8 @@ distro/.regular-base: distro/.regular-bare use/memtest +efi; @:
 distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/live/x11 use/live/install use/live/suspend \
 	use/live/repo use/live/rw use/luks use/x11/wacom use/ntp/client \
-	use/branding use/browser/firefox/live use/browser/firefox/i18n
+	use/branding use/browser/firefox/live use/browser/firefox/i18n \
+	use/browser/firefox/h264
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
