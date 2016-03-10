@@ -2,6 +2,8 @@
 
 mixin/p7: use/browser/firefox/esr
 	@$(call set,BRANDING,altlinux-starterkit)
+	@$(call set,IMAGE_FLAVOUR,$(subst altlinux-p7-,,$(IMAGE_NAME)))
+	@$(call set,META_VOL_ID,ALT Linux p7 $$(IMAGE_FLAVOUR)/$(ARCH))
 
 ifeq (distro,$(IMAGE_CLASS))
 
