@@ -251,7 +251,8 @@ distro/regular-server-hyperv: distro/.regular-server-managed
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
-	@$(call add,DEFAULT_SERVICES_DISABLE,bridge cpufreq-simple)
+	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
 
 distro/regular-builder: distro/.regular-bare \
 	use/dev/builder/full +sysvinit +efi +power \
