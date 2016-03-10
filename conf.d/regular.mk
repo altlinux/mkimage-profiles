@@ -59,6 +59,7 @@ distro/.regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 	use/install2/repo use/install2/packages \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/jeos use/net/etcnet use/power/acpi/button
+	@$(call add,STAGE2_BOOTARGS,vga=0)
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 	@$(call set,INSTALLER,altlinux-generic)
@@ -80,7 +81,6 @@ distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
 distro/regular-jeos-ovz: distro/.regular-jeos \
 	use/server/ovz-base use/control/server/ldv use/firmware
 	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
-	@$(call add,STAGE2_BOOTARGS,vga=0)
 
 distro/.regular-install-x11: distro/.regular-install \
 	use/install2/suspend mixin/regular-desktop +vmguest +wireless
