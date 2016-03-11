@@ -14,6 +14,7 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/live/repo use/live/rw use/luks use/x11/wacom use/ntp/client \
 	use/branding use/browser/firefox/live use/browser/firefox/i18n \
 	use/browser/firefox/h264
+	@$(call add,LIVE_PACKAGES,volumes-profile-regular)
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
@@ -175,7 +176,6 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
 	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,THE_LISTS,$(call tags,regular kde4))
-	@$(call add,THE_PACKAGES,volumes-profile-lite)
 	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
