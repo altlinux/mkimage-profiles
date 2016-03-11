@@ -50,4 +50,4 @@ use/browser/plugin/flash: use/browser
 	@$(call add,THE_PACKAGES,mozilla-plugin-adobe-flash)
 
 use/browser/plugin/java: use/browser
-	@$(call add,THE_PACKAGES,mozilla-plugin-java-1.7.0-openjdk)
+	@$(call add,THE_PACKAGES,mozilla-plugin-java-1.8.0-openjdk)
