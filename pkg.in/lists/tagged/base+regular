@@ -35,5 +35,6 @@ eepm
 bash-completion
 cpufreq-simple
 eject
+bc
 
 zsh
