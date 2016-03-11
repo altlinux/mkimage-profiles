@@ -1,0 +1,16 @@
+#!/bin/sh
+# disable services that are known to be useless under VMs
+# TODO: un-hardwire the list?
+
+NOVM_SERVICES="cpufreq-simple powertop smartd"
+
+cat >> /usr/share/install2/postinstall.d/50-vmguest-noservices.sh << EOF
+#!/bin/sh
+if grep -qE '(101300b8)|(80eebeef)|(14ad0405)' /proc/bus/pci/devices; then
+	for i in $NOVM_SERVICES; do
+		echo "\$i" >> /usr/share/install2/services-off
+	done
+fi
+EOF
+
+chmod +x /usr/share/install2/postinstall.d/50-vmguest-noservices.sh
