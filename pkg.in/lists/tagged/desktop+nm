@@ -3,6 +3,3 @@ NetworkManager-applet-gtk
 NetworkManager-openvpn-gtk
 NetworkManager-pptp-gtk
 NetworkManager-vpnc-gtk
-
-# pulls in strongswan
-#NetworkManager-l2tp-gtk
