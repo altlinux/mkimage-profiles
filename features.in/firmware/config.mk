@@ -32,5 +32,5 @@ use/firmware/wireless: use/firmware
 	@$(call add,THE_PACKAGES_REGEXP,firmware-ipw.*)
 	@$(call add,THE_PACKAGES_REGEXP,firmware-zd.*)
 
-use/firmware/laptop: use/firmware/wireless use/firmware/cpu
+use/firmware/laptop: use/firmware/cpu
 	@$(call add,KMODULES,acpi_call)
