@@ -19,6 +19,10 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 use/install2/full: use/install2/packages use/install2/vmguest \
 	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader; @:
 
+# for distributions with their own -stage3 installer part
+use/install2/stage3: use/install2
+	@$(call add,BASE_PACKAGES,installer-$$(INSTALLER)-stage3)
+
 # just an alias, better use its endpoint directly
 use/install2/fonts: use/fonts/install2
 
