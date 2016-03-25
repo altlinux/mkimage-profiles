@@ -4,7 +4,6 @@
 use/init:
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$$(INIT_TYPE))
-	@$(call add,RESCUE_LISTS,$$(INIT_TYPE))
 
 # THE_LISTS is too late when BASE_PACKAGES have pulled in
 # the wrong syslogd-daemon provider already
