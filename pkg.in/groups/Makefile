@@ -12,7 +12,7 @@ TARGET := $(BUILDDIR)/$(SUFFIX)
 all: $(GLOBAL_DEBUG)
 	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
 		mkdir -p $(TARGET) && \
-		cp -at $(TARGET) -- \
+		cp --parents -at $(TARGET) -- \
 			$(addsuffix .directory,$(THE_GROUPS) $(MAIN_GROUPS)); \
 		mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"; \
 	fi

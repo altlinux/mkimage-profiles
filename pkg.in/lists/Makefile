@@ -30,7 +30,7 @@ copy-lists:
 
 copy-groups:
 	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
-		cp -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
+		cp --parents -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
 	fi
 
 grep-archdep: a = $(ARCH)
