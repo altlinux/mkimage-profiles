@@ -7,6 +7,6 @@ endif
 
 # sequential execution, no reason to haste
 all:
-	@for dir in lists groups; do \
+	@for dir in lists groups profiles; do \
 		$(MAKE) -C $$dir; \
 	done
