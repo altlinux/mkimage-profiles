@@ -13,6 +13,10 @@ list  = $(addprefix $(PKGDIR)/,$(call rlist,$(1)))
 rgroup = $(1:%=groups/%.directory)
 group  = $(addprefix $(PKGDIR)/,$(call rgroup,$(1)))
 
+# prefix/suffix pkg profile name to form a path (relative/absolute)
+rprofile = $(1:%=profiles/%.directory)
+profile  = $(addprefix $(PKGDIR)/,$(call rprofile,$(1)))
+
 # map first argument (a function) onto second one (an argument list)
 map = $(foreach a,$(2),$(call $(1),$(a)))
 
