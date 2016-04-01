@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# don't cripple the image to be copied over
+[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install ] && exit 0
+
 # dump what's here by this point
 echo "** live packages before rpmdb purge:"
 rpmquery -a --qf='%{NAME} %{VERSION}-%{RELEASE}\n'
