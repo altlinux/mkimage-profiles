@@ -1,0 +1,16 @@
+cups
+ghostscript-cups
+cups-pdf
+
+printer-drivers-base
+foomatic-db
+cups-filters
+
+hplip
+hplip-hpcups
+hplip-hpijs
+hplip-PPDs
+hplip-gui
+
+system-config-printer
+system-config-printer-udev
