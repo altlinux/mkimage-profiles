@@ -15,7 +15,7 @@ if [ -n "$($(2)_$(1))" ]; then \
 	echo -e "\n## $(2)_$(1)"; \
 	case "$(1)" in \
 	PACKAGES) echo "$($(2)_$(1))";; \
-	LISTS) cat $($(2)_$(1));; \
+	LISTS) echo -e "\n# $($(2)_$(1))"; cat $($(2)_$(1));; \
 	esac; \
 fi;
 endef
