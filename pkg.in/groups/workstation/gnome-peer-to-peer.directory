@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Peer-to-peer clients
+Name[ru_RU]=Файлообменные сети
+X-Alterator-PackageList=workstation/gnome-peer-to-peer
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;XFCE;

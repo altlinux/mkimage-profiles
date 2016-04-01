@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=VirtualBox desktop virtualization
+Name[ru_RU]=Настольная виртуализация (VirtualBox)
+X-Alterator-PackageList=workstation/virtualbox
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/40-virtualization

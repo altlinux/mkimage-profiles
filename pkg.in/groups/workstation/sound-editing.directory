@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Audacity sound editor
+Name[ru_RU]=Обработка звука (Audacity)
+X-Alterator-PackageList=workstation/sound-editing
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/30-multimedia
+Categories=KDE;KDE4;GNOME;XFCE;

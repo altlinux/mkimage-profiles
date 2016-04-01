@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Run Windows/DOS software
+Name[ru_RU]=Запуск программ Windows/DOS
+X-Alterator-PackageList=workstation/emulators
+X-Alterator-Conflicts=wine-local
+X-Alterator-Parent=workstation/40-virtualization
+Categories=KDE;KDE4;GNOME;XFCE;
+#Comment=Run applications designed for other operating systems and computer architectures; for example, 32-bit programs in a 64-bit environment
+#Comment[ru_RU]=Запуск приложений, предназначенных для других операционных систем и компьютерных архитектур; например, 32-битных программ в 64-битной среде

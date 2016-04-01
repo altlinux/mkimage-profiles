@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dictionary
+Name[ru_RU]=Словари
+X-Alterator-PackageList=workstation/gtk-dictionary
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/10-office
+Categories=GNOME;XFCE;
+

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Thunderbird email client
+Name[ru_RU]=Электронная почта (Thunderbird)
+X-Alterator-PackageList=workstation/thunderbird
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/20-networking

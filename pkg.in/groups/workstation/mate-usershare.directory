@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=User folder sharing
+Name[ru_RU]=Общий доступ к папкам
+X-Alterator-PackageList=workstation/mate-usershare
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;
+Comment=Enables users to right-click a folder and mark it for network sharing
+Comment[ru_RU]=Даёт возможность расшарить папку по сети щелчком правой кнопки мыши

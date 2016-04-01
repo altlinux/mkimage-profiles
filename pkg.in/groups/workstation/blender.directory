@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Blender 3D Modeller
+Name[ru_RU]=Трёхмерное моделирование (Blender)
+X-Alterator-PackageList=workstation/blender
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/30-multimedia

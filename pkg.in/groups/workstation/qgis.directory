@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=QGIS geoinformation system
+Name[ru_RU]=Геоинформационная система QGIS
+X-Alterator-PackageList=workstation/qgis
+X-Alterator-Parent=workstation/50-publishing

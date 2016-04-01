@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=VLC mediaplayer
+Name[ru_RU]=Медиаплеер (VLC)
+X-Alterator-PackageList=workstation/vlc
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/30-multimedia

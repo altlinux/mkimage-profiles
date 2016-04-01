@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Project management (GanttProject)
+Name[ru_RU]=Управление проектами (диаграммы Гантта)
+X-Alterator-PackageList=workstation/ganttproject
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/10-office

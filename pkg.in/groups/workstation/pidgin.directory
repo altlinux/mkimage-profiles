@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Pidgin IM client
+Name[ru_RU]=Обмен мгновенными сообщениями (Pidgin)
+X-Alterator-PackageList=workstation/pidgin
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;XFCE;
