@@ -1,13 +1,14 @@
 use/cleanup:
 	@$(call add_feature)
 	@$(call xport,CLEANUP_PACKAGES)
+	@$(call xport,CLEANUP_BASE_PACKAGES)
 
 use/cleanup/libs:
 	@$(call add,BASE_PACKAGES,apt-scripts)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-cleanup-libs-stage3)
 
 use/cleanup/installer: use/cleanup
-	@$(call add,CLEANUP_PACKAGES,'installer-*')
+	@$(call add,CLEANUP_BASE_PACKAGES,'installer-*')
 
 use/cleanup/x11: use/cleanup use/cleanup/libs
 	@$(call add,CLEANUP_PACKAGES,libICE libSM libxcb 'libX*')

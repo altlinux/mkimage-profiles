@@ -3,9 +3,14 @@
 
 if [ -n "$GLOBAL_VERBOSE" ]; then
 	echo "** GLOBAL_CLEANUP_PACKAGES: $GLOBAL_CLEANUP_PACKAGES"
+	echo "** GLOBAL_CLEANUP_BASE_PACKAGES: $GLOBAL_CLEANUP_BASE_PACKAGES"
 fi >&2
 
+export GLOBAL_CLEANUP_PACKAGES="$GLOBAL_CLEANUP_BASE_PACKAGES \
+	$GLOBAL_CLEANUP_BASE_PACKAGES"
+
 SCRIPT="/usr/share/install2/postinstall.d/01-remove-pkgs"
+
 cat > "$SCRIPT" << EOF
 #!/bin/sh -efu
 
