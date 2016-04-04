@@ -81,6 +81,10 @@ bootargs: clean
 		sed -i "s,@bootargs@,$(STAGE2_BOOTARGS)," $(DSTDIR)/*.cfg; \
 	fi; \
 	sed -i "s,@bootargs@,," $(DSTDIR)/*.cfg
+	@if [ -n "$(RESCUE_BOOTARGS)" ]; then \
+		sed -i "s,@rescue_bootargs@,$(RESCUE_BOOTARGS)," $(DSTDIR)/*.cfg; \
+	fi; \
+	sed -i "s,@rescue_bootargs@,," $(DSTDIR)/*.cfg
 
 clean: copy
 	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
