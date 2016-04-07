@@ -1,5 +1,5 @@
 # globals
-PKGDIR := $(GLOBAL_BUILDDIR)/pkg
+PKGDIR ?= $(GLOBAL_BUILDDIR)/pkg
 
 # duplicated from metaprofile makefiles for the sake of "local" builds
 ARCH ?= $(shell arch | sed 's/i686/i586/; s/armv.*/arm/; s/ppc.*/ppc/')
@@ -19,6 +19,15 @@ profile  = $(addprefix $(PKGDIR)/,$(call rprofile,$(1)))
 
 # map first argument (a function) onto second one (an argument list)
 map = $(foreach a,$(2),$(call $(1),$(a)))
+
+# happens at least twice, and variables are the same by design
+groups2lists = $(shell $(groups2lists_body))
+define groups2lists_body
+{ if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
+	  sed -rn 's,^X-Alterator-PackageList=(.*)$$,\1,p' \
+		$(call map,group,$(THE_GROUPS) $(MAIN_GROUPS)); \
+fi; }
+endef
 
 # kernel package list generation; see also #24669
 NULL :=
