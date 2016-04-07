@@ -15,6 +15,8 @@ pkgdups:
 else
 
 include $(BUILDDIR)/distcfg.mk
+include $(BUILDDIR)/functions.mk
+
 SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
@@ -28,15 +30,14 @@ copy-lists:
 		$(if $(filter environment% file,$(origin $V)),$($V))) \
 	| xargs -r -- cp --parents -at $(TARGET) --
 
+copy-groups: PKGDIR = ..
 copy-groups:
-	@if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
-		cp --parents -at $(TARGET) -- $(THE_GROUPS) $(MAIN_GROUPS); \
-	fi
+	@echo $(call groups2lists) \
+	| xargs -r -- cp --parents -at $(TARGET) --
 
 grep-archdep: a = $(ARCH)
-grep-archdep: s = [:space:]
 grep-archdep:
-	# xargs -L 1024 -n 1024 ? -- breaks -I
+	@# xargs -L 1024 -n 1024 ? -- breaks -I
 	@find $(TARGET) -type f \
 	| xargs -I '__' sh -c '\
 		sed -rni "s/\\<([^@ ]*)\\>|\\<([^@ ]*)@$a\\>/\\1\\2/pg" __; \

@@ -22,10 +22,8 @@ IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
 			       $(BASE_KMODULES_REGEXP) \
 			       $(MAIN_KMODULES))
 
-IMAGE_PACKAGES = $(call map,list, \
-			$(THE_LISTS) $(THE_GROUPS) \
-			$(BASE_LISTS) \
-			$(MAIN_LISTS) $(MAIN_GROUPS)) \
+IMAGE_PACKAGES = $(call map,list,$(THE_LISTS) $(BASE_LISTS) $(MAIN_LISTS) \
+				 $(call groups2lists)) \
 		 $(SYSTEM_PACKAGES) $(COMMON_PACKAGES) \
 		 $(THE_PACKAGES) $(BASE_PACKAGES) $(MAIN_PACKAGES)
 

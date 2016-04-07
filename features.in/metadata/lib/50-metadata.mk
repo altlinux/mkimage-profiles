@@ -34,11 +34,13 @@ metadata-.base:
 	} | sed -re '/^[^[:space:]#]/ s/[[:space:]]+/\n/g' > .base
 
 # see also alterator-pkg (backend3/pkg-install);
-# we only tar up what's up to it
+# we only tar up what's up to it (note that e.g.
+# LIVE_LISTS are needed in the generated profile
+# but not for alterator-pkg)
 metadata: metadata-.base
 	@mkdir -p $(METADIR); \
 	tar -C $(PKGDIR) -cvf - \
-		$(call rlist,$(THE_GROUPS) $(MAIN_GROUPS) .base) \
+		$(call rlist,.base $(call groups2lists)) \
 		$(call rgroup,$(THE_GROUPS) $(MAIN_GROUPS)) \
 		$(call rprofile,$(PKG_PROFILES)) \
 	> $(METADIR)/pkg-groups.tar
