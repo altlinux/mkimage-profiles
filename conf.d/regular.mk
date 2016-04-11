@@ -2,7 +2,7 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 # common ground (really lowlevel)
-distro/.regular-bare: distro/.base +net-eth use/kernel/net
+distro/.regular-bare: distro/.base +net-eth use/kernel/net use/docs/license
 	@$(call try,SAVE_PROFILE,yes)
 
 # base target (for most images)
