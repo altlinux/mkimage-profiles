@@ -13,7 +13,7 @@ use/docs/indexhtml: use/docs use/branding
 
 use/docs/manual: use/docs
 	@$(call xport,DOCS)
-	@$(call add,THE_PACKAGES,docs-$(DOCS))
+	@$(call add,THE_PACKAGES,docs-$$(DOCS))
 
 use/docs/license: use/docs use/branding
 	@$(call add,THE_BRANDING,notes)
