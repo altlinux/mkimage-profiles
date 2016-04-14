@@ -7,15 +7,26 @@
 # NB: install2 is not a rootfs, handling differs either
 
 STATUS=`mktemp`
+CONFDIR=/usr/share/install2
+CHECK_FILES=
 
 . shell-config
 
 switch() {
+	[ -n "$CHECK_FILES" ] && \
+		egrep -qs "^[[:blank:]]*$1(.service|.socket)?[[:blank:]]*$" \
+			$CHECK_FILES && return ||:
+
 	case "$2" in
 	on|off)
 		shell_config_set "$STATUS" "$1" "$2";;
 	esac
 }
+
+for f in services-on services-off systemd-enabled systemd-disabled; do
+	[ -s "$CONFDIR/$f" ] || continue
+	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
+done
 
 # defaults (most likely features.in ones)
 for i in $GLOBAL_DEFAULT_SERVICES_ENABLE;  do switch $i on;  done
@@ -32,11 +43,11 @@ SERVICES="$(echo $SERVICES | sort -u)"
 for i in $SERVICES; do
 	onoff="$(shell_config_get "$STATUS" "$i")"
 	[ -n "$onoff" ] || continue
-	echo "$i" >> /usr/share/install2/services-"$onoff"
+	echo "$i" >> "$CONFDIR"/services-"$onoff"
 done
 
-cp -a /usr/share/install2/{services-on,systemd-enabled}
-cp -a /usr/share/install2/{services-off,systemd-disabled}
+cp -a "$CONFDIR"/{services-on,systemd-enabled}
+cp -a "$CONFDIR"/{services-off,systemd-disabled}
 
 rm "$STATUS"
 
