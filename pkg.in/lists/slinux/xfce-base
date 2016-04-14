@@ -25,12 +25,8 @@ thunar-volman-plugin
 thunar-archive-plugin
 
 #screensaver
-#gnome-screensaver
-#gnome-screensaver-utils
-xscreensaver
-xscreensaver-frontend
-xscreensaver-hacks-gl-
-xscreensaver-modules-gl-
+light-locker
+light-locker-settings
 
 #samba
 thunar-shares-plugin
