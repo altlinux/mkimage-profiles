@@ -8,7 +8,7 @@ ifeq (vm,$(IMAGE_CLASS))
 
 vm/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,interactivesystem shadow-utils e2fsprogs)
-ifeq (,$(filter i586 x86_64,$(ARCH)))	# useless on anything else
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))	# useless on anything else
 	@$(call add,BASE_PACKAGES,lilo)
 endif
 
