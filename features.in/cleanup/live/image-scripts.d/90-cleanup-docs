@@ -1,5 +1,8 @@
 #!/bin/sh
 # remove all docs
 
+# don't cripple the image to be copied over
+[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install ] && exit 0
+
 rpmquery -ad |grep ^/ |xargs -r rm -f --
 rm -rf /usr/share/{doc,man,info,license,gfxboot}
