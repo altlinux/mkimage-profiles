@@ -1,13 +1,20 @@
 #!/bin/sh
 
 gfxboot_datadir=/usr/share/gfxboot
+
+if [ ! -d "$gfxboot_datadir" ]; then
+	echo "** $gfxboot_datadir not found" >&2
+	exit 0
+fi
+
 bootlogo="`ls $gfxboot_datadir/*/bootlogo | head -1`"	###
 
 if [ ! -f "$bootlogo" ]; then
-	echo "${0##*/} - SKIP: $bootlogo not found" >&2
+	echo "** bootlogo not found" >&2
 	ls -alR $gfxboot_datadir
 	exit 0
 fi
+
 cd "$WORKDIR"
 mkdir -p syslinux
 cd syslinux
