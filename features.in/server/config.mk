@@ -32,7 +32,11 @@ use/server/zabbix: use/server use/services use/control
 	@$(call add,DEFAULT_SERVICES_ENABLE,httpd2 mysqld postfix)
 	@$(call add,CONTROL,postfix:server)
 
-use/server/groups/base: use/server
+use/server/groups/tools: use/server
+	@$(call add,MAIN_GROUPS,diag-tools ipmi monitoring)
+
+use/server/groups/services: use/server
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
-	@$(call add,MAIN_GROUPS,ipmi mysql-server dhcp-server mail-server)
-	@$(call add,MAIN_GROUPS,monitoring diag-tools)
+	@$(call add,MAIN_GROUPS,dhcp-server mail-server mysql-server)
+
+use/server/groups/base: use/server/groups/tools use/server/groups/services; @:
