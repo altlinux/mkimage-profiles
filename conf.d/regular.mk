@@ -77,6 +77,7 @@ distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
 	@$(call add,CLEANUP_PACKAGES,'glib2*' libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,STAGE2_BOOTARGS,quiet)
+	@$(call set,KFLAVOURS,un-def)
 
 # NB: no +efi as it brings in grub2 (no ELILO support for system boot)
 distro/regular-jeos-ovz: distro/.regular-jeos \
