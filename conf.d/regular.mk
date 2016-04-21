@@ -73,6 +73,7 @@ distro/.regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
 	use/install2/vmguest use/vmguest/base
+	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-jeos)
 	@$(call add,CLEANUP_PACKAGES,'glib2*' libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
