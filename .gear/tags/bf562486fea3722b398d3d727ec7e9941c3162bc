@@ -1,6 +1,0 @@
-object 004ff14c64e3fd4b512e87985898d8058eaad1ba
-type commit
-tag v1.1.88
-tagger Michael Shigorin <mike@altlinux.org> 1460399916 +0300
-
-pkg.in/profiles
