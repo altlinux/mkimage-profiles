@@ -128,7 +128,7 @@ distro/live-privacy: distro/.base +power +efi +systemd +vmguest \
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_LISTS,$(call tags,archive extra))
 	@$(call add,LIVE_PACKAGES,chromium gedit mc-full pinta xchm livecd-ru)
-	@$(call add,LIVE_PACKAGES,LibreOffice4-langpack-ru java-1.7.0-openjdk)
+	@$(call add,LIVE_PACKAGES,LibreOffice-langpack-ru java-1.8.0-openjdk)
 	@$(call add,LIVE_PACKAGES,mate-document-viewer-caja)
 	@$(call add,LIVE_PACKAGES,mate-document-viewer-djvu)
 	@$(call add,LIVE_PACKAGES,cups system-config-printer livecd-admin-cups)
