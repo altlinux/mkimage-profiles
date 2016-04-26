@@ -31,7 +31,9 @@ use/fonts/otf/mozilla:
 	@$(call add,THE_PACKAGES,fonts-otf-mozilla-fira)
 
 use/fonts/ttf/google:
-	@$(call add,THE_PACKAGES,fonts-ttf-droid)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-sans)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-sans-mono)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-serif)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-arimo)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-cousine)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-tinos)
