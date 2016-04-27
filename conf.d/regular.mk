@@ -242,9 +242,12 @@ distro/.regular-server: distro/.regular-install \
 distro/.regular-server-managed: distro/.regular-server
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
+	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
-distro/regular-server: distro/.regular-server-managed use/server/groups/base; @:
+distro/regular-server: distro/.regular-server-managed use/server/groups/base
+	@$(call add,MAIN_GROUPS,sambaDC-server)
+	@$(call add,MAIN_GROUPS,hyperv-tools)
 
 distro/regular-server-ovz: distro/.regular-server \
 	use/server/ovz use/server/groups/tools use/cleanup/x11-alterator
@@ -252,7 +255,6 @@ distro/regular-server-ovz: distro/.regular-server \
 
 distro/regular-server-hyperv: distro/.regular-server-managed
 	@$(call set,KFLAVOURS,un-def)
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
