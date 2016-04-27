@@ -4,6 +4,7 @@ vim-console
 openssh-server
 openssh-clients
 rsync
+strace
 
 bash-completion
 inxi
