@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Hyper-V tools
+Name[ru_RU]=Утилиты для Hyper-V
+X-Alterator-PackageList=hyperv-tools
+X-Alterator-Required=no
+Categories=Server;Virtualization
