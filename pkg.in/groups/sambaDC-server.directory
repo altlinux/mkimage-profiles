@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Samba Server (AD, SMB/CIFS)
+Name[ru_RU]=Samba-сервер (AD, SMB/CIFS)
+X-Alterator-PackageList=sambaDC-server
+X-Alterator-Required=no
+Categories=Server;Networking
+

@@ -1,0 +1,5 @@
+task-samba-dc
+bind-utils
+tdb-utils
+
+installer-feature-sambaDC-stage3
