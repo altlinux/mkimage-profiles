@@ -246,7 +246,7 @@ distro/.regular-server-managed: distro/.regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
 distro/regular-server: distro/.regular-server-managed use/server/groups/base
-	@$(call add,MAIN_GROUPS,sambaDC-server)
+	@$(call add,MAIN_GROUPS,sambaDC-server pgsql-server pgsql-1C-server)
 	@$(call add,MAIN_GROUPS,hyperv-tools)
 
 distro/regular-server-ovz: distro/.regular-server \
