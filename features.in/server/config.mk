@@ -38,5 +38,6 @@ use/server/groups/tools: use/server
 use/server/groups/services: use/server
 	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
 	@$(call add,MAIN_GROUPS,dhcp-server mail-server mysql-server)
+	@$(call add,MAIN_GROUPS,pgsql-server)
 
 use/server/groups/base: use/server/groups/tools use/server/groups/services; @:

@@ -5,5 +5,5 @@ Name=PostgreSQL Server (for 1C)
 Name[ru_RU]=Сервер PostgreSQL (вариант для 1С)
 X-Alterator-PackageList=pgsql-1C-server
 X-Alterator-Required=no
+X-Alterator-Conflicts=pgsql-server
 Categories=Server;Networking;
-

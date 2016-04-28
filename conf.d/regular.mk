@@ -232,7 +232,8 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
 distro/.regular-server: distro/.regular-install \
-	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/x11
+	use/server/mini use/firmware/qlogic use/rescue/base \
+	use/cleanup/x11 use/stage2/kms
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
@@ -246,7 +247,7 @@ distro/.regular-server-managed: distro/.regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
 distro/regular-server: distro/.regular-server-managed use/server/groups/base
-	@$(call add,MAIN_GROUPS,sambaDC-server pgsql-server pgsql-1C-server)
+	@$(call add,MAIN_GROUPS,sambaDC-server)
 	@$(call add,MAIN_GROUPS,hyperv-tools)
 
 distro/regular-server-ovz: distro/.regular-server \
