@@ -52,7 +52,8 @@ distro/live-rescue: distro/live-icewm +efi
 
 # NB: this one doesn't include the browser, needs to be chosen downstream
 distro/.live-webkiosk: distro/.live-kiosk \
-	use/isohybrid use/live/hooks use/live/ru use/sound
+	use/isohybrid use/live/hooks use/live/ru use/sound \
+	use/stage2/kms use/x11/xorg
 	@$(call add,LIVE_LISTS,$(call tags,live desktop))
 
 distro/.live-webkiosk-gtk: distro/.live-webkiosk
