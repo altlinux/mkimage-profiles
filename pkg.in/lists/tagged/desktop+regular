@@ -38,3 +38,5 @@ ldd-requires
 gparted
 
 x11-ssh-askpass
+
+sysfsutils
