@@ -16,7 +16,8 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call xport,INSTALL2_CLEANUP_KDRIVERS)
 
 # doesn't use/install2/fs on purpose (at least so far)
-use/install2/full: use/install2/packages use/install2/vmguest \
+use/install2/full: \
+	use/install2/packages use/install2/vmguest use/install2/tools \
 	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader; @:
 
 # for distributions with their own -stage3 installer part
@@ -74,6 +75,10 @@ use/install2/reiserfs:
 # prepare bootloader for software suspend (see also live)
 use/install2/suspend:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
+
+# extras
+use/install2/tools:
+	@$(call add,INSTALL2_PACKAGES,pxz)
 
 # when VNC installation is less welcome than a few extra megs
 use/install2/cleanup/vnc:
