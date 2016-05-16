@@ -6,13 +6,14 @@
 # the very minimal driver set
 use/x11:
 	@$(call add_feature)
-	@$(call add,THE_KMODULES,drm)	# required by recent nvidia.ko as well
 	@$(call add,THE_LISTS,$(call tags,base xorg))
+	@$(call add,THE_KMODULES,drm)	# required by recent nvidia.ko as well
+	@$(call add,THE_KMODULES,$$(NVIDIA_KMODULES) $$(RADEON_KMODULES))
+	@$(call add,THE_PACKAGES,$$(NVIDIA_PACKAGES) $$(RADEON_PACKAGES))
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/x11/xorg: use/x11 use/x11/intel use/firmware
-	@$(call add,THE_KMODULES,drm-radeon drm-nouveau)
+use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 else
 use/x11/xorg: use/x11; @:
@@ -24,20 +25,25 @@ use/x11/intel: use/x11
 	@$(call add,THE_PACKAGES,xorg-dri-intel)	### #25044
 
 # for those cases when no 3D means no use at all
-# NB: blobs won't Just Work (TM) with use/x11/xorg,
-#     nouveau gets prioritized during autodetection
+# NB: blobs won't Just Work (TM) along with nouveau/radeon
+#     as free drivers get prioritized during autodetection
 #use/x11/3d: use/x11/intel use/x11/nvidia use/x11/fglrx; @:
 use/x11/3d: use/x11/intel use/x11/nvidia/optimus use/x11/radeon; @:
 
+# somewhat lacking compared to radeon but still
+use/x11/nouveau: use/x11 use/firmware
+	@$(call set,NVIDIA_KMODULES,drm-nouveau)
+	@$(call set,NVIDIA_PACKAGES,xorg-drv-nouveau)
+
 # has performance problems but is getting better, just not there yet
 use/x11/radeon: use/x11 use/firmware
-	@$(call add,THE_KMODULES,drm-radeon)
-	@$(call add,THE_PACKAGES,xorg-drv-ati xorg-drv-radeon)
+	@$(call set,RADEON_KMODULES,drm-radeon)
+	@$(call set,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
 # sometimes broken with current xorg-server
 use/x11/nvidia: use/x11
-	@$(call add,THE_KMODULES,nvidia)
-	@$(call add,THE_PACKAGES,nvidia-settings nvidia-xconfig)
+	@$(call set,NVIDIA_KMODULES,nvidia)
+	@$(call set,NVIDIA_PACKAGES,nvidia-settings nvidia-xconfig)
 
 use/x11/nvidia/optimus: use/x11/nvidia
 	@$(call add,THE_KMODULES,bbswitch)
@@ -45,8 +51,8 @@ use/x11/nvidia/optimus: use/x11/nvidia
 
 # oftenly broken with current xorg-server, use radeon then
 use/x11/fglrx: use/x11
-	@$(call add,THE_KMODULES,fglrx)
-	@$(call add,THE_PACKAGES,fglrx_glx fglrx-tools)
+	@$(call set,RADEON_KMODULES,fglrx)
+	@$(call set,RADEON_PACKAGES,fglrx_glx fglrx-tools)
 
 use/x11/wacom: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-wacom xorg-drv-wizardpen)
