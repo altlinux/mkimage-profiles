@@ -1,0 +1,6 @@
+object 4f1f1fb60131a7017fd4e1d07132b71b549427a0
+type commit
+tag v1.1.91
+tagger Michael Shigorin <mike@altlinux.org> 1464029563 +0300
+
+overlayfs
