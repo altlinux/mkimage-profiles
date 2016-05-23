@@ -24,3 +24,6 @@ lxde-lxlauncher
 
 # instead of a (missing) native notification display
 notify-osd
+
+# for lock screen session menu entry
+xscreensaver-frontend
