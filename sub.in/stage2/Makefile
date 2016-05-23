@@ -13,6 +13,10 @@ include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
+COPY_TREE = ./files
+
+include $(MKIMAGE_PREFIX)/targets.mk
+
 # this might have been prepared
 # by features.in/stage2/stage1/scripts.d/03-test-kernel
 -include $(GLOBAL_BUILDDIR)/squashcfg.mk
@@ -57,7 +61,7 @@ include $(MKIMAGE_PREFIX)/targets.mk
 GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 
 all: |  $(GLOBAL_DEBUG) \
-	build-image run-image-scripts run-scripts pack-image \
+	build-image run-image-scripts copy-tree run-scripts pack-image \
 	$(GLOBAL_CLEAN_WORKDIR)
 
 # dummy
