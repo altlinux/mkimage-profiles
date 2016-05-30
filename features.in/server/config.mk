@@ -1,15 +1,18 @@
 use/server: use/power/acpi/button
 	@$(call add_feature)
 
-use/server/mini: use/server use/firmware/server \
+use/server/base: use/server use/firmware/server \
 	use/net-ssh use/syslinux/timeout/600
+	@$(call add,THE_LISTS,server-base)
 	@$(call add,THE_KMODULES,e1000e igb)
 	@$(call add,STAGE1_KMODULES,e1000e igb)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
+
+use/server/mini: use/server/base
 	@$(call add,THE_LISTS,\
-		$(call tags,base && (server || network || security || pkg)))
+		$(call tags,base && (network || security || pkg)))
 	@$(call add,THE_LISTS,$(call tags,extra && (server || network)))
 	@$(call add,MAIN_LISTS,osec)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus lvm2-lvmetad)
 
 use/server/ovz-base: use/server
