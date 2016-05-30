@@ -1,0 +1,6 @@
+object a6dc910d144a87c1c5303b3d8f6d5ca929c8a7c0
+type commit
+tag v1.1.92
+tagger Michael Shigorin <mike@altlinux.org> 1464632677 +0300
+
+server-openstack
