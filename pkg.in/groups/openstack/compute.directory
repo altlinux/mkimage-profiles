@@ -4,5 +4,6 @@ Type=Directory
 Name=Computing Node
 X-Alterator-PackageList=openstack/compute
 X-Alterator-Required=no
+X-Alterator-Conflicts=openstack/block openstack/controller openstack/network openstack/storage
 Name[ru_RU]=Вычислительный узел
 
