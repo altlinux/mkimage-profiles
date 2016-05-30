@@ -232,12 +232,14 @@ distro/regular-sysv-tde: distro/.regular-install-x11 \
 	@$(call add,THE_PACKAGES,kpowersave)
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
-distro/.regular-server: distro/.regular-install \
-	use/server/mini use/firmware/qlogic use/rescue/base \
-	use/cleanup/x11 use/stage2/kms
+distro/.regular-server-base: distro/.regular-install \
+	use/server/base use/stage2/kms
 	@$(call add,THE_LISTS,$(call tags,regular server))
-	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call set,INSTALLER,altlinux-server)
+
+distro/.regular-server: distro/.regular-server-base \
+	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/x11
+	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge)
 
