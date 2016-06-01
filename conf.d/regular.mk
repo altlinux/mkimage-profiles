@@ -250,12 +250,12 @@ distro/.regular-server-managed: distro/.regular-server
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
 distro/regular-server: distro/.regular-server-managed use/server/groups/base
-	@$(call add,MAIN_GROUPS,sambaDC-server)
-	@$(call add,MAIN_GROUPS,hyperv-tools)
+	@$(call add,MAIN_GROUPS,server/sambaDC)
+	@$(call add,MAIN_GROUPS,tools/hyperv)
 
 distro/regular-server-ovz: distro/.regular-server \
 	use/server/ovz use/server/groups/tools use/cleanup/x11-alterator
-	@$(call add,MAIN_GROUPS,vzstats)
+	@$(call add,MAIN_GROUPS,tools/vzstats)
 
 distro/regular-server-hyperv: distro/.regular-server-managed
 	@$(call set,KFLAVOURS,un-def)
@@ -265,7 +265,7 @@ distro/regular-server-hyperv: distro/.regular-server-managed
 
 distro/.regular-server-openstack: distro/.regular-server-base \
 	use/firmware/qlogic use/server/groups/openstack
-	@$(call add,MAIN_GROUPS,ipmi monitoring)
+	@$(call add,MAIN_GROUPS,tools/ipmi tools/monitoring)
 
 distro/regular-server-openstack: distro/.regular-server-openstack +systemd; @:
 

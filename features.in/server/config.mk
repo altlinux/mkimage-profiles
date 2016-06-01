@@ -36,12 +36,12 @@ use/server/zabbix: use/server use/services use/control
 	@$(call add,CONTROL,postfix:server)
 
 use/server/groups/tools: use/server
-	@$(call add,MAIN_GROUPS,diag-tools ipmi monitoring)
+	@$(call add,MAIN_GROUPS,tools/diag tools/ipmi tools/monitoring)
 
 use/server/groups/services: use/server
-	@$(call add,MAIN_GROUPS,dns-server http-server ftp-server kvm-server)
-	@$(call add,MAIN_GROUPS,dhcp-server mail-server mysql-server)
-	@$(call add,MAIN_GROUPS,pgsql-server)
+	@$(call add,MAIN_GROUPS,server/dns server/http server/ftp server/kvm)
+	@$(call add,MAIN_GROUPS,server/dhcp server/mail server/mysql)
+	@$(call add,MAIN_GROUPS,server/pgsql)
 
 use/server/groups/base: use/server/groups/tools use/server/groups/services; @:
 
