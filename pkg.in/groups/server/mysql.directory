@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=FTP Server
-X-Alterator-PackageList=ftp-server
+Name=MySQL Server
+X-Alterator-PackageList=server/mysql
 X-Alterator-Required=no
-Name[ru_RU]=Сервер FTP
+Name[ru_RU]=Сервер MySQL
 Categories=Server;Networking
 

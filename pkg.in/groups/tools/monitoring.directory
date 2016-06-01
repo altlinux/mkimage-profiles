@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Monitoring
-X-Alterator-PackageList=monitoring
+X-Alterator-PackageList=tools/monitoring
 X-Alterator-Required=no
 Name[ru_RU]=Средства мониторинга системы
 Categories=Server;Monitoring

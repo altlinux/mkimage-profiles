@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=DNS Server
-X-Alterator-PackageList=dns-server
+X-Alterator-PackageList=server/dns
 X-Alterator-Required=no
 Name[ru_RU]=Сервер DNS
 Categories=Server;Networking

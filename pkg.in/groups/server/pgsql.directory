@@ -3,7 +3,7 @@ Encoding=UTF-8
 Type=Directory
 Name=PostgreSQL Server
 Name[ru_RU]=Сервер PostgreSQL
-X-Alterator-PackageList=pgsql-server
+X-Alterator-PackageList=server/pgsql
 X-Alterator-Required=no
 Categories=Server;Networking;
 

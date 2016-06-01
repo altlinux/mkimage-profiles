@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Virtualization with KVM
-X-Alterator-PackageList=kvm-server
+X-Alterator-PackageList=server/kvm
 X-Alterator-Required=no
 Name[ru_RU]=Сервер виртуализации KVM
 Categories=Server;Virtualization

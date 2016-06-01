@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=MySQL Server
-X-Alterator-PackageList=mysql-server
+Name=DHCP Server
+X-Alterator-PackageList=server/dhcp
 X-Alterator-Required=no
-Name[ru_RU]=Сервер MySQL
+Name[ru_RU]=Сервер DHCP
 Categories=Server;Networking
 

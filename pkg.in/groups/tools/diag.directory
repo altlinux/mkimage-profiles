@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Diagnostic tools
-X-Alterator-PackageList=diag-tools
+X-Alterator-PackageList=tools/diag
 X-Alterator-Required=no
 Name[ru_RU]=Утилиты для диагностики
 Categories=Server;Diagnostics
