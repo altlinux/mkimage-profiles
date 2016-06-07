@@ -272,6 +272,14 @@ distro/regular-server-openstack: distro/.regular-server-openstack +systemd; @:
 distro/regular-server-openstack-sysv: distro/.regular-server-openstack +sysvinit
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
 
+distro/regular-server-pve: distro/.regular-server-base \
+	use/firmware/qlogic +efi +systemd
+	@$(call set,BASE_BOOTLOADER,grub)
+	@$(call set,INSTALLER,altlinux-server)
+	@$(call add,THE_PACKAGES,pve-manager)
+	@$(call add,THE_KMODULES,ipset kvm)
+	@$(call add,DEFAULT_SERVICES_ENABLE,pve-manager)
+
 distro/regular-builder: distro/.regular-bare \
 	use/dev/builder/full +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
