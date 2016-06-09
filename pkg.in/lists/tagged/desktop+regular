@@ -36,6 +36,7 @@ fonts-bitmap-terminus
 ldd-requires
 
 gparted
+gpart
 
 x11-ssh-askpass
 
