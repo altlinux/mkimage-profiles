@@ -18,7 +18,8 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: \
 	use/install2/packages use/install2/vmguest use/install2/tools \
-	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader; @:
+	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader
+	@$(call add,INSTALL2_PACKAGES,xorg-drv-synaptics)
 
 # for distributions with their own -stage3 installer part
 use/install2/stage3: use/install2
