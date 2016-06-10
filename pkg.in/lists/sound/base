@@ -1,3 +1,5 @@
 amixer
 alsa-utils
 aplay
+
+alsa-set-initial-options
