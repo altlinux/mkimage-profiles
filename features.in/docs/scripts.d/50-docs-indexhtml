@@ -14,9 +14,9 @@ indexfile="$indexdir/index.html"
 [ -s "$indexfile" ] || nonfatal "$indexfile not found"
 
 [ -n "$GLOBAL_LOCALE" ] ||
-	echo "** warning: GLOBAL_LOCALE empty, maybe use/l10n" >&2
+	echo "** warning: GLOBAL_LOCALE empty, fallback to en_US (use/l10n?)">&2
 
-LANG="$GLOBAL_LOCALE" indexhtml-update
+LANG="${GLOBAL_LOCALE:-en_US}" indexhtml-update
 
 # http://unix.stackexchange.com/questions/94185/convert-soft-to-hardlinks
 cp -aH "$indexdir" "$dest"
