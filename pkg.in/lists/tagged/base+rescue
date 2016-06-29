@@ -20,3 +20,6 @@ fdisk
 
 # Serial console
 agetty
+
+# Console mouse
+gpm
