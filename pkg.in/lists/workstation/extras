@@ -1,0 +1,6 @@
+# GOST encryption
+cryptopro-preinstall
+
+# just in case
+kernel-headers-modules-std-def
+kernel-headers-std-def

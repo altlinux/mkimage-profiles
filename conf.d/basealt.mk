@@ -42,6 +42,7 @@ distro/basealt-workstation: distro/.base use/luks  \
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 	@$(call add,MAIN_GROUPS,$(workstation_groups))
+	@$(call add,MAIN_LISTS,workstation/extras)
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,LIVE_LISTS,$(call tags,desktop office))
