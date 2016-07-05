@@ -1,5 +1,5 @@
 e17-default
 evas_generic_loaders
 gnome-icon-theme
-e17-extra-modules
-xterm
+terminology
+ConsoleKit
