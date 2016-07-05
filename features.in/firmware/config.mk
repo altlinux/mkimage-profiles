@@ -9,7 +9,7 @@ use/firmware:
 use/firmware/full: use/firmware/server use/firmware/laptop; @:
 
 use/firmware/cpu: use/firmware
-	@$(call add,THE_PACKAGES,microcode-data-intel microcode_ctl)
+	@$(call add,THE_PACKAGES,firmware-intel-ucode iucode_tool)
 
 use/firmware/server: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
