@@ -60,6 +60,7 @@ COPY_TREE = ./files
 CLEANUP_OUTDIR ?=
 
 GLOBAL_TARGET := $(ARCH)
+GLOBAL_HSH_LANGS := $(INSTALL_LANGS)
 GLOBAL_HSH_APT_CONFIG := $(wildcard $(APTCONF))
 
 # take the latter part for complex-specified subprofiles like stage2@live;
@@ -114,5 +115,6 @@ debug::
 	@echo "IMAGEDIR=$(IMAGEDIR)"
 	@echo "ARCH=$(ARCH)"
 	@echo "GLOBAL_TARGET=$(GLOBAL_TARGET)"
+	@echo "GLOBAL_HSH_LANGS=$(GLOBAL_HSH_LANGS)"
 	@echo "GLOBAL_HSH_APT_CONFIG=$(GLOBAL_HSH_APT_CONFIG)"
 	@echo "GLOBAL_HSH_USE_QEMU=$(GLOBAL_HSH_USE_QEMU)"
