@@ -63,7 +63,7 @@ installer-feature-resolver-bind-stage3
 installer-feature-symlinks-from-sbin
 italc2-client
 itest
-java-1.7.0-openjdk-devel
+java-1.8.0-openjdk-devel
 kde-common
 kde4-i18n-ru
 kde4base-runtime
