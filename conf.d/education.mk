@@ -8,5 +8,8 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call set,BRANDING,alt-education)
 	@$(call set,META_VOL_SET,ALT Education 8.0)
 	@$(call add,THE_LISTS,education/desktop)
+	@$(call add,THE_GROUPS,teacher)
+	@$(call add,THE_GROUPS,kde5)
+	@$(call add,THE_GROUPS,server-apps)
 
 endif
