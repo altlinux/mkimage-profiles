@@ -2,6 +2,6 @@
 Encoding=UTF-8
 Type=Directory
 Name=Applications for teacher
-X-Alterator-PackageList=education/teacher
+X-Alterator-PackageList=teacher
 Name[ru_RU]=Программы для учителя
 

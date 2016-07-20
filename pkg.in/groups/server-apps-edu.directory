@@ -2,6 +2,6 @@
 Encoding=UTF-8
 Type=Directory
 Name=Server applications
-X-Alterator-PackageList=education/server-apps
+X-Alterator-PackageList=server-apps-edu
 X-Alterator-Required=no
 Name[ru_RU]=Серверные приложения

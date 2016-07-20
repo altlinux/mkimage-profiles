@@ -10,6 +10,6 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,THE_GROUPS,teacher)
 	@$(call add,THE_GROUPS,kde5)
-	@$(call add,THE_GROUPS,server-apps)
+	@$(call add,THE_GROUPS,server-apps-edu)
 
 endif
