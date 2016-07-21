@@ -116,5 +116,12 @@ xsane-gimp2
 xscreensaver-hacks-rss_glx
 yagf
 zbar
-
+# New stuff
 xfce4-whiskermenu-plugin
+# New utilites
+autossh
+disable-usb-autosuspend
+color-prompt-and-man
+# Popular sofware prerequsites
+1c-preinstall
+cryptopro-preinstall
