@@ -1,8 +1,10 @@
-# Education Set
+# ALT Education
 
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/education: distro/.installer use/slinux/full \
+	use/browser/firefox/esr \
+	use/memtest \
 	use/l10n/default/ru_RU +vmguest
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)

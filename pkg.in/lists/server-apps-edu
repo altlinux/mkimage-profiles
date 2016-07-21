@@ -7,8 +7,8 @@ sp
 clamav
 clamav-db
 
-MySQL-server
-MySQL-client
+mariadb-server
+mariadb-client
 
 #@I586_ONLY@haspd
 #@X86_64_ONLY@i586-haspd
@@ -41,29 +41,29 @@ alterator-console
 alterator-postinstall
 
 # ===== Services =====
-MySQL-server
+mariadb-server
 libmysqlclient18
 rujel
 
 installed-db-office-server-rujel
-MySQL-server
+mariadb-server
 libmysqlclient18
 mediawiki-mysql
 mediawiki
 mediawiki-ldap
 installed-db-office-server-mediawiki
-MySQL-server
+mariadb-server
 libmysqlclient18
 owncloud
 owncloud-apache2
 
 installed-db-office-server-owncloud
-MySQL-server
+mariadb-server
 libmysqlclient18
-moodle2.2
-moodle2.2-apache2
-moodle2.2-local-mysql
-moodle2.2-lang-ru
+moodle2.5
+moodle2.5-apache2
+moodle2.5-local-mysql
+moodle2.5-lang-ru
 moodle-install-tools
 alterator-moodle-install
 installed-db-office-server-moodle
