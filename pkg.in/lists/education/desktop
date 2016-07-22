@@ -129,3 +129,6 @@ color-prompt-and-man
 # Popular sofware prerequsites
 1c-preinstall
 cryptopro-preinstall
+# Virtualization support
+xorg-drv-vmware
+xorg-drv-vmmouse
