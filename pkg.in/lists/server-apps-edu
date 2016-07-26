@@ -45,19 +45,19 @@ mariadb-server
 libmysqlclient18
 rujel
 
-installed-db-office-server-rujel
+#installed-db-office-server-rujel
 mariadb-server
 libmysqlclient18
 mediawiki-mysql
 mediawiki
 mediawiki-ldap
-installed-db-office-server-mediawiki
+#installed-db-office-server-mediawiki
 mariadb-server
 libmysqlclient18
 owncloud
 owncloud-apache2
 
-installed-db-office-server-owncloud
+#installed-db-office-server-owncloud
 mariadb-server
 libmysqlclient18
 moodle2.5
@@ -66,7 +66,7 @@ moodle2.5-local-mysql
 moodle2.5-lang-ru
 moodle-install-tools
 alterator-moodle-install
-installed-db-office-server-moodle
+#installed-db-office-server-moodle
 
 # ===== Base services =====
 
