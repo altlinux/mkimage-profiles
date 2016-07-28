@@ -1,3 +1,6 @@
+# x86: various VM guest modules/tools
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+
 +vmguest: use/vmguest/complete; @:
 
 use/vmguest:
@@ -25,3 +28,9 @@ use/vmguest/vmware:
 
 use/vmguest/vmware/x11: use/vmguest/vmware
 	@$(call add,THE_PACKAGES,xorg-drv-vmware)
+
+else
+
++vmguest: ;@:
+
+endif
