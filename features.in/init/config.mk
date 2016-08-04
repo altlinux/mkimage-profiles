@@ -1,5 +1,5 @@
 +sysvinit: use/init/sysv; @:
-+systemd: use/init/systemd; @:
++systemd: use/init/systemd/full; @:
 
 use/init:
 	@$(call add_feature)
@@ -18,6 +18,9 @@ use/init/sysv/polkit: use/init/sysv
 use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-journald-tty)
+
+use/init/systemd/full: use/init/systemd
+	@$(call add,THE_PACKAGES,bash-completion-systemd)
 
 # http://www.freedesktop.org/wiki/Software/systemd/Debugging
 use/init/systemd/debug: use/init/systemd use/services
