@@ -84,10 +84,13 @@ use/x11/icewm: use/x11
 use/x11/tde: use/x11
 	@$(call add,THE_LISTS,$(call tags,tde desktop))
 
-use/x11/kde4-lite: use/x11
+use/x11/kde/synaptic:
+	@$(call add,THE_PACKAGES,synaptic-kde synaptic-usermode-)
+
+use/x11/kde4-lite: use/x11 use/x11/kde/synaptic
 	@$(call add,THE_LISTS,$(call tags,kde4 desktop))
 
-use/x11/kde4: use/x11
+use/x11/kde4: use/x11 use/x11/kde/synaptic
 	@$(call add,THE_PACKAGES,kde4-default)
 	@$(call add,IM_PACKAGES,imsettings-qt)
 
@@ -151,5 +154,5 @@ use/x11/dwm: use/x11
 use/x11/leechcraft: use/x11
 	@$(call add,THE_PACKAGES,leechcraft)
 
-use/x11/kde5: use/x11/xorg
+use/x11/kde5: use/x11/xorg use/x11/kde/synaptic
 	@$(call add,THE_PACKAGES,kde5-maxi kf5-i18n-ru kde5-i18n-ru)
