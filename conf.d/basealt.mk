@@ -3,7 +3,7 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/basealt-workstation: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
 	blender emulators gnome-peer-to-peer graphics-editing \
-	gtk-dictionary libreoffice mate-usershare pidgin qgis remmina \
+	gtk-dictionary libreoffice mate-usershare pidgin remmina \
 	scanning scribus sound-editing vlc \
 	freecad ganttproject thunderbird \
 	kvm virtualbox)
