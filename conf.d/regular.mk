@@ -39,8 +39,9 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,upower bluez)
+	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
-	@$(call add,DEFAULT_SERVICES_ENABLE,powertop)
+	@$(call add,DEFAULT_SERVICES_DISABLE,powertop)
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
@@ -153,6 +154,7 @@ distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
 	@$(call set,META_VOL_ID,ALT $(IMAGE_NAME)) # see also #28271
+	@$(call add,DEFAULT_SERVICES_ENABLE,powertop)
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
@@ -182,6 +184,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
+	@$(call add,DEFAULT_SERVICES_ENABLE,powertop)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 	use/net/connman use/browser/qupzilla +plymouth
