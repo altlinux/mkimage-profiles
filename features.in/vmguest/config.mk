@@ -7,7 +7,8 @@ use/vmguest:
 	@$(call add_feature)
 
 use/vmguest/base: use/vmguest/vbox use/vmguest/vmware; @:
-use/vmguest/complete: use/vmguest/base use/vmguest/vbox/x11 use/vmguest/kvm; @:
+use/vmguest/complete: use/vmguest/base \
+	use/vmguest/vbox/x11 use/vmguest/vmware/x11 use/vmguest/kvm; @:
 
 use/vmguest/vbox: use/vmguest
 	@$(call add,THE_KMODULES,virtualbox-addition vboxguest)
