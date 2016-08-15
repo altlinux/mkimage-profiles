@@ -23,10 +23,7 @@ distro/alt-p8-tde-sysv: distro/regular-tde-sysv mixin/p8; @:
 distro/alt-p8-wmaker: distro/regular-wmaker mixin/p8; @:
 distro/alt-p8-xfce: distro/regular-xfce mixin/p8; @:
 distro/alt-p8-xfce-sysv: distro/regular-xfce-sysv mixin/p8; @:
-
-distro/alt-p8-enlightenment: distro/regular-enlightenment mixin/p8
-	@$(call set,META_VOL_ID,ALT p8 E/$(ARCH))
-
+distro/alt-p8-enlightenment: distro/regular-enlightenment mixin/p8; @:
 distro/alt-p8-sysv-tde: distro/regular-sysv-tde mixin/p8; @:
 
 distro/alt-p8-jeos: distro/regular-jeos mixin/p8; @:
