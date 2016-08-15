@@ -144,15 +144,15 @@ distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality; @:
 
 distro/regular-enlightenment: distro/.regular-gtk \
 	use/x11/enlightenment use/fonts/infinality
-	@$(call set,META_VOL_ID,ALT Linux regular-E/$(ARCH))
+	@$(call set,META_VOL_ID,ALT regular-E/$(ARCH))
 
 distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 	use/x11/enlightenment
-	@$(call set,META_VOL_ID,ALT Linux regular-E-SysV/$(ARCH))
+	@$(call set,META_VOL_ID,ALT regular-E-SysV/$(ARCH))
 
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
-	@$(call set,META_VOL_ID,ALT Linux $(IMAGE_NAME)) # see also #28271
+	@$(call set,META_VOL_ID,ALT $(IMAGE_NAME)) # see also #28271
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
