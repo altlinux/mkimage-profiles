@@ -151,8 +151,7 @@ distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 	@$(call set,META_VOL_ID,ALT regular-E-SysV/$(ARCH)) # see also #28271
 
 distro/regular-cinnamon: distro/.regular-gtk \
-	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im
-	@$(call add,DEFAULT_SERVICES_ENABLE,powertop)
+	use/x11/cinnamon use/fonts/infinality use/net/nm/mmgui use/im; @:
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
@@ -182,7 +181,6 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
-	@$(call add,DEFAULT_SERVICES_ENABLE,powertop)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 	use/net/connman use/browser/qupzilla +plymouth
