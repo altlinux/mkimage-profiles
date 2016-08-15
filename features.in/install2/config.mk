@@ -55,7 +55,7 @@ use/install2/vbox:
 use/install2/vmware:
 	@$(call add,STAGE1_KMODULES,vmware)
 	@$(call add,STAGE1_KMODULES,scsi)	# mptspi in led-ws
-	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware)
+	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
 
 # NB: sort of conflicts with use/install2/cleanup/vnc
 use/install2/vnc:

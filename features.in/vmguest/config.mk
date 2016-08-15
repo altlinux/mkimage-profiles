@@ -27,7 +27,7 @@ use/vmguest/vmware:
 	@$(call add,THE_KMODULES,scsi)	# mptspi.ko
 
 use/vmguest/vmware/x11: use/vmguest/vmware
-	@$(call add,THE_PACKAGES,xorg-drv-vmware)
+	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
 
 else
 
