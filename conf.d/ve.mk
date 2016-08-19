@@ -8,7 +8,7 @@ ve/base: ve/bare
 	@$(call add,BASE_PACKAGES,interactivesystem)
 
 # a particular package list
-ve/ldv: ve/bare
+ve/ldv: ve/bare use/control/server/ldv
 	@$(call add,BASE_PACKAGES,xz bzip2 glibc hostinfo less)
 	@$(call add,BASE_PACKAGES,vim-console netlist rsync time)
 	@$(call add,BASE_PACKAGES,openssh-blacklist openssh-server)
