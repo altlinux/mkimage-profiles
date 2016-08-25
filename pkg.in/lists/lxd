@@ -4,3 +4,6 @@ lxc
 cgmanager
 lxcfs
 lxd
+
+# For storage creation
+python3
