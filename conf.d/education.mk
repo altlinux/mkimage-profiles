@@ -18,5 +18,7 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,usbutils pv syslinux lftp links2 openssh-server xinput xorg-drv-libinput)
 	@$(call add,THE_KMODULES,lsadrv)
 	@$(call add,BASE_PACKAGES,os-prober)
+	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
+	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
 
 endif
