@@ -16,7 +16,6 @@ basic256
 bumblebee
 cabextract
 cheese
-dia
 dict-mueller7-utf8
 firmware-p54
 fonts-ttf-gost
@@ -62,7 +61,6 @@ quick-usb-formatter
 rpm-build
 sane
 sane-frontends
-scratch
 setbranding
 smplayer
 system-report
