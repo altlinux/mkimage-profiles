@@ -11,6 +11,7 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call set,BRANDING,alt-education)
 	@$(call set,META_VOL_SET,ALT Education 8.0)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse disable-usb-autosuspend xorg-drv-libinput)
+	@$(call add,BASE_LISTS,education/base)
 	@$(call add,BASE_GROUPS,education/teacher)
 	@$(call add,BASE_GROUPS,education/kde5)
 	@$(call add,BASE_GROUPS,education/server-apps-edu)
