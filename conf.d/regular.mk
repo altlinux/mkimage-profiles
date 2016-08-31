@@ -42,6 +42,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop)
+	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
@@ -166,7 +167,7 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 mixin/regular-tde: +tde \
 	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
 	@$(call add,THE_PACKAGES,kdeedu)
-	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluez)
+	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluetoothd)
 
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
 	use/x11/gtk/nm use/net/nm/mmgui
