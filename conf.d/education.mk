@@ -21,5 +21,6 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
 	@$(call add,THE_PACKAGES,os-prober)
 	@$(call add,THE_LISTS,education/desktop)
+	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
 endif
