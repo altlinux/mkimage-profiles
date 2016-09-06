@@ -19,6 +19,7 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
+	@$(call add,DEFAULT_SERVICES_DISABLE,powertop)
 	@$(call add,EFI_BOOTARGS,live_rw)
 
 # common WM live/installer bits
@@ -41,7 +42,6 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,THE_PACKAGES,upower bluez)
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
-	@$(call add,DEFAULT_SERVICES_DISABLE,powertop)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,KFLAVOURS,std-def)
 
