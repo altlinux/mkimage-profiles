@@ -7,7 +7,7 @@ use/browser:
 use/browser/firefox: use/browser
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
 
-use/browser/seamonkey \
+use/browser/seamonkey use/browser/palemoon \
 	use/browser/chromium use/browser/epiphany \
 	use/browser/qupzilla use/browser/rekonq \
 	use/browser/elinks use/browser/links2: \
@@ -44,6 +44,9 @@ use/browser/firefox/classic: use/browser/firefox
 
 use/browser/seamonkey/i18n: use/browser/seamonkey
 	@$(call add,THE_BROWSER,seamonkey-ru)
+
+use/browser/palemoon/i18n: use/browser/palemoon
+	@$(call add,THE_BROWSER,palemoon-ru)
 
 # inherently insecure, NPAPI only
 use/browser/plugin/flash: use/browser
