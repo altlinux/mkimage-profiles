@@ -94,7 +94,7 @@ distro/.regular-install-x11: distro/.regular-install \
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
-	use/browser/seamonkey/i18n use/fonts/ttf/redhat
+	use/browser/palemoon/i18n use/fonts/ttf/redhat
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call add,LIVE_PACKAGES,mnt winswitch xpra)
 	@$(call set,KFLAVOURS,un-def)
@@ -107,7 +107,7 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker: distro/.regular-sysv \
-	mixin/regular-wmaker use/live/autologin use/browser/seamonkey/i18n
+	mixin/regular-wmaker use/live/autologin use/browser/palemoon/i18n
 	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
