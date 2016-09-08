@@ -51,6 +51,7 @@ distro/basealt-workstation: distro/.base use/luks  \
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
+	@$(call add,THE_LISTS,$(call tags,clamav && (base || desktop))
 	@$(call add,LIVE_PACKAGES,virt-viewer vlc)
 	@$(call add,LIVE_PACKAGES,volumes-profile-regular)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
