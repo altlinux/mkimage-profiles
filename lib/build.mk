@@ -90,6 +90,7 @@ build-image: profile/populate
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi; \
+	if [ -n "$(AUTOCLEAN)" -a $$RETVAL = 0 ]; then $(MAKE) distclean; fi; \
 	if [ -n "$(BELL)" ]; then echo -ne '\a'; fi; \
 	exit $$RETVAL; \
 	} >&2
