@@ -30,7 +30,8 @@ rm -rf /lib/modules/*/kernel/drivers/char/watchdog
 rm -rf /lib/modules/*/kernel/drivers/cpufreq
 rm -rf /lib/modules/*/kernel/drivers/edac
 rm -rf /lib/modules/*/kernel/drivers/gpio
-rm -rf /lib/modules/*/kernel/drivers/hwmon
+# NB: leave hwmon.ko
+rm -rf /lib/modules/*/kernel/drivers/hwmon/[^h]
 rm -rf /lib/modules/*/kernel/drivers/infiniband	###
 rm -rf /lib/modules/*/kernel/drivers/input/{gameport,joy*}
 rm -rf /lib/modules/*/kernel/drivers/isdn
