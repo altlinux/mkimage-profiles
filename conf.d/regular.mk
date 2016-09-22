@@ -280,7 +280,9 @@ distro/regular-server-pve: distro/.regular-server-base \
 	@$(call add,THE_PACKAGES,pve-manager)
 	@$(call add,THE_PACKAGES,bridge-utils faketime tzdata postfix)
 	@$(call add,THE_KMODULES,ipset kvm)
-	@$(call add,DEFAULT_SERVICES_ENABLE,pve-manager)
+	@$(call add,DEFAULT_SERVICES_DISABLE,pve-manager pve-cluster \
+		pve-firewall pve-ha-crm pve-manager pveproxy pvedaemon \
+		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)
 
 distro/regular-builder: distro/.regular-bare \
 	use/dev/builder/full +sysvinit +efi +power \
