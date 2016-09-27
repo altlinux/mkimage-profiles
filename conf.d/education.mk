@@ -3,7 +3,6 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/education: distro/.installer use/slinux/full \
-	use/browser/firefox/esr \
 	use/memtest \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
 	use/l10n/default/ru_RU +vmguest +efi
@@ -20,6 +19,7 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
 	@$(call add,THE_PACKAGES,os-prober)
+	@$(call add,THE_PACKAGES,firefox-esr firefox-esr-ru)
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
