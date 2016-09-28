@@ -25,7 +25,7 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 # common WM live/installer bits
 mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
-	@$(call add,THE_PACKAGES,alterator-notes)
+	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
 	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
 	@$(call set,THE_IMAGEWRITER,imagewriter)
