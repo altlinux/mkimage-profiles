@@ -50,3 +50,5 @@ autossh
 # Popular sofware prerequsites
 1c-preinstall
 cryptopro-preinstall
+
+installer-feature-xdg-user-dirs
