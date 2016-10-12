@@ -1,7 +1,10 @@
 #i586-citrix-client
-LibreOffice-extensions
-LibreOffice-integrated
-LibreOffice-gnome
+LibreOffice-still-extensions
+LibreOffice-still-integrated
+LibreOffice-still-gnome
+LibreOffice-still-langpack-ru
+mythes-ru
+hyphen-ru
 ^firmware-ipw[[:digit:]].*
 ^firmware-zd[[:digit:]].*
 ^libva-driver-[[:alpha:]]+$
