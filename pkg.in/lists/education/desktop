@@ -9,9 +9,15 @@ hyphen-ru
 ^firmware-zd[[:digit:]].*
 ^libva-driver-[[:alpha:]]+$
 ^xorg-extension-[[:alpha:]]+$
+alterator-groups
+alterator-logs
+syslogd
 alterator-net-general
+alterator-net-openvpn
 alterator-net-wifi
 alterator-postinstall
+alterator-sslkey
+alterator-updates
 altlinux-freedesktop-menu-kde4
 apt-rsync
 avplay
