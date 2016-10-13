@@ -9,6 +9,7 @@ hyphen-ru
 ^firmware-zd[[:digit:]].*
 ^libva-driver-[[:alpha:]]+$
 ^xorg-extension-[[:alpha:]]+$
+accountsservice
 alterator-groups
 alterator-logs
 syslogd
@@ -63,6 +64,7 @@ libnss-fallback
 libsqlite
 lm_sensors3-utils
 logisim
+man-pages-ru
 mc-full
 media-player-info
 nano
