@@ -4,6 +4,7 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/education: distro/.installer use/slinux/full \
 	use/memtest \
+	use/services \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
 	use/l10n/default/ru_RU +vmguest +efi
 	@$(call set,INSTALLER,junior)
