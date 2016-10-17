@@ -33,18 +33,10 @@ for i in $SERVICES; do
 	onoff="$(shell_config_get "$STATUS" "$i")"
 	[ -n "$onoff" ] || continue
 	echo "$i" >> /usr/share/install2/services-"$onoff"
-
-	# create systemd-specific hooks
-	case "$onoff" in
-		on)
-			action=enabled;;
-		off)
-			action=disabled;;
-		*)
-			continue;;
-	esac
-	echo "$i" >> /usr/share/install2/systemd-"$action"
 done
+
+cp -a /usr/share/install2/{services-on,systemd-enabled}
+cp -a /usr/share/install2/{services-off,systemd-disabled}
 
 rm "$STATUS"
 
