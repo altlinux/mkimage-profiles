@@ -23,7 +23,14 @@ kde4-i18n-ru
 kde4base-runtime
 kde4base-runtime-core
 kde4libs
+
 kdenlive
+vlc-maxi
+kde5-i18n-ru
+kf5-i18n-ru
+qt5-translations
+icon-theme-oxygen
+
 keyutils
 krb5-kinit
 lazarus
@@ -38,11 +45,12 @@ puppet
 scratch
 scribus
 shotwell
-tesseract
-tesseract-langpack-ru
 umki
 wxMaxima
-yagf
+
+gimagereader-qt4
+tesseract
+tesseract-langpack-ru
 
 # New utilites
 autossh
