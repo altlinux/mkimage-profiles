@@ -58,5 +58,19 @@ autossh
 # Popular sofware prerequsites
 1c-preinstall
 cryptopro-preinstall
+skype-preinstall
+ICAClient-preinstall
+teamviewer-preinstall
+vmware-view-preinstall
+starboard-preinstall
+google-chrome-preinstall
+yandex-browser-preinstall
 
 installer-feature-xdg-user-dirs
+
+gparted
+rosa-imagewriter
+
+chromium
+chromium-gnome
+ppapi-plugin-adobe-flash
