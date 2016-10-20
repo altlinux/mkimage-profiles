@@ -6,7 +6,8 @@ distro/education: distro/.installer use/slinux/full \
 	use/memtest \
 	use/services \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
-	use/l10n/default/ru_RU +vmguest +efi
+	use/l10n/default/ru_RU +vmguest +efi \
+	+systemd
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
 	@$(call set,META_VOL_SET,ALT Education 8.0)
