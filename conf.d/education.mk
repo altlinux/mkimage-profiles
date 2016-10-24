@@ -23,6 +23,7 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,os-prober)
 	@$(call add,THE_PACKAGES,firefox-esr firefox-esr-ru)
 	@$(call add,THE_PACKAGES,guest-account)
+	@$(call add,THE_PACKAGES,owncloud-client)
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
 	@$(call add,MAIN_PACKAGES,task-samba-dc)
 	@$(call add,MAIN_PACKAGES,kumir2 rujel)
