@@ -2,13 +2,13 @@
 # enable online repos if possible, just quit if anything's wrong
 
 repo_source='/etc/apt/sources.list.d/alt.list'
-host='http://ftp.altlinux.org'
 
 [ -s "$repo_source" ] || exit 0
 
 # regexps from alterator-pkg (via installer-feature-online-repo)
 prefix_re="[[:space:]]*rpm[[:space:]]\+\([^[:space:]]\+[[:space:]]\+\)\?"
-updates_re="${prefix_re}http:\/\/\([^[:space:]]\+\)[[:space:]]*"
+host_re="http:\/\/\([^[:space:]]\+\)[[:space:]]\+"
+updates_re="${prefix_re}${host_re}\([^[:space:]]\+\/\)\?"
 
 # architectures
 host_arch="$(rpm --eval '%_host_cpu')"
