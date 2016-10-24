@@ -71,6 +71,6 @@ installer-feature-xdg-user-dirs
 gparted
 rosa-imagewriter
 
-chromium
-chromium-gnome
+chromium-stable
+chromium-stable-gnome
 ppapi-plugin-adobe-flash

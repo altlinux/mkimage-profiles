@@ -44,6 +44,7 @@ gst-plugins-bad
 gst-plugins-ugly
 htop
 glibc-gconv-modules@i586
+wine-vanilla-programs@i586
 libwine-vanilla-gl@i586
 libwine-vanilla-twain@i586
 wine-vanilla@i586
@@ -89,6 +90,7 @@ xscreensaver-hacks-rss_glx
 zbar
 # New stuff
 xfce4-whiskermenu-plugin
+task-auth-ad
 # New utilites
 disable-usb-autosuspend
 color-prompt-and-man
