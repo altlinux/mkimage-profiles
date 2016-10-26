@@ -179,11 +179,13 @@ nfs-utils
 ngrep
 nmap
 p0f
+pdsh
 rsh
 rsync
 scanssh
 sflowtool
 #shellinabox
+sshpt
 #stunnel
 tcpdump
 tcpflow
