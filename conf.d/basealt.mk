@@ -2,8 +2,8 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
-	blender emulators gnome-peer-to-peer graphics-editing \
-	gtk-dictionary libreoffice mate-usershare pidgin remmina \
+	blender clamav emulators gnome-peer-to-peer graphics-editing \
+	gtk-dictionary libreoffice mate-usershare pidgin raccess \
 	scanning scribus sound-editing vlc \
 	freecad ganttproject thunderbird \
 	kvm virtualbox)
@@ -24,6 +24,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	use/l10n/default/ru_RU \
 	use/control use/services \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
+	use/live/rw \
 	use/x11/lightdm/gtk use/docs/manual use/x11/gtk/nm +nm \
 	use/fonts/ttf/google use/domain-client/full \
 	use/browser/firefox use/browser/firefox/esr
@@ -32,7 +33,9 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,THE_PACKAGES,imagewriter)
 	@$(call add,THE_PACKAGES,mintmenu)
 	@$(call add,THE_PACKAGES,firefox-esr-ru)
+	@$(call add,THE_PACKAGES,chromium)
 	@$(call add,THE_PACKAGES,systemd-udev-console-fb)
+	@$(call add,THE_PACKAGES,gnome-bluetooth)
 	@$(call add,THE_BRANDING,graphics)
 	@$(call add,THE_BRANDING,alterator bootloader bootsplash graphics)
 	@$(call add,THE_BRANDING,notes slideshow)
@@ -51,7 +54,6 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
-	@$(call add,THE_LISTS,$(call tags,clamav && (base || desktop))
 	@$(call add,LIVE_PACKAGES,virt-viewer vlc)
 	@$(call add,LIVE_PACKAGES,volumes-profile-regular)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
@@ -71,8 +73,8 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call set,DOCS,alt-workstation)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
-	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2)
-	@$(call add,DEFAULT_SERVICES_DISABLE,powertop)
+	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2 bluetoothd libvirtd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,powertop bridge)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_VOL_ID,ALT Workstation)
