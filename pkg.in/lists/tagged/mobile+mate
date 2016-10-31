@@ -11,8 +11,8 @@ ConsoleKit
 ConsoleKit-x11
 pam-ck-connector
 notification-daemon
-powermgmt-base
+#powermgmt-base
 acpi
 acpid
-acpid-events-power
+#acpid-events-power
 eeepc-acpi-scripts
