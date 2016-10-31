@@ -6,7 +6,7 @@
 
 USERSHARES_DIR="/var/lib/samba/usershares"
 USERSHARES_GROUP="sambashare"
-DEFAULT_GROUPS='cdwriter cdrom audio proc radio camera floppy xgrp scanner uucp' ###
+DEFAULT_GROUPS='cdwriter cdrom audio video proc radio camera floppy xgrp scanner uucp'
 GROUPS_FILE="/usr/share/install3/default-groups"
 
 mkdir -p "$USERSHARES_DIR"
