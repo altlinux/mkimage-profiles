@@ -4,5 +4,5 @@ Type=Directory
 Name=Remote Desktop access client
 Name[ru_RU]=Доступ к удалённым рабочим столам
 X-Alterator-Parent=workstation/40-virtualization
-X-Alterator-PackageList=workstation/remmina
+X-Alterator-PackageList=workstation/raccess
 X-Alterator-Required=no
