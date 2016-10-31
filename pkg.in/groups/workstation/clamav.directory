@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=ClamAV Antivirus
+Name[ru_RU]=Антивирус ClamAV
+X-Alterator-PackageList=workstation/clamav
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/10-office
+Categories=GNOME;MATE;XFCE;
