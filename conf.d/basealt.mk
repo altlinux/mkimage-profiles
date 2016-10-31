@@ -1,6 +1,6 @@
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/basealt-workstation: workstation_groups = $(addprefix workstation/,\
+distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
 	blender emulators gnome-peer-to-peer graphics-editing \
 	gtk-dictionary libreoffice mate-usershare pidgin remmina \
@@ -8,7 +8,7 @@ distro/basealt-workstation: workstation_groups = $(addprefix workstation/,\
 	freecad ganttproject thunderbird \
 	kvm virtualbox)
 
-distro/basealt-workstation: distro/.base use/luks  \
+distro/alt-workstation: distro/.base use/luks  \
 	+installer +sysvinit +power +systemd +pulse +vmguest +wireless +efi \
 	use/kernel/net use/docs/license \
 	use/vmguest use/memtest \
@@ -66,19 +66,16 @@ distro/basealt-workstation: distro/.base use/luks  \
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,THE_BRANDING,mate-settings)
-	@$(call set,BRANDING,basealt-workstation)
+	@$(call set,BRANDING,alt-workstation)
 	@$(call set,INSTALLER,altlinux-desktop)
-	@$(call set,DOCS,basealt-desktop)
+	@$(call set,DOCS,alt-workstation)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2)
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_VOL_SET,BaseALT)
-	@$(call set,META_VOL_ID,BaseALT Workstation)
-	@$(call set,META_APP_ID,8.0/$(ARCH))
-
-distro/alt-workstation: distro/basealt-workstation
-	@$(call set,BRANDING,alt-workstation)
+	@$(call set,META_VOL_SET,ALT)
+	@$(call set,META_VOL_ID,ALT Workstation)
+	@$(call set,META_APP_ID,8.1/$(ARCH))
 
 endif
