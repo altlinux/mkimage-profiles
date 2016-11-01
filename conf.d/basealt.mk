@@ -2,7 +2,7 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
-	blender clamav emulators gnome-peer-to-peer graphics-editing \
+	3rdparty blender clamav emulators gnome-peer-to-peer graphics-editing \
 	gtk-dictionary libreoffice mate-usershare pidgin raccess \
 	scanning scribus sound-editing vlc \
 	freecad ganttproject thunderbird \
@@ -33,7 +33,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,THE_PACKAGES,imagewriter)
 	@$(call add,THE_PACKAGES,mintmenu)
 	@$(call add,THE_PACKAGES,firefox-esr-ru)
-	@$(call add,THE_PACKAGES,chromium)
+	@$(call add,THE_PACKAGES,chromium chromium-gnome)
 	@$(call add,THE_PACKAGES,systemd-udev-console-fb)
 	@$(call add,THE_PACKAGES,gnome-bluetooth)
 	@$(call add,THE_BRANDING,graphics)
