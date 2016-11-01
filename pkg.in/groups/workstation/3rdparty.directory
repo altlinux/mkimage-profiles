@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=3rd party app support (Chrome, VMware View...)
+Name[ru_RU]=Поддержка сторонних приложений (1С, CryptoPro...)
+X-Alterator-PackageList=workstation/3rdparty
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;XFCE;KDE;KDE4;
