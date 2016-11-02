@@ -64,6 +64,12 @@ write_systemd_iface() {
 		echo
 		echo "[Network]"
 		echo "DHCP=yes"
+		echo
+		echo "[DHCP]"
+		echo "UseMTU=yes"
+		echo "UseDomains=yes"
+		echo "UseNTP=yes"
+		echo
 		;;
 	static)
 		echo "[Match]"
