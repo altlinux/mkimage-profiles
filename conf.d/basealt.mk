@@ -75,6 +75,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2 bluetoothd libvirtd)
+	@$(call add,DEFAULT_SERVICES_ENABLE,fstrim.timer)
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop bridge)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
