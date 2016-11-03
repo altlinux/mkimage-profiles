@@ -1,5 +1,5 @@
 # GOST encryption
-cryptopro-preinstall
+openssl-engines
 
 # just in case
 kernel-headers-modules-std-def
