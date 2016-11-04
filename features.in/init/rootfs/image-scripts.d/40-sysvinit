@@ -1,0 +1,10 @@
+#!/bin/sh
+# 40: should run before 50-users in deflogin
+
+# the part below relates to sysvinit specifically
+rpm -q sysvinit || exit 0
+
+# NM-specific group
+case "$GLOBAL_GROUPS" in
+	*_nmconnect*) groupadd -r _nmconnect ||:;;
+esac
