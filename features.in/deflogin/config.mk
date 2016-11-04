@@ -39,3 +39,7 @@ use/deflogin/xgrp: use/deflogin
 # potentially elevated privileges (NB: _not_ wheel)
 use/deflogin/privileges: use/deflogin
 	@$(call add,GROUPS,fuse netadmin proc users)
+
+# NM with sysvinit
+use/deflogin/sysv/nm: use/deflogin
+	@$(call add,GROUPS,_nmconnect)
