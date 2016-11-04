@@ -120,13 +120,14 @@ distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk \
-	use/x11/xfce use/domain-client/full use/browser/firefox/classic \
+	use/x11/xfce/full use/domain-client/full use/browser/firefox/classic \
 	use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
 
-distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
-	use/init/sysv/polkit use/x11/xfce \
+distro/regular-xfce-sysv: distro/.regular-sysv-gtk +nm \
+	use/x11/xfce use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/fonts/ttf/redhat use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call set,KFLAVOURS,un-def)
+	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_PACKAGES,xfce4-mixer pm-utils elinks mpg123)
 
 distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
