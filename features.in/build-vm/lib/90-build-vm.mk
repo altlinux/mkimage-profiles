@@ -20,7 +20,10 @@ check-sudo:
 	fi
 
 prepare-image: check-sudo
-	@if ! sudo $(TOPDIR)/bin/tar2fs \
+	@if [ -x $(MKIMAGE_PREFIX)/bin/tar2fs ]; then \
+		TOPDIR=$(MKIMAGE_PREFIX); \
+	fi; \
+	if ! sudo $(TOPDIR)/bin/tar2fs \
 		"$(VM_TARBALL)" "$(VM_RAWDISK)"  $(VM_SIZE) $(VM_FSTYPE); then \
 		echo "** error: sudo tar2fs failed, see also doc/vm.txt" >&2; \
 		exit 1; \
