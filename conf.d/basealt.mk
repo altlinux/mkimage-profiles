@@ -81,5 +81,6 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_VOL_ID,ALT Workstation)
 	@$(call set,META_APP_ID,8.1/$(ARCH))
+	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 
 endif
