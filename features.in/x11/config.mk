@@ -103,8 +103,11 @@ use/x11/gtk/nm: use/net/nm
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
 
 use/x11/xfce: use/x11
-	@$(call add,THE_LISTS,$(call tags,xfce desktop))
+	@$(call add,THE_PACKAGES,xfce4-regular)
 	@$(call add,IM_PACKAGES,imsettings-xfce)
+
+use/x11/xfce/full: use/x11/xfce
+	@$(call add,THE_PACKAGES,xfce4-full)
 
 use/x11/cinnamon: use/x11/xorg
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
