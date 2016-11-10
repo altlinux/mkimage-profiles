@@ -1,0 +1,4 @@
+# NB: these might hurt each other, for MAIN_LISTS
+libva-driver-intel
+libva-driver-vdpau
+xvba-video
