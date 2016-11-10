@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Cloud storage clients (Owncloud, Seafile)
+Name[ru_RU]=Клиенты облачного хранилища (Owncloud, Seafile)
+X-Alterator-PackageList=workstation/cloud-clients
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;XFCE;KDE;KDE4;

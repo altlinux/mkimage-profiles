@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Infrastructure agents (Bacula, Zabbix...)
+Name[ru_RU]=Агенты инфраструктуры (Zabbix, Bacula...)
+X-Alterator-PackageList=workstation/agents
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;XFCE;KDE;KDE4;
