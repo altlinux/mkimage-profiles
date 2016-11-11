@@ -59,6 +59,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,LIVE_PACKAGES,virt-viewer vlc)
 	@$(call add,LIVE_PACKAGES,volumes-profile-regular)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
+	@$(call add,INSTALL2_PACKAGES,open-iscsi)
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez rpminstall)
 	@$(call add,BASE_PACKAGES,installer-feature-centaurus-keyring)
