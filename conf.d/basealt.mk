@@ -37,6 +37,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,THE_PACKAGES,gnome-bluetooth)
 	@$(call add,THE_PACKAGES,uvcview dvd+rw-tools pv)
 	@$(call add,THE_PACKAGES,fdisk net-tools mtr tcpdump ipcalc)
+	@$(call add,THE_PACKAGES,rpminstall)
 	@$(call add,THE_BRANDING,graphics)
 	@$(call add,THE_BRANDING,alterator bootloader bootsplash graphics)
 	@$(call add,THE_BRANDING,notes slideshow)
