@@ -66,6 +66,8 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,BASE_PACKAGES,alterator-x11)
 	@$(call add,BASE_PACKAGES,chromium chromium-gnome)
 	@$(call add,BASE_PACKAGES,apt-indicator)
+	@$(call add,BASE_PACKAGES,recoll-extras)
+	@$(call add,MAIN_PACKAGES,solaar)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,LIVE_PACKAGES,xterm-)
 	@$(call add,CLEANUP_PACKAGES,xterm)
