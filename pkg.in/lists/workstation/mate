@@ -3,7 +3,7 @@
 # we don't really need gnome-player
 consolehelper
 mate-default
-mate-system-log
+#mate-system-log
 mate-file-manager-actions
 mate-file-manager-terminal
 mate-document-viewer-caja

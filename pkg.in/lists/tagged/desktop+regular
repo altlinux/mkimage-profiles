@@ -10,6 +10,7 @@ alterator-standalone
 
 alterator-root
 alterator-users
+alterator-groups
 
 alterator-net-general
 alterator-net-pppoe rp-pppoe-client

@@ -1,6 +1,9 @@
 installer-feature-centaurus-keyring
 
 alterator-x11
+alterator-logs
+alterator-updates
+alterator-net-iptables
 task-auth-ad
 
 chromium chromium-gnome
