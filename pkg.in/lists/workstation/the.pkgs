@@ -13,6 +13,7 @@ bluez
 pulseaudio-bluez
 gnome-bluetooth
 
+gpm
 fdisk
 dvd+rw-tools
 qwebcam
