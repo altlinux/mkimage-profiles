@@ -54,6 +54,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
+	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,CLEANUP_PACKAGES,xterm)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
