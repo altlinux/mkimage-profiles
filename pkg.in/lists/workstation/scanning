@@ -2,6 +2,5 @@ sane
 xsane
 gimagereader-qt4
 tesseract
-### TODO: l10n-ize
 tesseract-langpack-ru
 hplip-sane

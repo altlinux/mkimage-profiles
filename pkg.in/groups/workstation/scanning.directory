@@ -7,5 +7,3 @@ X-Alterator-PackageList=workstation/scanning
 X-Alterator-Required=yes
 X-Alterator-Parent=workstation/10-office
 Categories=KDE;KDE4;GNOME;XFCE
-Comment=Applications and drivers for image scanning devices support
-Comment[ru_RU]=Приложения и драйверы для работы со сканерами изображений
