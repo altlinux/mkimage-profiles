@@ -17,7 +17,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	use/install2/suspend use/x11/xorg use/sound use/xdg-user-dirs \
 	mixin/desktop-installer \
 	use/efi/refind use/efi/shell use/rescue/base \
-	use/branding use/syslinux/ui/gfxboot use/plymouth/full \
+	use/branding/complete \
 	use/fonts/install2 use/install2/fs \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
 	use/fonts/ttf/google/extra use/fonts/ttf/redhat use/fonts/ttf/ubuntu \
@@ -29,12 +29,8 @@ distro/alt-workstation: distro/.base use/luks  \
 	use/fonts/ttf/google use/domain-client/full \
 	use/browser/firefox use/browser/firefox/esr
 	@$(call set,BRANDING,alt-workstation)
-	@$(call add,THE_BRANDING,graphics mate-settings)
-	@$(call add,THE_BRANDING,alterator bootloader bootsplash graphics)
-	@$(call add,THE_BRANDING,notes slideshow)
+	@$(call add,THE_BRANDING,mate-settings)
 	@$(call set,INSTALLER,altlinux-desktop)
-	@$(call add,INSTALL2_BRANDING,notes slideshow)
-	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
