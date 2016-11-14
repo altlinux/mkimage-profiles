@@ -1,8 +1,3 @@
-#mate-user-share
 mate-file-manager-share
 installer-feature-samba-usershares-stage2
 libnss-mdns
-
-###
-#avahi-ui
-#wdfs
