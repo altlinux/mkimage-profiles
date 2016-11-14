@@ -64,7 +64,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez rpminstall)
 	@$(call add,BASE_PACKAGES,installer-feature-centaurus-keyring)
-	@$(call add,BASE_PACKAGES,samba-winbind)
+	@$(call add,BASE_PACKAGES,task-auth-ad)
 	@$(call add,BASE_PACKAGES,alterator-x11)
 	@$(call add,BASE_PACKAGES,chromium chromium-gnome)
 	@$(call add,BASE_PACKAGES,apt-indicator)
