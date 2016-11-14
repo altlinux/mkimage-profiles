@@ -20,6 +20,7 @@ use/install2/full: \
 	use/install2/packages use/install2/vmguest use/install2/tools \
 	use/syslinux/localboot.cfg use/syslinux/ui/menu use/bootloader
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-synaptics)
+	@$(call add,INSTALL2_PACKAGES,xorg-drv-libinput)
 
 # for distributions with their own -stage3 installer part
 use/install2/stage3: use/install2
