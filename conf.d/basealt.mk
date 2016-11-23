@@ -2,11 +2,11 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
-	3rdparty blender clamav emulators gnome-peer-to-peer graphics-editing \
-	gtk-dictionary libreoffice mate-usershare pidgin raccess \
-	scanning scribus sound-editing vlc \
-	freecad ganttproject thunderbird \
-	kvm virtualbox)
+	3rdparty agents blender clamav cloud-clients emulators freecad \
+	ganttproject gnome-peer-to-peer graphics-editing gtk-dictionary \
+	kvm libreoffice mate-usershare pidgin raccess \
+	scanning scribus sound-editing thunderbird virtualbox \
+	vlc voip-clients)
 
 distro/alt-workstation: distro/.base use/luks  \
 	+installer +sysvinit +power +systemd +pulse +vmguest +wireless +efi \
