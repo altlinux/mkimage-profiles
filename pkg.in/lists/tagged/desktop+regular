@@ -21,6 +21,7 @@ alterator-net-wifi
 
 alterator-datetime
 alterator-proxy
+alterator-services
 
 #alterator-x11
 alterator-xkb
@@ -29,6 +30,7 @@ glxgears
 xorg-conf-synaptics
 
 hdparm
+inxi
 lm_sensors3
 sdparm
 
