@@ -32,6 +32,7 @@ xorg-conf-synaptics
 hdparm
 inxi
 lm_sensors3
+lsblk
 sdparm
 
 fonts-bitmap-terminus
