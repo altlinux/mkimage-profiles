@@ -94,7 +94,7 @@ profile/bare: profile/init
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
-	@$(call try,BRANDING,altlinux-sisyphus)
+	@$(call try,BRANDING,alt-sisyphus)
 ifeq (,$(REPO:altlinux%=))
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 endif
