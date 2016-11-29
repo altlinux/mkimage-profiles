@@ -185,8 +185,7 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
-	use/net/connman use/browser/qupzilla +plymouth
-	@$(call add,THE_PACKAGES,qconnman-ui)
+	use/browser/qupzilla use/x11/gtk/nm +nm +plymouth
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt; @:
