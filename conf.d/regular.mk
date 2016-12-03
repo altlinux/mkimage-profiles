@@ -92,6 +92,15 @@ distro/.regular-install-x11: distro/.regular-install \
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
+# assumes somewhat more experienced user, mostly for sysv variants
+distro/.regular-install-x11-full: distro/.regular-install-x11 \
+	mixin/desktop-installer mixin/regular-desktop use/install2/fs \
+	use/fonts/otf/adobe use/fonts/otf/mozilla \
+	use/branding/complete use/branding/slideshow/once \
+	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
+	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
+	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
+
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
 	use/browser/palemoon/i18n use/fonts/ttf/redhat
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
@@ -221,16 +230,10 @@ distro/regular-rescue: distro/.regular-base use/rescue/rw use/luks \
 	@$(call add,RESCUE_LISTS,$(call tags,base && (smartcard || bench)))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
-distro/regular-sysv-tde: distro/.regular-install-x11 \
-	mixin/desktop-installer mixin/regular-tde use/install2/fs \
-	use/branding/complete use/branding/slideshow/once \
-	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base \
-	use/fonts/otf/adobe use/fonts/otf/mozilla
-	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
+distro/regular-sysv-tde: distro/.regular-install-x11-full mixin/regular-tde
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,regular tde))
 	@$(call add,THE_PACKAGES,kpowersave)
-	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
 distro/.regular-server-base: distro/.regular-install \
 	use/server/base use/stage2/kms
