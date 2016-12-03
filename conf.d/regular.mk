@@ -240,6 +240,9 @@ distro/regular-sysv-tde: distro/.regular-install-x11-full mixin/regular-tde
 	@$(call add,THE_LISTS,$(call tags,regular tde))
 	@$(call add,THE_PACKAGES,kpowersave)
 
+distro/regular-sysv-xfce: distro/.regular-install-x11-full \
+	mixin/regular-xfce mixin/regular-xfce-sysv; @:
+
 distro/.regular-server-base: distro/.regular-install \
 	use/server/base use/stage2/kms
 	@$(call add,THE_LISTS,$(call tags,regular server))
