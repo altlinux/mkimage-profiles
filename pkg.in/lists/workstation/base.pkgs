@@ -10,3 +10,6 @@ chromium chromium-gnome
 
 apt-indicator
 recoll-extras
+
+# compat libs
+libusb-compat@i586 i586-libusb-compat@x86_64
