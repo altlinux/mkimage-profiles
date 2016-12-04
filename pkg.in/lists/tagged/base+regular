@@ -19,6 +19,7 @@ nfs-utils
 
 smartmontools
 system-report
+ps_mem
 
 strace
 powertop
