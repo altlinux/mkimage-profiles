@@ -1,4 +1,5 @@
 installer-feature-centaurus-keyring
+systemd-udev-console-fb
 
 alterator-x11
 alterator-logs
