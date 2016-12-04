@@ -7,7 +7,7 @@ METADIR := files/Metadata
 WHATEVER += metadata
 
 # handle these too
-DOT_BASE += $(BASE_PACKAGES_REGEXP)
+DOT_BASE += $(BASE_PACKAGES_REGEXP) $(THE_PACKAGES_REGEXP)
 
 # args: type, name
 define dump
