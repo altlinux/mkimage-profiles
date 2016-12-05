@@ -1,7 +1,7 @@
 use/browser:
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES_REGEXP,$$(THE_BROWSER))
-	@$(call try,THE_BROWSER,webclient)	# fallback
+	@$(call try,THE_BROWSER,elinks)	# X11-less fallback
 
 # support both firefox and firefox-esr
 use/browser/firefox: use/browser
