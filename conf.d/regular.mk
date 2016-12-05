@@ -102,10 +102,13 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
-distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
+distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
+	use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/browser/palemoon/i18n use/fonts/ttf/redhat
+	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call add,LIVE_PACKAGES,mnt winswitch xpra)
+	@$(call add,LIVE_PACKAGES,icewm-startup-networkmanager)
 	@$(call set,KFLAVOURS,un-def)
 
 mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
