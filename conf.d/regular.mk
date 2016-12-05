@@ -248,6 +248,7 @@ distro/.regular-server-base: distro/.regular-install \
 	use/server/base use/stage2/kms
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call set,INSTALLER,altlinux-server)
+	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 
 distro/.regular-server: distro/.regular-server-base \
 	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/libs
