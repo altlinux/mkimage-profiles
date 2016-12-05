@@ -250,7 +250,7 @@ distro/.regular-server-base: distro/.regular-install \
 	@$(call set,INSTALLER,altlinux-server)
 
 distro/.regular-server: distro/.regular-server-base \
-	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/x11
+	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/libs
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge)
