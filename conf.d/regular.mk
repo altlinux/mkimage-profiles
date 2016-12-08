@@ -252,6 +252,7 @@ distro/.regular-server-base: distro/.regular-install \
 	@$(call add,THE_LISTS,$(call tags,regular server))
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 
 distro/.regular-server: distro/.regular-server-base \
 	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/libs
