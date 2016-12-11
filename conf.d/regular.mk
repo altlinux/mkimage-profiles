@@ -295,7 +295,7 @@ distro/regular-server-pve: distro/.regular-server-base \
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-pve)
 	@$(call add,THE_PACKAGES,pve-manager)
-	@$(call add,THE_PACKAGES,bridge-utils faketime tzdata postfix)
+	@$(call add,THE_PACKAGES,bridge-utils dhcpcd faketime tzdata postfix)
 	@$(call add,THE_KMODULES,ipset kvm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,pve-manager pve-cluster \
 		pve-firewall pve-ha-crm pve-manager pveproxy pvedaemon \
