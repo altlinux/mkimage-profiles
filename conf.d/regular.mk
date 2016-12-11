@@ -103,8 +103,8 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
-	use/init/sysv/polkit use/deflogin/sysv/nm \
-	use/browser/palemoon/i18n use/fonts/ttf/redhat
+	use/x11/lightdm/gtk use/init/sysv/polkit use/deflogin/sysv/nm \
+	use/browser/chromium use/fonts/ttf/redhat
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call add,LIVE_PACKAGES,mnt winswitch xpra)
