@@ -1,10 +1,10 @@
 xorg-drv-ati
 xorg-drv-cirrus
-xorg-drv-mga
+#xorg-drv-mga
 xorg-drv-modesetting
 xorg-drv-nv
 xorg-drv-qxl
 #xorg-drv-s3
-xorg-drv-s3virge
-xorg-drv-savage
-xorg-drv-sis
+#xorg-drv-s3virge
+#xorg-drv-savage
+#xorg-drv-sis
