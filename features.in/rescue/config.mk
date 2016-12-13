@@ -5,7 +5,7 @@ use/rescue/.base: use/stage2 sub/stage2@rescue
 	@$(call add,RESCUE_LISTS,openssh)
 
 use/rescue/base: use/rescue/.base
-	@$(call add,RESCUE_PACKAGES,pciutils nfs-utils)
+	@$(call add,RESCUE_PACKAGES,pciutils nfs-utils os-prober)
 	@$(call add,RESCUE_LISTS,\
 		$(call tags,base && (rescue || network || security || archive)))
 
