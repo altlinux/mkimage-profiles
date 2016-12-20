@@ -30,7 +30,7 @@ mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
 	@$(call set,THE_IMAGEWRITER,imagewriter)
 
 # WM base target
-distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop
+distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop; @:
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
