@@ -2,6 +2,8 @@
 # analyze free space, preferring tmpfs over really many gigaz
 # and taking into account configured hasher workdir prefices
 
+# NB: use BUILDDIR to override autodetection (see ../QUICKSTART)
+
 # hope there aren't spaces in RM's $HOME are they?
 DIRS="$TMP $TMPDIR $HOME/hasher /tmp /var/tmp .."
 MINSIZE=262144		# face control criterion
