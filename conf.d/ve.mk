@@ -16,6 +16,14 @@ ve/ldv: ve/bare use/control/server/ldv
 
 ve/docker: ve/.base use/repo; @:
 
+# build environment
+ve/builder: ve/base use/repo
+	@$(call add,BASE_PACKAGES,vim-console git-core bash-completion zsh)
+	@$(call add,BASE_PACKAGES,su hasher mkimage-profiles rpm-build)
+	@$(call add,BASE_PACKAGES,rsync screen parallel pv)
+	@$(call add,BASE_PACKAGES,fdisk e2fsprogs iproute2 net-tools)
+	@$(call add,BASE_LISTS,openssh)
+
 # this should be more or less convenient
 ve/generic: ve/base use/repo
 	@$(call add,BASE_PACKAGES,vim-console etckeeper)
