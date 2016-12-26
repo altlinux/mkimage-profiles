@@ -1,7 +1,8 @@
 # live images
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/dos: distro/.init use/dos use/syslinux/ui/menu; @:
+distro/dos: distro/.init use/dos use/syslinux/ui/menu
+	@$(call set,RELNAME,ALT FreeDOS)
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu \
 	use/efi/signed use/efi/refind use/efi/shell; @:
