@@ -71,7 +71,7 @@ distro: bootargs
 	@if [ -n "$(META_VOL_SET)" ]; then \
 		DISTRO="$(META_VOL_SET)"; \
 	else \
-		DISTRO="ALT Linux"; \
+		DISTRO="ALT"; \
 	fi; \
 	sed -i "s,@distro@,$$DISTRO," $(DSTDIR)/*.cfg
 
