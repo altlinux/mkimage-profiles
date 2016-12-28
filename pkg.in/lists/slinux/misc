@@ -74,7 +74,7 @@ yelp
 
 # Compiz things
 compiz
-python-module-fusion-icon-gtk
+#python-module-fusion-icon-gtk
 compiz-gtk
 
 #aen
