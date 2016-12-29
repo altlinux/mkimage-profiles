@@ -54,6 +54,10 @@ tesseract-langpack-ru
 
 # New utilites
 autossh
+inxi
+screenfetch
+ntpdate
+fdisk
 
 # Popular sofware prerequsites
 1c-preinstall
@@ -74,3 +78,9 @@ rosa-imagewriter
 chromium
 chromium-gnome
 ppapi-plugin-adobe-flash
+
+# Additional filesystem support
+fuse-exfat
+
+# Auth in Acrive Directoory
+task-auth-ad
