@@ -3,6 +3,7 @@ use/syslinux: sub/stage1
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,syslinux)
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
+	@$(call try,BOOTVGA,0x314)
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
 
 # UI is overwritten

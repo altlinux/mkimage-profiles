@@ -85,6 +85,10 @@ bootargs: clean
 		sed -i "s,@rescue_bootargs@,$(RESCUE_BOOTARGS)," $(DSTDIR)/*.cfg; \
 	fi; \
 	sed -i "s,@rescue_bootargs@,," $(DSTDIR)/*.cfg
+	@if [ -n "$(BOOTVGA)" ]; then \
+		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTDIR)/*.cfg; \
+	fi; \
+	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTDIR)/*.cfg
 
 clean: copy
 	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
