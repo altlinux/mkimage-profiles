@@ -3,6 +3,7 @@ use/server: use/power/acpi/button
 
 use/server/base: use/server use/firmware/server \
 	use/net-ssh use/syslinux/timeout/600
+	@$(call set,BOOTVGA,)
 	@$(call add,THE_LISTS,server-base)
 	@$(call add,THE_KMODULES,e1000e igb)
 	@$(call add,STAGE1_KMODULES,e1000e igb)
