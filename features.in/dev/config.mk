@@ -18,6 +18,7 @@ use/dev/builder/base: use/dev/mkimage use/dev
 		$(call tags,(base || live) && (server || builder)))
 	@$(call add,LIVE_PACKAGES,livecd-qemu-arch strace)
 	@$(call add,LIVE_PACKAGES,qemu-user-binfmt_misc)
+	@$(call add,LIVE_PACKAGES,perl-Gear-Remotes)
 
 use/dev/builder/full: use/dev/builder/base use/dev/repo
 	@$(call add,MAIN_LISTS,$(call tags,live builder))
