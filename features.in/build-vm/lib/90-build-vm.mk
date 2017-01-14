@@ -25,7 +25,7 @@ prepare-image: check-sudo
 	fi; \
 	if ! sudo $(TOPDIR)/bin/tar2fs \
 		"$(VM_TARBALL)" "$(VM_RAWDISK)"  $(VM_SIZE) $(VM_FSTYPE); then \
-		echo "** error: sudo tar2fs failed, see also doc/vm.txt" >&2; \
+		echo "** error: sudo tar2fs failed, see build log" >&2; \
 		exit 1; \
 	fi
 
