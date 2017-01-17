@@ -4,7 +4,7 @@ gst-plugins-gl
 gst-plugins-good
 gst-plugins-nice
 gst-plugins-ugly
-gst-ffmpeg
+#gst-ffmpeg
 gnome-mplayer
 
 econnman
