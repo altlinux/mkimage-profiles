@@ -17,10 +17,10 @@ DATE_F    := $(shell date +%F)
 
 BOOT_TYPE := isolinux
 
-all: $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
+all: | $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
 
-prep: $(GLOBAL_DEBUG) dot-disk $(WHATEVER)
+prep: | $(GLOBAL_DEBUG) dot-disk $(WHATEVER)
 
 # can't use mp-showref which belongs to the metaprofile
 dot-disk:
