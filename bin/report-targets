@@ -21,10 +21,10 @@ while read first second third rest; do
 	for to in $TO; do
 		out="  \"$FROM\" -> \"$to\""
 		case $to in
-		*distro/*|*vm/*)
+		*distro/*|*vm/*|*ve/*)
 			echo "$out [weight=10];";;
 		*)
-			echo "$out";;
+			echo "$out;";;
 		esac
 	done
 done
