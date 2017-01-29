@@ -27,7 +27,7 @@ use/install2/stage3: use/install2
 	@$(call add,BASE_PACKAGES,installer-$$(INSTALLER)-stage3)
 
 # just an alias, better use its endpoint directly
-use/install2/fonts: use/fonts/install2
+use/install2/fonts: use/fonts/install2; @:
 
 # see also use/vmguest
 use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
