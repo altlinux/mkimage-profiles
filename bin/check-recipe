@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# missing "; @:" for recipeless rules makes SHELL payload useless
+# (see also ../lib/report.mk); this results in broken target graphs
+# (so REPORT=1 gets crippled)
+
+  sed 's/^[a-z]\+\/.*:.*$/\n&/' "$@" \
+| grep -vE '^(#|export|if|else|endif|define|endef)' \
+| sed ':loop /^[^#].*[^\\]\\$/N; s/\\\n//; t loop' \
+| grep -vE ':=| = | ?= | += |^\$' \
+| sed ':loop /^[a-z]\+\/.*:.*$/N; s/\n\t\+@*/\; /; t loop' \
+| grep -vE ';|^$' && exit 1 ||:
+
+# see also http://unix.stackexchange.com/questions/228547

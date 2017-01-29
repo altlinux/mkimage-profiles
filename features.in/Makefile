@@ -25,6 +25,9 @@ define grepper_body
 	done
 endef
 
+check:
+	@../bin/check-recipe */config.mk
+
 %:
 	$(error BUILDDIR not defined)
 
