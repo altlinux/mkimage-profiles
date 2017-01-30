@@ -23,7 +23,6 @@ hddtemp
 idle3-tools
 iotop
 iozone
-iperf
 hdparm
 lsblk
 lsmount
@@ -164,6 +163,9 @@ hping3
 httpry
 httpry-scripts
 iftop
+infiniband-diags
+iperf
+iperf3
 ipmitool
 iproute2
 iptables
@@ -181,6 +183,7 @@ ngrep
 nmap
 p0f
 pdsh
+perftest
 rsh
 rsync
 scanssh
