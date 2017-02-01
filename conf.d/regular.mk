@@ -266,7 +266,8 @@ distro/.regular-server-managed: distro/.regular-server
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
-distro/regular-server: distro/.regular-server-managed use/server/groups/base
+distro/regular-server: distro/.regular-server-managed \
+	use/server/groups/base use/install2/vnc/full
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)
 
