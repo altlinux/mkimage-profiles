@@ -19,15 +19,18 @@ rm -rf /usr/share/awk/
 # and no systemd either
 [ -L /sbin/init ] || rm -rf /lib/systemd/system
 
+# save VNC install if present
+MORE=
+[ -x /usr/bin/x11vnc ] || MORE="libGL libEGL libgbm libwayland\\* xterm"
+
 ### could it be handled with any grace?
 rpmquery -a common-licenses \
 	cpp\* gcc\* perl-base file ipv6calc \
 	bind-utils libbind \
 	libmpfr\* libmpc\* \
 	libsoup\* \
-	libwayland\* libgbm \
-	libGL libEGL glxinfo xdriinfo \
-	xdg-utils xterm \
+	$MORE glxinfo xdriinfo \
+	xdg-utils \
 	mkfontscale mkfontdir \
 	make make-initrd \
 | xargs -r rpmi -e --nodeps --

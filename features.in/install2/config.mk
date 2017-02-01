@@ -60,7 +60,18 @@ use/install2/vmware:
 
 # NB: sort of conflicts with use/install2/cleanup/vnc
 use/install2/vnc:
-	@$(call add,INSTALL2_PACKAGES,x11vnc)
+	@$(call add,INSTALL2_PACKAGES,x11vnc xterm net-tools)
+
+# this one expects external vncviewer to come
+use/install2/vnc/listen: \
+	use/install2/vnc use/syslinux/install-vnc-listen.cfg; @:
+
+# this one connects to a specified vncviewer --listen
+use/install2/vnc/connect: \
+	use/install2/vnc use/syslinux/install-vnc-connect.cfg; @:
+
+# add both bootloader items to be *that* explicit ;-)
+use/install2/vnc/full: use/install2/vnc/listen use/install2/vnc/connect; @:
 
 # filesystems handling
 use/install2/fs: use/install2/xfs use/install2/jfs use/install2/reiserfs; @:
