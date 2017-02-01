@@ -1,0 +1,3 @@
+#!/bin/sh
+# set default nameserver, if any
+for i in $GLOBAL_NAMESERVERS; do echo "nameserver $i"; done >> /etc/resolv.conf
