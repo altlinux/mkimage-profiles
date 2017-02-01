@@ -9,10 +9,9 @@ distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	vlc voip-clients)
 
 distro/alt-workstation: distro/.base use/luks  \
-	+installer +sysvinit +power +systemd +pulse +vmguest +wireless +efi \
+	+installer +power +systemd +pulse +vmguest +wireless +efi \
 	use/kernel/net use/docs/license \
-	use/vmguest use/memtest \
-	use/bootloader/grub \
+	use/memtest use/bootloader/grub \
 	use/install2/fs use/install2/vnc use/install2/repo \
 	use/install2/suspend use/x11/xorg use/sound use/xdg-user-dirs \
 	mixin/desktop-installer \
