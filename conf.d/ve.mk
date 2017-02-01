@@ -4,7 +4,7 @@ ifeq (ve,$(IMAGE_CLASS))
 ve/bare: ve/.base +sysvinit; @:
 
 # /dev/pty and friends start here
-ve/base: ve/bare
+ve/base: ve/bare use/net-dns/level3
 	@$(call add,BASE_PACKAGES,interactivesystem)
 
 # a particular package list
