@@ -249,7 +249,7 @@ distro/regular-sysv-xfce: distro/.regular-install-x11-full \
 
 distro/.regular-server-base: distro/.regular-install \
 	use/server/base use/stage2/kms
-	@$(call add,THE_LISTS,$(call tags,regular server))
+	@$(call add,THE_LISTS,$(call tags,server && (regular || network)))
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
