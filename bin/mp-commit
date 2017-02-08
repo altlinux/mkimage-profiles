@@ -20,7 +20,7 @@ if type -t git >&/dev/null && pushd "$1" >/dev/null; then
 	fi
 	if [ -n "$(git status -s)" ]; then
 		git add . \
-		&& git commit -qam "$2" \
+		&& git commit -anq -m "$2" \
 		|| fatal "git add/commit failed"
 	fi
 	popd >/dev/null
