@@ -26,6 +26,7 @@ rmt
 
 # Hardware
 cmospwd
+cpuid2
 encled
 flashrom
 hwinfo
