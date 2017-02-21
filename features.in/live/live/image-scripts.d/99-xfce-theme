@@ -1,0 +1,7 @@
+#!/bin/sh
+
+[ -f /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml ] || exit 0
+
+# fixup the default which broke after p8
+sed -i 's,name="IconThemeName" type="empty",name="IconThemeName" type="string" value="gnome",' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml ||:
+
