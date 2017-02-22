@@ -1,4 +1,5 @@
 monit
+vnstat
 
 # pull in subpackages which shouldn't toss
 # lots of extra dependencies into an image
