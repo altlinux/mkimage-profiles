@@ -37,6 +37,9 @@ ve/openvpn: ve/bare
 ve/pgsql94: ve/generic
 	@$(call add,BASE_PACKAGES,postgresql9.4-server)
 
+ve/samba-DC: ve/generic
+	@$(call add,BASE_PACKAGES,task-samba-dc glibc-locales net-tools)
+
 ve/systemd-bare: ve/.base use/control/sudo-su use/repo use/net/networkd +systemd
 	@$(call add,BASE_PACKAGES,interactivesystem su)
 	@$(call add,BASE_LISTS,openssh)
