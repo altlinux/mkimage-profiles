@@ -19,7 +19,7 @@ use/server/mini: use/server/base
 use/server/ovz-base: use/server
 	@$(call set,STAGE1_KFLAVOUR,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
-	@$(call add,BASE_PACKAGES,lftp wget)
+	@$(call add,BASE_PACKAGES,lftp wget hdparm)
 	@$(call add,BASE_LISTS,$(call tags,base openvz))
 
 use/server/ovz: use/server/ovz-base
