@@ -12,6 +12,8 @@ make-initrd-lvm
 mdadm
 make-initrd-mdadm
 
+shadow-change
+
 openssh
 openssh-blacklist
 net-tools
