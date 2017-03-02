@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=System tuning
+X-Alterator-PackageList=tools/tuning
+X-Alterator-Required=no
+Name[ru_RU]=Подстройка системы
+Categories=Server;Diagnostics
