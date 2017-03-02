@@ -38,6 +38,7 @@ use/server/zabbix: use/server use/services use/control
 
 use/server/groups/tools: use/server
 	@$(call add,MAIN_GROUPS,tools/diag tools/ipmi tools/monitoring)
+	@$(call add,MAIN_GROUPS,tools/tuning)
 
 use/server/groups/services: use/server
 	@$(call add,MAIN_GROUPS,server/dns server/http server/ftp server/kvm)
