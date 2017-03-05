@@ -123,7 +123,7 @@ distro/live-robo: distro/live-icewm +robotics use/live/ru; @:
 distro/live-privacy: distro/.base +power +efi +systemd +vmguest \
 	use/live/base use/live/privacy use/live/ru \
 	use/x11/xorg use/x11/lightdm/gtk use/x11/mate use/x11-autologin \
-	use/browser/firefox/i18n use/sound \
+	use/browser/firefox/esr use/browser/firefox/i18n use/sound \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
 	use/fonts/ttf/google use/fonts/ttf/redhat
 	@$(call set,KFLAVOURS,un-def)
