@@ -9,6 +9,7 @@ unrar
 unzip
 xar
 xbiso
+zpaq
 
 # parallel (de)compression
 lbzip2
