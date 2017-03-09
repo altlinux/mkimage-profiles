@@ -314,9 +314,9 @@ distro/regular-builder: distro/.regular-bare \
 	@$(call add,LIVE_PACKAGES,ccache rpm-utils wodim)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 
-distro/regular-server-samba4: distro/regular-server
+distro/regular-server-samba4: distro/.regular-server-managed
 	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))
-	@$(call add,THE_PACKAGES,alterator-fbi alterator-dhcp)
+	@$(call add,THE_PACKAGES,alterator-dhcp)
 	@$(call add,DEFAULT_SERVICES_DISABLE,smbd nmbd winbind)
 
 endif
