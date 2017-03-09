@@ -24,7 +24,8 @@ use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +puls
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
 	@$(call add,THE_KMODULES,virtualbox)
-	@$(call add,THE_KMODULES,nvidia fglrx)
+	@$(call add,THE_KMODULES,nvidia)
+#	@$(call add,THE_KMODULES,nvidia fglrx)
 	@$(call add,MAIN_KMODULES,bbswitch)
 
 use/slinux/arm: use/slinux use/x11/lightdm/gtk

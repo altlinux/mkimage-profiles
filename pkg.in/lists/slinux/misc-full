@@ -11,8 +11,8 @@ stardict-engcom
 nvidia-xconfig
 
 # ATI proprietary driver
-fglrx_glx
-fglrx-tools
+#fglrx_glx
+#fglrx-tools
 #kernel-modules-fglrx-@KERNEL_MOD@
 
 vlock
