@@ -13,6 +13,7 @@ fvwm-full-
 #kernel-modules-staging-@KERNEL_MOD@
 altlinux-freedesktop-menu-shallow-menu
 altlinux-freedesktop-menu-icon-theme-default
+installer-distro-simply-linux-stage3
 #altlinux-freedesktop-menu-common
 #branding-@BRANDING@-xfce-settings
 #branding-@BRANDING@-system-settings
