@@ -2,7 +2,7 @@ use/slinux: use/x11
 	@$(call add_feature)
 	@$(call set,BRANDING,simply-linux)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
-	@$(call set,META_VOL_SET,Simply Linux)
+	@$(call set,META_PUBLISHER,BaseALT Ltd)
 
 use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse use/luks \
 	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless use/l10n/default/ru_RU use/live/x11 \
