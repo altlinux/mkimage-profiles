@@ -172,6 +172,9 @@ libfreetype-infinality
 i586-libfreetype-infinality@x86_64
 fontconfig-infinality
 
+# Console fonts workaround
+vconsole-setup-kludge
+
 # For 1C installation
 #1c-preinstall
 
