@@ -56,3 +56,6 @@ xfce4-systemload-plugin
 xfce4-cpugraph-plugin
 xfce4-pulseaudio-plugin
 xfce4-whiskermenu-plugin
+
+# For system sounds at least
+libcanberra-gtk2
