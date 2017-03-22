@@ -1,29 +1,49 @@
 #!/bin/sh
 # see also m-p-d::profiles/live/image-scripts.d/init3-services
 
-#[ -x /bin/systemctl ] || exit 0
-#[ -x /bin/systemctl ] || exit 0
-
 ENABLE="
-network
-NetworkManager
-lvm2-monitor
-mdadm
+cups.service
+avahi-daemon.service
+NetworkManager.service
+NetworkManager-wait-online.service
+ModemManager.service
+nmb.service
+smb.service
+dnsmasq.service
+cpufreq-simple.service
+alteratord.socket
+bluetoothd.service
+crond.service
+lvm2-monitor.service
+network.service
+ntpd.service
+lightdm.service
+bluetooth.service
 "
 
-# NB: dnsmasq: https://bugzilla.altlinux.org/show_bug.cgi?id=18799
-# NB: sshd might be needed for some particular cases
 DISABLE="
-sshd
+anacron.service
+x11presetdrv.service
+bridge.service
+acpid.service
+ethtool.service
+iptables.service
+lm_sensors.service
+openvpn.service
+sshd.service
+consolesaver.service
+syslogd.service
+krb5kdc.service
+clamd.service
+haspd.service
+cups.socket
 "
 
 for i in $ENABLE;  do
-	[ -x /bin/systemctl ] && /bin/systemctl --no-reload enable ${i}.service
-	[ -x /sbin/chkconfig ] && /sbin/chkconfig $i on
+	/bin/systemctl --no-reload enable "$i" ||:
 done
 
 for i in $DISABLE; do
-	[ -x /bin/systemctl ] && /bin/systemctl --no-reload disable ${i}.service
-	[ -x /sbin/chkconfig ] && /sbin/chkconfig $i off
+	/bin/systemctl --no-reload disable "$i" ||:
 done
 :
