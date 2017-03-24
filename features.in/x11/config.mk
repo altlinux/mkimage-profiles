@@ -40,6 +40,15 @@ use/x11/radeon: use/x11 use/firmware
 	@$(call set,RADEON_KMODULES,drm-radeon)
 	@$(call set,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
+# here the future
+use/x11/amdgpu: use/x11 use/firmware
+	@$(call set,RADEON_PACKAGES,xorg-drv-amdgpu)
+
+# Vulkan is new and bleeding edge, only intel and amgpu(pro?)
+use/x11/vulkan: use/x11/intel use/x11/amdgpu
+	@$(call add,THE_PACKAGES,vulkan)
+	@$(call add,THE_PACKAGES,vulkan-radeon vulkan-intel)
+
 # sometimes broken with current xorg-server
 use/x11/nvidia: use/x11
 	@$(call set,NVIDIA_KMODULES,nvidia)
