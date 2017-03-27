@@ -35,9 +35,15 @@ IMAGEDIR := $(wildcard $(IMAGEDIR))
 # additional means to reduce havoc in IMAGEDIR
 IMAGE_SORTDIR := $(wildcard $(SORTDIR))
 
-# reconstruct instead of passing yet another variable
+# use distro version in image name if defined
+ifdef DISTRO_VERSION
+IMAGE_VERSION := -$(DISTRO_VERSION)
+IMAGE_VER_LINK := $(IMAGE_NAME)$(IMAGE_VERSION)-latest-$(ARCH).$(IMAGE_TYPE)
+endif
+
+IMAGE_OUTFILE  := \
+	$(IMAGE_NAME)$(IMAGE_VERSION)-$(STATUS)$(DATE)-$(ARCH).$(IMAGE_TYPE)
 IMAGE_OUTDIR   := $(IMAGEDIR)$(IMAGE_SORTDIR:%=/%)
-IMAGE_OUTFILE  := $(IMAGE_NAME)-$(STATUS)$(DATE)-$(ARCH).$(IMAGE_TYPE)
 IMAGE_OUTPATH  := $(IMAGE_OUTDIR)/$(IMAGE_OUTFILE)
 IMAGE_RELPATH  := $(IMAGE_SORTDIR:%=%/)$(IMAGE_OUTFILE)
 IMAGE_RELDIR   := $(IMAGE_OUTDIR:$(GLOBAL_BUILDDIR)/%=%)
@@ -94,6 +100,9 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	ln -sf "$(IMAGE_RELPATH)" "$(IMAGE_LINKPATH)" && \
 	ln -sf "$(IMAGE_RELDIR)" "$(OUT_LINK)" && \
 	ln -sf "$(IMAGE_LINK)" "$(IMAGEDIR)/$(CURRENT_LINK).$(IMAGE_TYPE)"; \
+	if [ -n "$(IMAGE_VER_LINK)" ]; then \
+		ln -sf "$(IMAGE_RELPATH)" "$(IMAGEDIR)/$(IMAGE_VER_LINK)"; \
+	fi; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		mkdir -p "$(LOGDIR)"; \
 		cp -a build.log "$(LOGDIR)/$(IMAGE_OUTFILE).log"; \
