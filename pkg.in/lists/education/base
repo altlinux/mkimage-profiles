@@ -82,5 +82,5 @@ ppapi-plugin-adobe-flash
 # Additional filesystem support
 fuse-exfat
 
-# Auth in Acrive Directoory
-task-auth-ad
+# Authenticate with Active Directory by SSSD
+task-auth-ad-sssd

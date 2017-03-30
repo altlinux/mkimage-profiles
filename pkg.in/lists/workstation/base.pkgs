@@ -5,7 +5,8 @@ alterator-x11
 alterator-logs
 alterator-updates
 alterator-net-iptables
-task-auth-ad
+
+task-auth-ad-sssd
 
 apt-indicator@X86
 recoll-extras
