@@ -41,7 +41,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,upower bluez)
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
-	@$(call add,THE_PACKAGES,systemd-udev-console-fb)	#28805
+	@$(call add,THE_PACKAGES,vconsole-setup-kludge)	#28805
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,KFLAVOURS,std-def)
