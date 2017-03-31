@@ -1,3 +1,4 @@
++x11: use/x11/xorg; @:
 +icewm: use/x11/icewm; @:
 +xmonad: use/x11/xmonad; @:
 +tde: use/x11/tde use/x11/kdm; @:
