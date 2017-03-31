@@ -99,8 +99,8 @@ use/install2/cleanup/vnc:
 
 # conflicts with luks feature
 use/install2/cleanup/crypto:
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,gnupg libgpg-error)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,libgcrypt* libgnutls*)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,gnupg)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,libgnutls*)
 
 # leave only cirrus, fbdev, qxl, vesa in vm-targeted images
 use/install2/cleanup/x11-hwdrivers:
