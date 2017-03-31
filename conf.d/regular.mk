@@ -59,19 +59,24 @@ distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	@$(call add,THE_BRANDING,alterator)
 
 # common base for the very bare distros
-distro/.regular-jeos: distro/.regular-bare use/isohybrid +sysvinit \
-	use/branding use/bootloader/lilo use/syslinux/lateboot.cfg \
+distro/.regular-jeos-base: distro/.regular-bare +sysvinit \
+	use/isohybrid use/branding use/bootloader/grub \
 	use/install2/repo use/install2/packages \
-	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/jeos use/net/etcnet use/power/acpi/button
-	@$(call add,STAGE2_BOOTARGS,vga=0)
-	@$(call add,BASE_KMODULES,guest scsi vboxguest)
-	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
+	use/net/etcnet use/power/acpi/button
+	@$(call set,BOOTVGA,)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console)
 	@$(call add,THE_LISTS,openssh)
+
+# ...and for somewhat bare distros
+distro/.regular-jeos: distro/.regular-jeos-base \
+	use/bootloader/lilo use/syslinux/lateboot.cfg \
+	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
+	use/cleanup/jeos
+	@$(call add,BASE_KMODULES,guest scsi vboxguest)
+	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
