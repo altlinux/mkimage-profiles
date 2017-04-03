@@ -5,6 +5,7 @@ openssh-server
 openssh-clients
 rsync
 strace
+anacron
 
 pam-limits-desktop
 bash-completion
