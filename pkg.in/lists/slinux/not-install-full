@@ -17,3 +17,6 @@ bumblebee
 libspice-gtk
 python-module-spice-gtk
 #spice-client
+
+# Nvidia drivers
+nvidia_glx_.*
