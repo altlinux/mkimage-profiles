@@ -40,8 +40,8 @@ ve/pgsql94: ve/generic
 ve/samba-DC: ve/generic
 	@$(call add,BASE_PACKAGES,task-samba-dc glibc-locales net-tools)
 
-ve/systemd-bare: ve/.base use/control/sudo-su use/repo use/net/networkd +systemd
+ve/systemd-bare: ve/.base use/net/networkd +systemd \
+	use/control/sudo-su use/repo use/net-ssh
 	@$(call add,BASE_PACKAGES,interactivesystem su)
-	@$(call add,BASE_LISTS,openssh)
 
 endif
