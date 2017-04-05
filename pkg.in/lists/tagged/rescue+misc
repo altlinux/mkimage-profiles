@@ -8,7 +8,7 @@ docx2txt
 unrtf
 
 # Networking
-drbd83-tools
+drbd-utils
 iscsitarget-utils
 ntp-utils
 

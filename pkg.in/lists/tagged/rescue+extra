@@ -30,7 +30,6 @@ lvm2
 mdadm
 ms-sys
 parted
-partclone
 recoverdm
 safecopy
 sdparm
