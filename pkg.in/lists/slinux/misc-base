@@ -9,6 +9,7 @@ anacron
 
 pam-limits-desktop
 bash-completion
+mc-full
 inxi
 fvwm-
 fvwm-full-
