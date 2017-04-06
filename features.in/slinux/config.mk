@@ -6,7 +6,7 @@ use/slinux: use/x11
 	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
 
 use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse use/luks \
-	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless use/l10n/default/ru_RU use/live/x11 \
+	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless +vmguest use/l10n/default/ru_RU use/live/x11 \
 	use/branding/complete; @:
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,THE_LISTS,slinux/games-base)
