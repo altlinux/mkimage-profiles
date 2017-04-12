@@ -6,6 +6,7 @@ openssh-clients
 rsync
 strace
 anacron
+os-prober
 
 pam-limits-desktop
 bash-completion
