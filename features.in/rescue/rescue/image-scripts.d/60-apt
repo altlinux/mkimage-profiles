@@ -1,4 +1,4 @@
 #!/bin/sh
 # enable online repository even more unconditionally
 
-sed -i "s,^#\(rpm \[alt\] http.*\),\1," "/etc/apt/sources.list.d/alt.list"
+sed -i "s,^#\(rpm \[alt\] http.*\),\1," "/etc/apt/sources.list.d/yandex.list"

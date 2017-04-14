@@ -7,4 +7,4 @@ PROTO="${GLOBAL_LIVE_REPO%/*}"	# http, ftp, rsync
 MIRROR="${GLOBAL_LIVE_REPO#*/}"	# alt, heanet, kiev, yandex, ...
 
 sed -i "s,^#\(rpm \[.*\] ${PROTO:-http}.*\),\1," \
-	"/etc/apt/sources.list.d/${MIRROR:-alt}.list"
+	"/etc/apt/sources.list.d/${MIRROR:-yandex}.list"
