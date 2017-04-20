@@ -46,12 +46,10 @@ kde3-menu-resources-
 kde4-menu-common-
 kde4-menu-resources-
 
-firefox-esr
-firefox-esr-ru
-firefox-esr-uk
-firefox-esr-be
-firefox-esr-kk
-#xulrunner-gnome-support
+# browser
+chromium
+chromium-gnome
+
 file-roller
 unzip
 unrar
