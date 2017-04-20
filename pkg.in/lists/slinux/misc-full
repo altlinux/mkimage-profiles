@@ -1,7 +1,6 @@
 #mintmenu
 homebank
 homebank-help
-aspell-uk
 stardict-mueller7
 stardict-wn
 stardict-engcom
@@ -24,13 +23,7 @@ tango-icon-theme-extras
 
 hwinfo
 
-gparted
-
 # Merged from disk-dvd list
-
-# For 1c
-haspd@i586
-i586-haspd@x86_64
 
 fonts-ttf-church
 fonts-ttf-latex-xft
@@ -40,13 +33,6 @@ clipart-openclipart-png
 ImageMagick
 
 ntfs-3g
-
-#kernel
-kernel-build-tools
-kernel-doc-std
-#kernel-headers-modules-@KERNEL@
-#kernel-headers-@KERNEL@
-#kernel-source-3.10
 
 perl-Crypt-Rijndael
 
@@ -60,21 +46,14 @@ jackd
 osec-mailreport
 slocate
 adjtimex
-tunctl
-wireless-tools
 wodim
 
 opensc
 
 alterator-fbi
 
-^libopensync0-*
-msynctool0
-
 # wacom driver and utilities
 xorg-drv-wacom
-
-bridge-utils
 
 ocfs2-tools
 
@@ -84,22 +63,6 @@ glxgears
 
 rsync
 screen
-
-#needed for crypto
-lsb
-python-module-Crypto
-
-python-module-xmlsec
-libxmlsec1
-libxmlsec1-gnutls
-libxmlsec1-nss
-libxmlsec1-openssl
-libxerces-c28-utils
-libxerces-c28-doc
-fprintd
-pam_fprintd
-libfprint
-xprobe2
 
 xrdp
 
