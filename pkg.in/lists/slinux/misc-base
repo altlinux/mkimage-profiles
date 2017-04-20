@@ -178,9 +178,6 @@ fontconfig-infinality
 # Console fonts workaround
 vconsole-setup-kludge
 
-# For 1C installation
-#1c-preinstall
-
 # askpass
 gtk2-ssh-askpass
 
