@@ -20,3 +20,6 @@ python-module-spice-gtk
 
 # Nvidia drivers
 nvidia_glx_.*
+
+# Legacy, should be dropped soon
+chestnut-dialer-gtk2
