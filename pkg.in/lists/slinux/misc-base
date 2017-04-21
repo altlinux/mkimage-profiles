@@ -188,7 +188,7 @@ gtk2-ssh-askpass
 systemd-analyze
 
 # Enable left mouse button by tapping by default
-xorg-conf-synaptics
+xorg-conf-libinput-touchpad
 
 # Otherwise hunspell-ru  will be replace by it
 # during dist-upgrade
