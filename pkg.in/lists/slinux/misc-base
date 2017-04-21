@@ -9,6 +9,7 @@ anacron
 os-prober
 make-initrd-lvm
 dhcp-client
+shadow-change
 
 pam-limits-desktop
 bash-completion
