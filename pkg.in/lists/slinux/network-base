@@ -1,15 +1,9 @@
-dhcp-client
-
-mozilla-plugin-adobe-flash
-#mozilla-plugin-java-1.6.0-sun
-#mozilla-plugin-java-1.7.0-openjdk
 thunderbird-esr
 thunderbird-esr-ru
 thunderbird-esr-enigmail
 
 pidgin
 pidgin-libnotify
-aspell-ru-lebedev
 
 alterator-net-pptp
 alterator-net-eth

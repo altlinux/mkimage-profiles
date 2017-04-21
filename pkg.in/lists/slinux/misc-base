@@ -8,6 +8,7 @@ strace
 anacron
 os-prober
 make-initrd-lvm
+dhcp-client
 
 pam-limits-desktop
 bash-completion
@@ -38,6 +39,7 @@ gparted
 #tango-icon-theme-extras
 #ntfsprogs-
 driconf-
+aspell-ru-lebedev
 
 kde4libs-
 kde-common-
@@ -49,6 +51,7 @@ kde4-menu-resources-
 # browser
 chromium
 chromium-gnome
+mozilla-plugin-adobe-flash
 
 xarchiver
 unzip
