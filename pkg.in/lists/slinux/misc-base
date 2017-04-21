@@ -51,7 +51,7 @@ kde4-menu-resources-
 # browser
 chromium
 chromium-gnome
-mozilla-plugin-adobe-flash
+ppapi-plugin-adobe-flash
 
 xarchiver
 unzip
