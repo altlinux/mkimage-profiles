@@ -84,9 +84,12 @@ pulseaudio-daemon
 pulseaudio-utils
 pavucontrol
 alsa-plugins-pulse
-# For pulseaudio support
-# in the xfce4-mixer
-gst-plugins-good
+
+# gstreamer plugins
+gst-plugins-base1.0
+gst-plugins-good1.0
+gst-plugins-bad1.0
+gst-plugins-ugly1.0
 
 fdisk
 cpufreq-simple
