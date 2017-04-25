@@ -3,7 +3,7 @@ gst-plugins-base
 gst-plugins-gl
 gst-plugins-good
 gst-plugins-nice
-gst-plugins-ugly
+#gst-plugins-ugly
 #gst-ffmpeg
 gnome-mplayer
 
