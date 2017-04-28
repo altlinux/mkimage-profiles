@@ -19,6 +19,10 @@ network.service
 ntpd.service
 lightdm.service
 bluetooth.service
+livecd-setlocale
+livecd-evms
+livecd-save-nfs
+livecd-timezone
 "
 
 DISABLE="
