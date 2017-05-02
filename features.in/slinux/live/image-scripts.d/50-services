@@ -9,7 +9,6 @@ NetworkManager-wait-online.service
 ModemManager.service
 nmb.service
 smb.service
-dnsmasq.service
 cpufreq-simple.service
 alteratord.socket
 bluetoothd.service
@@ -27,6 +26,7 @@ livecd-timezone
 
 DISABLE="
 anacron.service
+dnsmasq.service
 x11presetdrv.service
 bridge.service
 acpid.service
