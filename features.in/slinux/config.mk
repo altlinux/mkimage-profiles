@@ -8,6 +8,7 @@ use/slinux: use/x11
 use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse use/luks \
 	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless +vmguest use/l10n/default/ru_RU use/live/x11 \
 	+efi use/efi/refind use/branding/complete; @:
+	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,LIVE_LISTS,slinux/games-base)
