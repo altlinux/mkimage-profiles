@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# don't cripple the image to be copied over
-[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install ] && exit 0
+# don't cripple the image to be copied over or explicitly requested
+# not to do this
+[ -n "$GLOBAL_LIVE_NO_CLEANUPDB" ] || \
+	[ -x /usr/sbin/live-install ] || \
+	[ -x /usr/sbin/livecd-install ] && exit 0
 
 # dump what's here by this point
 echo "** live packages before rpmdb purge:"

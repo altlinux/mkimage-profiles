@@ -1,5 +1,6 @@
 use/cleanup:
 	@$(call add_feature)
+	@$(call xport,GLOBAL_LIVE_NO_CLEANUPDB)
 	@$(call xport,CLEANUP_PACKAGES)
 	@$(call xport,CLEANUP_BASE_PACKAGES)
 
