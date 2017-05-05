@@ -1,14 +1,12 @@
 wine@i586
 libwine-gl@i586
 libwine-twain@i586
-
-wine-mono@X86
-wine-gecko@X86
-
-i586-wine-vanilla@x86_64
-i586-libwine-vanilla-gl@x86_64
+wine-mono
+wine-gecko
+i586-wine@x86_64
+i586-libwine-gl@x86_64
 i586-xorg-dri-*@x86_64
-i586-libwine-vanilla-twain@x86_64
+i586-libwine-twain@x86_64
 i586-libnss-mdns@x86_64
 i586-libnss-myhostname@x86_64
 
