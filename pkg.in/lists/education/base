@@ -82,5 +82,6 @@ ppapi-plugin-adobe-flash
 # Additional filesystem support
 fuse-exfat
 
-# Authenticate with Active Directory by SSSD
+# Authenticate with Active Directory and FreeIPA by SSSD
 task-auth-ad-sssd
+task-auth-freeipa
