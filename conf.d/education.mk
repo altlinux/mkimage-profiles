@@ -25,11 +25,12 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,firefox-esr firefox-esr-ru)
 	@$(call add,THE_PACKAGES,guest-account)
 	@$(call add,THE_PACKAGES,owncloud-client)
+	@$(call add,THE_PACKAGES,net-tools fdisk gdisk parted)
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
 	@$(call add,MAIN_PACKAGES,kumir2 rujel)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,THE_LISTS,$(call tags,base regular))
-	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind)
+	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind crond)
 
 endif
