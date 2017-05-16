@@ -12,6 +12,7 @@ rm -rf /usr/lib/qt4/plugins/codecs
 rm -rf /usr/lib/qt4/plugins/bearer
 rm -rf /usr/lib/qt4/plugins/inputmethods
 rm -rf /usr/share/qt4/{doc,mkspecs,phrasebooks}
+rm -rf /usr/lib*/qt5/plugins/{bearer,platformthemes}
 
 rm -rf /usr/share/guile/*/{*.txt,scripts}
 rm -rf /usr/share/awk/

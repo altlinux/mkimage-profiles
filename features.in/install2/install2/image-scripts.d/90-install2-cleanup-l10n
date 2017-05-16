@@ -26,3 +26,10 @@ find /usr/lib/locale -mindepth 1 -maxdepth 1 -type d \! -name '*.utf8' -print0 |
 
 # dangling symlinks
 find /usr/lib/locale \! -readable -delete
+
+find /usr/share/qt5/translations/ -type f | \
+    grep -v -e '/qtbase_[[:alpha:]][[:alpha:]]*\.qm$' \
+	-e '/alterator_browser_qt_[[:alpha:]][[:alpha:]]*\.qm$' | \
+while read f; do
+    rm -f "$f"
+done
