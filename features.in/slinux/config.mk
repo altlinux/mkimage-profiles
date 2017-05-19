@@ -6,7 +6,8 @@ use/slinux: use/x11
 	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
 
 use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse use/luks \
-	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless +vmguest use/l10n/default/ru_RU use/live/x11 \
+	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless +vmguest use/l10n/default/ru_RU \
+	use/live/x11 use/live/rw \
 	+efi use/efi/refind use/branding/complete; @:
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call set,KFLAVOURS,un-def)
