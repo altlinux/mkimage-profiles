@@ -8,3 +8,6 @@ xsane
 
 ristretto
 gimagereader-qt4
+tesseract
+tesseract-langpack-ru
+tesseract-langpack-en
