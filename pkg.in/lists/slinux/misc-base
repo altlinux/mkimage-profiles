@@ -70,7 +70,7 @@ cups
 cups-filters
 cups-pdf
 avahi-daemon
-blueman
+blueberry
 update-kernel
 printer-drivers-base
 udev-extras
