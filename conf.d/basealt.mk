@@ -29,6 +29,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	use/browser/firefox use/browser/firefox/esr
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
+	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
