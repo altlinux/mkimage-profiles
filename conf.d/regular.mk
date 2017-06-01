@@ -243,7 +243,7 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
 	use/mediacheck +wireless
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
-	@$(call add,RESCUE_LISTS,$(call tags,base && (smartcard || bench)))
+	@$(call add,RESCUE_LISTS,$(call tags,base bench))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
 distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
