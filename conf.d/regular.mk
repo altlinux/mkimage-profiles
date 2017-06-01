@@ -37,7 +37,6 @@ distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop; @:
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm \
 	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
-	@$(call add,LIVE_LISTS,domain-client)
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,upower bluez)
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
@@ -141,7 +140,7 @@ distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 mixin/regular-xfce: use/x11/xfce use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce \
-	use/x11/xfce/full use/domain-client/full
+	use/x11/xfce/full use/domain-client
 	@$(call set,KFLAVOURS,un-def)
 
 mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
@@ -162,7 +161,7 @@ distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
 distro/regular-mate: distro/.regular-gtk +nm \
-	use/x11/mate use/fonts/ttf/google use/domain-client/full
+	use/x11/mate use/fonts/ttf/google use/domain-client
 	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 
@@ -201,7 +200,7 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
-	use/browser/konqueror4 use/fonts/zerg use/domain-client/full \
+	use/browser/konqueror4 use/fonts/zerg use/domain-client \
 	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,THE_LISTS,$(call tags,regular kde4))
 	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
@@ -223,7 +222,7 @@ distro/regular-leechcraft: distro/.regular-desktop \
 	use/x11/leechcraft use/x11/lightdm/lxqt +pulse; @:
 
 distro/regular-kde5: distro/.regular-desktop \
-	use/x11/kde5 use/x11/sddm \
+	use/x11/kde5 use/x11/sddm use/domain-client \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+nm +pulse +plymouth
 	@$(call add,THE_PACKAGES,kde5-telepathy)
