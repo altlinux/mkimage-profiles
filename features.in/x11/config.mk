@@ -50,6 +50,10 @@ use/x11/vulkan: use/x11/intel use/x11/amdgpu
 	@$(call add,THE_PACKAGES,vulkan)
 	@$(call add,THE_PACKAGES,vulkan-radeon vulkan-intel)
 
+# see https://github.com/NVIDIA/libglvnd for all gory details
+use/x11/glvnd: use/x11
+	@$(call add,THE_PACKAGES,libglvnd-glx,libglvnd-egl)
+
 # sometimes broken with current xorg-server
 use/x11/nvidia: use/x11
 	@$(call set,NVIDIA_KMODULES,nvidia)
