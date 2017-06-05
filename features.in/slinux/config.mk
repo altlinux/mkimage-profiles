@@ -7,7 +7,7 @@ use/slinux: use/x11
 
 use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse use/luks \
 	+plymouth +nm use/x11/gtk/nm use/memtest +systemd +wireless +vmguest use/l10n/default/ru_RU \
-	use/live/x11 use/live/rw use/xdg-user-dirs/deep \
+	use/live/x11 use/live/rw use/xdg-user-dirs/deep use/install2/fonts \
 	+efi use/efi/refind use/branding/complete; @:
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call set,KFLAVOURS,un-def)
@@ -21,7 +21,6 @@ use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +puls
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,STAGE2_PACKAGES,installer-distro-desktop)
-	@$(call add,STAGE2_PACKAGES,fonts-ttf-google-droid-sans)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,THE_KMODULES,staging)
 
