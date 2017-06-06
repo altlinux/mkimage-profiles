@@ -47,3 +47,5 @@ gpart
 x11-ssh-askpass
 
 sysfsutils
+
+mc
