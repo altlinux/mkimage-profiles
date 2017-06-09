@@ -23,7 +23,6 @@ alterator-updates
 altlinux-freedesktop-menu-kde4
 apt-rsync
 avplay
-basic256
 bumblebee
 cabextract
 cheese
@@ -65,7 +64,6 @@ kumir
 libnss-fallback
 libsqlite
 lm_sensors3-utils
-logisim
 man-pages-ru
 mc-full
 media-player-info
