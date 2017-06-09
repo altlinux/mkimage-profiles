@@ -47,11 +47,11 @@ glibc-gconv-modules@i586
 wine-programs@i586
 libwine-gl@i586
 libwine-twain@i586
-wine@i586
+wine>2.9@i586
 i586-glibc-gconv-modules@x86_64
 i586-libwine-gl@x86_64
 i586-libwine-twain@x86_64
-i586-wine@x86_64
+i586-wine>2.9@x86_64
 installer-distro-junior-stage3
 installer-feature-auto-domain
 installer-feature-online-repo
