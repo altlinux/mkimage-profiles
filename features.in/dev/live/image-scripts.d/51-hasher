@@ -73,7 +73,7 @@ alias m='cd /usr/share/mkimage-profiles'
 clear
 cat << EOH
 Welcome to live builder environment!
-Here are some ALT Linux package/image build tools prepared for you:
+Here are some ALT package/image build tools prepared for you:
 * ${white}gear${gray}(1) -- see ${cyan}http://en.altlinux.org/gear${gray};
 * ${white}hsh${gray}(1)  -- see ${cyan}http://en.altlinux.org/hasher${gray};
 * ${white}mkimage${gray} -- see ${cyan}http://en.altlinux.org/mkimage${gray};

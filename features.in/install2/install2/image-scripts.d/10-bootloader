@@ -1,5 +1,5 @@
 #!/bin/sh
-# NB: grub is currently the default in ALT Linux
+# NB: grub is currently the default in ALT
 
 sed -ri "s/^(grub|lilo)$/$GLOBAL_BASE_BOOTLOADER/" \
 	/usr/share/install2/installer-steps

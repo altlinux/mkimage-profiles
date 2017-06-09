@@ -30,7 +30,7 @@ GLOBAL_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 CHROOT_PACKAGES_REGEXP := $(call kpackages, \
 	$(STAGE1_KFLAVOUR),$(STAGE1_KMODULES_REGEXP))
 ifneq "$(findstring stage2,$(SUBPROFILES))" ""	### assumes stage2 ~ propagator
-PROPAGATOR_VERSION = ALT Linux
+PROPAGATOR_VERSION = ALT
 PROPAGATOR_MAR_MODULES = ./modules
 PROPAGATOR_INITFS = ./initfs
 BUILD_PROPAGATOR = prepare-modules build-propagator

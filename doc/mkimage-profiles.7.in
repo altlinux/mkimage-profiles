@@ -16,16 +16,16 @@
 .\" along with this program; if not, write to the Free Software
 .\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 .\" 
-.TH "MKIMAGE-PROFILES" "7" "February 2016" "mkimage-profiles @VERSION@" "ALT Linux"
+.TH "MKIMAGE-PROFILES" "9" "June 2017" "mkimage-profiles @VERSION@" "ALT"
 .SH "NAME"
-mkimage-profiles \- ALT Linux distribution family metaprofile
+mkimage-profiles \- ALT distribution family metaprofile
 .SH "SYNOPSIS"
 .B make
 .IR "" [ options ]
 .I "" [ <goal> ... ]
 .SH "DESCRIPTION"
 .BR mkimage-profiles
-builds operating environment images based on ALT Linux package repositories.
+builds operating environment images based on ALT package repositories.
 
 Run
 .BR make\ help
@@ -50,7 +50,7 @@ can be used to obtain build dependency graphs.
 Long time ago when Linux distribution images were worked upon by hand
 there was little need for generalization and sharing the common base.
 
-Building several "generic" ALT Linux distros in a team and maintaining
+Building several "generic" ALT{, Linux} distros in a team and maintaining
 their educational flavours at the same time proved the need to be able
 to describe what's common and what's different in a way that doesn't
 resemble more or less complete forks.
@@ -59,7 +59,7 @@ Enter mkimage-profiles: choose what's closest to your dream image
 and add what's missing, or roll on your own using the rich library
 of existing parts and bits.
 .SH "REQUIREMENTS"
-The next-generation image build system for ALT Linux must:
+The next-generation image build system for ALT must:
 .TP
 1.
 provide reasonable means to describe common/differing aspects within
@@ -108,7 +108,7 @@ Report bugs to http://bugzilla.altlinux.org
 .br
 (Sisyphus project, mkimage-profiles component).
 .SH "COPYRIGHT"
-Copyright \(co) 2010-2016  Michael Shigorin <mike@altlinux.org>
+Copyright \(co) 2010-2017  Michael Shigorin <mike@altlinux.org>
 .br
 This is free software; see the source for copying conditions.
 There is NO WARRANTY; not even for MERCHANTABILITY or
