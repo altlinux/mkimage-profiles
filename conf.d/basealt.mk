@@ -5,7 +5,7 @@ distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	3rdparty agents blender clamav cloud-clients emulators freecad \
 	ganttproject gnome-peer-to-peer graphics-editing gtk-dictionary \
 	kvm libreoffice mate-usershare pidgin raccess \
-	scanning scribus sound-editing thunderbird virtualbox \
+	scanning scribus smartcard sound-editing thunderbird virtualbox \
 	vlc voip-clients)
 
 distro/alt-workstation: distro/.base use/luks  \
