@@ -6,6 +6,7 @@ distro/education: distro/.installer use/slinux/full \
 	use/memtest \
 	use/services \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
+	use/install2/vnc \
 	use/l10n/default/ru_RU +vmguest +efi \
 	use/efi/refind \
 	+systemd
