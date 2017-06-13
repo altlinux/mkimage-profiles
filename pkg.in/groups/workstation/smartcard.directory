@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Smartcard support
+Name[ru_RU]=Поддержка смарт-карт
+X-Alterator-PackageList=workstation/smartcard
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/10-office
+Categories=KDE;KDE4;GNOME;XFCE
