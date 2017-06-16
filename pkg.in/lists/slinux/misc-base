@@ -25,6 +25,8 @@ installer-distro-simply-linux-stage3
 #branding-@BRANDING@-xfce-settings
 #branding-@BRANDING@-system-settings
 #branding-@BRANDING@-menu
+branding-simply-linux-backgrounds-vladstudio
+branding-simply-linux-backgrounds8
 docs-linux_intro
 fonts-ttf-google-droid-.*
 fonts-ttf-ubuntu-font-family
