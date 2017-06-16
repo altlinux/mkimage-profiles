@@ -1,3 +1,0 @@
-#!/bin/sh
-# for grub2 2.00; see also #33489
-sed -i 's/,64bit//' /etc/mke2fs.conf ||:
