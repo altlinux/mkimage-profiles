@@ -23,6 +23,7 @@ use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +puls
 	@$(call add,STAGE2_PACKAGES,installer-distro-desktop)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,THE_KMODULES,staging)
+	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
