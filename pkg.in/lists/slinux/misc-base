@@ -150,7 +150,7 @@ plymouth
 #branding-simply-linux-bootsplash
 
 # Office
-java-1.6.0-sun
+java-1.8.0-openjdk
 LibreOffice
 LibreOffice-gnome
 LibreOffice-langpack-ru
