@@ -50,8 +50,6 @@ wodim
 
 opensc
 
-alterator-fbi
-
 # wacom driver and utilities
 xorg-drv-wacom
 
