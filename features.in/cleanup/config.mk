@@ -37,7 +37,7 @@ use/cleanup/jeos: use/cleanup/x11-alterator
 # mostly non-interactive system
 use/cleanup/jeos/full: use/cleanup/jeos
 	@$(call add,CLEANUP_PACKAGES,interactivesystem 'groff*' man stmpclean)
-	@$(call add,CLEANUP_PACKAGES,glibc-gconv-modules gettext)
+	@$(call add,CLEANUP_PACKAGES,gettext)
 	@$(call add,CLEANUP_PACKAGES,console-scripts console-vt-tools 'kbd*')
 	@$(call add,CLEANUP_PACKAGES,libsystemd-journal libsystemd-login)
 	@$(call add,CLEANUP_PACKAGES,dbus libdbus)

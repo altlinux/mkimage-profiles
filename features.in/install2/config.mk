@@ -10,6 +10,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)
 	@$(call add,BASE_PACKAGES,branding-$$(BRANDING)-release)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
+	@$(call add,BASE_PACKAGES,glibc-gconv-modules)	# for guile22
 	@$(call add,BASE_LISTS,$(call tags,basesystem))
 	@$(call xport,BASE_BOOTLOADER)
 	@$(call xport,INSTALL2_CLEANUP_PACKAGES)
@@ -116,7 +117,7 @@ use/install2/cleanup/x11-hwdrivers:
 # massive purge of anything not critical to installer boot (l10n included!)
 use/install2/cleanup/everything: use/install2/cleanup/x11-hwdrivers \
 	use/install2/cleanup/vnc use/install2/cleanup/crypto
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,glibc-gconv-modules glibc-locales)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,glibc-locales)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,libX11-locales alterator-l10n)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,kbd-data kbd console-scripts)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,shadow-convert)
