@@ -1,0 +1,23 @@
+# Electronic
+kicad
+qucs
+
+# CAD
+librecad
+
+# APCS
+beremiz
+yaplc-ide
+
+# SCADA
+openscada-Model.AGLKS
+openscada-Model.Boiler
+
+# CNC
+linuxcnc
+camotics
+repraptor
+pcb2gcode
+inkscape-plugin-gcodetools
+pycam
+flatcam
