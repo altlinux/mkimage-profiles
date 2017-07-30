@@ -14,6 +14,7 @@ distro/alt-p8-gnustep: distro/regular-gnustep mixin/p8; @:
 distro/alt-p8-kde4: distro/regular-kde4 mixin/p8; @:
 distro/alt-p8-kde5: distro/regular-kde5 mixin/p8; @:
 distro/alt-p8-lxde: distro/regular-lxde mixin/p8; @:
+distro/alt-p8-lxde-sysv: distro/regular-lxde-sysv mixin/p8; @:
 distro/alt-p8-lxqt: distro/regular-lxqt mixin/p8; @:
 distro/alt-p8-lxqt-sysv: distro/regular-lxqt-sysv mixin/p8; @:
 distro/alt-p8-mate: distro/regular-mate mixin/p8; @:

@@ -153,9 +153,15 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
 	mixin/regular-xfce mixin/regular-xfce-sysv; @:
 
-distro/regular-lxde: distro/.regular-gtk use/x11/lxde use/fonts/infinality \
+mixin/regular-lxde: use/x11/lxde use/fonts/infinality \
 	use/x11/gtk/nm use/im +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
+
+distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde
+	@$(call add,THE_PACKAGES,lxde)
+
+distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde
+	@$(call add,THE_PACKAGES,lxde-sysvinit)
 
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
