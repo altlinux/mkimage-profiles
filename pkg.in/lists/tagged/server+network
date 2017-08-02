@@ -16,3 +16,4 @@ vlan-utils
 ntpdate
 tcpdump
 bridge-utils
+wget
