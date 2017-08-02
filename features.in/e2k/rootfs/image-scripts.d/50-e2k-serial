@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CFG="/boot/boot.conf"
+
+[ -f "$CFG" ] || exit 1
+[ -n "$GLOBAL_TTY_DEV" -a -n "$GLOBAL_TTY_RATE" ] || exit 0
+
+# tty0 first
+sed -i "s/console=tty0 /console=$GLOBAL_TTY_DEV,$GLOBAL_TTY_RATE &/" "$CFG"
