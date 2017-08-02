@@ -138,7 +138,10 @@ exit_handler() {
 		umount ${BOOTFS:+"$BOOTFS"} "$ROOTFS"{/dev,/proc,/sys,}
 
 		if [ -n "$LOOPDEV" ]; then
-			kpartx -d -s "$LOOPDEV"
+			kpartx -d -s "$LOOPDEV" || {
+				sleep 10
+				kpartx -d -s -v "$LOOPDEV"
+			}
 			losetup --detach "$LOOPDEV"
 		fi
 		rm -r -- "$ROOTFS"
@@ -272,5 +275,5 @@ image=/boot/vmlinuz
 fi
 
 if [ -n "$SUDO_USER" ]; then
-	chown "$SUDO_USER" "$IMG" "$ROOTFS" "$WORKDIR"
+	chown "$SUDO_USER:$(id -g "$SUDO_USER")" "$IMG" "$ROOTFS" "$WORKDIR" ||:
 fi
