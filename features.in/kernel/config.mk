@@ -7,7 +7,7 @@ endif
 
 use/kernel:
 	@$(call add_feature)
-	@$(call set,KFLAVOURS,std-def)
+	@$(call try,KFLAVOURS,std-def)
 
 # r8168 is a kludge, never install it by default
 use/kernel/net:
