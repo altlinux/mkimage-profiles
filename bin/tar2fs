@@ -31,7 +31,9 @@ INITRD_MODULES=
 BOOTFSTYPE=
 BOOTPART=
 
-case "`arch`" in	# NB: sudo => no GLOBAL_ will do either; mind qemu-*
+ARCH="$(arch)"		# NB: sudo => no GLOBAL_ will do either; mind qemu-*
+
+case "$ARCH" in
 *86*)
 	# NB: different storage modules might be needed for non-kvm
 	INITRD_MODULES="sd_mod ata_piix ahci virtio-scsi virtio-blk"
@@ -41,6 +43,12 @@ case "`arch`" in	# NB: sudo => no GLOBAL_ will do either; mind qemu-*
 arm*)
 	BOOTFSTYPE="ext2"	# support expected in every sane target uboot
 	BLOCKDEV="/dev/mmcblk0p"	# ...hopefully...
+	BOOTPART="1"
+	ROOTPART="2"
+	;;
+e2k)
+	BOOTFSTYPE="ext2"       # firmware knows it
+	BLOCKDEV="/dev/sda"     # ...hopefully...
 	BOOTPART="1"
 	ROOTPART="2"
 	;;
@@ -203,7 +211,15 @@ if [ -n "$BOOTPART" ]; then
 fi
 
 echo "MODULES_PRELOAD += $INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
-echo "FEATURES += qemu" >> "$ROOTFS/etc/initrd.mk"
+
+case "$ARCH" in
+*86*)
+	echo "FEATURES += qemu" >> "$ROOTFS/etc/initrd.mk"
+	;;
+e2k)
+	echo "FEATURES += usb"  >> "$ROOTFS/etc/initrd.mk"
+	;;
+esac
 
 # NB: don't stick BOOTFS here, it has slightly different semantics
 pushd $ROOTFS/boot
@@ -216,6 +232,11 @@ rm -f .origver
 
 # ...target device too
 sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"
+
+if [ -f boot.conf ]; then
+	sed -i -e "s,@ROOTUUID@,$ROOTUUID,g" -e "s,@KVER@,$KVER,g" boot.conf
+fi
+popd
 
 if [ -x "$ROOTFS"/sbin/lilo ]; then
 	# configure and install bootloader
