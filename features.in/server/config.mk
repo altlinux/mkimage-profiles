@@ -9,12 +9,12 @@ use/server/base: use/server use/firmware/server \
 	@$(call add,STAGE1_KMODULES,e1000e igb)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 
-use/server/mini: use/server/base
+use/server/mini: use/server/base use/services/lvm2-disable
 	@$(call add,THE_LISTS,\
 		$(call tags,base && (network || security || pkg)))
 	@$(call add,THE_LISTS,$(call tags,extra && (server || network)))
 	@$(call add,MAIN_LISTS,osec)
-	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus lvm2-lvmetad)
+	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus)
 
 use/server/ovz-base: use/server
 	@$(call set,STAGE1_KFLAVOUR,std-def)
