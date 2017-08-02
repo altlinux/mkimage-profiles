@@ -205,8 +205,14 @@ fi
 echo "MODULES_PRELOAD += $INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
 echo "FEATURES += qemu" >> "$ROOTFS/etc/initrd.mk"
 
-KERNEL="$(readlink $ROOTFS/boot/vmlinuz | sed 's,vmlinuz-,,')"
-chroot "$ROOTFS" make-initrd -k "$KERNEL"
+# NB: don't stick BOOTFS here, it has slightly different semantics
+pushd $ROOTFS/boot
+if [ -s .origver ]; then
+	read KVER < .origver
+fi
+[ -n "$KVER" ] || fatal "unable to deduce kernel version"
+chroot "$ROOTFS" make-initrd -k "$KVER"
+rm -f .origver
 
 # ...target device too
 sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"

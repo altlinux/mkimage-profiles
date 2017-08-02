@@ -9,5 +9,12 @@ kver="$(rpm -qa 'kernel-image*' \
         | cut -f 2 -d ' ' \
         | sed 's/kernel-image-//')"
 
-ln -s vmlinuz-$kver /boot/vmlinuz
-ln -s initrd-$kver.img /boot/initrd.img
+[ -n "$kver" ] || { echo "** unable to deduce kernel version" >&2; exit 1; }
+
+cd /boot
+echo "$kver" > .origver	# for tar2fs
+
+# NB: e2k kernel builds "image" instead of "vmlinuz"
+[ -f vmlinuz-$kver ] && ln -s vmlinuz-$kver vmlinuz ||:
+ln -s initrd-$kver.img initrd.img	# missing at this stage
+:
