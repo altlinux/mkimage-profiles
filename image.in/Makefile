@@ -92,7 +92,7 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 		cp -a distcfg.mk "$(LOGDIR)/$(IMAGE_OUTFILE).cfg"; \
 	fi
 
-debug:
+debug::
 	@echo "TOPDIR=$(TOPDIR)"
 	@echo "IMAGEDIR=$(IMAGEDIR)"
 	@echo "ARCH=$(ARCH)"

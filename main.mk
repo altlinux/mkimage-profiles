@@ -91,7 +91,7 @@ $(IMAGES): debug \
 # convenience shortcut
 $(DISTROS:distro/%=%): %: distro/%; @:
 
-debug:
+debug::
 ifeq (2,$(DEBUG))
 	@$(foreach v,\
 		$(filter IMAGE_%,$(sort $(.VARIABLES))),\
