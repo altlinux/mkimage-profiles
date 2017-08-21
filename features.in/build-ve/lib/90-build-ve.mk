@@ -17,5 +17,8 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 		 $(THE_PACKAGES) \
 		 $(call list,$(BASE_LISTS) $(THE_LISTS))
 
+IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
+                        $(BASE_PACKAGES_REGEXP)
+
 all: $(GLOBAL_DEBUG) build-image copy-tree run-image-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
