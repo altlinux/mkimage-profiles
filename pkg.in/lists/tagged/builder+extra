@@ -1,0 +1,17 @@
+bash-completion
+e2fsprogs
+fdisk
+gear
+hasher
+iproute2
+mkimage-profiles
+net-tools
+parallel
+pv
+rpm-build
+screen
+strace
+sudo
+su
+vim-console
+zsh
