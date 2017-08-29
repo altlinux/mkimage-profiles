@@ -18,6 +18,7 @@ disktype
 #     would suddenly get busy otherwise
 #evms
 #evms-ncurses
+fio
 gpart
 hddtemp
 idle3-tools
