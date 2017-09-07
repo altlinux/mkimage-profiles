@@ -43,3 +43,4 @@ use/deflogin/privileges: use/deflogin
 # NM with sysvinit
 use/deflogin/sysv/nm: use/deflogin
 	@$(call add,GROUPS,_nmconnect)
+	@$(call add,THE_PACKAGES,nm-sysvinit)
