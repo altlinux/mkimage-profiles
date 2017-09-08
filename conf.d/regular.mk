@@ -191,7 +191,7 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
 	@$(call add,LIVE_PACKAGES,gnome3-regular xcalib templates)
-	@$(call add,LIVE_PACKAGES,gnome-flashback)
+	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
 
 # reusable bits
 mixin/regular-tde: +tde \
