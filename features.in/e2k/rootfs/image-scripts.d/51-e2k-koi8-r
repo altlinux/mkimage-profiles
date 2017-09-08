@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "#LANG=ru_RU.KOI8-R" >> /etc/sysconfig/i18n
+echo "#SYSFONTACM=koi8-r" >> /etc/sysconfig/consolefont
+echo "#KBCHARSET=koi8-r" >> /etc/sysconfig/keyboard
+echo "#KEYTABLE=ru_cplk-KOI8-R" >> /etc/sysconfig/keyboard
