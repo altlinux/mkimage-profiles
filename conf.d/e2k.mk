@@ -20,6 +20,9 @@ vm/e2k-lxqt: vm/e2k-rescue mixin/e2k-desktop
 vm/e2k-mate: vm/systemd mixin/e2k-base mixin/e2k-desktop \
 	use/deflogin/live use/x11/mate; @:
 
+vm/e2k-lxqt: vm/e2k-rescue mixin/e2k-desktop
+	@$(call add,THE_LISTS,$(call tags,desktop && lxqt && !extra))
+
 vm/e2k-builder: vm/e2k-rescue use/dev/builder/base; @:
 
 vm/e2k-samba-DC: vm/e2k-rescue
