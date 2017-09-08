@@ -1,23 +1,45 @@
-# Electronic
+# EDA
 kicad
 qucs
 
-# CAD
+# 2D CAD
 librecad
+
+# 3D CAD
+freecad
+GLC_Player
+openscad
+openscad-MCAD
+openscad-libraries-mcad
+meshlab
+
+# CAM
+camotics
+pycam
+flatcam
+
+# CNC
+linuxcnc
+pcb2gcodeGUI
+inkscape-plugin-gcodetools
+
+# 3D Printer Software
+cura
+# bug 33830
+libfreeglut
+slic3r
+# bug 33831
+perl-Math-PlanePath
+printrun
+repraptor
 
 # APCS
 beremiz
 yaplc-ide
+# beremiz has problems with python-module-wx3.0
+python-module-wx
 
 # SCADA
 openscada-Model.AGLKS
 openscada-Model.Boiler
-
-# CNC
-linuxcnc
-camotics
-repraptor
-pcb2gcode
-inkscape-plugin-gcodetools
-pycam
-flatcam
+openscada-docRU
