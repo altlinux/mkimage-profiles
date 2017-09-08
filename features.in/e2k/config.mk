@@ -4,7 +4,7 @@ use/e2k:
 
 use/e2k/x11: use/e2k use/x11
 	@$(call add,THE_PACKAGES,xorg-conf-e401-radeon)
-	@$(call add,THE_PACKAGES,xorg-drv-ati)
+	@$(call add,THE_PACKAGES,xorg-drv-ati xinit)
 
 use/e2k/sound:
 	@$(call add,THE_PACKAGES,setup-alsa-elbrus-401)
