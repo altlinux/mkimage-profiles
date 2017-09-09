@@ -39,6 +39,7 @@ distro/alt-p8-server-pve: distro/regular-server-pve mixin/p8; @:
 
 distro/alt-p8-builder: distro/regular-builder mixin/p8; @:
 
+distro/alt-p8-engineering: distro/regular-engineering mixin/p8; @:
 endif
 
 ifeq (ve,$(IMAGE_CLASS))
