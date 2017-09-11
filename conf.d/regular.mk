@@ -148,7 +148,7 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/browser/firefox use/browser/firefox/classic \
 	use/browser/firefox/i18n use/browser/firefox/h264 \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
-	@$(call add,THE_PACKAGES,xfce4-mixer pm-utils elinks mpg123)
+	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 
 distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
 	mixin/regular-xfce mixin/regular-xfce-sysv; @:
