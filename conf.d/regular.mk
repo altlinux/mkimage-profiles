@@ -196,7 +196,7 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 # reusable bits
 mixin/regular-tde: +tde \
 	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
-	@$(call add,THE_PACKAGES,kdeedu-kalzium kdeedu-ktouch)
+	@$(call add,THE_PACKAGES_REGEXP,kdeedu-kalzium.* kdeedu-ktouch.*)
 	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluetoothd)
 
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
