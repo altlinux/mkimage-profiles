@@ -17,11 +17,6 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 	use/repo use/control/sudo-su use/deflogin
 	@$(call add,BASE_PACKAGES,su)
 
-mixin/cloud-init:
-	@$(call add,BASE_PACKAGES,cloud-init)
-	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final)
-	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-init cloud-init-local)
-
 # vm/net or vm/systemd-net
 vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
@@ -35,8 +30,6 @@ vm/.desktop-bare: vm/net use/x11/xorg use/cleanup/installer use/repo; @:
 
 vm/.desktop-base: vm/.desktop-bare \
 	use/deflogin/altlinuxroot use/x11-autologin; @:
-
-mixin/icewm: use/x11/lightdm/gtk +icewm; @:
 
 vm/icewm: vm/.desktop-base mixin/icewm; @:
 

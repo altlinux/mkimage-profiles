@@ -21,15 +21,6 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 	@$(call add,EFI_BOOTARGS,live_rw)
 
-# common WM live/installer bits
-mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
-	@$(call add,THE_PACKAGES,pam-limits-desktop)
-	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
-	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
-	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
-	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
-	@$(call set,THE_IMAGEWRITER,imagewriter)
-
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop; @:
 
@@ -116,46 +107,22 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
 	@$(call add,LIVE_PACKAGES,icewm-startup-networkmanager)
 	@$(call set,KFLAVOURS,un-def)
 
-mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
-	use/fonts/ttf/redhat use/x11/wmaker
-	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
-	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
-	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
-
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker: distro/.regular-sysv \
 	mixin/regular-wmaker use/live/autologin use/browser/palemoon/i18n
 	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
-
-# gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
-mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
-	use/browser/firefox/classic
-	@$(call add,THE_BRANDING,graphics)
 
 distro/regular-gnustep: distro/.regular-sysv \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
-mixin/regular-xfce: use/x11/xfce use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
-
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce \
 	use/x11/xfce/full use/domain-client
 	@$(call set,KFLAVOURS,un-def)
 
-mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
-	use/x11/lightdm/gtk \
-	use/browser/firefox use/browser/firefox/classic \
-	use/browser/firefox/i18n use/browser/firefox/h264 \
-	use/fonts/otf/adobe use/fonts/otf/mozilla
-	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
-
 distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
 	mixin/regular-xfce mixin/regular-xfce-sysv; @:
-
-mixin/regular-lxde: use/x11/lxde use/fonts/infinality \
-	use/x11/gtk/nm use/im +nm
-	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde
 	@$(call add,THE_PACKAGES,lxde)
@@ -193,12 +160,6 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	@$(call add,LIVE_PACKAGES,gnome3-regular xcalib templates)
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
 
-# reusable bits
-mixin/regular-tde: +tde \
-	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
-	@$(call add,THE_PACKAGES_REGEXP,kdeedu-kalzium.* kdeedu-ktouch.*)
-	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluetoothd)
-
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
 	use/x11/gtk/nm use/net/nm/mmgui
 
@@ -212,10 +173,6 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
-
-mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
-	use/browser/qupzilla use/x11/gtk/nm +nm +plymouth
-	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt; @:
 
@@ -233,15 +190,6 @@ distro/regular-kde5: distro/.regular-desktop \
 	+nm +pulse +plymouth
 	@$(call add,THE_PACKAGES,kde5-telepathy)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
-
-# NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
-#     kernel cmdline resulting in method:disk instead of method:cdrom
-#     which will change propagator's behaviour to probe additional
-#     filesystems (ro but no loop) thus potentially writing to
-#     an unrecovered filesystem's journal
-mixin/regular-rescue: use/rescue use/isohybrid use/luks use/branding \
-	use/syslinux/ui/menu use/syslinux/timeout/600 \
-	use/firmware/qlogic test/rescue/no-x11 +sysvinit; @:
 
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
 	use/rescue/rw use/efi/refind use/efi/shell use/efi/memtest86 \
