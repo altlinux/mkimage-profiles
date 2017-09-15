@@ -70,28 +70,6 @@ distro/elinks: distro/.base use/pid1/net
 
 endif # IMAGE_CLASS: distro
 
-ifeq (ve,$(IMAGE_CLASS))
-
-ifeq (centos,$(REPO))
-
-ve/.centos-base: ve/.bare
-	@$(call set,IMAGE_INIT_LIST,hasher-pkg-init)
-
-ve/centos: ve/.centos-base
-	@$(call add,BASE_PACKAGES,openssh-server)
-
-endif # REPO: centos
-
-ifeq (opensuse,$(REPO))
-
-ve/.opensuse-base: ve/.bare
-	@$(call set,IMAGE_INIT_LIST,hasher-pkg-init)
-	@$(call add,BASE_PACKAGES,aaa_base)
-
-endif # REPO: opensuse
-
-endif # IMAGE_CLASS: ve
-
 ifeq (vm,$(IMAGE_CLASS))
 
 vm/net-static: vm/bare use/net-eth use/net-ssh

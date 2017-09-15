@@ -107,8 +107,6 @@ distro/live-0ad: distro/.live-games
 	@$(call add,LIVE_PACKAGES,0ad livecd-0ad)
 	@$(call try,HOMEPAGE,http://play0ad.com/)
 
-distro/live-e17: distro/.live-desktop-ru use/x11/e17 use/x11/lightdm/gtk; @:
-
 distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,LIVE_PACKAGES,gimp tintii immix fim)

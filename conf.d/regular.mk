@@ -139,8 +139,6 @@ distro/regular-mate: distro/.regular-gtk +nm \
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,LIVE_LISTS,$(call tags,base smartcard))
 
-distro/regular-e17: distro/.regular-gtk use/x11/e17 use/fonts/infinality; @:
-
 distro/regular-enlightenment: distro/.regular-gtk \
 	use/x11/enlightenment use/fonts/infinality; @:
 
@@ -178,11 +176,6 @@ distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt; @:
 
 distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
 	use/net-eth/dhcp use/efi/refind; @:
-
-distro/regular-sugar: distro/.regular-gtk use/x11/sugar; @:
-
-distro/regular-leechcraft: distro/.regular-desktop \
-	use/x11/leechcraft use/x11/lightdm/lxqt +pulse; @:
 
 distro/regular-kde5: distro/.regular-desktop \
 	use/x11/kde5 use/x11/sddm use/domain-client \

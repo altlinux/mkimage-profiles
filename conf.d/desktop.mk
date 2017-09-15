@@ -11,11 +11,6 @@ distro/.desktop-network: distro/.desktop-mini mixin/desktop-installer; @:
 distro/.desktop-extra:
 	@$(call add,BASE_LISTS,$(call tags,(archive || base) && (extra)))
 
-distro/kde4-lite: distro/.desktop-mini \
-	distro/.desktop-network distro/.desktop-extra +kde4-lite
-	@$(call set,KFLAVOURS,std-def)
-
-distro/tde: distro/.desktop-network +tde; @:
 distro/icewm: distro/.desktop-network use/lowmem use/install2/fs +icewm; @:
 distro/ltsp-tde: distro/tde +ltsp; @:
 distro/ltsp-icewm: distro/icewm +ltsp; @:
