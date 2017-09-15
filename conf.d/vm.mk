@@ -17,17 +17,18 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 	use/repo use/control/sudo-su use/deflogin
 	@$(call add,BASE_PACKAGES,su)
 
-# vm/net or vm/systemd-net
-vm/cloud-systemd: vm/systemd-net use/vmguest/kvm
+mixin/cloud-init:
 	@$(call add,BASE_PACKAGES,cloud-init)
-	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final cloud-init cloud-init-local)
+	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final)
+	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-init cloud-init-local)
+
+# vm/net or vm/systemd-net
+vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_KMODULES,kdbus)
 
-vm/cloud-sysv: vm/net use/vmguest/kvm use/power/acpi/button
-	@$(call add,BASE_PACKAGES,cloud-init)
-	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final cloud-init cloud-init-local)
+vm/cloud-sysv: vm/net mixin/cloud-init use/vmguest/kvm use/power/acpi/button; @:
 
 # NB: use/x11 employs some installer-feature packages
 vm/.desktop-bare: vm/net use/x11/xorg use/cleanup/installer use/repo; @:
