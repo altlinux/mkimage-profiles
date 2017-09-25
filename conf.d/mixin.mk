@@ -8,6 +8,15 @@ mixin/desktop-installer: +net-eth +vmguest \
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,BASE_PACKAGES,os-prober)
 
+### e2k.mk
+mixin/e2k-base: use/tty/S0 use/net-eth/dhcp; @:
+
+mixin/e2k-desktop: use/e2k/x11 use/e2k/sound use/l10n/default/ru_RU \
+	use/browser/firefox/esr use/browser/firefox/i18n \
+	use/fonts/otf/adobe use/fonts/otf/mozilla
+	@$(call add,THE_PACKAGES,xinit xterm mc)
+	@$(call add,THE_PACKAGES,fonts-bitmap-terminus)
+
 ### regular.mk
 # common WM live/installer bits
 mixin/regular-desktop: use/x11/xorg use/sound use/xdg-user-dirs
