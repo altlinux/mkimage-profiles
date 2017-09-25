@@ -19,9 +19,7 @@ udisks2
 gvfs
 
 # system configuration tools
-compton-conf
 lxqt-config
-obconf-qt
 
 # utilities
 lximage-qt
@@ -33,11 +31,7 @@ eject
 icon-theme-oxygen
 x-cursor-theme-jimmac
 
-qupzilla
 qterminal
-juffed
-juffed-plugins
-screengrab
 xscreensaver
 
 psi-plus
@@ -45,8 +39,6 @@ psi-plus-plugin-birthdayreminder
 psi-plus-plugin-conferencelogger
 psi-plus-plugin-screenshot
 psi-plus-plugin-watcher
-
-axkb
 
 # reboot/poweroff in logout menu as of May, 2014
 ConsoleKit

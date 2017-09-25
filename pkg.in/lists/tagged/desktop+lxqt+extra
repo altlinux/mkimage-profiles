@@ -1,3 +1,7 @@
+# system configuration tools (qt4)
+compton-conf
+obconf-qt
+
 # carefully chosen
 x-cursor-theme-BlueGlass3D
 x-cursor-theme-CP38
@@ -17,6 +21,10 @@ tubularix
 smplayer
 QCheckers
 qps
+juffed
+juffed-plugins
+screengrab
+axkb
 
 # media player; see also #30556 though
 clementine
