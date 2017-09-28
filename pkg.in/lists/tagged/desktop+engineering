@@ -4,6 +4,8 @@ qucs
 
 # 2D CAD
 librecad
+qcad
+qcad-partlibrary
 
 # 3D CAD
 freecad
@@ -13,31 +15,24 @@ openscad-MCAD
 openscad-libraries-mcad
 meshlab
 
-# CAM
+# CAM and gcode generator
 camotics
 pycam
 flatcam
+pcb2gcodeGUI
 
 # CNC
 linuxcnc
-pcb2gcodeGUI
-inkscape-plugin-gcodetools
 
 # 3D Printer Software
 cura
-# bug 33830
-libfreeglut
 slic3r
-# bug 33831
-perl-Math-PlanePath
 printrun
 repraptor
 
 # APCS
 beremiz
 yaplc-ide
-# beremiz has problems with python-module-wx3.0
-python-module-wx
 
 # SCADA
 openscada-Model.AGLKS
