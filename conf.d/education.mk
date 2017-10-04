@@ -30,6 +30,7 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
 	@$(call add,MAIN_PACKAGES,kumir2 rujel)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
+	@$(call add,INSTALL2_PACKAGES,curl)
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind crond)
