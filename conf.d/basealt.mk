@@ -27,6 +27,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	use/x11/lightdm/gtk use/docs/manual use/x11/gtk/nm +nm \
 	use/fonts/ttf/google use/domain-client/full \
 	use/browser/firefox use/browser/firefox/esr
+	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
