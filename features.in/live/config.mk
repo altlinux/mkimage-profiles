@@ -3,7 +3,7 @@
 # service defaults
 _ON = alteratord cpufreq-simple \
       livecd-evms livecd-fstab livecd-hostname \
-      livecd-setauth livecd-setlocale livecd-net-eth livecd-install-wmaker \
+      livecd-setauth livecd-setlocale livecd-timezone livecd-net-eth livecd-install-wmaker \
       random rpcbind plymouth avahi-daemon \
 
 _OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
