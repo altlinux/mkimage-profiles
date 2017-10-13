@@ -2,6 +2,7 @@ xdm
 xinit
 xinitrc
 livecd-setlocale
+livecd-timezone
 installer-feature-runlevel5-stage3
 os-prober
 sudo
