@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=FreeIPA domain client
+Name[ru_RU]=Клиент домена FreeIPA
+X-Alterator-PackageList=workstation/freeipa-client
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;XFCE;KDE;KDE4;
