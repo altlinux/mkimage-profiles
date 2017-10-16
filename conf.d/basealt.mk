@@ -6,7 +6,7 @@ distro/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	ganttproject gnome-peer-to-peer graphics-editing gtk-dictionary \
 	kvm libreoffice mate-usershare pidgin raccess \
 	scanning scribus smartcard sound-editing thunderbird virtualbox \
-	vlc voip-clients)
+	vlc voip-clients freeipa-client)
 
 distro/alt-workstation: distro/.base use/luks  \
 	+installer +power +systemd +pulse +vmguest +wireless +efi \
