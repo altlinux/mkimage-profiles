@@ -16,3 +16,6 @@ recoll-extras
 libusb-compat@IA32
 
 screen
+
+# Console fonts workaround
+vconsole-setup-kludge
