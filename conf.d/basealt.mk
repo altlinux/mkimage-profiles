@@ -35,6 +35,7 @@ distro/alt-workstation: distro/.base use/luks  \
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
+	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,MAIN_PACKAGES,solaar)
 	@$(call add,MAIN_GROUPS,$(workstation_groups))
