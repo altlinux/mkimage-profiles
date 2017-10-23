@@ -23,6 +23,12 @@ vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm
 
 vm/cloud-sysv: vm/net mixin/cloud-init use/vmguest/kvm use/power/acpi/button; @:
 
+# vm with OpenNebula contextualization package (with empty network config)
+vm/opennebula-systemd: vm/systemd use/net/networkd use/net-ssh \
+	use/vmguest/kvm mixin/opennebula-context \
+	use/repo use/control/sudo-su use/deflogin
+	@$(call add,BASE_PACKAGES,su)
+
 # NB: use/x11 employs some installer-feature packages
 vm/.desktop-bare: vm/net use/x11/xorg use/cleanup/installer use/repo; @:
 

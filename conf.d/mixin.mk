@@ -75,4 +75,8 @@ mixin/cloud-init:
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-init cloud-init-local)
 
+mixin/opennebula-context:
+	@$(call add,BASE_PACKAGES,opennebula-context)
+	@$(call add,DEFAULT_SERVICES_ENABLE,one-context-local one-context)
+
 mixin/icewm: use/x11/lightdm/gtk +icewm; @:
