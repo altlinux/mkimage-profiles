@@ -2,9 +2,10 @@
 
 no_x11() {
 	if rpmquery libX11 >&/dev/null; then
-		echo "** rescue image contains libX11 which is prohibited" >&2
+		echo "** rescue image contains libX11 which is prohibited"
+		rpm -e --test libX11
 		exit 1
-	fi
+	fi >&2
 }
 
 case "${GLOBAL_TEST_RESCUE:-}" in
