@@ -32,7 +32,7 @@ use/vmguest/vmware:
 	@$(call add,THE_PACKAGES,open-vm-tools)
 
 use/vmguest/vmware/x11: use/vmguest/vmware
-	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
+	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse open-vm-tools-desktop)
 
 else
 
