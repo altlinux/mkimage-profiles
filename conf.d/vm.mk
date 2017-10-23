@@ -20,8 +20,6 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 # vm/net or vm/systemd-net
 vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
-	@$(call set,KFLAVOURS,un-def)
-	@$(call add,THE_KMODULES,kdbus)
 
 vm/cloud-sysv: vm/net mixin/cloud-init use/vmguest/kvm use/power/acpi/button; @:
 
