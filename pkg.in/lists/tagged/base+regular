@@ -6,6 +6,8 @@ ntfs-3g
 dosfstools
 fatresize
 
+make-initrd-ucode
+
 lvm2
 make-initrd-lvm
 
