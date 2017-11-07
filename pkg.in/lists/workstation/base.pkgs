@@ -20,3 +20,7 @@ vconsole-setup-kludge
 
 # Support Chinese characters
 fonts-bitmap-wqy
+
+make-initrd-ucode
+iucode_tool
+firmware-intel-ucode
