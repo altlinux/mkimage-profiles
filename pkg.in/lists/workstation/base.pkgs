@@ -17,3 +17,6 @@ screen
 
 # Console fonts workaround
 vconsole-setup-kludge
+
+# Support Chinese characters
+fonts-bitmap-wqy
