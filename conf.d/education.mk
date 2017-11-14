@@ -35,6 +35,5 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind crond)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
-	@$(call set,KFLAVOURS,un-def)
 
 endif
