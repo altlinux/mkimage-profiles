@@ -9,4 +9,4 @@ imsettings-xim
 
 ibus-hangul
 ibus-pinyin
-ibus-unikey
+#ibus-unikey
