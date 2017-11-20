@@ -1,0 +1,6 @@
+object cf0fe91f0ee6a1bd1a4065c453fb0d128c77e25c
+type commit
+tag v1.2.4
+tagger Michael Shigorin <mike@altlinux.org> 1511203798 +0300
+
+opennebula-systemd
