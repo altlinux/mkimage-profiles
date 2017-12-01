@@ -1,11 +1,13 @@
 # EDA
 kicad
 qucs
+qucs-s
 
 # 2D CAD
 librecad
 qcad
 qcad-partlibrary
+solvespace
 
 # 3D CAD
 freecad
@@ -14,6 +16,8 @@ openscad
 openscad-MCAD
 openscad-libraries-mcad
 meshlab
+blender
+blender-i18n
 
 # CAM and gcode generator
 camotics
@@ -26,7 +30,6 @@ linuxcnc
 
 # 3D Printer Software
 cura
-slic3r
 printrun
 repraptor
 
@@ -38,3 +41,12 @@ yaplc-ide
 openscada-Model.AGLKS
 openscada-Model.Boiler
 openscada-docRU
+libuniset2-utils
+libuniset2-extension-logicproc
+libuniset2-extension-rrd
+libuniset2-extension-smplus
+libuniset2-extension-sqlite
+libomniORB-names
+uniset2-testsuite
+libuniset2-docs
+uniset2-testsuite-doc
