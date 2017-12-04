@@ -49,4 +49,5 @@ endif
 ifeq (vm,$(IMAGE_CLASS))
 vm/alt-p8-vm-net: vm/net mixin/p8; @:
 vm/alt-p8-cloud: vm/cloud-systemd mixin/p8; @:
+vm/alt-p8-opennebula: vm/opennebula-systemd mixin/p8; @:
 endif
