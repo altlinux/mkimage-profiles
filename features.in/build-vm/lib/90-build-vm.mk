@@ -33,16 +33,18 @@ prepare-image: check-sudo
 	fi
 
 convert-image: prepare-image
-	@case "$(IMAGE_TYPE)" in \
+	@VM_COMPRESS=; \
+	case "$(IMAGE_TYPE)" in \
 	"img") mv "$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; exit 0;; \
 	"vhd") VM_FORMAT="vpc";; \
+	"qcow2c") VM_FORMAT="qcow2"; VM_COMPRESS="-c";; \
 	*) VM_FORMAT="$(IMAGE_TYPE)"; \
 	esac; \
 	if ! type -t qemu-img >&/dev/null; then \
 		echo "** error: qemu-img not available" >&2; \
 		exit 1; \
 	else \
-		qemu-img convert -O "$$VM_FORMAT" \
+		qemu-img convert $$VM_COMPRESS -O "$$VM_FORMAT" \
 			"$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; \
 		rm "$(VM_RAWDISK)"; \
 		if [ "0$(DEBUG)" -le 1 ]; then rm "$(VM_TARBALL)"; fi; \

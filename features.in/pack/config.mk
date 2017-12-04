@@ -40,6 +40,6 @@ $(foreach c,$(VE_ARCHIVES), \
 		$(eval $(call PACK_compressors,$(c),$(z)))))
 
 # virtual machines
-VM_EXTS := .img .qcow2 .vdi .vmdk .vhd
+VM_EXTS := .img .qcow2 .qcow2c .vdi .vmdk .vhd
 
 $(VM_EXTS:.%=use/pack/%): use/pack; @:
