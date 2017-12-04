@@ -39,7 +39,8 @@ convert-image: prepare-image
 	*) VM_FORMAT="$(IMAGE_TYPE)"; \
 	esac; \
 	if ! type -t qemu-img >&/dev/null; then \
-		echo "** warning: qemu-img not available" >&2; \
+		echo "** error: qemu-img not available" >&2; \
+		exit 1; \
 	else \
 		qemu-img convert -O "$$VM_FORMAT" \
 			"$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; \

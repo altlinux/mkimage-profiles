@@ -80,6 +80,10 @@ imagedir:
 
 postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	@OUTSIZE="`ls -lh "$(IMAGE_OUTPATH)" | cut -f5 -d' '`"; \
+	if [ ! -n "$$OUTSIZE" ]; then \
+		echo "** error: $(IMAGE_OUTPATH) missing" >&2; \
+		exit 1; \
+	fi; \
 	echo "** image: $(IMAGE_OUTPATH) [$$OUTSIZE]" >&2 && \
 	echo "IMAGE_OUTPATH = $(IMAGE_OUTPATH)" && \
 	echo "IMAGE_OUTFILE = $(IMAGE_OUTFILE)" && \
