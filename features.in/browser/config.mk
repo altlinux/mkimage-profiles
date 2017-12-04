@@ -33,7 +33,6 @@ use/browser/firefox/live: use/browser/firefox
 
 # scarey, and will have to be done otherwise when l10n feature is there
 use/browser/firefox/i18n: use/browser/firefox
-	@$(call add,THE_BROWSER,firefox$$(FX_FLAVOUR)-be)
 	@$(call add,THE_BROWSER,firefox$$(FX_FLAVOUR)-kk)
 	@$(call add,THE_BROWSER,firefox$$(FX_FLAVOUR)-ru)
 	@$(call add,THE_BROWSER,firefox$$(FX_FLAVOUR)-uk)
