@@ -14,7 +14,7 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/live/repo use/live/rw use/luks use/x11/wacom use/ntp/client \
 	use/branding use/browser/firefox/live use/browser/firefox/i18n \
 	use/browser/firefox/h264 use/services/lvm2-disable
-	@$(call add,LIVE_PACKAGES,volumes-profile-regular)
+	@$(call add,LIVE_PACKAGES,volumes-profile-regular btrfs-progs)
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
