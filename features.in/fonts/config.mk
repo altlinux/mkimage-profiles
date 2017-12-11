@@ -19,6 +19,10 @@ use/fonts/zerg: use/fonts
 use/fonts/infinality: use/fonts
 	@$(call add,THE_PACKAGES,libfreetype-infinality fontconfig-infinality)
 
+# #34142
+use/fonts/chinese: use/fonts
+	@$(call add,THE_PACKAGES,fonts-bitmap-wqy)
+
 # a few typical font collections
 # NB: dejavu is ugly thus missing
 # NB: not depending on use/fonts intentionally,
