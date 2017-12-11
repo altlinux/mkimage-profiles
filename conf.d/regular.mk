@@ -44,6 +44,7 @@ distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks \
 	use/install2/fs use/install2/vnc use/install2/repo
+	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
