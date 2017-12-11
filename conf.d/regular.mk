@@ -93,7 +93,7 @@ distro/.regular-install-x11: distro/.regular-install \
 # assumes somewhat more experienced user, mostly for sysv variants
 distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-desktop use/install2/fs \
-	use/fonts/otf/adobe use/fonts/otf/mozilla \
+	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
 	use/branding/complete use/branding/slideshow/once \
 	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
