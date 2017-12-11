@@ -14,6 +14,7 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/live/repo use/live/rw use/luks use/x11/wacom use/ntp/client \
 	use/branding use/browser/firefox/live use/browser/firefox/i18n \
 	use/browser/firefox/h264 use/services/lvm2-disable
+	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,LIVE_PACKAGES,volumes-profile-regular btrfs-progs)
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
@@ -30,7 +31,6 @@ distro/.regular-desktop: distro/.regular-wm \
 	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,upower bluez)
-	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,vconsole-setup-kludge)	#28805
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
@@ -87,6 +87,7 @@ distro/regular-jeos-ovz: distro/.regular-jeos \
 distro/.regular-install-x11: distro/.regular-install \
 	use/install2/suspend mixin/regular-desktop +vmguest +wireless
 	@$(call set,INSTALLER,altlinux-desktop)
+	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
 # assumes somewhat more experienced user, mostly for sysv variants
