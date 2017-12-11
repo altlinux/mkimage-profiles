@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=SQLite Support
+Name[ru_RU]=Поддержка SQLite
+X-Alterator-PackageList=server/sqlite
+X-Alterator-Required=no
+Categories=Server;
+

@@ -4,6 +4,7 @@ Type=Directory
 Name=MySQL Server
 X-Alterator-PackageList=server/mysql
 X-Alterator-Required=no
+X-Alterator-Conflicts=server/mariadb
 Name[ru_RU]=Сервер MySQL
 Categories=Server;Networking
 

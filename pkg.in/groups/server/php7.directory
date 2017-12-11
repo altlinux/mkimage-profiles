@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=PHP 7 support
+X-Alterator-PackageList=server/php7
+X-Alterator-Required=no
+X-Alterator-Conflicts=server/php5
+Name[ru_RU]=Поддержка PHP 7
+Categories=Server;Networking
+

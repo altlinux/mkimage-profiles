@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=MariaDB Server (MySQL replacement)
+X-Alterator-PackageList=server/mariadb
+X-Alterator-Required=no
+X-Alterator-Conflicts=server/mysql
+Name[ru_RU]=Сервер MariaDB (замена MySQL)
+Categories=Server;Networking
+

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Rsync Server
+X-Alterator-PackageList=server/rsync
+X-Alterator-Required=no
+Name[ru_RU]=Сервер rsync
+Categories=Server;Networking
+

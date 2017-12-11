@@ -1,0 +1,6 @@
+mariadb-backup
+mariadb-bench
+mariadb-client
+mariadb-server
+perl-DBD-mysql
+python-module-MySQLdb

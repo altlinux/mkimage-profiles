@@ -1,2 +1,2 @@
-postgresql9.5-server
-postgresql9.5-contrib
+postgresql10-server
+postgresql10-contrib
