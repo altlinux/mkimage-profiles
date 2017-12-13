@@ -35,6 +35,7 @@ irda-utils
 lm_sensors3
 lshw
 mpt-status
+nvme
 nvramtool
 smartmontools
 smbios-utils
