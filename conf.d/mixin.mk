@@ -48,7 +48,7 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 
 mixin/regular-lxde: use/x11/lxde use/fonts/infinality \
-	use/x11/gtk/nm use/im +nm
+	use/x11/gtk/nm use/im +nm +alsa
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 
 mixin/regular-tde: +tde \
