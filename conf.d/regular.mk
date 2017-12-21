@@ -142,6 +142,9 @@ distro/regular-mate: distro/.regular-gtk +nm \
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,LIVE_LISTS,$(call tags,base smartcard))
 
+distro/regular-mate-sysv: distro/.regular-sysv-gtk use/x11/mate +nm
+	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
+
 distro/regular-enlightenment: distro/.regular-gtk \
 	use/x11/enlightenment use/fonts/infinality; @:
 
