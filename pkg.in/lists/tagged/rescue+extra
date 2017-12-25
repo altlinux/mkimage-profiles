@@ -46,6 +46,7 @@ gdisk
 cgdisk
 fixparts
 whdd
+bcache-tools
 
 # Applications
 binutils
