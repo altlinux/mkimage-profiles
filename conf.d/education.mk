@@ -26,7 +26,7 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,firefox-esr firefox-esr-ru)
 	@$(call add,THE_PACKAGES,guest-account)
 	@$(call add,THE_PACKAGES,owncloud-client)
-	@$(call add,INSTALL2_PACKAGES,net-tools fdisk gdisk parted partclone)
+	@$(call add,INSTALL2_PACKAGES,net-tools fdisk gdisk parted partclone openssh-clients)
 	@$(call add,THE_PACKAGES,net-tools fdisk gdisk parted partclone)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
