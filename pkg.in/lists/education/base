@@ -73,7 +73,7 @@ teamviewer-preinstall
 vmware-view-preinstall
 starboard-preinstall
 google-chrome-preinstall
-yandex-browser-preinstall
+yandex-browser-preinstall@x86_64
 
 installer-feature-xdg-user-dirs
 
