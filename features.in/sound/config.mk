@@ -10,6 +10,7 @@ use/sound:
 # ALSA only sound (additional utils needed if using pulseaudio)
 use/sound/alsa: use/sound
 	@$(call add,THE_PACKAGES,apulse)
+	@$(call add,THE_PACKAGES,udev-alsa)
 
 # PulseAudio (useful for per-app levels, dynamic devices and networked sound)
 use/sound/pulse: use/sound
