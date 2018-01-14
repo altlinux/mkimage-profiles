@@ -20,7 +20,7 @@ menu-cache
 altlinux-freedesktop-menu-lxde
 
 # NB: an lxde-settings is required by lxde-common
-lxde-settings-upstream
+lxde-settings-lxdesktop
 
 lxde-icon-theme
 tango-icon-theme

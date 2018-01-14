@@ -284,14 +284,11 @@ distro/regular-server-samba4: distro/.regular-server-managed
 	@$(call add,DEFAULT_SERVICES_DISABLE,smbd nmbd winbind)
 
 distro/regular-engineering: distro/regular-lxde use/live/ru
-	@$(call add,THE_PACKAGES,lxde-settings-lxdesktop)
 	@$(call add,THE_LISTS,$(call tags,engineering desktop))
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,THE_PACKAGES,LibreOffice LibreOffice-gnome LibreOffice-langpack-ru)
-	@$(call add,THE_PACKAGES,firefox-pepperflash)
 	@$(call add,THE_PACKAGES,cups system-config-printer)
 	@$(call add,THE_PACKAGES,gnome-disk-utility)
-	@$(call add,THE_PACKAGES,evince)
 	@$(call add,LIVE_KMODULES,staging)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
 	@$(call add,DEFAULT_SERVICES_ENABLE,ModemManager)
