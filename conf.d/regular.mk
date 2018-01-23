@@ -154,7 +154,8 @@ distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 
 distro/regular-cinnamon: distro/.regular-gtk \
 	use/x11/cinnamon use/fonts/infinality use/fonts/ttf/google \
-	use/net/nm/mmgui use/im; @:
+	use/net/nm/mmgui use/im
+	@$(call add,THE_PACKAGES,thunderbird-ru)	### l10n
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
