@@ -4,9 +4,14 @@
 #       the last different one wins
 # - remember .base if adding yet another *_PACKAGES
 
+# NB: "mysterious" conflicts if BASE_BOOTLOADER is empty
+
 use/bootloader:
 	@$(call add_feature)
 	@$(call add,BASE_PACKAGES,alterator-$$(BASE_BOOTLOADER))
 
 use/bootloader/grub use/bootloader/lilo: use/bootloader/%: use/bootloader
 	@$(call set,BASE_BOOTLOADER,$*)
+
+use/bootloader/live: use/bootloader
+	@$(call add,LIVE_PACKAGES,alterator-$$(BASE_BOOTLOADER))

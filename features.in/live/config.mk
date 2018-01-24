@@ -58,7 +58,8 @@ use/live/repo/online:
 	@$(call add,LIVE_PACKAGES,livecd-online-repo)
 
 # alterator-based permanent installation
-use/live/install: use/metadata use/xdg-user-dirs use/syslinux/localboot.cfg
+use/live/install: use/metadata use/xdg-user-dirs use/syslinux/localboot.cfg \
+	use/bootloader/live use/bootloader/grub
 	@$(call add,LIVE_PACKAGES,livecd-install)
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 
