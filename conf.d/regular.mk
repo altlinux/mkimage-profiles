@@ -145,16 +145,14 @@ distro/regular-mate: distro/.regular-gtk +nm \
 distro/regular-mate-sysv: distro/.regular-sysv-gtk use/x11/mate +nm
 	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
 
-distro/regular-enlightenment: distro/.regular-gtk \
-	use/x11/enlightenment use/fonts/infinality; @:
+distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
 
 distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 	use/x11/enlightenment
 	@$(call set,META_VOL_ID,ALT regular-E-SysV/$(ARCH)) # see also #28271
 
-distro/regular-cinnamon: distro/.regular-gtk \
-	use/x11/cinnamon use/fonts/infinality use/fonts/ttf/google \
-	use/net/nm/mmgui use/im
+distro/regular-cinnamon: distro/.regular-gtk use/x11/cinnamon \
+	use/fonts/ttf/google use/net/nm/mmgui use/im
 	@$(call add,THE_PACKAGES,thunderbird-ru)	### l10n
 
 # not .regular-gtk due to gdm vs lightdm

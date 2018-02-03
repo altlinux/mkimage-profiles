@@ -47,8 +47,8 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 
-mixin/regular-lxde: use/x11/lxde use/fonts/infinality \
-	use/x11/gtk/nm use/im use/browser/palemoon/i18n +nm +alsa
+mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im \
+	use/browser/palemoon/i18n +nm +alsa
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 
