@@ -11,12 +11,16 @@ lxqt-qtplugin
 lxqt-runner
 lxqt-session
 pcmanfm-qt
+lxqt-l10n
 
 # optional components
 lxqt-openssh-askpass
 lxqt-policykit
 udisks2
 gvfs
+
+# sound mixer
+qasmixer
 
 # system configuration tools
 lxqt-config
@@ -39,3 +43,4 @@ psi-plus-plugin-birthdayreminder
 psi-plus-plugin-conferencelogger
 psi-plus-plugin-screenshot
 psi-plus-plugin-watcher
+psi-plus-l10n

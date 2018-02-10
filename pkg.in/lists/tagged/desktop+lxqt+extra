@@ -18,12 +18,11 @@ fatrat
 focuswriter
 qt4-settings
 tubularix
-smplayer
+smplayer-mpv
 QCheckers
 qps
 juffed
 juffed-plugins
-screengrab
 axkb
 
 # media player; see also #30556 though
@@ -42,4 +41,5 @@ qpdfview
 
 # useless but cute
 cool-retro-term
+
 fonts-ttf-liberation
