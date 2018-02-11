@@ -20,7 +20,7 @@ mixin/e2k-desktop: use/e2k/x11 use/e2k/sound use/l10n/default/ru_RU \
 ### regular.mk
 # common WM live/installer bits
 mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs
-	@$(call add,THE_PACKAGES,pam-limits-desktop)
+	@$(call add,THE_PACKAGES,pam-limits-desktop beesu)
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
