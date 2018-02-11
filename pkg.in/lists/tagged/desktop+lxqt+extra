@@ -25,6 +25,9 @@ juffed
 juffed-plugins
 axkb
 
+# file archiver
+file-roller
+
 # media player; see also #30556 though
 clementine
 clementine-codecs-full
