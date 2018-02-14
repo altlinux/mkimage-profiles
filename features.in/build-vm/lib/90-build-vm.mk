@@ -8,7 +8,7 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 		 $(call list,$(BASE_LISTS) $(THE_LISTS))
 
 IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
-			$(BASE_PACKAGES_REGEXP)
+                        $(BASE_PACKAGES_REGEXP)
 
 # intermediate chroot archive
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
