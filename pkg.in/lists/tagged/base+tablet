@@ -19,6 +19,7 @@ tzdata
 
 etcnet
 dhcpcd
+dhcp-client
 
 openssh
 openssh-blacklist
