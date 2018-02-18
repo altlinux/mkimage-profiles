@@ -25,6 +25,9 @@ qasmixer
 # system configuration tools
 lxqt-config
 
+# qt4 configuration tools
+libqt4-qt3support
+
 # utilities
 lximage-qt
 
