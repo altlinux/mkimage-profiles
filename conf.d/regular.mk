@@ -37,10 +37,10 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
+distro/.regular-sysv: distro/.regular-wm +sysvinit \
+	use/init/sysv/consolekit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 	use/x11/gdm2.20; @:
-distro/.regular-sysv: distro/.regular-wm +sysvinit
-	@$(call add,THE_PACKAGES,ConsoleKit ConsoleKit-x11 pam-ck-connector)
 
 distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks \
