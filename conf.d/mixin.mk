@@ -51,6 +51,7 @@ mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im \
 	use/browser/palemoon/i18n +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
+	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 mixin/regular-tde: +tde \
 	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
