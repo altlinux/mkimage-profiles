@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Build Environment
+X-Alterator-PackageList=dev/builder
+X-Alterator-Required=no
+Name[ru_RU]=Сборочное окружение
+Categories=Development;Builder
+

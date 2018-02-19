@@ -1,0 +1,12 @@
+# base+builder
+rpm-build
+mkimage
+git-core
+
+# some builder+extra bits
+fdisk
+gear
+mkimage-profiles
+strace
+vim-console
+zsh
