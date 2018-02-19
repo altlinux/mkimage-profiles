@@ -1,3 +1,17 @@
 #!/bin/sh
 # set default nameserver, if any
-for i in $GLOBAL_NAMESERVERS; do echo "nameserver $i"; done >> /etc/resolv.conf
+
+if [ $GLOBAL_NAMESERVERS = "example" ]; then
+	echo "# yandex"
+	echo "#nameserver 77.88.8.1"
+	echo "# google"
+	echo "#nameserver 8.8.8.8"
+	echo "# level3"
+	echo "#nameserver 4.2.2.1"
+	echo "#nameserver 4.2.2.2"
+	echo "#nameserver 4.2.2.3"
+else
+	for i in $GLOBAL_NAMESERVERS; do
+		echo "nameserver $i"
+	 done
+fi >> /etc/resolv.conf

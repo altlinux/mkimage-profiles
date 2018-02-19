@@ -1,19 +1,8 @@
 #!/bin/sh
+# see also net-dns feature for actual nameserver control
 
-# offer some convenient servers for static configuration cases
-# (see also net-dns feature)
-if [ -d /etc/net/ifaces/lo ]; then
-	{
-	echo "# yandex"
-	echo "#nameserver 77.88.8.1"
-	echo "# google"
-	echo "#nameserver 8.8.8.8"
-	echo "# level3"
-	echo "#nameserver 4.2.2.1"
-	echo "#nameserver 4.2.2.2"
-	echo "#nameserver 4.2.2.3"
-	} >> /etc/net/ifaces/lo/resolv.conf
-fi
+# purge hasher-provided files potentially disclosing
+# build host's network configuration bits
 find /var -name resolv.conf -or -name nsswitch.conf -delete
 
 # hasher might have carried host /etc/hosts over, need to overwrite
