@@ -140,7 +140,6 @@ distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 distro/regular-mate: distro/.regular-gtk +nm \
 	use/x11/mate use/fonts/ttf/google use/domain-client
 	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
-	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
 	@$(call add,LIVE_LISTS,$(call tags,base smartcard))
 
 distro/regular-mate-sysv: distro/.regular-sysv-gtk use/x11/mate +nm
