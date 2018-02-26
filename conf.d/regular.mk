@@ -284,11 +284,11 @@ distro/regular-server-samba4: distro/.regular-server-managed
 
 distro/regular-engineering: distro/regular-lxde use/live/ru
 	@$(call add,THE_LISTS,$(call tags,engineering desktop))
-	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
+	@$(call add,THE_LISTS,$(call tags,desktop sane))
+	@$(call add,THE_LISTS,$(call tags,cups desktop))
 	@$(call add,THE_PACKAGES,LibreOffice LibreOffice-gnome LibreOffice-langpack-ru)
-	@$(call add,THE_PACKAGES,cups system-config-printer)
 	@$(call add,THE_PACKAGES,gnome-disk-utility)
-	@$(call add,LIVE_KMODULES,staging)
+	@$(call add,THE_KMODULES,staging)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
 	@$(call add,DEFAULT_SERVICES_ENABLE,ModemManager)
 
