@@ -44,7 +44,6 @@ openscada-docRU
 libuniset2-utils
 libuniset2-extension-logicproc
 libuniset2-extension-rrd
-libuniset2-extension-smplus
 libuniset2-extension-sqlite
 libomniORB-names
 uniset2-testsuite
