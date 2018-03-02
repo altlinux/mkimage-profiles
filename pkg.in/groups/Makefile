@@ -25,7 +25,7 @@ check-pkglists:
 	| sort -u \
 	| while read list; do \
 		if ! [ -f "../lists/$$list" ]; then \
-			echo "** Error: missing pkglist referenced in:"; \
+			echo "** Error: missing pkglist $$list referenced:"; \
 			grep -rl "=$$list$$" $$(find -name "*.directory"); \
 		fi >&2; \
 	done
