@@ -28,7 +28,8 @@ ifndef SYSLINUX_DIRECT
 SYSLINUX_CFG := $(SYSLINUX_CFG) $(SUBPROFILE_DIRS) defaults
 endif
 
-DSTDIR := $(BUILDDIR)/stage1/files/syslinux/.in
+DSTDIR  := $(BUILDDIR)/stage1/files/syslinux/.in
+DSTCFGS := $(DSTDIR)/*.cfg
 
 # we can do SYSLINUX_{CFG,MODULES,FILES}
 # CFG have only cfg snippet
@@ -56,7 +57,7 @@ all: debug timeout
 	@sed -i \
 		-e 's,@mkimage-profiles@,$(IMAGE_NAME),' \
 		-e 's,@relname@,$(RELNAME),' \
-		$(DSTDIR)/*.cfg
+		$(DSTCFGS)
 
 # integerity check
 timeout: distro
@@ -65,7 +66,7 @@ timeout: distro
 	else \
 		TIMEOUT="$(DEFAULT_TIMEOUT)"; \
 	fi; \
-	sed -i "s,@timeout@,$$TIMEOUT," $(DSTDIR)/*.cfg
+	sed -i "s,@timeout@,$$TIMEOUT," $(DSTCFGS)
 
 distro: bootargs
 	@if [ -n "$(META_VOL_SET)" ]; then \
@@ -73,26 +74,26 @@ distro: bootargs
 	else \
 		DISTRO="ALT"; \
 	fi; \
-	sed -i "s,@distro@,$$DISTRO," $(DSTDIR)/*.cfg
+	sed -i "s,@distro@,$$DISTRO," $(DSTCFGS)
 
 # pass over additional parameters, if any
 bootargs: clean
 	@if [ -n "$(STAGE2_BOOTARGS)" ]; then \
-		sed -i "s,@bootargs@,$(STAGE2_BOOTARGS)," $(DSTDIR)/*.cfg; \
+		sed -i "s,@bootargs@,$(STAGE2_BOOTARGS)," $(DSTCFGS); \
 	fi; \
-	sed -i "s,@bootargs@,," $(DSTDIR)/*.cfg
+	sed -i "s,@bootargs@,," $(DSTCFGS)
 	@if [ -n "$(RESCUE_BOOTARGS)" ]; then \
-		sed -i "s,@rescue_bootargs@,$(RESCUE_BOOTARGS)," $(DSTDIR)/*.cfg; \
+		sed -i "s,@rescue_bootargs@,$(RESCUE_BOOTARGS)," $(DSTCFGS); \
 	fi; \
-	sed -i "s,@rescue_bootargs@,," $(DSTDIR)/*.cfg
+	sed -i "s,@rescue_bootargs@,," $(DSTCFGS)
 	@if [ -n "$(BOOTVGA)" ]; then \
-		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTDIR)/*.cfg; \
+		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTCFGS); \
 	fi; \
-	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTDIR)/*.cfg
+	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTCFGS)
 
 clean: copy
 	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
-		sed -i "s/\^//;/menu label /d" $(DSTDIR)/*.cfg; \
+		sed -i "s/\^//;/menu label /d" $(DSTCFGS); \
 	fi
 
 copy: prep
