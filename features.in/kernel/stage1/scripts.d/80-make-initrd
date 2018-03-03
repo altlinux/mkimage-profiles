@@ -28,8 +28,15 @@ fi
 make-initrd $MAKE_INITRD_OPTS ||
 	fatal "make-initrd failed"
 
+case `arch` in
+e2k)
+	kname=image;;
+*)
+	kname=vmlinuz;;
+esac
+
 [ -h /boot/vmlinuz ] ||
-	ln -s vmlinuz-$kver /boot/vmlinuz
+	ln -s $kname-$kver /boot/$kname
 
 [ -h /boot/initrd.img ] ||
 	ln -s initrd-$kver.img /boot/initrd.img
