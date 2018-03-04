@@ -30,6 +30,7 @@ lsmount
 lvm2
 mdadm
 ms-sys
+myrescue
 parted
 recoverdm
 safecopy
