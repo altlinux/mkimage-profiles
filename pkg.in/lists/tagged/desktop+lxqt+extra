@@ -42,6 +42,9 @@ quiterss
 ### doesn't integrate with pcmanfm-qt as of right now
 qpdfview
 
+# clipboard history applet
+qlipper
+
 # useless but cute
 cool-retro-term
 
