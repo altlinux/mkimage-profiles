@@ -13,6 +13,11 @@ php7-mbstring
 php7-mcrypt
 php7-memcached
 php7-mysqlnd
+php7-pdo
+php7-pdo_mysql
+php7-pdo_odbc
+php7-pdo_pgsql
+php7-pdo_sqlite
 php7-pgsql
 php7-xmlrpc
 php7-xsl
