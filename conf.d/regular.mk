@@ -80,6 +80,7 @@ distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-jeos)
 	@$(call add,CLEANUP_PACKAGES,'glib2*' libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
+	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
 	@$(call add,STAGE2_BOOTARGS,quiet)
 	@$(call set,KFLAVOURS,un-def)
 
