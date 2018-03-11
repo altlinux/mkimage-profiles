@@ -36,6 +36,8 @@ repraptor
 # APCS
 beremiz
 yaplc-ide
+qmaster
+qslave
 
 # SCADA
 openscada-Model.AGLKS
