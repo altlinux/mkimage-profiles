@@ -22,7 +22,7 @@ ve/builder: ve/base use/dev/builder/base use/repo
 
 # this should be more or less convenient
 ve/generic: ve/base use/repo
-	@$(call add,BASE_PACKAGES,vim-console etckeeper)
+	@$(call add,BASE_PACKAGES,vim-console etckeeper apt-rsync)
 	@$(call add,BASE_LISTS,openssh \
 		$(call tags,base && (server || network || security || pkg)))
 
