@@ -3,7 +3,7 @@ Encoding=UTF-8
 Type=Directory
 Name=Diagnostic tools
 X-Alterator-PackageList=tools/diag
-X-Alterator-Required=no
+X-Alterator-Required=yes
 Name[ru_RU]=Утилиты для диагностики
 Categories=Server;Diagnostics
 # NB: as the list may expand, skip adding Networking
