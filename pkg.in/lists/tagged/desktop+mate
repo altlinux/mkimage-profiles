@@ -1,4 +1,6 @@
-mate-full
+mate-default
+# this might be a tad too much anyways
+mate-maxi@X86
 
 altlinux-freedesktop-menu-mate
 
