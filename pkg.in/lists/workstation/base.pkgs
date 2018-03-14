@@ -13,6 +13,6 @@ apt-indicator
 recoll-extras
 
 # compat libs
-libusb-compat@i586 i586-libusb-compat@x86_64
+libusb-compat@IA32
 
 screen

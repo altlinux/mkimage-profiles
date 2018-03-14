@@ -4,6 +4,6 @@ google-chrome-preinstall
 vmware-view-preinstall
 yandex-browser-preinstall
 
-ICAClient-preinstall@i586 i586-ICAClient-preinstall@x86_64
-skype-preinstall@i586 i586-skype-preinstall@x86_64
-teamviewer-preinstall@i586 i586-teamviewer-preinstall@x86_64
+ICAClient-preinstall@IA32
+skype-preinstall@IA32
+teamviewer-preinstall@IA32

@@ -1,8 +1,10 @@
 wine@i586
 libwine-gl@i586
 libwine-twain@i586
-wine-mono
-wine-gecko
+
+wine-mono@X86
+wine-gecko@X86
+
 i586-wine-vanilla@x86_64
 i586-libwine-vanilla-gl@x86_64
 i586-xorg-dri-*@x86_64
