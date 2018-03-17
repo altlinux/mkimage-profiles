@@ -253,6 +253,7 @@ distro/.regular-server-openstack: distro/.regular-server-base \
 	@$(call add,MAIN_GROUPS,tools/ipmi tools/monitoring)
 
 distro/regular-server-openstack: distro/.regular-server-openstack +systemd; @:
+	@$(call add,THE_PACKAGES,dhcpcd)
 
 distro/regular-server-openstack-sysv: distro/.regular-server-openstack +sysvinit
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
