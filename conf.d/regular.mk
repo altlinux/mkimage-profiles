@@ -106,7 +106,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
 	use/x11/lightdm/gtk use/init/sysv/polkit use/deflogin/sysv/nm \
-	use/browser/chromium use/fonts/ttf/redhat
+	use/browser/chromium use/fonts/ttf/redhat use/efi/refind
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
 	@$(call add,LIVE_PACKAGES,mnt winswitch xpra)
