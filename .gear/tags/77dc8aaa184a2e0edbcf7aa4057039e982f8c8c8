@@ -1,0 +1,6 @@
+object 70463d3f9e4be9c1c321d1b73ea3cd4128e48a73
+type commit
+tag v1.2.12
+tagger Michael Shigorin <mike@altlinux.org> 1521490743 +0300
+
+@IA32, @X86
