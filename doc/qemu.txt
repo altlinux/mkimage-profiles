@@ -9,3 +9,5 @@ register-qemu-ppc, но как минимум при сборке под ppc32 �
 Пример запуска:
 
   make ARCH=arm APTCONF=/etc/apt/apt.conf.sisyphus.arm ve/bare.tar
+
+Обратите также внимание на http://bugzilla.altlinux.org/34638
