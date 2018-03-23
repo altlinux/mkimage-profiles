@@ -1,7 +1,3 @@
-# system configuration tools (qt4)
-compton-conf
-obconf-qt
-
 # carefully chosen
 x-cursor-theme-BlueGlass3D
 x-cursor-theme-CP38

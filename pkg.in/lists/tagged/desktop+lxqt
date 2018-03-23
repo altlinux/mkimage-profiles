@@ -24,6 +24,7 @@ qasmixer
 
 # system configuration tools
 lxqt-config
+obconf-qt
 
 # qt4 configuration tools
 libqt4-qt3support
