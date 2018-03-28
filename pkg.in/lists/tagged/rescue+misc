@@ -38,7 +38,7 @@ mpt-status
 nvme
 nvramtool
 smartmontools
-smbios-utils
+#smbios-utils
 
 # Misc^2
 kexec-tools
