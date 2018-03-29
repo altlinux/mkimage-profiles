@@ -18,7 +18,8 @@ disktype
 #     would suddenly get busy otherwise
 #evms
 #evms-ncurses
-fio
+# fio pulls in a bunch of huge libraries down to libicu
+#fio
 gpart
 hddtemp
 idle3-tools

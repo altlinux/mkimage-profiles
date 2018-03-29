@@ -13,6 +13,7 @@ stream-mem
 bonnie
 bonnie++
 iozone
+fio
 ffsb
 
 # networking
