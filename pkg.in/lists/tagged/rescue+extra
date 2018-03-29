@@ -220,7 +220,6 @@ screen
 tmux
 
 # Development/Debuggers
-btparser
 gdb
 ltrace
 strace
