@@ -227,10 +227,12 @@ esac
 # NB: don't stick BOOTFS here, it has slightly different semantics
 pushd $ROOTFS/boot
 if [ -s .origver ]; then
-	read KVER < .origver
+	while read kver; do
+		chroot "$ROOTFS" make-initrd -k "$kver"
+	done < .origver
+else
+	fatal "unable to deduce kernel version"
 fi
-[ -n "$KVER" ] || fatal "unable to deduce kernel version"
-chroot "$ROOTFS" make-initrd -k "$KVER"
 rm -f .origver
 
 # ...target device too

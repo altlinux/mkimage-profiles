@@ -5,7 +5,6 @@
 kver="$(rpm -qa 'kernel-image*' \
             --qf '%{installtime} %{version}-%{name}-%{release}\n' \
         | sort -n \
-        | tail -n 1 \
         | cut -f 2 -d ' ' \
         | sed 's/kernel-image-//')"
 
