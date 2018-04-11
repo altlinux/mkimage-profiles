@@ -59,7 +59,7 @@ mixin/regular-tde: +tde \
 	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluetoothd)
 
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
-	use/browser/qupzilla use/x11/gtk/nm +nm +plymouth
+	use/browser/falkon use/x11/gtk/nm +nm +plymouth
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles

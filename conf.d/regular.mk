@@ -172,7 +172,7 @@ distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
 distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
-	use/browser/konqueror4 use/fonts/zerg use/domain-client \
+	use/browser/falkon use/fonts/zerg use/domain-client \
 	use/net/nm/mmgui +pulse +plymouth
 	@$(call add,THE_LISTS,$(call tags,regular kde4))
 	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
@@ -184,11 +184,11 @@ distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt; @:
 distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
 	use/net-eth/dhcp use/efi/refind; @:
 
-distro/regular-kde5: distro/.regular-desktop \
+distro/regular-kde5: distro/.regular-desktop use/browser/falkon \
 	use/x11/kde5 use/x11/sddm use/domain-client \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+nm +pulse +plymouth
-	@$(call add,THE_PACKAGES,kde5-telepathy)
+	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
