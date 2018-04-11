@@ -9,7 +9,7 @@ use/browser/firefox: use/browser
 
 use/browser/seamonkey use/browser/palemoon \
 	use/browser/chromium use/browser/epiphany \
-	use/browser/qupzilla use/browser/rekonq \
+	use/browser/qupzilla use/browser/falkon \
 	use/browser/elinks use/browser/links2: \
 	use/browser/%: use/browser
 	@$(call set,THE_BROWSER,$*)
