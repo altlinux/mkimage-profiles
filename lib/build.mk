@@ -24,7 +24,7 @@ START += time -f "%E %PCPU %Mk"
 # /usr/bin/{i586,x86_64} are setarch(8) symlinks but arm is not;
 # armh (armv7l) doesn't have any but should cope with qemu-arm.static;
 # also check whether non-x86 build is running native
-EARCH := $(subst armh,arm,$(ARCH))
+EARCH := $(patsubst e2k%,e2k,$(subst armh,arm,$(ARCH)))
 ifeq (,$(wildcard $(subst :,/$(ARCH) ,$(PATH):)))
 ifeq (,$(findstring $(EARCH),$(shell uname -m)))
 export GLOBAL_HSH_USE_QEMU=$(EARCH)
