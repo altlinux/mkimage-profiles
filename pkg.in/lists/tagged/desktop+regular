@@ -55,3 +55,8 @@ apf
 udev-extras
 
 librsvg
+
+# unicode fonts
+fonts-ttf-gnu-freefont-mono
+fonts-ttf-gnu-freefont-sans
+fonts-ttf-gnu-freefont-serif
