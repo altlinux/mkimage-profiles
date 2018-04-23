@@ -226,21 +226,37 @@ esac
 
 # NB: don't stick BOOTFS here, it has slightly different semantics
 pushd $ROOTFS/boot
+
+KVERSIONS=
 if [ -s .origver ]; then
 	while read kver; do
 		chroot "$ROOTFS" make-initrd -k "$kver"
+		KVERSIONS="$KVERSIONS $kver"
 	done < .origver
-else
-	fatal "unable to deduce kernel version"
 fi
+[ -n "$KVERSIONS" ] || fatal "unable to deduce kernel version"
 rm -f .origver
 
 # ...target device too
 sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"
 
-if [ -f boot.conf ]; then
-	sed -i -e "s,@ROOTUUID@,$ROOTUUID,g" -e "s,@KVER@,$KVER,g" boot.conf
-fi
+# FIXME: relies on particular (current) kernel package naming scheme
+for v in $KVERSIONS; do
+	l="$(echo "$v" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,')"
+	cat >> boot.conf <<EOF
+
+label=$l
+	partition=0
+	image=/image-$v
+	initrd=/initrd-$v.img
+	cmdline=console=ttyS0,115200 console=tty0 consoleblank=0 hardreset root=UUID=$ROOTUUID
+EOF
+done
+
+echo "** start of boot.conf"
+cat boot.conf
+echo "** end of boot.conf"
+
 popd
 
 if [ -x "$ROOTFS"/sbin/lilo ]; then
