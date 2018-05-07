@@ -114,9 +114,7 @@ use/x11/gtk/nm: use/net/nm
 
 use/x11/xfce: use/x11
 	@$(call add,THE_PACKAGES,xfce4-regular)
-ifneq (,$(filter-out e2k,$(ARCH)))
 	@$(call add,IM_PACKAGES,imsettings-xfce)
-endif
 
 use/x11/xfce/full: use/x11/xfce +pulse
 	@$(call add,THE_PACKAGES,xfce4-full)
