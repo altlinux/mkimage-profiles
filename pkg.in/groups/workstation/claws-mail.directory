@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Claws Mail client
+Name[ru_RU]=Электронная почта (Claws Mail)
+X-Alterator-PackageList=workstation/claws-mail
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/20-networking
