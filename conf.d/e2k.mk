@@ -34,3 +34,15 @@ vm/e2k-samba-DC: vm/.e2k-rescue
 	@$(call add,BASE_PACKAGES,task-samba-dc glibc-locales net-tools)
 
 endif
+
+ifeq (ve,$(IMAGE_CLASS))
+ve/.e2k-bare: ve/.base use/e2k +sysvinit
+	@$(call add,BASE_PACKAGES,apt)
+
+ve/e2k-installer: ve/.e2k-bare use/repo/main
+	@$(call add,MAIN_PACKAGES,hello)
+
+ve/e2k-git: ve/.e2k-bare use/e2k use/net-ssh use/net-dns/yandex
+	@$(call add,BASE_PACKAGES,git-server nginx)
+	@$(call add,DEFAULT_SERVICES_ENABLE,xinetd git nginx)
+endif
