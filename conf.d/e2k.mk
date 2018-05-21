@@ -46,3 +46,51 @@ ve/e2k-git: ve/.e2k-bare use/e2k use/net-ssh use/net-dns/yandex
 	@$(call add,BASE_PACKAGES,git-server nginx)
 	@$(call add,DEFAULT_SERVICES_ENABLE,xinetd git nginx)
 endif
+
+ifeq (distro,$(IMAGE_CLASS))
+distro/.e2k-rescue: distro/.base mixin/e2k-base use/rescue/.base +net-eth
+	@$(call set,META_VOL_ID,ALT Rescue for Elbrus)
+
+distro/e2k-101-rescue: distro/.e2k-rescue
+	@$(call add,KFLAVOURS,elbrus-1cp)
+
+# NB: this one is NOT suited for a particular processor yet!
+# (that's to be done downstream)
+distro/.e2k-installer: distro/.base mixin/e2k-base \
+	use/init/sysv/polkit use/net-ssh \
+	use/install2 use/install2/packages \
+	use/e2k/install2 +net-eth
+	@$(call set,INSTALLER,altlinux-generic)
+	@$(call set,META_PUBLISHER,BaseALT Ltd)
+	@$(call set,META_VOL_SET,ALT)
+	@$(call set,META_VOL_ID,ALT for Elbrus)
+	@$(call set,META_APP_ID,ALT/$(ARCH))
+	@$(call add,INSTALL2_PACKAGES,agetty)
+	@$(call add,INSTALL2_PACKAGES,ifplugd) ### for net-eth link status
+	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
+	@$(call add,INSTALL2_BRANDING,alterator)
+	@$(call add,THE_PACKAGES,agetty gpm fdisk parted smartmontools pv sshfs)
+	@$(call add,THE_PACKAGES,make-initrd dhcpcd hdparm nfs-clients vim-console)
+	@$(call add,THE_LISTS,$(call tags,server && (network || extra)))
+	@$(call add,DEFAULT_SERVICES_DISABLE,gpm mdadm smartd)
+	@$(call add,THE_BRANDING,alterator)
+	@$(call set,BRANDING,alt-workstation)	### conflicts w/alt-sisyphus
+
+distro/e2k-801-builder: distro/.e2k-installer \
+	use/e2k/8c use/e2k/install2/801 use/dev/groups/builder; @:
+
+distro/e2k-101-base: distro/.e2k-installer use/e2k/1cp use/e2k/install2/101
+	@$(call add,INSTALL2_PACKAGES,dummy-xorg-drv-vivante)
+
+distro/e2k-101-mate: distro/e2k-101-base mixin/e2k-desktop mixin/e2k-mate
+	@$(call add,THE_PACKAGES,LibreOffice-integrated LibreOffice-gnome)
+	@$(call add,THE_PACKAGES,LibreOffice-langpack-ru)
+
+distro/e2k-4xx-installer: distro/.e2k-installer use/e2k/install2/4xx
+	@$(call set,INSTALLER,altlinux-server)
+	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
+
+distro/.e2k-installer-mate: distro/.e2k-installer \
+	mixin/e2k-desktop mixin/e2k-mate; @:
+
+endif
