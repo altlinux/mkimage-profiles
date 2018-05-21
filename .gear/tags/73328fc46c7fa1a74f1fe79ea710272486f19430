@@ -1,0 +1,6 @@
+object 12a223a1c590a5ef90a51615109bc20c0ef5c55f
+type commit
+tag v1.2.14
+tagger Michael Shigorin <mike@altlinux.org> 1526934692 +0300
+
+pkgpriorities
