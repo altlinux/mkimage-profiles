@@ -1,9 +1,14 @@
 #!/bin/sh
 
 CFG="/boot/boot.conf"
+[ -s "$CFG" ] || {
+	echo "50-e2k-serial: $CFG missing, exiting" >&2
+	exit 0
+}
 
-[ -f "$CFG" ] || exit 1
 [ -n "$GLOBAL_TTY_DEV" -a -n "$GLOBAL_TTY_RATE" ] || exit 0
 
 # tty0 first
 sed -i "s/console=tty0 /console=$GLOBAL_TTY_DEV,$GLOBAL_TTY_RATE &/" "$CFG"
+
+### NB: there's no boot.conf yet!  could only be the sample one
