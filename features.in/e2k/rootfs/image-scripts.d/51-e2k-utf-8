@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "LANG=ru_RU.UTF-8" >> /etc/sysconfig/i18n
+echo "SYSFONT=UniCyr_8x16" >> /etc/sysconfig/consolefont
+echo "KEYTABLE=ruwin_cplk-UTF-8" >> /etc/sysconfig/keyboard
+
+[ ! -f /etc/locale.conf ] ||
+	echo "LANG=ru_RU.UTF-8" >> /etc/locale.conf
