@@ -11,11 +11,30 @@ mixin/desktop-installer: +net-eth +vmguest \
 ### e2k.mk
 mixin/e2k-base: use/tty/S0 use/net-eth/dhcp; @:
 
-mixin/e2k-desktop: use/e2k/x11 use/e2k/sound use/l10n/default/ru_RU \
+mixin/e2k-desktop: use/e2k/x11 use/l10n/default/ru_RU \
 	use/browser/firefox/esr use/browser/firefox/i18n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,xinit xterm mc)
 	@$(call add,THE_PACKAGES,fonts-bitmap-terminus)
+
+mixin/e2k-livecd-install: use/e2k/x11
+	@$(call add,THE_PACKAGES,livecd-install alterator-notes)
+	@$(call add,THE_PACKAGES,fdisk hdparm rsync openssh vim-console)
+	@$(call add,THE_PACKAGES,apt-repo)
+
+mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
+	use/deflogin/live use/x11/mate use/x11/lightdm/gtk \
+	use/fonts/otf/adobe use/fonts/otf/mozilla \
+	use/fonts/ttf/google use/fonts/ttf/redhat
+	@$(call set,INSTALLER,altlinux-desktop)
+	@$(call add,THE_BRANDING,mate-settings)
+	@$(call add,THE_BRANDING,alterator)
+	@$(call add,THE_BRANDING,graphics)
+	@$(call add,THE_PACKAGES,setup-mate-terminal)
+	@$(call add,THE_PACKAGES,alterator-standalone)
+	@$(call add,THE_PACKAGES,terminfo-extra)
+	@$(call add,THE_PACKAGES,ethtool net-tools ifplugd)
+	@$(call add,THE_PACKAGES,zsh bash-completion)
 
 ### regular.mk
 # common WM live/installer bits
