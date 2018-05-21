@@ -25,12 +25,14 @@ START += time -f "%E %PCPU %Mk"
 # armh (armv7l) doesn't have any but should cope with qemu-arm.static;
 # also check whether non-x86 build is running native
 EARCH := $(patsubst e2k%,e2k,$(subst armh,arm,$(ARCH)))
+ifeq (,$(findstring e2k,$(EARCH)))
 ifeq (,$(wildcard $(subst :,/$(ARCH) ,$(PATH):)))
 ifeq (,$(findstring $(EARCH),$(shell uname -m)))
 export GLOBAL_HSH_USE_QEMU=$(EARCH)
 endif
 else
 START += $(ARCH)
+endif
 endif
 
 # to be passed into distcfg.mk; suggestions are welcome
