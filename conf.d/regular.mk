@@ -164,7 +164,6 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
 	@$(call add,LIVE_PACKAGES,gnome3-regular xcalib templates)
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
-	@$(call add,DEFAULT_SERVICES_DISABLE,display-manager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gdm)
 
 distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
