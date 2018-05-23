@@ -79,10 +79,9 @@ distro/.e2k-installer-sysv: distro/.e2k-installer-base +sysvinit; @:
 distro/.e2k-installer: distro/.e2k-installer-base +systemd; @:
 
 distro/e2k-801-builder: distro/.e2k-installer-sysv \
-	use/e2k/8c use/e2k/install2/801 use/dev/groups/builder; @:
+	use/e2k/install2/801 use/dev/groups/builder; @:
 
-distro/e2k-101-base: distro/.e2k-installer-sysv use/e2k/1cp use/e2k/install2/101
-	@$(call add,INSTALL2_PACKAGES,dummy-xorg-drv-vivante)
+distro/e2k-101-base: distro/.e2k-installer-sysv use/e2k/install2/101; @:
 
 distro/e2k-101-mate: distro/.e2k-installer use/e2k/101 \
 	mixin/e2k-desktop mixin/e2k-mate
