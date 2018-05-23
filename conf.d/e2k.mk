@@ -56,10 +56,9 @@ distro/e2k-101-rescue: distro/.e2k-rescue
 
 # NB: this one is NOT suited for a particular processor yet!
 # (that's to be done downstream)
-distro/.e2k-installer: distro/.base mixin/e2k-base \
-	use/init/sysv/polkit use/net-ssh \
-	use/install2 use/install2/packages \
-	use/e2k/install2 +net-eth
+distro/.e2k-installer-base: distro/.base mixin/e2k-base \
+	use/install2 use/install2/packages use/e2k/install2 \
+	use/net-ssh +net-eth
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
@@ -76,17 +75,21 @@ distro/.e2k-installer: distro/.base mixin/e2k-base \
 	@$(call add,THE_BRANDING,alterator)
 	@$(call set,BRANDING,alt-workstation)	### conflicts w/alt-sisyphus
 
-distro/e2k-801-builder: distro/.e2k-installer \
+distro/.e2k-installer-sysv: distro/.e2k-installer-base +sysvinit; @:
+distro/.e2k-installer: distro/.e2k-installer-base +systemd; @:
+
+distro/e2k-801-builder: distro/.e2k-installer-sysv \
 	use/e2k/8c use/e2k/install2/801 use/dev/groups/builder; @:
 
-distro/e2k-101-base: distro/.e2k-installer use/e2k/1cp use/e2k/install2/101
+distro/e2k-101-base: distro/.e2k-installer-sysv use/e2k/1cp use/e2k/install2/101
 	@$(call add,INSTALL2_PACKAGES,dummy-xorg-drv-vivante)
 
-distro/e2k-101-mate: distro/e2k-101-base mixin/e2k-desktop mixin/e2k-mate
+distro/e2k-101-mate: distro/.e2k-installer use/e2k/101 \
+	mixin/e2k-desktop mixin/e2k-mate
 	@$(call add,THE_PACKAGES,LibreOffice-integrated LibreOffice-gnome)
 	@$(call add,THE_PACKAGES,LibreOffice-langpack-ru)
 
-distro/e2k-4xx-installer: distro/.e2k-installer use/e2k/install2/4xx
+distro/e2k-4xx-installer: distro/.e2k-installer-sysv use/e2k/install2/4xx
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
 
