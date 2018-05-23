@@ -1,7 +1,6 @@
 kernel/lib
 kernel/drivers/crypto
 kernel/drivers/rtc
-af_packet.ko
 arc4.ko
 aufs.ko
 overlay.ko

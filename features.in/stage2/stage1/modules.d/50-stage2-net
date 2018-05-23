@@ -5,6 +5,7 @@ kernel/drivers/net/\([^w]\|w[^i]\).\+\.ko
 8139too.ko
 8390.ko
 acenic.ko
+af_packet.ko
 amd8111e.ko
 atl1.ko
 atl1e.ko
