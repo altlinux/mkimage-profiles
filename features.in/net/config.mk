@@ -11,7 +11,7 @@ use/net/etcnet: use/net
 use/net/dhcp: use/net
 	@$(call add,THE_PACKAGES,dhcpcd)
 
-# base service, no GUI
+# base service, no GUI; see x11 feature for those
 use/net/nm: use/net
 	@$(call add,THE_LISTS,$(call tags,base nm))
 	@$(call add,LIVE_PACKAGES,livecd-save-nfs)
