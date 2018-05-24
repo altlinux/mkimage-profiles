@@ -1,5 +1,6 @@
 use/e2k:
 	@$(call add_feature)
+	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
 
 # at least one of these is requisite
 use/e2k/1cp use/e2k/4c use/e2k/8c: use/e2k/%: use/e2k
