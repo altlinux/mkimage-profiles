@@ -2,7 +2,7 @@ xorg-drv-ati
 xorg-drv-cirrus@X86
 #xorg-drv-mga
 xorg-drv-modesetting
-xorg-drv-nv@X86
+#xorg-drv-nv@X86
 xorg-drv-qxl@X86
 #xorg-drv-s3
 #xorg-drv-s3virge
