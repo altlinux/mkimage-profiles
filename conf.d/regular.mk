@@ -213,7 +213,9 @@ distro/regular-sysv-tde: distro/.regular-install-x11-full mixin/regular-tde
 	@$(call add,THE_PACKAGES,kpowersave)
 
 distro/regular-sysv-xfce: distro/.regular-install-x11-full \
-	mixin/regular-xfce mixin/regular-xfce-sysv; @:
+	mixin/regular-xfce mixin/regular-xfce-sysv
+	@$(call add,THE_PACKAGES,nload)
+	@$(call add,MAIN_PACKAGES,caffeine-ng sysstat leafpad)
 
 distro/.regular-server-base: distro/.regular-install \
 	use/server/base use/stage2/kms
