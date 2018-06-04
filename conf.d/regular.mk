@@ -103,6 +103,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
+	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
 	use/x11/lightdm/gtk use/init/sysv/polkit use/deflogin/sysv/nm \
