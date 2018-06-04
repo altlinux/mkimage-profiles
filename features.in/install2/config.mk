@@ -108,7 +108,7 @@ use/install2/cleanup/x11-hwdrivers:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-ati xorg-drv-intel)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-glamor)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-mach64 xorg-drv-mga)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-nouveau xorg-drv-nv)
+	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-nouveau)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-openchrome)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-r128 xorg-drv-radeon)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-s3virge xorg-drv-savage)
