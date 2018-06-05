@@ -1,6 +1,6 @@
-task-rutoken
 card-actions
-pkcs11-profiles-rutokenecp
+task-rutoken@X86
+pkcs11-profiles-rutokenecp@X86
 
 # FIXME: cloned from ../tagged/base+smartcard :-/
 openct
