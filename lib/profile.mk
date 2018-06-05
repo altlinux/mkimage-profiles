@@ -53,7 +53,7 @@ profile/init: distclean
 		eval `apt-config shell $${APTCONF:+-c=$$APTCONF} \
 			SOURCELIST Dir::Etc::sourcelist/f \
 			SOURCEPARTS Dir::Etc::sourceparts/d`; \
-		find -mindepth 1 -maxdepth 1 "$$SOURCEPARTS" -name '*.list' \
+		find "$$SOURCEPARTS" -mindepth 1 -maxdepth 1 -name '*.list' \
 		| xargs egrep -hv -e '^#|^[[:blank:]]*$$' -- "$$SOURCELIST" \
 		| tee $(BUILDDIR)/sources.list; \
 		echo; \
