@@ -13,7 +13,7 @@ collectd-ipmi
 #collectd-libvirt
 collectd-mysql
 collectd-nginx
-collectd-openvz
+#collectd-openvz
 collectd-ping
 collectd-rrdtool
 collectd-sensors
