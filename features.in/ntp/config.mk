@@ -1,6 +1,7 @@
-use/ntp: use/services
+use/ntp: use/services use/pkgpriorities
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,openntpd)
+	@$(call add,PINNED_PACKAGES,openntpd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,ntpd)
 
 use/ntp/client: use/ntp
