@@ -95,8 +95,6 @@ xfsprogs
 clicfs-utils
 cloop-utils
 squashfsprogs
-squashfsprogs3
-squashfsprogs-xz
 
 # Foreign filesystems
 afpfs-ng
