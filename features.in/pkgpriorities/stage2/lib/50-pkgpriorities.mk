@@ -1,4 +1,3 @@
-
 _IMAGE_APTBOX_ = $(WORKDIR)/chroot/$(WORKDIRNAME)/aptbox
 
 # Add prerequisite to the `build-image` target of
