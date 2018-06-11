@@ -1,14 +1,14 @@
-_IMAGE_APTBOX_ = $(WORKDIR)/chroot/$(WORKDIRNAME)/aptbox
+_IMAGE_APTBOX_ = $(WORKDIR)/aptbox
 
-# Add prerequisite to the build-image target of
+# Add prerequisite to the copy-packages target of
 # $(MKIMAGE_PREFIX)/targets.mk.
-build-image: $(_IMAGE_APTBOX_)/etc/apt/pkgpriorities
+copy-packages: $(_IMAGE_APTBOX_)/etc/apt/pkgpriorities
 
 _PINNED_PACKAGES_ = $(foreach pp,$(PINNED_PACKAGES),$(if $(findstring :,$(pp)),$(pp),$(pp):$(PIN_PRIORITY)))
 _PIN_PRIORITIES_ = $(sort $(foreach pp,$(_PINNED_PACKAGES_),$(lastword $(subst :, ,$(pp)))))
 _PKGPRIORITIES_ = $(subst \n ,\n,$(foreach pri,$(_PIN_PRIORITIES_),$(pri):$(patsubst %:$(pri),\n   %,$(filter %:$(pri),$(_PINNED_PACKAGES_)))\n))
 
-$(_IMAGE_APTBOX_)/etc/apt/pkgpriorities: prepare-image-workdir
+$(_IMAGE_APTBOX_)/etc/apt/pkgpriorities: prepare-workdir
 	@echo -e '$(_PKGPRIORITIES_)' | sed -e 's,[[:space:]]\+$$,,' >$@
 	@if [ -s $@ ]; then \
 		if grep -q '^\(APT::\)\?Dir::Etc::pkgpriorities[[:space:]]' \
