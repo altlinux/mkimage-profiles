@@ -17,7 +17,7 @@ ifneq (1,$(NUM_TARGETS))
 SHORTEN := >/dev/null
 endif
 
-all: reports/targets reports/scripts reports/cleanlog
+all: reports/targets reports/scripts reports/cleanlog reports/contents
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
 		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 	fi
@@ -78,6 +78,18 @@ reports/targets: reports/prep
 		fi; \
 	fi $(SHORTEN); \
 	mv "$(REPORT_PATH)" "$(REPORTDIR)/$(@F).log"
+
+reports/contents: reports/prep
+	@case $(IMAGE_OUTFILE) in \
+	*.iso) \
+		if type -t isoinfo >&/dev/null; then \
+			OUT="$(REPORTDIR)/$(@F).txt"; \
+			isoinfo -f -R -i $(IMAGE_OUTPATH) > $$OUT && \
+				echo "** contents list: $$OUT" $(SHORTEN); \
+		else \
+			echo "reports.mk: missing isoinfo" >&2; \
+		fi; \
+	esac
 
 else
 all:; @:
