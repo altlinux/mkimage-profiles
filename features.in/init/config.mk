@@ -1,9 +1,11 @@
 +sysvinit: use/init/sysv; @:
 +systemd: use/init/systemd/full; @:
 
-use/init:
+# NB: the list name MUST be identical to init package name
+use/init: use/pkgpriorities
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$$(INIT_TYPE))
+	@$(call add,PINNED_PACKAGES,$$(INIT_TYPE))
 
 # THE_LISTS is too late when BASE_PACKAGES have pulled in
 # the wrong syslogd-daemon provider already
