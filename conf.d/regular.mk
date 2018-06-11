@@ -225,8 +225,11 @@ distro/.regular-server-base: distro/.regular-install \
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 
+distro/.regular-server-systemd: distro/.regular-server-base +systemd; @:
+
 distro/.regular-server: distro/.regular-server-base \
-	use/server/mini use/firmware/qlogic use/rescue/base use/cleanup/libs
+	use/server/mini use/firmware/qlogic use/rescue/base \
+	use/ntp/client use/cleanup/libs
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common)
@@ -263,8 +266,8 @@ distro/regular-server-openstack: distro/.regular-server-openstack +systemd; @:
 distro/regular-server-openstack-sysv: distro/.regular-server-openstack +sysvinit
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
 
-distro/regular-server-pve: distro/.regular-server-base \
-	use/firmware/qlogic +efi +systemd
+distro/regular-server-pve: distro/.regular-server-systemd \
+	use/firmware/qlogic +efi
 	@$(call set,BASE_BOOTLOADER,grub)
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-pve)
