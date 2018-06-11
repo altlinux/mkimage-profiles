@@ -1,0 +1,6 @@
+object 25efc879d8efb473c1ca8247bb228bc40bd604fd
+type commit
+tag v1.2.16
+tagger Michael Shigorin <mike@altlinux.org> 1528745160 +0300
+
+starterkits-20180612
