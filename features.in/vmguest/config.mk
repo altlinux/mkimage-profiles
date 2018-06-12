@@ -11,7 +11,8 @@ use/vmguest/kvm: use/vmguest
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 
-use/vmguest/base: use/vmguest/vbox use/vmguest/vmware use/vmguest/kvm; @:
+use/vmguest/bare: use/vmguest/vbox use/vmguest/kvm; @:
+use/vmguest/base: use/vmguest/bare use/vmguest/vmware; @:
 use/vmguest/complete: use/vmguest/base \
 	use/vmguest/vbox/x11 use/vmguest/vmware/x11 use/vmguest/kvm/x11; @:
 
