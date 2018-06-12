@@ -72,7 +72,7 @@ distro/.regular-jeos: distro/.regular-jeos-base \
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
-	use/volumes/jeos use/install2/vmguest use/vmguest/base
+	use/volumes/jeos use/install2/vmguest use/vmguest/bare
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
