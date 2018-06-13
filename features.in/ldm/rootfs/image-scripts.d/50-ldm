@@ -1,0 +1,17 @@
+#!/bin/sh -efu
+# initiate LDM hook on boot
+
+cat << EOF > /etc/systemd/system/ldm.service
+[Unit]
+Description=Runs LDM configuration hooks
+
+[Service]
+ExecStart=/usr/bin/linux-driver-management configure gpu
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
+EOF
+
+systemctl enable ldm.service

@@ -1,0 +1,9 @@
+Simple hook to run Linux Driver Management tools to configure hybrid graphics
+(aka Optimus/PRIME) for different DM's.
+
+Currently supported:
++ LightDM
++ GDM
++ SDDM
+
+See https://github.com/solus-project/linux-driver-management
