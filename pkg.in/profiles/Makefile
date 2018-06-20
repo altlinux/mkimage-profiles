@@ -10,12 +10,12 @@ SUFFIX := pkg/profiles
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
 all: $(GLOBAL_DEBUG)
-	@if [ -n "$(PKG_PROFILES)" ]; then \
+	@if [ -n "$(THE_PROFILES)" ]; then \
 		mkdir -p $(TARGET) && \
 		cp -at $(TARGET) -- \
-			$(addsuffix .directory,$(PKG_PROFILES)); \
+			$(addsuffix .directory,$(THE_PROFILES)); \
 		mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"; \
 	fi
 
 debug:
-	@echo "** PKG_PROFILES: $(PKG_PROFILES)"
+	@echo "** THE_PROFILES: $(THE_PROFILES)"

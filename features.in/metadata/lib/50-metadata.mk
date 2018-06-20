@@ -42,5 +42,5 @@ metadata: metadata-.base
 	tar -C $(PKGDIR) -cvf - \
 		$(call rlist,.base $(call groups2lists)) \
 		$(call rgroup,$(THE_GROUPS) $(MAIN_GROUPS)) \
-		$(call rprofile,$(PKG_PROFILES)) \
+		$(call rprofile,$(THE_PROFILES)) \
 	> $(METADIR)/pkg-groups.tar
