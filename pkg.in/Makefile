@@ -1,5 +1,6 @@
-# step 3: copy package lists and groups referenced in distro configuration
-#         (and only those!) over to $(BUILDDIR)
+# step 3: copy package lists and groups as well as installation profiles
+#         referenced in distro configuration (and only those!)
+#         over to $(BUILDDIR)
 
 ifndef BUILDDIR
 $(error BUILDDIR not defined)
