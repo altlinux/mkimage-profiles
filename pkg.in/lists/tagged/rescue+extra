@@ -108,6 +108,7 @@ fuse-chironfs
 fuse-chunkfs
 fuse-ciopfs
 fuse-compFUSEd
+fuse-exfat
 fuse-funion
 fuse-zfs
 hfsprogs
