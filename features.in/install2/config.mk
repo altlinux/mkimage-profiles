@@ -86,6 +86,9 @@ use/install2/jfs:
 use/install2/reiserfs:
 	@$(call add,SYSTEM_PACKAGES,reiserfsprogs)
 
+use/install2/fat:
+	@$(call add,SYSTEM_PACKAGES,dosfstools)
+
 # prepare bootloader for software suspend (see also live)
 use/install2/suspend:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
