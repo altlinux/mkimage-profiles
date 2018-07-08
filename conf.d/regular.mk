@@ -36,7 +36,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,KFLAVOURS,std-def)
 
-distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
+distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/slick +plymouth; @:
 distro/.regular-sysv: distro/.regular-wm +sysvinit \
 	use/init/sysv/consolekit; @:
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
@@ -107,7 +107,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
-	use/x11/lightdm/gtk use/init/sysv/polkit use/deflogin/sysv/nm \
+	use/x11/lightdm/slick use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/browser/chromium use/fonts/ttf/redhat use/efi/refind
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
