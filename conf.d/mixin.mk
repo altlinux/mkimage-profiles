@@ -25,7 +25,8 @@ mixin/e2k-livecd-install: use/e2k/x11
 	@$(call add,THE_PACKAGES,apt-repo)
 
 mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
-	use/deflogin/live use/x11/mate use/x11/lightdm/gtk \
+	use/deflogin/live use/deflogin/xgrp \
+	use/x11/mate use/x11/lightdm/slick \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
 	use/fonts/ttf/google use/fonts/ttf/redhat
 	@$(call set,INSTALLER,altlinux-desktop)
@@ -33,6 +34,7 @@ mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
 	@$(call add,THE_BRANDING,alterator)
 	@$(call add,THE_BRANDING,graphics)
 	@$(call add,THE_PACKAGES,setup-mate-terminal)
+	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
 	@$(call add,THE_PACKAGES,alterator-standalone)
 	@$(call add,THE_PACKAGES,terminfo-extra)
 	@$(call add,THE_PACKAGES,ethtool net-tools ifplugd)
