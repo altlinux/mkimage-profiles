@@ -6,7 +6,7 @@ ntfs-3g
 dosfstools
 fatresize
 
-make-initrd-ucode
+make-initrd-ucode@X86
 
 lvm2
 make-initrd-lvm
@@ -26,7 +26,7 @@ system-report
 ps_mem
 
 strace
-powertop
+powertop@X86
 pciutils
 usbutils
 acpi
@@ -38,7 +38,7 @@ update-kernel
 eepm
 
 bash-completion
-cpufreq-simple
+cpufreq-simple@X86
 eject
 bc
 

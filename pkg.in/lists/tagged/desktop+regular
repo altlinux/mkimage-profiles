@@ -17,31 +17,31 @@ alterator-net-pppoe rp-pppoe-client
 alterator-net-pptp
 alterator-net-openvpn
 alterator-net-eth
-alterator-net-wifi
+alterator-net-wifi@X86
 
 alterator-datetime
-alterator-proxy
+alterator-proxy@X86
 alterator-services
 
-#alterator-x11
+alterator-x11@X86
 alterator-xkb
 
 glxgears
-xorg-conf-synaptics
+xorg-conf-synaptics@X86
 
-cpu-x
+cpu-x@X86
 fuse-exfat
 hdparm
-inxi
+inxi@X86
 lm_sensors3
 lsblk
 sdparm
 
 fonts-bitmap-terminus
 
-ldd-requires
+ldd-requires@X86
 
-gparted
+gparted@X86
 gpart
 
 x11-ssh-askpass
@@ -50,7 +50,7 @@ sysfsutils
 
 mc
 
-apf
+apf@X86
 
 udev-extras
 

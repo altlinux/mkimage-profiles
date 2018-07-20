@@ -1,5 +1,5 @@
 installer-feature-centaurus-keyring
-systemd-udev-console-fb
+systemd-udev-console-fb@X86
 
 alterator-x11
 alterator-logs
@@ -16,11 +16,11 @@ libusb-compat@IA32
 screen
 
 # Console fonts workaround
-vconsole-setup-kludge
+vconsole-setup-kludge@X86
 
 # Support Chinese characters
 fonts-bitmap-wqy
 
-make-initrd-ucode
-iucode_tool
-firmware-intel-ucode
+make-initrd-ucode@X86
+iucode_tool@X86
+firmware-intel-ucode@X86
