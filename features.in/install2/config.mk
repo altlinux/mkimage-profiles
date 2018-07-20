@@ -1,6 +1,10 @@
 # alterator-based installer, second (livecd) stage
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 +installer: use/install2/full; @:
+else
++installer: use/install2/packages; @:
+endif
 
 use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	use/cleanup/installer
