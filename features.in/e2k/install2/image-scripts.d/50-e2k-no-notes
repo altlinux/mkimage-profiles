@@ -1,0 +1,4 @@
+#!/bin/sh
+# e2k images are distributed through MCST now with a separate agreement
+
+sed -i '/license/d' /usr/share/install2/installer-steps ||:
