@@ -9,7 +9,7 @@ distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
         use/memtest use/rescue/base use/bootloader/grub use/luks \
         use/efi/refind use/efi/memtest86 use/efi/shell \
-	use/install2/suspend use/live/suspend \
+	use/install2/repo use/install2/suspend use/live/suspend \
         use/live/install use/live/x11 use/live/repo use/live/rw \
 	use/branding/complete use/docs/license \
         use/domain-client/full use/x11/amdgpu
