@@ -2,10 +2,15 @@
 use/branding:
 	@$(call add_feature)
 
+# license notes, if any
+use/branding/notes: use/branding
+	@$(call add,THE_BRANDING,notes)
+
 # NB: not every distro might have all the branding of its own
-use/branding/full: use/branding use/syslinux/ui/gfxboot
+# FIXME: syslinux is x86-specific
+use/branding/full: use/branding/notes use/syslinux/ui/gfxboot
 	@$(call add,THE_BRANDING,alterator bootloader bootsplash graphics)
-	@$(call add,THE_BRANDING,indexhtml notes slideshow)
+	@$(call add,THE_BRANDING,indexhtml slideshow)
 
 use/branding/complete: use/branding/full use/plymouth/full
 	@$(call add,INSTALL2_BRANDING,notes slideshow)
