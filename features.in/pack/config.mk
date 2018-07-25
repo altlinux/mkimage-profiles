@@ -6,14 +6,9 @@ DISTRO_EXTS := .iso
 use/pack:
 	@$(call add_feature)
 
-# conventional ISO9660 image hybridization
-# for direct bootable usbflash imaging
-use/pack/iso: use/pack boot/isolinux $(ISOHYBRID:%=use/isohybrid)
-ifeq (distro,$(IMAGE_CLASS))
-	@$(call set,IMAGE_PACKTYPE,boot)
-else
-	@$(call set,IMAGE_PACKTYPE,isodata)
-endif
+# fallback type is isodata, might get set elsewhere to produce bootable iso
+use/pack/iso: use/pack
+	@$(call try,IMAGE_PACKTYPE,isodata)
 
 # virtual environments
 VE_ARCHIVES := tar cpio ubifs

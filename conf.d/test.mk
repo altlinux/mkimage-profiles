@@ -3,7 +3,7 @@ ifneq (,$(DEBUG))
 
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/syslinux-auto: distro/.init use/hdt use/syslinux/timeout/1; @:
+distro/syslinux-auto: distro/.boot use/hdt use/syslinux/timeout/1; @:
 distro/syslinux-noescape: distro/syslinux-auto use/syslinux/noescape.cfg; @:
 
 distro/live-systemd: distro/.base use/live/base +systemd; @:

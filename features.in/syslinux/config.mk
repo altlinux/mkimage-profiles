@@ -1,10 +1,12 @@
 # default is plain text prompt
-use/syslinux: sub/stage1
+# NB: might be usbflash-ready hybrid iso
+use/syslinux: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,syslinux)
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
 	@$(call try,BOOTVGA,normal)
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
+	@$(call set,IMAGE_PACKTYPE,boot)
 
 # UI is overwritten
 use/syslinux/ui/%: use/syslinux

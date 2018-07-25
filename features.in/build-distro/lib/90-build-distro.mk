@@ -11,11 +11,15 @@ BOOT_BIBL := $(META_BIBLIO)
 BOOT_ABST := $(META_ABSTRACT)
 DATE_F    := $(shell date +%F)
 
-### we might want a e2k data iso too
+ifeq (isodata,$(IMAGE_PACKTYPE))
+BOOT_TYPE :=
+else
 ifeq (,$(filter-out e2k%,$(ARCH)))
 BOOT_TYPE := e2kboot
-else
+endif
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 BOOT_TYPE := isolinux
+endif
 endif
 
 all: | $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
