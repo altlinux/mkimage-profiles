@@ -2,12 +2,12 @@
 
 Для сборки на "неродной" архитектуре с применением трансляции
 посредством QEMU установите пакет livecd-qemu-arch и выполните
-команду register-qemu-arm от имени root (также предоставляется
+команду register-qemu-armh от имени root (также предоставляется
 register-qemu-ppc, но как минимум при сборке под ppc32 на x86_64
 известны проблемы эмуляции).
 
 Пример запуска:
 
-  make ARCH=arm APTCONF=/etc/apt/apt.conf.sisyphus.arm ve/bare.tar
+  make ARCH=armh APTCONF=/etc/apt/apt.conf.sisyphus.arm ve/bare.tar
 
 Обратите также внимание на http://bugzilla.altlinux.org/34638
