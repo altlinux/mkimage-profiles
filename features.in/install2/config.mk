@@ -91,7 +91,7 @@ use/install2/reiserfs:
 	@$(call add,SYSTEM_PACKAGES,reiserfsprogs)
 
 use/install2/fat:
-	@$(call add,SYSTEM_PACKAGES,dosfstools)
+	@$(call add,SYSTEM_PACKAGES,dosfstools fatresize)
 
 # prepare bootloader for software suspend (see also live)
 use/install2/suspend:
