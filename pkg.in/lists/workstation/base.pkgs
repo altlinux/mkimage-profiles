@@ -7,7 +7,7 @@ alterator-updates
 alterator-net-iptables
 task-auth-ad
 
-apt-indicator
+apt-indicator@X86
 recoll-extras
 
 # compat libs
