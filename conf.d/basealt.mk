@@ -12,7 +12,7 @@ distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 	use/install2/repo use/install2/suspend use/live/suspend \
         use/live/install use/live/x11 use/live/repo use/live/rw \
 	use/branding/complete use/docs/license \
-        use/domain-client/full use/x11/amdgpu
+        use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,MAIN_PACKAGES,solaar)
@@ -28,14 +28,26 @@ distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
-distro/.alt-workstation: distro/.e2k-installer mixin/alt-workstation
+distro/.alt-workstation-base: distro/.e2k-installer mixin/alt-workstation
 	@$(call add,THE_PACKAGES,setup-mate-terminal)
 	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
+	@$(call add,THE_PACKAGES,setup-pulseaudio-plain-module-detect)
 	@$(call add,THE_PACKAGES,firmware-linux)
+	@$(call add,THE_BRANDING,graphics)
+	@$(call set,META_APP_ID,ALT Workstation/$(ARCH))
 
-distro/alt-workstation-101: distro/.alt-workstation use/e2k/101; @:
+distro/.alt-workstation: distro/.alt-workstation-base use/x11/lightdm/gtk; @:
+
+distro/alt-workstation-101: distro/.alt-workstation use/e2k/101
+	@$(call set,META_VOL_ID,ALT Workstation/101)
+
 distro/alt-workstation-401: distro/.alt-workstation use/e2k/401; @:
-distro/alt-workstation-801: distro/.alt-workstation use/e2k/801; @:
+	@$(call set,META_VOL_ID,ALT Workstation/401)
+
+# avoid lightdm; NB: mate-settings pulls it in (hence the dummy)
+distro/alt-workstation-801: distro/.alt-workstation-base use/e2k/install2/801
+	@$(call set,META_VOL_ID,ALT Workstation/801)
+	@$(call add,MAIN_GROUPS,workstation/e801-1seat workstation/e801-2seat)
 endif
 
 endif
