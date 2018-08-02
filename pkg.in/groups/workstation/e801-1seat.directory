@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Elbrus 801-PC (single seat; default)
+Name[ru_RU]=Одно рабочее место на Эльбрус 801-РС (штатно)
+Comment=Single-GPU setup for one seat
+Comment[ru_RU]=Настройка рабочей станции с одной картой Radeon
+X-Alterator-PackageList=workstation/e801-1seat
+X-Alterator-Required=yes
+X-Alterator-Conflicts=workstation/e801-2seat

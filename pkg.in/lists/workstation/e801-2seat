@@ -1,0 +1,6 @@
+xorg-drv-ati
+xorg-conf-e801-dualseat
+wdm
+
+### FIXME: should be handled better within branding-*-mate-settings
+dummy-lightdm-gtk-greeter

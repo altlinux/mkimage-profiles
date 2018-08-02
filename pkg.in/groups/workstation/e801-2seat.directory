@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Elbrus 801-PC (dual seat)
+Name[ru_RU]=Два рабочих места на Эльбрус 801-РС с дополнительным Radeon
+Comment=Dual Radeon setup for two seats
+Comment[ru_RU]=Настройка рабочей станции с двумя картами Radeon
+X-Alterator-PackageList=workstation/e801-2seat
+X-Alterator-Required=no
+X-Alterator-Conflicts=workstation/e801-1seat
