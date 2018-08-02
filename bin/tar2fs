@@ -134,6 +134,7 @@ fi
 
 exit_handler() {
 	rc=$?
+	cd /
 	if [ -n "$ROOTFS" ]; then
 		umount ${BOOTFS:+"$BOOTFS"} "$ROOTFS"{/dev,/proc,/sys,}
 
