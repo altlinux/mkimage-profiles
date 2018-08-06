@@ -10,7 +10,7 @@ mixin/alt-workstation: +installer +systemd +pulse +nm \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
 	use/install2/fs use/install2/fat use/install2/vnc \
-	use/fonts/install2 \
+	use/apt-conf/branch use/fonts/install2 \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
 	use/fonts/ttf/google use/fonts/ttf/google/extra \
 	use/fonts/ttf/redhat use/fonts/ttf/ubuntu \
