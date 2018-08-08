@@ -58,7 +58,7 @@ distro/e2k-101-rescue: distro/.e2k-rescue
 # (that's to be done downstream)
 distro/.e2k-installer-base: distro/.base mixin/e2k-base \
 	use/install2 use/install2/packages use/e2k/install2 \
-	use/net-ssh +net-eth
+	use/volumes/regular use/net-ssh +net-eth
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
@@ -66,7 +66,6 @@ distro/.e2k-installer-base: distro/.base mixin/e2k-base \
 	@$(call set,META_APP_ID,ALT/$(ARCH))
 	@$(call add,INSTALL2_PACKAGES,agetty)
 	@$(call add,INSTALL2_PACKAGES,ifplugd) ### for net-eth link status
-	@$(call add,INSTALL2_PACKAGES,volumes-profile-regular)
 	@$(call add,INSTALL2_BRANDING,alterator)
 	@$(call add,THE_PACKAGES,agetty gpm fdisk parted smartmontools pv sshfs)
 	@$(call add,THE_PACKAGES,make-initrd dhcpcd hdparm nfs-clients vim-console)

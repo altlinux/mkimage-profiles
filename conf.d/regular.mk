@@ -13,9 +13,9 @@ distro/.regular-x11: distro/.regular-base +vmguest +wireless \
 	use/x11/amdgpu use/live/x11 use/live/install use/live/suspend \
 	use/live/repo use/live/rw use/luks use/x11/wacom use/ntp/client \
 	use/branding use/browser/firefox/live use/browser/firefox/i18n \
-	use/browser/firefox/h264 use/services/lvm2-disable
+	use/browser/firefox/h264 use/volumes/regular use/services/lvm2-disable
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
-	@$(call add,LIVE_PACKAGES,volumes-profile-regular btrfs-progs)
+	@$(call add,LIVE_PACKAGES,btrfs-progs)
 	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
@@ -74,10 +74,9 @@ distro/.regular-jeos: distro/.regular-jeos-base \
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
-	use/install2/vmguest use/vmguest/base
+	use/volumes/jeos use/install2/vmguest use/vmguest/base
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,MAIN_PACKAGES,firmware-linux)
-	@$(call add,INSTALL2_PACKAGES,volumes-profile-jeos)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
