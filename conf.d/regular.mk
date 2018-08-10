@@ -266,13 +266,12 @@ distro/regular-server-openstack-sysv: distro/.regular-server-openstack +sysvinit
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
 
 distro/regular-server-pve: distro/.regular-server-systemd \
-	use/firmware/qlogic +efi
+	use/kernel/server use/firmware/qlogic +efi
 	@$(call set,BASE_BOOTLOADER,grub)
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-pve)
 	@$(call add,THE_PACKAGES,pve-manager nfs-clients su)
 	@$(call add,THE_PACKAGES,bridge-utils dhcpcd faketime tzdata postfix)
-	@$(call add,THE_KMODULES,ipset kvm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,pve-manager pve-cluster \
 		pve-firewall pve-ha-crm pve-manager pveproxy pvedaemon \
 		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)

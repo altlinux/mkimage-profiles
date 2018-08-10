@@ -22,3 +22,6 @@ use/kernel/laptop: use/firmware/laptop
 
 use/kernel/desktop:
 	@$(call add,THE_KMODULES,lirc v4l)
+
+use/kernel/server:
+	@$(call add,THE_KMODULES,ipset kvm)
