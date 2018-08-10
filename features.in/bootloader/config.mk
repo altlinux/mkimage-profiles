@@ -17,3 +17,8 @@ use/bootloader/grub use/bootloader/lilo: use/bootloader/%: use/bootloader
 
 use/bootloader/live: use/bootloader
 	@$(call add,LIVE_PACKAGES,alterator-$$(BASE_BOOTLOADER))
+
+use/bootloader/os-prober: use/bootloader
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+	@$(call add,BASE_PACKAGES,os-prober)
+endif

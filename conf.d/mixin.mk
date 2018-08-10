@@ -2,13 +2,10 @@
 
 ### desktop.mk
 mixin/desktop-installer: +net-eth +vmguest \
-	use/x11-autostart use/fonts/install2 use/sound
+	use/bootloader/os-prober use/x11-autostart use/fonts/install2 use/sound
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-	@$(call add,BASE_PACKAGES,os-prober)
-endif
 
 ### e2k.mk
 mixin/e2k-base: use/tty/S0 use/net-eth/dhcp; @:
