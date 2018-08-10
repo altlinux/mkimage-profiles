@@ -18,7 +18,7 @@ use/kernel/wireless: use/firmware/wireless
 	@$(call add,THE_KMODULES,bcmwl ndiswrapper)
 
 use/kernel/laptop: use/firmware/laptop
-	@$(call add,KMODULES,omnibook tp_smapi)
+	@$(call add,THE_KMODULES,omnibook tp_smapi)
 
 use/kernel/desktop:
-	@$(call add,KMODULES,lirc v4l)
+	@$(call add,THE_KMODULES,lirc v4l)

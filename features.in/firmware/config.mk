@@ -34,4 +34,4 @@ use/firmware/wireless: use/firmware
 	@$(call add,THE_PACKAGES_REGEXP,firmware-rt.*)
 
 use/firmware/laptop: use/firmware/cpu
-	@$(call add,KMODULES,acpi_call)
+	@$(call add,THE_KMODULES,acpi_call)
