@@ -48,6 +48,9 @@ endif
 
 ifeq (ve,$(IMAGE_CLASS))
 ve/alt-p8-ovz-generic: ve/generic mixin/p8; @:
+
+ve/docker-p8: ve/docker; @:
+	@$(call set,BRANDING,alt-starterkit)
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
