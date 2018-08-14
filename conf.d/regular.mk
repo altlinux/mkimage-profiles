@@ -303,3 +303,7 @@ distro/regular-engineering: distro/regular-lxde use/live/ru
 	@$(call add,DEFAULT_SERVICES_ENABLE,ModemManager)
 
 endif
+
+ifeq (ve,$(IMAGE_CLASS))
+ve/docker-sisyphus: ve/docker; @:
+endif
