@@ -1,9 +1,6 @@
 #!/bin/sh
 # drop extra drivers et al, purge kernel image(s)
 
-# xorg-dri-*
-rm -r /usr/lib*/X11/modules/dri
-
 # no movies during installation so far
 rm -rf /usr/lib*/vdpau/ /usr/lib*/libXv*
 
