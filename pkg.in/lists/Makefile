@@ -43,7 +43,8 @@ grep-archdep:
 		sed -ri  "s/\\<([^@ ]*)@X86\\>/\\1@i586 \\1@x86_64/g" __; \
 		sed -ri  "s/\\<([^@ ]*)@IA32\\>/\\1@i586 i586-\\1@x86_64/g" __;\
 		sed -rni "s/\\<([^@ ]*)\\>|\\<([^@ ]*)@$a\\>/\\1\\2/pg" __; \
-		sed -ri  "s/\\<([^@ ]*)@[^@ ]+\\> *//g" __'
+		sed -ri  "s/\\<([^@ ]*)@[^@ ]+\\> *//g" __; \
+		sed -ri  "s/^ +//;s/ +$$//" __'
 
 # do beforehand as foreach gets expanded before recipe execution
 $(TARGET):
