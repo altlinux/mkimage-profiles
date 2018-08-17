@@ -31,6 +31,7 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/.alt-workstation-base: distro/.e2k-installer mixin/alt-workstation
 	@$(call add,THE_PACKAGES,setup-mate-terminal)
 	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
+	@$(call add,THE_PACKAGES,setup-libgl-dri3-disable)
 	@$(call add,THE_PACKAGES,setup-pulseaudio-plain-module-detect)
 	@$(call add,THE_PACKAGES,firmware-linux)
 	@$(call add,THE_BRANDING,graphics)
