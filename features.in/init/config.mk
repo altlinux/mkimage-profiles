@@ -11,7 +11,7 @@ use/init: use/pkgpriorities
 # the wrong syslogd-daemon provider already
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
-	@$(call add,BASE_PACKAGES,syslogd)
+	@$(call add,BASE_PACKAGES,rsyslog-classic)
 
 use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)

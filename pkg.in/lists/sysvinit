@@ -1,4 +1,4 @@
 sysvinit
-sysklogd
+rsyslog-classic
 etcnet
 interactivesystem

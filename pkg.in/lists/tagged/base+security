@@ -1,4 +1,4 @@
 sudo
 su
 passwd
-syslogd
+rsyslog-classic
