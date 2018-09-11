@@ -150,6 +150,7 @@ fuse-7z
 adcfw-log
 arpwatch
 cifs-utils
+curl
 davfs2
 dhcpdump
 dsniff
