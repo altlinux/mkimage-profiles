@@ -33,6 +33,7 @@ cpu-x@X86
 fuse-exfat
 hdparm
 inxi@X86
+lcdtest
 lm_sensors3
 lsblk
 sdparm
