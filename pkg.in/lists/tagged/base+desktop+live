@@ -1,4 +1,5 @@
 wget
+curl
 rsync
 apt
 fdisk
