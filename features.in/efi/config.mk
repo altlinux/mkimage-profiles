@@ -23,7 +23,7 @@ use/efi/refind: use/efi
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)
 	@$(call add,COMMON_PACKAGES,shim-signed)
-	@$(call add,RESCUE_PACKAGES,openssl pesign sbsigntools)
+	@$(call add,RESCUE_PACKAGES,openssl pesign)
 
 use/efi/shell: use/efi
 	@$(call try,EFI_SHELL,efi-shell)
