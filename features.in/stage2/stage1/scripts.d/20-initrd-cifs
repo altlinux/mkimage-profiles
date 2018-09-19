@@ -1,4 +1,9 @@
 #!/bin/sh
 # add mount.cifs to for get image from samba server
+# if it's available
 
-echo 'PUT_FILES += /sbin/mount.cifs' >> /etc/initrd.mk
+if [ -f /sbin/mount.cifs ]; then
+	echo "PUT_FILES += /sbin/mount.cifs" >> /etc/initrd.mk
+else
+	echo "20-initrd-cifs: skipping mount.cifs (missing)"
+fi
