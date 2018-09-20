@@ -1,6 +1,6 @@
 Name: mkimage-profiles
-Version: 1.2.21
-Release: alt1
+Version: 1.2.22
+Release: alt0.M80P.1
 
 Summary: ALT based distribution metaprofile
 License: GPLv2+
@@ -128,6 +128,9 @@ mv %buildroot%mpdir/doc/mkimage-profiles.7 %buildroot%_man7dir/
 %endif
 
 %changelog
+* Thu Sep 20 2018 Michael Shigorin <mike@altlinux.org> 1.2.22-alt0.M80P.1
+- starterkits-20180912
+
 * Mon Aug 13 2018 Michael Shigorin <mike@altlinux.org> 1.2.21-alt1
 - volumes feature; fixups
 
