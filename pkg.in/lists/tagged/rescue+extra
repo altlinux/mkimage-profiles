@@ -127,7 +127,6 @@ ocfs2-tools
 vmfs-tools
 
 # Filesystem recovery/cleanup
-ext3grep
 extundelete
 foremost
 ftimes
