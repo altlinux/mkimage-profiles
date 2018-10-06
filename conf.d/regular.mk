@@ -110,7 +110,7 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm +nm \
 	use/browser/chromium use/fonts/ttf/redhat use/efi/refind
 	@$(call add,LIVE_LISTS,$(call tags,desktop nm))
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
-	@$(call add,LIVE_PACKAGES,mnt winswitch xpra)
+	@$(call add,LIVE_PACKAGES,mnt xpra)
 	@$(call add,LIVE_PACKAGES,icewm-startup-networkmanager)
 	@$(call set,KFLAVOURS,un-def)
 
