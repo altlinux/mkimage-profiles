@@ -15,7 +15,7 @@ distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
 distro/syslinux: distro/.init \
 	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
-distro/.live-base: distro/.base use/live/base use/power/acpi/button use/stage2/cifs; @:
+distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
 distro/.live-desktop: distro/.base +live use/live/install use/stage2/net-eth \
