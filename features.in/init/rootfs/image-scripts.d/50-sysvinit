@@ -1,0 +1,22 @@
+#!/bin/sh
+# 40: should run before 50-users in deflogin
+
+# the part below relates to sysvinit specifically
+rpm -q sysvinit || exit 0
+
+# NM-specific group
+case "$GLOBAL_GROUPS" in
+	*_nmconnect*) groupadd -r _nmconnect ||:;;
+esac
+
+# this was a bunch of dirty complaints
+sed -i 's,/var/run,/run,' /{etc,lib}/tmpfiles.d/*.conf ||:
+
+# https://bugzilla.altlinux.org/35350
+# this FAILS: no symlinks...
+#rm -rf /var/run /var/lock
+# ...so just revert what's been broken in failsystem package
+mkdir -p /var/run /var/lock/{serial,subsys,uucp}
+chmod 0770 /var/lock/subsys
+chmod 0770 /var/lock/{serial,uucp}
+chgrp uucp /var/lock/{serial,uucp}
