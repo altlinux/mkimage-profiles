@@ -3,6 +3,7 @@ use/tty:
 	@$(call xport,TTY_DEV)
 	@$(call xport,TTY_RATE)
 ifeq (distro,$(IMAGE_CLASS))
+	@$(call add,INSTALL2_PACKAGES,installer-feature-serial-stage2)
 	@$(call add,BASE_PACKAGES,installer-feature-serial-stage3)
 endif
 
