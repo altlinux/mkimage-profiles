@@ -13,8 +13,8 @@ vm/.e2k-rescue: vm/e2k-live \
 	@$(call add,THE_LISTS,$(call tags,server && (network || extra)))
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm mdadm smartd)
 
-vm/e2k-rescue: vm/.e2k-rescue +sysvinit
-	@$(call add,KFLAVOURS,elbrus-1cp elbrus-8c elbrus-4c)
+vm/alt-rescue: vm/.e2k-rescue +sysvinit
+	@$(call add,KFLAVOURS,elbrus-def)
 
 vm/e2k-xfce: vm/.e2k-rescue mixin/e2k-desktop use/x11/xfce
 	@$(call add,THE_PACKAGES,pnmixer)
