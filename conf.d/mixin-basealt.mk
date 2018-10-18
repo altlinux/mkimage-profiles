@@ -16,7 +16,8 @@ mixin/alt-workstation: +installer +systemd +pulse +nm \
 	use/fonts/ttf/google use/fonts/ttf/google/extra \
 	use/fonts/ttf/redhat use/fonts/ttf/ubuntu \
 	use/branding use/control use/services \
-	use/sound use/xdg-user-dirs use/docs/manual \
+	use/sound use/xdg-user-dirs \
+	use/docs/manual use/docs/indexhtml \
 	use/browser/firefox use/browser/firefox/esr
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
