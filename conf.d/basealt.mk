@@ -41,6 +41,8 @@ distro/.alt-workstation: distro/.alt-workstation-base use/x11/lightdm/gtk; @:
 
 distro/alt-workstation-101: distro/.alt-workstation use/e2k/101
 	@$(call set,META_VOL_ID,ALT Workstation 101)
+	@$(call add,MAIN_GROUPS,workstation/e101-modesetting)
+	@$(call add,MAIN_GROUPS,workstation/e101-mga2)
 
 distro/alt-workstation-401: distro/.alt-workstation use/e2k/401; @:
 	@$(call set,META_VOL_ID,ALT Workstation 401)
