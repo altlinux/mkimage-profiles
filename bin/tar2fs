@@ -228,6 +228,9 @@ esac
 # NB: don't stick BOOTFS here, it has slightly different semantics
 pushd $ROOTFS/boot
 
+# 4.9.76-elbrus-def-alt1.11.1 -> def
+get_label() { echo "${1# *}" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,'; }
+
 KVERSIONS=
 if [ -s .origver ]; then
 	while read kver; do
@@ -241,16 +244,22 @@ rm -f .origver
 # ...target device too
 sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"
 
+echo "** KVERSIONS=[$KVERSIONS]" >&2
+
+if [ "`echo $KVERSIONS | wc -w`" = 1 ]; then # 2+ labels
+	echo -e "default=`get_label $KVERSIONS`\n" >> boot.conf
+fi
+
 # FIXME: relies on particular (current) kernel package naming scheme
 for v in $KVERSIONS; do
-	l="$(echo "$v" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,')"
+	l="`get_label "$v"`"
 	cat >> boot.conf <<EOF
-
 label=$l
 	partition=0
 	image=/image-$v
 	initrd=/initrd-$v.img
 	cmdline=console=ttyS0,115200 console=tty0 consoleblank=0 hardreset root=UUID=$ROOTUUID
+
 EOF
 done
 
