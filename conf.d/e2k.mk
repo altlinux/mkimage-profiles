@@ -80,9 +80,14 @@ distro/.e2k-installer: distro/.e2k-installer-base +systemd; @:
 distro/e2k-801-builder: distro/.e2k-installer-sysv \
 	use/e2k/install2/801 use/dev/groups/builder; @:
 
-distro/alt-jeos-401: distro/.e2k-installer-sysv use/e2k/install2/401; @:
-distro/alt-jeos-801: distro/.e2k-installer-sysv use/e2k/install2/801; @:
-distro/alt-jeos-101: distro/.e2k-installer-sysv use/e2k/install2/101; @:
+distro/alt-jeos-401: distro/.e2k-installer-sysv use/e2k/install2/401
+	@$(call set,META_VOL_ID,ALT JeOS 401)
+
+distro/alt-jeos-801: distro/.e2k-installer-sysv use/e2k/install2/801
+	@$(call set,META_VOL_ID,ALT JeOS 801)
+
+distro/alt-jeos-101: distro/.e2k-installer-sysv use/e2k/install2/101
+	@$(call set,META_VOL_ID,ALT JeOS 101)
 
 distro/e2k-101-mate: distro/.e2k-installer use/e2k/101 \
 	mixin/e2k-desktop mixin/e2k-mate
