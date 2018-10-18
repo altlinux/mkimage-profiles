@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Elbrus 101-PC (safe graphics, default)
+Name[ru_RU]=Эльбрус 101-РС (2D-драйвер, надёжно)
+Comment=Modesetting driver for 1C+
+Comment[ru_RU]=Настройка видеодрайвера modesetting для 1С+
+X-Alterator-PackageList=workstation/e101-modesetting
+X-Alterator-Conflicts=workstation/e101-mga2
+X-Alterator-Required=yes
