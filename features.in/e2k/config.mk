@@ -23,9 +23,13 @@ use/e2k/x11/101/modesetting: use/e2k/x11/.101
 	@$(call add,THE_PACKAGES,xorg-conf-e101-modesetting)
 	@$(call add,THE_PACKAGES,dummy-xorg-drv-vivante)
 
-use/e2k/x11/101: use/e2k/x11/.101
+use/e2k/x11/101/mga2: use/e2k/x11/.101
 	@$(call add,THE_PACKAGES,xorg-conf-e101-mga2)
 	@$(call add,THE_PACKAGES,xorg-drv-mga2 vivante_glx)
+
+use/e2k/x11/101: use/e2k/x11/101/modesetting
+	@$(call add,MAIN_PACKAGES,xorg-conf-e101-mga2)
+	@$(call add,MAIN_PACKAGES,xorg-drv-mga2 vivante_glx)
 
 use/e2k/install2: use/e2k
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-fix-boot-stage2)
