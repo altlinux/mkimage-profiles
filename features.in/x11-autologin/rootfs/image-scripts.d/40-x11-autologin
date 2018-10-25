@@ -79,6 +79,20 @@ if [ -f "$GDM_CONF" ]; then
 	restore_later "/etc/group"
 fi
 
+
+## lxdm autologin
+LXDM_CONF=/etc/lxdm/lxdm.conf
+if [ -f "$LXDM_CONF" ]; then
+	backup "$LXDM_CONF"
+	sed -i -e "s/\# autologin=dgod/autologin=$USER/" \
+		"$LXDM_CONF"
+	backup "/etc/group"
+	add_nopasswdlogin_group lxdm ||:
+
+	restore_later "$LXDM_CONF"
+	restore_later "/etc/group"
+fi
+
 autologin_kdm() {
 	backup "$1"
 	sed -i \
