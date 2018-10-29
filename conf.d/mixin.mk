@@ -68,8 +68,7 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
 	@$(call add,THE_PACKAGES,xscreensaver)
 
-mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im \
-	use/browser/palemoon/i18n +nm
+mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
