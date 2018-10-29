@@ -47,9 +47,6 @@ use/browser/seamonkey/i18n: use/browser/seamonkey
 use/browser/palemoon/i18n: use/browser/palemoon
 	@$(call add,THE_BROWSER,palemoon-ru)
 
-use/browser/palemoon/suggested: use/browser/palemoon/i18n
-	@$(call add,THE_BROWSER,palemoon-suggested)
-
 # inherently insecure, NPAPI only
 use/browser/plugin/flash: use/browser
 	@$(call add,THE_PACKAGES,mozilla-plugin-adobe-flash)
