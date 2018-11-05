@@ -1,6 +1,0 @@
-object 56012af3d218512e711aaa0ed05d0f48ee9fa5c0
-type commit
-tag v1.3.0
-tagger Michael Shigorin <mike@altlinux.org> 1539633448 +0300
-
-overfail
