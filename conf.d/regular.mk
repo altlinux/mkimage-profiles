@@ -111,7 +111,7 @@ distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
 	use/x11/lightdm/slick use/init/sysv/polkit \
 	use/browser/chromium use/fonts/ttf/redhat use/efi/refind
 	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
-	@$(call add,LIVE_PACKAGES,mnt xpra)
+	@$(call add,LIVE_PACKAGES,mnt)
 	@$(call set,KFLAVOURS,un-def)
 
 # wdm can't do autologin so add standalone one for livecd
