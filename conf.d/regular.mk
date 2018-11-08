@@ -100,7 +100,8 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-desktop use/install2/fs \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
 	use/branding/complete use/branding/slideshow/once \
-	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base
+	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base \
+	use/init/sysv/consolekit
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
