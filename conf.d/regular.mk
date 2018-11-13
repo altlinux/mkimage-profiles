@@ -6,7 +6,8 @@ distro/.regular-bare: distro/.base +net-eth use/kernel/net use/docs/license
 	@$(call try,SAVE_PROFILE,yes)
 
 # base target (for most images)
-distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi; @:
+distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi
+	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base +vmguest +wireless \
