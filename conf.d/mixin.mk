@@ -58,7 +58,8 @@ mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
 	use/browser/firefox/classic
 	@$(call add,THE_BRANDING,graphics)
 
-mixin/regular-xfce: use/x11/xfce use/fonts/ttf/redhat use/x11/gtk/nm +nm; @:
+mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
+	use/fonts/ttf/redhat use/fonts/ttf/google/extra; @:
 
 mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/x11/lightdm/gtk \
