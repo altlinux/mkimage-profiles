@@ -19,7 +19,3 @@ sub /etc/initrd.mk 'MODULES_PRELOAD += autofs4'
 
 # don't allow systemd to set LANG (see also #27408)
 sub /etc/locale.conf 'LANG='
-
-# aufs2 root is rw in reality; but don't bother if there's a record already
-grep -q '[[:space:]]/[[:space:]]' /etc/fstab ||
-	sub /etc/fstab '/dev/root / auto defaults 0 0'
