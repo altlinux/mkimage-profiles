@@ -304,6 +304,12 @@ image=/boot/vmlinuz
 	boot=$BLOCKDEV
 	$LILO_COMMON
 	EOF
+elif [ -x "$ROOTFS"/usr/sbin/grub-efi-autoupdate ]; then
+	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
+	chroot "$ROOTFS" grub-install
+elif [ -x "$ROOTFS"/usr/sbin/grub-autoupdate ]; then
+	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
+	chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
 fi
 
 if [ -n "$SUDO_USER" ]; then
