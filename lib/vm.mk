@@ -8,8 +8,20 @@ ifeq (vm,$(IMAGE_CLASS))
 
 vm/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,interactivesystem shadow-utils e2fsprogs)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))	# useless on anything else
+
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+vm/.base-lilo: vm/.bare
 	@$(call add,BASE_PACKAGES,lilo)
+endif
+
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+vm/.base-grub: vm/.bare
+	@$(call add,BASE_PACKAGES,grub2-pc)
+endif
+
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+vm/.base-grub-efi: vm/.bare
+	@$(call add,BASE_PACKAGES,grub2-efi)
 endif
 
 endif
