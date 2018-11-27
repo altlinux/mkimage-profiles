@@ -2,10 +2,10 @@
 ifeq (vm,$(IMAGE_CLASS))
 
 # NB: interactivesystem pulls in network-config-subsystem anyways
-vm/bare: vm/.bare +sysvinit
+vm/bare: vm/.base-lilo +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
-vm/systemd: vm/.bare +systemd
+vm/systemd: vm/.base-grub +systemd
 	@$(call add,BASE_PACKAGES,apt)
 
 # handle ROOTPW (through deflogin)
