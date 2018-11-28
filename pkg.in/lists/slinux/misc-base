@@ -181,11 +181,6 @@ settime-rfc867
 alsa-set-initial-options
 udev-alsa
 
-# Fonts infinality
-libfreetype-infinality
-i586-libfreetype-infinality@x86_64
-fontconfig-infinality
-
 # Console fonts workaround
 vconsole-setup-kludge
 
