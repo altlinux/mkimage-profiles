@@ -69,6 +69,7 @@ distro/.e2k-installer-base: distro/.base mixin/e2k-base \
 	@$(call add,INSTALL2_BRANDING,alterator)
 	@$(call add,THE_PACKAGES,agetty gpm fdisk parted smartmontools pv sshfs)
 	@$(call add,THE_PACKAGES,make-initrd dhcpcd hdparm nfs-clients vim-console)
+	@$(call add,THE_PACKAGES,python-module-serial)
 	@$(call add,THE_LISTS,$(call tags,server && (network || extra)))
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm mdadm smartd)
 	@$(call add,THE_BRANDING,alterator)
