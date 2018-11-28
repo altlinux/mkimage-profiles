@@ -4,8 +4,6 @@
 consolehelper
 mate-default
 #mate-system-log
-mate-file-manager-actions
-mate-file-manager-terminal
 mate-document-viewer-caja
 mate-document-viewer-djvu
 vino-mate@X86
