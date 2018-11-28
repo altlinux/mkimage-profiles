@@ -27,7 +27,7 @@ installer-distro-simply-linux-stage3
 #branding-@BRANDING@-menu
 branding-simply-linux-backgrounds-vladstudio
 branding-simply-linux-backgrounds8
-docs-linux_intro
+#docs-linux_intro
 fonts-ttf-google-droid-.*
 fonts-ttf-ubuntu-font-family
 fonts-ttf-liberation
