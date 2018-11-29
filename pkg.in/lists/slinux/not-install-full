@@ -14,8 +14,7 @@ bumblebee
 #citrix-client
 
 # Spice client
-libspice-gtk
-python-module-spice-gtk
+libspice-gtk3
 #spice-client
 
 # Nvidia drivers
