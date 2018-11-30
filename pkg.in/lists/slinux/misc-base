@@ -150,13 +150,13 @@ plymouth
 
 # Office
 java-1.8.0-openjdk
-LibreOffice
-LibreOffice-gnome
-LibreOffice-langpack-ru
-LibreOffice-langpack-uk
-LibreOffice-langpack-es
-LibreOffice-langpack-kk
-LibreOffice-langpack-pt-BR
+LibreOffice-still
+LibreOffice-still-gnome
+LibreOffice-still-langpack-ru
+LibreOffice-still-langpack-uk
+LibreOffice-still-langpack-es
+LibreOffice-still-langpack-kk
+LibreOffice-still-langpack-pt-BR
 atril-gtk
 atril-gtk-djvu
 atril-gtk-dvi
