@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=IPMI tools
+X-Alterator-PackageList=centaurus/ipmi
+X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Required=no
+Name[ru_RU]=Утилиты для поддержки IPMI
+Categories=Server;IPMI
+

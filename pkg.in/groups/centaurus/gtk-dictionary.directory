@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dictionary
+X-Alterator-PackageList=centaurus/gtk-dictionary
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/80-desktop
+Name[ru_RU]=Словарь
+Categories=GNOME;XFCE
+

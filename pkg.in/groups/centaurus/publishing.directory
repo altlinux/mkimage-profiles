@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Publishing
+X-Alterator-PackageList=centaurus/publishing
+X-Alterator-Required=no
+Name[ru_RU]=Издательская система
+X-Alterator-Parent=centaurus/80-desktop
+Categories=KDE;KDE4;GNOME

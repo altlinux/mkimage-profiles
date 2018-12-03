@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Virtualization
+X-Alterator-PackageList=centaurus/v12n-server
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/20-server-apps
+Name[ru_RU]=Сервер виртуализации
+Categories=Server;Virtualization
+

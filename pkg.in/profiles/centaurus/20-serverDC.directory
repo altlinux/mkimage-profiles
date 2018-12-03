@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Samba-DC Server (AD controller)
+Name[ru_RU]=Сервер Samba-DC (контроллер AD)
+X-Alterator-Groups=centaurus/dhcp-server-a centaurus/mail-server-a centaurus/mysql-server-a centaurus/netinst centaurus/freenx-server centaurus/http-server centaurus/dns-server centaurus/bacula-server centaurus/kvm-server centaurus/xorg centaurus/docs centaurus/sambaDC centaurus/cups centaurus/sogo

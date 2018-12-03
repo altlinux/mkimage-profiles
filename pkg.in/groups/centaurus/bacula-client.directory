@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Network Backup Client
+X-Alterator-PackageList=centaurus/bacula-client
+X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Required=yes
+Name[ru_RU]=Клиент сетевого резервного копирования
+Categories=Server;Networking

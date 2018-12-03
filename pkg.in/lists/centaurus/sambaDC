@@ -1,0 +1,9 @@
+samba-DC-libs
+samba-DC-common
+samba-DC-winbind-clients
+samba-DC-winbind
+samba-DC
+samba-DC-common
+samba-DC-client
+samba-DC-common
+krb5-kinit

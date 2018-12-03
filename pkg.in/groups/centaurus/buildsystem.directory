@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Buildsystem
+X-Alterator-PackageList=centaurus/buildsystem
+X-Alterator-Parent=centaurus/70-dev
+X-Alterator-Required=no
+Name[ru_RU]=Сборка пакетов

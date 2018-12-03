@@ -1,0 +1,13 @@
+installer-feature-online-repo@X86
+installer-feature-repo-add
+installer-feature-symlinks-from-sbin
+make-initrd-multipath
+lsof
+man-pages
+system-report
+terminfo-extra
+
+### use/firmware/cpu
+make-initrd-ucode@X86
+iucode_tool@X86
+firmware-intel-ucode@X86

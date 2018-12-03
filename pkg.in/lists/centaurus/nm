@@ -1,0 +1,9 @@
+dhcp-client
+NetworkManager
+NetworkManager-applet-gtk
+NetworkManager-openvpn-gtk
+NetworkManager-pptp-gtk
+NetworkManager-vpnc-gtk
+NetworkManager-l2tp-gtk
+NetworkManager-sstp-gtk
+usb-modeswitch

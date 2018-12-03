@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Emulators
+X-Alterator-PackageList=centaurus/emulators
+X-Alterator-Parent=centaurus/80-desktop
+Name[ru_RU]=Эмуляторы
+X-Alterator-Conflicts=wine-local
+Categories=KDE;KDE4;GNOME

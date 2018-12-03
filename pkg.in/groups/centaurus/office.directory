@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Office packages
+X-Alterator-PackageList=centaurus/gnome-office
+X-Alterator-Parent=centaurus/80-desktop
+X-Alterator-Required=yes
+Name[ru_RU]=Офисный пакет

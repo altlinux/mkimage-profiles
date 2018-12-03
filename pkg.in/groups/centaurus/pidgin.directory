@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=IM client
+X-Alterator-PackageList=centaurus/pidgin
+X-Alterator-Parent=centaurus/80-desktop
+X-Alterator-Required=no
+Name[ru_RU]=Обмен мгновенными сообщениями

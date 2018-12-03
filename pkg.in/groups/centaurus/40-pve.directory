@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=PVE virtualization server
+X-Alterator-Conflicts=centaurus/v12n-server centaurus/libvirt centaurus/openstack-block centaurus/openstack-controller centaurus/cluster
+X-Alterator-PackageList=centaurus/40-pve
+X-Alterator-Required=no
+Name[ru_RU]=Сервер виртуализации PVE

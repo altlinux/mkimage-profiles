@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Mediawiki
+X-Alterator-PackageList=centaurus/mediawiki
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/20-server-apps
+Name[ru_RU]=Сервер mediawiki
+Categories=Server;Networking
+

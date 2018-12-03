@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=VLC mediaplayer
+X-Alterator-PackageList=centaurus/vlc
+X-Alterator-Parent=centaurus/80-desktop
+X-Alterator-Required=yes
+Name[ru_RU]=Медиаплеер VLC

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Network installation server
+X-Alterator-PackageList=centaurus/netinst
+X-Alterator-Parent=centaurus/10-alterator
+X-Alterator-Required=no
+Name[ru_RU]=Сервер сетевой установки 
+Categories=Server;Networking

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Mail Server  (SMTP, IMAP, POP3)
+X-Alterator-PackageList=centaurus/mail-server-a
+X-Alterator-Parent=centaurus/10-alterator
+X-Alterator-Depends=mail-server
+Name[ru_RU]=Почтовый сервер (SMTP, IMAP, POP3)
+Categories=Server;Networking
+

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Backup
+X-Alterator-PackageList=centaurus/bacula-a
+X-Alterator-Parent=centaurus/80-desktop
+X-Alterator-Required=no
+Name[ru_RU]=Резервное копирование
+Categories=Server;Networking

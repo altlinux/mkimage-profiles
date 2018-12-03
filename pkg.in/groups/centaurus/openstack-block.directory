@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Block Storage Node
+X-Alterator-PackageList=centaurus/openstack-block
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/60-openstack
+Name[ru_RU]=Узел хранения блочных устройств
+

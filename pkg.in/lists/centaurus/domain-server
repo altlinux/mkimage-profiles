@@ -1,0 +1,17 @@
+samba-common
+ldap-user-tools
+samba
+samba-client
+alt-domain-server
+bind
+#systemd-timesyncd- systemd-networkd-
+samba-common-tools
+samba-libs
+alterator-openldap
+alterator-kdc
+
+###installer-feature-resolver-bind-stage3
+
+autofs
+avahi-daemon
+avahi-tools

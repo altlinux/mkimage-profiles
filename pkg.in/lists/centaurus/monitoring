@@ -1,0 +1,17 @@
+monit
+
+# pull in subpackages which shouldn't toss
+# lots of extra dependencies into an image
+collectd
+collectd-apache
+collectd-bind
+collectd-cgi
+collectd-curl
+collectd-dbi
+collectd-ipmi
+collectd-libvirt@X86
+collectd-mysql
+collectd-nginx
+collectd-openvz@X86
+collectd-ping
+collectd-sensors

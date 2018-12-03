@@ -1,0 +1,222 @@
+
+# servers
+dhcp-server
+popa3d
+postfix-cyrus postfix-dovecot postfix-html postfix-ldap postfix-mysql postfix-pcre postfix-pgsql postfix-tls
+rsync-server
+scanlogd
+slocate
+smartmontools
+vsftpd
+
+# editor
+hexedit
+vim-console
+
+# mailer
+mutt
+
+# devel
+bc
+ctags
+git-cvs git-doc git-email git-server git-svn libsubversion
+findsym
+flex
+gdb
+gear
+hasher
+help2man
+indent
+jdkgcj
+john
+ltrace
+patchutils
+srpmcmp
+xdelta
+
+# fs
+dosfstools
+ntfs-3g
+squashfsprogs
+
+# scsi
+sdparm
+sg3_utils
+
+# network tools
+arpwatch
+iftop
+mtr
+nmap
+pptp-client
+scanssh
+tcptraceroute
+telnet
+whois
+
+# mc :(
+mc
+
+# hasher repo reqs
+setup filesystem rpm fakeroot
+basesystem rpm-build kernel-headers-common sisyphus_check
+
+# mkimage repo reqs
+mar
+mkisofs
+propagator
+squashfsprogs
+syslinux
+
+# kernel
+kernel-build-tools
+kernel-doc-std
+###kernel-headers-modules-@KERNEL_MOD@
+###kernel-headers-@KERNEL_MOD@
+
+# misc
+acct
+adjtimex
+apt-scripts
+autossh
+cpuburn
+fhs
+mtree
+vlock
+xauth
+
+# cert
+libzmalloc
+
+# etc
+apt-rsync
+bash-doc
+bash-examples
+bash-completion
+bind-doc
+bzip2-doc
+bzlib-devel-static
+cfdisk
+db4.7-utils
+dnet
+dovecot-doc
+expat
+gd2-utils
+gpm
+iproute2-doc
+iptables-ipv6
+isoutils
+kbdrate
+look
+lua5
+lua5-doc
+nfs-clients
+nfs-server
+openssh-askpass-common
+openssl-doc
+pam0_timestamp
+pam-doc
+pam_userpass-devel
+#perl-full
+perl-base
+perl-devel
+perl-pod
+perl-threads
+perl-unicore
+perl-DBM
+perl-Storable
+perl-PerlIO
+python-dev
+setproctitle-devel
+tcl-devel
+terminfo-extra
+tftp
+tinycdb
+xml-utils
+zlib-devel-static
+
+# alexsid@
+
+# at@
+screen
+
+# asy@
+#cyrus-imapd cyrus-imapd-doc cyrus-imapd-murder cyrus-imapd-utils
+#quagga
+
+# bga@
+
+# dlebkov@
+ipsec-tools
+rrd-perl rrd-tcl rrd-utils
+
+# enp@
+#drbd
+#heartbeat
+
+# force@
+bonnie
+bridge-utils
+ccze
+ddrescue
+disktype
+dmidecode
+dump rmt
+#exim
+finger
+greylistd
+hddtemp
+iptstate
+#spamassassin
+lshw
+lsof
+make-initrd-ucode
+iucode_tool
+firmware-intel-ucode
+#mod_geoip
+p0f
+star
+sysstat
+
+# icesik@
+#phpMyAdmin-apache2-php5 phpMyAdmin
+
+# lakostis@
+#drbd
+
+# legion@
+
+# lioka@
+acl
+attr
+
+# mike@
+#dev MAKEDEV
+wget
+
+# mithraen@
+ppp-pppoe
+tcl-syslog
+
+
+# raorn@
+sysfsutils
+vim-spell-en vim-spell-ru
+#vim-plugin-*
+#wireshark
+
+# solo@
+apache2-devel apache2-manual apache2-suexec
+
+# vvk@
+ebtables
+#lighttpd
+#mailgraph-*
+minicom
+#queuegraph-*
+#postgrey-dogwatch
+pptpd
+redirector-dbl
+#seiroswiki
+
+#1c-tools

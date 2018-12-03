@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Graphics editing
+X-Alterator-PackageList=centaurus/graphics-editing
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/80-desktop
+Name[ru_RU]=Обработка графики
+Categories=KDE;KDE4;GNOME

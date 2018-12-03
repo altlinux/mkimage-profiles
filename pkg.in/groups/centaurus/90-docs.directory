@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Documentation
+X-Alterator-PackageList=centaurus/90-docs
+X-Alterator-Required=yes
+
+Name[ru_RU]=Документация
+Categories=KDE;KDE4;GNOME;XFCE
+

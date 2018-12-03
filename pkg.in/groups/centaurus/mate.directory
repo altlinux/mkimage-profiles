@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=GNOME desktop enviroment
+X-Alterator-PackageList=centaurus/mate
+X-Alterator-Parent=centaurus/80-desktop
+X-Alterator-Depends=systemd centaurus/xorg
+X-Alterator-Conflicts=sambaDC
+X-Alterator-Required=yes
+Name[ru_RU]=Среда MATE

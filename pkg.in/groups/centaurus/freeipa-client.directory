@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=FreeIPA domain client
+X-Alterator-PackageList=centaurus/freeipa-client
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/50-freeipa
+X-Alterator-Conflicts=sambaDC
+Name[ru_RU]=Клиент домена FreeIPA
+Categories=Networking
+

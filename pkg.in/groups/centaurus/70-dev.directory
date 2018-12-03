@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Development tools
+X-Alterator-PackageList=centaurus/70-dev
+X-Alterator-Required=no
+Name[ru_RU]=Средства разработки

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Monitoring
+X-Alterator-PackageList=centaurus/monitoring
+X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Required=no
+Name[ru_RU]=Средства мониторинга системы
+Categories=Server;Monitoring
+

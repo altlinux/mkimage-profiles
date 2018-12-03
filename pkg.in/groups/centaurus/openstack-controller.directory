@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Controller Node
+X-Alterator-PackageList=centaurus/openstack-controller
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/60-openstack
+Name[ru_RU]=Управляющий узел
+

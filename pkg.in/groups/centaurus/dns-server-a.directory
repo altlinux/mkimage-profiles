@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=DNS server
+X-Alterator-PackageList=centaurus/dns-server-a
+X-Alterator-Parent=centaurus/10-alterator
+X-Alterator-Depends=dns-server
+X-Alterator-Required=no
+Name[ru_RU]=Сервер DNS
+Categories=Server;Networking

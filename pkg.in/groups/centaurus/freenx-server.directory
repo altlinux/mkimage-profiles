@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=FreeNX Server
+X-Alterator-PackageList=centaurus/freenx-server
+X-Alterator-Parent=centaurus/20-server-apps
+
+Name[ru_RU]=Сервер FreeNX

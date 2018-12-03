@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Backup Server
+X-Alterator-PackageList=centaurus/backup-server
+X-Alterator-Parent=centaurus/10-alterator
+X-Alterator-Required=no
+Name[ru_RU]=Сервер резервного копирования
+Categories=Server;Networking

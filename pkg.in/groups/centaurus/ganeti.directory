@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Ganeti
+X-Alterator-PackageList=centaurus/ganeti
+X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Depends=kvm-server
+X-Alterator-Required=no
+Name[ru_RU]=Ganeti

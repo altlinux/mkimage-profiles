@@ -1,0 +1,7 @@
+qemu-kvm
+qemu-img
+libvirt
+libvirt-kvm
+libvirt-daemon-driver-lxc
+lxc
+dnsmasq

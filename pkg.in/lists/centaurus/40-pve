@@ -1,0 +1,14 @@
+pve-qemu-img
+pve-qemu-aux
+pve-qemu-common
+pve-manager
+pve-qemu-server
+pve-qemu-system
+pve-qemu-common
+installer-feature-pve
+alterator-net-eth
+alterator-net-bridge
+alterator-root
+alterator-fbi
+alterator-pve
+crmsh
