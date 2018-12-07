@@ -21,19 +21,30 @@ LOWSPACE = 1024
 # it's also nice to know how long and much it takes
 START += time -f "%E %PCPU %Mk"
 
+
+# e2k* builds always run natively, and without setarch
+ifeq (,$(findstring e2k,$(ARCH)))
+
 # /usr/bin/{i586,x86_64} are setarch(8) symlinks but arm is not;
 # armh (armv7l) doesn't have any but should cope with qemu-arm.static;
 # also check whether non-x86 build is running native
-EARCH := $(patsubst e2k%,e2k,$(subst armh,arm,$(ARCH)))
-ifeq (,$(findstring e2k,$(EARCH)))
 ifeq (,$(wildcard $(subst :,/$(ARCH) ,$(PATH):)))
-ifeq (,$(findstring $(EARCH),$(shell uname -m)))
+
+EARCH := $(subst armh,arm,$(ARCH))
+
+# for mips*el, `uname -m` never has 'el' suffix, but
+# qemu-user-static binaries always do.
+UARCH := $(subst mipsel,mips,$(EARCH))
+UARCH := $(subst mips64el,mips64,$(UARCH))
+
+ifeq (,$(findstring $(UARCH),$(shell uname -m)))
 export GLOBAL_HSH_USE_QEMU=$(EARCH)
 endif
 else
 START += $(ARCH)
 endif
 endif
+
 
 # to be passed into distcfg.mk; suggestions are welcome
 IMAGEDIR ?= $(shell \
