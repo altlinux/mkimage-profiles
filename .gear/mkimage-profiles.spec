@@ -1,5 +1,5 @@
 Name: mkimage-profiles
-Version: 1.2.22
+Version: 1.2.23
 Release: alt0.M80P.1
 
 Summary: ALT based distribution metaprofile
@@ -128,6 +128,9 @@ mv %buildroot%mpdir/doc/mkimage-profiles.7 %buildroot%_man7dir/
 %endif
 
 %changelog
+* Fri Dec 07 2018 Michael Shigorin <mike@altlinux.org> 1.2.23-alt0.M80P.1
+- starterkits-20181212
+
 * Thu Sep 20 2018 Michael Shigorin <mike@altlinux.org> 1.2.22-alt0.M80P.1
 - starterkits-20180912
 
