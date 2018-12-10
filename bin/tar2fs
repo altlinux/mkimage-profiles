@@ -52,6 +52,10 @@ e2k)
 	BOOTPART="1"
 	ROOTPART="2"
 	;;
+mips*)
+	ROOTPART="1"
+	BLOCKDEV="/dev/sda"
+	;;
 esac
 
 # figure out the part taken by /boot in the given tarball
