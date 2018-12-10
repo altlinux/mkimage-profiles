@@ -15,7 +15,7 @@ sub() {
 }
 
 # tune make-initrd
-sub /etc/initrd.mk 'MODULES_PRELOAD += autofs4'
+sub /etc/initrd.mk 'MODULES_TRY_ADD += autofs4'
 
 # don't allow systemd to set LANG (see also #27408)
 sub /etc/locale.conf 'LANG='
