@@ -23,11 +23,11 @@ check-sudo:
 	fi
 
 prepare-image: check-sudo
-	@if [ -x $(MKIMAGE_PREFIX)/bin/tar2fs ]; then \
-		TOPDIR=$(MKIMAGE_PREFIX); \
+	@if [ -x /usr/share/mkimage-profiles/bin/tar2fs ]; then \
+		TOPDIR=/usr/share/mkimage-profiles; \
 	fi; \
-	if ! sudo $(TOPDIR)/bin/tar2fs \
-		"$(VM_TARBALL)" "$(VM_RAWDISK)"  $(VM_SIZE) $(VM_FSTYPE); then \
+	if ! sudo $$TOPDIR/bin/tar2fs \
+		"$(VM_TARBALL)" "$(VM_RAWDISK)" $(VM_SIZE) $(VM_FSTYPE); then \
 		echo "** error: sudo tar2fs failed, see build log" >&2; \
 		exit 1; \
 	fi
