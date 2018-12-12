@@ -8,5 +8,5 @@ imsettings
 imsettings-xim
 
 ibus-hangul
-ibus-pinyin
+ibus-pinyin@X86
 #ibus-unikey
