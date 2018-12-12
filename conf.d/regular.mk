@@ -142,13 +142,10 @@ distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
-distro/regular-mate: distro/.regular-gtk +nm \
-	use/x11/mate use/fonts/ttf/google use/domain-client
-	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
+distro/regular-mate: distro/.regular-gtk mixin/regular-mate use/domain-client
 	@$(call add,LIVE_LISTS,$(call tags,base smartcard))
 
-distro/regular-mate-sysv: distro/.regular-sysv-gtk use/x11/mate +nm
-	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
+distro/regular-mate-sysv: distro/.regular-sysv-gtk mixin/regular-mate; @:
 
 distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
 

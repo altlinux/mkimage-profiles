@@ -83,6 +83,9 @@ mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 	use/browser/falkon use/x11/gtk/nm +nm +plymouth
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
+mixin/regular-mate: use/x11/mate use/fonts/ttf/google +nm
+	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
+
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
 #     kernel cmdline resulting in method:disk instead of method:cdrom
 #     which will change propagator's behaviour to probe additional
