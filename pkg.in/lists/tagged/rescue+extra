@@ -41,7 +41,6 @@ smartmontools
 stress
 testdisk
 mtools
-partimage
 gdisk
 cgdisk
 fixparts
