@@ -1,0 +1,7 @@
+#!/bin/sh -efu
+
+# remove rootfs entry
+sed -i '/rootfs/d' /etc/fstab
+
+echo "/dev/sda6 / ext4 relatime 1 1" >> /etc/fstab
+echo "/dev/sda1 /boot ext4 defaults 1 2" >> /etc/fstab
