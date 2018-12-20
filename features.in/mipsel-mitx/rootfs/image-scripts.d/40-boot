@@ -28,7 +28,7 @@ ln -s "$DTB_NAME"-"$kversion".dtb /boot/$DTB_NAME.dtb
 
 cat > /boot/bootconf << EOF
 default: bootconf0
-bootconf0 vmlinuz $KERNEL_LOAD_ADDR $KERNEL_LOAD_ADDR $DTB_NAME.dtb initrd.img root=UUID=@ROOTUUID@ rw rootwait earlyprintk=uart8520,mmio32,0x1f04a000,115200 maxcpus=2 consoleblank=0 console=tty1 console=ttyS0,115200n8 video=sm750fb:1920x1080-32@60 nohtw nocoherentio ieee754=relaxed
+bootconf0 vmlinuz $KERNEL_LOAD_ADDR $KERNEL_LOAD_ADDR $DTB_NAME.dtb initrd.img root=/dev/sda6 rw rootwait earlyprintk=uart8520,mmio32,0x1f04a000,115200 maxcpus=2 consoleblank=0 console=tty1 console=ttyS0,115200n8 video=sm750fb:1920x1080-32@60 nohtw nocoherentio ieee754=relaxed
 EOF
 
 exit 0
