@@ -59,7 +59,8 @@ mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
 	@$(call add,THE_BRANDING,graphics)
 
 mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
-	use/fonts/ttf/redhat use/fonts/ttf/google/extra; @:
+	use/fonts/ttf/redhat use/fonts/ttf/google/extra
+	@$(call add,THE_PACKAGES,xscreensaver-frontend)
 
 mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/x11/lightdm/gtk \
@@ -67,7 +68,6 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
-	@$(call add,THE_PACKAGES,xscreensaver)
 
 mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
