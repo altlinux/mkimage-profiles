@@ -40,7 +40,7 @@ gnustep-easydiff
 #gnustep-ec
 gnustep-EdenMath
 gnustep-Expense
-gnustep-FisicaLab
+#gnustep-FisicaLab
 gnustep-FlexiSheet
 gnustep-FreeTar
 gnustep-FTP
@@ -97,7 +97,7 @@ gnustep-Preview
 gnustep-PRICE
 #gnustep-projectcenter
 gnustep-ProjectManager
-gnustep-quartzcore
+#gnustep-quartzcore
 gnustep-RemoteDesk
 #gnustep-renaissance
 gnustep-SequenceConverter
