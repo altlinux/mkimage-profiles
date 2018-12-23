@@ -119,7 +119,7 @@ liblnk-tools
 libpff-tools
 libregf-tools
 libuna-tools
-libvshadow-tools
+#libvshadow-tools
 libwrc-tools
 ntfs-3g
 ocfs2-tools
