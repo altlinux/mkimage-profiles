@@ -25,6 +25,9 @@ use/x11/intel: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-intel)
 	@$(call add,THE_PACKAGES,xorg-dri-intel)	### #25044
 
+use/x11/armsoc: use/x11 use/firmware
+	@$(call add,THE_PACKAGES,xorg-dri-armsoc)
+
 # for those cases when no 3D means no use at all
 # NB: blobs won't Just Work (TM) along with nouveau/radeon
 #     as free drivers get prioritized during autodetection
