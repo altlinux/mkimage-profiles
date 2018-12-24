@@ -49,6 +49,7 @@ distro/alt-workstation-401: distro/.alt-workstation use/e2k/401; @:
 distro/alt-workstation-801: distro/.alt-workstation-base use/e2k/install2/801
 	@$(call set,META_VOL_ID,ALT Workstation/801)
 	@$(call add,MAIN_GROUPS,workstation/e801-1seat workstation/e801-2seat)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-dualseat)
 endif
 
 endif
