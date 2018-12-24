@@ -8,6 +8,7 @@
 
 [ -x /sbin/chkconfig ] || exit 0
 
-for i in network random syslogd; do chkconfig $i on; done
+chkconfig syslogd on 2>&1
+for i in network random; do chkconfig $i on; done
 for i in fbsetfont netfs rawdevices; do chkconfig $i off; done
 :
