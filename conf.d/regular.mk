@@ -31,6 +31,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,upower bluez)
 	@$(call add,THE_PACKAGES,vconsole-setup-kludge)	#28805
+	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,KFLAVOURS,std-def)
