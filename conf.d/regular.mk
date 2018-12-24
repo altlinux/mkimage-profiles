@@ -10,23 +10,19 @@ distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 # graphical target (not enforcing xorg drivers or blobs)
-distro/.regular-x11: distro/.regular-base +vmguest +wireless \
+distro/.regular-x11: distro/.regular-base \
+	use/x11/wacom use/x11/amdgpu +vmguest +wireless \
 	use/stage2/cifs use/live/rw use/live/x11 use/live/repo \
-	use/live/install use/live/suspend use/browser/firefox/live \
-	use/browser/firefox/i18n use/browser/firefox/h264 \
-	use/branding use/x11/wacom use/x11/amdgpu \
-	use/ntp/client use/services/lvm2-disable \
-	use/luks use/volumes/regular
-	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
-	@$(call add,LIVE_PACKAGES,btrfs-progs)
-	@$(call add,LIVE_LISTS,$(call tags,(base || desktop) && regular))
+	use/live/install use/live/suspend use/browser/firefox/live
+	@$(call add,LIVE_PACKAGES,livecd-install-apt-cache)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 	@$(call add,EFI_BOOTARGS,live_rw)
 
 # WM base target
-distro/.regular-wm: distro/.regular-x11 mixin/regular-desktop; @:
+distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
+	mixin/regular-desktop; @:
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
