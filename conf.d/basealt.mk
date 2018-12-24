@@ -40,14 +40,14 @@ distro/.alt-workstation-base: distro/.e2k-installer mixin/alt-workstation
 distro/.alt-workstation: distro/.alt-workstation-base use/x11/lightdm/gtk; @:
 
 distro/alt-workstation-101: distro/.alt-workstation use/e2k/101
-	@$(call set,META_VOL_ID,ALT Workstation/101)
+	@$(call set,META_VOL_ID,ALT Workstation 101)
 
 distro/alt-workstation-401: distro/.alt-workstation use/e2k/401; @:
-	@$(call set,META_VOL_ID,ALT Workstation/401)
+	@$(call set,META_VOL_ID,ALT Workstation 401)
 
 # avoid lightdm; NB: mate-settings pulls it in (hence the dummy)
 distro/alt-workstation-801: distro/.alt-workstation-base use/e2k/install2/801
-	@$(call set,META_VOL_ID,ALT Workstation/801)
+	@$(call set,META_VOL_ID,ALT Workstation 801)
 	@$(call add,MAIN_GROUPS,workstation/e801-1seat workstation/e801-2seat)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-dualseat)
 endif
