@@ -31,11 +31,12 @@ distro/education: distro/.installer use/slinux/full \
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
 	@$(call add,MAIN_PACKAGES,kumir2 rujel stellarium)
+	@$(call add,MAIN_PACKAGES,alterator-fbi)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,INSTALL2_PACKAGES,curl)
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,THE_LISTS,$(call tags,base regular))
-	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind crond)
+	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind crond alteratord cups ahttpd)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 endif
