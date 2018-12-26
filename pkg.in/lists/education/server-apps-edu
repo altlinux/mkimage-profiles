@@ -99,6 +99,7 @@ alterator-squid
 alterator-squidmill
 alterator-quota
 alterator-trust
+anonftp
 alterator-vsftpd
 alterator-xinetd
 alterator-postfix-dovecot
