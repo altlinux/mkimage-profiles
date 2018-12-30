@@ -1,7 +1,7 @@
 #!/bin/sh
 # enable online repos if possible, just quit if anything's wrong
 
-repo_source='/etc/apt/sources.list.d/yandex.list'
+repo_source='/etc/apt/sources.list.d/alt.list'
 
 [ -s "$repo_source" ] || exit 0
 
