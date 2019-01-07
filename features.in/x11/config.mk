@@ -3,6 +3,7 @@
 +xmonad: use/x11/xmonad; @:
 +kde4-lite: use/x11/kde4-lite use/x11/kdm4; @:
 
+## hardware support
 # the very minimal driver set
 use/x11:
 	@$(call add_feature)
@@ -67,28 +68,28 @@ use/x11/nvidia/optimus: use/x11/nvidia
 use/x11/wacom: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-wacom xorg-drv-wizardpen)
 
-### xdm: see also #23108
-use/x11/xdm: use/x11-autostart
-	@$(call add,THE_PACKAGES,xdm installer-feature-no-xconsole-stage3)
+## display managers
+use/x11/dm: use/x11-autostart
+	@$(call try,THE_DISPLAY_MANAGER,xdm)
+	@$(call add,THE_PACKAGES,$$(THE_DISPLAY_MANAGER))
 
-### : some set()-like thing might be better?
 use/x11/lightdm/gtk use/x11/lightdm/slick \
 	use/x11/lightdm/qt use/x11/lightdm/lxqt use/x11/lightdm/kde: \
-	use/x11/lightdm/%: use/x11-autostart
-	@$(call add,THE_PACKAGES,lightdm-$*-greeter)
+	use/x11/lightdm/%: use/x11/dm
+	@$(call set,THE_DISPLAY_MANAGER,lightdm-$*-greeter)
 
-use/x11/kdm4: use/x11-autostart
-	@$(call add,THE_PACKAGES,kde4base-workspace-kdm)
+use/x11/sddm use/x11/lxdm use/x11/gdm2.20 use/x11/gdm: \
+	use/x11/%: use/x11/dm
+	@$(call set,THE_DISPLAY_MANAGER,$*)
 
-use/x11/gdm2.20: use/x11-autostart
-	@$(call add,THE_PACKAGES,gdm2.20)
+use/x11/kdm4: use/x11/dm
+	@$(call set,THE_DISPLAY_MANAGER,kde4base-workspace-kdm)
 
-use/x11/sddm: use/x11-autostart
-	@$(call add,THE_PACKAGES,sddm)
+use/x11/xdm: use/x11/dm
+	@$(call set,THE_DISPLAY_MANAGER,xdm)
+	@$(call add,THE_PACKAGES,installer-feature-no-xconsole-stage3)
 
-use/x11/lxdm: use/x11-autostart
-	@$(call add,THE_PACKAGES,lxde-lxdm)
-
+## window managers and desktop environments
 use/x11/icewm: use/x11
 	@$(call add,THE_LISTS,$(call tags,icewm desktop))
 
