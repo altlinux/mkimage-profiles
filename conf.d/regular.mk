@@ -105,11 +105,9 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
-distro/regular-icewm: distro/.regular-sysv-gtk +icewm \
-	use/x11/lightdm/slick use/init/sysv/polkit \
-	use/browser/chromium use/fonts/ttf/redhat use/efi/refind
-	@$(call add,LIVE_LISTS,$(call tags,regular icewm))
-	@$(call add,LIVE_PACKAGES,mnt)
+distro/regular-icewm: distro/.regular-sysv-gtk mixin/regular-icewm \
+	use/x11/lightdm/slick use/init/sysv/polkit use/efi/refind \
+	use/browser/chromium
 	@$(call set,KFLAVOURS,un-def)
 
 # wdm can't do autologin so add standalone one for livecd

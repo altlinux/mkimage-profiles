@@ -62,6 +62,10 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
 
+mixin/regular-icewm: use/fonts/ttf/redhat +icewm
+	@$(call add,THE_LISTS,$(call tags,regular icewm))
+	@$(call add,THE_PACKAGES,mnt)
+
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
 	use/browser/firefox/classic
