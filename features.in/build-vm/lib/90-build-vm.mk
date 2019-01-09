@@ -23,7 +23,11 @@ check-sudo:
 	fi
 
 prepare-image: check-sudo
-	@if [ -x /usr/share/mkimage-profiles/bin/tar2fs ]; then \
+	@# need to copy $(BUILDDIR)/.work/chroot/.host/qemu* into chroot
+	@#if qemu is used
+	@(cd "$(BUILDDIR)/.work/chroot/"; \
+		tar -rf "$(VM_TARBALL)" ./.host/qemu*) ||:; \
+	if [ -x /usr/share/mkimage-profiles/bin/tar2fs ]; then \
 		TOPDIR=/usr/share/mkimage-profiles; \
 	fi; \
 	if ! sudo $$TOPDIR/bin/tar2fs \

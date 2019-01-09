@@ -217,6 +217,16 @@ if [ -n "$BOOTPART" ]; then
 	echo "$BOOTDEV /boot $BOOTFSTYPE defaults 1 2" >> "$ROOTFS/etc/fstab"
 fi
 
+# Query ARCH in chroot and redefine arch-dependent variable
+ARCH="$(chroot "$ROOTFS" rpm --eval '%_host_cpu')"
+
+if [[ $ARCH = *86* ]]
+	then 	# NB: different storage modules might be needed for non-kvm
+		INITRD_MODULES="sd_mod ata_piix ahci virtio-scsi virtio-blk"
+else
+	INITRD_MODULES=
+fi
+
 echo "MODULES_PRELOAD += $INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
 
 case "$ARCH" in
@@ -299,3 +309,6 @@ fi
 if [ -n "$SUDO_USER" ]; then
 	chown "$SUDO_USER:$(id -g "$SUDO_USER")" "$IMG" "$ROOTFS" "$WORKDIR" ||:
 fi
+# maybe qemu interpreter was copied to chroot;
+# this is no longer necessary, remove
+rm -rf "$ROOTFS"/.host ||:
