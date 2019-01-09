@@ -26,9 +26,6 @@ use/init/systemd: use/init
 
 use/init/systemd/full: use/init/systemd
 	@$(call add,THE_PACKAGES,bash-completion-systemd chkconfig)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,THE_PACKAGES,vconsole-setup-kludge)
-endif
 
 # http://www.freedesktop.org/wiki/Software/systemd/Debugging
 use/init/systemd/debug: use/init/systemd use/services
