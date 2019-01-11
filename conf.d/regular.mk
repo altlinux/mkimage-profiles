@@ -171,7 +171,8 @@ distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
 
-distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth; @:
+distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
+	use/browser/falkon; @:
 
 distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
 	use/net-eth/dhcp use/efi/refind; @:
