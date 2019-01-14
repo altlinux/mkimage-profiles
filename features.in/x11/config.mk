@@ -20,7 +20,6 @@ else
 use/x11/xorg: use/x11; @:
 endif
 
-# both free and excellent
 use/x11/intel: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-intel)
 	@$(call add,THE_PACKAGES,xorg-dri-intel)	### #25044
@@ -43,7 +42,7 @@ use/x11/radeon: use/x11 use/firmware
 	@$(call set,RADEON_KMODULES,drm-radeon)
 	@$(call set,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
-# here the future
+# here's the future
 use/x11/amdgpu: use/x11 use/firmware
 	@$(call set,RADEON_PACKAGES,xorg-drv-amdgpu)
 
