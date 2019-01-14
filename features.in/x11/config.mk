@@ -105,10 +105,8 @@ use/x11/kde4: use/x11 use/x11/kde/synaptic
 	@$(call add,THE_PACKAGES,kde4-default)
 	@$(call add,IM_PACKAGES,imsettings-qt)
 
-# handle both p7/t7 (p-a-nm) and sisyphus (k-p-nm) cases
 use/x11/kde4/nm: use/x11/kde4 use/net/nm
-	@$(call add,THE_PACKAGES_REGEXP,^kde4-plasma-nm.*)
-	@$(call add,THE_PACKAGES_REGEXP,^plasma-applet-networkmanager.*)
+	@$(call add,THE_PACKAGES,kde4-plasma-nm)
 
 use/x11/gtk/nm: use/net/nm
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
