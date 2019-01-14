@@ -1,7 +1,6 @@
 +x11: use/x11/xorg; @:
 +icewm: use/x11/icewm; @:
 +xmonad: use/x11/xmonad; @:
-+tde: use/x11/tde use/x11/kdm; @:
 +kde4-lite: use/x11/kde4-lite use/x11/kdm4; @:
 
 # the very minimal driver set
@@ -83,9 +82,6 @@ use/x11/lightdm/gtk use/x11/lightdm/slick \
 	use/x11/lightdm/qt use/x11/lightdm/lxqt use/x11/lightdm/kde: \
 	use/x11/lightdm/%: use/x11-autostart
 	@$(call add,THE_PACKAGES,lightdm-$*-greeter)
-
-use/x11/kdm: use/x11-autostart
-	@$(call add,THE_PACKAGES,kdebase-kdm<4)
 
 use/x11/kdm4: use/x11-autostart
 	@$(call add,THE_PACKAGES,kde4base-workspace-kdm)
