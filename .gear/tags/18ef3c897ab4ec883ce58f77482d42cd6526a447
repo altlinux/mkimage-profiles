@@ -1,0 +1,6 @@
+object d95ab7ea8a6200ffa32448e14a96d02783d75540
+type commit
+tag v1.3.4
+tagger Michael Shigorin <mike@altlinux.org> 1547483408 +0300
+
+security, portability, actuality
