@@ -128,9 +128,6 @@ use/x11/gnome3: use/x11/xorg +pulse
 	@$(call add,THE_PACKAGES,gnome3-default)
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
-use/x11/e17: use/x11 use/net/connman
-	@$(call add,THE_LISTS,$(call tags,e17 desktop))
-
 use/x11/enlightenment: use/x11 use/net/connman +pulse
 	@$(call add,THE_LISTS,$(call tags,enlightenment desktop))
 	@$(call add,DEFAULT_SERVICES_DISABLE,acpid)
