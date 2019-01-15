@@ -244,3 +244,6 @@ usbmuxd
 
 # l10n
 glibc-locales
+
+# Misc
+rescue-launcher
