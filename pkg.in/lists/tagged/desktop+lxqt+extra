@@ -22,8 +22,8 @@ juffed
 file-roller
 
 # media player; see also #30556 though
-clementine
-clementine-codecs-full
+clementine@X86
+clementine-codecs-full@X86
 
 # upstream recommended
 #ptbatterysystemtray
