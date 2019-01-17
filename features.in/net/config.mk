@@ -1,4 +1,4 @@
-+nm: use/net/nm/nodelay; @:
++nm: use/net/nm; @:
 
 use/net: use/services
 	@$(call add_feature)
@@ -21,6 +21,8 @@ use/net/nm: use/net
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-save-nfs) # keep interface up
 
+# NOT recommended unless you know what you're doing
+# (e.g. dnsmasq can win a race against dhcpcd)
 use/net/nm/nodelay: use/net/nm
 	@$(call add,DEFAULT_SERVICES_DISABLE,NetworkManager-wait-online)
 
