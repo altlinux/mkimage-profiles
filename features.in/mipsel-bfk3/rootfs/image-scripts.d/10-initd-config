@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo 'MODULES_PRELOAD += ext2' >> /etc/initrd.mk
