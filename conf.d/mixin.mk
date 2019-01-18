@@ -67,8 +67,10 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
 
-mixin/regular-icewm: use/fonts/ttf/redhat +icewm
+mixin/regular-icewm: use/fonts/ttf/redhat use/deflogin/sysv/nm +icewm +nm
 	@$(call add,THE_LISTS,$(call tags,regular icewm))
+	@$(call add,THE_LISTS,$(call tags,desktop nm))
+	@$(call add,THE_PACKAGES,icewm-startup-networkmanager)
 	@$(call add,THE_PACKAGES,mnt)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
