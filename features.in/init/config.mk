@@ -17,7 +17,7 @@ use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
 
 use/init/sysv/consolekit: use/init/sysv
-	@$(call add,THE_PACKAGES,ConsoleKit ConsoleKit-x11 pam-ck-connector)
+	@$(call add,THE_PACKAGES,ConsoleKit2-service ConsoleKit2-x11)
 
 ### i-f should be dropped as soon as rootfs scripts are effective there
 use/init/systemd: use/init
