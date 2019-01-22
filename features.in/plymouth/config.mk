@@ -25,5 +25,6 @@ use/plymouth/base: use/plymouth/stage2
 	@$(call add,BASE_PACKAGES_REGEXP,make-initrd-plymouth cpio)
 	@$(call add,BASE_KMODULES_REGEXP,drm.*)
 	@$(call add,THE_BRANDING,bootsplash)
+	@$(call add,THE_PACKAGES,make-initrd-plymouth)
 
 use/plymouth/full: use/plymouth/stage2 use/plymouth/base; @:
