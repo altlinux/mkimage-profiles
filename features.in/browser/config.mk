@@ -7,18 +7,23 @@ use/browser:
 use/browser/firefox: use/browser
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
 
-use/browser/seamonkey use/browser/palemoon \
+use/browser/seamonkey use/browser/netsurf \
 	use/browser/chromium use/browser/epiphany \
-	use/browser/qupzilla use/browser/falkon \
+	use/browser/falkon use/browser/otter-browser \
 	use/browser/elinks use/browser/links2: \
 	use/browser/%: use/browser
 	@$(call set,THE_BROWSER,$*)
 
-use/browser/konqueror: use/browser
-	@$(call set,THE_BROWSER,kdebase-konqueror)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+use/browser/palemoon: use/browser
+	@$(call set,THE_BROWSER,$*)
 
-use/browser/konqueror4: use/browser
-	@$(call set,THE_BROWSER,kde4base-konqueror)
+use/browser/palemoon/i18n: use/browser/palemoon
+	@$(call add,THE_BROWSER,palemoon-ru)
+else
+use/browser/palemoon: use/browser/firefox; @:
+use/browser/palemoon/i18n: use/browser/palemoon; @:
+endif
 
 # the complete lack of dependencies is intentional
 use/browser/firefox/esr: use/browser
@@ -43,9 +48,6 @@ use/browser/firefox/classic: use/browser/firefox
 
 use/browser/seamonkey/i18n: use/browser/seamonkey
 	@$(call add,THE_BROWSER,seamonkey-ru)
-
-use/browser/palemoon/i18n: use/browser/palemoon
-	@$(call add,THE_BROWSER,palemoon-ru)
 
 # inherently insecure, NPAPI only
 use/browser/plugin/flash: use/browser
