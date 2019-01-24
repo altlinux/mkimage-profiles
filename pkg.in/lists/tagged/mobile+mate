@@ -12,4 +12,4 @@ notification-daemon
 acpi
 acpid
 #acpid-events-power
-eeepc-acpi-scripts
+eeepc-acpi-scripts@X86
