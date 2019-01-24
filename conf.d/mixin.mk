@@ -90,7 +90,7 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
 
 mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
-	@$(call add,LIVE_LISTS,$(call tags,desktop gvfs))
+	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
@@ -104,7 +104,7 @@ mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 mixin/regular-mate: use/x11/mate use/fonts/ttf/google use/x11/gtk/nm +nm
-	@$(call add,LIVE_LISTS,$(call tags,mobile mate))
+	@$(call add,THE_LISTS,$(call tags,mobile mate))
 
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
 #     kernel cmdline resulting in method:disk instead of method:cdrom
