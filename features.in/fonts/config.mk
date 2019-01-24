@@ -51,3 +51,9 @@ use/fonts/ttf/redhat:
 
 use/fonts/ttf/ubuntu:
 	@$(call add,THE_PACKAGES,fonts-ttf-ubuntu-font-family)
+
+use/fonts/ttf/xo:
+	@$(call add,THE_PACKAGES,fonts-ttf-XO)
+	@$(call add,THE_PACKAGES,fonts-ttf-PT)
+	@$(call add,THE_PACKAGES,fonts-ttf-Cormorant)
+	@$(call add,THE_PACKAGES,fonts-ttf-open-sans)
