@@ -36,7 +36,6 @@ wmsysmon
 wmsystray
 wmtimer
 wmtop
-wmtunlo
 wmupmon
 #wmvolman	--> needs udisks2 *running*
 #wmusic		--> libxmms
