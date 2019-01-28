@@ -5,3 +5,4 @@ use/mipsel-bfk3: use/kernel
 	@$(call add,NET_ETH,eth0:dhcp)
 	@$(call add,NET_ETH,eth1:dhcp)
 	@$(call add,NET_ETH,eth2:dhcp)
+	@$(call add,THE_PACKAGES,fbset-modes-sm750-bfk3)

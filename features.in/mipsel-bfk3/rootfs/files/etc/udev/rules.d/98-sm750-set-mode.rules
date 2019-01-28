@@ -1,0 +1,6 @@
+
+# Set mode for sm750 video card
+
+ACTION=="add" KERNEL=="fb*" SUBSYSTEM=="graphics" \
+  SUBSYSTEMS=="pci" ATTRS{vendor}=="0x126f" ATTRS{device}=="0x0750" \
+  RUN+="/usr/bin/fbset -db /etc/fb.modes.sm750 1680x1050-60"
