@@ -134,7 +134,7 @@ use/x11/lxde: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
 	@$(call add,IM_PACKAGES,imsettings-lxde)
 
-use/x11/lxqt: use/x11
+use/x11/lxqt: use/x11 +pulse
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
 	@$(call add,IM_PACKAGES,imsettings-qt)
 
