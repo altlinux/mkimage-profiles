@@ -1,24 +1,15 @@
 # metapackage
-lxqt
+lxqt-regular
 
-# optional components
-udisks2
-gvfs
+# media-player
+mpv
+qmmp1
 
-# qt4 configuration tools
-libqt4-qt3support
-
-# utilities
-lximage-qt
+# text-editor
+featherpad
 
 icon-theme-oxygen
 x-cursor-theme-jimmac
 
 xscreensaver-frontend
 
-psi-plus
-psi-plus-plugin-birthdayreminder
-psi-plus-plugin-conferencelogger
-psi-plus-plugin-screenshot
-psi-plus-plugin-watcher
-psi-plus-l10n

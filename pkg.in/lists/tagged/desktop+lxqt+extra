@@ -15,11 +15,9 @@ qt4-settings
 tubularix
 smplayer-mpv
 QCheckers
-qps
-juffed
 
-# file archiver
-file-roller
+# qt4 configuration tools
+libqt4-qt3support
 
 # media player; see also #30556 though
 clementine@X86
@@ -32,13 +30,13 @@ clementine-codecs-full@X86
 qbittorrent
 quiterss
 
-### doesn't integrate with pcmanfm-qt as of right now
-qpdfview
-
-# clipboard history applet
-qlipper
-
 # useless but cute
 cool-retro-term@X86
 
-fonts-ttf-liberation
+# xmpp client
+psi-plus
+psi-plus-plugin-birthdayreminder
+psi-plus-plugin-conferencelogger
+psi-plus-plugin-screenshot
+psi-plus-plugin-watcher
+psi-plus-l10n
