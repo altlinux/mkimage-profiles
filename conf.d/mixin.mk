@@ -106,6 +106,10 @@ mixin/regular-lxqt: use/x11/lxqt use/x11/sddm \
 mixin/regular-mate: use/x11/mate use/fonts/ttf/google use/x11/gtk/nm +nm
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 
+mixin/office: use/fonts/ttf/google use/fonts/ttf/xo
+	@$(call add,THE_LISTS,$(call tags,desktop && (cups || office)))
+	@$(call add,THE_PACKAGES,apt-indicator)
+
 # NB: never ever use/syslinux/ui/gfxboot here as gfxboot mangles
 #     kernel cmdline resulting in method:disk instead of method:cdrom
 #     which will change propagator's behaviour to probe additional
