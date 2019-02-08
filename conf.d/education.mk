@@ -2,7 +2,8 @@
 
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/education: distro/.installer use/slinux/full \
+distro/education: distro/alt-education
+distro/alt-education: distro/.installer use/slinux/full \
 	use/memtest \
 	use/services \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
@@ -12,7 +13,7 @@ distro/education: distro/.installer use/slinux/full \
 	+systemd
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
-	@$(call set,META_VOL_SET,ALT Education 8.0)
+	@$(call set,META_VOL_SET,ALT Education 8.2)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse disable-usb-autosuspend xorg-drv-libinput)
 	@$(call add,INSTALL2_PACKAGES,net-tools fdisk gdisk parted partclone openssh-clients)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
