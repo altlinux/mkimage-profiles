@@ -54,6 +54,10 @@ scilab
 qt-creator
 qt-creator-doc
 
+cmake
+ninja-build
+qt5-base-devel
+
 gimagereader-qt4
 tesseract
 tesseract-langpack-ru
