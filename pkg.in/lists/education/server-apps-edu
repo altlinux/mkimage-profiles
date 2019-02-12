@@ -44,29 +44,11 @@ alterator-postinstall
 # ===== Services =====
 mariadb-server
 libmysqlclient18
-rujel
+mariadb-server
+
 installed-db-office-server-rujel
-mariadb-server
-
-libmysqlclient18
-mediawiki-mysql
-mediawiki
-mediawiki-ldap
 installed-db-office-server-mediawiki
-mariadb-server
-libmysqlclient18
-owncloud8
-owncloud8-apache2
-
 installed-db-office-server-owncloud
-mariadb-server
-libmysqlclient18
-moodle2.5
-moodle2.5-apache2
-moodle2.5-local-mysql
-moodle2.5-lang-ru
-moodle-install-tools
-alterator-moodle-install
 installed-db-office-server-moodle
 
 # ===== Base services =====
