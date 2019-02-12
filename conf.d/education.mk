@@ -19,6 +19,7 @@ distro/alt-education: distro/.installer use/slinux/full \
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,INSTALL2_PACKAGES,curl)
+	@$(call add,INSTALL2_PACKAGES,vim-console lftp)
 	@$(call add,BASE_LISTS,education/base)
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,MAIN_GROUPS,education/teacher)
