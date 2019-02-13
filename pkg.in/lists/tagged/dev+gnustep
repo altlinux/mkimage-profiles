@@ -7,7 +7,7 @@ gnustep-projectcenter
 gnustep-renaissance
 gnustep-simplewebkit
 gnustep-sqlclient
-gnustep-steptalk
+#gnustep-steptalk
 gnustep-systempreferences
 gnustep-ucsdata
 gnustep-Wrapper
