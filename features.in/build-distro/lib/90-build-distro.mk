@@ -42,7 +42,11 @@ prep: | $(GLOBAL_DEBUG) dot-disk $(WHATEVER)
 # can't use mp-showref which belongs to the metaprofile
 dot-disk:
 	@mkdir -p files/.disk
-	@echo "$(META_VOL_ID) $(DATE_F)" >files/.disk/info
+	@if [ -n "$(META_DISK_INFO)" ]; then \
+		echo "$(META_DISK_INFO)" >files/.disk/info; \
+	else \
+		echo "$(META_VOL_ID) build $(DATE_F)" >files/.disk/info; \
+	fi
 	@echo "$(ARCH)" >files/.disk/arch
 	@echo "$(DATE)" >files/.disk/date
 	@if type -t git >&/dev/null; then \
