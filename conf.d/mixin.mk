@@ -87,6 +87,7 @@ mixin/regular-xfce-sysv: use/init/sysv/polkit use/deflogin/sysv/nm \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
+	@$(call add,THE_PACKAGES,xfce4-screensaver)
 
 mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
