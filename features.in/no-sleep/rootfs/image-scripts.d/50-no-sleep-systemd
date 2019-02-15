@@ -1,0 +1,13 @@
+#!/bin/sh -efu
+
+sleepconf=/etc/systemd/sleep.conf
+
+test ! -f "$sleepconf" && exit || :
+cat >> "$sleepconf" <<EOF
+AllowSuspend=no
+AllowHibernation=no
+AllowSuspendThenHibernate=no
+AllowHybridSleep=no
+EOF
+
+exit $?
