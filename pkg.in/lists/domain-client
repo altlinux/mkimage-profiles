@@ -2,7 +2,7 @@ pam-config
 pam_mount
 pam_ccreds
 
-samba4-client
+samba-client
 cifs-utils
 keyutils
 nfs-clients
