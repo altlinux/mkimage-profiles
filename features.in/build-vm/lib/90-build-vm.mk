@@ -39,7 +39,10 @@ prepare-image: check-sudo
 convert-image: prepare-image
 	@VM_COMPRESS=; \
 	case "$(IMAGE_TYPE)" in \
-	"img") mv "$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; exit 0;; \
+	"img") \
+		mv "$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"; \
+		if [ "0$(DEBUG)" -le 1 ]; then rm "$(VM_TARBALL)"; fi; \
+		exit 0;; \
 	"vhd") VM_FORMAT="vpc";; \
 	"qcow2c") VM_FORMAT="qcow2"; VM_COMPRESS="-c";; \
 	*) VM_FORMAT="$(IMAGE_TYPE)"; \
