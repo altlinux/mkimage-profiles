@@ -323,7 +323,7 @@ elif [ -x "$ROOTFS"/usr/sbin/grub-autoupdate ]; then
 fi
 
 if [ -n "$SUDO_USER" ]; then
-	chown "$SUDO_USER:$(id -g "$SUDO_USER")" "$IMG" "$ROOTFS" "$WORKDIR" ||:
+	chown "$SUDO_USER:$(id -g "$SUDO_USER")" "$IMG" ||:
 fi
 # maybe qemu interpreter was copied to chroot;
 # this is no longer necessary, remove
