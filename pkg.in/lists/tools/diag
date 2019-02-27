@@ -5,7 +5,6 @@ lft
 mtr
 nmap
 scanssh
-tcptraceroute
 telnet
 traceroute
 whois

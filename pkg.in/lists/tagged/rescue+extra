@@ -196,7 +196,6 @@ tcpdump
 tcpreen
 tcpreplay
 tcptrace
-tcptraceroute
 tcputils
 tcpxtract
 telnet
