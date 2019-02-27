@@ -41,6 +41,7 @@ sdparm
 fonts-bitmap-terminus
 
 ldd-requires@X86
+arm-rootfs-installer
 
 gparted@X86
 gpart
