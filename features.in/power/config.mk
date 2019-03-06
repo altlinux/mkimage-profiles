@@ -12,6 +12,10 @@ use/power/acpi: use/power
 
 use/power/acpi/button: use/power/acpi
 	@$(call add,COMMON_PACKAGES,acpid-events-power)
+ifeq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,COMMON_PACKAGES,acpid-events-e2k)
+	@$(call add,DEFAULT_SERVICES_ENABLE,sysfs)
+endif
 
 use/power/acpi/powersave: use/power/acpi
 	@$(call add,COMMON_PACKAGES,powersave)
