@@ -163,14 +163,6 @@ distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
 distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
 	use/net-eth/dhcp use/efi/refind; @:
 
-distro/regular-kde4: distro/.regular-desktop use/x11/kde4/nm use/x11/kdm4 \
-	use/browser/falkon use/fonts/zerg use/domain-client \
-	use/net/nm/mmgui +pulse +plymouth
-	@$(call add,THE_LISTS,$(call tags,regular kde4))
-	@$(call add,THE_PACKAGES,fonts-ttf-levien-inconsolata)
-	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
-	@$(call add,DEFAULT_SERVICES_ENABLE,prefdm)
-
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
 	use/browser/falkon
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))

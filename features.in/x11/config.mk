@@ -1,7 +1,6 @@
 +x11: use/x11/xorg; @:
 +icewm: use/x11/icewm; @:
 +xmonad: use/x11/xmonad; @:
-+kde4-lite: use/x11/kde4-lite use/x11/kdm4; @:
 
 ## hardware support
 # the very minimal driver set
@@ -81,9 +80,6 @@ use/x11/sddm use/x11/lxdm use/x11/gdm2.20 use/x11/gdm: \
 	use/x11/%: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,$*)
 
-use/x11/kdm4: use/x11/dm
-	@$(call set,THE_DISPLAY_MANAGER,kde4base-workspace-kdm)
-
 use/x11/xdm: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,xdm)
 	@$(call add,THE_PACKAGES,installer-feature-no-xconsole-stage3)
@@ -97,16 +93,6 @@ use/x11/tde: use/x11
 
 use/x11/kde/synaptic:
 	@$(call add,THE_PACKAGES,synaptic-kde synaptic-usermode-)
-
-use/x11/kde4-lite: use/x11 use/x11/kde/synaptic
-	@$(call add,THE_LISTS,$(call tags,kde4 desktop))
-
-use/x11/kde4: use/x11 use/x11/kde/synaptic
-	@$(call add,THE_PACKAGES,kde4-default)
-	@$(call add,IM_PACKAGES,imsettings-qt)
-
-use/x11/kde4/nm: use/x11/kde4 use/net/nm
-	@$(call add,THE_PACKAGES,kde4-plasma-nm)
 
 use/x11/gtk/nm: use/net/nm
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
