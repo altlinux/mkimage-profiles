@@ -88,9 +88,6 @@ use/x11/xdm: use/x11/dm
 use/x11/icewm: use/x11
 	@$(call add,THE_LISTS,$(call tags,icewm desktop))
 
-use/x11/tde: use/x11
-	@$(call add,THE_LISTS,$(call tags,tde desktop))
-
 use/x11/kde/synaptic:
 	@$(call add,THE_PACKAGES,synaptic-kde synaptic-usermode-)
 

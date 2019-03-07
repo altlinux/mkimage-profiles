@@ -157,12 +157,6 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gdm)
 
-distro/regular-tde: distro/.regular-desktop mixin/regular-tde +plymouth \
-	use/x11/gtk/nm use/net/nm/mmgui
-
-distro/regular-tde-sysv: distro/.regular-sysv mixin/regular-tde \
-	use/net-eth/dhcp use/efi/refind; @:
-
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
 	use/browser/falkon
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
@@ -192,11 +186,6 @@ distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
 	@$(call set,RELNAME,en.altlinux.org/rescue (netboot.xyz edition))
 	@$(call set,META_VOL_ID,ALT Rescue)
 	@$(call set,META_APP_ID,$(ARCH))
-
-distro/regular-sysv-tde: distro/.regular-install-x11-full mixin/regular-tde
-	@$(call add,THE_LISTS,$(call tags,base desktop))
-	@$(call add,THE_LISTS,$(call tags,regular tde))
-	@$(call add,THE_PACKAGES,kpowersave)
 
 distro/regular-sysv-xfce: distro/.regular-install-x11-full \
 	mixin/regular-xfce mixin/regular-xfce-sysv

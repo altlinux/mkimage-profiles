@@ -9,7 +9,6 @@ distro/.desktop-mini: distro/.desktop-base use/x11/xdm +power; @:
 distro/.desktop-network: distro/.desktop-mini mixin/desktop-installer; @:
 
 distro/icewm: distro/.desktop-network use/lowmem use/install2/fs +icewm; @:
-distro/ltsp-tde: distro/tde +ltsp; @:
 distro/ltsp-icewm: distro/icewm +ltsp; @:
 
 endif

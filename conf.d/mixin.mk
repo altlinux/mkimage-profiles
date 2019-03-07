@@ -94,11 +94,6 @@ mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/regular-tde: +tde \
-	use/syslinux/ui/gfxboot use/browser/firefox/classic use/fonts/ttf/redhat
-	@$(call add,THE_PACKAGES_REGEXP,kdeedu-kalzium.* kdeedu-ktouch.*)
-	@$(call add,DEFAULT_SERVICES_DISABLE,upower bluetoothd)
-
 mixin/regular-lxqt: use/x11/lxqt use/x11/sddm use/x11/gtk/nm +nm
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
