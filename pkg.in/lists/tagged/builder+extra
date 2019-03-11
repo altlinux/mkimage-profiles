@@ -4,6 +4,7 @@ fdisk
 gear
 hasher
 iproute2
+isomd5sum
 mkimage-profiles
 net-tools
 parallel
