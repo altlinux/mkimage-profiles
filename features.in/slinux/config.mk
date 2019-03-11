@@ -20,7 +20,6 @@ use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +puls
 	@$(call add,THE_LISTS,slinux/misc-base)
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
-	@$(call add,STAGE2_PACKAGES,installer-distro-desktop)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
