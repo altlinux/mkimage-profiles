@@ -1,0 +1,6 @@
+
+# make sm750 a seat master
+
+ACTION=="add" KERNEL=="fb*" SUBSYSTEM=="graphics" \
+  SUBSYSTEMS=="pci" ATTRS{vendor}=="0x126f" ATTRS{device}=="0x0750" \
+  TAG+="seat" TAG+="master-of-seat"
