@@ -5,7 +5,6 @@ pam-limits-desktop
 
 rpminstall
 imagewriter
-mintmenu
 firefox-esr-ru
 
 systemd-udev-console-fb@X86
