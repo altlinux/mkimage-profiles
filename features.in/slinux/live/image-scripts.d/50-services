@@ -15,7 +15,7 @@ bluetoothd.service
 crond.service
 lvm2-monitor.service
 network.service
-ntpd.service
+chronyd.service
 lightdm.service
 bluetooth.service
 livecd-setlocale
