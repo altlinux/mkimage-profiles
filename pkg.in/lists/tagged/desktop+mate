@@ -9,7 +9,9 @@ mate-maxi
 iso-codes
 tzdata
 
+# basic multimedia
 pavucontrol
+mpv
 
 # clipboard manager
 parcellite
