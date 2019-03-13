@@ -84,12 +84,9 @@ distro/regular-jeos-ovz: distro/.regular-jeos \
 	use/server/ovz-base use/control/server/ldv use/firmware
 	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
 
-distro/.regular-install-x11: distro/.regular-install \
-	use/install2/suspend mixin/regular-desktop +vmguest +wireless \
-	use/ntp/client
+distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
+	use/install2/suspend mixin/regular-desktop mixin/regular-x11
 	@$(call set,INSTALLER,altlinux-desktop)
-	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
-	@$(call add,THE_LISTS,$(call tags,regular desktop))
 
 # assumes somewhat more experienced user, mostly for sysv variants
 distro/.regular-install-x11-full: distro/.regular-install-x11 \
