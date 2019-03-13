@@ -25,6 +25,7 @@ net-tools
 tcpdump
 ipcalc
 python-module-serial
+chrony
 
 accountsservice
 

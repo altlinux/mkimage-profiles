@@ -25,6 +25,7 @@ distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
+	@$(call add,DEFAULT_SERVICES_ENABLE,chronyd)
 endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
