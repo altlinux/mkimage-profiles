@@ -40,7 +40,7 @@ mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
 ### regular.mk
 mixin/regular-x11: use/luks use/volumes/regular \
 	use/browser/firefox/i18n use/browser/firefox/h264 \
-	use/branding use/ntp/client use/services/lvm2-disable
+	use/branding use/ntp/chrony use/services/lvm2-disable
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,btrfs-progs)
