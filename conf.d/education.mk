@@ -38,7 +38,7 @@ distro/alt-education: distro/.installer use/slinux/full \
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
 	@$(call add,MAIN_PACKAGES,kumir2 rujel stellarium)
 	@$(call add,THE_LISTS,$(call tags,base regular))
-	@$(call add,SERVICES_ENABLE,bluetoothd sshd syslogd bind crond alteratord cups ahttpd)
+	@$(call add,SERVICES_ENABLE,bluetoothd sshd bind crond alteratord cups ahttpd)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 endif
