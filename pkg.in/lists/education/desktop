@@ -57,7 +57,7 @@ installer-feature-online-repo
 installer-feature-repo-add
 installer-feature-resolver-bind-stage3
 installer-feature-symlinks-from-sbin
-italc2-client
+italc3-client
 itest
 kernel-modules-bbswitch-std-def
 kumir
