@@ -14,7 +14,8 @@ ve/ldv: ve/bare use/control/server/ldv
 	@$(call add,BASE_PACKAGES,openssh-blacklist openssh-server)
 	@$(call add,BASE_PACKAGES,shadow-edit shadow-groups)
 
-ve/docker: ve/.base use/repo; @:
+ve/docker: ve/.apt use/repo
+	@$(call add,BASE_PACKAGES,iproute2)
 
 # build environment
 ve/builder: ve/base use/dev/builder/base use/repo
