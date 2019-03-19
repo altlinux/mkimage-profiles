@@ -10,8 +10,12 @@ ifeq (ve,$(IMAGE_CLASS))
 ve/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,basesystem)
 
-# add those
-ve/.base: ve/.bare
-	@$(call add,BASE_PACKAGES,etcnet apt)
+# add package management
+ve/.apt: ve/.bare
+	@$(call add,BASE_PACKAGES,apt)
+
+# also add networking
+ve/.base: ve/.apt
+	@$(call add,BASE_PACKAGES,etcnet)
 
 endif
