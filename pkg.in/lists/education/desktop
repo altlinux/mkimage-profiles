@@ -79,7 +79,6 @@ virtualbox-guest-utils
 wine-gecko
 wine-mono
 xorg-dri-intel
-xorg-drv-openchrome
 xorg-drv-radeon
 xsane
 xsane-gimp2
