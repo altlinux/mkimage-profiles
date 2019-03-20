@@ -2,7 +2,7 @@ ifeq (distro,$(IMAGE_CLASS))
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
-	3rdparty blender clamav cloud-clients freecad gnome-peer-to-peer \
+	3rdparty blender clamav cloud-clients freecad \
 	gtk-dictionary kvm smartcard virtualbox voip-clients)
 
 distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \

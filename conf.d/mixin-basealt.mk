@@ -2,9 +2,9 @@
 
 mixin/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
-	agents emulators ganttproject graphics-editing libreoffice \
-	mate-usershare pidgin raccess scanning scribus sound-editing \
-	thunderbird vlc freeipa-client)
+	agents emulators ganttproject gnome-peer-to-peer graphics-editing \
+	libreoffice mate-usershare pidgin raccess scanning scribus \
+	sound-editing thunderbird vlc freeipa-client)
 
 mixin/alt-workstation: +installer +systemd +pulse +nm \
 	use/kernel/net use/l10n/default/ru_RU \
