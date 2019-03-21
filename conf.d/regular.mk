@@ -100,8 +100,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 distro/regular-icewm: distro/.regular-sysv-gtk mixin/regular-icewm \
-	use/x11/lightdm/slick use/init/sysv/polkit use/efi/refind \
-	use/browser/chromium
+	use/init/sysv/polkit use/efi/refind use/browser/chromium
 	@$(call set,KFLAVOURS,un-def)
 
 # wdm can't do autologin so add standalone one for livecd
