@@ -248,15 +248,11 @@ distro/regular-server-pve: distro/.regular-server-systemd \
 		pve-firewall pve-ha-crm pve-manager pveproxy pvedaemon \
 		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)
 
-distro/regular-builder: distro/.regular-bare \
+distro/regular-builder: distro/.regular-bare mixin/regular-builder \
 	use/dev/builder/full +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
-	use/isohybrid use/syslinux/timeout/30 \
-	use/stage2/net-eth use/net-eth/dhcp
-	@$(call add,LIVE_PACKAGES,cifs-utils elinks lftp openssh wget)
-	@$(call add,LIVE_PACKAGES,bash-completion gpm screen tmux zsh)
-	@$(call add,LIVE_PACKAGES,ccache rpm-utils wodim)
-	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
+	use/isohybrid use/syslinux/timeout/30 use/stage2/net-eth
+	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
 
 distro/regular-server-samba4: distro/.regular-server-managed
 	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))

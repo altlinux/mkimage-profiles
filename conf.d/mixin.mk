@@ -113,6 +113,11 @@ mixin/regular-rescue: use/rescue use/isohybrid use/luks use/branding \
 	use/syslinux/ui/menu use/syslinux/timeout/600 \
 	use/firmware/qlogic test/rescue/no-x11 +sysvinit; @:
 
+mixin/regular-builder: use/dev/builder/base use/net-eth/dhcp
+	@$(call add,THE_PACKAGES,bash-completion elinks gpm lftp openssh)
+	@$(call add,THE_PACKAGES,rpm-utils screen tmux wget zsh)
+	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
+
 ### vm.mk
 mixin/cloud-init:
 	@$(call add,BASE_PACKAGES,cloud-init)
