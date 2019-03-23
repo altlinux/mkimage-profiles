@@ -57,7 +57,7 @@ cmake
 ninja-build
 qt5-base-devel
 
-gimagereader-qt4
+gimagereader-qt5
 tesseract
 tesseract-langpack-ru
 
