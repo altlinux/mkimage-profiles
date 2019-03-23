@@ -9,7 +9,7 @@ distro/alt-education: distro/.installer use/slinux/full \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
 	use/install2/vnc \
 	use/l10n/default/ru_RU +vmguest +efi \
-	use/efi/refind \
+	use/efi/refind use/efi/shell \
 	+systemd
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
