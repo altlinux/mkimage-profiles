@@ -2,7 +2,9 @@
 
 sp
 
-puppet-server
+puppetserver
+puppetdb
+
 semaphore
 ansible
 
