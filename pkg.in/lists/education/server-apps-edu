@@ -33,7 +33,7 @@ xorg-conf-synaptics
 
 dansguardian
 perl-DBD-mysql
-ejudge
+#ejudge
 openfire
 
 # Alterator modules
@@ -57,7 +57,7 @@ installed-db-office-server-moodle
 
 alterator-fbi
 
-alterator-bacula
+#alterator-bacula
 alterator-ca
 alterator-ddns
 installer-feature-resolver-bind-stage3
