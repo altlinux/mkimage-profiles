@@ -19,7 +19,6 @@ openscad-MCAD
 openscad-libraries-mcad
 meshlab
 blender
-blender-i18n
 
 # CAM and gcode generator
 camotics
