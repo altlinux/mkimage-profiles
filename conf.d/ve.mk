@@ -41,4 +41,7 @@ ve/systemd-bare: ve/.apt use/net/networkd +systemd \
 	use/control/sudo-su use/repo use/net-ssh
 	@$(call add,BASE_PACKAGES,interactivesystem su)
 
+ve/systemd-base: ve/systemd-bare
+	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
+
 endif
