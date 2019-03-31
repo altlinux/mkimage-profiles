@@ -12,5 +12,7 @@ hplip-hpijs
 hplip-PPDs
 hplip-gui
 
+printer-driver-splix
+
 system-config-printer
 system-config-printer-udev
