@@ -6,6 +6,7 @@ vm/bare: vm/.base-lilo +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
 vm/systemd: vm/.base-grub +systemd
+	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
 	@$(call add,BASE_PACKAGES,apt)
 
 # handle ROOTPW (through deflogin)
