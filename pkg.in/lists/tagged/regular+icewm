@@ -10,8 +10,9 @@ mutt
 elinks
 lftp
 
-tray_mixer_plus
-icewm-startup-tray_mixer_plus
+qasmixer
+pnmixer
+icewm-startup-pnmixer
 leafpad
 
 gqview
