@@ -33,8 +33,8 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/slick +plymouth; @:
-distro/.regular-sysv: distro/.regular-wm +sysvinit \
-	use/init/sysv/consolekit; @:
+distro/.regular-sysv: distro/.regular-wm +elogind; @:
+
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 	use/x11/gdm2.20; @:
 
@@ -94,13 +94,13 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
 	use/branding/complete use/branding/slideshow/once \
 	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base \
-	use/init/sysv/consolekit
+	use/init/sysv/elogind
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 distro/regular-icewm: distro/.regular-sysv-gtk mixin/regular-icewm \
-	use/init/sysv/polkit use/efi/refind use/browser/chromium
+	use/efi/refind use/browser/chromium
 	@$(call set,KFLAVOURS,un-def)
 
 # wdm can't do autologin so add standalone one for livecd
