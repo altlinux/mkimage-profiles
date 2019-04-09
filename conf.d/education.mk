@@ -10,6 +10,7 @@ distro/alt-education: distro/.installer use/slinux/full \
 	use/install2/vnc \
 	use/l10n/default/ru_RU +vmguest +efi \
 	use/efi/refind use/efi/shell \
+	use/ntp/chrony \
 	+systemd
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
