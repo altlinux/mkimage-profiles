@@ -120,11 +120,8 @@ distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce \
 distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
 	mixin/regular-xfce mixin/regular-xfce-sysv; @:
 
-distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde
-	@$(call add,THE_PACKAGES,lxde)
-
-distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde
-	@$(call add,THE_PACKAGES,lxde-sysvinit)
+distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
+distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde; @:
 
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
