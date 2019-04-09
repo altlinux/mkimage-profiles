@@ -81,6 +81,7 @@ mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
 
 mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
+	@$(call add,THE_PACKAGES,xfce-polkit)
 
 mixin/regular-xfce-sysv: use/x11/lightdm/gtk use/browser/palemoon/i18n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
