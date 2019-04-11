@@ -129,8 +129,8 @@ yelp
 imagewriter
 
 #compiz
-python-module-fusion-icon-gtk
-compiz-gtk
+#python-module-fusion-icon-gtk
+#compiz-gtk
 
 #aen
 #elinks-
