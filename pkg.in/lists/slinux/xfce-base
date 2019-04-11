@@ -24,8 +24,7 @@ thunar-volman-plugin
 thunar-archive-plugin
 
 #screensaver
-light-locker
-light-locker-settings
+xfce4-screensaver
 
 #samba
 thunar-shares-plugin
