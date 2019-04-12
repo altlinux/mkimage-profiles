@@ -22,12 +22,12 @@ distro/.regular-x11: distro/.regular-base \
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
-	mixin/regular-desktop; @:
+	mixin/regular-desktop use/efi/refind; @:
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm \
-	use/syslinux/ui/gfxboot use/firmware/laptop use/efi/refind +systemd
+	use/syslinux/ui/gfxboot use/firmware/laptop +systemd
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call set,KFLAVOURS,std-def)
@@ -40,7 +40,8 @@ distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 
 distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	use/branding use/bootloader/grub use/luks \
-	use/install2/fs use/install2/vnc use/install2/repo
+	use/install2/fs use/install2/vnc use/install2/repo \
+	use/efi/refind
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,THE_LISTS,$(call tags,base regular))
@@ -93,14 +94,14 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-desktop use/install2/fs \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
 	use/branding/complete use/branding/slideshow/once \
-	use/net-eth/dhcp use/efi/refind use/efi/shell use/rescue/base \
+	use/net-eth/dhcp use/efi/shell use/rescue/base \
 	use/init/sysv/elogind
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 distro/regular-icewm: distro/.regular-sysv-gtk mixin/regular-icewm \
-	use/efi/refind use/browser/chromium
+	use/browser/chromium
 	@$(call set,KFLAVOURS,un-def)
 
 # wdm can't do autologin so add standalone one for livecd
@@ -155,7 +156,7 @@ distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
 
 distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
-	use/net-eth/dhcp use/efi/refind; @:
+	use/net-eth/dhcp; @:
 
 distro/regular-kde5: distro/.regular-desktop use/browser/falkon \
 	use/x11/kde5 use/x11/sddm use/domain-client \
