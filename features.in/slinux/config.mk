@@ -15,7 +15,7 @@ use/slinux/base: use/isohybrid use/slinux use/x11/xorg use/x11/lightdm/gtk +puls
 	@$(call add,LIVE_LISTS,slinux/games-base)
 	@$(call add,LIVE_LISTS,slinux/graphics-base)
 	@$(call add,LIVE_LISTS,slinux/multimedia-base)
-	@$(call add,LIVE_LISTS,slinux/network-base)
+	@$(call add,LIVE_LISTS,slinux/comm-base)
 	@$(call add,LIVE_LISTS,slinux/live)
 	@$(call add,THE_LISTS,slinux/misc-base)
 	@$(call add,THE_LISTS,slinux/xfce-base)

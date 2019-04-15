@@ -78,7 +78,7 @@ endif
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
-	@$(call add,LIVE_LISTS,slinux/network-base)
+	@$(call add,LIVE_LISTS,slinux/comm-base)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
