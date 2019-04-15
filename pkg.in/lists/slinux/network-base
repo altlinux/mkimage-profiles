@@ -6,9 +6,5 @@ pidgin
 pidgin-libnotify
 
 rdesktop
-telnet
 remmina
 remmina-plugins
-
-b43-fwcutter
-#bcm43xx-fwcutter

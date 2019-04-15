@@ -12,6 +12,10 @@ dhcp-client
 shadow-change
 chrony
 
+telnet
+b43-fwcutter
+#bcm43xx-fwcutter
+
 pam-limits-desktop
 bash-completion
 mc-full
