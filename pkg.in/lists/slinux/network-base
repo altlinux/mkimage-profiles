@@ -5,10 +5,6 @@ thunderbird-esr-enigmail
 pidgin
 pidgin-libnotify
 
-alterator-net-pptp
-alterator-net-eth
-alterator-net-pppoe
-
 rdesktop
 telnet
 remmina
@@ -16,5 +12,3 @@ remmina-plugins
 
 b43-fwcutter
 #bcm43xx-fwcutter
-
-chrony

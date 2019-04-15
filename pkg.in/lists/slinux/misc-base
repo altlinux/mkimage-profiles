@@ -10,6 +10,7 @@ os-prober
 make-initrd-lvm
 dhcp-client
 shadow-change
+chrony
 
 pam-limits-desktop
 bash-completion
@@ -113,9 +114,10 @@ alterator-standalone
 
 alterator-auth
 alterator-datetime
+alterator-net-eth
 alterator-net-pppoe
-alterator-net-pptp
 alterator-net-openvpn
+alterator-net-pptp
 alterator-packages
 alterator-pkg
 alterator-services
