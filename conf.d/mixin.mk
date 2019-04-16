@@ -66,7 +66,7 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
-	@$(call add,THE_PACKAGES,polkit-gnome)
+	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm
 	@$(call add,THE_LISTS,$(call tags,regular icewm))
