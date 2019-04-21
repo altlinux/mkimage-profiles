@@ -5,7 +5,6 @@ python-module-keystoneclient
 openstack-glance
 python-module-glanceclient
 openstack-nova-api
-openstack-nova-cert
 openstack-nova-conductor
 openstack-nova-console
 openstack-nova-novncproxy
