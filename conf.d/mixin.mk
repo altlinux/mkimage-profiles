@@ -75,8 +75,7 @@ mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm
 	@$(call add,THE_PACKAGES,mnt polkit-gnome)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
-mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
-	use/browser/firefox/classic
+mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck
 	@$(call add,THE_BRANDING,graphics)
 
 mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
