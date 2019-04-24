@@ -7,7 +7,7 @@ else
 endif
 
 use/install2: use/stage2 sub/stage2@install2 use/metadata \
-	use/cleanup/installer
+	use/cleanup/installer use/install2/autoinstall
 	@$(call add_feature)
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
@@ -48,6 +48,11 @@ use/install2/repo: use/install2
 # for alterator-pkg to use
 use/install2/net: use/install2
 	@$(call add,INSTALL2_PACKAGES,curl)
+
+# for autoinstall
+use/install2/autoinstall:
+	@$(call add,INSTALL2_PACKAGES,curl)
+	@$(call add,BASE_PACKAGES,alterator-postinstall)
 
 # see also use/vmguest/kvm; qxl included in xorg pkglist
 use/install2/kvm:
