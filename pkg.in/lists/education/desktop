@@ -59,7 +59,7 @@ installer-feature-symlinks-from-sbin
 italc3-client
 itest
 kernel-modules-bbswitch-std-def
-kumir
+kumir2
 libnss-fallback
 libsqlite
 lm_sensors3-utils
