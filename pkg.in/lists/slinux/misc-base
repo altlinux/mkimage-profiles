@@ -165,8 +165,8 @@ atril-gtk-xps
 stardict-gtk
 stardict-mueller7
 
-# Owncloud
-owncloud-client
+# *cloud
+nextcloud-client
 
 # For work as guest in the virtualbox
 virtualbox-guest-additions

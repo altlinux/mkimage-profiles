@@ -1,4 +1,4 @@
-# mediawiki moodle owncloud rujel are used from appropriate lists
+# mediawiki moodle nextcloud rujel are used from appropriate lists
 
 sp
 
@@ -48,7 +48,7 @@ mariadb-server
 
 installed-db-office-server-rujel
 installed-db-office-server-mediawiki
-installed-db-office-server-owncloud
+installed-db-office-server-nextcloud
 installed-db-office-server-moodle
 
 # ===== Base services =====
