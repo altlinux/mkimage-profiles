@@ -45,8 +45,6 @@ alterator-postinstall
 
 # ===== Services =====
 mariadb-server
-libmysqlclient18
-mariadb-server
 
 installed-db-office-server-rujel
 installed-db-office-server-mediawiki
