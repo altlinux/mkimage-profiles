@@ -106,6 +106,9 @@ use/install2/suspend:
 # extras
 use/install2/tools:
 	@$(call add,INSTALL2_PACKAGES,pxz)
+	@$(call add,INSTALL2_PACKAGES,fdisk gdisk parted partclone)
+	@$(call add,INSTALL2_PACKAGES,vim-console)
+	@$(call add,INSTALL2_PACKAGES,net-tools openssh-clients lftp)
 
 # when VNC installation is less welcome than a few extra megs
 use/install2/cleanup/vnc:
