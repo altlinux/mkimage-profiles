@@ -7,7 +7,11 @@ endif
 
 use/kernel:
 	@$(call add_feature)
+ifeq (,$(filter-out e2k%,$(ARCH)))
+	@$(call try,KFLAVOURS,elbrus-def)
+else
 	@$(call try,KFLAVOURS,std-def)
+endif
 
 # r8168 is a kludge, never install it by default
 use/kernel/net:
