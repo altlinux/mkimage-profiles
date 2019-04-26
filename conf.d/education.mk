@@ -7,7 +7,7 @@ distro/alt-education: distro/.installer use/slinux/full \
 	use/memtest \
 	use/services \
 	use/live/install use/live/suspend use/live/x11 use/live/repo \
-	use/install2/vnc \
+	use/install2/vnc use/install2/full \
 	use/l10n/default/ru_RU +vmguest +efi \
 	use/efi/refind use/efi/shell \
 	use/ntp/chrony \
@@ -15,12 +15,8 @@ distro/alt-education: distro/.installer use/slinux/full \
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
 	@$(call set,META_VOL_SET,ALT Education 8.2)
-	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse disable-usb-autosuspend xorg-drv-libinput)
-	@$(call add,INSTALL2_PACKAGES,net-tools fdisk gdisk parted partclone openssh-clients)
-	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
+	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
-	@$(call add,INSTALL2_PACKAGES,curl)
-	@$(call add,INSTALL2_PACKAGES,vim-console lftp)
 	@$(call add,BASE_LISTS,education/base)
 	@$(call add,THE_LISTS,education/desktop)
 	@$(call add,MAIN_GROUPS,education/teacher)
