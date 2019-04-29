@@ -10,7 +10,11 @@ use/kernel:
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call try,KFLAVOURS,elbrus-def)
 else
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+	@$(call try,KFLAVOURS,mp)
+else
 	@$(call try,KFLAVOURS,std-def)
+endif
 endif
 
 # r8168 is a kludge, never install it by default
