@@ -2,3 +2,6 @@ italc3-master
 #nxclient
 itest-server
 installer-feature-init-italc
+# Mass management
+ansible
+virt-viewer

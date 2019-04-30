@@ -88,3 +88,12 @@ fuse-exfat
 # Authenticate with Active Directory and FreeIPA by SSSD
 task-auth-ad-sssd
 task-auth-freeipa
+pam_pkcs11
+
+# Mass management and remote assistance
+puppet
+x11spice
+openssh-server
+python-module-yaml
+python-module-jinja2
+python-modules-json
