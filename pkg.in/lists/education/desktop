@@ -90,6 +90,12 @@ xfce-polkit
 # New utilites
 disable-usb-autosuspend
 color-prompt-and-man
+shutter
 # Virtualization support
 xorg-drv-vmware
 xorg-drv-vmmouse
+# Mozilla
+firefox-esr
+firefox-esr-ru
+thunderbird
+thunderbird-ru
