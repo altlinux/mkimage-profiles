@@ -99,3 +99,5 @@ installer-feature-nfs-server-stage3
 installer-feature-pxeboot-stage3
 installer-feature-shm-defaults-stage3
 installer-feature-start-avahi
+
+xrdp
