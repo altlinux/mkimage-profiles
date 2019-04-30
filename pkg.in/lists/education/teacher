@@ -5,3 +5,30 @@ installer-feature-init-italc
 # Mass management
 ansible
 virt-viewer
+# Tools for teachers
+freemind
+gimp
+inkscape
+blender
+scribus
+kdenlive
+audacity
+simplescreenrecorder
+cheese
+gnome-games-klotski
+gnome-games-mahjongg
+gnome-games-aisleriot
+xsane
+simple-scan
+brasero
+dia
+fbreader
+mate-document-viewer
+mate-document-viewer-djvu
+mate-document-viewer-caja
+qstardict
+remmina
+remmina-plugins
+chromium
+chromium-gnome
+ppapi-plugin-adobe-flash
