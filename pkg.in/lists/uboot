@@ -1,0 +1,8 @@
+raspberrypi-firmware@aarch64
+raspberrypi-firmware@armh
+u-boot-meson@aarch64
+u-boot-sunxi64@aarch64
+u-boot-sunxi@armh
+u-boot-imx@armh
+u-boot-rockchip@aarch64
+u-boot-hifive-unleashed@riscv64
