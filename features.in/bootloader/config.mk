@@ -8,12 +8,21 @@
 
 use/bootloader: use/pkgpriorities
 	@$(call add_feature)
+	@$(call try,BASE_BOOTLOADER,grub)
+	@$(call xport,BASE_BOOTLOADER)
+	@$(call add,BASE_LISTS,$$(BASE_BOOTLOADER))
+ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,BASE_PACKAGES,alterator-$$(BASE_BOOTLOADER))
 	@$(call add,PINNED_PACKAGES,alterator-$$(BASE_BOOTLOADER))
 	@$(call add,PINNED_PACKAGES,installer-bootloader-$$(BASE_BOOTLOADER)-stage2)
+endif
 
-use/bootloader/grub use/bootloader/lilo: use/bootloader/%: use/bootloader
+use/bootloader/grub use/bootloader/lilo: \
+	use/bootloader/%: use/bootloader
 	@$(call set,BASE_BOOTLOADER,$*)
+
+use/bootloader/uboot: use/bootloader use/uboot
+	@$(call set,BASE_BOOTLOADER,uboot)
 
 use/bootloader/live: use/bootloader
 	@$(call add,LIVE_PACKAGES,alterator-$$(BASE_BOOTLOADER))
