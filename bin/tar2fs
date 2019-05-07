@@ -27,9 +27,10 @@ BOOT_SIZE_FACTOR=2	# multiply /boot size by this value additionally
 
 CUR_BOUNDARY=0		# align first partition at 1MB for performance (+1)
 
-INITRD_MODULES=
 BOOTFSTYPE=
 BOOTPART=
+
+BOOTLOADER="$5"
 
 ARCH="$(arch)"		# NB: sudo => no GLOBAL_ will do either; mind qemu-*
 
@@ -209,24 +210,6 @@ fi
 # Query ARCH in chroot and redefine arch-dependent variable
 ARCH="$(chroot "$ROOTFS" rpm --eval '%_host_cpu')"
 
-if [[ $ARCH = *86* ]]
-	then 	# NB: different storage modules might be needed for non-kvm
-		INITRD_MODULES="sd_mod ata_piix ahci virtio-scsi virtio-blk"
-else
-	INITRD_MODULES=
-fi
-
-echo "MODULES_PRELOAD += $INITRD_MODULES $ROOTFSTYPE" >> "$ROOTFS/etc/initrd.mk"
-
-case "$ARCH" in
-*86*)
-	echo "FEATURES += qemu" >> "$ROOTFS/etc/initrd.mk"
-	;;
-e2k)
-	echo "FEATURES += usb"  >> "$ROOTFS/etc/initrd.mk"
-	;;
-esac
-
 # NB: don't stick BOOTFS here, it has slightly different semantics
 pushd $ROOTFS/boot
 
@@ -236,7 +219,6 @@ get_label() { echo "${1# *}" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,'; }
 KVERSIONS=
 if [ -s .origver ]; then
 	while read kver; do
-		chroot "$ROOTFS" make-initrd -k "$kver"
 		KVERSIONS="$KVERSIONS $kver"
 	done < .origver
 fi

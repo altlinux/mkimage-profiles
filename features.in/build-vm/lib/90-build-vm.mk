@@ -10,6 +10,12 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
                         $(BASE_PACKAGES_REGEXP)
 
+ifdef EFI_BOOTLOADER
+VM_BOOTLOADER=$(EFI_BOOTLOADER)
+else
+VM_BOOTLOADER=$(BASE_BOOTLOADER)
+endif
+
 # intermediate chroot archive
 VM_TARBALL := $(IMAGE_OUTDIR)/$(IMAGE_NAME).tar
 VM_RAWDISK := $(IMAGE_OUTDIR)/$(IMAGE_NAME).raw
@@ -31,7 +37,8 @@ prepare-image: check-sudo
 		TOPDIR=/usr/share/mkimage-profiles; \
 	fi; \
 	if ! sudo $$TOPDIR/bin/tar2fs \
-		"$(VM_TARBALL)" "$(VM_RAWDISK)" $(VM_SIZE) $(VM_FSTYPE); then \
+		"$(VM_TARBALL)" "$(VM_RAWDISK)" "$(VM_SIZE)" "$(VM_FSTYPE)" \
+			"$(VM_BOOTLOADER)"; then \
 		echo "** error: sudo tar2fs failed, see build log" >&2; \
 		exit 1; \
 	fi
