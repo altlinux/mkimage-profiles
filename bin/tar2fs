@@ -271,6 +271,13 @@ echo "** end of boot.conf"
 
 popd
 
+# for u-boot
+if [ "$BOOTLOADER" = "uboot" ]; then
+	EXTLINUX_CONF="$ROOTFS/boot/extlinux/extlinux.conf"
+	sed -i "/LABEL=ROOT/d" "$ROOTFS/etc/fstab"
+	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$EXTLINUX_CONF"
+fi
+
 if [ -x "$ROOTFS"/sbin/lilo ]; then
 	# configure and install bootloader
 	REGEXP='^.*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
