@@ -35,8 +35,6 @@ ARCH="$(arch)"		# NB: sudo => no GLOBAL_ will do either; mind qemu-*
 
 case "$ARCH" in
 *86*)
-	# NB: different storage modules might be needed for non-kvm
-	INITRD_MODULES="sd_mod ata_piix ahci virtio-scsi virtio-blk"
 	BLOCKDEV="/dev/sda"	# might be /dev/vda for virtio
 	ROOTPART="1"
 	;;
