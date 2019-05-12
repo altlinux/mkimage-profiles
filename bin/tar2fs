@@ -34,23 +34,13 @@ BOOTPART=
 ARCH="$(arch)"		# NB: sudo => no GLOBAL_ will do either; mind qemu-*
 
 case "$ARCH" in
-*86*)
-	BLOCKDEV="/dev/sda"	# might be /dev/vda for virtio
-	ROOTPART="1"
-	;;
-arm*)
-	BOOTFSTYPE="ext2"	# support expected in every sane target uboot
-	BLOCKDEV="/dev/mmcblk0p"	# ...hopefully...
-	BOOTPART="1"
-	ROOTPART="2"
-	;;
 e2k)
 	BOOTFSTYPE="ext2"       # firmware knows it
 	BLOCKDEV="/dev/sda"     # ...hopefully...
 	BOOTPART="1"
 	ROOTPART="2"
 	;;
-mips*)
+*)
 	ROOTPART="1"
 	BLOCKDEV="/dev/sda"
 	;;
