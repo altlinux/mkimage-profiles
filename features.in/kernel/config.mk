@@ -13,7 +13,11 @@ else
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call try,KFLAVOURS,mp)
 else
+ifeq (,$(filter-out riscv64,$(ARCH)))
+	@$(call try,KFLAVOURS,un-def)
+else
 	@$(call try,KFLAVOURS,std-def)
+endif
 endif
 endif
 
