@@ -89,6 +89,8 @@ fuse-exfat
 task-auth-ad-sssd
 task-auth-freeipa
 pam_pkcs11
+gvfs-shares
+shared-desktop-icons
 
 # Mass management and remote assistance
 puppet
