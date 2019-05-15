@@ -37,7 +37,7 @@ distro/alt-education: distro/.installer use/slinux/full \
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,net-tools fdisk gdisk parted partclone)
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
-	@$(call add,MAIN_PACKAGES,rujel stellarium)
+	@$(call add,MAIN_PACKAGES,stellarium)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,SERVICES_ENABLE,bluetoothd sshd bind crond alteratord cups ahttpd)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)

@@ -1,4 +1,4 @@
-# mediawiki moodle nextcloud rujel are used from appropriate lists
+# mediawiki moodle nextcloud are used from appropriate lists
 
 sp
 
@@ -46,7 +46,6 @@ alterator-postinstall
 # ===== Services =====
 mariadb-server
 
-installed-db-office-server-rujel
 installed-db-office-server-mediawiki
 installed-db-office-server-nextcloud
 installed-db-office-server-moodle
