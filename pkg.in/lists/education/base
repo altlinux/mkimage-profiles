@@ -1,3 +1,4 @@
+# Education (base part)
 audacity
 blender
 bluefish
@@ -6,55 +7,67 @@ clamav-db
 clamtk
 codeblocks
 codeblocks-contrib
-debhelper
 dia
 dosbox
 fbreader
-gambas3-full
+qstardict
+dict-mueller7-utf8
 freebasic
 gcc
-gcompris
-gcompris-voices-ru
 inkscape
+gimp
+gimp-help-ru
+gimp-plugin-gutenprint
+gimp-plugin-refocus-it
 java-1.8.0-openjdk-devel
-kde-common
-
 kdenlive
 vlc-maxi
 simplescreenrecorder
-kde5-i18n-ru
-kf5-i18n-ru
-qt5-translations
-icon-theme-oxygen
-
-keyutils
-krb5-kinit
-lazarus
-mysql-connector-java
-netpolice-filter
-netpolice-main
-octave
-pentaho-reporting-flow-engine
-perl-DBD-mysql
-postgresql-jdbc
-puppet
-scratch
 scribus
 shotwell
-wxMaxima
 logisim
 basic256
-scilab
-qt-creator
-qt-creator-doc
 
-cmake
-ninja-build
-qt5-base-devel
+fpc
+fpc-ide
+geany
+geany-plugins
+freemind
+gnome-games-klotski
+gnome-games-mahjongg
+gnome-games-aisleriot
+xsane
+xsane-gimp2
+simple-scan
+brasero
+connector
+chromium
+chromium-gnome
+ppapi-plugin-adobe-flash
+italc3-client
+itest
+kumir2
 
+# Big educational software
+octave
+wxMaxima
+lazarus
+gambas-full
+
+# OCR
 gimagereader-qt5
 tesseract
 tesseract-langpack-ru
+
+# KDE5 localization and profile
+kde5-profile
+kde5-i18n-ru
+kf5-i18n-ru
+qt5-translations
+
+# Content filter and antivirus
+netpolice-filter
+netpolice-main
 
 # New utilites
 autossh
@@ -62,28 +75,28 @@ inxi
 screenfetch
 ntpdate
 fdisk
+debhelper
+keyutils
+krb5-kinit
 
-# Popular sofware prerequsites
-1c-preinstall
-cryptopro-preinstall
-skype-preinstall
-teamviewer-preinstall
-vmware-view-preinstall
-starboard-preinstall
-google-chrome-preinstall
-yandex-browser-preinstall@x86_64
-
+# Installer features
 installer-feature-xdg-user-dirs
+installer-distro-junior-stage3
+installer-feature-auto-domain
+installer-feature-online-repo
+installer-feature-repo-add
+installer-feature-resolver-bind-stage3
+installer-feature-symlinks-from-sbin
 
+# GUI utilities
 gparted
 rosa-imagewriter
 
-chromium
-chromium-gnome
-ppapi-plugin-adobe-flash
-
 # Additional filesystem support
 fuse-exfat
+
+# Electronic board support
+starboard-preinstall
 
 # Authenticate with Active Directory and FreeIPA by SSSD
 task-auth-ad-sssd
@@ -99,3 +112,110 @@ openssh-server
 python-module-yaml
 python-module-jinja2
 python-modules-json
+
+# LibreOffice
+LibreOffice-still-extensions
+LibreOffice-still-integrated
+LibreOffice-still-gtk3
+LibreOffice-still-langpack-ru
+libreoffice-languagetool
+mythes-ru
+hyphen-ru
+gst-plugins-bad
+gst-plugins-ugly
+pentaho-reporting-flow-engine
+perl-DBD-mysql
+postgresql-jdbc
+mysql-connector-java
+
+# Firmware
+^firmware-ipw[[:digit:]].*
+^firmware-zd[[:digit:]].*
+^libva-driver-[[:alpha:]]+$
+^xorg-extension-[[:alpha:]]+$
+firmware-p54
+
+# Alterator modules
+alterator-groups
+alterator-logs
+alterator-net-general
+alterator-net-openvpn
+alterator-net-wifi
+alterator-postinstall
+alterator-sslkey
+alterator-updates
+
+# Extra fonts
+fonts-ttf-gost
+fonts-ttf-xorg
+fonts-ttf-PTAstra
+fonts-ttf-XO
+fonts-ttf-google-noto-sans
+fonts-ttf-google-crosextra-caladea
+fonts-ttf-google-crosextra-carlito
+
+# WINE
+glibc-gconv-modules@i586
+wine-programs@i586
+libwine-gl@i586
+libwine-twain@i586
+wine>2.9@i586
+i586-glibc-gconv-modules@x86_64
+i586-libwine-gl@x86_64
+i586-libwine-twain@x86_64
+i586-wine>2.9@x86_64
+libnss-fallback
+wine-gecko
+wine-mono
+
+# Other stuff
+htop
+apt-rsync
+avplay
+bumblebee
+cabextract
+cheese
+libsqlite
+lm_sensors3-utils
+man-pages-ru
+mc-full
+media-player-info
+nano
+quick-usb-formatter
+rpm-build
+sane
+sane-frontends
+setbranding
+system-report
+udev-rule-generator-cdrom
+virtualbox-guest-utils
+xorg-dri-intel
+xorg-drv-radeon
+zbar
+
+# New stuff
+xfce4-whiskermenu-plugin
+xfce-polkit
+
+# New utilites
+disable-usb-autosuspend
+color-prompt-and-man
+shutter
+
+# Virtualization support
+xorg-drv-vmware
+xorg-drv-vmmouse
+
+# Mozilla
+firefox-esr
+firefox-esr-ru
+thunderbird
+thunderbird-ru
+
+# More beauty
+xscreensaver
+xscreensaver-hacks
+xscreensaver-hacks-gl
+xscreensaver-modules
+xscreensaver-modules-gl
+xscreensaver-hacks-rss_glx

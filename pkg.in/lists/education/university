@@ -1,10 +1,9 @@
 codeblocks
 lazarus
-kde5-profile
-kde5-i18n-ru
-kf5-i18n-ru
 qt-creator
+qt-creator-doc
 cmake
+ninja-build
 qt5-base-devel
 # Eclipse
 gambas-full
