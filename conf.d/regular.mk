@@ -223,7 +223,7 @@ distro/regular-server-hyperv: distro/.regular-server-managed
 	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
 
 distro/.regular-server-openstack: distro/.regular-server-base \
-	use/firmware/qlogic use/server/groups/openstack
+	use/ntp/chrony use/firmware/qlogic use/server/groups/openstack
 	@$(call add,MAIN_GROUPS,tools/ipmi tools/monitoring)
 
 distro/regular-server-openstack: distro/.regular-server-openstack +systemd; @:
