@@ -1,6 +1,4 @@
-python-module-MySQLdb
 openstack-swift-account
 openstack-swift-container
 openstack-swift-object
 xfsprogs
-xinetd

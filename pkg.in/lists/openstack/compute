@@ -1,3 +1,4 @@
-python-module-MySQLdb
 openstack-nova-compute
-openstack-neutron-openvswitch
+openstack-neutron-openvswitch-agent
+openstack-neutron-linuxbridge-agent
+openstack-ceilometer-compute

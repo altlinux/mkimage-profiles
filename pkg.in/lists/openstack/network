@@ -1,6 +1,8 @@
-python-module-MySQLdb
 openstack-neutron
-openstack-neutron-openvswitch
-openstack-ceilometer-compute
-python-module-ceilometerclient
-python-module-pecan
+openstack-neutron-openvswitch-agent
+openstack-neutron-l3-agent
+openstack-neutron-linuxbridge-agent
+openstack-neutron-metadata-agent
+openstack-neutron-server
+openstack-neutron-fwaas
+openstack-neutron-lbaas
