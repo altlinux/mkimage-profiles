@@ -10,10 +10,11 @@ collectd-cgi
 collectd-curl
 collectd-dbi
 collectd-ipmi
-#collectd-libvirt
+collectd-memcached
 collectd-mysql
 collectd-nginx
 #collectd-openvz
 collectd-ping
 collectd-rrdtool
 collectd-sensors
+collectd-virt
