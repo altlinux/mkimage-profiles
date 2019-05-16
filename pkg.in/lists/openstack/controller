@@ -22,8 +22,6 @@ openstack-swift
 openstack-heat-api
 openstack-heat-engine
 openstack-heat-api-cfn
-openstack-ceilometer-api
-openstack-ceilometer-collector
 openstack-ceilometer-notification
 openstack-ceilometer-central
 openstack-ceilometer-alarm
