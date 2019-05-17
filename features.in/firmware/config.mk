@@ -16,12 +16,6 @@ use/firmware/server: use/firmware
 	@$(call add,THE_PACKAGES_REGEXP,firmware-ql.*)
 
 use/firmware/qlogic: use/firmware
-	@$(call add,SYSTEM_PACKAGES,firmware-ql2100)
-	@$(call add,SYSTEM_PACKAGES,firmware-ql2200)
-	@$(call add,SYSTEM_PACKAGES,firmware-ql2300)
-	@$(call add,SYSTEM_PACKAGES,firmware-ql2322)
-	@$(call add,SYSTEM_PACKAGES,firmware-ql2400)
-	@$(call add,SYSTEM_PACKAGES,firmware-ql2500)
 	@$(call add,SYSTEM_PACKAGES,firmware-ql6312)
 
 # NB: individual firmwarez would sometimes conflict
