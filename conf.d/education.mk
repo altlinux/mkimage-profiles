@@ -3,18 +3,26 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/education: distro/alt-education
-distro/alt-education: distro/.installer use/slinux/full \
+distro/alt-education: distro/.installer \
+	+systemd \
 	use/memtest \
 	use/services \
-	use/live/install use/live/suspend use/live/x11 use/live/repo \
+	use/live/install use/live/suspend use/live/x11 use/live/repo use/live/x11 use/live/rw \
 	use/install2/vnc use/install2/full \
-	use/l10n/default/ru_RU +vmguest +efi \
-	use/efi/refind use/efi/shell \
+	use/l10n/default/ru_RU +vmguest \
+	+efi use/efi/refind use/efi/shell \
 	use/ntp/chrony \
-	+systemd
+	use/isohybrid use/x11/xorg use/x11/lightdm/gtk +pulse use/luks \
+	+plymouth +nm use/x11/gtk/nm +wireless \
+	use/xdg-user-dirs/deep use/install2/fonts \
+	use/branding/complete
+	@$(call add_feature)
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
+	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
+	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
 	@$(call set,META_VOL_SET,ALT Education 8.2)
+	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,BASE_LISTS,education/base)
@@ -41,5 +49,21 @@ distro/alt-education: distro/.installer use/slinux/full \
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,SERVICES_ENABLE,bluetoothd sshd bind crond alteratord cups ahttpd)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
-
+	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
+	@$(call set,KFLAVOURS,std-def)
+	@$(call add,THE_LISTS,gnome-p2p)
+	@$(call add,LIVE_LISTS,education/live)
+	@$(call add,LIVE_LISTS,slinux/network-base)
+	@$(call add,THE_LISTS,slinux/misc-base)
+	@$(call add,THE_LISTS,slinux/xfce-base)
+	@$(call add,THE_LISTS,$(call tags,base l10n))
+	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,STAGE2_PACKAGES,chrony)
+	@$(call add,THE_KMODULES,staging)
+	@$(call add,STAGE1_MODLISTS,stage2-mmc)
+	@$(call add,MAIN_LISTS,slinux/not-install-full)
+	@$(call add,THE_LISTS,slinux/misc-full)
+	@$(call add,THE_KMODULES,virtualbox)
+	@$(call add,THE_KMODULES,nvidia)
+	@$(call add,MAIN_KMODULES,bbswitch)
 endif
