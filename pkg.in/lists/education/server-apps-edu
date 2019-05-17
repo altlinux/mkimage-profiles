@@ -100,3 +100,5 @@ installer-feature-shm-defaults-stage3
 installer-feature-start-avahi
 
 xrdp
+
+docker-ce
