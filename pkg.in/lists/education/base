@@ -21,8 +21,6 @@ gimp-plugin-gutenprint
 gimp-plugin-refocus-it
 java-1.8.0-openjdk-devel
 kdenlive
-vlc-maxi
-simplescreenrecorder
 scribus
 shotwell
 logisim
@@ -131,7 +129,6 @@ mysql-connector-java
 # Firmware
 ^firmware-ipw[[:digit:]].*
 ^firmware-zd[[:digit:]].*
-^libva-driver-[[:alpha:]]+$
 ^xorg-extension-[[:alpha:]]+$
 firmware-p54
 
@@ -144,15 +141,6 @@ alterator-net-wifi
 alterator-postinstall
 alterator-sslkey
 alterator-updates
-
-# Extra fonts
-fonts-ttf-gost
-fonts-ttf-xorg
-fonts-ttf-PTAstra
-fonts-ttf-XO
-fonts-ttf-google-noto-sans
-fonts-ttf-google-crosextra-caladea
-fonts-ttf-google-crosextra-carlito
 
 # WINE
 glibc-gconv-modules@i586
@@ -196,11 +184,6 @@ zbar
 # New stuff
 xfce4-whiskermenu-plugin
 xfce-polkit
-
-# New utilites
-disable-usb-autosuspend
-color-prompt-and-man
-shutter
 
 # Virtualization support
 xorg-drv-vmware

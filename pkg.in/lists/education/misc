@@ -1,0 +1,58 @@
+# Multimedia
+vlc-maxi
+simplescreenrecorder
+libva-driver-intel
+libva-driver-vdpau
+
+# Graphics
+ristretto
+simple-scan
+sane
+hplip-sane
+
+# Games
+gnome-games-gnomine
+gnome-games-gnotravex
+gnome-games-gnotski
+gnome-games-mahjongg
+gnome-games-sol
+
+# Dictionary
+qstardict
+dict-mueller7-utf8
+
+# Fonts
+fonts-ttf-gost
+fonts-ttf-xorg
+fonts-ttf-PTAstra
+fonts-ttf-XO
+fonts-ttf-google-noto-sans
+fonts-ttf-google-crosextra-caladea
+fonts-ttf-google-crosextra-carlito
+
+# Other
+color-prompt-and-man
+nvidia-xconfig
+vlock
+hplip-PPDs
+hwinfo
+ntfs-3g
+perl-Crypt-Rijndael
+dvgrab
+mjpegtools
+transcode
+jackd
+osec-mailreport
+adjtimex
+wodim
+opensc
+xorg-drv-wacom
+ocfs2-tools
+zsh
+glxgears
+rsync
+screen
+apcupsd
+x11spice
+shutter
+disable-usb-autosuspend
