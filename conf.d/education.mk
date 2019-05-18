@@ -7,7 +7,8 @@ distro/alt-education: distro/.installer \
 	+systemd \
 	use/memtest \
 	use/services \
-	use/live/install use/live/suspend use/live/x11 use/live/repo use/live/x11 use/live/rw \
+	use/live/install use/live/suspend \
+	use/live/repo use/live/x11 use/live/rw \
 	use/install2/vnc use/install2/full \
 	use/l10n/default/ru_RU +vmguest \
 	+efi use/efi/refind use/efi/shell \
@@ -16,7 +17,6 @@ distro/alt-education: distro/.installer \
 	+plymouth +nm use/x11/gtk/nm +wireless \
 	use/xdg-user-dirs/deep use/install2/fonts \
 	use/branding/complete
-	@$(call add_feature)
 	@$(call set,INSTALLER,junior)
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
