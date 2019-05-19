@@ -25,6 +25,9 @@ VM_SIZE ?= 0
 VM_GZIP_COMMAND ?= gzip
 VM_XZ_COMMAND ?= xz -T0
 
+# tavolga
+RECOVERY_LINE ?= Press ENTER to start
+
 check-sudo:
 	@if ! type -t sudo >&/dev/null; then \
 		echo "** error: sudo not available, see doc/vm.txt" >&2; \
@@ -74,6 +77,16 @@ convert-image/qcow2 convert-image/qcow2c convert-image/vmdk \
 	esac; \
 	qemu-img convert $$VM_COMPRESS -O "$$VM_FORMAT" \
 		"$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"
+
+# for tavolga
+convert-image/recovery.tar:
+	build-recovery-tar \
+	    --image-name $(IMAGE_NAME) \
+	    --date $(DATE) \
+	    --compress-command '$(VM_GZIP_COMMAND)' \
+	    --rootfs "$(VM_TARBALL)" \
+	    --output "$(IMAGE_OUTPATH)" \
+	    --line '$(RECOVERY_LINE)'
 
 post-convert:
 	@rm -f "$(VM_RAWDISK)"; \

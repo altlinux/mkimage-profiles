@@ -38,9 +38,14 @@ endif
 
 # extensions for buld-vm
 VM_EXTS := .tar .tar.gz .tar.xz .img .qcow2 .qcow2c .vdi .vmdk .vhd
+VM_TAVOLGA_EXTS := .recovery.tar
 
 ifeq (vm,$(IMAGE_CLASS))
 
 $(VM_EXTS:.%=use/pack/%): use/pack; @:
+
+ifeq (mipsel,$(ARCH))
+use/pack/recovery.tar: use/pack/tar; @:
+endif
 
 endif
