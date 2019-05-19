@@ -29,12 +29,18 @@ use/pack/$(1).$(2): use/pack/$(1)
 	@$$(call set,IMAGE_COMPRESS,$(2))
 endef
 
+ifeq (ve,$(IMAGE_CLASS))
 $(foreach c,$(VE_ARCHIVES), \
 	$(eval $(call PACK_containers,$(c))) \
 	$(foreach z,$(VE_COMPRESSORS), \
 		$(eval $(call PACK_compressors,$(c),$(z)))))
+endif
 
-# virtual machines
-VM_EXTS := .img .qcow2 .qcow2c .vdi .vmdk .vhd
+# extensions for buld-vm
+VM_EXTS := .tar .tar.gz .tar.xz .img .qcow2 .qcow2c .vdi .vmdk .vhd
+
+ifeq (vm,$(IMAGE_CLASS))
 
 $(VM_EXTS:.%=use/pack/%): use/pack; @:
+
+endif
