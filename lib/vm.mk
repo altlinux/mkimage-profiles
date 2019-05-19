@@ -10,18 +10,15 @@ vm/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,interactivesystem shadow-utils e2fsprogs)
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-vm/.base-lilo: vm/.bare
-	@$(call add,BASE_PACKAGES,lilo)
+vm/.base-lilo: vm/.bare use/bootloader/lilo; @:
 endif
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-vm/.base-grub: vm/.bare
-	@$(call add,BASE_PACKAGES,grub2-pc)
+vm/.base-grub: vm/.bare use/bootloader/grub; @:
 endif
 
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-vm/.base-grub-efi: vm/.bare
-	@$(call add,BASE_PACKAGES,grub2-efi)
+vm/.base-grub-efi: vm/.bare use/efi/grub; @:
 endif
 
 endif
