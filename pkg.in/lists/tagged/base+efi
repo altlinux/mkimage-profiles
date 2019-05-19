@@ -3,6 +3,6 @@ parted
 fatresize
 dosfstools
 grub2-efi
-elilo
+elilo@x86_64
 efibootmgr
 installer-feature-efi-stage3
