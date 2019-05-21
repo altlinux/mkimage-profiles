@@ -156,6 +156,10 @@ libnss-fallback
 wine-gecko
 wine-mono
 
+# Communication
+pidgin
+pidgin-libnotify
+
 # Other stuff
 htop
 apt-rsync
