@@ -9,7 +9,6 @@ nfs-clients
 autofs
 libnss-fallback
 libnss-mdns
-nss-ldapd
 
 settime-rfc867
 

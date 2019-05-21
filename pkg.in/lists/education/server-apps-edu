@@ -75,7 +75,6 @@ alterator-netinst
 alterator-net-openvpn
 alterator-net-routing
 alterator-openldap
-nss-ldapd
 samba4
 alterator-openvpn-server
 alterator-squid
