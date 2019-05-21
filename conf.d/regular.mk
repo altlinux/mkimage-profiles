@@ -121,6 +121,9 @@ distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce \
 distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
 	mixin/regular-xfce mixin/regular-xfce-sysv; @:
 
+distro/regular-sysv-xfce: distro/.regular-install-x11-full \
+	mixin/regular-xfce mixin/regular-xfce-sysv; @:
+
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
 distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde; @:
 
@@ -179,11 +182,6 @@ distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
 	@$(call set,RELNAME,en.altlinux.org/rescue (netboot.xyz edition))
 	@$(call set,META_VOL_ID,ALT Rescue)
 	@$(call set,META_APP_ID,$(ARCH))
-
-distro/regular-sysv-xfce: distro/.regular-install-x11-full \
-	mixin/regular-xfce mixin/regular-xfce-sysv
-	@$(call add,THE_PACKAGES,nload)
-	@$(call add,MAIN_PACKAGES,caffeine-ng sysstat leafpad)
 
 distro/.regular-server-base: distro/.regular-install \
 	use/server/base use/stage2/kms

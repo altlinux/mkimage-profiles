@@ -86,7 +86,10 @@ mixin/regular-xfce-sysv: use/x11/lightdm/gtk use/browser/palemoon/i18n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
+	@$(call add,THE_PACKAGES,qasmixer)
 	@$(call add,THE_PACKAGES,xfce4-screensaver)
+	@$(call add,THE_PACKAGES,caffeine-ng sysstat leafpad)
+	@$(call add,THE_PACKAGES,nload)
 
 mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
