@@ -1,0 +1,16 @@
+# SCADA (Supervisory Control And Data Acquisition)
+
+# Open SCADA system
+openscada-Model.AGLKS
+openscada-Model.Boiler
+openscada-docRU
+
+# UniSet - library for building distributed industrial control systems
+libuniset2-utils
+libuniset2-extension-logicproc
+libuniset2-extension-rrd
+libuniset2-extension-sqlite
+libomniORB-names
+uniset2-testsuite
+libuniset2-docs
+uniset2-testsuite-doc
