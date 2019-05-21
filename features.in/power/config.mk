@@ -3,7 +3,9 @@
 # common
 use/power: sub/rootfs use/services
 	@$(call add_feature)
+ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,COMMON_PACKAGES,installer-feature-powerbutton-stage3)
+endif
 
 # modern power management
 use/power/acpi: use/power
