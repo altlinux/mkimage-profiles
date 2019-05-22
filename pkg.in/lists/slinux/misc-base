@@ -126,7 +126,7 @@ alterator-xkb
 #additional
 tracker
 yelp
-imagewriter
+rosa-imagewriter
 
 #compiz
 #python-module-fusion-icon-gtk
