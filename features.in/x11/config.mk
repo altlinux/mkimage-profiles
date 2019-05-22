@@ -70,15 +70,23 @@ use/x11/wacom: use/x11
 use/x11/dm: use/x11-autostart
 	@$(call try,THE_DISPLAY_MANAGER,xdm)
 	@$(call add,THE_PACKAGES,$$(THE_DISPLAY_MANAGER))
+	@$(call try,THE_DM_SERVICE,dm)
+	@$(call add,DEFAULT_SERVICES_ENABLE,$$(THE_DM_SERVICE))
 
 use/x11/lightdm/gtk use/x11/lightdm/slick \
 	use/x11/lightdm/qt use/x11/lightdm/lxqt use/x11/lightdm/kde: \
 	use/x11/lightdm/%: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,lightdm-$*-greeter)
+	@$(call set,THE_DM_SERVICE,lightdm)
 
-use/x11/sddm use/x11/lxdm use/x11/gdm2.20 use/x11/gdm: \
+use/x11/lxdm use/x11/gdm2.20 use/x11/sddm: \
 	use/x11/%: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,$*)
+
+use/x11/gdm: \
+	use/x11/%: use/x11/dm
+	@$(call set,THE_DISPLAY_MANAGER,$*)
+	@$(call set,THE_DM_SERVICE,$*)
 
 use/x11/xdm: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,xdm)
