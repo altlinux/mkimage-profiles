@@ -82,7 +82,7 @@ mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
 	@$(call add,THE_PACKAGES,xfce-polkit)
 
-mixin/regular-xfce-sysv: use/x11/lightdm/gtk use/browser/palemoon/i18n \
+mixin/regular-xfce-sysv: use/browser/palemoon/i18n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
