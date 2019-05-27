@@ -56,10 +56,16 @@ LIGHTDM_CONF=/etc/lightdm/lightdm.conf
 if [ -f "$LIGHTDM_CONF" ]; then
 	backup "$LIGHTDM_CONF"
 	default_session="$(ls -1 /usr/share/xsessions/*.desktop | sed -n 's/^.*\/\([^/]\+\)\.desktop$/\1/;1p')"
+	if [ -n "$default_session" ]; then
+		sed -i \
+			-e "s/^#(autologin-session=).*$/\1$default_session/" \
+			"$LIGHTDM_CONF"
+	else
+		echo "** WARNING: no sessions found in /usr/share/xsessions/" >&2
+	fi
 	sed -i \
 		-e "s/^#\(autologin-user=\).*$/\1$USER/" \
 		-e "s/^#\(autologin-user-timeout=0\)/\1/" \
-		-e "s/^#(autologin-session=).*$/\1$default_session/" \
 		"$LIGHTDM_CONF"
 	backup "/etc/group"
 	add_nopasswdlogin_group lightdm ||:
