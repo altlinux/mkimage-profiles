@@ -1,4 +1,4 @@
-use/server: use/power/acpi/button
+use/server: sub/rootfs use/services
 	@$(call add_feature)
 
 use/server/base: use/server use/firmware/server \
