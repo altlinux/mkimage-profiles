@@ -22,7 +22,8 @@ distro/.regular-x11: distro/.regular-base \
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
-	mixin/regular-desktop use/efi/refind; @:
+	mixin/regular-desktop use/efi/refind
+	@$(call add,THE_BRANDING,bootloader)
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
