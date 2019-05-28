@@ -10,6 +10,3 @@ xdg-user-dirs
 notification-daemon
 #powermgmt-base
 acpi
-acpid
-#acpid-events-power
-eeepc-acpi-scripts@X86
