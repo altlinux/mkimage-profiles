@@ -6,6 +6,8 @@
 
 # NB: "mysterious" conflicts if BASE_BOOTLOADER is empty
 
+GRUB_ARCHES := i586 x86_64 aarch64 ppc64le
+
 use/bootloader: use/pkgpriorities
 	@$(call add_feature)
 	@$(call try,BASE_BOOTLOADER,grub)
