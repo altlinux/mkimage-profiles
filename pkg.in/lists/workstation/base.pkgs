@@ -7,6 +7,7 @@ alterator-updates
 alterator-net-iptables
 
 task-auth-ad-sssd
+task-auth-ldap-sssd
 
 apt-indicator@X86
 recoll-extras
