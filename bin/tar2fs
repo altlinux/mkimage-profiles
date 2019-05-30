@@ -255,13 +255,13 @@ echo "** end of boot.conf"
 
 popd
 
-# for u-boot
-if [ "$BOOTLOADER" = "uboot" ]; then
+# Setup bootloader
+case "$BOOTLOADER" in
+uboot)
 	EXTLINUX_CONF="$ROOTFS/boot/extlinux/extlinux.conf"
 	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$EXTLINUX_CONF"
-fi
-
-if [ -x "$ROOTFS"/sbin/lilo ]; then
+	;;
+lilo)
 	# configure and install bootloader
 	REGEXP='^.*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
 	set -- $(sfdisk -g "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
@@ -292,13 +292,16 @@ image=/boot/vmlinuz
 	boot=$BLOCKDEV
 	$LILO_COMMON
 	EOF
-elif [ -x "$ROOTFS"/usr/sbin/grub-efi-autoupdate ]; then
+	;;
+grub-efi)
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
 	chroot "$ROOTFS" grub-install
-elif [ -x "$ROOTFS"/usr/sbin/grub-autoupdate ]; then
+	;;
+grub)
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
 	chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
-fi
+	;;
+esac
 
 if [ -n "$SUDO_USER" ]; then
 	chown "$SUDO_USER:$(id -g "$SUDO_USER")" "$IMG" ||:
