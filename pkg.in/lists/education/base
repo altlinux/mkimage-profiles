@@ -193,8 +193,6 @@ xorg-drv-vmware
 xorg-drv-vmmouse
 
 # Mozilla
-firefox-esr
-firefox-esr-ru
 thunderbird
 thunderbird-ru
 
