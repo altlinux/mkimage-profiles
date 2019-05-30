@@ -1,0 +1,19 @@
+#!/bin/sh
+
+[ "$GLOBAL_BASE_BOOTLOADER" = 'uboot' ] || exit 0
+
+# installkernel relies on existing extlinux.conf
+# with filled in `default' label
+mkdir -p /boot/extlinux
+cat > /boot/extlinux/extlinux.conf << EOF
+menu title ALTLinux Boot Options
+
+default linux
+timeout 20
+
+label linux
+	kernel /boot/vmlinuz
+	initrd /boot/initrd.img
+	fdtdir /boot/dtb
+	append root=LABEL=ROOT ro cma=192M console=tty1
+EOF
