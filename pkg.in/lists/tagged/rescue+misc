@@ -9,7 +9,7 @@ unrtf
 
 # Networking
 drbd-utils
-iscsitarget-utils
+scsitarget-utils
 ntp-utils
 
 # Optical media
