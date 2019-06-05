@@ -51,7 +51,7 @@ kde4-menu-resources-
 # browser
 chromium
 chromium-gnome
-ppapi-plugin-adobe-flash
+ppapi-plugin-adobe-flash@X86
 
 xarchiver
 unzip
@@ -168,8 +168,8 @@ stardict-mueller7
 nextcloud-client
 
 # For work as guest in the virtualbox
-virtualbox-guest-additions
-xorg-drv-vboxvideo
+virtualbox-guest-additions@X86
+xorg-drv-vboxvideo@X86
 
 #For ALT domain
 settime-rfc867
