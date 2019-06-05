@@ -55,7 +55,7 @@ vm/alt-p9-opennebula: vm/opennebula-systemd mixin/p9; @:
 vm/alt-p9-jeos-systemd: vm/regular-jeos-systemd mixin/p9
 vm/alt-p9-jeos-sysv: vm/regular-jeos-sysv mixin/p9
 vm/alt-p9-icewm: vm/regular-icewm mixin/p9
-vm/alt-p9-lxde: vm/regular-icewm mixin/p9
+vm/alt-p9-lxde: vm/regular-lxde mixin/p9
 vm/alt-p9-lxqt: vm/regular-lxqt mixin/p9
 vm/alt-p9-mate: vm/regular-mate mixin/p9
 vm/alt-p9-xfce: vm/regular-xfce mixin/p9
