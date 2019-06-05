@@ -12,7 +12,7 @@ dosbox
 fbreader
 qstardict
 dict-mueller7-utf8
-freebasic
+freebasic@X86
 gcc
 inkscape
 gimp
@@ -26,8 +26,8 @@ shotwell
 logisim
 basic256
 
-fpc
-fpc-ide
+fpc@X86
+fpc-ide@X86
 geany
 geany-plugins
 freemind
@@ -41,7 +41,7 @@ brasero
 connector
 chromium
 chromium-gnome
-ppapi-plugin-adobe-flash
+ppapi-plugin-adobe-flash@X86
 italc3-client
 itest
 kumir2
@@ -49,7 +49,7 @@ kumir2
 # Big educational software
 octave
 wxMaxima
-lazarus
+lazarus@X86
 gambas-full
 
 # OCR
@@ -178,8 +178,8 @@ sane-frontends
 setbranding
 system-report
 udev-rule-generator-cdrom
-virtualbox-guest-utils
-xorg-dri-intel
+virtualbox-guest-utils@X86
+xorg-dri-intel@X86
 xorg-drv-radeon
 zbar
 
@@ -189,8 +189,8 @@ mugshot
 xfce-polkit
 
 # Virtualization support
-xorg-drv-vmware
-xorg-drv-vmmouse
+xorg-drv-vmware@X86
+xorg-drv-vmmouse@X86
 
 # Mozilla
 thunderbird
