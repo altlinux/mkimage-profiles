@@ -42,7 +42,7 @@ connector
 chromium
 chromium-gnome
 ppapi-plugin-adobe-flash@X86
-italc3-client
+italc3-client@X86
 itest
 kumir2
 
@@ -50,7 +50,7 @@ kumir2
 octave
 wxMaxima
 lazarus@X86
-gambas-full
+gambas-full@X86
 
 # OCR
 gimagereader-qt5

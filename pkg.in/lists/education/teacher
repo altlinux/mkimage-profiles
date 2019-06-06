@@ -1,7 +1,7 @@
-italc3-master
+italc3-master@X86
 #nxclient
 itest-server
-installer-feature-init-italc
+installer-feature-init-italc@X86
 # Mass management
 ansible
 semaphore

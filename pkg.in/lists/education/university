@@ -6,7 +6,7 @@ cmake
 ninja-build
 qt5-base-devel
 # Eclipse
-gambas-full
+gambas-full@X86
 swi-prolog
 monodevelop
 # Texmacs
