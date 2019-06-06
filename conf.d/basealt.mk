@@ -56,3 +56,11 @@ distro/alt-workstation-801: distro/.alt-workstation-base use/e2k/install2/801
 endif
 
 endif
+
+ifeq (vm,$(IMAGE_CLASS))
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+
+vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
+	use/oem use/repo use/bootloader/uboot mixin/alt-workstation; @:
+endif
+endif
