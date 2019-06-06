@@ -10,7 +10,7 @@ codeblocks-contrib
 dia
 dosbox
 fbreader
-qstardict
+goldendict
 dict-mueller7-utf8
 freebasic@X86
 gcc
@@ -60,6 +60,7 @@ tesseract-langpack-ru
 # KDE5 localization and profile
 kde5-profile
 qt5-translations
+kde5-khelpcenter
 
 # Content filter and antivirus
 netpolice-filter
