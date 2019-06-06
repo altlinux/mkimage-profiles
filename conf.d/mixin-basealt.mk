@@ -6,10 +6,9 @@ mixin/alt-workstation: workstation_groups = $(addprefix workstation/,\
 	libreoffice mate-usershare pidgin raccess scanning scribus \
 	sound-editing thunderbird vlc freeipa-client)
 
-mixin/alt-workstation: +installer +systemd +pulse +nm \
+mixin/alt-workstation: +systemd +pulse +nm \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
-	use/install2/fs use/install2/fat use/install2/vnc \
 	use/apt-conf/branch use/volumes/regular \
 	use/fonts/install2 \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
@@ -19,14 +18,9 @@ mixin/alt-workstation: +installer +systemd +pulse +nm \
 	use/sound use/xdg-user-dirs \
 	use/docs/manual use/docs/indexhtml \
 	use/browser/firefox use/browser/firefox/esr
-	@$(call set,BRANDING,alt-workstation)
+	@$(call set,BRANDING,alt-starterkit)
 	@$(call add,THE_BRANDING,mate-settings)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc)
-	@$(call set,INSTALLER,altlinux-desktop)
-	@$(call add,INSTALL2_PACKAGES,alterator-notes)
-	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,COMMON_PACKAGES,vim-console)
-	@$(call add,MAIN_GROUPS,$(workstation_groups))
 	@$(call add,BASE_LISTS,workstation/base.pkgs)
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
 	@$(call add,LIVE_LISTS,workstation/live.pkgs)
@@ -51,3 +45,11 @@ mixin/alt-workstation: +installer +systemd +pulse +nm \
 	@$(call set,META_VOL_ID,ALT Workstation)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
 	@$(call set,DOCS,alt-workstation)
+
+mixin/alt-workstation-install: +installer \
+	use/install2/fs use/install2/fat use/install2/vnc
+	@$(call add,STAGE1_MODLISTS,stage2-mmc)
+	@$(call set,INSTALLER,altlinux-desktop)
+	@$(call add,INSTALL2_PACKAGES,alterator-notes)
+	@$(call add,INSTALL2_PACKAGES,fdisk)
+	@$(call add,MAIN_GROUPS,$(workstation_groups))

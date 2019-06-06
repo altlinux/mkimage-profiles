@@ -7,6 +7,7 @@ distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 
 distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
+	mixin/alt-workstation-install \
         use/memtest use/rescue/base use/bootloader/grub use/luks \
         use/efi/refind use/efi/memtest86 use/efi/shell \
 	use/install2/repo use/install2/suspend use/live/suspend \
