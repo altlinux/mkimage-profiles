@@ -21,7 +21,6 @@ mixin/education: use/kernel use/firmware \
 	@$(call add,THE_PACKAGES,net-tools fdisk gdisk parted partclone)
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_LISTS,$(call tags,base regular))
-	@$(call add,SERVICES_ENABLE,bluetoothd sshd bind crond alteratord cups ahttpd)
 
 ifeq (distro,$(IMAGE_CLASS))
 
