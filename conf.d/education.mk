@@ -39,7 +39,7 @@ distro/alt-education: distro/.installer mixin/education \
 	use/install2/fonts
 	@$(call set,INSTALLER,junior)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
-	@$(call set,META_VOL_SET,ALT Education 8.2)
+	@$(call set,META_VOL_SET,ALT Education 9.0alpha)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
