@@ -7,8 +7,8 @@ ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,BASE_PACKAGES,installer-feature-serial-stage3)
 endif
 
-use/tty/S0: use/tty
+use/tty/S0 use/tty/SI0 use/tty/AMA0: use/tty/%: use/tty
 	@$(call add,THE_PACKAGES,agetty)
-	@$(call add,TTY_DEV,ttyS0)
+	@$(call add,TTY_DEV,tty$*)
 	@$(call set,TTY_RATE,115200)
-	@$(call add,SYSLINUX_CFG,ttyS0)
+	@$(call add,SYSLINUX_CFG,tty$*)
