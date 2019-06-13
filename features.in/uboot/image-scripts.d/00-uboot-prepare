@@ -2,6 +2,12 @@
 
 [ "$GLOBAL_BASE_BOOTLOADER" = 'uboot' ] || exit 0
 
+if [ -n "$GLOBAL_TTY_RATE" ] ;then
+	TTY="$GLOBAL_TTY_DEV","$GLOBAL_TTY_RATE"
+else
+	TTY="$GLOBAL_TTY_DEV"
+fi
+
 # installkernel relies on existing extlinux.conf
 # with filled in `default' label
 mkdir -p /boot/extlinux
@@ -15,5 +21,5 @@ label linux
 	kernel /boot/vmlinuz
 	initrd /boot/initrd.img
 	fdtdir /boot/dtb
-	append root=LABEL=ROOT ro cma=192M console=tty1
+	append root=LABEL=ROOT ro cma=192M console=$TTY
 EOF
