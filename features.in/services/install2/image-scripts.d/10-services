@@ -46,8 +46,23 @@ for i in $SERVICES; do
 	echo "$i" >> "$CONFDIR"/services-"$onoff"
 done
 
-cp -a "$CONFDIR"/{services-on,systemd-enabled}
-cp -a "$CONFDIR"/{services-off,systemd-disabled}
+if [ -s "$CONFDIR"/services-on ]; then
+	if [ -s "$CONFDIR"/systemd-enabled ]; then
+		cat "$CONFDIR"/services-on >>"$CONFDIR"/systemd-enabled
+		rm "$CONFDIR"/services-on
+	else
+		cp -a "$CONFDIR"/{services-on,systemd-enabled}
+	fi
+fi
+
+if [ -s "$CONFDIR"/services-off ]; then
+	if [ -s "$CONFDIR"/systemd-disabled ]; then
+		cat "$CONFDIR"/services-off >>"$CONFDIR"/systemd-disabled
+		rm "$CONFDIR"/services-off
+	else
+		cp -a "$CONFDIR"/{services-off,systemd-disabled}
+	fi
+fi
 
 rm "$STATUS"
 
