@@ -71,6 +71,7 @@ distro/alt-education: distro/.installer mixin/education \
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_LISTS,slinux/network-base)
+	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
