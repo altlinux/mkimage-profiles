@@ -14,7 +14,7 @@ all: | $(TARGET) $(GLOBAL_DEBUG) copy-profiles grep-archdep
 
 copy-profiles:
 	@if [ -n "$(THE_PROFILES)" ]; then \
-		cp -at $(TARGET) -- \
+		cp --parents -at $(TARGET) -- \
 			$(addsuffix .directory,$(THE_PROFILES)); \
 	fi
 
