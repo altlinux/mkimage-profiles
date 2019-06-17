@@ -5,7 +5,7 @@ use/lxc:
 
 use/lxc/lxd: use/lxc
 	@$(call add,GROUPS,netadmin lxd)
-	@$(call add,LIVE_LISTS,lxd)
+	@$(call add,LIVE_LISTS,container/lxd)
 	@$(call add,LIVE_LISTS,openssh)
 	@$(call add,LIVE_PACKAGES,su)
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
