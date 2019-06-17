@@ -41,7 +41,7 @@ distro/server-v: backup = $(addprefix server-v/,\
 distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
 
-distro/server-v: profiles = $(addprefix server-v-,\
+distro/server-v: profiles = $(addprefix server-v/,\
 	10-basic 20-pve 41-opennebula-node 42-opennebula-server 51-openstack-node 52-openstack-controller 61-docker)
 
 distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
