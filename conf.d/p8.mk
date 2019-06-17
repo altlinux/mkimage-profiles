@@ -38,7 +38,6 @@ distro/alt-p8-server: distro/regular-server mixin/p8; @:
 distro/alt-p8-server-ovz: distro/regular-server-ovz mixin/p8; @:
 distro/alt-p8-server-hyperv: distro/regular-server-hyperv mixin/p8; @:
 distro/alt-p8-server-samba4: distro/regular-server-samba4 mixin/p8; @:
-distro/alt-p8-server-openstack: distro/regular-server-openstack mixin/p8; @:
 distro/alt-p8-server-pve: distro/regular-server-pve mixin/p8; @:
 
 distro/alt-p8-builder: distro/regular-builder mixin/p8; @:

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Controller Node
-X-Alterator-PackageList=virt/openstack/controller
-X-Alterator-Required=no
-Name[ru_RU]=Управляющий узел
-

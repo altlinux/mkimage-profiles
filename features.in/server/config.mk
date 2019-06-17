@@ -50,8 +50,3 @@ use/server/groups/services: use/server
 	@$(call add,DEFAULT_SERVICES_DISABLE,php7-fpm)
 
 use/server/groups/base: use/server/groups/tools use/server/groups/services; @:
-
-use/server/groups/openstack: use/server
-	@$(call add,MAIN_GROUPS,openstack/block openstack/compute)
-	@$(call add,MAIN_GROUPS,openstack/controller openstack/network)
-	@$(call add,MAIN_GROUPS,openstack/storage)
