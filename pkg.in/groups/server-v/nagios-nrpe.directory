@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Nagios NRPE
+Name[ru_RU]=Nagios NRPE
+Comment=NRPE - Nagios Remote Plugin Executor
+Comment[ru_RU]=NRPE - Удаленный запуск команд для Nagios
+X-Alterator-PackageList=monitoring/nagios-nrpe
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/90-monitoring

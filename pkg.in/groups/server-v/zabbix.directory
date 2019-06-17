@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Zabbix Monitoring Server
+Name[ru_RU]=Сервер мониторинга Zabbix
+X-Alterator-PackageList=tagged/server+zabbix
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/90-monitoring
+

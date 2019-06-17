@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Docker
+Name[ru_RU]=Docker
+X-Alterator-Groups=server-v/docker

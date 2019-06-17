@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Computing Node
+Name[ru_RU]=Вычислительный узел
+X-Alterator-PackageList=virt/openstack/compute
+X-Alterator-Required=no
+X-Alterator-Conflicts=server-v/openstack-block server-virt/openstack-controller server-virt/openstack-network server-virt/openstack-storage
+X-Alterator-Depends=server-v/kvm
+X-Alterator-Parent=server-v/40-openstack

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Web UI Server
+Name[ru_RU]=Web интерфейс
+X-Alterator-PackageList=storage/moosefs-cgiserv
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/74-moosefs

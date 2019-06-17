@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OneFlow manages services and elasticity
+Name[ru_RU]=OneFlow управление сервисами
+X-Alterator-PackageList=virt/opennebula/flow
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/30-opennebula

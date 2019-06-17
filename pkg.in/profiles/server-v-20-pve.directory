@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Proxmox Virtual Environment
+Name[ru_RU]=Виртуальное Окружение Proxmox
+X-Alterator-Groups=server-v/pve

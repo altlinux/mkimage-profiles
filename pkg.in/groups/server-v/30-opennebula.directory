@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OpenNebula Virtualization Solution
+Name[ru_RU]=Виртуализация OpenNebula
+X-Alterator-Required=no
+X-Alterator-Conflicts=server-v/20-pve server-virt/40-openstack
+Comment=OpenNebula solution to build Private Clouds and manage Data Center virtualization
+Comment[ru_RU]=Opennebula это решение для построения частного облака и управления виртуальным центром обработки данных

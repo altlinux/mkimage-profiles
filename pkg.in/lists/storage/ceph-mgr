@@ -1,0 +1,7 @@
+ceph-mgr
+ceph-mgr-zabbix
+ceph-mgr-prometheus
+ceph-mgr-dashboard
+ceph-mgr-influx
+ceph-mgr-restful
+ceph-mgr-telegraf

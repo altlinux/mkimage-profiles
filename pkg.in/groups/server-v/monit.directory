@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Monit
+Name[ru_RU]=Monit
+X-Alterator-PackageList=monitoring/monit
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/90-monitoring
+

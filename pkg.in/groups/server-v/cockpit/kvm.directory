@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Interface for Virtual machines
+Name[ru_RU]=Управление виртуальными машинами KVM
+X-Alterator-PackageList=virt/cockpit/machines
+X-Alterator-Required=no
+X-Alterator-Depends=server-v/kvm
+X-Alterator-Parent=server-v/11-cockpit

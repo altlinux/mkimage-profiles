@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Sunstone Web GUI and the EC2 API
+Name[ru_RU]=Sunstone Web-интерфейс и EC2 API
+X-Alterator-PackageList=virt/opennebula/gui
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/30-opennebula

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Zabbix Agent
+Name[ru_RU]=Агент Zabbix
+X-Alterator-PackageList=monitoring/zabbix-agent
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/90-monitoring
+

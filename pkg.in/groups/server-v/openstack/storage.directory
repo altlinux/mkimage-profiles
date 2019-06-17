@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Storage Node
+Name[ru_RU]=Узел хранения объектов
+X-Alterator-PackageList=virt/openstack/storage
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/40-openstack

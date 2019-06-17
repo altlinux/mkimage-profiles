@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Basic Virtualization
+Name[ru_RU]=Базовая виртуализация
+X-Alterator-Groups=server-v/kvm

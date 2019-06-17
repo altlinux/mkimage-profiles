@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Systemd Journal Remote
+Name[ru_RU]=Systemd Journal Remote
+Comment=Serves journal events over the network
+Comment[ru_RU]=Службы доступа и отправки журналов systemd через сеть
+X-Alterator-PackageList=logging/systemd-journal-remote
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/110-logging

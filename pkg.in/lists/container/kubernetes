@@ -1,0 +1,5 @@
+docker-ce
+cni-plugins
+kubernetes-kubeadm
+kubernetes-kubelet
+cri-tools

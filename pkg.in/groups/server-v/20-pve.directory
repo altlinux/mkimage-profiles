@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Proxmox Virtual Environment
+Name[ru_RU]=Виртуальное Окружение Proxmox
+X-Alterator-Required=no
+X-Alterator-Conflicts=server-v/10-basic server-virt/30-opennebula server-virt/40-openstack
+Comment=Proxmox Virtual Environment
+Comment[ru_RU]=Виртуальное Окружение Proxmox

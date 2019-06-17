@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Network Node
+Name[ru_RU]=Сетевой узел
+X-Alterator-PackageList=virt/openstack/network
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/40-openstack

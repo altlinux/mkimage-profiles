@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Targetcli managing LIO kernel target (Kernel Mode)
+Name[ru_RU]=Targetcli управление параметрами ядра LIO (процесс ядра)
+X-Alterator-PackageList=storage/targetcli
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/76-iscsi
+

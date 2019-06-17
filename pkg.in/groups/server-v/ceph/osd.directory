@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OSD - Object Storage Daemon
+Name[ru_RU]=OSD - сервер хранения объектов
+X-Alterator-PackageList=storage/ceph-osd
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/71-ceph

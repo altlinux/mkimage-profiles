@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=NFS-Ganesha Server (User Mode)
+Name[ru_RU]=NFS-Ganesha Сервер (процесс пользователя)
+X-Alterator-PackageList=storage/nfs-ganesha-server
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/75-nfs

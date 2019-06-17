@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Interface for Docker containers
+Name[ru_RU]=Управление контейнерами docker
+X-Alterator-PackageList=virt/cockpit/docker
+X-Alterator-Required=no
+X-Alterator-Depends=server-v/docker
+X-Alterator-Parent=server-v/11-cockpit
+

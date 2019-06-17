@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Keepalived Loadbalancing and High-availability
+Name[ru_RU]=Keepalived балансировщик нагрузки и отказоустойчивость
+X-Alterator-PackageList=network/keepalived
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/80-network

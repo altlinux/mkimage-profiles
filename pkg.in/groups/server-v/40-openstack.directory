@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OpenStack Virtualization Solution
+Name[ru_RU]=Виртуализация OpenStack
+X-Alterator-Required=no
+X-Alterator-Conflicts=server-v/20-pve server-virt/30-opennebula
+Comment=OpenStack is a cloud operating system
+Comment[ru_RU]=Комплекс проектов для создания инфраструктурных облачных сервисов

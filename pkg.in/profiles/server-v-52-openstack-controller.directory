@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=OpenStack Controller Node
+Name[ru_RU]=Управляющий узел OpenStack
+X-Alterator-Groups=server-v/openstack/controller server-v/openstack/block server-v/openstack/network

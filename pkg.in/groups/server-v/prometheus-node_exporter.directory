@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Prometheus exporter for hardware and OS metrics
+Name[ru_RU]=Агент сбора метрик Prometheus
+X-Alterator-PackageList=monitoring/prometheus-node_exporter
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/90-monitoring

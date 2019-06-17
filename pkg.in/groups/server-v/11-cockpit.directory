@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Cockpit Server admin interface
+Name[ru_RU]=Cockpit - Интерфейс управления сервером
+Comment=Cockpit is an interactive server admin interface
+Comment[ru_RU]=Cockpit - интерактивный интерфейс управления сервером
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/10-basic

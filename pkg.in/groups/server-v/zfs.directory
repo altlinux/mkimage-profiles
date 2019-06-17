@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=ZFS management utilities
+Name[ru_RU]=Утилиты управления ZFS
+X-Alterator-PackageList=storage/zfs
+X-Alterator-Conflicts=server-v/20-pve
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/70-storage

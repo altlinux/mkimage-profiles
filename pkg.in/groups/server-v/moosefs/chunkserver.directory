@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Chunk Server
+Name[ru_RU]=Cервер хранения данных
+Comment=MooseFS Chunkserver for data storage servers
+Comment[ru_RU]=MooseFS Cервер хранения данных
+X-Alterator-PackageList=storage/moosefs-chunkserver
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/74-moosefs

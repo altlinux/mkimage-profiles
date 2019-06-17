@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Ceph
+Name[ru_RU]=Ceph
+X-Alterator-Required=no
+Comment=Ceph uniquely delivers object, block, and file storage in one unified system
+Comment[ru_RU]=Ceph уникальным образом обеспечивает хранение объектов, блоков и файлов в единой системе
+X-Alterator-Parent=server-v/70-storage

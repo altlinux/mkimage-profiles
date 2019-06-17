@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=OpenStack Computing KVM Node
+Name[ru_RU]=Вычислительный узел OpenStack KVM
+X-Alterator-Groups=server-v/openstack/compute

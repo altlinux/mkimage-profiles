@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Opennebula Computing KVM Node
+Name[ru_RU]=Вычислительный узел Opennebula KVM
+X-Alterator-Groups=server-v/opennebula/node-kvm

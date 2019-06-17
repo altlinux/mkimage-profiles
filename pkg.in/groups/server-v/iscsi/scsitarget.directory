@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=iSCSI target daemon (User Mode)
+Name[ru_RU]=iSCSI target сервер (процесс пользователя)
+X-Alterator-PackageList=storage/scsitarget
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/76-iscsi

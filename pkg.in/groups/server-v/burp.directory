@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Burp - backup and restore program
+Name[ru_RU]=Burp - архивирование и восстановление
+X-Alterator-PackageList=storage/burp
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/100-backup

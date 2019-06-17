@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=NFS
+Name[ru_RU]=NFS
+X-Alterator-Required=no
+Comment=Network File System
+Comment[ru_RU]=Сетевая файловая система
+X-Alterator-Parent=server-v/70-storage

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=MGR - Manager Daemon
+Name[ru_RU]=MGR - сервер управления кластером ceph
+X-Alterator-PackageList=storage/ceph-mgr
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/71-ceph

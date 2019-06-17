@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Server
+Name[ru_RU]=Cервер
+X-Alterator-PackageList=storage/glusterfs-server
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/72-glusterfs

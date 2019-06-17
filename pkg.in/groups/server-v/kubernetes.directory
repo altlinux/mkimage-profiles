@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Kubernetes
+Name[ru_RU]=Kubernetes
+X-Alterator-PackageList=container/kubernetes
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/60-container

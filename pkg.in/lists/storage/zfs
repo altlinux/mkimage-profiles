@@ -1,0 +1,4 @@
+kernel-modules-zfs-std-def
+zfs-utils
+libvirt-daemon-driver-storage-zfs
+

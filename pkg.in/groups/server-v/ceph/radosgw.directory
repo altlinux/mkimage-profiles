@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Rados REST Gateway
+Name[ru_RU]=Rados REST Gateway
+X-Alterator-PackageList=storage/ceph-radosgw
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/71-ceph

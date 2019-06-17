@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OneGate server that enables communication between VMs and OpenNebula
+Name[ru_RU]=OneGate сервер сообщение между VM и OpenNebula
+X-Alterator-PackageList=virt/opennebula/gate
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/30-opennebula

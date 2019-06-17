@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Docker
+Name[ru_RU]=Docker
+X-Alterator-PackageList=container/docker
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/60-container

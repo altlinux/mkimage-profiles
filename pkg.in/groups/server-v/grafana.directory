@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Grafana Metrics Dashboard
+Name[ru_RU]=Grafana cервер для визуализации, мониторинга и анализа данных
+X-Alterator-PackageList=monitoring/grafana
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/90-monitoring
