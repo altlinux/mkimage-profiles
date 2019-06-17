@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computing Node
-X-Alterator-PackageList=openstack/compute
+X-Alterator-PackageList=virt/openstack/compute
 X-Alterator-Required=no
-X-Alterator-Conflicts=openstack/block openstack/controller openstack/network openstack/storage
+X-Alterator-Conflicts=virt/openstack/block virt/openstack/controller virt/openstack/network virt/openstack/storage
 Name[ru_RU]=Вычислительный узел
 
