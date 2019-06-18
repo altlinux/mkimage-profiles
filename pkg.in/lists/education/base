@@ -59,8 +59,6 @@ tesseract-langpack-ru
 
 # KDE5 localization and profile
 kde5-profile
-kde5-i18n-ru
-kf5-i18n-ru
 qt5-translations
 
 # Content filter and antivirus
