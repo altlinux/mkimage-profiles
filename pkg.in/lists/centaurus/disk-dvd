@@ -47,18 +47,13 @@ opensc
 
 alterator-fbi
 
-^libopensync0-*
-msynctool0
-
 # wacom driver and utilities
 xorg-drv-wacom
 
 bridge-utils
 
 #bacula
-bacula-bat
-bacula-director-mysql
-bacula-director-postgresql
+###
 
 anonftp
 
@@ -80,12 +75,12 @@ lsb
 python-module-Crypto
 
 postgresql-jdbc
-postgresql9.6-1C-server
+#postgresql10-1C-server
 
 mariadb-server
 
-php5-soap
-php5-calendar
+php7-soap
+php7-calendar
 
 fprintd
 pam_fprintd
@@ -96,7 +91,6 @@ libqt4-sql-mysql
 libqt4-sql-postgresql
 
 
-libopenmotif3
 libini
 
 mongo-server

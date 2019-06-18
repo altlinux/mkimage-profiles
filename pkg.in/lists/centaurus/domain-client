@@ -1,6 +1,6 @@
 pam_mount
 
-samba4-client
+samba-client
 cifs-utils
 keyutils
 nfs-clients

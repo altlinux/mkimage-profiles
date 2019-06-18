@@ -1,4 +1,3 @@
-apache2-mod_php5
-postgresql9.6-server
-postgresql9.6-1C-server
+apache2-mod_php7
+postgresql11-server
 tftp

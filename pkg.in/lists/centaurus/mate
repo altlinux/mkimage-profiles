@@ -9,7 +9,7 @@ udev-alsa
 
 virtualbox-guest-additions@X86
 
-samba4-client
+samba-client
 nfs-clients
 autofs
 installer-feature-nfs-client-stage3
@@ -27,8 +27,6 @@ krb5-ticket-watcher
 arj
 pinfo
 wget
-
-uniconvertor@X86
 
 #printing
 cups
@@ -90,7 +88,6 @@ alterator-net-shares
 pinentry-gtk2
 firefox-esr
 mate-default
-mate-user-share
 mate-file-manager-archiver
 totem-video-thumbnailer@X86
 installer-feature-samba-usershares-stage2
@@ -100,7 +97,6 @@ gksu
 branding-alt-server-graphics@X86
 lightdm-gtk-greeter
 lightdm
-branding-alt-server-mate-settings@X86
 dconf
 #ConsoleKit
 #ConsoleKit-x11

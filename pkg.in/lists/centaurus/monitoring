@@ -12,6 +12,5 @@ collectd-ipmi
 collectd-libvirt@X86
 collectd-mysql
 collectd-nginx
-collectd-openvz@X86
 collectd-ping
 collectd-sensors

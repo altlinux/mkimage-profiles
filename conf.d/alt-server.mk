@@ -8,8 +8,7 @@ distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
 
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
-        40-pve 60-openstack openstack-block openstack-compute \
-	openstack-controller openstack-network openstack-storage)
+        40-pve )
 endif
 
 # FIXME: generalize vm-profile
@@ -18,7 +17,6 @@ distro/alt-server: distro/.base mixin/alt-server +efi +vmguest \
 	use/docs/license
 	@$(call add,MAIN_GROUPS,$(server_groups_x86))
 	@$(call add,MAIN_GROUPS,$(server_groups_x86_64))
-	@$(call add,MAIN_LISTS,centaurus/cluster)
 	@$(call add,MAIN_LISTS,centaurus/disk-dvd)
 	@$(call add,MAIN_LISTS,centaurus/disk-server-light)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)

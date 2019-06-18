@@ -1,5 +1,4 @@
 mariadb-server
-libmysqlclient18
 mediawiki-mysql
 mediawiki
 mediawiki-ldap

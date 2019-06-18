@@ -27,7 +27,6 @@ gear
 hasher
 help2man
 indent
-jdkgcj
 john
 ltrace
 patchutils
@@ -90,8 +89,6 @@ libzmalloc
 
 # etc
 apt-rsync
-bash-doc
-bash-examples
 bash-completion
 bind-doc
 bzip2-doc
@@ -99,9 +96,7 @@ bzlib-devel-static
 cfdisk
 db4.7-utils
 dnet
-dovecot-doc
 expat
-gd2-utils
 gpm
 iproute2-doc
 iptables-ipv6
@@ -109,7 +104,6 @@ isoutils
 kbdrate
 look
 lua5
-lua5-doc
 nfs-clients
 nfs-server
 openssh-askpass-common

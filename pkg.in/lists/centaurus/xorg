@@ -10,7 +10,6 @@ xorg-drv-fbdev
 xorg-drv-joystick
 xorg-drv-mga@X86
 xorg-drv-nouveau@X86
-xorg-drv-nv@X86
 xorg-drv-modesetting
 xorg-drv-vboxvideo@X86
 xorg-drv-synaptics

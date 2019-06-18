@@ -1,5 +1,4 @@
 mariadb-server
-libmysqlclient18
 owncloud
 owncloud-apache2
 

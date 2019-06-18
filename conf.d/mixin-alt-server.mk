@@ -1,5 +1,5 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
-	10-alterator 20-server-apps 30-cups 50-freeipa 70-dev 80-desktop 90-docs sambaDC bacula-client-a bacula-client bacula bacula-server buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a graphics-editing gtk-dictionary mail-server-a mate mediawiki monitoring office owncloud pidgin publishing remmina scanning sound-editing vlc xorg domain-server freeipa-client samba)
+	10-alterator 20-server-apps 30-cups 50-freeipa 70-dev 80-desktop 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a graphics-editing gtk-dictionary mail-server-a mate mediawiki monitoring office owncloud pidgin publishing remmina scanning sound-editing vlc xorg domain-server freeipa-client samba)
 
 mixin/alt-server: +installer +systemd \
 	use/branding/complete use/control use/services \
