@@ -24,6 +24,8 @@ thunar-archive-plugin
 
 #screensaver
 xfce4-screensaver
+desktop-screensaver-modules-xscreensaver
+desktop-screensaver-modules-xscreensaver-gl
 
 #samba
 thunar-shares-plugin
