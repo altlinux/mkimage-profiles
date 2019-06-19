@@ -36,7 +36,7 @@ check-qemu:
 		exit 1; \
 	fi
 
-tar2fs: check-sudo
+tar2fs: check-sudo prepare-tarball-qemu
 	@if [ -x /usr/share/mkimage-profiles/bin/tar2fs ]; then \
 		TOPDIR=/usr/share/mkimage-profiles; \
 	fi; \
@@ -47,9 +47,8 @@ tar2fs: check-sudo
 		exit 1; \
 	fi
 
-prepare-image:
-	@# need to copy $(BUILDDIR)/.work/chroot/.host/qemu* into chroot
-	@#if qemu is used
+# copy $(BUILDDIR)/.work/chroot/.host/qemu* into chroot if qemu is used
+prepare-tarball-qemu:
 	@(cd "$(BUILDDIR)/.work/chroot/"; \
 		tar -rf "$(VM_TARBALL)" ./.host/qemu*) ||:
 
@@ -80,7 +79,7 @@ post-convert:
 	@rm -f "$(VM_RAWDISK)"; \
 	if [ "0$(DEBUG)" -le 1 ]; then rm -f "$(VM_TARBALL)"; fi
 
-convert-image: prepare-image convert-image/$(IMAGE_TYPE) post-convert; @:
+convert-image: convert-image/$(IMAGE_TYPE) post-convert; @:
 
 run-image-scripts: GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 
