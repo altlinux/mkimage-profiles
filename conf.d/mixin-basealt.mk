@@ -18,7 +18,7 @@ mixin/alt-workstation: +systemd +pulse +nm \
 	use/sound use/xdg-user-dirs \
 	use/docs/manual use/docs/indexhtml \
 	use/browser/firefox use/browser/firefox/esr
-	@$(call set,BRANDING,alt-starterkit)
+	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,BASE_LISTS,workstation/base.pkgs)
