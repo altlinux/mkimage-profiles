@@ -1,5 +1,5 @@
 mariadb-server
-owncloud
-owncloud-apache2
+nextcloud
+nextcloud-apache2
 
-installed-db-office-server-owncloud
+installed-db-office-server-nextcloud
