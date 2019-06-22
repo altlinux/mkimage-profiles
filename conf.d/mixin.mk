@@ -92,6 +92,8 @@ mixin/regular-xfce-sysv: \
 	@$(call add,THE_PACKAGES,xfce4-screensaver)
 	@$(call add,THE_PACKAGES,sysstat leafpad)
 	@$(call add,THE_PACKAGES,nload)
+	@$(call add,THE_PACKAGES,NetworkManager-l2tp-gtk)
+	@$(call add,THE_PACKAGES,NetworkManager-tui)
 
 mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
