@@ -2,7 +2,6 @@
 Encoding=UTF-8
 Type=Directory
 Name=Samba Server
-X-Alterator-Conflicts=centaurus/sambaDC
 X-Alterator-PackageList=centaurus/samba
 X-Alterator-Required=no
 X-Alterator-Parent=centaurus/20-server-apps

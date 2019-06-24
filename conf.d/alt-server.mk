@@ -6,10 +6,10 @@ distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
         blogs emulators gnome-peer-to-peer freeipa-server freenx-server \
 	ipmi v12n-server netinst sogo virt-manager)
 
-ifeq (,$(filter-out x86_64,$(ARCH)))
-distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
-        40-pve )
-endif
+#ifeq (,$(filter-out x86_64,$(ARCH)))
+#distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
+#         )
+#endif
 
 # FIXME: generalize vm-profile
 distro/alt-server: distro/.base mixin/alt-server +efi +vmguest \
