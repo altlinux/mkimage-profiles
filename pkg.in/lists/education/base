@@ -200,3 +200,7 @@ thunderbird-ru
 
 # Search
 recoll-full
+
+# Append all modules from xscreensaver
+desktop-screensaver-modules-xscreensaver
+desktop-screensaver-modules-xscreensaver-gl
