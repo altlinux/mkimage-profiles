@@ -52,4 +52,5 @@ mixin/alt-workstation-install: +installer \
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
+	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,MAIN_GROUPS,$(workstation_groups))
