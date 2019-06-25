@@ -1,6 +1,5 @@
 #mate-full
 
-# we don't really need gnome-player
 consolehelper
 mate-default
 #mate-system-log
