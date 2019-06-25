@@ -5,7 +5,7 @@ mixin/education: use/kernel use/firmware \
 	use/services \
 	use/ntp/chrony \
 	use/x11/xorg use/x11/lightdm/gtk +pulse \
-	+nm use/x11/gtk/nm \
+	+nm use/x11/gtk/nm use/net-eth/dhcp \
 	use/xdg-user-dirs/deep
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,indexhtml)
