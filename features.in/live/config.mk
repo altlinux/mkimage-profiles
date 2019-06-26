@@ -49,8 +49,7 @@ use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
 
 # preconfigure apt for both live and installed-from-live systems
 use/live/repo: use/live
-	@$(call add,LIVE_PACKAGES,installer-feature-online-repo)
-	@$(call try,LIVE_REPO,http/alt)
+	@$(call try,LIVE_REPO,http/yandex)
 	@$(call xport,LIVE_REPO)
 
 # preconfigure apt in runtime (less reliable)
