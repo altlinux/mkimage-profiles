@@ -61,6 +61,7 @@ distro/alt-education: distro/.installer mixin/education \
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,syslinux)
+	@$(call add,THE_PACKAGES,alt-rootfs-installer)
 	@$(call add,BASE_PACKAGES,os-prober)
 	@$(call add,BASE_PACKAGES,guest-account)
 	@$(call add,BASE_PACKAGES,nextcloud-client)
