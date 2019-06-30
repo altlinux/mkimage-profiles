@@ -1,0 +1,4 @@
+#!/bin/sh
+# ensure early kms so stage1 issues can at least be displayed on tty0
+
+echo 'MODULES_PRELOAD += radeon galcore vivante' >> /etc/initrd.mk
