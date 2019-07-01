@@ -19,6 +19,7 @@ fvwm-
 fvwm-full-
 #kernel-modules-staging-@KERNEL_MOD@
 altlinux-freedesktop-menu-shallow-menu
+altlinux-freedesktop-menu-mate-like-menu
 altlinux-freedesktop-menu-icon-theme-default
 installer-distro-simply-linux-stage3
 #altlinux-freedesktop-menu-common
