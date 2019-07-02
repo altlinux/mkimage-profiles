@@ -22,16 +22,13 @@ endif
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,THE_PACKAGES,installer-feature-efi-stage3)
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
-	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL) $$(EFI_BOOTLOADER))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFI_VARS FB_EFI)
 	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
+ifeq (x86_64,$(ARCH))
+	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL) $$(EFI_BOOTLOADER))
 endif
-
-use/efi/signed: use/efi
-	@$(call set,EFI_CERT,altlinux)
-	@$(call add,COMMON_PACKAGES,shim-signed)
-	@$(call add,RESCUE_PACKAGES,openssl pesign)
+endif
 
 use/efi/shell: use/efi
 	@$(call try,EFI_SHELL,efi-shell)
@@ -40,6 +37,11 @@ use/efi/grub: use/efi use/bootloader/grub
 	@$(call set,EFI_BOOTLOADER,grub-efi)
 
 ifeq (x86_64,$(ARCH))
+
+use/efi/signed: use/efi
+	@$(call set,EFI_CERT,altlinux)
+	@$(call add,COMMON_PACKAGES,shim-signed)
+	@$(call add,RESCUE_PACKAGES,openssl pesign)
 
 use/efi/lilo: use/efi use/bootloader/lilo
 	@$(call set,EFI_BOOTLOADER,elilo)
@@ -52,7 +54,7 @@ use/efi/memtest86: use/efi/refind
 
 else
 
-use/efi/refind use/efi/memtest86 use/efi/lilo: use/efi; @:
+use/efi/signed use/efi/refind use/efi/memtest86 use/efi/lilo: use/efi; @:
 
 endif
 
