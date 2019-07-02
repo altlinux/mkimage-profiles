@@ -13,10 +13,11 @@ use/x11:
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon
+use/x11/xorg: use/x11/vulkan \
+	use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 else
-use/x11/xorg: use/x11; @:
+use/x11/xorg: use/x11/vulkan-base; @:
 endif
 
 use/x11/intel: use/x11
@@ -50,9 +51,16 @@ use/x11/amdgpu: use/x11 use/firmware
 	@$(call set,RADEON_PACKAGES,xorg-drv-amdgpu)
 
 # Vulkan is new and bleeding edge, only intel and amgpu(pro?)
-use/x11/vulkan: use/x11/intel use/x11/amdgpu
+use/x11/vulkan-base: use/x11
 	@$(call add,THE_PACKAGES,vulkan)
-	@$(call add,THE_PACKAGES,vulkan-radeon vulkan-intel)
+
+use/x11/vulkan-intel: use/x11/vulkan-base use/x11/intel
+	@$(call add,THE_PACKAGES,vulkan-intel)
+
+use/x11/vulkan-radeon: use/x11/vulkan-base use/x11/amdgpu
+	@$(call add,THE_PACKAGES,vulkan-radeon)
+
+use/x11/vulkan: use/x11/vulkan-intel use/x11/vulkan-amdgpu; @:
 
 # see https://github.com/NVIDIA/libglvnd for all gory details
 use/x11/glvnd: use/x11
