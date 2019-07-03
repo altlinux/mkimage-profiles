@@ -142,9 +142,7 @@ distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 	use/x11/enlightenment
 	@$(call set,META_VOL_ID,ALT regular-E-SysV/$(ARCH)) # see also #28271
 
-distro/regular-cinnamon: distro/.regular-gtk use/x11/cinnamon \
-	use/fonts/ttf/google use/net/nm/mmgui use/im
-	@$(call add,THE_PACKAGES,thunderbird-ru)	### l10n
+distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
@@ -161,12 +159,8 @@ distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
 distro/regular-lxqt-sysv: distro/.regular-sysv mixin/regular-lxqt \
 	use/net-eth/dhcp; @:
 
-distro/regular-kde5: distro/.regular-desktop use/browser/falkon \
-	use/x11/kde5 use/x11/sddm use/domain-client \
-	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
-	+nm +pulse +plymouth
-	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
-	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
+distro/regular-kde5: distro/.regular-desktop \
+	mixin/regular-kde5 use/domain-client use/x11/sddm +plymouth; @:
 
 distro/regular-robo: distro/regular-mate +robotics use/live/ru; @:
 

@@ -79,6 +79,16 @@ mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck
 	@$(call add,THE_BRANDING,graphics)
 
+mixin/regular-cinnamon: use/x11/cinnamon \
+	use/fonts/ttf/google use/net/nm/mmgui use/im
+	@$(call add,THE_PACKAGES,thunderbird-ru)	### l10n
+
+mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
+	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
+	+nm +pulse
+	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
+	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
+
 mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
 	@$(call add,THE_PACKAGES,xfce-polkit)
