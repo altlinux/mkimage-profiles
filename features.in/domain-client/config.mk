@@ -3,6 +3,5 @@ use/domain-client: use/net/dhcp
 	@$(call add,THE_LISTS,domain-client)
 
 use/domain-client/full: use/domain-client
-	@$(call add,THE_PACKAGES,krb5-ticket-watcher)
 	@$(call add,DEFAULT_SERVICES_ENABLE,avahi-daemon)
 	@$(call add,BASE_LISTS,domain-client-i) # i-f-* shouldn't hit live
