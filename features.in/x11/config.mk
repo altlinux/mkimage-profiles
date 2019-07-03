@@ -74,7 +74,6 @@ use/x11/wacom: use/x11
 use/x11/dm: use/x11-autostart
 	@$(call try,THE_DISPLAY_MANAGER,xdm)
 	@$(call add,THE_PACKAGES,$$(THE_DISPLAY_MANAGER))
-	@$(call try,THE_DM_SERVICE,dm)
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(THE_DM_SERVICE))
 
 use/x11/lightdm/gtk use/x11/lightdm/slick \
