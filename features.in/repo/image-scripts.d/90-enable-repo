@@ -11,7 +11,7 @@ host_re="http:\/\/\([^[:space:]]\+\)[[:space:]]\+"
 updates_re="${prefix_re}${host_re}\([^[:space:]]\+\/\)\?"
 
 # architectures
-host_arch="$(rpm --eval '%_host_cpu')"
+host_arch="$(rpm --eval '%_arch')"
 [ "$host_arch" = "x86_64" ] && compat="x86_64-i586" || compat=
 [ "$host_arch" = 'armh' ] && noarch= || noarch='noarch'
 
