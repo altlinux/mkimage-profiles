@@ -3,13 +3,16 @@ ifeq (distro,$(IMAGE_CLASS))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 
 distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
-        blogs emulators gnome-peer-to-peer freeipa-server freenx-server \
-	ipmi v12n-server netinst sogo virt-manager)
+        blogs emulators gnome-peer-to-peer freenx-server \
+	ipmi netinst sogo)
 
-#ifeq (,$(filter-out x86_64,$(ARCH)))
-#distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
-#         )
-#endif
+distro/alt-server: monitoring = $(addprefix server-v/, 90-monitoring \
+	zabbix-agent telegraf prometheus-node_exporter monit collectd nagios-nrpe)
+
+ifeq (,$(filter-out x86_64,$(ARCH)))
+distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
+       ganeti freeipa-server v12n-server)
+endif
 
 # FIXME: generalize vm-profile
 distro/alt-server: distro/.base mixin/alt-server +efi +vmguest \

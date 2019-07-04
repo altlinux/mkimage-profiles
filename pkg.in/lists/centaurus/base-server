@@ -81,8 +81,6 @@ audit
 strace
 
 # ?
-acpid@X86
-mkbootflash@X86
 rp-pppoe-base
 
 # ldap

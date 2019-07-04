@@ -17,14 +17,8 @@ etckeeper
 #kernel
 kernel-build-tools
 kernel-doc-std
-###kernel-headers-modules-@KERNEL@
-###kernel-headers-@KERNEL@
-###kernel-modules-staging-@KERNEL@
-kernel-source-4.9
 
 c-icap
-###libspice-gtk
-###python-module-spice-gtk
 virt-viewer
 
 b43-fwcutter
@@ -93,7 +87,7 @@ libqt4-sql-postgresql
 
 libini
 
-mongo-server
+mongo-server@x86_64
 python-module-PyQt4
 python-module-ZSI
 rdesktop

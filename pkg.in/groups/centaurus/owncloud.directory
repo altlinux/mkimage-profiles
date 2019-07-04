@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Owncloud
+Name=Nextcloud
 X-Alterator-PackageList=centaurus/owncloud
 X-Alterator-Required=no
 X-Alterator-Parent=centaurus/20-server-apps
-Name[ru_RU]=Сервер Owncloud
+Name[ru_RU]=Сервер Nextcloud
 Categories=Server;Networking
 
