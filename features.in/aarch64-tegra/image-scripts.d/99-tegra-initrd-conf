@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo 'PUT_FILES += /lib/firmware/tegra21x_xusb_firmware' \
+  >> /etc/initrd.mk

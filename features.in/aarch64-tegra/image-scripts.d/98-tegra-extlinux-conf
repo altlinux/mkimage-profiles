@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Rewrite extlinux.conf
+mkdir -p /boot/extlinux
+cat > /boot/extlinux/extlinux.conf << EOF
+menu title ALT Boot Options
+
+default linux
+timeout 20
+
+append ${cbootargs} rootfstype=ext4 root=LABEL=ROOT rw rootwait console=tty1
+
+label linux
+	menu label linux
+	linux /boot/vmlinuz
+	initrd /boot/initrd.img
+EOF
