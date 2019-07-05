@@ -67,6 +67,7 @@ distro/alt-education: distro/.installer mixin/education \
 	@$(call add,BASE_PACKAGES,nextcloud-client)
 	@$(call add,MAIN_PACKAGES,iperf3 owamp-server)
 	@$(call add,MAIN_PACKAGES,stellarium)
+	@$(call add,MAIN_PACKAGES,libreoffice-block-macros)
 	@$(call add,MAIN_PACKAGES,lmms)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
