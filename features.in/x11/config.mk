@@ -44,11 +44,11 @@ use/x11/nouveau: use/x11 use/firmware
 # has performance problems but is getting better, just not there yet
 use/x11/radeon: use/x11 use/firmware
 	@$(call set,RADEON_KMODULES,drm-radeon)
-	@$(call set,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
+	@$(call add,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
 # here's the future
 use/x11/amdgpu: use/x11 use/firmware
-	@$(call set,RADEON_PACKAGES,xorg-drv-amdgpu)
+	@$(call add,RADEON_PACKAGES,xorg-drv-amdgpu)
 
 # Vulkan is new and bleeding edge, only intel and amgpu(pro?)
 use/x11/vulkan-base: use/x11
