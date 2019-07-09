@@ -65,7 +65,6 @@ rm -rf /lib/modules/*/kernel/fs/autofs
 rm -rf /lib/modules/*/kernel/fs/autofs4
 rm -rf /lib/modules/*/kernel/fs/befs
 rm -rf /lib/modules/*/kernel/fs/bfs
-rm -rf /lib/modules/*/kernel/fs/btrfs
 rm -rf /lib/modules/*/kernel/fs/ceph
 rm -rf /lib/modules/*/kernel/fs/cifs
 rm -rf /lib/modules/*/kernel/fs/coda
