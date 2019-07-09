@@ -19,9 +19,17 @@ ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,PINNED_PACKAGES,installer-bootloader-$$(BASE_BOOTLOADER)-stage2)
 endif
 
-use/bootloader/grub use/bootloader/lilo: \
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+use/bootloader/lilo: \
 	use/bootloader/%: use/bootloader
 	@$(call set,BASE_BOOTLOADER,$*)
+endif
+
+ifeq (,$(filter-out $(GRUB_ARCHES),$(ARCH)))
+use/bootloader/grub: \
+	use/bootloader/%: use/bootloader
+	@$(call set,BASE_BOOTLOADER,$*)
+endif
 
 use/bootloader/uboot: use/bootloader use/uboot
 	@$(call set,BASE_BOOTLOADER,uboot)
