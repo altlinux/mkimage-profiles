@@ -5,7 +5,7 @@ distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	3rdparty blender clamav cloud-clients freecad \
 	gtk-dictionary kvm smartcard virtualbox voip-clients)
 
-distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
+distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
 	mixin/alt-workstation-install \
         use/memtest use/rescue/base use/bootloader/grub use/luks \
@@ -23,7 +23,6 @@ distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,BASE_KMODULES,kvm virtualbox)
-	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call add,DEFAULT_SERVICES_ENABLE,chronyd)
