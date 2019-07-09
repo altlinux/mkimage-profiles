@@ -16,4 +16,10 @@ boot/iso:
 	@$(call set,BOOTLOADER,e2k-boot)
 endif
 
+# install bootloader for Open Boot (IEEE1275)
+ifeq (,$(filter-out ppc64le,$(ARCH)))
+boot/iso:
+	@$(call set,BOOTLOADER,ieee1275boot)
+endif
+
 endif
