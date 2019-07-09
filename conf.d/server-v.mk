@@ -86,6 +86,7 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,MAIN_GROUPS,server-v/74-lizardfs $(lizardfs))
 	@$(call add,MAIN_GROUPS,server-v/75-nfs $(nfs))
 	@$(call add,MAIN_GROUPS,server-v/76-iscsi $(iscsi))
+	@$(call add,MAIN_GROUPS,server-v/ocfs2)
 	@$(call add,MAIN_GROUPS,server-v/80-network $(network))
 	@$(call add,MAIN_GROUPS,server-v/90-monitoring $(monitoring))
 	@$(call add,MAIN_GROUPS,server-v/100-backup $(backup))
