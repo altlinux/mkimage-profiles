@@ -15,7 +15,7 @@ distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
 distro/syslinux: distro/.boot \
 	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
-distro/.live-base: distro/.base use/live/base use/power/acpi/button; @:
+distro/.live-base: distro/.base use/live/base; @:
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
 distro/.live-desktop: distro/.base +live use/live/install use/stage2/net-eth \
@@ -24,7 +24,7 @@ distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
 distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
-	use/fonts/otf/adobe +power
+	use/fonts/otf/adobe
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 	@$(call set,SYSLINUX_UI,none)
 	@$(call set,SYSLINUX_CFG,live)
@@ -115,7 +115,7 @@ distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
 
 # NB: use/browser won't do as it provides a *single* browser ATM
-distro/live-privacy: distro/.base +power +efi +systemd +vmguest \
+distro/live-privacy: distro/.base +efi +systemd +vmguest \
 	use/live/base use/live/privacy use/live/ru \
 	use/x11/xorg use/x11/lightdm/gtk use/x11/mate use/x11-autologin \
 	use/browser/firefox/esr use/browser/firefox/i18n use/sound \
