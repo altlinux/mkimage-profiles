@@ -5,10 +5,16 @@
 
 cd "$WORKDIR"
 
+cfgs="$(find syslinux boot/grub -name '*.cfg')"
+[ -n "$cfgs" ] || {
+	echo "${0##*/}: did not find any config under /syslinux or /boot/grub" >&2
+	exit 1
+}
+
 # apply size census while looking for potential squashfs images
 find -maxdepth 1 -type f -size +1M \
 | sed 's,^\./,,' \
 | while read image; do
 	size="$[ $(stat -c%s "$image") / 1024 + 1 ]"
-	sed -i "s,@${image}_size@,$size," syslinux/*.cfg
+	sed -i "s,@${image}_size@,$size," $cfgs
 done
