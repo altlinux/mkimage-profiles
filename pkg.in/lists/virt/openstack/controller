@@ -1,4 +1,4 @@
-MySQL-server
+mariadb-server
 rabbitmq-server
 memcached
 openstack-keystone
