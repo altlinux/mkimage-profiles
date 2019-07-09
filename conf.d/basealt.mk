@@ -15,7 +15,7 @@ distro/alt-workstation: distro/.base +power +vmguest +wireless +efi \
 	use/branding/complete use/docs/license \
         use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
-	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
+	@$(call add,INSTALL2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,MAIN_PACKAGES,solaar)
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
 	@$(call add,MAIN_LISTS,workstation/extras)

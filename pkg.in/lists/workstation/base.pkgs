@@ -20,6 +20,8 @@ screen
 # Console fonts workaround
 vconsole-setup-kludge@X86
 
+xorg-conf-libinput-touchpad
+
 # Support Chinese characters
 fonts-bitmap-wqy
 
