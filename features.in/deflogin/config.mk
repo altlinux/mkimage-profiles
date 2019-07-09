@@ -28,6 +28,9 @@ use/deflogin/root: use/deflogin
 use/deflogin/altlinuxroot: use/deflogin/root use/deflogin/xgrp
 	@$(call add,USERS,altlinux:root:1:1)
 
+use/deflogin/altroot: use/deflogin/root use/deflogin/xgrp
+	@$(call add,USERS,alt:root:1:1)
+
 # peripherals
 use/deflogin/hardware: use/deflogin
 	@$(call add,GROUPS,cdwriter radio scanner uucp)
