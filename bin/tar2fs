@@ -24,6 +24,7 @@ MB=1048576		# a parted's "megabyte" in bytes is *broken*
 
 SIZE_FACTOR=2		# multiply the sizes found by this value
 BOOT_SIZE_FACTOR=2	# multiply /boot size by this value additionally
+BOOTLOADERPARTSIZEM=0	# PReP partition size (ppc*)
 
 CUR_BOUNDARY=0		# align first partition at 1MB for performance (+1)
 
@@ -39,6 +40,13 @@ e2k)
 	BOOTFSTYPE="ext2"       # firmware knows it
 	BLOCKDEV="/dev/sda"     # ...hopefully...
 	BOOTPART="1"
+	ROOTPART="2"
+	;;
+ppc*)
+	BOOTFSTYPE="ext4"
+	BLOCKDEV="/dev/sda"
+	BOOTLOADERPART="1"
+	BOOTLOADERPARTSIZEM="8"
 	ROOTPART="2"
 	;;
 *)
@@ -149,11 +157,23 @@ trap exit_handler EXIT ERR
 
 # prepare disk image and a filesystem inside it
 rm -f -- "$IMG"
-OFFSET="$(($CUR_BOUNDARY + $BOOTSIZEM + $ROOTSIZEM - 1))"
+
+OFFSET="$(($CUR_BOUNDARY + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + $ROOTSIZEM - 1))"
 dd if=/dev/zero of="$IMG" conv=notrunc bs=$MB count=1 seek="$OFFSET"
 losetup "$LOOPDEV" "$IMG"
 
 parting mklabel msdos
+
+if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
+	case "$ARCH" in
+		ppc*)
+			parting mkpart primary ext2 2048s ${BOOTLOADERPARTSIZEM}M
+			CUR_BOUNDARY="$(($CUR_BOUNDARY + $BOOTLOADERPARTSIZEM))"
+			parting set 1 prep on
+			parting set 1 boot on
+			;;
+	esac
+fi
 
 if [ -n "$BOOTPART" ]; then
 	BOOTDEV="$BLOCKDEV$BOOTPART"
@@ -171,6 +191,10 @@ mkfs."$ROOTFSTYPE" "$LOOPROOT"
 if [ -n "$BOOTPART" ]; then
 	LOOPBOOT="/dev/mapper/$(basename "$LOOPDEV")p$BOOTPART"
 	mkfs."$BOOTFSTYPE" "$LOOPBOOT"
+fi
+
+if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
+	LOOPBOOTLOADER="/dev/mapper/$(basename "$LOOPDEV")p$BOOTLOADERPART"
 fi
 
 ROOTUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPROOT")"
@@ -299,7 +323,16 @@ grub-efi)
 	;;
 grub)
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
-	chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
+	case "$ARCH" in
+		*86*)
+			chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
+			;;
+		ppc*)
+			[ -z "$LOOPBOOTLOADER" ] ||
+				chroot "$ROOTFS" grub-install --target=powerpc-ieee1275 \
+				--no-nvram "$LOOPBOOTLOADER"
+			;;
+	esac
 	;;
 esac
 
