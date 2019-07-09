@@ -50,7 +50,11 @@ endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,usb)
 endif
-ifeq (,$(filter-out i586 x86_64 aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out ppc64le,$(ARCH)))
+	@$(call add,VM_INITRDFEATURES,qemu usb)
+	@$(call add,VM_INITRDMODULES,ipr ibmvscsi)
+endif
+ifeq (,$(filter-out i586 x86_64 aarch64 armh ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ahci sd_mod)
 	@$(call add,VM_INITRDMODULES,nvme nvme-core)
 	@$(call add,VM_INITRDMODULES,virtio-scsi virtio-blk virtio-rng)
