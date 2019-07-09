@@ -26,3 +26,5 @@ fonts-bitmap-wqy
 make-initrd-ucode@X86
 iucode_tool@X86
 firmware-intel-ucode@X86
+
+fwupd
