@@ -3,7 +3,7 @@
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 +installer: use/install2/full; @:
 else
-+installer: use/install2/packages; @:
++installer: use/install2/packages use/install2/vmguest; @:
 endif
 
 use/install2: use/stage2 sub/stage2@install2 use/metadata \
@@ -36,7 +36,37 @@ use/install2/stage3: use/install2
 use/install2/fonts: use/fonts/install2; @:
 
 # see also use/vmguest
+ifeq (,$(filter-out i586 x86_64 aarch64 armh ppc64le,$(ARCH)))
+
+# see also use/vmguest/kvm; qxl included in xorg pkglist
+use/install2/kvm:
+	@$(call add,INSTALL2_PACKAGES,spice-vdagent xorg-drv-qxl)
+
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+
+# virtualbox guest support for installer
+use/install2/vbox:
+	@$(call add,STAGE1_KMODULES,virtualbox-addition vboxguest)
+	@$(call add,INSTALL2_PACKAGES,xorg-drv-vboxvideo)
+
+# see also use/vmguest/vmware
+use/install2/vmware:
+	@$(call add,STAGE1_KMODULES,vmware)
+	@$(call add,STAGE1_KMODULES,scsi)	# mptspi in led-ws
+	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
+
 use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
+
+else
+
+use/install2/vmguest: use/install2/kvm; @:
+
+endif
+else
+
+use/install2/vmguest: ; @:
+
+endif
 
 # stash local packages within installation media
 use/install2/packages: use/install2 use/repo/main; @:
@@ -53,21 +83,6 @@ use/install2/net: use/install2
 use/install2/autoinstall:
 	@$(call add,INSTALL2_PACKAGES,curl)
 	@$(call add,BASE_PACKAGES,alterator-postinstall)
-
-# see also use/vmguest/kvm; qxl included in xorg pkglist
-use/install2/kvm:
-	@$(call add,INSTALL2_PACKAGES,spice-vdagent xorg-drv-qxl)
-
-# virtualbox guest support for installer
-use/install2/vbox:
-	@$(call add,STAGE1_KMODULES,virtualbox-addition vboxguest)
-	@$(call add,INSTALL2_PACKAGES,xorg-drv-vboxvideo)
-
-# see also use/vmguest/vmware
-use/install2/vmware:
-	@$(call add,STAGE1_KMODULES,vmware)
-	@$(call add,STAGE1_KMODULES,scsi)	# mptspi in led-ws
-	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
 
 # NB: sort of conflicts with use/install2/cleanup/vnc
 use/install2/vnc:
