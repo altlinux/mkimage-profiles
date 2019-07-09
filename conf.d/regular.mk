@@ -61,9 +61,19 @@ distro/.regular-jeos-base: distro/.regular-bare +sysvinit \
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console)
 	@$(call add,THE_LISTS,openssh)
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+distro/.regular-jeos-bootloader: use/bootloader/lilo ; @:
+else
+ifeq (,$(filter-out $(GRUB_ARCHES),$(ARCH)))
+distro/.regular-jeos-bootloader: use/bootloader/grub ; @:
+else
+distro/.regular-jeos-bootloader: ; @:
+endif
+endif
+
 # ...and for somewhat bare distros
 distro/.regular-jeos: distro/.regular-jeos-base \
-	use/bootloader/lilo use/syslinux/lateboot.cfg \
+	distro/.regular-jeos-bootloader use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/jeos
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
