@@ -8,7 +8,7 @@
 # for immediate assignment
 ifndef ARCH
 ARCH := $(shell arch \
-	| sed 's/i686/i586/; s/armv7.*/armh/; s/armv.*/arm/; s/ppc.*/ppc/')
+	| sed 's/i686/i586/; s/armv7.*/armh/; s/armv.*/arm/')
 endif
 
 ifndef ARCHES

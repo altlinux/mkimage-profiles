@@ -2,7 +2,7 @@
 PKGDIR ?= $(GLOBAL_BUILDDIR)/pkg
 
 # duplicated from metaprofile makefiles for the sake of "local" builds
-ARCH ?= $(shell arch | sed 's/i686/i586/; s/armv.*/arm/; s/ppc.*/ppc/')
+ARCH ?= $(shell arch | sed 's/i686/i586/; s/armv.*/arm/')
 DATE ?= $(shell date +%Y%m%d)
 
 # prefix pkglist name with its directory to form a path (relative/absolute)
