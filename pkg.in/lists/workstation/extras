@@ -5,5 +5,7 @@ openssl-engines
 kernel-headers-modules-std-def
 kernel-headers-std-def
 
-chromium
-chromium-gnome
+chromium@X86
+chromium@aarch64
+chromium-gnome@X86
+chromium-gnome@aarch64
