@@ -1,3 +1,14 @@
 qemu-kvm
 libvirt
+libvirt-daemon-driver-storage-fs
+libvirt-daemon-driver-storage-logical
+libvirt-daemon-driver-storage-disk
+libvirt-daemon-driver-storage-scsi
+libvirt-daemon-driver-storage-iscsi-direct
+libvirt-daemon-driver-storage-mpath
+libvirt-daemon-driver-storage-rbd
+libvirt-daemon-driver-interface
+libvirt-daemon-driver-network
+libvirt-daemon-driver-nodedev
+libvirt-daemon
 libosinfo
