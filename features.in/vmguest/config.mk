@@ -35,18 +35,22 @@ use/vmguest/vmware:
 use/vmguest/vmware/x11: use/vmguest/vmware
 	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse open-vm-tools-desktop)
 
-+vmguest: use/vmguest/complete; @:
-
 else
 
 # non-x86
-+vmguest: use/vmguest/kvm; @:
+use/vmguest/bare: use/vmguest/kvm; @:
+use/vmguest/base: use/vmguest/bare; @:
+use/vmguest/complete: use/vmguest/base use/vmguest/kvm/x11; @:
 
 endif
 
 else
 
 # kvm-unsupported guest arch
-+vmguest: ;@:
+use/vmguest/bare: ; @:
+use/vmguest/base: ; @:
+use/vmguest/complete: ; @:
 
 endif
+
++vmguest: use/vmguest/complete; @:
