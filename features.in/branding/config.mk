@@ -7,13 +7,21 @@ use/branding/notes: use/branding
 	@$(call add,THE_BRANDING,notes)
 
 # NB: not every distro might have all the branding of its own
-# FIXME: syslinux is x86-specific
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/branding/full: use/branding/notes use/syslinux/ui/gfxboot
 	@$(call add,THE_BRANDING,alterator bootloader bootsplash graphics)
 	@$(call add,THE_BRANDING,indexhtml slideshow)
 
 use/branding/complete: use/branding/full use/plymouth/full
 	@$(call add,INSTALL2_BRANDING,notes slideshow)
+else
+use/branding/full: use/branding/notes
+	@$(call add,THE_BRANDING,alterator graphics)
+	@$(call add,THE_BRANDING,indexhtml slideshow)
+
+use/branding/complete: use/branding/full
+	@$(call add,INSTALL2_BRANDING,notes slideshow)
+endif
 
 # http://altlinux.org/branding/slideshow
 use/branding/slideshow/once: use/branding
