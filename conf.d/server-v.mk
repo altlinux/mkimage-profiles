@@ -16,6 +16,9 @@ distro/server-v: iscsi = $(addprefix server-v/iscsi/,\
 distro/server-v: moosefs = $(addprefix server-v/moosefs/,\
 	cgiserv chunkserver client master metalogger)
 
+distro/server-v: lizardfs = $(addprefix server-v/lizardfs/,\
+	cgiserv chunkserver client master metalogger)
+
 distro/server-v: nfs = $(addprefix server-v/,\
 	nfs nfs-ganesha)
 
@@ -80,7 +83,7 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,MAIN_GROUPS,server-v/70-storage)
 	@$(call add,MAIN_GROUPS,server-v/71-ceph $(ceph))
 	@$(call add,MAIN_GROUPS,server-v/72-glusterfs $(glusterfs))
-	@$(call add,MAIN_GROUPS,server-v/74-moosefs $(moosefs))
+	@$(call add,MAIN_GROUPS,server-v/74-lizardfs $(lizardfs))
 	@$(call add,MAIN_GROUPS,server-v/75-nfs $(nfs))
 	@$(call add,MAIN_GROUPS,server-v/76-iscsi $(iscsi))
 	@$(call add,MAIN_GROUPS,server-v/80-network $(network))
