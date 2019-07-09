@@ -4,6 +4,8 @@ userpasswd
 pam-limits-desktop
 
 rpminstall
+gnome-software
+
 imagewriter
 firefox-esr-ru
 
