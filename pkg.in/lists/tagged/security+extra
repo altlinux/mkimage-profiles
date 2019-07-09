@@ -1,8 +1,8 @@
 apg
 #chkrootkit
-john
+john@X86
 hashalot
-hashcat
+hashcat@X86
 #logcheck
 md5deep
 ssdeep
@@ -14,7 +14,7 @@ osec-cronjob
 osec-mailreport
 
 # hardware reliability
-mcelog
+mcelog@X86
 
 # networking
 chaosreader

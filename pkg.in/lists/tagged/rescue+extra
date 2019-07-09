@@ -1,6 +1,6 @@
 # CPU utils
-cpuburn
-x86info
+cpuburn@X86
+x86info@X86
 
 # Disk utils
 aff-tools
@@ -9,7 +9,8 @@ bonnie++
 cfdisk
 dcfldd
 dc3dd
-dd_rescue
+dd_rescue@X86
+dd_rescue@aarch64
 ddrescue
 ddrutility
 disktype
@@ -60,7 +61,7 @@ time
 openssl
 
 # Applications/Editors
-biew
+biew@X86
 hexedit
 lde
 nano
@@ -109,7 +110,7 @@ fuse-ciopfs
 fuse-compFUSEd
 fuse-exfat
 fuse-funion
-fuse-zfs
+fuse-zfs@X86
 hfsprogs
 ifuse
 libevt-tools
@@ -127,7 +128,7 @@ vmfs-tools
 # Filesystem recovery/cleanup
 extundelete
 foremost
-ftimes
+ftimes@X86
 fuse-convmvfs
 magicrescue
 photorec

@@ -1,12 +1,14 @@
 # overall
 dhrystone
-lmbench
-procbench
-sysbench
+lmbench@X86
+procbench@X86
+# requires luajit
+sysbench@X86
+sysbench@aarch64
 whetstone
 
 # RAM
-bandwidth
+bandwidth@X86
 stream-mem
 
 # disk subsystem
@@ -21,9 +23,9 @@ ffsb
 hammerhead
 #postal
 siege
-t50
-wrk
+t50@X86
+wrk@X86
 
 # stresstesting/burn-in
-cpuburn
+cpuburn@X86
 stress
