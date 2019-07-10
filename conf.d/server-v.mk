@@ -26,7 +26,8 @@ distro/server-v: opennebula = $(addprefix server-v/opennebula/,\
 	flow gate gui node-kvm node-lxd server)
 
 distro/server-v: openstack = $(addprefix server-v/openstack/,\
-	block compute controller network storage)
+	block compute controller network)
+# storage
 
 distro/server-v: container = $(addprefix server-v/,\
 	docker kubernetes rkt podman lxd)
