@@ -10,6 +10,12 @@ boot/iso: use/syslinux
 	@$(call set,BOOTLOADER,isolinux)
 endif
 
+# install aarch64 media bootloader
+ifeq (,$(filter-out aarch64,$(ARCH)))
+boot/iso:
+	@$(call set,BOOTLOADER,grubaa64boot)
+endif
+
 # firmware is the bootloader
 ifeq (,$(filter-out e2k%,$(ARCH)))
 boot/iso:

@@ -32,6 +32,9 @@ endif
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 BOOT_TYPE := isolinux
 endif
+ifeq (,$(filter-out aarch64,$(ARCH)))
+BOOT_TYPE := grubaa64boot
+endif
 ifeq (,$(filter-out ppc64le,$(ARCH)))
 BOOT_TYPE := ieee1275boot
 endif

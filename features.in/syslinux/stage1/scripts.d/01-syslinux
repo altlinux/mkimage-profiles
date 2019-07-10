@@ -10,7 +10,7 @@ cd "$WORKDIR/syslinux"
 
 # validate just in case (see also stage1 Makefile)
 case "$GLOBAL_BOOTLOADER" in
-	isolinux|syslinux|ieee1275boot) ;;
+	isolinux|syslinux|ieee1275boot|grubaa64boot) ;;
 	*) echo "error: weird GLOBAL_BOOTLOADER: \`$GLOBAL_BOOTLOADER'" >&2;
 	   exit 1;;
 esac
