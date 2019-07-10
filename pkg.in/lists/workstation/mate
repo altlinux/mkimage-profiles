@@ -1,7 +1,13 @@
 #mate-full
 
 consolehelper
+
+pinentry-gnome3
+gcr
+pinentry-qt5-
+
 mate-default
+
 #mate-system-log
 mate-document-viewer-caja
 mate-document-viewer-djvu
