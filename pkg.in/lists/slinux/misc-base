@@ -65,7 +65,7 @@ medit
 mate-calc
 synaptic
 synaptic-usermode
-apt-indicator
+gnome-software
 gksu
 cups
 cups-filters
