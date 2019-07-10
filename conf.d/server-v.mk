@@ -83,7 +83,7 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,MAIN_GROUPS,server-v/400-storage)
 	@$(call add,MAIN_GROUPS,server-v/410-ceph $(ceph))
 	@$(call add,MAIN_GROUPS,server-v/420-glusterfs $(glusterfs))
-	@$(call add,MAIN_GROUPS,server-v/430-lizardfs $(lizardfs))
+	@$(call add,MAIN_GROUPS,server-v/430-moosefs $(moosefs))
 	@$(call add,MAIN_GROUPS,server-v/450-nfs $(nfs))
 	@$(call add,MAIN_GROUPS,server-v/460-iscsi $(iscsi))
 	@$(call add,MAIN_GROUPS,server-v/ocfs2)
