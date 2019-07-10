@@ -42,6 +42,8 @@ gnome-icon-theme
 gnome-icon-theme-symbolic
 gnome-keyring
 gcr
+pinentry-gnome3
+pinentry-qt5-
 gparted
 #tango-icon-theme
 #tango-icon-theme-extras
