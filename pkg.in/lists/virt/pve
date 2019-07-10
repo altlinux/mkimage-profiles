@@ -24,4 +24,3 @@ dhcpcd
 faketime
 tzdata
 postfix
-kernel-modules-zfs-std-def

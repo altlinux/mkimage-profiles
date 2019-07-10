@@ -22,3 +22,5 @@ lsof
 ethtool
 python3
 systemd-container
+zfs-utils
+kernel-modules-zfs-std-def

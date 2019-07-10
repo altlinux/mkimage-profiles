@@ -72,7 +72,6 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
 	@$(call add,BASE_KMODULES,ipset kvm xtables-addons kvdo)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
-	@$(call add,MAIN_GROUPS,server-v/zfs)
 	@$(call add,MAIN_GROUPS,server-v/10-basic server-v/kvm)
 	@$(call add,MAIN_GROUPS,server-v/11-cockpit $(cockpit))
 	@$(call add,MAIN_GROUPS,server-v/20-pve server-v/pve)
