@@ -7,4 +7,4 @@ Comment=Serves journal events over the network
 Comment[ru_RU]=Службы доступа и отправки журналов systemd через сеть
 X-Alterator-PackageList=logging/systemd-journal-remote
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/110-logging
+X-Alterator-Parent=server-v/800-logging

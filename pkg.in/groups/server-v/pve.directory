@@ -6,4 +6,4 @@ Name[ru_RU]=PVE Сервер
 X-Alterator-PackageList=virt/pve
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/kvm
-X-Alterator-Parent=server-v/20-pve
+X-Alterator-Parent=server-v/120-pve

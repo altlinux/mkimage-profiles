@@ -5,4 +5,4 @@ Name=LXD
 Name[ru_RU]=LXD
 X-Alterator-PackageList=container/lxd
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/60-container
+X-Alterator-Parent=server-v/200-container

@@ -5,4 +5,4 @@ Name=Burp - backup and restore program
 Name[ru_RU]=Burp - архивирование и восстановление
 X-Alterator-PackageList=storage/burp
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/100-backup
+X-Alterator-Parent=server-v/700-backup

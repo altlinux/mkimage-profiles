@@ -7,4 +7,4 @@ Comment=MooseFS Chunkserver for data storage servers
 Comment[ru_RU]=MooseFS Cервер хранения данных
 X-Alterator-PackageList=storage/moosefs-chunkserver
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/74-moosefs
+X-Alterator-Parent=server-v/430-moosefs

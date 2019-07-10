@@ -6,4 +6,4 @@ Name[ru_RU]=iSCSI
 X-Alterator-Required=no
 Comment=iSCSI
 Comment[ru_RU]=iSCSI
-X-Alterator-Parent=server-v/70-storage
+X-Alterator-Parent=server-v/400-storage

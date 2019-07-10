@@ -40,13 +40,13 @@ distro/server-v: monitoring = $(addprefix server-v/,\
 # zabbix prometheus influxdb grafana
 
 distro/server-v: backup = $(addprefix server-v/,\
-	burp)
+	burp bacula)
 
 distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
 
 distro/server-v: profiles = $(addprefix server-v/,\
-	10-basic 20-pve 41-opennebula-node 42-opennebula-server 51-openstack-node 52-openstack-controller 61-docker)
+	110-basic 120-pve 131-opennebula-node 132-opennebula-server 141-openstack-node 142-openstack-controller 201-docker)
 
 distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
 	@$(call add,BASE_LISTS,server-base openssh)
@@ -73,24 +73,24 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
 	@$(call add,BASE_KMODULES,ipset kvm xtables-addons kvdo)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
-	@$(call add,MAIN_GROUPS,server-v/10-basic server-v/kvm)
-	@$(call add,MAIN_GROUPS,server-v/11-cockpit $(cockpit))
-	@$(call add,MAIN_GROUPS,server-v/20-pve server-v/pve)
-	@$(call add,MAIN_GROUPS,server-v/30-opennebula $(opennebula))
-	@$(call add,MAIN_GROUPS,server-v/40-openstack $(openstack))
-	@$(call add,MAIN_GROUPS,server-v/60-container $(container))
-	@$(call add,MAIN_GROUPS,server-v/65-cluster server-v/corosync_pacemaker)
-	@$(call add,MAIN_GROUPS,server-v/70-storage)
-	@$(call add,MAIN_GROUPS,server-v/71-ceph $(ceph))
-	@$(call add,MAIN_GROUPS,server-v/72-glusterfs $(glusterfs))
-	@$(call add,MAIN_GROUPS,server-v/74-lizardfs $(lizardfs))
-	@$(call add,MAIN_GROUPS,server-v/75-nfs $(nfs))
-	@$(call add,MAIN_GROUPS,server-v/76-iscsi $(iscsi))
+	@$(call add,MAIN_GROUPS,server-v/110-basic server-v/kvm)
+	@$(call add,MAIN_GROUPS,server-v/111-cockpit $(cockpit))
+	@$(call add,MAIN_GROUPS,server-v/120-pve server-v/pve)
+	@$(call add,MAIN_GROUPS,server-v/130-opennebula $(opennebula))
+	@$(call add,MAIN_GROUPS,server-v/140-openstack $(openstack))
+	@$(call add,MAIN_GROUPS,server-v/200-container $(container))
+	@$(call add,MAIN_GROUPS,server-v/300-cluster server-v/corosync_pacemaker)
+	@$(call add,MAIN_GROUPS,server-v/400-storage)
+	@$(call add,MAIN_GROUPS,server-v/410-ceph $(ceph))
+	@$(call add,MAIN_GROUPS,server-v/420-glusterfs $(glusterfs))
+	@$(call add,MAIN_GROUPS,server-v/430-lizardfs $(lizardfs))
+	@$(call add,MAIN_GROUPS,server-v/450-nfs $(nfs))
+	@$(call add,MAIN_GROUPS,server-v/460-iscsi $(iscsi))
 	@$(call add,MAIN_GROUPS,server-v/ocfs2)
-	@$(call add,MAIN_GROUPS,server-v/80-network $(network))
-	@$(call add,MAIN_GROUPS,server-v/90-monitoring $(monitoring))
-	@$(call add,MAIN_GROUPS,server-v/100-backup $(backup))
-	@$(call add,MAIN_GROUPS,server-v/110-logging $(logging))
+	@$(call add,MAIN_GROUPS,server-v/500-network $(network))
+	@$(call add,MAIN_GROUPS,server-v/600-monitoring $(monitoring))
+	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
+	@$(call add,MAIN_GROUPS,server-v/800-logging $(logging))
 	@$(call add,THE_PROFILES,$(profiles) minimal)
 	@$(call add,SERVICES_ENABLE,sshd)
 	@$(call add,SERVICES_ENABLE,libvirtd)

@@ -5,5 +5,5 @@ Name=Telegraf Agent agent for collecting
 Name[ru_RU]=Агент сбора метрик Telegraf
 X-Alterator-PackageList=monitoring/telegraf
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/90-monitoring
+X-Alterator-Parent=server-v/600-monitoring
 

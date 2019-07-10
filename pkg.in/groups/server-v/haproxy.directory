@@ -5,4 +5,4 @@ Name=HAProxy TCP/HTTP Load Balancer
 Name[ru_RU]=HAProxy TCP/HTTP балансировщик нагрузки
 X-Alterator-PackageList=network/haproxy
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/80-network
+X-Alterator-Parent=server-v/500-network

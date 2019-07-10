@@ -8,4 +8,4 @@ Comment[ru_RU]=Metalogger сервер для синхронизации и ре
 X-Alterator-PackageList=storage/lizardfs-metalogger
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/lizardfs/master
-X-Alterator-Parent=server-v/74-lizardfs
+X-Alterator-Parent=server-v/430-lizardfs

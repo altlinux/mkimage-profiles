@@ -5,4 +5,4 @@ Name=Prometheus monitoring system
 Name[ru_RU]=Сервер мониторинга Prometheus
 X-Alterator-PackageList=monitoring/prometheus
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/90-monitoring
+X-Alterator-Parent=server-v/600-monitoring

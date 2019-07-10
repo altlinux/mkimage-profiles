@@ -7,4 +7,4 @@ Comment=Classic syslog configuration with local logging to /var/log from /dev/lo
 Comment[ru_RU]=Классический демон для локального логирования /dev/log
 X-Alterator-PackageList=logging/rsyslog-classic
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/110-logging
+X-Alterator-Parent=server-v/800-logging

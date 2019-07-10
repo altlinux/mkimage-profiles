@@ -5,4 +5,4 @@ Name=Podman
 Name[ru_RU]=Podman
 X-Alterator-PackageList=container/podman
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/60-container
+X-Alterator-Parent=server-v/200-container
