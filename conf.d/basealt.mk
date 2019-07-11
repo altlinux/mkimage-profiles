@@ -4,6 +4,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	3rdparty blender clamav cloud-clients freecad \
 	gtk-dictionary kvm smartcard virtualbox voip-clients)
+endif
 
 distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
@@ -17,17 +18,18 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,MAIN_PACKAGES,solaar)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
+	@$(call add,BASE_KMODULES,kvm virtualbox)
+endif
 	@$(call add,MAIN_LISTS,workstation/extras)
 	@$(call add,MAIN_LISTS,$(call tags,xorg vaapi))
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
-	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call add,DEFAULT_SERVICES_ENABLE,chronyd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,crond)
-endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/.alt-workstation-base: distro/.e2k-installer mixin/alt-workstation
