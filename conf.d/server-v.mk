@@ -102,5 +102,6 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
+	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd systemd-resolved)
 
 endif
