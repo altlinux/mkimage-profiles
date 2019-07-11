@@ -30,13 +30,12 @@ ifeq (x86_64,$(ARCH))
 endif
 endif
 
-use/efi/shell: use/efi
-	@$(call try,EFI_SHELL,efi-shell)
-
 use/efi/grub: use/efi use/bootloader/grub
 	@$(call set,EFI_BOOTLOADER,grub-efi)
 
 ifeq (x86_64,$(ARCH))
+use/efi/shell: use/efi
+	@$(call try,EFI_SHELL,efi-shell)
 
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)
@@ -54,7 +53,8 @@ use/efi/memtest86: use/efi/refind
 
 else
 
-use/efi/signed use/efi/refind use/efi/memtest86 use/efi/lilo: use/efi; @:
+use/efi/signed use/efi/shell \
+	use/efi/refind use/efi/memtest86 use/efi/lilo: use/efi; @:
 
 endif
 
