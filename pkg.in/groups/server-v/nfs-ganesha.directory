@@ -5,4 +5,4 @@ Name=NFS-Ganesha Server (User Mode)
 Name[ru_RU]=NFS-Ganesha Сервер (процесс пользователя)
 X-Alterator-PackageList=storage/nfs-ganesha-server
 X-Alterator-Required=no
-X-Alterator-Parent=server-v/75-nfs
+X-Alterator-Parent=server-v/450-nfs
