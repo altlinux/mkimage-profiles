@@ -1,8 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Bird - IP routing daemon
-Name[ru_RU]=Bird - демон маршрутизации
+Name=Bird dynamic IP routing daemon
+Name[ru_RU]=Bird IP маршрутизатор
+Comment=BIRD is an Internet Routing Daemon. Support all the routing technology used in the today's Internet or planned to be used in near future.
+Comment[ru_RU]=Bird это програмный комплекс поддерживающий все современные протоколы динамической маршрутизации.
 X-Alterator-PackageList=network/bird
 X-Alterator-Required=no
 X-Alterator-Parent=server-v/500-network

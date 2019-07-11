@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=OpenvSwitch
-Name[ru_RU]=OpenvSwitch
+Name=OpenvSwitch virtual switch
+Name[ru_RU]=OpenvSwitch виртуальный коммутатор
 X-Alterator-PackageList=network/openvswitch
 X-Alterator-Required=no
 X-Alterator-Parent=server-v/500-network
