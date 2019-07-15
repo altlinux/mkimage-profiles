@@ -2,7 +2,7 @@
 
 #altlinux-release
 
-1c-preinstall
+1c-preinstall@X86
 
 #apache2-mod_.*
 
@@ -65,7 +65,7 @@ screen
 perl-Crypt-Rijndael
 
 #needed for crypto
-#lsb
+lsb@X86
 python-module-Crypto
 
 postgresql-jdbc
@@ -88,6 +88,7 @@ libqt4-sql-postgresql
 libini
 
 mongo-server@x86_64
+mongo-server@aarch64
 python-module-PyQt4
 python-module-ZSI
 rdesktop

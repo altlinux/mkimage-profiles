@@ -165,6 +165,7 @@ iptstate
 lshw
 lsof
 make-initrd-ucode@X86
+iucode_tool@X86
 firmware-intel-ucode@X86
 #mod_geoip
 p0f

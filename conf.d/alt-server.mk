@@ -1,13 +1,13 @@
 ifeq (distro,$(IMAGE_CLASS))
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
 distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
         emulators freenx-server \
 	ipmi netinst sogo 80-desktop mate office pidgin vlc xorg)
 
-ifeq (,$(filter-out x86_64,$(ARCH)))
+ifeq (,$(filter-out x86_64 ppc64le,$(ARCH)))
 distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
-       ganeti freeipa-server v12n-server)
+       freeipa-server v12n-server)
 distro/alt-server: use/efi/refind use/memtest +efi
 endif
 endif
