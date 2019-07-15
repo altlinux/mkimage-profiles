@@ -41,6 +41,8 @@ use/syslinux/%.cfg: use/syslinux
 
 ifeq (,$(filter-out ppc64le,$(ARCH)))
 use/syslinux/localboot.cfg use/syslinux/removable.cfg use/syslinux/lateboot.cfg use/syslinux/sdab.cfg: use/syslinux; @:
+use/syslinux/install-vnc-connect.cfg: use/syslinux/grub-install-vnc-connect.cfg; @:
+use/syslinux/install-vnc-listen.cfg: use/syslinux/grub-install-vnc-listen.cfg; @:
 endif
 
 use/syslinux/timeout/%: use/syslinux
