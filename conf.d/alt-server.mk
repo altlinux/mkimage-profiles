@@ -12,8 +12,15 @@ distro/alt-server: use/efi/refind use/memtest +efi
 endif
 endif
 
+ifeq (,$(filter-out ppc64le,$(ARCH)))
+distro/.alt-server-vnc: use/install2/vnc/listen; @:
+else
+distro/.alt-server-vnc: ; @:
+endif
+
 # FIXME: generalize vm-profile
-distro/alt-server: distro/.base mixin/alt-server +vmguest \
+distro/alt-server: distro/.base distro/.alt-server-vnc \
+	mixin/alt-server use/vmguest/base \
 	use/bootloader/grub use/rescue/base \
 	use/docs/license
 	@$(call add,MAIN_GROUPS,$(server_groups_x86))
