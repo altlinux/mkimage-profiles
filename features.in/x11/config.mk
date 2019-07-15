@@ -13,7 +13,7 @@ use/x11:
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon
+use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 else
 use/x11/xorg: use/x11; @:
