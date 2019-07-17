@@ -17,9 +17,6 @@ use/init/sysv: use/init
 use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
 
-use/init/sysv/consolekit: use/init/sysv
-	@$(call add,THE_PACKAGES,ConsoleKit2-service ConsoleKit2-x11)
-
 use/init/sysv/elogind: use/init/sysv
 	@$(call add,THE_PACKAGES,elogind bash-completion-elogind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,elogind)
