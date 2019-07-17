@@ -15,8 +15,6 @@ include $(MKIMAGE_PREFIX)/config.mk
 
 COPY_TREE = ./files
 
-include $(MKIMAGE_PREFIX)/targets.mk
-
 # this might have been prepared
 # by features.in/stage2/stage1/scripts.d/03-test-kernel
 -include $(GLOBAL_BUILDDIR)/squashcfg.mk
