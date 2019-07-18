@@ -1,6 +1,9 @@
 ifneq (clean,$(MAKECMDGOALS))
 ifneq (distclean,$(MAKECMDGOALS))
 
+ifndef INCLUDED_FUNCTIONS_MK
+INCLUDED_FUNCTIONS_MK = 1
+
 # globals
 PKGDIR ?= $(GLOBAL_BUILDDIR)/pkg
 
@@ -47,5 +50,6 @@ kpackages = $(and $(1), \
 # arg: branding subpackages
 branding = $(and $(1),^branding-$(BRANDING)-($(call list2re,$(1)))$$)
 
+endif
 endif
 endif
