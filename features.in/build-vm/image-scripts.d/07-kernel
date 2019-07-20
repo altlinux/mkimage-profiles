@@ -11,7 +11,6 @@ kver="$(rpm -qa 'kernel-image*' \
 [ -n "$kver" ] || { echo "** unable to deduce kernel version" >&2; exit 1; }
 
 cd /boot
-echo "$kver" > .origver	# for tar2fs
 
 make-initrd -N -k "$kver" AUTODETECT= \
   FEATURES+="$GLOBAL_VM_INITRDFEATURES" \

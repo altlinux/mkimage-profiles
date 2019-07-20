@@ -217,11 +217,11 @@ pushd $ROOTFS/boot
 get_label() { echo "${1# *}" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,'; }
 
 KVERSIONS=
-if [ -s .origver ]; then
-	while read kver; do
-		KVERSIONS="$KVERSIONS $kver"
-	done < .origver
-fi
+KVERSIONS="$(chroot "$ROOTFS" rpm -qa 'kernel-image*' \
+            --qf '%{installtime} %{version}-%{name}-%{release}\n' \
+        | sort -n \
+        | cut -f 2 -d ' ' \
+        | sed 's/kernel-image-//')"
 [ -n "$KVERSIONS" ] || fatal "unable to deduce kernel version"
 rm -f .origver
 
