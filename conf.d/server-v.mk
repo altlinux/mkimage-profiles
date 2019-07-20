@@ -48,6 +48,11 @@ distro/server-v: logging = $(addprefix server-v/,\
 distro/server-v: profiles = $(addprefix server-v/,\
 	110-basic 120-pve 131-opennebula-node 132-opennebula-server 141-openstack-node 142-openstack-controller 201-docker)
 
+ifeq (,$(filter-out x86_64,$(ARCH)))
+distro/server-v: profiles_arch = $(addprefix server-v/,\
+	120-pve)
+endif
+
 distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
 	@$(call add,BASE_LISTS,server-base openssh)
 
@@ -75,7 +80,9 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-basic server-v/kvm)
 	@$(call add,MAIN_GROUPS,server-v/111-cockpit $(cockpit))
+ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,server-v/120-pve server-v/pve)
+endif
 	@$(call add,MAIN_GROUPS,server-v/130-opennebula $(opennebula))
 	@$(call add,MAIN_GROUPS,server-v/140-openstack $(openstack))
 	@$(call add,MAIN_GROUPS,server-v/200-container $(container))
@@ -91,7 +98,7 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,MAIN_GROUPS,server-v/600-monitoring $(monitoring))
 	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
 	@$(call add,MAIN_GROUPS,server-v/800-logging $(logging))
-	@$(call add,THE_PROFILES,$(profiles) minimal)
+	@$(call add,THE_PROFILES,$(profiles) $(profiles_arch) minimal)
 	@$(call add,SERVICES_ENABLE,sshd)
 	@$(call add,SERVICES_ENABLE,libvirtd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
