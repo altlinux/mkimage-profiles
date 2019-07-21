@@ -15,7 +15,8 @@ echo "$kver" > .origver	# for tar2fs
 
 make-initrd -N -k "$kver" AUTODETECT= \
   FEATURES+="$GLOBAL_VM_INITRDFEATURES" \
-  MODULES_ADD+="$GLOBAL_VM_INITRDMODULES"
+  MODULES_ADD+="$GLOBAL_VM_INITRDMODULES" \
+  || { echo "** Error: make-initrd failed" >&2; exit 1; }
 
 # NB: e2k kernel builds "image" instead of "vmlinuz"
 [ -f vmlinuz-$kver ] && ln -s vmlinuz-$kver vmlinuz ||:
