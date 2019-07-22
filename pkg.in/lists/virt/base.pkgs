@@ -26,3 +26,6 @@ ethtool
 python3
 systemd-container
 kernel-modules-zfs-std-def@X86
+nfs-clients
+su
+sudo

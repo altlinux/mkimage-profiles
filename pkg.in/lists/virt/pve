@@ -17,10 +17,6 @@ pve-spiceterm
 pve-storage
 pve-vncterm
 pve-xtermjs
-nfs-clients
-su
 bridge-utils
-dhcpcd
 faketime
-tzdata
 postfix
