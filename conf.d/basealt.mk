@@ -65,5 +65,8 @@ ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 
 vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
 	use/oem use/repo use/bootloader/uboot mixin/alt-workstation; @:
+
+vm/alt-workstation-tegra: vm/alt-workstation use/aarch64-tegra; @:
+
 endif
 endif
