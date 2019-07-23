@@ -23,7 +23,7 @@ alterator-datetime
 alterator-proxy@X86
 alterator-services
 
-alterator-x11@X86
+alterator-x11@!E2K
 alterator-xkb
 
 glxgears
