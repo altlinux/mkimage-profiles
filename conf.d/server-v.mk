@@ -78,7 +78,6 @@ distro/server-v: distro/.server-v-base \
 	@$(call add,BASE_KMODULES,ipset kvm xtables-addons kvdo)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-basic server-v/kvm)
-	@$(call add,MAIN_GROUPS,server-v/111-cockpit $(cockpit))
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,server-v/120-pve server-v/pve)
 endif
@@ -110,4 +109,5 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd systemd-resolved)
 
+#	@$(call add,MAIN_GROUPS,server-v/111-cockpit $(cockpit))
 endif
