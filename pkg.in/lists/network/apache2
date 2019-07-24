@@ -1,0 +1,7 @@
+apache2
+apache2-httpd-prefork
+apache2-mod_http2
+apache2-mod_auth_gssapi
+apache2-mod_ssl
+apache2-mod_ldap
+apache2-mod_wsgi-py3

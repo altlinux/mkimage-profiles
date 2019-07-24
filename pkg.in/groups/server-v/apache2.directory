@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Apache Web Server
+Name[ru_RU]=Web-сервер Apache 2
+X-Alterator-PackageList=network/apache2
+X-Alterator-Required=no
+X-Alterator-Conflicts=network/nginx
+X-Alterator-Parent=server-v/500-network

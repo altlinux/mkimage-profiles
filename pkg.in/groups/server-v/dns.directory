@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=DNS Server
+Name[ru_RU]=Сервер DNS
+X-Alterator-PackageList=network/dns
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/500-network
+
+

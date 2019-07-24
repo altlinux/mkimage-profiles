@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=NGINX Web Server
+Name[ru_RU]=Web-сервер NGINX
+X-Alterator-PackageList=network/nginx
+X-Alterator-Required=no
+X-Alterator-Conflicts=network/apache2
+X-Alterator-Parent=server-v/500-network
+

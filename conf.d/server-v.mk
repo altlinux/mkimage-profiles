@@ -33,7 +33,7 @@ distro/server-v: container = $(addprefix server-v/,\
 	docker kubernetes rkt podman lxd)
 
 distro/server-v: network = $(addprefix server-v/,\
-	bird haproxy keepalived openvswitch freeipa-client)
+	apache2 nginx bird dhcp dns haproxy keepalived openvswitch freeipa-client)
 
 distro/server-v: monitoring = $(addprefix server-v/,\
 	zabbix-agent telegraf prometheus-node_exporter monit collectd nagios-nrpe)
