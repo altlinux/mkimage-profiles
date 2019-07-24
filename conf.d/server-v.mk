@@ -56,12 +56,13 @@ endif
 distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
 	@$(call add,BASE_LISTS,server-base openssh)
 
-distro/server-v: distro/.server-v-base +installer +systemd \
+distro/server-v: distro/.server-v-base +installer \
 	use/kernel/server use/init/systemd/multiuser \
 	use/services use/ntp/chrony \
 	use/server/base use/firmware use/firmware/cpu \
 	use/l10n/default/ru_RU use/install2/vnc \
 	use/install2/xfs use/install2/fat \
+	use/init/systemd \
 	use/net/etcnet use/net-ssh \
 	use/apt-conf/branch use/install2/repo \
 	use/fonts/install2 use/plymouth/install2 \
