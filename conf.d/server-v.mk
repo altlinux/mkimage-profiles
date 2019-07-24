@@ -59,12 +59,12 @@ distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
 distro/server-v: distro/.server-v-base +installer +systemd \
 	use/kernel/server use/init/systemd/multiuser \
 	use/services use/ntp/chrony \
-	use/server/base use/branding/complete use/firmware use/firmware/cpu \
+	use/server/base use/firmware use/firmware/cpu \
 	use/l10n/default/ru_RU use/install2/vnc \
 	use/install2/xfs use/install2/fat \
 	use/net/etcnet use/net-ssh \
 	use/apt-conf/branch use/install2/repo \
-	use/fonts/install2 \
+	use/fonts/install2 use/plymouth/install2 \
 	use/efi/shell +efi
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-9-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT Server-V 9.0.0 $(ARCH))
@@ -79,6 +79,10 @@ distro/server-v: distro/.server-v-base +installer +systemd \
 	@$(call add,INSTALL2_PACKAGES,fdisk xfsprogs btrfs-progs)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
+	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
+	@$(call add,THE_BRANDING,notes)
+	@$(call add,THE_BRANDING,alterator graphics)
+	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
