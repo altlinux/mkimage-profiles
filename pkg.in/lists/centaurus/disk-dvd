@@ -95,3 +95,6 @@ gsynaptics
 clamtk
 
 apcupsd
+
+urbackup-client
+urbackup-server
