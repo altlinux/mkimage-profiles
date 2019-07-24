@@ -63,11 +63,10 @@ distro/server-v: distro/.server-v-base \
 	use/apt-conf/branch use/install2/repo \
 	use/efi/shell +efi
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-9-,,$(IMAGE_NAME)))
-	@$(call set,META_VOL_ID,ALT 9.0 Server-V $$(IMAGE_FLAVOUR)/$(ARCH))
+	@$(call set,META_VOL_ID,ALT Server-V 9.0.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
-	@$(call set,META_VOL_ID,ALT 9.0 Server-V)
-	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
+	@$(call set,META_APP_ID,ALT Server-V 9.0.0 $(ARCH) $(shell date +%F))
 	@$(call set,DOCS,alt-server)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,INSTALLER,alt-server-v)
