@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Nagios NRPE
-Name[ru_RU]=Nagios NRPE
+Name=Agent Nagios NRPE
+Name[ru_RU]=Агент мониторинга Nagios NRPE
 Comment=NRPE Nagios Remote Plugin Executor
 Comment[ru_RU]=NRPE Удаленный запуск команд для Nagios
 X-Alterator-PackageList=monitoring/nagios-nrpe
