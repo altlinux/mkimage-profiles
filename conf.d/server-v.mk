@@ -40,7 +40,7 @@ distro/server-v: monitoring = $(addprefix server-v/,\
 # zabbix prometheus influxdb grafana
 
 distro/server-v: backup = $(addprefix server-v/,\
-	burp bacula)
+	bacula urbackup-client)
 
 distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
