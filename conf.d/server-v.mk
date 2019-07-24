@@ -56,11 +56,15 @@ endif
 distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
 	@$(call add,BASE_LISTS,server-base openssh)
 
-distro/server-v: distro/.server-v-base \
-	use/kernel/server use/init/systemd \
+distro/server-v: distro/.server-v-base +installer +systemd \
+	use/kernel/server use/init/systemd/multiuser \
 	use/services use/ntp/chrony \
-	use/server/base use/branding/complete use/firmware \
+	use/server/base use/branding/complete use/firmware use/firmware/cpu \
+	use/l10n/default/ru_RU use/install2/vnc \
+	use/install2/xfs use/install2/fat \
+	use/net/etcnet use/net-ssh \
 	use/apt-conf/branch use/install2/repo \
+	use/fonts/install2 \
 	use/efi/shell +efi
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-9-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT Server-V 9.0.0 $(ARCH))
@@ -97,7 +101,6 @@ endif
 	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
 	@$(call add,MAIN_GROUPS,server-v/800-logging $(logging))
 	@$(call add,THE_PROFILES,$(profiles) $(profiles_arch) minimal)
-	@$(call add,SERVICES_ENABLE,sshd)
 	@$(call add,SERVICES_ENABLE,libvirtd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,fstrim.timer)
