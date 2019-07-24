@@ -1,5 +1,5 @@
 codeblocks
-lazarus
+lazarus@X86
 qt-creator
 qt-creator-doc
 cmake
@@ -8,13 +8,14 @@ qt5-base-devel
 # Eclipse
 gambas-full@X86
 swi-prolog
-monodevelop
+monodevelop@X86
 # Texmacs
 wxMaxima
 octave
 freecad
 qcad
-openscad
+openscad@X86
+openscad@aarch64
 projectlibre
 qgis
 qgis-grass

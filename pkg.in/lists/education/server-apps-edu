@@ -16,7 +16,7 @@ mariadb-client
 
 # Utilities
 nano
-lsb
+lsb@X86
 apt-rsync
 apt-repo
 installer-feature-symlinks-from-sbin
