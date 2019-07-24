@@ -3,7 +3,7 @@ ifeq (distro,$(IMAGE_CLASS))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 
 distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
-        blogs emulators gnome-peer-to-peer freenx-server \
+        emulators freenx-server \
 	ipmi netinst sogo)
 
 distro/alt-server: monitoring = $(addprefix server-v/, 90-monitoring \

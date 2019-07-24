@@ -1,5 +1,5 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
-	10-alterator 20-server-apps 30-cups 50-freeipa 70-dev 80-desktop 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a graphics-editing gtk-dictionary mail-server-a mate mediawiki monitoring office owncloud pidgin publishing remmina scanning sound-editing vlc xorg domain-server freeipa-client samba)
+	10-alterator 20-server-apps  50-freeipa 70-dev 80-desktop 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mate mediawiki office owncloud pidgin vlc xorg domain-server freeipa-client)
 
 mixin/alt-server: +installer +systemd \
 	use/branding/complete use/control use/services \
@@ -43,5 +43,5 @@ mixin/alt-server: +installer +systemd \
 	@$(call add,DEFAULT_SERVICES_ENABLE,rpcbind sshd bind)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
-	@$(call set,META_VOL_ID,ALT Server)
-	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
+	@$(call set,META_VOL_ID,ALT Server 9.0 $(ARCH))
+	@$(call set,META_APP_ID,ALT Server 9.0 $(ARCH) $(shell date +%F))
