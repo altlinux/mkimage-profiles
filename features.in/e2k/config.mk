@@ -32,6 +32,7 @@ use/e2k/x11/101: use/e2k/x11/101/modesetting
 	@$(call add,MAIN_PACKAGES,xorg-drv-mga2 vivante_glx)
 
 use/e2k/install2: use/e2k
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-xorg-conf-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-fix-boot-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-fstrim-stage2)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,llvm)
