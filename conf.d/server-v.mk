@@ -30,7 +30,7 @@ distro/server-v: openstack = $(addprefix server-v/openstack/,\
 # storage
 
 distro/server-v: container = $(addprefix server-v/,\
-	docker kubernetes rkt podman lxd)
+	docker kubernetes podman lxd)
 
 distro/server-v: network = $(addprefix server-v/,\
 	apache2 nginx bird dhcp dns haproxy keepalived openvswitch freeipa-client)
