@@ -7,4 +7,4 @@ Comment=Modesetting driver for 1C+
 Comment[ru_RU]=Настройка видеодрайвера modesetting для 1С+
 X-Alterator-PackageList=workstation/e101-modesetting
 X-Alterator-Conflicts=workstation/e101-mga2
-X-Alterator-Required=yes
+X-Alterator-Required=no
