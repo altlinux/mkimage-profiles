@@ -8,8 +8,12 @@ use/firmware:
 
 use/firmware/full: use/firmware/server use/firmware/laptop; @:
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/firmware/cpu: use/firmware
 	@$(call add,THE_PACKAGES,firmware-intel-ucode iucode_tool)
+else
+use/firmware/cpu: use/firmware; @:
+endif
 
 use/firmware/server: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
