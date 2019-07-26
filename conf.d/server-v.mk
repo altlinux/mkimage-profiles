@@ -59,7 +59,7 @@ distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
 distro/server-v: distro/.server-v-base +installer \
 	use/kernel/server use/init/systemd/multiuser \
 	use/services use/ntp/chrony \
-	use/server/base use/firmware use/firmware/cpu \
+	use/server/virt use/firmware use/firmware/cpu \
 	use/l10n/default/ru_RU use/install2/vnc \
 	use/isohybrid \
 	use/install2/xfs use/install2/fat \
@@ -89,7 +89,6 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
-	@$(call add,BASE_KMODULES,ipset kvm xtables-addons kvdo)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-basic server-v/kvm)
 ifeq (,$(filter-out x86_64,$(ARCH)))

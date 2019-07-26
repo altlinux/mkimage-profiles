@@ -29,6 +29,12 @@ use/server/ovz: use/server/ovz-base
 	@$(call add,MAIN_KMODULES,staging)
 	@$(call add,BASE_LISTS,$(call tags,server openvz))
 
+use/server/virt: use/server use/kernel
+	@$(call add,BASE_PACKAGES,openssh)
+	@$(call set,STAGE1_KFLAVOUR,std-def)
+	@$(call set,KFLAVOURS,std-def)
+	@$(call add,THE_KMODULES,kvm)
+
 # NB: examine zabbix-preinstall package, initialization is NOT automatic!
 use/server/zabbix: use/server use/services use/control
 	@$(call add,THE_LISTS,$(call tags,server zabbix))
