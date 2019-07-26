@@ -61,6 +61,7 @@ distro/server-v: distro/.server-v-base +installer \
 	use/services use/ntp/chrony \
 	use/server/base use/firmware use/firmware/cpu \
 	use/l10n/default/ru_RU use/install2/vnc \
+	use/isohybrid \
 	use/install2/xfs use/install2/fat \
 	use/init/systemd \
 	use/net/etcnet use/net-ssh \
