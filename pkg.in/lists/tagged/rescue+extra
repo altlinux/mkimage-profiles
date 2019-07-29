@@ -31,7 +31,7 @@ lsmount
 lvm2
 mdadm
 ms-sys
-myrescue
+myrescue@X86
 parted
 recoverdm
 safecopy
@@ -73,7 +73,7 @@ agrep-tre
 enca
 findutils
 file
-ldd-requires
+ldd-requires@X86
 less
 lnav
 wdiff
@@ -94,7 +94,7 @@ xfsprogs
 # Compressed filesystem image
 clicfs-utils
 cloop-utils
-squashfsprogs
+squashfs-tools
 
 # Foreign filesystems
 afpfs-ng
@@ -113,14 +113,14 @@ fuse-funion
 fuse-zfs@X86
 hfsprogs
 ifuse
-libevt-tools
-libevtx-tools
-liblnk-tools
-libpff-tools
-libregf-tools
+libevt-tools@X86
+libevtx-tools@X86
+liblnk-tools@X86
+libpff-tools@X86
+libregf-tools@X86
 libuna-tools
 #libvshadow-tools
-libwrc-tools
+libwrc-tools@X86
 ntfs-3g
 ocfs2-tools
 vmfs-tools
@@ -160,7 +160,7 @@ fuse-lftpfs
 fuse-sshfs
 hostinfo
 hping2
-hping3
+hping3@X86
 httpry
 httpry-scripts
 iftop
@@ -223,13 +223,13 @@ gdb
 ltrace
 strace
 sysstat
-udis86
+udis86@X86
 
 # win32
-chntpw
-hivex
-scrounge-ntfs
-wabread
+chntpw@X86
+hivex@X86
+scrounge-ntfs@X86
+wabread@X86
 
 # Mobile
 android-tools
