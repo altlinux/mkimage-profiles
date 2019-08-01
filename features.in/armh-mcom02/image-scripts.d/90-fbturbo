@@ -1,0 +1,13 @@
+#!/bin/sh -x
+
+[ -d /etc/X11/xorg.conf.d ] || exit 0
+cat > /etc/X11/xorg.conf.d/10-monitor.conf << EOF
+Section "Monitor"
+    Identifier "Monitor0"
+EndSection
+
+Section "Device"
+    Identifier "Card0"
+    Driver "fbturbo"
+EndSection
+EOF
