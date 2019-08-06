@@ -42,8 +42,8 @@ mixin/alt-workstation: +systemd +pulse +nm \
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop bridge gpm)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
-	@$(call set,META_VOL_ID,ALT Workstation)
-	@$(call set,META_APP_ID,$(DISTRO_VERSION)/$(ARCH))
+	@$(call set,META_VOL_ID,ALT Workstation $(DISTRO_VERSION) $(ARCH))
+	@$(call set,META_APP_ID,ALT Workstation $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 	@$(call set,DOCS,alt-workstation)
 
 mixin/alt-workstation-install: +installer \
