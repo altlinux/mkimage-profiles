@@ -26,6 +26,7 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call add,DEFAULT_SERVICES_ENABLE,chronyd)
+	@$(call add,DEFAULT_SERVICES_ENABLE,crond)
 endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
