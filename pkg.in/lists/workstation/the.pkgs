@@ -9,7 +9,6 @@ gnome-software
 imagewriter
 firefox-esr-ru
 
-systemd-udev-console-fb@X86
 disable-usb-autosuspend@X86
 
 bluez
