@@ -1,6 +1,8 @@
 bacula9-client
 #alterator-bacula-client
 
+urbackup-client
+
 zabbix-agent
 alterator-zabbix-agent
 zabbix-agent-sudo
