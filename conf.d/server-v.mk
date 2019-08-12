@@ -90,6 +90,7 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
+	@$(call add,MAIN_LISTS,virt/extra.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-basic server-v/kvm)
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,server-v/120-pve server-v/pve)

@@ -1,0 +1,6 @@
+kernel-modules-ipset-std-def
+kernel-modules-xtables-addons-std-def@X86
+kernel-modules-kvdo-std-def
+kernel-modules-zfs-std-def@X86
+
+zfs-utils
