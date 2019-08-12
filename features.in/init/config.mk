@@ -1,5 +1,6 @@
 +sysvinit: use/init/sysv; @:
 +systemd: use/init/systemd/full; @:
++systemd-optimal: use/init/systemd/settings/optimal; @:
 +elogind: use/init/sysv/elogind; @:
 
 # NB: the list name MUST be identical to init package name
@@ -43,3 +44,15 @@ use/init/systemd/debug: use/init/systemd use/services
 # set multi-user target by default
 use/init/systemd/multiuser: use/init/systemd
 	@$(call add,STAGE2_BOOTARGS,systemd.unit=multi-user.target)
+
+use/init/systemd/settings/disable-dumpcore \
+	use/init/systemd/settings/disable-user-systemd-for-selinux \
+	use/init/systemd/settings/enable-log-to-tty12 \
+	use/init/systemd/settings/enable-showstatus: \
+	use/init/systemd/settings/%: use/init/systemd
+	@$(call add,THE_PACKAGES,systemd-settings-$*)
+
+use/init/systemd/settings/optimal: use/init/systemd/full \
+	use/init/systemd/settings/disable-dumpcore \
+	use/init/systemd/settings/enable-log-to-tty12 \
+	use/init/systemd/settings/enable-showstatus; @:
