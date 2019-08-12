@@ -29,3 +29,7 @@ nfs-clients
 su
 sudo
 update-kernel
+systemd-networkd
+systemd-container
+libnss-systemd
+libnss-resolve
