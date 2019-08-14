@@ -7,4 +7,8 @@ use/armh-mcom02: use/uboot use/tty/S0
 
 use/armh-mcom02/x11: use/armh-mcom02
 	@$(call add,THE_PACKAGES,xorg-drv-fbturbo)
+
+use/armh-mcom02/mali: use/armh-mcom02/x11
+	@$(call add,THE_KMODULES,mali)
+	@$(call add,THE_PACKAGES,libmali-mcom02)
 endif
