@@ -46,11 +46,11 @@ distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
 
 distro/server-v: profiles = $(addprefix server-v/,\
-	110-basic 131-opennebula-node 132-opennebula-server 141-openstack-node 142-openstack-controller 201-docker)
+	111-opennebula-node 112-opennebula-server 121-openstack-node 122-openstack-controller 140-basic 201-docker 999-minimal)
 
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/server-v: profiles_arch = $(addprefix server-v/,\
-	120-pve)
+	130-pve)
 endif
 
 distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
@@ -91,12 +91,12 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
-	@$(call add,MAIN_GROUPS,server-v/110-basic server-v/kvm)
+	@$(call add,MAIN_GROUPS,server-v/110-opennebula $(opennebula))
+	@$(call add,MAIN_GROUPS,server-v/120-openstack $(openstack))
 ifeq (,$(filter-out x86_64,$(ARCH)))
-	@$(call add,MAIN_GROUPS,server-v/120-pve server-v/pve)
+	@$(call add,MAIN_GROUPS,server-v/130-pve server-v/pve)
 endif
-	@$(call add,MAIN_GROUPS,server-v/130-opennebula $(opennebula))
-	@$(call add,MAIN_GROUPS,server-v/140-openstack $(openstack))
+	@$(call add,MAIN_GROUPS,server-v/140-basic server-v/kvm)
 	@$(call add,MAIN_GROUPS,server-v/200-container $(container))
 	@$(call add,MAIN_GROUPS,server-v/300-cluster server-v/corosync_pacemaker)
 	@$(call add,MAIN_GROUPS,server-v/400-storage)
@@ -110,7 +110,7 @@ endif
 	@$(call add,MAIN_GROUPS,server-v/600-monitoring $(monitoring))
 	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
 	@$(call add,MAIN_GROUPS,server-v/800-logging $(logging))
-	@$(call add,THE_PROFILES,$(profiles) $(profiles_arch) minimal)
+	@$(call add,THE_PROFILES,$(profiles) $(profiles_arch))
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,fstrim.timer)
 	@$(call add,DEFAULT_SERVICES_ENABLE,libvirtd)
@@ -122,5 +122,5 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd systemd-resolved)
 
-#	@$(call add,MAIN_GROUPS,server-v/111-cockpit $(cockpit))
+#	@$(call add,MAIN_GROUPS,server-v/141-cockpit $(cockpit))
 endif

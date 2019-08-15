@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Type=Directory
 Name=PVE Server
-Name[ru_RU]=PVE Сервер
+Name[ru_RU]=Сервер PVE
 X-Alterator-PackageList=virt/pve
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/kvm
-X-Alterator-Parent=server-v/120-pve
+X-Alterator-Parent=server-v/130-pve

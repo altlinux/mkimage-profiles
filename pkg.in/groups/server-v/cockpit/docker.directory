@@ -6,5 +6,5 @@ Name[ru_RU]=Управление контейнерами docker
 X-Alterator-PackageList=virt/cockpit/docker
 X-Alterator-Required=no
 X-Alterator-Depends=server-v/docker
-X-Alterator-Parent=server-v/111-cockpit
+X-Alterator-Parent=server-v/141-cockpit
 

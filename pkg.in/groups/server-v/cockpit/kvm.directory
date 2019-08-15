@@ -6,4 +6,4 @@ Name[ru_RU]=Управление виртуальными машинами KVM
 X-Alterator-PackageList=virt/cockpit/machines
 X-Alterator-Required=no
 X-Alterator-Depends=server-v/kvm
-X-Alterator-Parent=server-v/111-cockpit
+X-Alterator-Parent=server-v/141-cockpit

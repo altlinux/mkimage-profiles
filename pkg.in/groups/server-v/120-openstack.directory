@@ -4,6 +4,6 @@ Type=Directory
 Name=OpenStack
 Name[ru_RU]=OpenStack
 X-Alterator-Required=no
-X-Alterator-Conflicts=server-v/120-pve server-virt/130-opennebula
+X-Alterator-Conflicts=server-virt/110-opennebula server-v/130-pve
 Comment=OpenStack is a cloud operating system
 Comment[ru_RU]=Комплекс проектов для создания инфраструктурных облачных сервисов
