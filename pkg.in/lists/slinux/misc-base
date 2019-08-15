@@ -164,6 +164,8 @@ atril-gtk-pixbuf
 atril-gtk-xps
 stardict-gtk
 stardict-mueller7
+stardict-quick_en-ru
+stardict-quick_ru-en
 
 # *cloud
 nextcloud-client
