@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computing LXD Node
-Name[ru_RU]=Вычислительный узел LXD
+Name[ru_RU]=Узел LXD
 X-Alterator-PackageList=virt/opennebula/node-lxd
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/opennebula/server server-virt/opennebula/gui server-virt/opennebula/gate server-virt/opennebula/flow

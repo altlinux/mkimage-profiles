@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computing Node
-Name[ru_RU]=Вычислительный узел
+Name[ru_RU]=Сервер виртуализации KVM
 X-Alterator-PackageList=virt/openstack/compute
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/openstack-block server-virt/openstack-controller server-virt/openstack-network server-virt/openstack-storage

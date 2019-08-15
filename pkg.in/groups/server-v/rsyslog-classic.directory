@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Rsyslog-classic for /dev/log
-Name[ru_RU]=Rsyslog-classic для /dev/log
+Name=Rsyslog-classic
+Name[ru_RU]=Rsyslog-classic
 Comment=Classic syslog configuration with local logging to /var/log from /dev/log
 Comment[ru_RU]=Классический демон для локального логирования /dev/log
 X-Alterator-PackageList=logging/rsyslog-classic

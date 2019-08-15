@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=rkt
-Name[ru_RU]=rkt
+Name[ru_RU]=Управление контейнерами rkt
 X-Alterator-PackageList=container/rkt
 X-Alterator-Required=no
 X-Alterator-Parent=server-v/200-container

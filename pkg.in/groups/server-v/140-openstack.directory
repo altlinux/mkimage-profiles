@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=OpenStack Virtualization Solution
-Name[ru_RU]=Виртуализация OpenStack
+Name=OpenStack
+Name[ru_RU]=OpenStack
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/120-pve server-virt/130-opennebula
 Comment=OpenStack is a cloud operating system

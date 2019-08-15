@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Main OpenNebula daemon and scheduler
-Name[ru_RU]=Основной сервер Opennebula и планировщик
+Name[ru_RU]=Сервер Opennebula
 X-Alterator-PackageList=virt/opennebula/server
 X-Alterator-Required=no
 X-Alterator-Parent=server-v/130-opennebula

@@ -6,4 +6,3 @@ Name[ru_RU]=Сервер мониторинга Zabbix
 X-Alterator-PackageList=tagged/server+zabbix
 X-Alterator-Required=no
 X-Alterator-Parent=server-v/600-monitoring
-
