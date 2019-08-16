@@ -53,28 +53,21 @@ distro/server-v: profiles_arch = $(addprefix server-v/,\
 	130-pve)
 endif
 
-distro/.server-v-base: distro/.installer use/syslinux/ui/menu use/memtest
-	@$(call add,BASE_LISTS,server-base openssh)
-
-distro/server-v: distro/.server-v-base +installer \
-	use/kernel/server use/init/systemd/multiuser \
-	use/services use/ntp/chrony \
-	use/server/virt use/firmware use/firmware/cpu \
-	use/l10n/default/ru_RU use/install2/vnc/full \
-	use/install2/net use/install2/autoinstall \
-	use/isohybrid \
-	use/install2/xfs use/install2/fat \
+distro/.server-v-base: distro/.base distro/.installer \
+	use/efi/shell +efi use/bootloader/grub \
+	use/memtest \
 	use/init/systemd \
+	use/services use/control \
+	use/l10n/default/ru_RU use/fonts/install2 \
+	use/plymouth/install2 use/isohybrid \
+	use/install2/vnc/full \
+	use/install2/xfs use/install2/fat \
+	use/kernel/server use/init/systemd/multiuser \
+	use/firmware use/firmware/cpu \
 	use/net/etcnet use/net-ssh \
-	use/apt-conf/branch use/install2/repo \
-	use/fonts/install2 use/plymouth/install2 \
-	use/efi/shell +efi
-	@$(call set,IMAGE_FLAVOUR,$(subst alt-9-,,$(IMAGE_NAME)))
-	@$(call set,META_VOL_ID,ALT Server-V 9.0.0 $(ARCH))
-	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_VOL_SET,ALT)
-	@$(call set,META_APP_ID,ALT Server-V 9.0.0 $(ARCH) $(shell date +%F))
-	@$(call set,DOCS,alt-server)
+	use/server/virt
+	@$(call add,BASE_LISTS,server-base openssh)
+	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call set,BRANDING,alt-server)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,INSTALLER,alt-server-v)
@@ -90,6 +83,17 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
+
+distro/server-v: distro/.server-v-base +installer \
+	use/ntp/chrony \
+	use/install2/net use/install2/autoinstall \
+	use/apt-conf/branch use/install2/repo
+	@$(call set,IMAGE_FLAVOUR,$(subst alt-9-,,$(IMAGE_NAME)))
+	@$(call set,META_VOL_ID,ALT Server-V 9.0.0 $(ARCH))
+	@$(call set,META_PUBLISHER,BaseALT Ltd)
+	@$(call set,META_VOL_SET,ALT)
+	@$(call set,META_APP_ID,ALT Server-V 9.0.0 $(ARCH) $(shell date +%F))
+	@$(call set,DOCS,alt-server)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-opennebula $(opennebula))
