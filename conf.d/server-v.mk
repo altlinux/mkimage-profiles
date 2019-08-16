@@ -60,7 +60,7 @@ distro/server-v: distro/.server-v-base +installer \
 	use/kernel/server use/init/systemd/multiuser \
 	use/services use/ntp/chrony \
 	use/server/virt use/firmware use/firmware/cpu \
-	use/l10n/default/ru_RU use/install2/vnc \
+	use/l10n/default/ru_RU use/install2/vnc/full \
 	use/isohybrid \
 	use/install2/xfs use/install2/fat \
 	use/init/systemd \
