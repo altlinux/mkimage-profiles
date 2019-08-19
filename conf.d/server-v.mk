@@ -62,7 +62,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/isohybrid \
 	use/install2/vnc/full \
 	use/install2/xfs use/install2/fat \
-	use/kernel/server use/init/systemd/multiuser \
+	use/kernel/server \
 	use/firmware use/firmware/cpu \
 	use/net/etcnet use/net-ssh \
 	use/server/virt use/docs/license
