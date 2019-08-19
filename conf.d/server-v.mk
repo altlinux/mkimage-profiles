@@ -46,7 +46,7 @@ distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
 
 distro/server-v: profiles = $(addprefix server-v/,\
-	111-opennebula-node 112-opennebula-server 121-openstack-node 122-openstack-controller 140-basic 201-docker 999-minimal)
+	111-opennebula-node 112-opennebula-server 121-openstack-node 122-openstack-controller 140-basic 201-docker)
 
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/server-v: profiles_arch = $(addprefix server-v/,\
@@ -115,7 +115,7 @@ endif
 	@$(call add,MAIN_GROUPS,server-v/600-monitoring $(monitoring))
 	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
 	@$(call add,MAIN_GROUPS,server-v/800-logging $(logging))
-	@$(call add,THE_PROFILES,$(profiles) $(profiles_arch))
+	@$(call add,THE_PROFILES,$(profiles) $(profiles_arch) minimal)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,fstrim.timer)
 	@$(call add,DEFAULT_SERVICES_ENABLE,libvirtd)
