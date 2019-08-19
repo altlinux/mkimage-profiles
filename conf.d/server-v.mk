@@ -65,7 +65,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/kernel/server use/init/systemd/multiuser \
 	use/firmware use/firmware/cpu \
 	use/net/etcnet use/net-ssh \
-	use/server/virt
+	use/server/virt use/docs/license
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call set,BRANDING,alt-server)
@@ -76,9 +76,8 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
-	@$(call add,THE_BRANDING,notes)
 	@$(call add,THE_BRANDING,alterator graphics)
-	@$(call add,THE_BRANDING,indexhtml)
+	@$(call add,THE_BRANDING,indexhtml slideshow)
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
