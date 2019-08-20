@@ -12,10 +12,12 @@ kver="$(rpm -qa 'kernel-image*' \
 
 cd /boot
 
-make-initrd -N -k "$kver" AUTODETECT= \
-  FEATURES+="$GLOBAL_VM_INITRDFEATURES" \
-  MODULES_ADD+="$GLOBAL_VM_INITRDMODULES" \
-  || { echo "** Error: make-initrd failed" >&2; exit 1; }
+for KVER in $kver; do
+	make-initrd -N -k "$KVER" AUTODETECT= \
+	  FEATURES+="$GLOBAL_VM_INITRDFEATURES" \
+	  MODULES_ADD+="$GLOBAL_VM_INITRDMODULES" \
+	  || { echo "** Error: make-initrd failed" >&2; exit 1; }
+done
 
 # NB: e2k kernel builds "image" instead of "vmlinuz"
 [ -f vmlinuz-$kver ] && ln -s vmlinuz-$kver vmlinuz ||:
