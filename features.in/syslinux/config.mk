@@ -1,9 +1,9 @@
 # default is plain text prompt
 # NB: might be usbflash-ready hybrid iso
 
-# on ppc64le syslinux feature is used only to generate config
+# on ppc64le, aarch64 syslinux feature is used only to generate config
 # (it's converted into grub.cfg later)
-ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 ppc64le aarch64,$(ARCH)))
 
 use/syslinux: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 	@$(call add_feature)
@@ -39,7 +39,7 @@ use/syslinux/%.com use/syslinux/%.c32: use/syslinux
 use/syslinux/%.cfg: use/syslinux
 	@$(call add,SYSLINUX_CFG,$*)
 
-ifeq (,$(filter-out ppc64le,$(ARCH)))
+ifeq (,$(filter-out ppc64le aarch64,$(ARCH)))
 use/syslinux/localboot.cfg use/syslinux/removable.cfg use/syslinux/lateboot.cfg use/syslinux/sdab.cfg: use/syslinux; @:
 use/syslinux/install-vnc-connect.cfg: use/syslinux/grub-install-vnc-connect.cfg; @:
 use/syslinux/install-vnc-listen.cfg: use/syslinux/grub-install-vnc-listen.cfg; @:

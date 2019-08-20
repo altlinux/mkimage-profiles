@@ -5,7 +5,7 @@
 
 cd "$WORKDIR"
 
-cfgs="$(find syslinux boot/grub -name '*.cfg')"
+cfgs="$(find syslinux boot/grub EFI/BOOT -name '*.cfg')"
 [ -n "$cfgs" ] || {
 	echo "${0##*/}: did not find any config under /syslinux or /boot/grub" >&2
 	exit 1
