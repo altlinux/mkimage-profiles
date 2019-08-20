@@ -56,7 +56,7 @@ endif
 distro/.server-v-base: distro/.base distro/.installer \
 	use/efi/shell +efi use/bootloader/grub \
 	use/memtest \
-	use/init/systemd \
+	+systemd-optimal \
 	use/services use/control \
 	use/l10n/default/ru_RU use/fonts/install2 \
 	use/isohybrid \
