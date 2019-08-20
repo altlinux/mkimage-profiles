@@ -36,7 +36,7 @@ mixin/alt-workstation: +systemd +pulse +nm \
 	@$(call add,CLEANUP_PACKAGES,xterm)
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
-	@$(call add,SERVICES_ENABLE,sshd)
+	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2 bluetoothd libvirtd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,fstrim.timer)
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop bridge gpm)
