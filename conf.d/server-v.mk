@@ -65,14 +65,16 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/kernel/server \
 	use/firmware use/firmware/cpu \
 	use/net/etcnet use/net-ssh \
+	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
+	use/stage2/rtc use/stage2/scsi use/stage2/usb \
 	use/server/virt use/docs/license
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call set,BRANDING,alt-server)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,INSTALLER,alt-server-v)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
-	@$(call add,INSTALL2_PACKAGES,fdisk xfsprogs btrfs-progs)
+	@$(call add,INSTALL2_PACKAGES,fdisk xfsprogs btrfs-progs file)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
