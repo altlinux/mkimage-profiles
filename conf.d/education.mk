@@ -37,9 +37,10 @@ distro/alt-education: distro/.installer mixin/education \
 	+plymouth +wireless \
 	use/install2/fonts
 	@$(call set,INSTALLER,education)
-	@$(call set,META_APP_ID,ALT Education)
-	@$(call set,META_VOL_SET,ALT)
+	@$(call set,META_VOL_ID,ALT Education 9.0beta2 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
+	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
+	@$(call set,META_VOL_SET,ALT)
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
