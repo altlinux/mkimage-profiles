@@ -8,5 +8,7 @@ kver="$(rpm -qa 'kernel-image*' \
 
 [ -n "$kver" ] || { echo "** unable to deduce kernel version" >&2; exit 1; }
 
-/sbin/installkernel --uboot --keep-initrd "$kver"
+for KVER in $kver; do
+	/sbin/installkernel --uboot --keep-initrd "$KVER"
+done
 printf 'LABEL=ROOT\t/\text4\tdefaults\t1 1\n' >> /etc/fstab
