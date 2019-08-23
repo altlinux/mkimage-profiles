@@ -1,0 +1,35 @@
+#!/bin/sh
+# setup X11 to use it with a VNC
+
+CFG=/root/.vnc/
+
+[ -d "$CFG" ] || mkdir -p "$CFG"
+
+x11vnc -storepasswd alt "$CFG"/passwd
+
+cat > /etc/X11/xorg.conf.d/51-dummy.conf << EOF
+Section "Device"
+    Identifier "Configured Video Device"
+    Driver "dummy"
+    VideoRam 16384
+EndSection
+
+Section "Monitor"
+    Identifier "Configured Monitor"
+    HorizSync 5.0 - 1000.0
+    VertRefresh 5.0 - 200.0
+EndSection
+
+Section "Screen"
+    Identifier "Default Screen"
+    Monitor "Configured Monitor"
+    Device "Configured Video Device"
+    DefaultDepth 24
+    SubSection "Display"
+        Viewport 0 0
+        Depth 24
+        Virtual 1024 768
+    EndSubSection
+EndSection
+
+EOF

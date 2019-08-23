@@ -1,0 +1,4 @@
+This feature allows to use X11 through VNC server.  It adds x11vnc package and
+sets default password to alt.  Another thing is that this feature adds dummy
+video adapter configuration to the /etc/X11/xorg.conf.d/. x11vnc becomes
+default service.
