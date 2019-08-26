@@ -41,7 +41,8 @@ vm/alt-p9-cloud: vm/cloud-systemd mixin/p9; @:
 vm/alt-p9-opennebula: vm/opennebula-systemd mixin/p9; @:
 
 # universal builds rootfs and image for all platforms
-vm/alt-p9-jeos-systemd vm/alt-p9-jeos-sysv \
+vm/alt-p9-jeos-systemd vm/alt-p9-jeos-sysv vm/alt-p9-builder \
+	vm/alt-p9-cinnamon vm/alt-p9-kde5 \
 	vm/alt-p9-icewm vm/alt-p9-lxde \
 	vm/alt-p9-lxqt vm/alt-p9-mate \
 	vm/alt-p9-xfce: \
