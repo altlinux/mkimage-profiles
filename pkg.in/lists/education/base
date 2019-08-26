@@ -205,3 +205,6 @@ recoll-full
 # Append all modules from xscreensaver
 desktop-screensaver-modules-xscreensaver
 desktop-screensaver-modules-xscreensaver-gl
+
+# Use first user in first time of lightdm run
+installer-feature-lightdm-stage3
