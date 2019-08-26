@@ -13,16 +13,21 @@ use/x11:
 	@$(call add,THE_PACKAGES,$$(NVIDIA_PACKAGES) $$(RADEON_PACKAGES))
 
 # x86: free drivers for various hardware (might lack acceleration)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
+	use/x11/armsoc
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 else
 use/x11/xorg: use/x11; @:
 endif
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/x11/intel: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-intel)
 	@$(call add,THE_PACKAGES,xorg-dri-intel)	### #25044
+else
+use/x11/intel: use/x11; @:
+endif
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 use/x11/armsoc: use/x11 use/firmware
