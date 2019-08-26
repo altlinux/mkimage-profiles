@@ -55,4 +55,14 @@ vm/alt-p9-cinnamon-tegra vm/alt-p9-kde5-tegra \
 	vm/alt-p9-%-tegra: vm/regular-%-tegra mixin/p9; @:
 endif
 
+ifeq (,$(filter-out armh,$(ARCH)))
+vm/alt-p9-lxde-mcom02 vm/alt-p9-lxqt-mcom02 \
+	vm/alt-p9-mate-mcom02 vm/alt-p9-xfce-mcom02: \
+	vm/alt-p9-%-mcom02: vm/regular-%-mcom02 mixin/p9; @:
+
+vm/alt-p9-lxde-mcom02-mali vm/alt-p9-lxqt-mcom02-mali \
+	vm/alt-p9-mate-mcom02-mali vm/alt-p9-xfce-mcom02-mali: \
+	vm/alt-p9-%-mcom02-mali: vm/regular-%-mcom02-mali mixin/p9; @:
+endif
+
 endif
