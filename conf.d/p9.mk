@@ -65,4 +65,23 @@ vm/alt-p9-lxde-mcom02-mali vm/alt-p9-lxqt-mcom02-mali \
 	vm/alt-p9-%-mcom02-mali: vm/regular-%-mcom02-mali mixin/p9; @:
 endif
 
+ifeq (,$(filter-out mipsel,$(ARCH)))
+vm/tavolga-alt-p9-jeos-systemd vm/tavolga-alt-p9-jeos-sysv \
+	vm/tavolga-alt-p9-builder: \
+	vm/tavolga-alt-p9-%: vm/tavolga-regular-% mixin/p9; @:
+
+vm/tavolga-alt-p9-lxde vm/tavolga-alt-p9-lxqt \
+	vm/tavolga-alt-p9-mate vm/tavolga-alt-p9-xfce \
+	vm/tavolga-alt-p9-icewm: \
+	vm/tavolga-alt-p9-%: vm/tavolga-regular-% mixin/p9; @:
+
+vm/bfk3-alt-p9-jeos-systemd vm/bfk3-alt-p9-jeos-sysv \
+	vm/bfk3-alt-p9-builder: \
+	vm/bfk3-alt-p9-%: vm/bfk3-regular-% mixin/p9; @:
+
+vm/bfk3-alt-p9-lxde vm/bfk3-alt-p9-lxqt vm/bfk3-alt-p9-mate \
+	vm/bfk3-alt-p9-xfce vm/bfk3-alt-p9-icewm: \
+	vm/bfk3-alt-p9-%: vm/bfk3-regular-% mixin/p9; @:
+endif
+
 endif
