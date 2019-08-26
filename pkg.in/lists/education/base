@@ -208,3 +208,7 @@ desktop-screensaver-modules-xscreensaver-gl
 
 # Use first user in first time of lightdm run
 installer-feature-lightdm-stage3
+
+systemd-settings-enable-showstatus
+systemd-settings-disable-dumpcore
+systemd-settings-enable-log-to-tty12
