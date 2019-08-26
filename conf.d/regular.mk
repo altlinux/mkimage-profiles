@@ -28,7 +28,7 @@ distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm \
-	use/syslinux/ui/gfxboot use/firmware/laptop +systemd
+	use/syslinux/ui/gfxboot use/firmware/laptop +systemd-optimal
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call set,KFLAVOURS,std-def)
