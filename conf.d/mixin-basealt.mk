@@ -47,11 +47,11 @@ mixin/alt-workstation: +systemd +pulse +nm \
 	@$(call set,DOCS,alt-workstation)
 
 mixin/alt-workstation-install: +installer \
-	use/install2/fs use/install2/fat use/install2/vnc
+	use/install2/fat use/install2/vnc
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,INSTALLER,altlinux-desktop)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
-	@$(call add,INSTALL2_PACKAGES,xfsprogs btrfs-progs)
+	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,MAIN_GROUPS,$(workstation_groups))
