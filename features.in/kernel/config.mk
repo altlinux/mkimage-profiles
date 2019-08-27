@@ -73,6 +73,11 @@ endif
 ifeq (,$(filter-out aarch64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,meson-gx-mmc)
 	@$(call add,VM_INITRDMODULES,nvmem_meson_efuse)
+	@$(call add,VM_INITRDMODULES,pcie-rockchip-host phy-rockchip-pcie)
+	@$(call add,VM_INITRDMODULES,rk808 i2c-rk3x sdhci-of-arasan sdhci)
+	@$(call add,VM_INITRDMODULES,dw_mmc dw_mmc-rockchip phy-rockchip-emmc)
+	@$(call add,VM_INITRDMODULES,pinctrl-rk805 rockchip-io-domain)
+	@$(call add,VM_INITRDMODULES,pwm-rockchip rk808-regulator)
 endif
 ifeq (,$(filter-out armh,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,sdhci_dove sdhci_esdhc_imx)
