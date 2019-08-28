@@ -10,7 +10,7 @@ use/kernel:
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call try,KFLAVOURS,elbrus-def)
 else
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out armh,$(ARCH)))
 	@$(call try,KFLAVOURS,mp)
 else
 ifeq (,$(filter-out riscv64,$(ARCH)))
