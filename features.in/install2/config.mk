@@ -8,7 +8,6 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
 	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-create-ghost-directories)
 	@$(call add,BASE_PACKAGES,branding-$$(BRANDING)-release)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules)	# for guile22
