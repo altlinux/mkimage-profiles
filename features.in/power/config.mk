@@ -11,10 +11,11 @@ use/power/acpi: use/power
 	@$(call add,DEFAULT_SERVICES_ENABLE,acpid)
 
 use/power/acpi/button: use/power/acpi
-	@$(call add,COMMON_PACKAGES,acpid-events-power)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,COMMON_PACKAGES,acpid-events-e2k)
 	@$(call add,DEFAULT_SERVICES_ENABLE,sysfs)
+else
+	@$(call add,COMMON_PACKAGES,acpid-events-power)
 endif
 
 use/power/acpi/powersave: use/power/acpi
