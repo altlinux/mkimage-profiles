@@ -54,8 +54,8 @@ distro/server-v: profiles_arch = $(addprefix server-v/,\
 endif
 
 distro/.server-v-base: distro/.base distro/.installer \
-	use/efi/shell +efi use/bootloader/grub \
-	use/memtest \
+	use/efi/shell +efi use/bootloader/grub use/efi/refind \
+	use/memtest use/rescue/base \
 	+systemd-optimal \
 	use/services use/control \
 	use/l10n/default/ru_RU use/fonts/install2 \
@@ -89,6 +89,7 @@ distro/server-v: distro/.server-v-base +installer \
 	use/ntp/chrony \
 	use/install2/net use/install2/autoinstall \
 	use/apt-conf/branch use/install2/repo
+	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-9-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT Server-V 9.0.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
