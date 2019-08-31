@@ -76,7 +76,7 @@ use/install2/net: use/install2
 
 # for autoinstall
 use/install2/autoinstall:
-	@$(call add,INSTALL2_PACKAGES,curl)
+	@$(call add,INSTALL2_PACKAGES,alterator-postinstall)
 	@$(call add,BASE_PACKAGES,alterator-postinstall)
 
 # NB: sort of conflicts with use/install2/cleanup/vnc
