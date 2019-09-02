@@ -1,4 +1,4 @@
-use/mipsel-bfk3: use/kernel
+use/mipsel-bfk3: use/kernel use/tty/S0
 	@$(call add_feature)
 	@$(call set,KFLAVOURS,bfk3-def)
 	@$(call set,VM_FSTYPE,ext2)
