@@ -142,6 +142,7 @@ mixin/cloud-init:
 	@$(call add,BASE_PACKAGES,cloud-init)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-init cloud-init-local)
+	@$(call set,GLOBAL_NET_ETH,)
 
 mixin/opennebula-context:
 	@$(call add,BASE_PACKAGES,opennebula-context)
