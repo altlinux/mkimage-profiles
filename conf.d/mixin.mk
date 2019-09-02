@@ -81,8 +81,7 @@ mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck
 	@$(call add,THE_BRANDING,graphics)
 
 mixin/regular-cinnamon: use/x11/cinnamon \
-	use/fonts/ttf/google use/net/nm/mmgui use/im
-	@$(call add,THE_PACKAGES,thunderbird-ru)	### l10n
+	use/fonts/ttf/google use/net/nm/mmgui use/im; @:
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
