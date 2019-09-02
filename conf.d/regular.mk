@@ -125,15 +125,13 @@ distro/regular-gnustep: distro/.regular-sysv \
 distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
-distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce \
-	use/x11/xfce/full use/domain-client
+distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 	@$(call set,KFLAVOURS,un-def)
 
-distro/regular-xfce-sysv: distro/.regular-sysv-gtk \
-	mixin/regular-xfce mixin/regular-xfce-sysv; @:
+distro/regular-xfce-sysv: distro/.regular-sysv-gtk mixin/regular-xfce-sysv; @:
 
 distro/regular-sysv-xfce: distro/.regular-install-x11-full \
-	mixin/regular-xfce mixin/regular-xfce-sysv; @:
+	mixin/regular-xfce-sysv; @:
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
 distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde; @:
@@ -141,10 +139,9 @@ distro/regular-lxde-sysv: distro/.regular-sysv-gtk mixin/regular-lxde; @:
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
-distro/regular-mate: distro/.regular-gtk mixin/regular-mate use/domain-client
-	@$(call add,LIVE_LISTS,$(call tags,base smartcard))
+distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
 
-distro/regular-mate-sysv: distro/.regular-sysv-gtk mixin/regular-mate; @:
+distro/regular-mate-sysv: distro/.regular-sysv-gtk mixin/mate-base; @:
 
 distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
 

@@ -90,12 +90,15 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/regular-xfce: use/x11/xfce use/x11/gtk/nm +nm \
+mixin/xfce-base: use/x11/xfce use/x11/gtk/nm +nm \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
 	@$(call add,THE_PACKAGES,xfce-polkit)
 	@$(call add,THE_BRANDING,xfce-settings)
 
-mixin/regular-xfce-sysv: \
+mixin/regular-xfce: mixin/xfce-base use/x11/xfce/full \
+	use/domain-client; @:
+
+mixin/regular-xfce-sysv: mixin/xfce-base \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
 	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
@@ -114,8 +117,11 @@ mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
 mixin/regular-lxqt: use/x11/lxqt use/x11/gtk/nm +nm
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/regular-mate: use/x11/mate use/fonts/ttf/google use/x11/gtk/nm +nm
+mixin/mate-base: use/x11/mate use/fonts/ttf/google use/x11/gtk/nm +nm
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
+
+mixin/regular-mate: mixin/mate-base use/domain-client
+	@$(call add,THE_LISTS,$(call tags,base smartcard))
 
 mixin/office: use/fonts/ttf/google use/fonts/ttf/xo
 	@$(call add,THE_LISTS,$(call tags,desktop && (cups || office)))
