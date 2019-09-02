@@ -69,4 +69,6 @@ vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
 vm/alt-workstation-tegra: vm/alt-workstation use/aarch64-tegra; @:
 
 endif
+vm/alt-workstation-cloud: vm/alt-p9-cloud use/x11/lightdm/gtk \
+	mixin/alt-workstation
 endif
