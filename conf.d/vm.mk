@@ -2,10 +2,18 @@
 ifeq (vm,$(IMAGE_CLASS))
 
 # NB: interactivesystem pulls in network-config-subsystem anyways
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 vm/bare: vm/.base-lilo +sysvinit
+else
+vm/bare: vm/.bare +sysvinit
+endif
 	@$(call add,BASE_PACKAGES,apt)
 
+ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
 vm/systemd: vm/.base-grub +systemd
+else
+vm/systemd: vm/.bare +systemd
+endif
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
 	@$(call add,BASE_PACKAGES,apt)
 
