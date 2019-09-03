@@ -256,16 +256,17 @@ distro/regular-server-lxd: distro/.regular-bare \
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-net-eth)
 
-distro/regular-engineering: distro/regular-lxde use/live/ru
-	@$(call add,THE_LISTS,$(call tags,engineering desktop))
-	@$(call add,THE_LISTS,$(call tags,desktop sane))
-	@$(call add,THE_LISTS,$(call tags,cups desktop))
-	@$(call add,THE_PACKAGES,libreofficekit LibreOffice-gnome LibreOffice-langpack-ru)
-	@$(call add,THE_PACKAGES,LibreOffice-mimetypes java)
-	@$(call add,THE_PACKAGES,gnome-disk-utility)
-	@$(call add,THE_KMODULES,staging)
-	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
-	@$(call add,DEFAULT_SERVICES_ENABLE,ModemManager)
+distro/regular-engineering: distro/regular-lxde use/live/ru \
+	use/office/LibreOffice/gtk3 use/office/LibreOffice/lang \
+	use/office/LibreOffice/still
+	@$(call add,THE_LISTS,engineering/2d-cad)
+	@$(call add,THE_LISTS,engineering/3d-cad)
+	@$(call add,THE_LISTS,engineering/3d-printer)
+	@$(call add,THE_LISTS,engineering/eda)
+	@$(call add,THE_LISTS,engineering/cam)
+	@$(call add,THE_LISTS,engineering/cnc)
+	@$(call add,THE_LISTS,engineering/apcs)
+	@$(call add,THE_LISTS,engineering/scada)
 
 endif
 
