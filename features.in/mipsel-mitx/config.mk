@@ -1,4 +1,4 @@
-use/mipsel-mitx: use/kernel
+use/mipsel-mitx: use/kernel use/tty/S0
 	@$(call add_feature)
 	@$(call set,KFLAVOURS,mitx-def)
 
