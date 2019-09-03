@@ -1,22 +1,20 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-
 distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
         emulators freenx-server \
-	ipmi netinst sogo)
-
-distro/alt-server: monitoring = $(addprefix server-v/, 90-monitoring \
-	zabbix-agent telegraf prometheus-node_exporter monit collectd nagios-nrpe)
+	ipmi netinst sogo 80-desktop mate office pidgin vlc xorg)
 
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
        ganeti freeipa-server v12n-server)
+distro/alt-server: use/efi/refind use/memtest +efi
+endif
 endif
 
 # FIXME: generalize vm-profile
-distro/alt-server: distro/.base mixin/alt-server +efi +vmguest \
-	use/efi/refind use/memtest use/bootloader/grub use/rescue/base \
+distro/alt-server: distro/.base mixin/alt-server +vmguest \
+	use/bootloader/grub use/rescue/base \
 	use/docs/license
 	@$(call add,MAIN_GROUPS,$(server_groups_x86))
 	@$(call add,MAIN_GROUPS,$(server_groups_x86_64))
@@ -28,8 +26,8 @@ distro/alt-server: distro/.base mixin/alt-server +efi +vmguest \
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
-
-endif
+distro/alt-server: monitoring = $(addprefix server-v/, 90-monitoring \
+	zabbix-agent telegraf prometheus-node_exporter monit collectd nagios-nrpe)
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 

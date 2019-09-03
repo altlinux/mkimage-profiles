@@ -27,7 +27,7 @@ gear
 hasher
 help2man
 indent
-john
+john@X86
 ltrace
 patchutils
 srpmcmp
@@ -65,7 +65,7 @@ mar
 mkisofs
 propagator
 squashfsprogs
-syslinux
+syslinux@X86
 
 # kernel
 kernel-build-tools
@@ -78,7 +78,7 @@ acct
 adjtimex
 apt-scripts
 autossh
-cpuburn
+cpuburn@X86
 fhs
 mtree
 vlock
@@ -149,7 +149,7 @@ rrd-perl rrd-tcl rrd-utils
 #heartbeat
 
 # force@
-bonnie
+bonnie@X86
 bridge-utils
 ccze
 ddrescue
@@ -164,9 +164,8 @@ iptstate
 #spamassassin
 lshw
 lsof
-make-initrd-ucode
-iucode_tool
-firmware-intel-ucode
+make-initrd-ucode@X86
+firmware-intel-ucode@X86
 #mod_geoip
 p0f
 star

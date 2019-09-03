@@ -65,7 +65,7 @@ screen
 perl-Crypt-Rijndael
 
 #needed for crypto
-lsb
+#lsb
 python-module-Crypto
 
 postgresql-jdbc
