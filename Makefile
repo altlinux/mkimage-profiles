@@ -66,6 +66,8 @@ SHELL = /bin/bash
 			if [ -n "$$REPORT" ]; then \
 				$(MAKE) -f reports.mk ARCH=$$ARCH; \
 			fi; \
+		else \
+			exit 1; \
 		fi; \
 	done; \
 	if [ "$$n" -lt "$(NUM_TARGETS)" ]; then say; fi
