@@ -58,7 +58,7 @@ distro/.regular-jeos-base: distro/.regular-bare +sysvinit \
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
-	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console)
+	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console su agetty)
 	@$(call add,THE_LISTS,openssh)
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
