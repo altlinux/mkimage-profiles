@@ -27,7 +27,7 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 	@$(call add,BASE_PACKAGES,su)
 
 # vm/net or vm/systemd-net
-vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm
+vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm use/tty/S0
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
 
 vm/cloud-sysv: vm/net mixin/cloud-init use/vmguest/kvm use/power/acpi/button; @:
