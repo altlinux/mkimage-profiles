@@ -72,7 +72,6 @@ postfix
 openntpd
 irqbalance
 cgroup
-tuned@X86
 
 # security
 openssl
