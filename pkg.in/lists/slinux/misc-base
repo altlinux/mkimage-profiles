@@ -8,7 +8,6 @@ strace
 anacron
 os-prober
 make-initrd-lvm
-dhcp-client
 shadow-change
 chrony
 
