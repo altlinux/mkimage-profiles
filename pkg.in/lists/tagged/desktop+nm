@@ -3,3 +3,4 @@ NetworkManager-applet-gtk
 NetworkManager-openvpn-gtk
 NetworkManager-pptp-gtk
 NetworkManager-vpnc-gtk
+NetworkManager-l2tp-gtk

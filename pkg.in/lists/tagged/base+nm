@@ -3,8 +3,6 @@ NetworkManager
 NetworkManager-vpnc
 NetworkManager-openvpn
 NetworkManager-pptp
-
-# this one pulls strongswan, a bit too much?
-#NetworkManager-l2tp
+NetworkManager-l2tp
 
 usb-modeswitch
