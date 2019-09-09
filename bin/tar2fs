@@ -224,7 +224,11 @@ tar -C "$ROOTFS" --numeric-owner -xf "$TAR"
 for i in /dev /proc /sys; do mount --bind "$i" "$ROOTFS$i"; done
 
 # loop device so lilo could work...
-echo "$ROOTDEV / $ROOTFSTYPE relatime 1 1" >> "$ROOTFS/etc/fstab"
+if grep -qe "[[:space:]]/[[:space:]]" "$ROOTFS/etc/fstab"; then \
+	sed -i "s/LABEL=ROOT/$ROOTDEV/" "$ROOTFS/etc/fstab"
+else
+	echo "$ROOTDEV / $ROOTFSTYPE relatime 1 1" >> "$ROOTFS/etc/fstab"
+fi
 
 # target device at once
 if [ -n "$BOOTPART" ]; then
