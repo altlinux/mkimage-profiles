@@ -152,7 +152,7 @@ distro/regular-enlightenment-sysv: distro/.regular-sysv-gtk \
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
-distro/regular-gnome3: distro/.regular-desktop +plymouth +nm \
+distro/regular-gnome3: distro/.regular-desktop +plymouth +nm-gtk \
 	use/x11/gnome3 use/browser/epiphany use/fonts/ttf/redhat
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)

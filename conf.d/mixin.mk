@@ -70,7 +70,7 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
 	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
-mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm
+mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,regular icewm))
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
 	@$(call add,THE_PACKAGES,icewm-startup-networkmanager)
@@ -80,7 +80,7 @@ mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck
 	@$(call add,THE_BRANDING,graphics)
 
-mixin/regular-cinnamon: use/x11/cinnamon \
+mixin/regular-cinnamon: use/x11/cinnamon +nm-gtk \
 	use/fonts/ttf/google use/net/nm/mmgui use/im; @:
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
@@ -89,7 +89,7 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/xfce-base: use/x11/xfce use/x11/gtk/nm +nm \
+mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
 	@$(call add,THE_PACKAGES,xfce-polkit)
 	@$(call add,THE_BRANDING,xfce-settings)
@@ -105,18 +105,17 @@ mixin/regular-xfce-sysv: mixin/xfce-base \
 	@$(call add,THE_PACKAGES,xfce4-screensaver)
 	@$(call add,THE_PACKAGES,sysstat leafpad)
 	@$(call add,THE_PACKAGES,nload)
-	@$(call add,THE_PACKAGES,NetworkManager-l2tp-gtk)
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
 
-mixin/regular-lxde: use/x11/lxde use/x11/gtk/nm use/im +nm
+mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/regular-lxqt: use/x11/lxqt use/x11/gtk/nm +nm
+mixin/regular-lxqt: use/x11/lxqt +nm-gtk
 	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/mate-base: use/x11/mate use/fonts/ttf/google use/x11/gtk/nm +nm
+mixin/mate-base: use/x11/mate use/fonts/ttf/google +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 
 mixin/regular-mate: mixin/mate-base use/domain-client
