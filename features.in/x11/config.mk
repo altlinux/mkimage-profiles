@@ -126,7 +126,6 @@ use/x11/gnome3: use/x11/xorg use/x11/gdm +pulse
 
 use/x11/enlightenment: use/x11 use/net/connman +pulse
 	@$(call add,THE_LISTS,$(call tags,enlightenment desktop))
-	@$(call add,DEFAULT_SERVICES_DISABLE,acpid)
 
 use/x11/lxde: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
