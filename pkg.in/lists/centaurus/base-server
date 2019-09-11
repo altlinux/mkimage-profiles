@@ -25,6 +25,8 @@ make-initrd-multipath
 # network tools
 curl
 etcnet
+dhcpcd
+openresolv
 hostinfo
 iptables
 iputils
