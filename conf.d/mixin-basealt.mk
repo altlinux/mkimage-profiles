@@ -33,7 +33,6 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_KMODULES,staging)
-	@$(call add,CLEANUP_PACKAGES,xterm)
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,SERVICES_DISABLE,sshd)

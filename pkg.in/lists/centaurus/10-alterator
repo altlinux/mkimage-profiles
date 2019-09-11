@@ -19,13 +19,14 @@ installer-feature-shm-defaults-stage3
 installer-feature-apache2-userdir-stage3
 installer-feature-apache2-indexhtml-stage3
 apache2
+apache2-mod_ssl
 
 # office server
 alterator-fbi
 
 alterator-root
+alterator-users
 alterator-notes
-alterator-luks
 alterator-grub
 ldap-user-tools
 alterator-ca
