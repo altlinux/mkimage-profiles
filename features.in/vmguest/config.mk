@@ -42,6 +42,7 @@ use/vmguest/bare: use/vmguest/kvm; @:
 use/vmguest/base: use/vmguest/bare; @:
 use/vmguest/complete: use/vmguest/base use/vmguest/kvm/x11; @:
 
+use/vmguest/base: use/vmguest/kvm
 endif
 
 else
