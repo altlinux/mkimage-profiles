@@ -50,6 +50,7 @@ mixin/alt-workstation-install: +installer \
 	use/install2/fat use/install2/vnc
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,INSTALLER,altlinux-desktop)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-slideshow)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
