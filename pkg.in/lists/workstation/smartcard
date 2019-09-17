@@ -1,6 +1,4 @@
 card-actions
-task-rutoken@X86
-pkcs11-profiles-rutokenecp@X86
 
 # FIXME: cloned from ../tagged/base+smartcard :-/
 openct
@@ -12,7 +10,6 @@ pcsc-lite-acsccid
 pcsc-lite-asedriveiiie-usb
 pcsc-lite-ccid
 pcsc-lite-openct
-pcsc-lite-rutokens
 
 pam_pkcs11
 pam_p11
