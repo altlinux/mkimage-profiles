@@ -10,6 +10,7 @@ os-prober
 make-initrd-lvm
 shadow-change
 chrony
+dhcpcd
 
 telnet
 b43-fwcutter
@@ -116,6 +117,7 @@ gnome-themes-standard-data
 # Alterator
 alterator-browser-qt
 alterator-standalone
+alterator-notes
 
 alterator-auth
 alterator-datetime
