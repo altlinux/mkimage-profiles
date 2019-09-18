@@ -6,7 +6,11 @@ use/slinux: use/x11
 	@$(call set,META_VOL_SET,ALT)
 
 use/slinux/vm-base: vm/systemd use/x11/armsoc \
-	use/oem use/repo use/slinux/mixin-base; @:
+	use/oem use/slinux/mixin-base
+	@$(call add,THE_LISTS,slinux/games-base)
+	@$(call add,THE_LISTS,slinux/graphics-base)
+	@$(call add,THE_LISTS,slinux/multimedia-base)
+	@$(call add,THE_LISTS,slinux/comm-base)
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +wireless use/l10n/default/ru_RU \
