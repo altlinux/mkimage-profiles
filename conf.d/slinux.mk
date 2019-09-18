@@ -13,3 +13,13 @@ distro/slinux: distro/.installer use/slinux/full use/rescue/base
 	@$(call set,META_VOL_ID,Simply Linux $(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_APP_ID,Simply Linux $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 endif
+
+ifeq (vm,$(IMAGE_CLASS))
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+vm/slinux: vm/systemd use/x11/armsoc use/oem \
+	use/bootloader/uboot use/slinux/mixin-base; @:
+
+vm/slinux-tegra: vm/systemd use/x11/armsoc use/aarch64-tegra \
+	use/oem use/slinux/mixin-base; @:
+endif
+endif
