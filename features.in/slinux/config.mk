@@ -5,6 +5,9 @@ use/slinux: use/x11
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
 
+use/slinux/vm-base: vm/systemd use/x11/armsoc \
+	use/oem use/repo use/slinux/mixin-base; @:
+
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +wireless use/l10n/default/ru_RU \
 	use/xdg-user-dirs/deep; @:
