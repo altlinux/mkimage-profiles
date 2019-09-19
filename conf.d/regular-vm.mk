@@ -55,7 +55,8 @@ vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep \
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
 
-vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep; @:
+vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep
+	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
 vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep; @:
 
@@ -86,7 +87,8 @@ vm/regular-lxqt-mcom02: vm/.regular-gtk mixin/regular-lxqt \
 	use/armh-mcom02/x11; @:
 
 vm/regular-mate-mcom02: vm/.regular-gtk mixin/regular-mate \
-	use/armh-mcom02/x11; @:
+	use/armh-mcom02/x11
+	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
 vm/regular-xfce-mcom02: vm/.regular-gtk mixin/regular-xfce \
 	use/armh-mcom02/x11; @:
@@ -126,10 +128,12 @@ vm/tavolga-regular-lxqt: vm/.regular-gtk mixin/regular-lxqt \
 	use/mipsel-mitx/x11; @:
 
 vm/tavolga-regular-mate: vm/.regular-gtk mixin/regular-mate \
-	use/mipsel-mitx/x11; @:
+	use/mipsel-mitx/x11
+	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
 vm/tavolga-regular-xfce: vm/.regular-gtk mixin/regular-xfce \
-	use/mipsel-mitx/x11; @:
+	use/mipsel-mitx/x11
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
 # bfk3
 vm/bfk3-regular-jeos-systemd: vm/systemd-net mixin/regular-vm-jeos \
@@ -151,10 +155,12 @@ vm/bfk3-regular-lxqt: vm/.regular-gtk mixin/regular-lxqt \
 	use/mipsel-bfk3/x11; @:
 
 vm/bfk3-regular-mate: vm/.regular-gtk mixin/regular-mate \
-	use/mipsel-bfk3/x11; @:
+	use/mipsel-bfk3/x11
+	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
 vm/bfk3-regular-xfce: vm/.regular-gtk mixin/regular-xfce \
-	use/mipsel-bfk3/x11; @:
+	use/mipsel-bfk3/x11
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif
 
 endif
