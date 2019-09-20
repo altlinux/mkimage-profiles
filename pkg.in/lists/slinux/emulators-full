@@ -4,9 +4,9 @@ libwine-vanilla-twain@i586
 i586-wine-vanilla@x86_64
 i586-libwine-vanilla-gl@x86_64
 i586-libwine-vanilla-twain@x86_64
-wine-mono
+wine-mono@X86
 i586-xorg-dri-.*@x86_64
-cabextract
+cabextract@X86
 dosbox
 #kernel-modules-virtualbox-@KERNEL@
-virtualbox
+virtualbox@X86

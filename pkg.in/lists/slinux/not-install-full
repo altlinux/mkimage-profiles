@@ -7,8 +7,8 @@ i586-nvidia_glx_.*@x86_64
 #i586-fglrx_glx@x86_64
 
 # Bumblebee
-bumblebee
-#kernel-modules-bbswitch-@KERNEL_MOD@
+bumblebee@X86
+#kernel-modules-bbswitch-@KERNEL_MOD@@X86
 
 # Proprietary blob
 #citrix-client
