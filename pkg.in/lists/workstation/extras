@@ -7,3 +7,6 @@ kernel-headers-std-def
 
 chromium
 chromium-gnome
+
+chromium-gost
+chromium-gost-gnome
