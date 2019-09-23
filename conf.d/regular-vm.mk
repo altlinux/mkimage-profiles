@@ -71,7 +71,8 @@ ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/regular-cinnamon-tegra: vm/.regular-gtk mixin/regular-cinnamon \
 	use/x11/lightdm/slick use/aarch64-tegra; @:
 
-vm/regular-kde5-tegra: vm/.regular-gtk mixin/regular-kde5 use/aarch64-tegra; @:
+vm/regular-kde5-tegra: vm/.regular-gtk mixin/regular-kde5 use/aarch64-tegra
+	@$(call add,THE_PACKAGES,kde5-ksplash-disabled)
 
 vm/regular-lxqt-tegra: vm/.regular-gtk mixin/regular-lxqt use/aarch64-tegra; @:
 
