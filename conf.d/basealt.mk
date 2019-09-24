@@ -28,8 +28,6 @@ endif
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
-	@$(call add,SERVICES_ENABLE,chronyd)
-	@$(call add,SERVICES_ENABLE,crond)
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/.alt-workstation-base: distro/.e2k-installer mixin/alt-workstation
