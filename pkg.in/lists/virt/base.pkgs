@@ -13,11 +13,15 @@ btrfs-progs
 xfsprogs
 e2fsprogs
 rsync
+lftp
+wget
 powertop
 glibc-gconv-modules
 glibc-locales
 tzdata
 iptables
+iptables-ipv6
+iptables-nft
 ebtables
 nftables
 xtables-addons
