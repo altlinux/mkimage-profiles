@@ -1,7 +1,7 @@
 ifeq (vm,$(IMAGE_CLASS))
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
-mixin/vm-archdep: use/bootloader/uboot
+mixin/vm-archdep: use/bootloader/uboot use/no-sleep
 	@$(call set,KFLAVOURS,mp lts)
 else
 ifeq (,$(filter-out mipsel,$(ARCH)))
