@@ -50,7 +50,7 @@ distro/server-v: profiles = $(addprefix server-v/,\
 
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/server-v: profiles_arch = $(addprefix server-v/,\
-	130-pve)
+	211-openvz 130-pve)
 endif
 
 distro/.server-v-base: distro/.base distro/.installer \
@@ -105,6 +105,9 @@ ifeq (,$(filter-out x86_64,$(ARCH)))
 endif
 	@$(call add,MAIN_GROUPS,server-v/140-basic server-v/kvm)
 	@$(call add,MAIN_GROUPS,server-v/200-container $(container))
+ifeq (,$(filter-out x86_64,$(ARCH)))
+	@$(call add,MAIN_GROUPS,server-v/openvz)
+endif
 	@$(call add,MAIN_GROUPS,server-v/300-cluster server-v/corosync_pacemaker)
 	@$(call add,MAIN_GROUPS,server-v/400-storage)
 	@$(call add,MAIN_GROUPS,server-v/410-ceph $(ceph))

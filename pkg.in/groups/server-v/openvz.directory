@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OpenVZ
+Name[ru_RU]=Управление контейнерами OpenVZ
+X-Alterator-PackageList=container/openvz
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/200-container

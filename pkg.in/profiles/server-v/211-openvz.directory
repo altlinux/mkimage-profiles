@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=OpenVZ
+Name[ru_RU]=OpenVZ
+X-Alterator-Groups=server-v/openvz
