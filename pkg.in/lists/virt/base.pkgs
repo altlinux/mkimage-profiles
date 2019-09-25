@@ -21,7 +21,6 @@ glibc-locales
 tzdata
 iptables
 iptables-ipv6
-iptables-nft
 ebtables
 nftables
 xtables-addons
