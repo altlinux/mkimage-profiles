@@ -80,7 +80,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
 	@$(call add,THE_BRANDING,alterator graphics)
 	@$(call add,THE_BRANDING,indexhtml slideshow)
-	@$(call add,THE_PACKAGES,alterator-fbi)
+	@$(call add,THE_PACKAGES,alterator-fbi alterator-notes)
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
