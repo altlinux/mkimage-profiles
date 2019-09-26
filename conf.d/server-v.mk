@@ -81,6 +81,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,THE_BRANDING,alterator graphics)
 	@$(call add,THE_BRANDING,indexhtml slideshow)
 	@$(call add,THE_PACKAGES,alterator-fbi)
+	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
