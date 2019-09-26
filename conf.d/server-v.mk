@@ -58,7 +58,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/memtest use/rescue/base \
 	+systemd-optimal \
 	use/services use/control \
-	use/l10n/default/ru_RU use/fonts/install2 \
+	use/l10n/default/ru_RU \
 	use/isohybrid \
 	use/install2/vnc/full \
 	use/install2/xfs use/install2/fat use/install2/stage3 \
