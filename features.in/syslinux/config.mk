@@ -10,6 +10,7 @@ use/syslinux: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,STAGE1_PACKAGES,syslinux)
 	@$(call try,BOOTVGA,normal)
+	@$(call add,SYSLINUX_FILES,/usr/lib/syslinux/pxelinux.0)
 endif
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
