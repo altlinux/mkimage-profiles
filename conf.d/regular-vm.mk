@@ -67,6 +67,21 @@ vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep; @:
 vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep; @:
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
+# Raspberry Pi 4
+vm/regular-jeos-systemd-rpi4: vm/systemd-net mixin/regular-vm-jeos \
+	use/aarch64-rpi4; @:
+
+vm/regular-jeos-sysv-rpi4: vm/net mixin/regular-vm-jeos \
+	use/aarch64-rpi4 +power; @:
+
+vm/regular-lxde-rpi4: vm/.regular-gtk mixin/regular-lxde use/aarch64-rpi4; @:
+
+vm/regular-lxqt-rpi4: vm/.regular-gtk mixin/regular-lxqt use/aarch64-rpi4; @:
+
+vm/regular-mate-rpi4: vm/.regular-gtk mixin/regular-mate use/aarch64-rpi4; @:
+
+vm/regular-xfce-rpi4: vm/.regular-gtk mixin/regular-xfce use/aarch64-rpi4; @:
+
 # Nvidia Tegra (Jetson Nano only)
 vm/regular-cinnamon-tegra: vm/.regular-gtk mixin/regular-cinnamon \
 	use/x11/lightdm/slick use/aarch64-tegra; @:
