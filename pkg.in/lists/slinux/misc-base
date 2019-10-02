@@ -160,7 +160,7 @@ plymouth
 # Office
 java-1.8.0-openjdk
 LibreOffice-still
-LibreOffice-still-gnome
+LibreOffice-still-gtk3
 LibreOffice-still-langpack-ru
 LibreOffice-still-langpack-uk
 LibreOffice-still-langpack-es
