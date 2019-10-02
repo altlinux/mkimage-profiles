@@ -4,5 +4,6 @@ NetworkManager-vpnc
 NetworkManager-openvpn
 NetworkManager-pptp
 NetworkManager-l2tp
+NetworkManager-openconnect
 
 usb-modeswitch
