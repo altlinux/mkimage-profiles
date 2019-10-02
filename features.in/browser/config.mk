@@ -14,17 +14,6 @@ use/browser/seamonkey use/browser/netsurf \
 	use/browser/%: use/browser
 	@$(call set,THE_BROWSER,$*)
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/browser/palemoon: use/browser
-	@$(call set,THE_BROWSER,$*)
-
-use/browser/palemoon/i18n: use/browser/palemoon
-	@$(call add,THE_BROWSER,palemoon-ru)
-else
-use/browser/palemoon: use/browser/firefox; @:
-use/browser/palemoon/i18n: use/browser/palemoon; @:
-endif
-
 # the complete lack of dependencies is intentional
 use/browser/firefox/esr:
 	@$(call set,FX_FLAVOUR,-esr)

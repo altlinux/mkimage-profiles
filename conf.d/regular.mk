@@ -117,7 +117,7 @@ distro/regular-icewm: distro/.regular-sysv-gtk mixin/regular-icewm \
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker: distro/.regular-sysv \
-	mixin/regular-wmaker use/live/autologin use/browser/palemoon/i18n
+	mixin/regular-wmaker use/live/autologin
 	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
 
 distro/regular-gnustep: distro/.regular-sysv \
