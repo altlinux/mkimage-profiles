@@ -40,8 +40,12 @@ simple-scan
 brasero
 imagination
 connector
+
 chromium
 chromium-gnome
+chromium-disable-webfonts
+fonts-otf-mozilla-fira
+
 ppapi-plugin-adobe-flash@X86
 italc3-client@X86
 itest
