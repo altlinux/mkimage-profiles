@@ -41,7 +41,7 @@ dvgrab
 mjpegtools
 mencoder
 transcode
-jackd
+jack-audio-connection-kit
 
 osec-mailreport
 slocate
