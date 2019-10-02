@@ -111,7 +111,7 @@ cifs-utils
 #gdm2.20-help
 lightdm-gtk-greeter
 #gtk3-themes-xfce4
-gnome-themes-standard-data
+gnome-themes-extra-data
 
 # Alterator
 alterator-browser-qt
