@@ -218,6 +218,7 @@ xfce-polkit
 disable-usb-autosuspend
 color-prompt-and-man
 shutter
+screenkey
 
 # Virtualization support
 xorg-drv-vmware@X86
