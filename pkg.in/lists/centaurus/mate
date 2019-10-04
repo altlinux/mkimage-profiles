@@ -106,8 +106,6 @@ pulseaudio-daemon
 pulseaudio-bluez
 bluez
 alsa-plugins-pulse
-#mozilla-plugin-gnash
-mozilla-plugin-java-1.8.0-openjdk@X86
 python-module-smbc
 system-config-printer
 system-config-printer-udev
@@ -115,7 +113,6 @@ installer-feature-xdg-user-dirs
 xdg-user-dirs-gtk
 pulseaudio-daemon
 alsa-plugins-pulse
-mozilla-plugin-adobe-flash@X86
 rpminstall
 apt-repo
 dhcp-client
