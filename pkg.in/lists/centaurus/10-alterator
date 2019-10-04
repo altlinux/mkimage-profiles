@@ -44,7 +44,6 @@ nss-ldapd
 alterator-openvpn-server
 alterator-squid@X86
 alterator-squidmill@X86
-alterator-quota
 alterator-updates
 alterator-xinetd
 
@@ -68,7 +67,6 @@ alterator-net-pptp
 ###alterator-netinst@X86
 alterator-net-openvpn
 alterator-openvpn-server
-alterator-quota
 alterator-trust
 alterator-vsftpd
 alterator-xinetd
