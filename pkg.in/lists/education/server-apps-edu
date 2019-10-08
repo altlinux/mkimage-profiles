@@ -41,6 +41,7 @@ alterator-console
 alterator-postinstall
 
 # ===== Services =====
+apache2-httpd-worker
 mariadb-server
 
 installed-db-office-server-mediawiki

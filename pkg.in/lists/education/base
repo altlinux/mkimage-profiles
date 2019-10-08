@@ -83,11 +83,13 @@ krb5-kinit
 
 # Installer features
 installer-feature-xdg-user-dirs
+xdg-user-dirs-gtk
 installer-distro-junior-stage3
 installer-feature-auto-domain
 installer-feature-online-repo
 installer-feature-repo-add
 installer-feature-resolver-bind-stage3
+openresolv-bind
 installer-feature-symlinks-from-sbin
 
 # GUI utilities
@@ -138,6 +140,7 @@ mysql-connector-java
 firmware-p54
 
 # Alterator modules
+alterator-notes
 alterator-groups
 alterator-logs
 alterator-net-general
