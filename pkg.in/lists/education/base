@@ -70,6 +70,9 @@ kde5-khelpcenter
 # Content filter and antivirus
 netpolice-filter
 netpolice-main
+# For Skydns
+ddclient
+perl-IO-Socket-SSL
 
 # New utilites
 autossh
