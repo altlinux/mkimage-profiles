@@ -7,7 +7,7 @@ xmessage
 rpminstall
 gnome-software
 
-imagewriter
+rosa-imagewriter
 firefox-esr-ru
 
 disable-usb-autosuspend@X86
