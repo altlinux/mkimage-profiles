@@ -26,6 +26,8 @@ endif
 	@$(call add,MAIN_LISTS,$(call tags,xorg vaapi))
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
+	@$(call add,LIVE_PACKAGES,livecd-installer-features)
+	@$(call add,LIVE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 
