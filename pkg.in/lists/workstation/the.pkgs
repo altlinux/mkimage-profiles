@@ -3,6 +3,7 @@ alterator-notes
 userpasswd
 pam-limits-desktop
 xmessage
+lsb-release
 
 rpminstall
 gnome-software
