@@ -19,7 +19,7 @@ use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
 
 use/init/sysv/elogind: use/init/sysv
-	@$(call add,THE_PACKAGES,elogind bash-completion-elogind)
+	@$(call add,THE_PACKAGES,elogind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,elogind)
 
 ### i-f should be dropped as soon as rootfs scripts are effective there
