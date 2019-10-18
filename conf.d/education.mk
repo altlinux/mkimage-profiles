@@ -37,7 +37,7 @@ distro/alt-education: distro/.installer mixin/education \
 	+plymouth +wireless \
 	use/install2/fonts
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 9.0beta2 $(ARCH))
+	@$(call set,META_VOL_ID,ALT Education 9.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
