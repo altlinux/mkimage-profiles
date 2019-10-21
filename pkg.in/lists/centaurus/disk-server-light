@@ -19,7 +19,9 @@ mutt
 # devel
 bc
 ctags
-git-cvs git-doc git-email git-server git-svn libsubversion
+#git-cvs git-email git-svn libsubversion
+git-doc@X86
+git-server
 findsym
 flex
 gdb
@@ -28,7 +30,7 @@ hasher
 help2man
 indent
 john@X86
-ltrace
+ltrace@X86
 patchutils
 srpmcmp
 xdelta
@@ -168,7 +170,7 @@ iucode_tool@X86
 firmware-intel-ucode@X86
 #mod_geoip
 p0f
-star
+star@X86
 sysstat
 
 # icesik@
