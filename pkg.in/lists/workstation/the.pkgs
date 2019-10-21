@@ -7,6 +7,7 @@ lsb-release
 
 rpminstall
 gnome-software
+gnome-software-disable-updates
 
 rosa-imagewriter
 firefox-esr-ru
