@@ -46,11 +46,13 @@ distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
 
 distro/server-v: profiles = $(addprefix server-v/,\
-	111-opennebula-node 112-opennebula-server 121-openstack-node 122-openstack-controller 140-basic 201-docker)
+	111-opennebula-node 112-opennebula-server 140-basic 201-docker)
+#121-openstack-node 122-openstack-controller 
 
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/server-v: profiles_arch = $(addprefix server-v/,\
-	211-openvz 130-pve)
+	130-pve)
+# 211-openvz
 endif
 
 distro/.server-v-base: distro/.base distro/.installer \
@@ -100,23 +102,17 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-opennebula $(opennebula))
-	@$(call add,MAIN_GROUPS,server-v/120-openstack $(openstack))
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,server-v/130-pve server-v/pve)
 endif
 	@$(call add,MAIN_GROUPS,server-v/140-basic server-v/kvm)
 	@$(call add,MAIN_GROUPS,server-v/200-container $(container))
-ifeq (,$(filter-out x86_64,$(ARCH)))
-	@$(call add,MAIN_GROUPS,server-v/openvz)
-endif
 	@$(call add,MAIN_GROUPS,server-v/300-cluster server-v/corosync_pacemaker)
 	@$(call add,MAIN_GROUPS,server-v/400-storage)
 	@$(call add,MAIN_GROUPS,server-v/410-ceph $(ceph))
 	@$(call add,MAIN_GROUPS,server-v/420-glusterfs $(glusterfs))
-	@$(call add,MAIN_GROUPS,server-v/430-moosefs $(moosefs))
 	@$(call add,MAIN_GROUPS,server-v/450-nfs $(nfs))
 	@$(call add,MAIN_GROUPS,server-v/460-iscsi $(iscsi))
-	@$(call add,MAIN_GROUPS,server-v/ocfs2)
 	@$(call add,MAIN_GROUPS,server-v/500-network $(network))
 	@$(call add,MAIN_GROUPS,server-v/600-monitoring $(monitoring))
 	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
@@ -134,4 +130,11 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd systemd-resolved)
 
 #	@$(call add,MAIN_GROUPS,server-v/141-cockpit $(cockpit))
+#	@$(call add,MAIN_GROUPS,server-v/430-moosefs $(moosefs))
+#	@$(call add,MAIN_GROUPS,server-v/ocfs2)
+#	@$(call add,MAIN_GROUPS,server-v/120-openstack $(openstack))
+#ifeq (,$(filter-out x86_64,$(ARCH)))
+#	@$(call add,MAIN_GROUPS,server-v/openvz)
+#endif
+
 endif
