@@ -54,6 +54,8 @@ distro/alt-education: distro/.installer mixin/education \
 	@$(call add,MAIN_GROUPS,education/server-apps-edu)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call add,MAIN_PACKAGES,kernel-headers-std-def kernel-headers-modules-std-def)
+	@$(call add,MAIN_PACKAGES,kernel-headers-un-def kernel-headers-modules-un-def)
 	@$(call add,THE_KMODULES,virtualbox)
 	@$(call add,THE_KMODULES,nvidia)
 	@$(call add,THE_KMODULES,lsadrv bbswitch)
