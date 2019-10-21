@@ -66,6 +66,7 @@ mate-calc
 synaptic
 synaptic-usermode
 gnome-software
+gnome-software-disable-updates
 gksu
 cups
 cups-filters
