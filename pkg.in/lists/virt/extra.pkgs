@@ -6,7 +6,6 @@ kernel-modules-kvdo-std-def
 kernel-modules-zfs-std-def
 kernel-headers-un-def
 kernel-headers-modules-un-def
-kernel-modules-ipset-un-def
 kernel-modules-xtables-addons-un-def
 kernel-modules-kvdo-un-def
 kernel-modules-zfs-un-def
