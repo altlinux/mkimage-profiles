@@ -23,12 +23,16 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/bootloader/lilo: \
 	use/bootloader/%: use/bootloader
 	@$(call set,BASE_BOOTLOADER,$*)
+else
+use/bootloader/lilo: ; @:
 endif
 
 ifeq (,$(filter-out $(GRUB_ARCHES),$(ARCH)))
 use/bootloader/grub: \
 	use/bootloader/%: use/bootloader
 	@$(call set,BASE_BOOTLOADER,$*)
+else
+use/bootloader/grub: ; @:
 endif
 
 use/bootloader/uboot: use/bootloader use/uboot
