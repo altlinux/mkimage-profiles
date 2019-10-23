@@ -1,3 +1,2 @@
-
-kernel-headers-std-def@X86
-kernel-headers-modules-std-def@X86
+kernel-headers-std-def
+kernel-headers-modules-std-def
