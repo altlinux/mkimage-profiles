@@ -35,16 +35,9 @@ copy-groups:
 	@echo $(call groups2lists) \
 	| xargs -r -- cp --parents -at $(TARGET) --
 
-grep-archdep: a = $(ARCH)
 grep-archdep:
-	@# xargs -L 1024 -n 1024 ? -- breaks -I
 	@find $(TARGET) -type f \
-	| xargs -I '__' sh -c '\
-		sed -ri  "s/\\<([^@ ]*)@X86\\>/\\1@i586 \\1@x86_64/g" __; \
-		sed -ri  "s/\\<([^@ ]*)@IA32\\>/\\1@i586 i586-\\1@x86_64/g" __;\
-		sed -rni "s/\\<([^@ ]*)\\>|\\<([^@ ]*)@$a\\>/\\1\\2/pg" __; \
-		sed -ri  "s/\\<([^@ ]*)@[^@ ]+\\> *//g" __; \
-		sed -ri  "s/^ +//;s/ +$$//" __'
+	| xargs -r -I __ -- archdep-filter -a "$(ARCH)" -i __
 
 # do beforehand as foreach gets expanded before recipe execution
 $(TARGET):
