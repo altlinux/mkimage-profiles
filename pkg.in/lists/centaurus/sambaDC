@@ -1,11 +1,6 @@
-python-module-samba-DC
-samba-libs
-samba-common
-samba-winbind-clients
-samba-winbind
-samba
-samba-common
-samba-client
-samba-common
+samba-dc
+ldb-tools
 krb5-kinit
+bind-utils
 ldap-user-tools
+task-auth-ad-sssd
