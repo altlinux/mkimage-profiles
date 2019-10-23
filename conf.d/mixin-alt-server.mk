@@ -15,6 +15,7 @@ mixin/alt-server: +installer +systemd \
 	@$(call set,DOCS,alt-server)
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
+	@$(call set,KFLAVOURS,un-def std-def)
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
 	@$(call add,LIVE_LISTS,centaurus/live)
