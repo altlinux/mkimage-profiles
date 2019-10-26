@@ -41,6 +41,7 @@ use/server/groups/tools: use/server
 	@$(call add,MAIN_GROUPS,tools/tuning)
 
 use/server/groups/services: use/server
+	@$(call add,BASE_KMODULES,kvm)
 	@$(call add,MAIN_GROUPS,server/dhcp server/dns server/mail)
 	@$(call add,MAIN_GROUPS,server/apache2 server/nginx)
 	@$(call add,MAIN_GROUPS,server/mariadb server/pgsql)
