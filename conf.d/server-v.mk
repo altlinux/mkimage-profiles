@@ -56,7 +56,7 @@ distro/server-v: profiles_arch = $(addprefix server-v/,\
 endif
 
 distro/.server-v-base: distro/.base distro/.installer \
-	use/efi/shell +efi use/bootloader/grub use/efi/refind \
+	use/efi/shell use/efi/grub +efi \
 	use/memtest use/rescue/base \
 	+systemd-optimal \
 	use/services use/control \
