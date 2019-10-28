@@ -3,5 +3,4 @@ parted
 fatresize
 dosfstools
 grub2-efi
-elilo@x86_64
 efibootmgr
