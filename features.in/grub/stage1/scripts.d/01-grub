@@ -1,0 +1,41 @@
+#!/bin/sh
+# gather syslinux configuration from snippets;
+# copy modules; see also this feature's generate.mk
+
+CFG="grub.cfg"
+
+mkdir -p "$WORKDIR/EFI/BOOT"
+cd "$WORKDIR/EFI/BOOT"
+
+# validate just in case (see also stage1 Makefile)
+case "$GLOBAL_BOOTLOADER" in
+	isolinux|syslinux|ieee1275boot|grubaa64boot|grubx86boot) ;;
+	*) echo "error: weird GLOBAL_BOOTLOADER: \`$GLOBAL_BOOTLOADER'" >&2;
+	   exit 1;;
+esac
+
+# copy extra files, if any
+GRUB_FILES="$(cat .in/grub.list)"
+if [ -n "${GRUB_FILES% }" ]; then
+	cp -a $GRUB_FILES .
+fi
+
+# number ordering sponsored by shell's pathname expansion
+grep -hv '^#' .in/[0-9][0-9]*.cfg > "$CFG"
+
+# there should be DEFAULT directive there (at least for alterator-netinst)
+if ! grep -i '^default' "$CFG"; then
+	DEFAULT="$(grep -i '^label ' "$CFG" | head -1 | cut -f2 -d' ')"
+	if [ -n "$DEFAULT" ]; then
+		echo "default $DEFAULT" >> "$CFG"
+	else
+		echo "error: no DEFAULT or UI directive and cannot guess" >&2
+		exit 1
+	fi
+fi
+
+# snippets are not going into the actual image
+if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
+
+# NB: there will be final macro expansion based on actual image sizes
+#     done by features.in/syslinux/scripts.d/20-propagator-ramdisk
