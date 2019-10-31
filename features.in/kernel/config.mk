@@ -36,6 +36,9 @@ use/kernel/laptop: use/firmware/laptop
 use/kernel/desktop:
 	@$(call add,THE_KMODULES,lirc v4l)
 
+use/kernel/drm:
+	@$(call add,THE_KMODULES,drm)
+
 use/kernel/server:
 	@$(call add,THE_KMODULES,ipset kvm)
 
