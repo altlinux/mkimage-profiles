@@ -2,7 +2,7 @@ use/server: sub/rootfs use/services
 	@$(call add_feature)
 
 use/server/base: use/server use/firmware/server \
-	use/net-ssh use/syslinux/timeout/600
+	use/net-ssh use/syslinux/timeout/600 use/grub/timeout/600
 	@$(call set,BOOTVGA,)
 	@$(call add,THE_LISTS,server-base)
 	@$(call add,THE_KMODULES,e1000e igb)
