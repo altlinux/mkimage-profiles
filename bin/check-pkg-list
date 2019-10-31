@@ -1,0 +1,101 @@
+#!/bin/sh
+# script based on initial implementation
+# by Vitaly Gusach (http://gusach.org.ua)
+#
+# purpose: warn on those entries in given packagelists(s)
+# which are definitely absent; the build might still bail out
+# but at least 80% of failures can be predicted early now
+#
+# usage: check-pkg-list [-n pkgnames] pkglist ...
+# (pkgnames file should contain `apt-cache pkgnames`)
+# NB: -n pkgnames MUST go first, if given
+
+error() { echo `basename $0`: $* >&2; exit 1; }
+debug() { [ -n "$GLOBAL_VERBOSE" ] && echo `basename $0`: $* >&2; }
+
+exit_handler() {
+	local rc=$?
+	trap - EXIT
+	rm -f -- "$ftemp" "$fpkgnames" "$fpkgwildcards" "$favaillist"
+	exit $rc
+}
+
+# find the most recent apt.conf in workdirs
+apt_conf() {
+	debug "looking for workdirs with aptboxes..."
+	find -maxdepth 3 -name .work \
+	| while read dir; do
+		file="$dir/aptbox/etc/apt/apt.conf"
+		[ -f "$file" ] && echo "$file"
+	done \
+	| xargs -r ls -t -- \
+	| head -1
+}
+
+# figure out apt.conf from recent aptbox or fallback to system one
+# TODO: would be nice to cache the dump inside aptbox
+dump_pkgnames() {
+	conf="`apt_conf`"
+	debug "autodetected apt.conf: ${conf:-<system>}, dumping pkgnames"
+	apt-cache ${conf:+-c $conf} pkgnames | sort > "$favaillist"
+}
+
+check_pkglist() {
+	fprofilelist="$1"
+	[ -f "$fprofilelist" ] || error "invalid packagelist filename: $fprofilelist"
+	[ -n "$MULTI" ] && echo "-- $fprofilelist"
+	debug "checking $fprofilelist against $favaillist"
+
+	# cleaning pkg list from comments, empty lines,
+	# splitting several pkgnames on the same line
+	sed -e '/^#/d' -e '/^[ 	]*$/d' -e 's/ \+$//' -e 's/[ 	]\+/\n/g' \
+	< "$fprofilelist" \
+	| sed 's/-$//' \
+	| sort -u \
+	> "$ftemp" # got list of pkgnames we need
+
+	# split pkgnames without wildcards and with wildcards
+	fgrep -v '*' "$ftemp" > "$fpkgnames"
+	fgrep 	 '*' "$ftemp" > "$fpkgwildcards"
+
+	# return unavailable packages
+	debug "unavailable packagenames, if any:"
+	comm -23 "$fpkgnames" "$ftemp"
+
+	# return unavailable wildcards
+	debug "unavailable wildcards, if any:"
+	while read i; do
+		# replacing * with regexp's \.+
+		pattern="^`echo ${i#^} | sed -e 's/\*/.\\\\+/'`$"
+		grep -q "$pattern" "$favaillist" || echo "$i"
+	done < "$fpkgwildcards"
+}
+
+[ "$#" -gt 0 ] || error "need at least one argument, a packagelist to check"
+
+# reusable temporary files with self-cleanup at exit
+TEMP="${TMP:-/tmp}"
+trap exit_handler HUP INT QUIT TERM EXIT
+favaillist="`mktemp $TEMP/pkgchecker.avail.XXXXX`"
+fpkgnames="`mktemp $TEMP/pkgchecker.names.XXXXX`"
+fpkgwildcards="`mktemp $TEMP/pkgchecker.wildcards.XXXXX`"
+ftemp="`mktemp $TEMP/pkgchecker.XXXXX`"
+
+# make sure pkgnames dump is handy
+case "$1" in
+"-n"|"--pkgnames")
+	[ -f "$2" ] && {
+		sort "$2" > "$favaillist"
+		shift; shift
+	} || error "-n needs valid pkgnames filename"
+	;;
+esac
+
+[ -s "$favaillist" ] || dump_pkgnames
+
+# now on to the real job; Q: skip *.in or not?
+[ "$#" -eq 1 ] && MULTI= || MULTI=1
+
+for list in "$@"; do
+	check_pkglist "$list"
+done
