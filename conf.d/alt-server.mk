@@ -20,8 +20,8 @@ endif
 
 # FIXME: generalize vm-profile
 distro/alt-server: distro/.base distro/.alt-server-vnc \
-	mixin/alt-server use/vmguest/base \
-	use/bootloader/grub use/rescue/base \
+	mixin/alt-server use/vmguest/base use/vmguest/kvm/x11\
+	use/bootloader/grub use/rescue/base use/stage2/kms\
 	use/docs/license
 	@$(call add,MAIN_GROUPS,$(server_groups_x86))
 	@$(call add,MAIN_GROUPS,$(server_groups_x86_64))
