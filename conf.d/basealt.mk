@@ -13,6 +13,7 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
         use/efi/refind use/efi/memtest86 use/efi/shell \
 	use/install2/repo use/install2/suspend use/live/suspend \
         use/live/install use/live/x11 use/live/repo use/live/rw \
+        use/vmguest/kvm/x11 use/stage2/kms \
 	use/branding/complete use/docs/license \
         use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
