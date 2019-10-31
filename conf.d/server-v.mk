@@ -86,7 +86,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
-	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools vdo)
+	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools)
 
 distro/server-v: distro/.server-v-base +installer \
 	use/ntp/chrony \
