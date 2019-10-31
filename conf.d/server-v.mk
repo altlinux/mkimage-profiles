@@ -64,12 +64,13 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/isohybrid \
 	use/install2/vnc/full \
 	use/install2/xfs use/install2/fat use/install2/stage3 \
-	use/kernel/server \
+	use/kernel/server use/kernel/drm \
 	use/firmware use/firmware/cpu \
 	use/net/etcnet use/net-ssh \
 	use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
 	use/stage2/rtc use/stage2/scsi use/stage2/usb \
+	use/stage2/kms \
 	use/server/virt use/docs/license
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
