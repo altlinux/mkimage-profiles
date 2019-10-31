@@ -60,6 +60,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64 armh ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,virtio-scsi virtio-blk virtio-rng)
 endif
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+	@$(call add,VM_INITRDMODULES,ahci_platform)
 	@$(call add,VM_INITRDMODULES,bcm2835 sunxi-mmc)
 	@$(call add,VM_INITRDMODULES,nvmem_rockchip_efuse)
 	@$(call add,VM_INITRDMODULES,virtio-mmio)
