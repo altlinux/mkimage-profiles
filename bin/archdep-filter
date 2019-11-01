@@ -26,6 +26,8 @@ x86_64)
 	A="X86";;
 e2k*)
 	A="E2K";;
+aarch64|arm*)
+	A="ARM";;
 *)
 	A=;;
 esac
