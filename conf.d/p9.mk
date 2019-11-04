@@ -16,7 +16,7 @@ distro/alt-p9-cinnamon distro/alt-p9-enlightenment \
 	distro/alt-p9-xfce-sysv distro/alt-p9-xfce-sysv-install: \
 	distro/alt-p9-%: distro/regular-% mixin/p9; @:
 
-distro/alt-p9-jeos-sysv distro/alt-p9-jeos-ovz \
+distro/alt-p9-jeos-sysv distro/alt-p9-jeos-ovz distro/alt-p9-server-systemd \
 	distro/alt-p9-server-sysv distro/alt-p9-server-ovz \
 	distro/alt-p9-server-hyperv distro/alt-p9-server-samba4 \
 	distro/alt-p9-server-pve distro/alt-p9-server-lxd: \

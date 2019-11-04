@@ -184,8 +184,6 @@ distro/.regular-server-base: distro/.regular-install \
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 
-distro/.regular-server-systemd: distro/.regular-server-base +systemd; @:
-
 distro/.regular-server: distro/.regular-server-base \
 	use/server/mini use/firmware/qlogic use/rescue/base \
 	use/ntp/client use/cleanup/libs
@@ -200,22 +198,28 @@ distro/.regular-server-managed: distro/.regular-server
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
-distro/regular-server-sysv: distro/.regular-server-managed \
+distro/.regular-server-full: distro/.regular-server-managed \
 	use/server/groups/base use/dev/groups/builder use/install2/vnc/full
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)
 
-distro/regular-server-ovz: distro/.regular-server \
+distro/regular-server-systemd: distro/.regular-server-full +systemd; @:
+distro/regular-server-sysv: distro/.regular-server-full +sysvinit; @:
+
+distro/.regular-server-ovz: distro/.regular-server \
 	use/server/ovz use/server/groups/tools use/cleanup/x11-alterator
 	@$(call add,MAIN_GROUPS,tools/vzstats)
 
-distro/regular-server-hyperv: distro/.regular-server-managed
+distro/regular-server-ovz: distro/.regular-server-ovz +systemd; @:
+distro/regular-server-ovz-sysv: distro/.regular-server-ovz +sysvinit; @:
+
+distro/.regular-server-hyperv: distro/.regular-server-managed +systemd
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
 
-distro/regular-server-pve: distro/.regular-server-systemd \
+distro/regular-server-pve: distro/.regular-server-base +systemd \
 	use/kernel/server use/firmware/qlogic +efi
 	@$(call set,BASE_BOOTLOADER,grub)
 	@$(call set,INSTALLER,altlinux-server)
@@ -232,7 +236,7 @@ distro/regular-builder: distro/.regular-bare mixin/regular-builder \
 	use/isohybrid use/syslinux/timeout/30 use/stage2/net-eth
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
 
-distro/regular-server-samba4: distro/.regular-server-managed
+distro/regular-server-samba4: distro/.regular-server-managed +systemd
 	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))
 	@$(call add,THE_PACKAGES,alterator-dhcp)
 	@$(call add,DEFAULT_SERVICES_DISABLE,smbd nmbd winbind)
