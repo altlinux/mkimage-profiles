@@ -184,7 +184,7 @@ distro/.regular-server-base: distro/.regular-install \
 
 distro/.regular-server: distro/.regular-server-base \
 	use/server/mini use/firmware/qlogic use/rescue/base \
-	use/ntp/client use/cleanup/libs
+	use/ntp/client use/cleanup/libs use/bootloader/grub +efi
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common qt5-base-common)
@@ -218,8 +218,7 @@ distro/.regular-server-hyperv: distro/.regular-server-managed +systemd
 	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
 
 distro/regular-server-pve: distro/.regular-server-base +systemd \
-	use/kernel/server use/firmware/qlogic +efi
-	@$(call set,BASE_BOOTLOADER,grub)
+	use/kernel/server use/firmware/qlogic
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-pve)
 	@$(call add,THE_PACKAGES,pve-manager nfs-clients su)
