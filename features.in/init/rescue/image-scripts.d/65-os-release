@@ -1,0 +1,10 @@
+#!/bin/sh
+# Install /etc/*-release files if needed
+if [ -d /usr/share/branding-data-current ]; then
+	[ -e /etc/altlinux-release ] ||
+	cp -at /etc -- \
+		/usr/share/branding-data-current/release/altlinux-release
+	[ -e /etc/os-release ] ||
+	cp -at /etc -- \
+		/usr/share/branding-data-current/release/os-release
+fi

@@ -1,7 +1,0 @@
-#!/bin/sh
-# Install /etc/*-release files on live if needed
-if [ -d /usr/share/branding-data-current ] && \
-	! [ -e /etc/altlinux-release ] && \
-	! [ -e /etc/os-release ]; then
-    cp -a /usr/share/branding-data-current/release/*-release /etc/
-fi
