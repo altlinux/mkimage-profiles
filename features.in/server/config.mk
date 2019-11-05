@@ -48,6 +48,7 @@ use/server/groups/services: use/server
 	@$(call add,MAIN_GROUPS,server/php7)
 	@$(call add,MAIN_GROUPS,server/ftp server/rsync)
 	@$(call add,MAIN_GROUPS,server/kvm)
+	@$(call add,DEFAULT_SERVICES_ENABLE,libvirtd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,php7-fpm)
 
 use/server/groups/base: use/server/groups/tools use/server/groups/services; @:
