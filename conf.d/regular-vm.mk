@@ -59,7 +59,8 @@ vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
 vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
-vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep; @:
+vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
 vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep; @:
 
