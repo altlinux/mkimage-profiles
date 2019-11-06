@@ -7,31 +7,18 @@ x-cursor-theme-oxy-white
 # a bit lacking
 icon-theme-simple
 
-# nice and useful qt4 apps
-bsc
-easypaint
+# text editor
 focuswriter
-qt4-settings
-tubularix
-smplayer-mpv
-QCheckers
-
-# qt4 configuration tools
-libqt4-qt3support
 
 # media player; see also #30556 though
-clementine@X86
-clementine-codecs-full@X86
+clementine
+clementine-codecs-full
 
-# upstream recommended
-#ptbatterysystemtray
-
-#arandr
-qbittorrent
+# rss-reader
 quiterss
 
-# useless but cute
-cool-retro-term@X86
+# torrent client
+qbittorrent
 
 # xmpp client
 psi-plus
