@@ -189,6 +189,7 @@ distro/.regular-server: distro/.regular-server-base \
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common qt5-base-common)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge)
+	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 
 distro/.regular-server-managed: distro/.regular-server
 	@$(call add,THE_PACKAGES,alterator-fbi)
