@@ -20,7 +20,8 @@ endif
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 
-mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root; @:
+mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
+	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 
 mixin/regular-vm-x11: mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/browser/firefox/esr use/oem
