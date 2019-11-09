@@ -16,4 +16,3 @@ done
 for KVER in $kver; do
 	/sbin/installkernel --uboot --keep-initrd "$KVER"
 done
-printf 'LABEL=ROOT\t/\text4\tdefaults\t1 1\n' >> /etc/fstab

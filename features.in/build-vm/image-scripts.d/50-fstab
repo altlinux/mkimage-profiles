@@ -1,0 +1,4 @@
+#!/bin/sh
+
+grep -qe "[[:space:]]/[[:space:]]" /etc/fstab ||
+  printf "LABEL=ROOT\t/\t$GLOBAL_VM_FSTYPE\tdefaults\t1 1\n" >> /etc/fstab

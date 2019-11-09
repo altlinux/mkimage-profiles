@@ -75,3 +75,4 @@ ifeq (,$(filter-out armh,$(ARCH)))
 endif
 	@$(call xport,VM_INITRDMODULES)
 	@$(call xport,VM_INITRDFEATURES)
+	@$(call xport,VM_FSTYPE)
