@@ -2,13 +2,20 @@
 # predictable file locations make bootloader configuration simple;
 # this script relates to features.in/stage2/stage1/scripts.d/81-make-initfs
 
-kver="$(rpm -qa 'kernel-image*' \
-            --qf '%{installtime} %{version}-%{name}-%{release}\n' \
-        | sort -n \
-        | cut -f 2 -d ' ' \
-        | sed 's/kernel-image-//')"
+[ -n "$GLOBAL_KFLAVOURS" ] ||
+  { echo "** KFLAVOURS is empty" >&2; exit 0; }
 
-[ -n "$kver" ] || { echo "** unable to deduce kernel version" >&2; exit 1; }
+kver=
+echo $GLOBAL_KFLAVOURS
+for KFLAVOUR in $GLOBAL_KFLAVOURS; do
+	kver+=" $(rpm -qa 'kernel-image*' \
+		--qf '%{version}-%{name}-%{release}\n' \
+	| grep "$KFLAVOUR" \
+	| sed 's/kernel-image-//')"
+done
+
+[ ! -z "${kver#"${kver%%[! ]*}"}" ] ||
+  { echo "** unable to deduce kernel version" >&2; exit 1; }
 
 cd /boot
 
@@ -20,6 +27,6 @@ for KVER in $kver; do
 done
 
 # NB: e2k kernel builds "image" instead of "vmlinuz"
-[ -f vmlinuz-$kver ] && ln -s vmlinuz-$kver vmlinuz ||:
-ln -s initrd-$kver.img initrd.img	# missing at this stage
+[ -f vmlinuz-$KVER ] && ln -s vmlinuz-$KVER vmlinuz ||:
+ln -s initrd-$KVER.img initrd.img	# missing at this stage
 :

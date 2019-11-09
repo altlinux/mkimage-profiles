@@ -20,6 +20,7 @@ else
 endif
 endif
 endif
+	@$(call xport,KFLAVOURS)
 
 # r8168 is a kludge, never install it by default
 use/kernel/net:
