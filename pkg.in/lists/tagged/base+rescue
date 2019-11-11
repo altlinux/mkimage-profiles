@@ -27,3 +27,6 @@ gpm
 # Provisioning
 udpcast
 partclone@X86
+
+# l10n
+glibc-locales
