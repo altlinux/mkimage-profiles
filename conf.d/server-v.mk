@@ -77,7 +77,6 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call set,BRANDING,alt-server)
 	@$(call set,INSTALLER,alt-server-v)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
-	@$(call add,INSTALL2_PACKAGES,fdisk xfsprogs btrfs-progs file)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
@@ -88,7 +87,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,THE_LISTS,$(call tags,server alterator))
 	@$(call add,COMMON_PACKAGES,vim-console)
-	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools)
+	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools fdisk xfsprogs btrfs-progs file)
 
 distro/server-v: distro/.server-v-base +installer \
 	use/ntp/chrony \
