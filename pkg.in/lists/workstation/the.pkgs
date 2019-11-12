@@ -4,6 +4,7 @@ userpasswd
 pam-limits-desktop
 xmessage
 lsb-release
+alterator-quota
 
 rpminstall
 gnome-software

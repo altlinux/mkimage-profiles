@@ -18,6 +18,7 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
         use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk
 	@$(call add,INSTALL2_PACKAGES,open-iscsi)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,MAIN_PACKAGES,solaar)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
@@ -27,6 +28,7 @@ endif
 	@$(call add,MAIN_LISTS,$(call tags,xorg vaapi))
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
+	@$(call add,LIVE_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 	@$(call add,LIVE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
