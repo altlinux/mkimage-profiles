@@ -37,6 +37,7 @@ mixin/alt-server: +installer +systemd \
 	@$(call add,INSTALL2_PACKAGES,installer-feature-load-tun)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-network-shares-stage3)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-auto-domain)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,COMMON_PACKAGES,vim-console)
