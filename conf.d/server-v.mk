@@ -81,6 +81,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
+	@$(call add,INSTALL2_PACKAGES,fonts-ttf-google-croscore-arimo)
 	@$(call add,THE_BRANDING,alterator graphics)
 	@$(call add,THE_BRANDING,indexhtml slideshow)
 	@$(call add,THE_PACKAGES,alterator-fbi alterator-notes)
