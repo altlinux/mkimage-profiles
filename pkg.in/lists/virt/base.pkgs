@@ -48,3 +48,4 @@ bash-completion
 bc
 tree
 smartmontools
+lsb-release
