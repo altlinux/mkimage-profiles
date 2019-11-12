@@ -2,6 +2,7 @@ installer-feature-desktop-other-fs-stage2
 alterator-notes
 userpasswd
 pam-limits-desktop
+audit
 xmessage
 lsb-release
 alterator-quota
