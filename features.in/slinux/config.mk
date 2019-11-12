@@ -29,6 +29,7 @@ use/slinux/base: use/isohybrid use/luks \
 	+plymouth use/memtest +vmguest \
 	use/live/x11 use/live/rw use/install2/fonts \
 	+efi use/efi/refind use/branding/complete \
+	use/vmguest/kvm/x11 use/stage2/kms \
 	use/slinux/mixin-base; @:
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call set,KFLAVOURS,std-def)
