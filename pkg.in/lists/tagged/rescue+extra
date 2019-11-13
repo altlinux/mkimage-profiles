@@ -238,6 +238,3 @@ fuse-obexfs
 fuse-siefs
 gammu
 usbmuxd
-
-# Misc
-rescue-launcher

@@ -30,3 +30,6 @@ partclone@X86
 
 # l10n
 glibc-locales
+
+# Misc
+rescue-launcher
