@@ -87,6 +87,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,THE_PACKAGES,alterator-fbi alterator-notes)
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,THE_LISTS,$(call tags,server alterator))
+	@$(call add,THE_LISTS,$(call tags,server network))
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools fdisk xfsprogs btrfs-progs file)
 
