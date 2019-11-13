@@ -8,6 +8,9 @@ qmmp1
 # text-editor
 featherpad
 
+gvfs-shares
+gvfs-backend-mtp
+
 icon-theme-oxygen
 x-cursor-theme-jimmac
 
