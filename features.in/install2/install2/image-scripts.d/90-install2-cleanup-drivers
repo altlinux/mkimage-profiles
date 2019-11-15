@@ -76,7 +76,6 @@ rm -rf /lib/modules/*/kernel/fs/efs
 rm -rf /lib/modules/*/kernel/fs/exofs
 rm -rf /lib/modules/*/kernel/fs/freevxfs
 rm -rf /lib/modules/*/kernel/fs/fscache
-rm -rf /lib/modules/*/kernel/fs/fuse
 rm -rf /lib/modules/*/kernel/fs/hfs
 rm -rf /lib/modules/*/kernel/fs/hfsplus
 rm -rf /lib/modules/*/kernel/fs/hpfs
