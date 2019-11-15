@@ -24,6 +24,9 @@ agetty
 # Console mouse
 gpm
 
+# File management
+mc
+
 # Provisioning
 udpcast
 partclone@X86
