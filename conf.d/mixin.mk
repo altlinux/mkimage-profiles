@@ -68,13 +68,12 @@ mixin/regular-wmaker: use/efi/refind use/syslinux/ui/gfxboot \
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
 	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
-	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,regular icewm))
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
 	@$(call add,THE_PACKAGES,icewm-startup-networkmanager)
-	@$(call add,THE_PACKAGES,mnt polkit-gnome)
+	@$(call add,THE_PACKAGES,mnt)
 
 # gdm2.20 can reboot/halt with both sysvinit and systemd, and is slim
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck
@@ -91,7 +90,6 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 
 mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
-	@$(call add,THE_PACKAGES,xfce-polkit)
 	@$(call add,THE_BRANDING,xfce-settings)
 
 mixin/regular-xfce: mixin/xfce-base use/x11/xfce/full \

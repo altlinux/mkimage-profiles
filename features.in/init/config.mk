@@ -1,7 +1,6 @@
 +sysvinit: use/init/sysv; @:
 +systemd: use/init/systemd/full; @:
 +systemd-optimal: use/init/systemd/settings/optimal; @:
-+elogind: use/init/sysv/elogind; @:
 
 # NB: the list name MUST be identical to init package name
 use/init: use/pkgpriorities
@@ -17,10 +16,6 @@ use/init/sysv: use/init
 
 use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
-
-use/init/sysv/elogind: use/init/sysv
-	@$(call add,THE_PACKAGES,elogind)
-	@$(call add,DEFAULT_SERVICES_ENABLE,elogind)
 
 ### i-f should be dropped as soon as rootfs scripts are effective there
 use/init/systemd: use/init

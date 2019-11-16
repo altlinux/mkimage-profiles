@@ -34,7 +34,7 @@ endif
 vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 +systemd-optimal; @:
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
-	+elogind +power; @:
+	use/init/sysv/polkit +power; @:
 
 vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 	@$(call add,THE_PACKAGES,blueberry)

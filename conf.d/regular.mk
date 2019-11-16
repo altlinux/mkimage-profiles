@@ -34,7 +34,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/slick +plymouth; @:
-distro/.regular-sysv: distro/.regular-wm +elogind; @:
+distro/.regular-sysv: distro/.regular-wm use/init/sysv/polkit; @:
 
 distro/.regular-sysv-gtk: distro/.regular-sysv use/syslinux/ui/gfxboot \
 	use/x11/gdm2.20; @:
@@ -105,8 +105,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	mixin/desktop-installer mixin/regular-desktop use/install2/fs \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
 	use/branding/complete use/branding/slideshow/once \
-	use/net-eth/dhcp use/efi/shell use/rescue/base \
-	use/init/sysv/elogind
+	use/net-eth/dhcp use/efi/shell use/rescue/base
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
