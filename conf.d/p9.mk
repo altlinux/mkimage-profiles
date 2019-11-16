@@ -8,16 +8,16 @@ mixin/p9: use/browser/firefox/esr
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-p9-cinnamon distro/alt-p9-enlightenment \
-	distro/alt-p9-gnome3 distro/alt-p9-gnustep \
-	distro/alt-p9-icewm distro/alt-p9-kde5 \
+	distro/alt-p9-gnome3 distro/alt-p9-gnustep-sysv \
+	distro/alt-p9-icewm-sysv distro/alt-p9-kde5 \
 	distro/alt-p9-lxde distro/alt-p9-lxqt \
 	distro/alt-p9-mate distro/alt-p9-rescue \
-	distro/alt-p9-wmaker distro/alt-p9-xfce \
-	distro/alt-p9-xfce-sysv distro/alt-p9-sysv-xfce: \
+	distro/alt-p9-wmaker-sysv distro/alt-p9-xfce \
+	distro/alt-p9-xfce-sysv distro/alt-p9-xfce-sysv-install: \
 	distro/alt-p9-%: distro/regular-% mixin/p9; @:
 
-distro/alt-p9-jeos distro/alt-p9-jeos-ovz \
-	distro/alt-p9-server distro/alt-p9-server-ovz \
+distro/alt-p9-jeos-sysv distro/alt-p9-jeos-ovz \
+	distro/alt-p9-server-sysv distro/alt-p9-server-ovz \
 	distro/alt-p9-server-hyperv distro/alt-p9-server-samba4 \
 	distro/alt-p9-server-pve distro/alt-p9-server-lxd: \
 	distro/alt-p9-%: distro/regular-% mixin/p9; @:
@@ -42,7 +42,7 @@ vm/alt-p9-opennebula: vm/opennebula-systemd mixin/p9; @:
 # universal builds rootfs and image for all platforms
 vm/alt-p9-jeos-systemd vm/alt-p9-jeos-sysv vm/alt-p9-builder \
 	vm/alt-p9-cinnamon vm/alt-p9-kde5 \
-	vm/alt-p9-icewm vm/alt-p9-lxde \
+	vm/alt-p9-icewm-sysv vm/alt-p9-lxde \
 	vm/alt-p9-lxqt vm/alt-p9-mate \
 	vm/alt-p9-xfce: \
 	vm/alt-p9-%: vm/regular-% mixin/p9; @:
@@ -71,7 +71,7 @@ vm/tavolga-alt-p9-jeos-systemd vm/tavolga-alt-p9-jeos-sysv \
 
 vm/tavolga-alt-p9-lxde vm/tavolga-alt-p9-lxqt \
 	vm/tavolga-alt-p9-mate vm/tavolga-alt-p9-xfce \
-	vm/tavolga-alt-p9-icewm: \
+	vm/tavolga-alt-p9-icewm-sysv: \
 	vm/tavolga-alt-p9-%: vm/tavolga-regular-% mixin/p9; @:
 
 vm/bfk3-alt-p9-jeos-systemd vm/bfk3-alt-p9-jeos-sysv \
@@ -79,7 +79,7 @@ vm/bfk3-alt-p9-jeos-systemd vm/bfk3-alt-p9-jeos-sysv \
 	vm/bfk3-alt-p9-%: vm/bfk3-regular-% mixin/p9; @:
 
 vm/bfk3-alt-p9-lxde vm/bfk3-alt-p9-lxqt vm/bfk3-alt-p9-mate \
-	vm/bfk3-alt-p9-xfce vm/bfk3-alt-p9-icewm: \
+	vm/bfk3-alt-p9-xfce vm/bfk3-alt-p9-icewm-sysv: \
 	vm/bfk3-alt-p9-%: vm/bfk3-regular-% mixin/p9; @:
 endif
 

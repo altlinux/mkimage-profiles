@@ -82,7 +82,7 @@ distro/.regular-jeos: distro/.regular-jeos-base \
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos: distro/.regular-jeos use/cleanup/jeos/full \
+distro/regular-jeos-sysv: distro/.regular-jeos use/cleanup/jeos/full \
 	use/volumes/jeos use/install2/vmguest use/vmguest/bare
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,MAIN_PACKAGES,firmware-linux)
@@ -111,16 +111,16 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
-distro/regular-icewm: distro/.regular-gtk-sysv mixin/regular-icewm \
+distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
 	use/browser/chromium
 	@$(call set,KFLAVOURS,un-def)
 
 # wdm can't do autologin so add standalone one for livecd
-distro/regular-wmaker: distro/.regular-desktop-sysv \
+distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
 	mixin/regular-wmaker use/live/autologin
 	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
 
-distro/regular-gnustep: distro/.regular-desktop-sysv \
+distro/regular-gnustep-sysv: distro/.regular-desktop-sysv \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
@@ -130,7 +130,7 @@ distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
-distro/regular-sysv-xfce: distro/.regular-install-x11-full \
+distro/regular-xfce-sysv-install: distro/.regular-install-x11-full \
 	mixin/regular-xfce-sysv; @:
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
@@ -200,7 +200,7 @@ distro/.regular-server-managed: distro/.regular-server
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
-distro/regular-server: distro/.regular-server-managed \
+distro/regular-server-sysv: distro/.regular-server-managed \
 	use/server/groups/base use/dev/groups/builder use/install2/vnc/full
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)

@@ -47,7 +47,7 @@ vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
 vm/regular-builder: vm/regular-jeos-sysv mixin/regular-builder; @:
 
-vm/regular-icewm: vm/.regular-desktop-sysv mixin/regular-icewm \
+vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	mixin/vm-archdep; @:
 
 vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep \
@@ -122,7 +122,7 @@ vm/tavolga-regular-jeos-sysv: vm/net mixin/regular-vm-jeos \
 vm/tavolga-regular-builder: vm/tavolga-regular-jeos-sysv \
 	mixin/regular-builder; @:
 
-vm/tavolga-regular-icewm: vm/.regular-desktop-sysv mixin/regular-icewm \
+vm/tavolga-regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	use/mipsel-mitx/x11; @:
 
 vm/tavolga-regular-lxde: vm/.regular-gtk mixin/regular-lxde \
@@ -149,7 +149,7 @@ vm/bfk3-regular-jeos-sysv: vm/net mixin/regular-vm-jeos \
 vm/bfk3-regular-builder: vm/bfk3-regular-jeos-sysv \
 	mixin/regular-builder; @:
 
-vm/bfk3-regular-icewm: vm/.regular-desktop-sysv mixin/regular-icewm \
+vm/bfk3-regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	use/mipsel-bfk3/x11; @:
 
 vm/bfk3-regular-lxde: vm/.regular-gtk mixin/regular-lxde \
