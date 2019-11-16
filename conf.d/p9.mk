@@ -10,8 +10,7 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/alt-p9-cinnamon distro/alt-p9-enlightenment \
 	distro/alt-p9-gnome3 distro/alt-p9-gnustep \
 	distro/alt-p9-icewm distro/alt-p9-kde5 \
-	distro/alt-p9-lxde distro/alt-p9-lxde-sysv \
-	distro/alt-p9-lxqt distro/alt-p9-lxqt-sysv \
+	distro/alt-p9-lxde distro/alt-p9-lxqt \
 	distro/alt-p9-mate distro/alt-p9-rescue \
 	distro/alt-p9-wmaker distro/alt-p9-xfce \
 	distro/alt-p9-xfce-sysv distro/alt-p9-sysv-xfce: \

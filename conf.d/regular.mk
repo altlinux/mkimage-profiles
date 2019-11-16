@@ -134,20 +134,13 @@ distro/regular-sysv-xfce: distro/.regular-install-x11-full \
 	mixin/regular-xfce-sysv; @:
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
-distro/regular-lxde-sysv: distro/.regular-gtk-sysv mixin/regular-lxde; @:
 
 distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
 
 distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
 
-distro/regular-mate-sysv: distro/.regular-gtk-sysv mixin/mate-base; @:
-
 distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
-
-distro/regular-enlightenment-sysv: distro/.regular-gtk-sysv \
-	use/x11/enlightenment
-	@$(call set,META_VOL_ID,ALT regular-E-SysV/$(ARCH)) # see also #28271
 
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
@@ -164,9 +157,6 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm-gtk \
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
 	use/browser/falkon use/x11/sddm
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
-
-distro/regular-lxqt-sysv: distro/.regular-desktop-sysv mixin/regular-lxqt \
-	use/net-eth/dhcp; @:
 
 distro/regular-kde5: distro/.regular-desktop \
 	mixin/regular-kde5 use/domain-client use/x11/sddm +plymouth; @:
