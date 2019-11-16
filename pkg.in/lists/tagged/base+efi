@@ -9,4 +9,3 @@ installer-feature-efi-stage3
 
 # firmware update
 fwupd@x86_64
-fwupdate-efi@x86_64
