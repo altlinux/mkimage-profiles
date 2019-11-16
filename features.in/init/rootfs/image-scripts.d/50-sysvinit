@@ -20,10 +20,3 @@ mkdir -p /var/run /var/lock/{serial,subsys,uucp}
 chmod 0770 /var/lock/subsys
 chmod 0770 /var/lock/{serial,uucp}
 chgrp uucp /var/lock/{serial,uucp}
-
-# Workaround for run elogind
-if [ ! -L /var/run -a ! -e /var/run/dbus ]; then
-	ln -s /run/dbus /var/run/dbus
-else
-	echo "symlink /run/dbus -> /var/run/dbus not created"
-fi
