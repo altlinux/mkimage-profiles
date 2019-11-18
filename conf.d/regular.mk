@@ -40,7 +40,7 @@ distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit; @:
 distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
 	use/syslinux/ui/gfxboot use/x11/gdm2.20; @:
 
-distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
+distro/.regular-install: distro/.regular-base +installer \
 	use/branding use/bootloader/grub use/luks \
 	use/install2/fs use/install2/vnc use/install2/repo \
 	use/efi/refind
@@ -51,7 +51,7 @@ distro/.regular-install: distro/.regular-base +installer +sysvinit +power \
 	@$(call add,THE_BRANDING,alterator)
 
 # common base for the very bare distros
-distro/.regular-jeos-base: distro/.regular-bare +sysvinit \
+distro/.regular-jeos-base: distro/.regular-bare \
 	use/isohybrid use/branding use/bootloader/grub \
 	use/install2/repo use/install2/packages \
 	use/net/etcnet use/power/acpi/button
@@ -83,7 +83,7 @@ distro/.regular-jeos: distro/.regular-jeos-base \
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos-sysv: distro/.regular-jeos use/cleanup/jeos/full \
-	use/volumes/jeos use/install2/vmguest use/vmguest/bare
+	use/volumes/jeos use/install2/vmguest use/vmguest/bare +sysvinit
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
@@ -93,23 +93,21 @@ distro/regular-jeos-sysv: distro/.regular-jeos use/cleanup/jeos/full \
 	@$(call set,KFLAVOURS,un-def)
 
 # NB: no +efi as it brings in grub2 (no ELILO support for system boot)
-distro/regular-jeos-ovz: distro/.regular-jeos \
+distro/regular-jeos-ovz: distro/.regular-jeos +sysvinit \
 	use/server/ovz-base use/control/server/ldv use/firmware
 	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
 
 distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
-	use/install2/suspend mixin/regular-desktop mixin/regular-x11
+	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
+	use/branding/complete use/branding/slideshow/once
 	@$(call set,INSTALLER,altlinux-desktop)
 
-# assumes somewhat more experienced user, mostly for sysv variants
+# assumes somewhat more experienced user
 distro/.regular-install-x11-full: distro/.regular-install-x11 \
-	mixin/desktop-installer mixin/regular-desktop use/install2/fs \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
-	use/branding/complete use/branding/slideshow/once \
-	use/net-eth/dhcp use/efi/shell use/rescue/base
+	mixin/desktop-installer use/install2/fs use/efi/shell use/rescue/base
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
-	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
 	use/browser/chromium
