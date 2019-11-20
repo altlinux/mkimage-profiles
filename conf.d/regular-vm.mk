@@ -25,7 +25,7 @@ mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 
 mixin/regular-vm-x11: mixin/regular-vm-base mixin/regular-x11 \
-	mixin/regular-desktop use/browser/firefox/esr use/oem; @:
+	mixin/regular-desktop use/browser/firefox/esr use/oem +wireless; @:
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xorg-96dpi)
 	@$(call add,THE_LISTS,remote-access)
