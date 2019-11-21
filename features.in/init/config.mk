@@ -13,6 +13,7 @@ use/init: use/pkgpriorities
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
 	@$(call add,BASE_PACKAGES,rsyslog-classic)
+	@$(call add,PINNED_PACKAGES,rsyslog-classic)
 
 use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
