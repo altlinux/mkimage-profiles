@@ -49,7 +49,7 @@ distro/server-v: profiles = $(addprefix server-v/,\
 	111-opennebula-node 112-opennebula-server 140-basic 201-docker)
 #121-openstack-node 122-openstack-controller 
 
-ifeq (,$(filter-out x86_64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 distro/server-v: profiles_arch = $(addprefix server-v/,\
 	130-pve)
 # 211-openvz
@@ -106,7 +106,7 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-opennebula $(opennebula))
-ifeq (,$(filter-out x86_64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,server-v/130-pve server-v/pve)
 endif
 	@$(call add,MAIN_GROUPS,server-v/140-basic server-v/kvm)
