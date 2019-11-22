@@ -61,6 +61,10 @@ udev-extras
 
 librsvg
 
+# icons
+gnome-icon-theme
+gnome-icon-theme-symbolic
+
 # unicode fonts
 fonts-ttf-gnu-freefont-mono
 fonts-ttf-gnu-freefont-sans
