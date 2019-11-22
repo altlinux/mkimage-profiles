@@ -20,7 +20,7 @@ use/vmguest/complete: use/vmguest/base \
 	use/vmguest/vbox/x11 use/vmguest/vmware/x11 use/vmguest/kvm/x11; @:
 
 use/vmguest/vbox: use/vmguest
-	@$(call add,THE_KMODULES,virtualbox-addition vboxguest)
+	@$(call add,THE_KMODULES,virtualbox-addition virtualbox-addition-guest)
 
 use/vmguest/vbox/x11: use/vmguest/vbox
 	@$(call add,THE_KMODULES,drm)
