@@ -59,6 +59,7 @@ mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs \
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
+	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
 mixin/desktop-extra:
 	@$(call add,BASE_LISTS,$(call tags,(archive || base) && extra))
