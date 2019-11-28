@@ -31,6 +31,8 @@ fonts-ttf-XO
 fonts-ttf-google-noto-sans
 fonts-ttf-google-crosextra-caladea
 fonts-ttf-google-crosextra-carlito
+fonts-ttf-wqy-zenhei
+fonts-ttf-unifont
 
 # Other
 color-prompt-and-man
