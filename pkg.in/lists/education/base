@@ -63,6 +63,7 @@ gambas-full@X86
 gimagereader-qt5
 tesseract
 tesseract-langpack-ru
+tesseract-langpack-en
 
 # KDE5 localization and profile
 kde5-profile
