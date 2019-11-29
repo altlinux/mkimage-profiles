@@ -7,5 +7,3 @@ elilo@x86_64
 efibootmgr
 installer-feature-efi-stage3
 
-# firmware update
-fwupd@x86_64

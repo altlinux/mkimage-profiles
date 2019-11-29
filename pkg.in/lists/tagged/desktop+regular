@@ -64,3 +64,6 @@ fonts-ttf-gnu-freefont-sans
 fonts-ttf-gnu-freefont-serif
 
 htop
+
+# firmware update utils
+fwupd@x86_64
