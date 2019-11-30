@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# this was a bunch of dirty complaints
+sed -i 's,/var/run,/run,' /{etc,lib}/tmpfiles.d/*.conf ||:
+
+[ ! -L /var/run ] && rm -r /var/run && ln -s ../run /var/run
+[ ! -L /var/lock ] && rm -r /var/lock && ln -s ../run/lock /var/lock
+
+:
