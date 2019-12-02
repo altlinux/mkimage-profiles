@@ -13,7 +13,8 @@ endif
 endif
 
 
-mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo
+mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
+	use/services/lvm2-disable
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 endif
