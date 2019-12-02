@@ -49,7 +49,7 @@ mixin/regular-x11: use/luks use/volumes/regular \
 
 # common WM live/installer bits
 mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs \
-	use/fonts/otf/adobe use/fonts/otf/mozilla
+	use/fonts/otf/adobe use/fonts/otf/mozilla use/net-eth
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit)
 	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
