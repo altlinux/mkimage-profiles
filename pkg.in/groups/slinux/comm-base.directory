@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Communications
-X-Alterator-PackageList=slinux/comm-base
-X-Alterator-Required=yes
-Name[ru_RU]=Коммуникации
-Categories=XFCE

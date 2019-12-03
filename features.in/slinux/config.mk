@@ -10,7 +10,7 @@ use/slinux/vm-base: vm/systemd use/x11/armsoc \
 	@$(call add,THE_LISTS,slinux/games-base)
 	@$(call add,THE_LISTS,slinux/graphics-base)
 	@$(call add,THE_LISTS,slinux/multimedia-base)
-	@$(call add,THE_LISTS,slinux/comm-base)
+	@$(call add,THE_LISTS,slinux/net-base)
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless use/l10n/default/ru_RU \
@@ -19,7 +19,7 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	@$(call add,LIVE_LISTS,slinux/games-base)
 	@$(call add,LIVE_LISTS,slinux/graphics-base)
 	@$(call add,LIVE_LISTS,slinux/multimedia-base)
-	@$(call add,LIVE_LISTS,slinux/comm-base)
+	@$(call add,LIVE_LISTS,slinux/net-base)
 	@$(call add,THE_LISTS,slinux/misc-base)
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))

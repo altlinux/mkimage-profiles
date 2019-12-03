@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Internet/Networking
+Name[ru_RU]=Интернет/сети
+Comment=Networking applications
+Comment[ru_RU]=Сетевые приложения
+X-Alterator-PackageList=slinux/net-base
+X-Alterator-Required=yes
+Categories=XFCE
