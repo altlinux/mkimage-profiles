@@ -240,9 +240,7 @@ distro/regular-server-lxd: distro/.regular-bare \
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-net-eth)
 
-distro/regular-engineering: distro/regular-lxde use/live/ru \
-	use/office/LibreOffice/gtk3 use/office/LibreOffice/lang \
-	use/office/LibreOffice/still
+distro/regular-engineering: distro/regular-lxde use/live/ru
 	@$(call add,THE_LISTS,engineering/2d-cad)
 	@$(call add,THE_LISTS,engineering/3d-cad)
 	@$(call add,THE_LISTS,engineering/3d-printer)
