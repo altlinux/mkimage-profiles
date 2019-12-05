@@ -26,6 +26,7 @@ alterator-services
 alterator-x11@!E2K
 alterator-xkb
 
+glxinfo
 glxgears
 xorg-conf-synaptics@X86
 
@@ -37,6 +38,8 @@ lcdtest
 lm_sensors3
 lsblk
 sdparm
+
+ntpdate
 
 fonts-bitmap-terminus
 
