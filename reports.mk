@@ -17,6 +17,13 @@ ifneq (1,$(NUM_TARGETS))
 SHORTEN := >/dev/null
 endif
 
+report = $(and $(1),$(report_body))
+define report_body
+{ if [ -s "$$OUT" ]; then \
+	echo "** $(1): $$OUT" $(SHORTEN); \
+fi; }
+endef
+
 all: reports/targets reports/scripts reports/cleanlog reports/contents
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
 		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
@@ -28,16 +35,15 @@ reports/prep:
 # try to drop common noise rendering diff(1) mostly useless
 reports/cleanlog: reports/prep
 	@OUT="$(REPORTDIR)/$(@F).log"; \
-	BUILDDIR="$(BUILDDIR)" cleanlog < $(BUILDLOG) > "$$OUT" \
-	&& echo "** diffable log: $$OUT" $(SHORTEN)
+	BUILDDIR="$(BUILDDIR)" \
+	cleanlog < $(BUILDLOG) > "$$OUT" \
+	&& $(call report,diffable log)
 
 reports/scripts: reports/prep
 	@OUT="$(REPORTDIR)/$(@F).log"; \
 	grep "^mki.*scripts: Run: " $(BUILDLOG) \
 	| sed -rn "s,^.*($(BUILDDIR)|$(SYMLINK))/(.*)'$$,\2,p" > "$$OUT" \
-	&& if [ -s "$$OUT" ]; then \
-		echo "** scripts report: $$OUT" $(SHORTEN); \
-	fi
+	&& $(call report,scripts report)
 
 reports/targets: reports/prep
 	@if ! [ -n "$(REPORT_PATH)" -a -s "$(REPORT_PATH)" ]; then \
@@ -47,17 +53,12 @@ reports/targets: reports/prep
 		OUT="$(REPORTDIR)/$(@F).png"; \
 		report-targets < "$(REPORT_PATH)" \
 		| dot -Tpng -o "$$OUT" \
-		&& if [ -s "$$OUT" ]; then \
-			echo "** target graph report: $$OUT"; \
-		fi; \
+		&& $(call report,target graph report); \
 	else \
 		OUT="$(BUILDDIR)/targets.dot"; \
 		report-targets < "$(REPORT_PATH)" > "$$OUT" \
-		&& if [ -s "$$OUT" ]; then \
-			echo "** graphviz missing," \
-				"target graph dot file: $$OUT"; \
-		fi; \
-	fi $(SHORTEN); \
+		&& $(call report,graphviz missing, target graph dot file); \
+	fi; \
 	mv "$(REPORT_PATH)" "$(REPORTDIR)/$(@F).log"
 
 reports/contents: reports/prep
@@ -65,8 +66,8 @@ reports/contents: reports/prep
 	*.iso) \
 		if type -t isoinfo >&/dev/null; then \
 			OUT="$(REPORTDIR)/$(@F).txt"; \
-			isoinfo -f -R -i $(IMAGE_OUTPATH) > $$OUT && \
-				echo "** contents list: $$OUT" $(SHORTEN); \
+			isoinfo -f -R -i $(IMAGE_OUTPATH) > $$OUT \
+			&& $(call report,contents list); \
 		else \
 			echo "reports.mk: missing isoinfo" >&2; \
 		fi; \
