@@ -74,7 +74,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/server/virt use/docs/license
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
-	@$(call set,BRANDING,alt-server)
+	@$(call set,BRANDING,alt-server-v)
 	@$(call set,INSTALLER,alt-server-v)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
@@ -102,7 +102,7 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_APP_ID,ALT Server-V 9.0.0 $(ARCH) $(shell date +%F))
-	@$(call set,DOCS,alt-server)
+	@$(call set,DOCS,alt-server-v)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-opennebula $(opennebula))
