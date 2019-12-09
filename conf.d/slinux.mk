@@ -9,7 +9,7 @@ distro/slinux-live: distro/.livecd-install use/slinux/base
 
 distro/slinux: distro/.installer use/slinux/full use/rescue/base
 	@$(call set,INSTALLER,simply-linux)
-	@$(call add,MAIN_GROUPS,slinux/dropbox slinux/emulators-full slinux/games-base slinux/games slinux/games-full slinux/graphics-base slinux/graphics-full-blender slinux/graphics slinux/graphics-full-inkscape slinux/graphics-full-shotwell slinux/multimedia-full-audacity slinux/multimedia-base slinux/multimedia-full-cheese slinux/multimedia slinux/multimedia-full-pitivi slinux/multimedia-full-sound-juicer slinux/net-base)
+	@$(call add,MAIN_GROUPS,slinux/dropbox slinux/emulators-full slinux/games-base slinux/games slinux/games-full slinux/graphics-base slinux/graphics-full-blender slinux/graphics slinux/graphics-full-inkscape slinux/graphics-full-shotwell slinux/multimedia-full-audacity slinux/multimedia-base slinux/multimedia-full-cheese slinux/multimedia slinux/multimedia-full-shotcut slinux/multimedia-full-sound-juicer slinux/net-base)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS, slinux/graphics-full-synfigstudio)
 endif
