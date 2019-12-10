@@ -15,6 +15,8 @@ LOGDIR := $(shell sed -n 's/^LOGDIR = \(.*\)/\1/p' $(BUILDLOG))
 # contained reports as these are very ephemeral between builds
 ifneq (1,$(NUM_TARGETS))
 SHORTEN := >/dev/null
+else
+SHORTEN := >>$(BUILDLOG)
 endif
 
 report = $(and $(1),$(report_body))
