@@ -210,3 +210,5 @@ hunspell-ru-lebedev
 # So explicitly add it for both live and install
 # versions.
 xkill
+
+fwupd
