@@ -42,6 +42,7 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
+	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
