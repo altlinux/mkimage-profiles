@@ -27,8 +27,12 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 
 use/slinux/base: use/isohybrid use/luks \
 	+plymouth use/memtest +vmguest \
+	+efi \
 	use/live/x11 use/live/rw use/install2/fonts \
-	+efi use/efi/refind use/branding/complete \
+	use/efi/refind use/efi/memtest86 use/efi/shell \
+	use/bootloader/grub \
+	use/branding/complete \
+	mixin/desktop-installer \
 	use/vmguest/kvm/x11 use/stage2/kms \
 	use/slinux/mixin-base; @:
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
