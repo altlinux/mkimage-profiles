@@ -199,3 +199,6 @@ fwupd@x86_64
 
 #https://bugzilla.altlinux.org/39067
 eepm
+
+gnome-software
+gnome-software-disable-updates
