@@ -141,6 +141,7 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm-gtk \
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
 	@$(call add,LIVE_PACKAGES,chrome-gnome-shell)
 	@$(call add,LIVE_PACKAGES,firefox-gnome_shell_integration)
+	@$(call add,LIVE_PACKAGES,gnome-software-disable-updates)
 
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
 	use/browser/falkon use/x11/sddm
