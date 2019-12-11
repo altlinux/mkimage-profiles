@@ -1,5 +1,5 @@
 freeciv
-wesnoth
+#wesnoth
 #ppracer
 #sauerbraten
 flare-game
@@ -11,6 +11,6 @@ PokerTH
 
 #celestia-gnome
 
-gcompris-qt
-gcompris-qt-voices-en
-gcompris-qt-voices-ru
+#gcompris-qt
+#gcompris-qt-voices-en
+#gcompris-qt-voices-ru
