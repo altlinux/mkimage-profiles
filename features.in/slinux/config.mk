@@ -5,6 +5,44 @@ use/slinux: use/x11
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
 
+use/slinux/services-enabled:
+	@$(call add_feature)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,NetworkManager.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,NetworkManager-wait-online.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,ModemManager.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,alteratord.socket)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,anacron.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,avahi-daemon.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,bluetooth.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,chronyd.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,cpufreq-simple.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,crond.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,cups.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,dnsmasq.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,lightdm.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,lvm2-monitor.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,network.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,nmb.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,smb.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,x11presetdrv.service)
+
+use/slinux/services-disabled:
+	@$(call add_feature)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,acpid.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,clamd.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,consolesaver.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,cups.socket)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,ethtool.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,haspd.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,iptables.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,krb5kdc.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,lm_sensors.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,openvpn.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,sshd.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,syslogd.service)
+
+use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
+
 use/slinux/vm-base: vm/systemd use/x11/armsoc \
 	use/oem use/slinux/mixin-base
 	@$(call add,THE_LISTS,slinux/games-base)
@@ -14,7 +52,7 @@ use/slinux/vm-base: vm/systemd use/x11/armsoc \
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless use/l10n/default/ru_RU \
-	use/xdg-user-dirs/deep; @:
+	use/xdg-user-dirs/deep use/slinux/services; @:
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,LIVE_LISTS,slinux/games-base)
 	@$(call add,LIVE_LISTS,slinux/graphics-base)
