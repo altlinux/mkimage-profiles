@@ -2,22 +2,6 @@
 # see also m-p-d::profiles/live/image-scripts.d/init3-services
 
 ENABLE="
-cups.service
-avahi-daemon.service
-NetworkManager.service
-NetworkManager-wait-online.service
-ModemManager.service
-nmb.service
-smb.service
-cpufreq-simple.service
-alteratord.socket
-bluetoothd.service
-crond.service
-lvm2-monitor.service
-network.service
-chronyd.service
-lightdm.service
-bluetooth.service
 livecd-setlocale
 livecd-evms
 livecd-save-nfs
@@ -25,22 +9,6 @@ livecd-timezone
 "
 
 DISABLE="
-anacron.service
-dnsmasq.service
-x11presetdrv.service
-bridge.service
-acpid.service
-ethtool.service
-iptables.service
-lm_sensors.service
-openvpn.service
-sshd.service
-consolesaver.service
-syslogd.service
-krb5kdc.service
-clamd.service
-haspd.service
-cups.socket
 "
 
 for i in $ENABLE;  do
