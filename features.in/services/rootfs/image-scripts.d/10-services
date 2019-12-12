@@ -19,7 +19,7 @@ switch() {
 	esac
 
 	{
-		[ -z "$SYSTEMCTL" ] || /bin/systemctl --no-reload $sc $1.service
+		[ -z "$SYSTEMCTL" ] || /bin/systemctl --no-reload $sc $1
 		[ -z "$CHKCONFIG" ] || /sbin/chkconfig $1 $cc
 	} # 2>/dev/null
 }
@@ -31,5 +31,10 @@ for i in $GLOBAL_DEFAULT_SERVICES_DISABLE; do switch $i off; done
 # explicitly specified behaviour (e.g. via conf.d)
 for i in $GLOBAL_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
+
+# systemd services
+CHKCONFIG=
+for i in $GLOBAL_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
 
 :
