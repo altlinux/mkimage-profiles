@@ -1,0 +1,8 @@
+#!/bin/sh -efu
+# remove unneeded packages
+# FIXME: Dunno why these packages pulled to rootfs.
+#        They shouldn't.
+
+list="$(rpmquery -a --qf='%{NAME}\n' systemd-networkd systemd-timesyncd)"
+[ -z "$list" ] || apt-get remove -f -y -- $list
+:
