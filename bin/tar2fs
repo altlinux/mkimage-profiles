@@ -30,6 +30,8 @@ CUR_BOUNDARY=0		# align first partition at 1MB for performance (+1)
 
 BOOTFSTYPE=
 BOOTPART=
+EFIPARTFSTYPE=
+EFIPART=
 
 BOOTLOADER="$5"
 
@@ -50,7 +52,14 @@ ppc*)
 	ROOTPART="2"
 	;;
 *)
-	ROOTPART="1"
+	if [ "$BOOTLOADER" == grub-efi ]; then
+		EFIPART="1"
+		EFIPARTSIZEM="256"
+		EFIPARTFSTYPE="fat"
+		ROOTPART="2"
+	else
+		ROOTPART="1"
+	fi
 	BLOCKDEV="/dev/sda"
 	;;
 esac
@@ -82,9 +91,14 @@ mkpart() {
 		CUR_BOUNDARY="$(($start + $1))"
 		local end="$CUR_BOUNDARY"MiB
 	else
-		local end="-1s"	# last sector of the image
+		local end="$OFFSET"MiB
 	fi
-	parting mkpart primary ext2 "$start"MiB "$end"
+	if [ -n "$2" ]; then
+		CUR_FS="$2"
+	else
+		CUR_FS=ext2
+	fi
+	parting mkpart primary "$CUR_FS" "$start"MiB "$end"
 }
 
 # a tarball containing chroot with a kernel
@@ -118,7 +132,8 @@ ROOTFSTYPE="${4:-ext4}"
 ROOTDEV="$BLOCKDEV$ROOTPART"
 
 # last preparations...
-MKFS="mkfs.$ROOTFSTYPE ${BOOTFSTYPE:+mkfs.$BOOTFSTYPE}"
+MKFS="mkfs.$ROOTFSTYPE ${BOOTFSTYPE:+mkfs.$BOOTFSTYPE} \
+  ${EFIPARTFSTYPE:+mkfs.$EFIPARTFSTYPE}"
 for i in losetup sfdisk parted kpartx $MKFS; do
 	if ! type -t "$i" >&/dev/null; then
 		fatal "$i required but not found in host system"
@@ -129,15 +144,20 @@ LOOPDEV="$(losetup --find)"	# would be sad about non-binary megabytes too
 ROOTFS="$WORKDIR/chroot"
 
 BOOTFS=
+EFIPARTFS=
 if [ -n "$BOOTPART" ]; then
 	BOOTFS="$ROOTFS/boot"
+fi
+if [ -n "$EFIPART" ]; then
+	EFIPARTFS="$ROOTFS/boot/efi"
 fi
 
 exit_handler() {
 	rc=$?
 	cd /
 	if [ -n "$ROOTFS" ]; then
-		umount ${BOOTFS:+"$BOOTFS"} "$ROOTFS"{/dev,/proc,/sys,}
+		umount ${EFIPARTFS:+"$EFIPARTFS"} ${BOOTFS:+"$BOOTFS"} \
+		  "$ROOTFS"{/dev,/proc,/sys,}
 
 		if [ -n "$LOOPDEV" ]; then
 			kpartx -d -s "$LOOPDEV" || {
@@ -157,12 +177,15 @@ trap exit_handler EXIT ERR
 
 # prepare disk image and a filesystem inside it
 rm -f -- "$IMG"
-
-OFFSET="$(($CUR_BOUNDARY + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + $ROOTSIZEM - 1))"
+OFFSET="$(($CUR_BOUNDARY + $EFIPARTSIZEM + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + $ROOTSIZEM - 1))"
 dd if=/dev/zero of="$IMG" conv=notrunc bs=$MB count=1 seek="$OFFSET"
 losetup "$LOOPDEV" "$IMG"
 
-parting mklabel msdos
+if [ "$BOOTLOADER" == grub-efi ]; then
+	parting mklabel gpt
+else
+	parting mklabel msdos
+fi
 
 if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
 	case "$ARCH" in
@@ -173,6 +196,14 @@ if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
 			parting set 1 boot on
 			;;
 	esac
+fi
+
+if [ -n "$EFIPART" ]; then
+	EFIDEV="$EFIDEV$EFIPART"
+	parting mkpart fat32 2048s $(($EFIPARTSIZEM + 1))MiB
+	CUR_BOUNDARY="$EFIPARTSIZEM"
+	parting set 1 boot on
+	parting set 1 esp on
 fi
 
 if [ -n "$BOOTPART" ]; then
@@ -197,6 +228,11 @@ if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
 	LOOPBOOTLOADER="/dev/mapper/$(basename "$LOOPDEV")p$BOOTLOADERPART"
 fi
 
+if [ -n "$EFIPART" ]; then
+	LOOPEFI="/dev/mapper/$(basename "$LOOPDEV")p$EFIPART"
+	mkfs.fat -F32 "$LOOPEFI"
+fi
+
 ROOTUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPROOT")"
 if [ -n "$ROOTUUID" ]; then
        ROOTDEV="UUID=$ROOTUUID"
@@ -206,8 +242,15 @@ fi
 
 if [ -n "$BOOTPART" ]; then
 	BOOTUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPBOOT")"
-	if [ -n "$ROOTUUID" ]; then
+	if [ -n "$BOOTUUID" ]; then
 		BOOTDEV="UUID=$BOOTUUID"
+	fi
+fi
+
+if [ -n "$EFIPART" ]; then
+	EFIUUID="$(blkid -s UUID -o value -c /dev/null "$LOOPEFI")"
+	if [ -n "$EFIUUID" ]; then
+		EFIDEV="UUID=$EFIUUID"
 	fi
 fi
 
@@ -218,6 +261,11 @@ mount "$LOOPROOT" "$ROOTFS"
 if [ -n "$BOOTPART" ]; then
 	mkdir -pm700 "$BOOTFS"
 	mount "$LOOPBOOT" "$BOOTFS"
+fi
+
+if [ -n "$EFIPART" ]; then
+	mkdir -pm751 "$EFIPARTFS"
+	mount "$LOOPEFI" "$EFIPARTFS"
 fi
 
 tar -C "$ROOTFS" --numeric-owner -xf "$TAR"
@@ -233,6 +281,9 @@ fi
 # target device at once
 if [ -n "$BOOTPART" ]; then
 	echo "$BOOTDEV /boot $BOOTFSTYPE defaults 1 2" >> "$ROOTFS/etc/fstab"
+fi
+if [ -n "$EFIPART" ]; then
+	echo "$EFIDEV /boot/efi vfat umask=0,quiet,showexec,iocharset=utf8,codepage=866 1 2" >> "$ROOTFS/etc/fstab"
 fi
 
 # Query ARCH in chroot and redefine arch-dependent variable
@@ -323,13 +374,33 @@ image=/boot/vmlinuz
 	;;
 grub-efi)
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
-	chroot "$ROOTFS" grub-install
+	case "$ARCH" in
+		*86)
+			chroot "$ROOTFS" grub-install --target=i386-efi --removable
+			sed -i 's/initrd16/initrdefi/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/linux16/linuxefi/g' "$ROOTFS/boot/grub/grub.cfg"
+		;;
+		x86_64)
+			chroot "$ROOTFS" grub-install --target=i386-efi --removable
+			chroot "$ROOTFS" grub-install --target=x86_64-efi --removable
+			sed -i 's/initrd16/initrdefi/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/linux16/linuxefi/g' "$ROOTFS/boot/grub/grub.cfg"
+		;;
+		aarch64)
+			chroot "$ROOTFS" grub-install --target=arm64-efi --removable
+		;;
+		armh)
+			chroot "$ROOTFS" grub-install --target=arm-efi --removable
+		;;
+	esac
 	;;
 grub)
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
 	case "$ARCH" in
 		*86*)
 			chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
+			sed -i 's/initrdefi/initrd16/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/linuxefi/linux16/g' "$ROOTFS/boot/grub/grub.cfg"
 			;;
 		ppc*)
 			[ -z "$LOOPBOOTLOADER" ] ||
