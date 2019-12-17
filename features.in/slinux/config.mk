@@ -76,7 +76,7 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call set,KFLAVOURS,std-def)
 	@$(call add,LIVE_LISTS,slinux/live)
-	@$(call add,THE_PACKAGES,installer-distro-simply-linux-stage3)
+	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
