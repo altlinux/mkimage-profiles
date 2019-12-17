@@ -1,0 +1,24 @@
+kde5-edu@!E2K
+kde5-connect
+
+branding-alt-education-kde-settings
+
+# not all of kde5{,-edu} is available on e2k
+kde5-cantor
+kde5-dragon
+kde5-filelight
+kde5-k3b
+kde5-kanagram
+kde5-kbruch
+kde5-kcalc
+kde5-kgeography
+kde5-khangman
+kde5-kig
+kde5-kolourpaint
+kde5-kturtle
+kde5-kwordquiz
+kde5-marble
+#kde5-minuet
+kde5-profile
+kde5-skanlite
+kde5-spectacle
