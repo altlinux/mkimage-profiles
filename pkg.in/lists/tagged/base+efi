@@ -5,5 +5,3 @@ dosfstools
 grub2-efi
 elilo@x86_64
 efibootmgr
-installer-feature-efi-stage3
-

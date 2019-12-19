@@ -1,4 +1,0 @@
-#!/bin/sh
-# see also https://bugzilla.altlinux.org/27970
-
-grep -q efivars /etc/modules || echo efivars >> /etc/modules

@@ -16,7 +16,6 @@ use/efi:
 	@$(call add,THE_LISTS,$(EFI_LISTS))
 	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
 ifeq (distro,$(IMAGE_CLASS))
-	@$(call add,THE_PACKAGES,installer-feature-efi-stage3)
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFI_VARS FB_EFI)
