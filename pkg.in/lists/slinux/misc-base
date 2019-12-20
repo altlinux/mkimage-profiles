@@ -55,11 +55,6 @@ kde-common-
 kde4-menu-common-
 kde4-menu-resources-
 
-# browser
-chromium
-chromium-gnome
-ppapi-plugin-adobe-flash@X86
-
 xarchiver
 unzip
 unrar

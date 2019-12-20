@@ -81,6 +81,11 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
+ifeq (,$(filter-out armh aarch64 e2k%,$(ARCH)))
+	@$(call add,THE_LISTS,slinux/browser-firefox)
+else
+	@$(call add,THE_LISTS,slinux/browser-chromium)
+endif
 
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
