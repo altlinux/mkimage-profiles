@@ -1,0 +1,12 @@
+#!/bin/sh -efu
+# By default, in cpufreq-simple feature the ondemand governor is configured.
+# But only the conservative governor is available at Raspberry Pi 4 kernels.
+# This is change the default governor to conservative.
+
+cfgfile="/etc/sysconfig/cpufreq-simple"
+
+if [ -f "$cfgfile" ]
+then
+	echo "GOVERNOR_AC_ON=conservative" >> "$cfgfile"
+	echo "GOVERNOR_AC_OFF=conservative" >> "$cfgfile"
+fi
