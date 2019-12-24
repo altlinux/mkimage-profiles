@@ -62,6 +62,11 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,THE_KMODULES,staging)
+ifeq (,$(filter-out armh aarch64 e2k%,$(ARCH)))
+	@$(call add,THE_LISTS,slinux/browser-firefox)
+else
+	@$(call add,THE_LISTS,slinux/browser-chromium)
+endif
 
 use/slinux/base: use/isohybrid use/luks \
 	+plymouth use/memtest +vmguest \
@@ -81,11 +86,6 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
-ifeq (,$(filter-out armh aarch64 e2k%,$(ARCH)))
-	@$(call add,THE_LISTS,slinux/browser-firefox)
-else
-	@$(call add,THE_LISTS,slinux/browser-chromium)
-endif
 
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
