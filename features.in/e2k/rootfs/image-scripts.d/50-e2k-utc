@@ -1,0 +1,7 @@
+#!/bin/sh
+# borrowed from installer-feature-local-clock
+
+. install2-init-functions
+. shell-config
+
+shell_config_set /etc/sysconfig/clock UTC true
