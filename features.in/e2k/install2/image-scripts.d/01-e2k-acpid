@@ -1,0 +1,5 @@
+#!/bin/sh
+# e2k power button handling relies on acpid-events-e2k and
+# acpid itself; installer-distro-simply-linux breaks that
+
+sed -i '/acpid/d' /usr/share/install2/systemd-disabled ||:
