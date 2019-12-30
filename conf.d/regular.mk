@@ -52,7 +52,7 @@ distro/.regular-install: distro/.regular-base +installer \
 
 # common base for the very bare distros
 distro/.regular-jeos-base: distro/.regular-bare \
-	use/isohybrid use/branding use/bootloader/grub \
+	use/isohybrid use/branding \
 	use/install2/repo use/install2/packages \
 	use/net/etcnet use/power/acpi/button
 	@$(call set,BOOTVGA,)
@@ -63,29 +63,35 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	@$(call add,THE_LISTS,openssh)
 
 # ...and for somewhat bare distros
-distro/.regular-jeos: distro/.regular-jeos-base  use/stage2/kms \
-	use/syslinux/lateboot.cfg \
+distro/.regular-jeos: distro/.regular-jeos-base use/stage2/kms \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/cleanup/jeos
+	use/syslinux/lateboot.cfg use/cleanup/jeos
 	@$(call add,BASE_KMODULES,guest scsi vboxguest)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 
-# NB:
-# - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos-sysv: distro/.regular-jeos use/cleanup/jeos/full \
-	use/volumes/jeos use/install2/vmguest use/vmguest/bare +sysvinit
+distro/.regular-jeos-full: distro/.regular-jeos \
+	use/volumes/jeos use/install2/vmguest use/vmguest/bare \
+	use/bootloader/grub +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
-	@$(call add,STAGE2_BOOTARGS,quiet)
 	@$(call set,KFLAVOURS,un-def)
 
+# NB:
+# - stock cleanup is not enough (or installer-common-stage3 deps soaring)
+distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
+	+sysvinit; @:
+
+distro/regular-jeos-systemd: distro/.regular-jeos-full +systemd; @:
+
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 # NB: no +efi as it brings in grub2 (no ELILO support for system boot)
-distro/regular-jeos-ovz: distro/.regular-jeos +sysvinit \
-	use/server/ovz-base use/control/server/ldv use/firmware
+distro/regular-jeos-ovz: distro/.regular-jeos use/cleanup/jeos/full +sysvinit \
+	use/server/ovz-base use/control/server/ldv use/firmware use/bootloader/lilo
 	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
+endif
 
 distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
 	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
