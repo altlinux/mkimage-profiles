@@ -10,11 +10,7 @@ use/efi:
 	@$(call add_feature)
 	@$(call set,MKI_VER_MINIMAL,0.2.12)	# it's official now
 	@$(call set,MKI_VER_OPTIMAL,0.2.17)	# for EFI_BOOTARGS
-ifeq (x86_64,$(ARCH))
-	@$(call try,EFI_BOOTLOADER,elilo)	# default one
-else
 	@$(call try,EFI_BOOTLOADER,grub-efi)	# default one
-endif
 	@$(call add,THE_PACKAGES,$$(EFI_BOOTLOADER))
 	@$(call xport,EFI_BOOTLOADER)
 	@$(call add,THE_LISTS,$(EFI_LISTS))
