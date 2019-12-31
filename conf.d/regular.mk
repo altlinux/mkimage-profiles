@@ -41,7 +41,7 @@ distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
 	use/syslinux/ui/gfxboot use/x11/gdm2.20; @:
 
 distro/.regular-install: distro/.regular-base +installer \
-	use/branding use/bootloader/grub use/luks \
+	use/branding use/bootloader/grub use/luks use/stage2/kms \
 	use/install2/fs use/install2/vnc use/install2/repo \
 	use/efi/refind
 	@$(call add,INSTALL2_PACKAGES,fdisk)
@@ -63,7 +63,7 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	@$(call add,THE_LISTS,openssh)
 
 # ...and for somewhat bare distros
-distro/.regular-jeos: distro/.regular-jeos-base \
+distro/.regular-jeos: distro/.regular-jeos-base  use/stage2/kms \
 	use/syslinux/lateboot.cfg \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/cleanup/jeos
@@ -166,8 +166,7 @@ distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
 	@$(call set,META_VOL_ID,ALT Rescue)
 	@$(call set,META_APP_ID,$(ARCH))
 
-distro/.regular-server-base: distro/.regular-install \
-	use/server/base use/stage2/kms
+distro/.regular-server-base: distro/.regular-install use/server/base
 	@$(call add,THE_LISTS,$(call tags,server && (regular || network)))
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
