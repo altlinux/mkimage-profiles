@@ -2,17 +2,23 @@
 # gather grub configuration from snippets;
 # copy modules; see also this feature's generate.mk
 
-CFG="grub.cfg"
+CFG="$WORKDIR/boot/grub/grub.cfg"
+CFG_EFI="$WORKDIR/EFI/BOOT/grub.cfg"
 
-mkdir -p "$WORKDIR/EFI/BOOT"
-cd "$WORKDIR/EFI/BOOT"
+if [ -n "$GLOBAL_EFI_BOOTLOADER" -a ! "$GLOBAL_EFI_BOOTLOADER" = "grub-efi" ]; then
+	rm -fr "$WORKDIR/boot"
+	exit 0
+fi
 
-# validate just in case (see also stage1 Makefile)
-case "$GLOBAL_BOOTLOADER" in
-	isolinux|syslinux|ieee1275boot|grubaa64boot|grubx86boot) ;;
-	*) echo "error: weird GLOBAL_BOOTLOADER: \`$GLOBAL_BOOTLOADER'" >&2;
-	   exit 1;;
-esac
+if [ -z "$GLOBAL_EFI_BOOTLOADER" ]; then
+	case "$GLOBAL_BOOTLOADER" in
+		ieee1275boot) ;;
+		*) rm -fr "$WORKDIR/boot"
+		   exit 0;;
+	esac
+fi
+
+cd "$WORKDIR/boot/grub"
 
 # copy extra files, if any
 GRUB_FILES="$(cat .in/grub.list)"
@@ -21,21 +27,47 @@ if [ -n "${GRUB_FILES% }" ]; then
 fi
 
 # number ordering sponsored by shell's pathname expansion
-grep -hv '^#' .in/[0-9][0-9]*.cfg > "$CFG"
+case "$GLOBAL_BOOTLOADER" in
+	ieee1275boot)
+		grep -hv '^#' $(find .in/*.cfg -not -name *_efi.cfg) > "$CFG" ;;
+esac
+
+if [ "$GLOBAL_EFI_BOOTLOADER" = "grub-efi" ]; then
+	mkdir -p "$WORKDIR/EFI/BOOT"
+	grep -hv '^#' $(find .in/*.cfg) > "$CFG_EFI"
+fi
 
 # there should be DEFAULT directive there (at least for alterator-netinst)
-if ! grep -i '^default' .in/[0-9][0-9]*.cfg; then
-	DEFAULT="$(grep -i '\-\-id ' .in/[0-9][0-9]*.cfg | head -1 | rev| cut -f2 -d' ' |rev)"
+default_change() {
+local CFG=$1
+if ! grep -i '^default' "$CFG"; then
+	DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
 	if [ -n "$DEFAULT" ]; then
 		echo "default=$DEFAULT" >> "$CFG"
 	else
-		echo "error: no DEFAULT or UI directive and cannot guess" >&2
+		echo "error: no DEFAULT or UI directive and cannot guess for $CFG" >&2
 		exit 1
 	fi
 fi
+}
+
+if [ -f "$CFG" ]; then
+	default_change "$CFG"
+	sed -i 's,@boot_path@,/boot,g' "$CFG"
+fi
+
+if [ -f "$CFG_EFI" ]; then
+	default_change "$CFG_EFI"
+	sed -i 's,@boot_path@,/EFI/BOOT,g' "$CFG_EFI"
+fi
 
 # snippets are not going into the actual image
-if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
+if [ "$DEBUG" != 2 ]; then
+	rm -r .in/
+	cd $WORKDIR
+	[ -f "$CFG" ] || rm -r boot/grub
+	[ ! $(ls -A boot/ | wc -l) -eq 0 ] || rm -r boot/
+fi
 
 # NB: there will be final macro expansion based on actual image sizes
 #     done by features.in/grub/scripts.d/20-propagator-ramdisk

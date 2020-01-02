@@ -5,11 +5,11 @@
 
 cd "$WORKDIR"
 
-cfgs="$(find EFI/BOOT -name '*.cfg')"
-[ -n "$cfgs" ] || {
-	echo "${0##*/}: did not find any config under EFI/BOOT " >&2
-	exit 1
-}
+[ -f boot/grub/grub.cfg -o -f EFI/BOOT/grub.cfg ] || exit 0
+
+cfgs=
+[ ! -f boot/grub/grub.cfg ] || cfgs+='boot/grub/grub.cfg '
+[ ! -f EFI/BOOT/grub.cfg ] || cfgs+='EFI/BOOT/grub.cfg'
 
 # apply size census while looking for potential squashfs images
 find -maxdepth 1 -type f -size +1M \

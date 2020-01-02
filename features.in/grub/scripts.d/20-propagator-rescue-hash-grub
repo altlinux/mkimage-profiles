@@ -5,10 +5,14 @@
 
 cd "$WORKDIR"
 
-grep -qs "@rescue_hash@" EFI/BOOT/*.cfg || exit 0
+[ -f boot/grub/grub.cfg -o -f EFI/BOOT/grub.cfg ] || exit 0
+
+cfgs=
+[ ! -f boot/grub/grub.cfg ] || cfgs+='boot/grub/grub.cfg '
+[ ! -f EFI/BOOT/grub.cfg ] || cfgs+='EFI/BOOT/grub.cfg'
 
 find -maxdepth 1 -type f -name rescue \
 | while read image; do
 	rescue_hash="$(sha256sum -b "$image" | cut -f1 -d' ')"
-	sed -i "s,@rescue_hash@,$rescue_hash," EFI/BOOT/*.cfg
+	sed -i "s,@rescue_hash@,$rescue_hash," $cfgs
 done

@@ -19,7 +19,7 @@ ifndef GRUB_DIRECT
 GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults
 endif
 
-DSTDIR  := $(BUILDDIR)/stage1/files/EFI/BOOT/.in
+DSTDIR  := $(BUILDDIR)/stage1/files/boot/grub/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
 # we can do GRUB_{CFG,MODULES,FILES}
