@@ -12,7 +12,8 @@ _OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
 
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
-use/live: use/stage2 sub/rootfs@live sub/stage2@live use/services/lvm2-disable
+use/live: use/stage2 sub/rootfs@live sub/stage2@live \
+	use/services/lvm2-disable use/grub/live.cfg
 	@$(call add_feature)
 	@$(call add,CLEANUP_BASE_PACKAGES,'installer*')
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
@@ -28,10 +29,9 @@ use/live/base: use/live/.base use/net use/deflogin/live
 
 # rw slice, see http://www.altlinux.org/make-initrd-propagator and #28289
 ifeq (,$(EFI_BOOTLOADER))
-use/live/rw: use/live use/syslinux
-	@$(call add,SYSLINUX_CFG,live_rw)
+use/live/rw: use/live use/syslinux/live_rw.cfg use/grub/live_rw.cfg; @:
 else
-use/live/rw: use/live; @:
+use/live/rw: use/live use/grub/live_rw.cfg; @:
 endif
 
 # graphical target (not enforcing xorg drivers or blobs)

@@ -3,7 +3,7 @@
 +installer: use/install2/full; @:
 
 use/install2: use/stage2 sub/stage2@install2 use/metadata \
-	use/cleanup/installer use/install2/autoinstall
+	use/cleanup/installer use/install2/autoinstall use/grub/install2.cfg
 	@$(call add_feature)
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
@@ -84,12 +84,12 @@ use/install2/vnc:
 	@$(call add,INSTALL2_PACKAGES,x11vnc xterm net-tools)
 
 # this one expects external vncviewer to come
-use/install2/vnc/listen: \
-	use/install2/vnc use/syslinux/install-vnc-listen.cfg; @:
+use/install2/vnc/listen: use/install2/vnc \
+	use/syslinux/install-vnc-listen.cfg use/grub/install-vnc-listen.cfg; @:
 
 # this one connects to a specified vncviewer --listen
-use/install2/vnc/connect: \
-	use/install2/vnc use/syslinux/install-vnc-connect.cfg; @:
+use/install2/vnc/connect: use/install2/vnc \
+	use/syslinux/install-vnc-connect.cfg use/grub/install-vnc-connect.cfg; @:
 
 # add both bootloader items to be *that* explicit ;-)
 use/install2/vnc/full: use/install2/vnc/listen use/install2/vnc/connect; @:
