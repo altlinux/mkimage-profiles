@@ -24,10 +24,10 @@ fi
 grep -hv '^#' .in/[0-9][0-9]*.cfg > "$CFG"
 
 # there should be DEFAULT directive there (at least for alterator-netinst)
-if ! grep -i '^default' "$CFG"; then
-	DEFAULT="$(grep -i '^label ' "$CFG" | head -1 | cut -f2 -d' ')"
+if ! grep -i '^default' .in/[0-9][0-9]*.cfg; then
+	DEFAULT="$(grep -i '\-\-id ' .in/[0-9][0-9]*.cfg | head -1 | rev| cut -f2 -d' ' |rev)"
 	if [ -n "$DEFAULT" ]; then
-		echo "default $DEFAULT" >> "$CFG"
+		echo "default=$DEFAULT" >> "$CFG"
 	else
 		echo "error: no DEFAULT or UI directive and cannot guess" >&2
 		exit 1
