@@ -1,5 +1,5 @@
 #!/bin/sh
-# gather syslinux configuration from snippets;
+# gather grub configuration from snippets;
 # copy modules; see also this feature's generate.mk
 
 CFG="grub.cfg"
@@ -38,4 +38,4 @@ fi
 if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
 
 # NB: there will be final macro expansion based on actual image sizes
-#     done by features.in/syslinux/scripts.d/20-propagator-ramdisk
+#     done by features.in/grub/scripts.d/20-propagator-ramdisk
