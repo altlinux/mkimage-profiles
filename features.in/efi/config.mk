@@ -48,7 +48,7 @@ use/efi/lilo: use/efi use/bootloader/lilo
 use/efi/refind: use/efi
 	@$(call set,EFI_BOOTLOADER,refind)
 
-use/efi/memtest86: use/efi/refind
+use/efi/memtest86: use/efi
 	@$(call set,EFI_MEMTEST86,efi-memtest86)
 
 else
