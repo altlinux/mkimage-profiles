@@ -5,15 +5,15 @@
 MODDIR="/usr/lib/syslinux"
 CFG="$GLOBAL_BOOTLOADER.cfg"
 
-mkdir -p "$WORKDIR/syslinux"
-cd "$WORKDIR/syslinux"
-
 # validate just in case (see also stage1 Makefile)
 case "$GLOBAL_BOOTLOADER" in
 	isolinux|syslinux) ;;
-	*) echo "error: weird GLOBAL_BOOTLOADER: \`$GLOBAL_BOOTLOADER'" >&2;
-	   exit 1;;
+	*) echo "Warning: GLOBAL_BOOTLOADER not supported: \`$GLOBAL_BOOTLOADER'" >&2;
+	   rm -fr "$WORKDIR/syslinux"
+	   exit 0;;
 esac
+
+cd "$WORKDIR/syslinux"
 
 # copy extra files, if any
 SYSLINUX_FILES="$(cat .in/syslinux.list)"

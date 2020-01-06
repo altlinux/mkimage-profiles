@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ -d "$WORKDIR/syslinux" ] || exit 0
+
 gfxboot_datadir=/usr/share/gfxboot
 
 if [ ! -d "$gfxboot_datadir" ]; then
@@ -15,9 +17,7 @@ if [ ! -f "$bootlogo" ]; then
 	exit 0
 fi
 
-cd "$WORKDIR"
-mkdir -p syslinux
-cd syslinux
+cd "$WORKDIR/syslinux"
 
 # unpack
 cpio -iduV <"$bootlogo"
