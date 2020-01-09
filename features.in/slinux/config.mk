@@ -64,8 +64,10 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	@$(call add,THE_KMODULES,staging)
 ifeq (,$(filter-out armh aarch64 e2k%,$(ARCH)))
 	@$(call add,THE_LISTS,slinux/browser-firefox)
+	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 else
 	@$(call add,THE_LISTS,slinux/browser-chromium)
+	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
 endif
 
 use/slinux/base: use/isohybrid use/luks \
