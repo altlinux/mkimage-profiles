@@ -16,7 +16,7 @@ ifndef GRUB_DIRECT
 # SUBPROFILES are considered GRUB_CFG too
 # (note these can appear like stage2@live);
 # 01defaults.cfg is included indefinitely
-GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults
+GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults fwsetup_efi
 endif
 
 DSTDIR  := $(BUILDDIR)/stage1/files/boot/grub/.in
