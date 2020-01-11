@@ -64,7 +64,7 @@ endif
 else
 
 # ignore on an unsupported target arch but make it hybrid at least
-use/efi use/efi/signed use/efi/debug \
+use/efi use/efi/signed use/efi/debug use/efi/grub \
   use/efi/refind use/efi/shell use/efi/memtest86: use/isohybrid; @:
 
 endif
