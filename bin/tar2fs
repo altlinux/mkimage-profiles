@@ -376,21 +376,26 @@ grub-efi)
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
 	case "$ARCH" in
 		*86)
-			chroot "$ROOTFS" grub-install --target=i386-efi --removable
+			chroot "$ROOTFS" grub-install --target=i386-efi --recheck \
+			  --removable  --no-uefi-secure-boot
 			sed -i 's/initrd16/initrdefi/g' "$ROOTFS/boot/grub/grub.cfg"
 			sed -i 's/linux16/linuxefi/g' "$ROOTFS/boot/grub/grub.cfg"
 		;;
 		x86_64)
-			chroot "$ROOTFS" grub-install --target=i386-efi --removable
-			chroot "$ROOTFS" grub-install --target=x86_64-efi --removable
+			chroot "$ROOTFS" grub-install --target=i386-efi --recheck \
+			  --removable  --no-uefi-secure-boot
+			chroot "$ROOTFS" grub-install --target=x86_64-efi --recheck \
+			  --removable  --no-uefi-secure-boot
 			sed -i 's/initrd16/initrdefi/g' "$ROOTFS/boot/grub/grub.cfg"
 			sed -i 's/linux16/linuxefi/g' "$ROOTFS/boot/grub/grub.cfg"
 		;;
 		aarch64)
-			chroot "$ROOTFS" grub-install --target=arm64-efi --removable
+			chroot "$ROOTFS" grub-install --target=arm64-efi --recheck \
+			  --removable  --no-uefi-secure-boot
 		;;
 		armh)
-			chroot "$ROOTFS" grub-install --target=arm-efi --removable
+			chroot "$ROOTFS" grub-install --target=arm-efi --recheck \
+			  --removable  --no-uefi-secure-boot
 		;;
 	esac
 	;;
