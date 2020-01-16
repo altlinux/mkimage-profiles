@@ -17,3 +17,5 @@ ntpdate
 tcpdump
 bridge-utils
 wget
+ppp-pppoe
+rp-pppoe-client
