@@ -165,9 +165,6 @@ stardict-mueller7
 stardict-quick_en-ru
 stardict-quick_ru-en
 
-# *cloud
-nextcloud-client
-
 # For work as guest in the virtualbox
 virtualbox-guest-additions@X86
 xorg-drv-vboxvideo@X86
