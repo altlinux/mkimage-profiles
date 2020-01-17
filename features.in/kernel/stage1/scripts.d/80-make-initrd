@@ -13,6 +13,11 @@ kver="$(rpm -qa 'kernel-image*' \
 [ -n "$kver" ] ||
 	fatal "no kernel version identified"
 
+# FIXME: large storage systems can get that tmpfs filled up
+# with debug data as of make-initrd 2.2.12
+rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
+	/usr/share/make-initrd/data/lib/uevent/filters/debug
+
 MAKE_INITRD_OPTS="--no-checks -k $kver"
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
