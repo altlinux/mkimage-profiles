@@ -44,27 +44,30 @@ use/kernel/initrd-setup: use/kernel
 	@$(call add,VM_INITRDFEATURES,add-modules compress cleanup)
 	@$(call try,VM_FSTYPE,ext4)
 	@$(call add,VM_INITRDMODULES,$$(VM_FSTYPE))
+	@$(call add,VM_INITRDMODULES,ehci-pci ohci-pci uhci-hcd xhci-pci uas sdhci-pci)
+	@$(call add,VM_INITRDMODULES,usbhid)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,VM_INITRDFEATURES,qemu)
 	@$(call add,VM_INITRDMODULES,ata_piix)
 endif
-ifeq (,$(filter-out e2k%,$(ARCH)))
+ifeq (,$(filter-out e2k% ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,usb)
 endif
+ifneq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,VM_INITRDFEATURES,qemu)
+	@$(call add,VM_INITRDMODULES,virtio-scsi virtio-blk virtio-rng virtio_net)
+	@$(call add,VM_INITRDMODULES,virtio-mmio virtio_pci virtio_console virtio_input)
+endif
 ifeq (,$(filter-out ppc64le,$(ARCH)))
-	@$(call add,VM_INITRDFEATURES,qemu usb)
 	@$(call add,VM_INITRDMODULES,ipr ibmvscsi)
 endif
 ifeq (,$(filter-out i586 x86_64 aarch64 armh ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ahci sd_mod)
 	@$(call add,VM_INITRDMODULES,nvme nvme-core)
-	@$(call add,VM_INITRDMODULES,virtio-scsi virtio-blk virtio-rng)
 endif
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ahci_platform)
 	@$(call add,VM_INITRDMODULES,bcm2835 sunxi-mmc)
 	@$(call add,VM_INITRDMODULES,nvmem_rockchip_efuse)
-	@$(call add,VM_INITRDMODULES,virtio-mmio)
 endif
 ifeq (,$(filter-out aarch64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,meson-gx-mmc)
