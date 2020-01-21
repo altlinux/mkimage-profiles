@@ -35,7 +35,11 @@ EFIPART=
 
 BOOTLOADER="$5"
 
-ARCH="$(arch)"		# NB: sudo => no GLOBAL_ will do either; mind qemu-*
+if [ -n "$6" ]; then
+	ARCH="$6"
+else
+	ARCH="$(arch)"
+fi
 
 case "$ARCH" in
 e2k)
