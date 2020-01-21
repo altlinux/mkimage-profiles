@@ -13,7 +13,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 vm/.base-lilo: vm/.bare use/bootloader/lilo; @:
 endif
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
 vm/.base-grub: vm/.bare use/bootloader/grub; @:
 endif
 
