@@ -1,0 +1,20 @@
+#!/bin/sh
+# The tar2fs script writes the contents of the /boot/efi directory
+# to a disk image partition for EFI.
+# Place the scripts executed by EFI Shell in /boot/efi
+
+mkdir -p /boot/efi
+# Script startup.nsh to boot with GRUB2 by default
+cat > /boot/efi/startup.nsh << EOF
+\EFI\BOOT\BOOTAA64.EFI
+
+EOF
+
+# The efidrvext.nsh script can be run manually from the EFI Shell
+# to boot using the ext2, ext3, ext4 driver for EFI
+cat > /boot/efi/efidrvext.nsh << EOF
+load fs0:\efi\drivers\ext2_aa64.efi
+map -r
+FS1:\boot\vmlinuz root=/dev/sda2 ro console=ttyS0,115200 video=HDMI-A-1:D fbcon=map:0 initrd=/boot/initrd.img dtb=/boot/dtb/bm-bfkm.dtb
+
+EOF
