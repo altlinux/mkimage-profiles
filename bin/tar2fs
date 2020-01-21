@@ -194,8 +194,8 @@ fi
 if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
 	case "$ARCH" in
 		ppc*)
-			parting mkpart primary ext2 2048s ${BOOTLOADERPARTSIZEM}M
-			CUR_BOUNDARY="$(($CUR_BOUNDARY + $BOOTLOADERPARTSIZEM))"
+			parting mkpart primary ext2 2048s $((BOOTLOADERPARTSIZEM + 1))MiB
+			CUR_BOUNDARY="$BOOTLOADERPARTSIZEM"
 			parting set 1 prep on
 			parting set 1 boot on
 			;;
