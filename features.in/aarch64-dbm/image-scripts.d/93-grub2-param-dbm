@@ -1,0 +1,15 @@
+#!/bin/sh -efu
+
+# To load a Linux kernel onto a DBM board using GRUB2,
+# you need specific parameters on the kernel command line
+# and an explicit definition the dtb file to load.
+# This script creates the required settings in the file
+# /etc/sysconfig/grub2
+
+cfgfile="/etc/sysconfig/grub2"
+
+if [ -f "$cfgfile" ]
+then
+	echo "# Configure GRUB2 Special Settings for DBM board" >> "$cfgfile"
+	echo "GRUB_FDT_LINUX=bm-bfkm.dtb" >> "$cfgfile"
+fi
