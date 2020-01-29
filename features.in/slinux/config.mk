@@ -43,7 +43,9 @@ use/slinux/services-disabled:
 
 use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 
-use/slinux/vm-base: vm/systemd use/x11/armsoc \
+use/slinux/arm-base: use/x11/armsoc use/bootloader/uboot
+
+use/slinux/vm-base: vm/systemd \
 	use/oem use/slinux/mixin-base
 	@$(call add,THE_LISTS,slinux/games-base)
 	@$(call add,THE_LISTS,slinux/graphics-base)

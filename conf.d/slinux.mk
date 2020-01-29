@@ -16,8 +16,11 @@ endif
 
 ifeq (vm,$(IMAGE_CLASS))
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-vm/slinux: use/slinux/vm-base use/bootloader/uboot; @:
+vm/slinux: use/slinux/vm-base use/slinux/arm-base; @:
 
-vm/slinux-tegra: use/slinux/vm-base use/aarch64-tegra; @:
+vm/slinux-tegra: use/slinux/vm-base use/slinux/arm-base \
+	use/aarch64-tegra; @:
+else
+vm/slinux: use/slinux/vm-base use/build-vm; @:
 endif
 endif
