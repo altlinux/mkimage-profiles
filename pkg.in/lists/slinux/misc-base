@@ -123,6 +123,8 @@ alterator-x11
 alterator-xkb
 
 #additional
+mate-search-tool
+libmate-desktop
 yelp
 rosa-imagewriter
 
