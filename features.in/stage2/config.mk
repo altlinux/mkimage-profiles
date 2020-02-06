@@ -15,6 +15,12 @@ use/stage2/ata use/stage2/drm use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/%: use/stage2
 	@$(call add,STAGE1_MODLISTS,stage2-$*)
 
+use/stage2/sbc: use/stage2
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call add,STAGE1_MODLISTS,stage2-sbc-aarch64)
+endif
+	@:
+
 use/stage2/kms: use/stage2/drm
 	@$(call add,STAGE1_KMODULES_REGEXP,drm.*)
 
