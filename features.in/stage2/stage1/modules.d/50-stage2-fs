@@ -3,5 +3,6 @@ ext3.ko
 ext4.ko
 fat.ko
 mbcache.ko
+ntfs.ko
 reiserfs.ko
 vfat.ko
