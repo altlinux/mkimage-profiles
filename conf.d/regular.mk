@@ -28,7 +28,7 @@ distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm \
-	use/syslinux/ui/gfxboot use/firmware/laptop +systemd-optimal
+	use/syslinux/ui/gfxboot use/firmware/laptop +systemd +systemd-optimal
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call set,KFLAVOURS,std-def)
@@ -84,7 +84,8 @@ distro/.regular-jeos-full: distro/.regular-jeos \
 distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
 	+sysvinit; @:
 
-distro/regular-jeos-systemd: distro/.regular-jeos-full +systemd; @:
+distro/regular-jeos-systemd: distro/.regular-jeos-full \
+	+systemd +systemd-optimal; @:
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 # NB: no +efi as it brings in grub2 (no ELILO support for system boot)
@@ -198,7 +199,9 @@ distro/.regular-server-full: distro/.regular-server-managed \
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)
 
-distro/regular-server-systemd: distro/.regular-server-full +systemd; @:
+distro/regular-server-systemd: distro/.regular-server-full \
+	+systemd +systemd-optimal; @:
+
 distro/regular-server-sysv: distro/.regular-server-full +sysvinit; @:
 
 distro/.regular-server-ovz: distro/.regular-server \
