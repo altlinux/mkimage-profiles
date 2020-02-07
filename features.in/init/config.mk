@@ -48,7 +48,7 @@ use/init/systemd/settings/disable-dumpcore \
 	use/init/systemd/settings/%: use/init/systemd
 	@$(call add,THE_PACKAGES,systemd-settings-$*)
 
-use/init/systemd/settings/optimal: use/init/systemd/full \
+use/init/systemd/settings/optimal: use/init/systemd \
 	use/init/systemd/settings/disable-dumpcore \
 	use/init/systemd/settings/enable-log-to-tty12 \
 	use/init/systemd/settings/enable-showstatus; @:
