@@ -92,7 +92,9 @@ use/live/suspend: use/live
 	@$(call add,LIVE_PACKAGES,installer-feature-desktop-suspend-stage2)
 
 # deny network/local drive access for security reasons
-use/live/privacy: use/services use/memclean use/deflogin
+use/live/privacy: use/services use/memclean use/deflogin \
+	use/stage2/ata use/stage2/drm use/stage2/hid \
+	use/stage2/mmc use/stage2/net-nfs use/stage2/usb
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-nodisks)
 	@$(call add,LIVE_PACKAGES,livecd-nodisks)
 	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/net/)
@@ -103,6 +105,4 @@ use/live/privacy: use/services use/memclean use/deflogin
 	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/cdrom/)
 	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/firewire/)
 	@$(call add,LIVE_CLEANUP_KDRIVERS,kernel/drivers/bluetooth/)
-	@$(call set,STAGE1_MODLISTS,stage2-ata stage2-drm stage2-hid)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc stage2-usb)
 	@$(call add,USERS,altlinux:::)

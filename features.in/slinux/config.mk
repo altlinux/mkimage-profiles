@@ -81,6 +81,9 @@ endif
 use/slinux/base: use/isohybrid use/luks \
 	+plymouth use/memtest +vmguest \
 	+efi \
+	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
+	use/stage2/rtc use/stage2/scsi use/stage2/usb \
 	use/live/x11 use/live/rw use/install2/fonts \
 	use/efi/refind use/efi/memtest86 use/efi/shell \
 	use/bootloader/grub \
@@ -94,7 +97,6 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 
 use/slinux/full: use/slinux/base

@@ -35,7 +35,10 @@ distro/alt-education: distro/.installer mixin/education \
 	+efi use/efi/refind use/efi/shell \
 	use/isohybrid use/luks \
 	+plymouth +wireless \
-	use/install2/fonts
+	use/install2/fonts \
+	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
+	use/stage2/rtc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
 	@$(call set,META_VOL_ID,ALT Education 9.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
@@ -75,7 +78,6 @@ endif
 	@$(call add,MAIN_PACKAGES,stellarium)
 	@$(call add,MAIN_PACKAGES,libreoffice-block-macros)
 	@$(call add,MAIN_PACKAGES,lmms)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_LISTS,slinux/net-base)
