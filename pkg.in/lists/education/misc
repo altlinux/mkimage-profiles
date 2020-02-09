@@ -2,7 +2,6 @@
 vlc-maxi
 simplescreenrecorder
 libva-driver-intel@X86
-libva-driver-vdpau
 
 # Graphics
 ristretto
