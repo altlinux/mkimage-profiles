@@ -164,8 +164,8 @@ i586-libwine-gl@x86_64
 i586-libwine-twain@x86_64
 i586-wine>2.9@x86_64
 libnss-fallback
-wine-gecko
-wine-mono
+wine-gecko@X86
+wine-mono@X86
 
 # Communication
 pidgin
