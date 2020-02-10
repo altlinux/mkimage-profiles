@@ -63,6 +63,8 @@ synaptic
 synaptic-usermode
 gnome-software
 gnome-software-disable-updates
+
+alt-rootfs-installer
 gksu
 cups
 cups-filters
