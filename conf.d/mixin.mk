@@ -54,7 +54,7 @@ mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs \
 	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
 	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
-	@$(call set,THE_IMAGEWRITER,imagewriter)
+	@$(call set,THE_IMAGEWRITER,altmediawriter)
 	@$(call add,THE_PACKAGES,upower bluez)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
@@ -87,7 +87,6 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+nm +pulse
 	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
-	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
 mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
@@ -111,10 +110,8 @@ mixin/regular-xfce-sysv: mixin/xfce-base \
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
-	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
 
-mixin/regular-lxqt: use/x11/lxqt +nm-gtk
-	@$(call set,THE_IMAGEWRITER,rosa-imagewriter)
+mixin/regular-lxqt: use/x11/lxqt +nm-gtk; @:
 
 mixin/mate-base: use/x11/mate use/fonts/ttf/google +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
