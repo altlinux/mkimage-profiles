@@ -180,7 +180,7 @@ distro/.regular-server-base: distro/.regular-install use/server/base
 
 distro/.regular-server: distro/.regular-server-base \
 	use/server/mini use/firmware/qlogic use/rescue/base \
-	use/ntp/client use/cleanup/libs use/bootloader/grub +efi
+	use/ntp/chrony use/cleanup/libs use/bootloader/grub +efi
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common qt5-base-common)
