@@ -71,7 +71,7 @@ distro/.regular-jeos: distro/.regular-jeos-base use/stage2/kms \
 
 distro/.regular-jeos-full: distro/.regular-jeos \
 	use/volumes/jeos use/install2/vmguest use/vmguest/bare \
-	use/bootloader/grub +efi
+	use/ntp/chrony use/bootloader/grub +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
