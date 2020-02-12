@@ -2,4 +2,4 @@ easytag
 audacious
 audacious-plugins
 libva-driver-intel@X86
-libva-intel-media-driver@X86
+libva-intel-media-driver@x86_64
