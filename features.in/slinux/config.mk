@@ -61,7 +61,9 @@ use/slinux/vm-base: vm/systemd \
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless use/l10n/default/ru_RU \
-	use/xdg-user-dirs/deep use/slinux/services; @:
+	use/docs/manual use/docs/indexhtml \
+	use/xdg-user-dirs/deep use/slinux/services
+	@$(call set,DOCS,simply-linux)
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,LIVE_LISTS,slinux/games-base)
 	@$(call add,LIVE_LISTS,slinux/graphics-base)
