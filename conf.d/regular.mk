@@ -80,6 +80,7 @@ distro/.regular-jeos-full: distro/.regular-jeos \
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
 	@$(call set,KFLAVOURS,un-def)
+	@$(call add,BASE_KMODULES,staging)
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
@@ -200,6 +201,7 @@ distro/.regular-server-full: distro/.regular-server-managed \
 	use/server/groups/base use/dev/groups/builder use/install2/vnc/full
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)
+	@$(call add,BASE_KMODULES,staging)
 
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd +systemd-optimal; @:
