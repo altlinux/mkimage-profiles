@@ -152,8 +152,8 @@ distro/regular-gnome3: distro/.regular-desktop +plymouth +nm-gtk \
 	@$(call add,LIVE_PACKAGES,firefox-gnome_shell_integration)
 	@$(call add,LIVE_PACKAGES,gnome-software-disable-updates)
 
-distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth \
-	use/browser/falkon use/x11/sddm
+distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth \
+	use/browser/falkon
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
 
 distro/regular-kde5: distro/.regular-desktop \
