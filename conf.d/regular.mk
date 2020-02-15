@@ -35,7 +35,7 @@ distro/.regular-desktop: distro/.regular-wm \
 	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call set,KFLAVOURS,std-def)
 
-distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/slick +plymouth; @:
+distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
 distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit; @:
 
