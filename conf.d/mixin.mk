@@ -80,7 +80,7 @@ mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm-gtk
 mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck
 	@$(call add,THE_BRANDING,graphics)
 
-mixin/regular-cinnamon: use/x11/cinnamon +nm-gtk \
+mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
 	use/fonts/ttf/google use/net/nm/mmgui use/im; @:
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \

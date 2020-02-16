@@ -51,8 +51,7 @@ vm/regular-builder: vm/regular-jeos-sysv mixin/regular-builder; @:
 vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	mixin/vm-archdep; @:
 
-vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep \
-	use/x11/lightdm/slick; @:
+vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep; @:
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
 
