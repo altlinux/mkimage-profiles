@@ -83,7 +83,7 @@ profile/init: distclean
 	fi $(SHORTEN); \
 	} >&2
 
-profile/bare: profile/init
+profile/bare: profile/init use/pkgpriorities
 	@{ \
 	NOTE="$${GLOBAL_VERBOSE:+: $(CONFIG)}"; \
 	if [ -z "$(QUIET)" ]; then \
@@ -95,6 +95,14 @@ profile/bare: profile/init
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
 	@$(call try,BRANDING,alt-sisyphus)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-alterator:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-bootsplash:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-bootloader:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-graphics:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-indexhtml:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-notes:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-release:Essential)
+	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-slideshow:Essential)
 ifeq (,$(REPO:altlinux%=))
 	@$(call set,IMAGE_INIT_LIST,+branding-$$(BRANDING)-release)
 endif
