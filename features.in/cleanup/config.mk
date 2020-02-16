@@ -23,7 +23,7 @@ use/cleanup/alterator: use/cleanup
 
 # for lightweight server distros
 use/cleanup/x11-alterator: use/cleanup/x11 use/cleanup/alterator
-	@$(call add,CLEANUP_PACKAGES,libmng qt4-common)
+	@$(call add,CLEANUP_PACKAGES,libmng qt4-common qt5-base-common)
 
 # "basically everything else"; this *will* change with branches and distros
 use/cleanup/jeos: use/cleanup/x11-alterator
