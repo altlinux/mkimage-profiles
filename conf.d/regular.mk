@@ -89,7 +89,8 @@ distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
 	+sysvinit; @:
 
 distro/regular-jeos-systemd: distro/.regular-jeos-full \
-	+systemd +systemd-optimal; @:
+	+systemd +systemd-optimal
+	@$(call add,BASE_PACKAGES,glibc-locales)
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 # NB: no +efi as it brings in grub2 (no ELILO support for system boot)
