@@ -106,6 +106,7 @@ mixin/regular-xfce-sysv: mixin/xfce-base \
 	@$(call add,THE_PACKAGES,nload)
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
 	@$(call add,THE_PACKAGES,apt-conf-ignore-systemd)
+	@$(call add,THE_PACKAGES,pandoc)
 
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
