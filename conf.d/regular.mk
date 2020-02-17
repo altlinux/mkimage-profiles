@@ -166,6 +166,7 @@ distro/regular-robo: distro/regular-mate +robotics use/live/ru; @:
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
 	use/rescue/rw use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
+	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
 	use/mediacheck +wireless
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
@@ -235,7 +236,7 @@ distro/regular-server-pve: distro/.regular-server-base +systemd \
 distro/regular-builder: distro/.regular-bare mixin/regular-builder \
 	use/dev/builder/full +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
-	use/isohybrid use/syslinux/timeout/30 use/stage2/net-eth
+	use/isohybrid use/syslinux/timeout/30 use/grub/timeout/30 use/stage2/net-eth
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
 
 distro/regular-server-samba4: distro/.regular-server-managed +systemd
