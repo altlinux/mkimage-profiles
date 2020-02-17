@@ -38,7 +38,7 @@ distro/alt-education: distro/.installer mixin/education \
 	use/install2/fonts \
 	use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
-	use/stage2/rtc use/stage2/scsi use/stage2/usb
+	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
 	@$(call set,META_VOL_ID,ALT Education 9.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
