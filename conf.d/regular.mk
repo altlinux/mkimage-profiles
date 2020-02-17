@@ -167,7 +167,7 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
 	use/rescue/rw use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
-	use/mediacheck +wireless
+	use/mediacheck use/stage2/kms +wireless
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
 	@$(call add,RESCUE_LISTS,$(call tags,base bench))
@@ -234,7 +234,7 @@ distro/regular-server-pve: distro/.regular-server-base +systemd \
 		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)
 
 distro/regular-builder: distro/.regular-bare mixin/regular-builder \
-	use/dev/builder/full +sysvinit +efi +power \
+	use/dev/builder/full use/stage2/kms +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/30 use/grub/timeout/30 use/stage2/net-eth
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
