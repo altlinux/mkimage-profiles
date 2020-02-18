@@ -11,7 +11,7 @@ else
 mixin/vm-archdep: ; @:
 endif
 endif
-
+	@$(call add,KMODULES,staging)
 
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 	use/services/lvm2-disable
