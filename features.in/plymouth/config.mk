@@ -1,5 +1,6 @@
 +plymouth: use/plymouth/full; @:
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 # and a few aliases
 use/plymouth/live: use/plymouth/stage2; @:
 use/plymouth/install2: use/plymouth/stage2; @:
@@ -45,3 +46,8 @@ endif
 	@$(call add,THE_PACKAGES,make-initrd-plymouth)
 
 use/plymouth/full: use/plymouth/stage2 use/plymouth/base; @:
+
+else
+use/plymouth use/plymouth/live use/plymouth/install2 use/plymouth/stage2 \
+	use/plymouth/base use/plymouth/full: ; @:
+endif
