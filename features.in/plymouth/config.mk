@@ -24,7 +24,18 @@ else
 use/plymouth/stage2: use/plymouth use/branding; @:
 endif
 
-use/plymouth/base: use/plymouth/stage2
+ifeq (vm,$(IMAGE_CLASS))
+use/plymouth/vm: use/plymouth use/branding use/kernel/initrd-setup
+	@$(call add,VM_INITRDFEATURES,plymouth)
+	@$(call add,THE_BRANDING,bootsplash)
+	@$(call add,THE_PACKAGES_REGEXP,make-initrd-plymouth)
+	@$(call add,BASE_BOOTARGS,quiet splash)
+	@$(call add,THE_KMODULES,drm)
+else
+use/plymouth/vm: use/plymouth; @:
+endif
+
+use/plymouth/base: use/plymouth/stage2 use/plymouth/vm
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-setup-plymouth)
 endif
