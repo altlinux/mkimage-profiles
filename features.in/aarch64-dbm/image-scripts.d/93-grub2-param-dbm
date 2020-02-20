@@ -11,5 +11,5 @@ cfgfile="/etc/sysconfig/grub2"
 if [ -f "$cfgfile" ]
 then
 	echo "# Configure GRUB2 Special Settings for DBM board" >> "$cfgfile"
-	echo "GRUB_FDT_LINUX=bm-bfkm.dtb" >> "$cfgfile"
+	echo "GRUB_FDT_LINUX=$GLOBAL_DBM_DTB.dtb" >> "$cfgfile"
 fi
