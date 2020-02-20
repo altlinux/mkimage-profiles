@@ -1,4 +1,4 @@
-udev-conf-e801-2seat
+udev-conf-e801-3seat
 setup-udisks-disable-automount
 setup-multiseat-polkit
 setup-multiseat-pulse

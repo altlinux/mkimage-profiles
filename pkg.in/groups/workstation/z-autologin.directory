@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Log in automatically
+Name[ru_RU]=Вход без запроса пароля
+Comment=This enables autologin in single- or multi-seat configuration
+Comment[ru_RU]=Включает автоматический вход в систему на всех местах
+X-Alterator-PackageList=workstation/autologin
+X-Alterator-Required=no
