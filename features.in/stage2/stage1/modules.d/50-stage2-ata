@@ -1,6 +1,7 @@
 kernel/drivers/ata
 kernel/drivers/block
 ahci.ko
+ahci_platform.ko
 ata_piix.ko
 libata.ko
 pata_it8213.ko
