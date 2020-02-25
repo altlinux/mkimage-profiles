@@ -6,7 +6,7 @@ _ON = alteratord cpufreq-simple \
       livecd-setauth livecd-setlocale livecd-timezone livecd-net-eth livecd-install-wmaker \
       random rpcbind plymouth avahi-daemon \
 
-_OFF = anacron blk-availability bridge clamd crond dhcpd dmeventd dnsmasq \
+_OFF = anacron blk-availability bridge clamd dhcpd dmeventd dnsmasq \
        mdadm netfs o2cb ocfs2 openvpn postfix rawdevices slapd smartd sshd \
        sysstat update_wms xinetd
 
