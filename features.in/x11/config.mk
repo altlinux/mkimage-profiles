@@ -70,9 +70,6 @@ use/x11/nvidia/optimus: use/x11/nvidia
 
 use/x11/wacom: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-wacom)
-ifeq (,$(filter-out x86_64 i586,$(ARCH)))
-	@$(call add,THE_PACKAGES,xorg-drv-wizardpen)
-endif
 
 ## display managers
 use/x11/dm: use/x11-autostart
