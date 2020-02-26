@@ -131,7 +131,7 @@ distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
 distro/regular-xfce-sysv-install: distro/.regular-install-x11-full \
-	mixin/regular-xfce-sysv use/x11/gdm2.20; @:
+	mixin/regular-xfce-sysv use/init/sysv/polkit use/x11/gdm2.20; @:
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
 
