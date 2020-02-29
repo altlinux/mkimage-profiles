@@ -112,7 +112,8 @@ vm/regular-mate-mcom02: vm/.regular-gtk mixin/regular-mate \
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
 vm/regular-xfce-mcom02: vm/.regular-gtk mixin/regular-xfce \
-	use/armh-mcom02/x11; @:
+	use/armh-mcom02/x11
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
 # ELVIS mcom02 (propietary videodriver)
 vm/regular-lxde-mcom02-mali: vm/.regular-gtk mixin/regular-lxde \
@@ -122,10 +123,12 @@ vm/regular-lxqt-mcom02-mali: vm/.regular-gtk mixin/regular-lxqt \
 	use/armh-mcom02/mali; @:
 
 vm/regular-mate-mcom02-mali: vm/.regular-gtk mixin/mate-base \
-	use/armh-mcom02/mali; @:
+	use/armh-mcom02/mali
+	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
 vm/regular-xfce-mcom02-mali: vm/.regular-gtk mixin/regular-xfce \
-	use/armh-mcom02/mali; @:
+	use/armh-mcom02/mali
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
