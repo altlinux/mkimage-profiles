@@ -44,8 +44,7 @@ distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
 
 distro/.regular-install: distro/.regular-base +installer \
 	use/branding use/bootloader/grub use/luks use/stage2/kms \
-	use/install2/fs use/install2/vnc use/install2/repo \
-	use/efi/refind
+	use/install2/fs use/install2/vnc use/install2/repo
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,THE_LISTS,$(call tags,base regular))
@@ -101,7 +100,7 @@ endif
 
 distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
 	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
-	use/branding/complete use/branding/slideshow/once
+	use/branding/complete use/branding/slideshow/once use/efi/refind
 	@$(call set,INSTALLER,altlinux-desktop)
 
 # assumes somewhat more experienced user
