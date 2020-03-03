@@ -48,7 +48,7 @@ mixin/regular-x11: use/luks use/volumes/regular \
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 
 # common WM live/installer bits
-mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs \
+mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs use/l10n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/net-eth
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit)
 	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
