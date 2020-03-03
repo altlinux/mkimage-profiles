@@ -43,7 +43,7 @@ all: debug timeout
 	@echo $(GRUB_FILES) > $(DSTDIR)/grub.list
 	@sed -i \
 		-e 's,@mkimage-profiles@,$(IMAGE_NAME),' \
-		-e 's,@relname@,$(RELNAME),' \
+		-e 's,@relname@,$(RELNAME),g' \
 		$(DSTCFGS)
 
 # integerity check
