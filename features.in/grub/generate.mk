@@ -19,6 +19,10 @@ ifndef GRUB_DIRECT
 GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults fwsetup_efi
 endif
 
+ifdef LOCALE
+GRUB_CFG := $(GRUB_CFG) lang
+endif
+
 DSTDIR  := $(BUILDDIR)/stage1/files/boot/grub/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
@@ -77,6 +81,12 @@ bootargs: clean
 		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTCFGS); \
 	fi; \
 	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTCFGS)
+	@if [ -n "$(LOCALE)" ]; then \
+		sed -i "s,@LOCALE@,$(LOCALE),g" $(DSTCFGS); \
+	else \
+		sed -i "s, lang=.lang,,g" $(DSTCFGS); \
+	fi; \
+	sed -i "/lang=@LOCALE@/d" $(DSTCFGS)
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \
