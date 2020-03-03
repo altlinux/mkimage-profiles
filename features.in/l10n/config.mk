@@ -10,6 +10,7 @@ use/l10n:
 	@$(call add,THE_PACKAGES,glibc-locales)
 	@$(call add,LOCALES,en_US)
 	@$(call add,XKB_KEYMAPS,us)
+	@$(call try,LOCALE,en_US)
 	@$(call xport,LOCALE)
 	@$(call xport,LOCALES)
 	@$(call xport,XKB_KEYMAPS)
