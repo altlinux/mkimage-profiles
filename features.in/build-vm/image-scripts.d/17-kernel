@@ -26,7 +26,15 @@ for KVER in $kver; do
 	  || { echo "** Error: make-initrd failed" >&2; exit 1; }
 done
 
-# NB: e2k kernel builds "image" instead of "vmlinuz"
-[ -f vmlinuz-$KVER ] && ln -s vmlinuz-$KVER vmlinuz ||:
-ln -s initrd-$KVER.img initrd.img	# missing at this stage
+case "$GLOBAL_ARCH" in
+e2k)
+	kname=image;;
+*)
+	kname=vmlinuz;;
+esac
+
+rm -f $kname initrd.img
+ln -s $kname-$KVER $kname ||:
+ln -s initrd-$KVER.img initrd.img
+
 :
