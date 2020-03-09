@@ -3,12 +3,13 @@
 
 fatal() { echo "** error: $@" >&1; exit 1; }
 
-kver="$(rpm -qa 'kernel-image*' \
-	    --qf '%{installtime} %{version}-%{name}-%{release}\n' \
-	| sort -n \
-	| tail -n 1 \
-	| cut -f 2 -d ' ' \
+kver=
+for KFLAVOUR in $GLOBAL_KFLAVOURS; do
+	kver+=" $(rpm -qa 'kernel-image*' \
+		--qf '%{version}-%{name}-%{release}\n' \
+	| grep "$KFLAVOUR" \
 	| sed 's/kernel-image-//')"
+done
 
 [ -n "$kver" ] ||
 	fatal "no kernel version identified"
@@ -18,7 +19,7 @@ kver="$(rpm -qa 'kernel-image*' \
 rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
 	/usr/share/make-initrd/data/lib/uevent/filters/debug
 
-MAKE_INITRD_OPTS="--no-checks -k $kver"
+MAKE_INITRD_OPTS="--no-checks"
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
 
@@ -30,8 +31,12 @@ fi
 [ -z "$GLOBAL_VERBOSE" ] ||
 	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
 
-make-initrd $MAKE_INITRD_OPTS ||
-	fatal "make-initrd failed"
+cd /boot
+
+for KVER in $kver; do
+	make-initrd $MAKE_INITRD_OPTS -k "$KVER" ||
+		fatal "make-initrd failed"
+done
 
 case `arch` in
 e2k)
@@ -40,10 +45,8 @@ e2k)
 	kname=vmlinuz;;
 esac
 
-[ -h /boot/vmlinuz ] ||
-	ln -s $kname-$kver /boot/$kname
-
-[ -h /boot/initrd.img ] ||
-	ln -s initrd-$kver.img /boot/initrd.img
+rm -f $kname initrd.img
+ln -s $kname-$KVER $kname
+ln -s initrd-$KVER.img initrd.img
 
 :
