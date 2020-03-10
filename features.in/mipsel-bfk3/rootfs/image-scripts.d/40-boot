@@ -5,22 +5,19 @@ mkdir -p /boot
 vmlinuz="$(find /boot -type f -name 'vmlinuz-*')"
 kversion="${vmlinuz##/boot/vmlinuz-}"
 
-DTB_NAME=baikal_bfk2
+[ -n "$GLOBAL_DTB_NAME" ]
 
-[ -n "$DTB_NAME" ]
+DTB_FILE="/lib/devicetree/$kversion/$GLOBAL_DTB_NAME"
+DTB_NAME="$(basename "$DTB_FILE" .dtb)"
 
-cp /lib/devicetree/"$kversion/$DTB_NAME".dtb /boot/"$DTB_NAME"-"$kversion".dtb
-ln -s "$DTB_NAME"-"$kversion".dtb /boot/$DTB_NAME.dtb
+cp "$DTB_FILE" "/boot/$DTB_NAME-$kversion.dtb"
+ln -s "$DTB_NAME-$kversion.dtb" "/boot/$DTB_NAME.dtb"
 
+# various SDK version have various defaults
 ln -s boot/vmlinuz /vmlinux.bin
-ln -s boot/initrd.img /initramfs.gz
-ln -s boot/"$DTB_NAME".dtb /baikal.dtb
-
 ln -s boot/vmlinuz /bfk3.vmlinux.bin
-
-# to match update-kernel
-mkdir -p /boot/dtb
-ln -s /boot/"$DTB_NAME"-"$kversion".dtb /boot/dtb/"$DTB_NAME".dtb
-ln -s /boot/dtb/"$DTB_NAME".dtb /bfk3.dtb
+ln -s boot/initrd.img /initramfs.gz
+ln -s "boot/$DTB_NAME.dtb" /baikal.dtb
+ln -s "boot/$DTB_NAME.dtb" /bfk3.dtb
 
 exit 0
