@@ -16,17 +16,12 @@ use/grub: ; @:
 
 endif
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 # UI is overwritten
 use/grub/ui/%: use/grub
 	@$(call set,GRUB_UI,$*)
 	@if [ "$*" == gfxboot ]; then \
-		$(call add,STAGE1_PACKAGES,gfxboot); \
 		$(call add,STAGE1_BRANDING,bootloader); \
 	fi
-else
-use/grub/ui/%: use/grub; @:
-endif
 
 use/grub/%.cfg: use/grub
 	@$(call add,GRUB_CFG,$*)

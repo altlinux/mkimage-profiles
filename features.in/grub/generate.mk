@@ -19,6 +19,10 @@ ifndef GRUB_DIRECT
 GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults fwsetup_efi
 endif
 
+ifdef GRUB_UI
+GRUB_CFG := $(GRUB_CFG) gfxterm
+endif
+
 ifdef LOCALE
 GRUB_CFG := $(GRUB_CFG) lang
 endif
@@ -94,6 +98,8 @@ bootargs: clean
 	@if [ $$(echo $(KFLAVOURS) | wc -w) -gt 1 ]; then \
 		sed -i "s,@KFLAVOUR@,$(KFLAVOURS),g" $(DSTCFGS); \
 	fi
+	GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
+	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS); \
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \
