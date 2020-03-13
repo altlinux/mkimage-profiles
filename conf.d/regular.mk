@@ -265,6 +265,7 @@ distro/regular-engineering: distro/regular-lxde use/live/ru
 	@$(call add,THE_LISTS,engineering/cnc)
 	@$(call add,THE_LISTS,engineering/apcs)
 	@$(call add,THE_LISTS,engineering/scada)
+	@$(call add,THE_LISTS,engineering/misc)
 
 endif
 

@@ -2,6 +2,7 @@ mixin/cnc-rt: use/cleanup +nm-gtk
 	@$(call set,KFLAVOURS,rt)
 	@$(call add,THE_LISTS,realtime/tests)
 	@$(call add,THE_LISTS,engineering/cnc)
+	@$(call add,THE_LISTS,engineering/misc)
 	@$(call add,CLEANUP_PACKAGES,virtualbox-guest-common)
 	@$(call add,CLEANUP_PACKAGES,open-vm-tools)
 	@$(call add,CLEANUP_PACKAGES,xorg-drv-vboxvideo xorg-drv-qxl)
