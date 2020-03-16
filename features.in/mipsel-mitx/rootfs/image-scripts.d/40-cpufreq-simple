@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CONFIG=/etc/sysconfig/cpufreq-simple
+
+[ -f "$CONFIG" ] || exit 0
+
+. shell-config
+shell_config_set "$CONFIG" GOVERNOR_AC_ON performance
+shell_config_set "$CONFIG" GOVERNOR_AC_OFF performance
