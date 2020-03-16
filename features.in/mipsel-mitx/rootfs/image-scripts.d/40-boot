@@ -13,8 +13,12 @@ case "$kversion" in
 		DTB_NAME=tplatforms_mitx2
 		KERNEL_LOAD_ADDR=0x80004000
 		;;
+	4.4*)
+		DTB_NAME=tplatforms_mitx
+		KERNEL_LOAD_ADDR=0x80100000
+		;;
 	*)
-		# 4.4, 4.9
+	        # 4.9 and other experimential stuff
 		DTB_NAME=baikal_mitx
 		KERNEL_LOAD_ADDR=0x80100000
 		;;
