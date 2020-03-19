@@ -83,7 +83,7 @@ use/slinux/base: use/isohybrid use/luks \
 	+efi \
 	use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
-	use/stage2/rtc use/stage2/scsi use/stage2/usb \
+	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/live/x11 use/live/rw use/install2/fonts \
 	use/efi/refind use/efi/memtest86 use/efi/shell \
 	use/bootloader/grub \
