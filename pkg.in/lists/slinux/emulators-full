@@ -9,4 +9,4 @@ i586-xorg-dri-.*@x86_64
 cabextract@X86
 dosbox
 #kernel-modules-virtualbox-@KERNEL@
-virtualbox@X86
+virtualbox@x86_64
