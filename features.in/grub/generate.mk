@@ -98,7 +98,8 @@ bootargs: clean
 	@if [ $$(echo $(KFLAVOURS) | wc -w) -gt 1 ]; then \
 		sed -i "s,@KFLAVOUR@,$(KFLAVOURS),g" $(DSTCFGS); \
 	fi
-	GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
+	GRUBTHEME=$(GRUBTHEME); \
+	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS); \
 
 clean: copy
