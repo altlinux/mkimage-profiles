@@ -1,6 +1,7 @@
 use/slinux: use/x11
 	@$(call add_feature)
 	@$(call set,BRANDING,simply-linux)
+	@$(call set,GRUBTHEME,slinux)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
