@@ -31,7 +31,8 @@ ifeq (,$(filter-out armh aarch64,$(ARCH)))
 	@$(call add,THE_LISTS,remote-access)
 endif
 
-vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 +systemd +systemd-optimal; @:
+vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 +systemd +systemd-optimal \
+	+plymouth; @:
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
 	use/init/sysv/polkit +power; @:
