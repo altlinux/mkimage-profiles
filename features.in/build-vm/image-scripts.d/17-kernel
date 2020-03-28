@@ -19,9 +19,14 @@ done
 
 cd /boot
 
+if [ -n "$GLOBAL_VM_INITRDFEATURES" ]; then
+	for INITRDFEATURE in $GLOBAL_VM_INITRDFEATURES; do
+		echo "FEATURES += $INITRDFEATURE" >> /etc/initrd.mk
+	done
+fi
+
 for KVER in $kver; do
 	make-initrd -N -k "$KVER" AUTODETECT= \
-	  FEATURES+="$GLOBAL_VM_INITRDFEATURES" \
 	  MODULES_TRY_ADD+="$GLOBAL_VM_INITRDMODULES" \
 	  || { echo "** Error: make-initrd failed" >&2; exit 1; }
 done
