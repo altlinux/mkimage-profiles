@@ -13,7 +13,7 @@ distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
 	@$(call add,RESCUE_PACKAGES,livecd-net-eth)
 
 distro/syslinux: distro/.boot \
-	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
+	use/syslinux/ui/vesamenu use/hdt; @:
 
 distro/.live-base: distro/.base use/live/base; @:
 distro/.live-x11: distro/.live-base use/live/x11; @:
