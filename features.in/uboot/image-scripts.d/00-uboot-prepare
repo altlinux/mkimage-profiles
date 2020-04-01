@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[ "$GLOBAL_BASE_BOOTLOADER" = 'uboot' ] || exit 0
-
 if [ -n "$GLOBAL_TTY_RATE" ] ;then
 	TTY="$GLOBAL_TTY_DEV","$GLOBAL_TTY_RATE"
 else
