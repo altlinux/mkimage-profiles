@@ -68,6 +68,15 @@ ppc*)
 	;;
 esac
 
+PARTTABLE="$7"
+if [ -z "$PARTTABLE" ]; then
+	if [ "$BOOTLOADER" == grub-efi ]; then
+		PARTTABLE=gpt
+	else
+		PARTTABLE=msdos
+	fi
+fi
+
 # figure out the part taken by /boot in the given tarball
 boot_size() {
 	if [ -n "$BOOTPART" ]; then
@@ -185,11 +194,7 @@ OFFSET="$(($CUR_BOUNDARY + $EFIPARTSIZEM + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + $
 dd if=/dev/zero of="$IMG" conv=notrunc bs=$MB count=1 seek="$OFFSET"
 losetup "$LOOPDEV" "$IMG"
 
-if [ "$BOOTLOADER" == grub-efi ]; then
-	parting mklabel gpt
-else
-	parting mklabel msdos
-fi
+parting mklabel "$PARTTABLE"
 
 if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
 	case "$ARCH" in
@@ -204,10 +209,16 @@ fi
 
 if [ -n "$EFIPART" ]; then
 	EFIDEV="$EFIDEV$EFIPART"
-	parting mkpart fat32 2048s $(($EFIPARTSIZEM + 1))MiB
+	if [ "$PARTTABLE" == gpt ]; then
+		parting mkpart fat32 2048s $(($EFIPARTSIZEM + 1))MiB
+	else
+		parting mkpart primary fat32 2048s $(($EFIPARTSIZEM + 1))MiB
+	fi
 	CUR_BOUNDARY="$EFIPARTSIZEM"
 	parting set 1 boot on
-	parting set 1 esp on
+	if [ "$PARTTABLE" == gpt ]; then
+		parting set 1 esp on
+	fi
 fi
 
 if [ -n "$BOOTPART" ]; then
