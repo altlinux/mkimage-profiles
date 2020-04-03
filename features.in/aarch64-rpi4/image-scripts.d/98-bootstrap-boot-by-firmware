@@ -1,0 +1,3 @@
+#!/bin/sh -efu
+
+rpi4-boot-nouboot --bootstrap
