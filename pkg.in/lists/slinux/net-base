@@ -1,10 +1,10 @@
-thunderbird
-thunderbird-ru
-thunderbird-enigmail
+thunderbird@!riscv64
+thunderbird-ru@!riscv64
+thunderbird-enigmail@!riscv64
 
-pidgin
-pidgin-libnotify
+pidgin@!riscv64
+pidgin-libnotify@!riscv64
 
 rdesktop
-remmina
-remmina-plugins
+remmina@!riscv64
+remmina-plugins@!riscv64

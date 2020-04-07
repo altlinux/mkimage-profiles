@@ -16,7 +16,7 @@ nvidia-xconfig
 
 vlock
 
-hplip-PPDs
+hplip-PPDs@!riscv64
 
 tango-icon-theme
 tango-icon-theme-extras

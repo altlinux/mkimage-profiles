@@ -81,7 +81,7 @@ rpminstall
 system-config-printer
 system-config-printer-udev
 apt-repo
-rekonq-
+rekonq-@!riscv64
 xdg-user-dirs
 x-cursor-theme-jimmac
 
