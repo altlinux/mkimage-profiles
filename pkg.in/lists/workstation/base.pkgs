@@ -9,6 +9,8 @@ alterator-net-iptables
 task-auth-ad-sssd
 task-auth-ldap-sssd
 
+apt-indicator
+
 # compat libs
 libusb-compat@IA32
 
