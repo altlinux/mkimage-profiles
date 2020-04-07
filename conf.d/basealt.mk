@@ -3,7 +3,7 @@ ifeq (distro,$(IMAGE_CLASS))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	3rdparty blender clamav cloud-clients freecad \
-	gtk-dictionary kvm smartcard virtualbox voip-clients)
+	gtk-dictionary kvm smartcard voip-clients)
 endif
 
 distro/alt-workstation: distro/.base +vmguest +wireless +efi \
@@ -22,6 +22,9 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	@$(call add,MAIN_PACKAGES,solaar)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
+endif
+ifeq (,$(filter-out x86_64,$(ARCH)))
+	@$(call add,MAIN_GROUPS,workstation/virtualbox)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 endif
 	@$(call add,MAIN_LISTS,workstation/extras)
