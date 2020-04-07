@@ -139,7 +139,7 @@ distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
 
 distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
 
-distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
+distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment +power; @:
 
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
