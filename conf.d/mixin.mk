@@ -109,7 +109,6 @@ mixin/regular-xfce-sysv: mixin/xfce-base \
 	@$(call add,THE_PACKAGES,pandoc)
 
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
-	@$(call add,THE_LISTS,$(call tags,desktop gvfs))
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 
 mixin/regular-lxqt: use/x11/lxqt +nm-gtk; @:
