@@ -30,6 +30,7 @@ powertop@X86
 pciutils
 usbutils
 acpi
+dmidecode@X86
 
 apt-repo
 apt-rsync
