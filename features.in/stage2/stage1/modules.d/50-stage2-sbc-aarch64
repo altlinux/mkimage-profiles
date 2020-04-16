@@ -1,4 +1,5 @@
 bcm2835.ko
+bcm2835-dma.ko
 dwc2.ko
 dwc2_pci.ko
 dwc3.ko
