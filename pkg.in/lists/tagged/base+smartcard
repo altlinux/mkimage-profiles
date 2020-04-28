@@ -10,7 +10,6 @@ pcsc-lite-openct
 pcsc-lite-rutokens
 
 pam_pkcs11
-pam_p11
 
 openssl
 openssl-engines
