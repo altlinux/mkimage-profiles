@@ -49,6 +49,7 @@ xorg-drv-wacom
 ocfs2-tools
 zsh
 glxgears
+glxinfo
 rsync
 screen
 apcupsd
