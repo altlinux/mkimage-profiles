@@ -92,6 +92,7 @@ mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
 	@$(call add,THE_BRANDING,xfce-settings)
 	@$(call add,THE_PACKAGES,xreader)
+	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 
 mixin/regular-xfce: mixin/xfce-base use/x11/xfce/full \
 	use/domain-client; @:
