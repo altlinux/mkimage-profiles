@@ -70,7 +70,10 @@ ifeq (vm,$(IMAGE_CLASS))
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 
 vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
-	use/oem use/repo use/bootloader/uboot mixin/alt-workstation; @:
+	use/oem use/repo use/bootloader/uboot mixin/alt-workstation
+	@$(call add,THE_PACKAGES,rootfs-installer-features)
+	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
+	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
 vm/alt-workstation-tegra: vm/alt-workstation use/aarch64-tegra; @:
 
