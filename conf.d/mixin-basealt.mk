@@ -54,7 +54,7 @@ mixin/alt-workstation-install: +installer \
 	use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
-	@$(call set,INSTALLER,altlinux-desktop)
+	@$(call set,INSTALLER,alt-workstation)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-slideshow)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
