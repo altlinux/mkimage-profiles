@@ -83,7 +83,6 @@ btrfs-progs
 e2fsprogs
 f2fs-tools
 jfsprogs
-logfsprogs
 nilfs-utils
 mtd-utils
 reiser4progs
