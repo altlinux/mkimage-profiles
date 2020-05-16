@@ -46,7 +46,7 @@ vm/alt-p9-opennebula: vm/opennebula-systemd mixin/p9; @:
 
 # universal builds rootfs and image for all platforms
 vm/alt-p9-jeos-systemd vm/alt-p9-jeos-sysv vm/alt-p9-builder \
-	vm/alt-p9-cinnamon vm/alt-p9-kde5 \
+	vm/alt-p9-cinnamon vm/alt-p9-gnome3 vm/alt-p9-kde5 \
 	vm/alt-p9-icewm-sysv vm/alt-p9-lxde \
 	vm/alt-p9-lxqt vm/alt-p9-mate \
 	vm/alt-p9-xfce: \
@@ -62,6 +62,10 @@ vm/alt-p9-cinnamon-tegra vm/alt-p9-kde5-tegra \
 	vm/alt-p9-lxde-tegra vm/alt-p9-lxqt-tegra \
 	vm/alt-p9-mate-tegra vm/alt-p9-xfce-tegra: \
 	vm/alt-p9-%-tegra: vm/regular-%-tegra mixin/p9; @:
+
+# DBM BE-M1000
+vm/alt-p9-gnome3-dbm vm/alt-p9-xfce-dbm: \
+	vm/alt-p9-%-dbm: vm/regular-%-dbm mixin/p9; @:
 endif
 
 ifeq (,$(filter-out armh,$(ARCH)))

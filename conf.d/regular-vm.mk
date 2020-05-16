@@ -54,6 +54,8 @@ vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 
 vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep; @:
 
+vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep; @:
+
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
 
 vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep
@@ -97,6 +99,8 @@ vm/regular-xfce-tegra: vm/.regular-gtk mixin/regular-xfce use/aarch64-tegra; @:
 
 # DBM BE-M1000
 vm/regular-xfce-dbm: vm/.regular-gtk mixin/regular-xfce use/aarch64-dbm; @:
+
+vm/regular-gnome3-dbm: vm/.regular-gtk mixin/regular-gnome3 use/aarch64-dbm; @:
 endif
 
 ifeq (,$(filter-out armh,$(ARCH)))
