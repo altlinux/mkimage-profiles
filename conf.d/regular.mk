@@ -144,15 +144,10 @@ distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment +power; 
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
-distro/regular-gnome3: distro/.regular-desktop +plymouth +nm-gtk \
-	use/x11/gnome3 use/fonts/ttf/redhat
+distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 +plymouth
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
-	@$(call add,LIVE_PACKAGES,gnome3-regular xcalib templates)
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
-	@$(call add,LIVE_PACKAGES,chrome-gnome-shell)
-	@$(call add,LIVE_PACKAGES,firefox-gnome_shell_integration)
-	@$(call add,LIVE_PACKAGES,gnome-software-disable-updates)
 
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth \
 	use/browser/falkon
