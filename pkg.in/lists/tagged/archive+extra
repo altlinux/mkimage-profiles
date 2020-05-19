@@ -11,7 +11,6 @@ xbiso
 zpaq
 
 # parallel (de)compression
-lbzip2
 pbzip2
 pigz
 plzip
