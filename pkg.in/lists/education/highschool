@@ -17,3 +17,7 @@ kde5-marble
 wxMaxima
 scilab@X86
 bluefish
+# KDE5 localization and profile
+kde5-profile
+qt5-translations
+kde5-khelpcenter

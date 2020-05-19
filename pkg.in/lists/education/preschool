@@ -6,3 +6,7 @@ tuxpaint
 kde5-profile
 kde5-khangman
 kde5-kanagram
+# KDE5 localization and profile
+kde5-profile
+qt5-translations
+kde5-khelpcenter

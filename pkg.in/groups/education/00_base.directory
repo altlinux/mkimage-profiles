@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Base education set
+X-Alterator-PackageList=education/base
+Name[ru_RU]=Базовый образовательный комплект
+X-Alterator-Required=yes

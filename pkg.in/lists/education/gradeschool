@@ -14,3 +14,7 @@ python3-module-pygame
 python3-module-pygame-doc
 python3-modules-curses
 python3-modules-nis
+# KDE5 localization and profile
+kde5-profile
+qt5-translations
+kde5-khelpcenter
