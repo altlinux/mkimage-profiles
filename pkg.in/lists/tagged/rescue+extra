@@ -92,7 +92,6 @@ xfsprogs
 
 # Compressed filesystem image
 clicfs-utils
-cloop-utils
 squashfs-tools
 
 # Foreign filesystems
