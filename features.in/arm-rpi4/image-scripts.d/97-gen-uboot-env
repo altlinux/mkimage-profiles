@@ -1,5 +1,9 @@
 #!/bin/sh -efu
 
+[ -d /usr/share/u-boot/rpi_4 ] &&
+  target_dir='/usr/share/u-boot/rpi_4' ||
+  target_dir='/usr/share/u-boot/rpi_4_32b'
+
 (
 cat << 'EOF'
 arch=arm
@@ -53,4 +57,4 @@ stdout=serial,vidconsole
 vendor=raspberrypi
 
 EOF
-) | mkenvimage -s 16384 -o /usr/share/u-boot/rpi_4/uboot.env -
+) | mkenvimage -s 16384 -o "$target_dir/uboot.env" -
