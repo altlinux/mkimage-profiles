@@ -1,18 +1,18 @@
 ifeq (distro,$(IMAGE_CLASS))
 
-ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 ppc64le aarch64,$(ARCH)))
 distro/alt-server: server_groups_x86 = $(addprefix centaurus/,\
         emulators freenx-server \
 	ipmi netinst sogo 80-desktop mate office pidgin vlc xorg)
 
-ifeq (,$(filter-out x86_64 ppc64le,$(ARCH)))
+ifeq (,$(filter-out x86_64 ppc64le aarch64,$(ARCH)))
 distro/alt-server: server_groups_x86_64 = $(addprefix centaurus/,\
        freeipa-server v12n-server)
 distro/alt-server: use/efi/refind use/memtest +efi
 endif
 endif
 
-ifeq (,$(filter-out ppc64le,$(ARCH)))
+ifeq (,$(filter-out ppc64le aarch64,$(ARCH)))
 distro/.alt-server-vnc: use/install2/vnc/listen; @:
 else
 distro/.alt-server-vnc: ; @:
