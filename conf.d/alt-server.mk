@@ -22,6 +22,9 @@ endif
 distro/alt-server: distro/.base distro/.alt-server-vnc \
 	mixin/alt-server use/vmguest/base use/vmguest/kvm/x11\
 	use/bootloader/grub use/rescue/base use/stage2/kms\
+	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
+	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/docs/license
 	@$(call add,MAIN_GROUPS,$(server_groups_x86))
 	@$(call add,MAIN_GROUPS,$(server_groups_x86_64))
