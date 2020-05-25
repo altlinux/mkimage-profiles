@@ -40,7 +40,7 @@ distro/alt-education: distro/.installer mixin/education \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 9.0 $(ARCH))
+	@$(call set,META_VOL_ID,ALT Education 9.1alpha $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
