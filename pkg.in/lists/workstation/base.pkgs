@@ -11,6 +11,8 @@ task-auth-ldap-sssd
 
 apt-indicator
 
+recoll-extras
+
 # compat libs
 libusb-compat@IA32
 
