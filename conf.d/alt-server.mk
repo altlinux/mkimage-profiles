@@ -32,6 +32,7 @@ distro/alt-server: distro/.base distro/.alt-server-vnc \
 	@$(call add,MAIN_LISTS,centaurus/disk-server-light)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
 	@$(call add,INSTALL2_PACKAGES,strace)
+	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
