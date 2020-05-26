@@ -22,7 +22,6 @@ iftop
 installer-feature-ltsp-stage3
 
 # Set available online repository and some useful utilites from /sbin
-installer-feature-symlinks-from-sbin
 installer-feature-online-repo
 
 ####

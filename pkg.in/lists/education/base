@@ -93,7 +93,6 @@ installer-feature-online-repo
 installer-feature-repo-add
 installer-feature-resolver-bind-stage3
 openresolv-bind
-installer-feature-symlinks-from-sbin
 
 # GUI utilities
 gparted

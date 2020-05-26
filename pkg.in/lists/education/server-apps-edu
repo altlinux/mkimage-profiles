@@ -19,7 +19,6 @@ nano
 lsb@X86
 apt-rsync
 apt-repo
-installer-feature-symlinks-from-sbin
 installer-feature-online-repo
 installer-feature-repo-add
 setbranding
