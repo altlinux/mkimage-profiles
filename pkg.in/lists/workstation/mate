@@ -20,3 +20,6 @@ desktop-screensaver-modules-xscreensaver-gl
 # put these two into a pkggroup so no-extra-services setup could be achieved
 #mate-user-share
 #mate-file-manager-share
+
+# ALT bugs #37967, #37966
+ImageMagick-tools
