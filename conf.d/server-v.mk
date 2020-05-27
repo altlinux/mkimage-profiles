@@ -132,6 +132,9 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd systemd-resolved)
+	@$(call add,DEFAULT_SERVICES_ENABLE,pve-manager pve-cluster pveproxy pvedaemon pvestatd \
+		pve-firewall pvefw-logger pve-guests pve-ha-crm pve-ha-lrm spiceproxy \
+		lxc lxcfs lxc-net lxc-monitord)
 
 #	@$(call add,MAIN_GROUPS,server-v/141-cockpit $(cockpit))
 #	@$(call add,MAIN_GROUPS,server-v/430-moosefs $(moosefs))
