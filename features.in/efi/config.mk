@@ -11,7 +11,6 @@ use/efi:
 	@$(call set,MKI_VER_MINIMAL,0.2.12)	# it's official now
 	@$(call set,MKI_VER_OPTIMAL,0.2.17)	# for EFI_BOOTARGS
 	@$(call try,EFI_BOOTLOADER,grub-efi)	# default one
-	@$(call add,THE_PACKAGES,$$(EFI_BOOTLOADER))
 	@$(call xport,EFI_BOOTLOADER)
 	@$(call add,THE_LISTS,$(EFI_LISTS))
 	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
