@@ -11,8 +11,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,BASE_PACKAGES,branding-$$(BRANDING)-release)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules)	# for guile22
-	@$(call add,BASE_PACKAGES,interactivesystem)
-	@$(call add,BASE_PACKAGES,apt)
+	@$(call add,BASE_LISTS,$(call tags,basesystem && !alterator))
 	@$(call xport,BASE_BOOTLOADER)
 	@$(call xport,INSTALL2_CLEANUP_PACKAGES)
 	@$(call xport,INSTALL2_CLEANUP_KDRIVERS)
