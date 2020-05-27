@@ -37,11 +37,18 @@ ve/pgsql94: ve/generic
 ve/samba-DC: ve/generic
 	@$(call add,BASE_PACKAGES,task-samba-dc glibc-locales net-tools)
 
-ve/systemd-bare: ve/.apt use/net/networkd +systemd \
+ve/sysvinit-etcnet: ve/base use/net/etcnet \
+        use/control/sudo-su use/repo use/net-ssh
+	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
+
+ve/systemd-bare: ve/.apt +systemd \
 	use/control/sudo-su use/repo use/net-ssh
 	@$(call add,BASE_PACKAGES,interactivesystem su)
 
-ve/systemd-base: ve/systemd-bare
-	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
+ve/systemd-networkd: ve/systemd-bare use/net/networkd
+	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
+
+ve/systemd-etcnet: ve/systemd-bare use/net/etcnet
+	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
 endif
