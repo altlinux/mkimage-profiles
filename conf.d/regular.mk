@@ -77,7 +77,7 @@ distro/.regular-jeos-full: distro/.regular-jeos \
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,std-def)
 	@$(call add,BASE_KMODULES,drm)
 
 # NB:
