@@ -78,7 +78,7 @@ distro/.regular-jeos-full: distro/.regular-jeos \
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
 	@$(call set,KFLAVOURS,un-def)
-	@$(call add,BASE_KMODULES,staging)
+	@$(call add,BASE_KMODULES,drm)
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
