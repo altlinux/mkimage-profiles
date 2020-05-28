@@ -1,3 +1,5 @@
+openssh
 openssh-server
+openssh-server-control
 openssh-blacklist
 openssh-clients
