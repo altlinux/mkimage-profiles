@@ -1,6 +1,5 @@
 raspberrypi-firmware@ARM
 u-boot-meson@aarch64
 u-boot-sunxi@ARM
-u-boot-imx@armh
 u-boot-rockchip@aarch64
 u-boot-hifive-unleashed@riscv64
