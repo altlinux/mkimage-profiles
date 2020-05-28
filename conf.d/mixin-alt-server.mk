@@ -12,7 +12,6 @@ mixin/alt-server: +installer +systemd \
 	use/kernel/desktop \
 	use/firmware/server \
 	use/net/etcnet
-	@$(call set,DOCS,alt-server)
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
 	@$(call set,KFLAVOURS,un-def std-def)
