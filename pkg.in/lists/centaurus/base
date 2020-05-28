@@ -1,6 +1,5 @@
 installer-feature-online-repo@X86
 installer-feature-repo-add
-installer-feature-symlinks-from-sbin
 make-initrd-multipath
 lsof
 man-pages
