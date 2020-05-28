@@ -142,7 +142,6 @@ screen
 
 # dlebkov@
 ipsec-tools
-rrd-perl rrd-tcl rrd-utils
 
 # enp@
 #drbd
