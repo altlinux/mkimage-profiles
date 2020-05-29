@@ -18,8 +18,8 @@ mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 endif
+	@$(call add,THE_PACKAGES,bash-completion mc update-kernel)
 	@$(call add,THE_PACKAGES,vim-console)
-	@$(call add,THE_LISTS,$(call tags,base regular))
 
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
@@ -43,7 +43,8 @@ vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
 
 vm/regular-jeos-systemd: vm/systemd-net \
-	mixin/regular-vm-jeos mixin/vm-archdep; @:
+	mixin/regular-vm-jeos mixin/vm-archdep
+	@$(call add,THE_PACKAGES,glibc-locales)
 
 vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
