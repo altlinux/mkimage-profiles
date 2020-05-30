@@ -148,8 +148,7 @@ distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 +plymouth
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
 
-distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth \
-	use/browser/falkon
+distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
 
 distro/regular-kde5: distro/.regular-desktop \
