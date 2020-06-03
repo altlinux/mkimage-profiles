@@ -229,7 +229,7 @@ distro/regular-server-pve: distro/.regular-server-base +systemd \
 distro/regular-builder: distro/.regular-bare mixin/regular-builder \
 	use/dev/builder/full use/stage2/kms +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
-	use/isohybrid use/syslinux/timeout/30 use/grub/timeout/30 use/stage2/net-eth
+	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30 use/stage2/net-eth
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
 
 distro/regular-server-samba4: distro/.regular-server-managed +systemd
