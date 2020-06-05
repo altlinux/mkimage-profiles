@@ -15,7 +15,7 @@ use/bootloader: use/pkgpriorities
 	@$(call add,BASE_LISTS,$$(BASE_BOOTLOADER))
 	@$(call xport,BASE_BOOTARGS)
 ifeq (distro,$(IMAGE_CLASS))
-	@$(call add,BASE_PACKAGES,alterator-$$(BASE_BOOTLOADER))
+	@$(call add,BASE_PACKAGES,installer-feature-bootloader-$$(BASE_BOOTLOADER))
 	@$(call add,PINNED_PACKAGES,alterator-$$(BASE_BOOTLOADER))
 	@$(call add,PINNED_PACKAGES,installer-bootloader-$$(BASE_BOOTLOADER)-stage2)
 endif
