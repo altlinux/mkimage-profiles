@@ -42,9 +42,22 @@ x-cursor-theme-jimmac
 menu-icons-default
 
 branding-alt-server-graphics@X86
+branding-alt-server-bootloader@X86
+branding-alt-server-bootsplash@X86
 
-
-ndiswrapper@X86
 firefox-esr
 firefox-esr-ru
 firefox-esr-uk
+
+
+spice-vdagent
+xorg-drv-qxl
+kernel-modules-drm-std-def
+kernel-modules-drm-radeon-std-def
+kernel-modules-drm-nouveau-std-def
+kernel-modules-v4l-std-def
+kernel-modules-lirc-std-def
+
+make-initrd-plymouth
+cpio
+branding-alt-server-bootsplash

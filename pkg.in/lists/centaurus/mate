@@ -4,6 +4,8 @@ pmount
 pam_mount
 cifs-utils
 pam_ccreds
+libsss_nss_idmap
+libwbclient-sssd
 
 udev-alsa
 
@@ -132,3 +134,23 @@ avahi-tools
 setup-mate-terminal@E2K
 setup-mate-nocomposite@E2K
 setup-libgl-dri3-disable@E2K
+avahi-daemon
+avahi-tools
+
+alterator-root
+alterator-users
+alterator-notes
+alterator-grub
+alterator-firsttime
+alterator-logs
+alterator-mirror
+alterator-net-eth
+alterator-net-domain
+alterator-net-pppoe
+alterator-net-pptp
+alterator-net-openvpn
+alterator-updates
+alterator-quota
+
+alterator-net-bond
+alterator-net-bridge

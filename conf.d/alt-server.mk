@@ -20,7 +20,7 @@ endif
 
 # FIXME: generalize vm-profile
 distro/alt-server: distro/.base distro/.alt-server-vnc \
-	mixin/alt-server use/vmguest/base use/vmguest/kvm/x11\
+	mixin/alt-server use/vmguest/base \
 	use/bootloader/grub use/rescue/base use/stage2/kms\
 	use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
@@ -31,8 +31,10 @@ distro/alt-server: distro/.base distro/.alt-server-vnc \
 	@$(call add,MAIN_LISTS,centaurus/disk-dvd)
 	@$(call add,MAIN_LISTS,centaurus/disk-server-light)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-setup-plymouth)
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
+	@$(call add,INSTALL2_BRANDING,notes)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)

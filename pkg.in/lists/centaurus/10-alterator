@@ -57,10 +57,6 @@ branding-alt-server-indexhtml@X86
 alterator-fbi
 ###installer-feature-display-acc-address-stage3
 
-alterator-ca
-alterator-mirror
-alterator-net-domain
-alterator-net-eth
 alterator-net-bond
 alterator-net-bridge
 alterator-net-pppoe

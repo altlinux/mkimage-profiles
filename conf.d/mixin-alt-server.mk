@@ -2,19 +2,20 @@ mixin/alt-server: server_groups = $(addprefix centaurus/,\
 	10-alterator 20-server-apps  50-freeipa 70-dev 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client)
 
 mixin/alt-server: +installer +systemd \
-	use/branding/complete use/control use/services \
+	use/branding/notes use/syslinux/ui/gfxboot \
+	use/plymouth/stage2 use/control use/services \
 	use/l10n/default/ru_RU use/install2/stage3 \
 	use/install2/vnc use/install2/xfs use/install2/fat \
 	use/volumes/cliff-server \
 	use/apt-conf/branch \
 	use/fonts/install2 \
 	use/install2/stage3 \
-	use/kernel/desktop \
 	use/firmware/server \
 	use/net/etcnet
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
-	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call add,THE_BRANDING,bootloader bootsplash)
+	@$(call set,KFLAVOURS,std-def)
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
 	@$(call add,LIVE_LISTS,centaurus/live)
