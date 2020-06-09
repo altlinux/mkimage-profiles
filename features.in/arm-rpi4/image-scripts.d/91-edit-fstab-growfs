@@ -1,0 +1,5 @@
+#!/bin/sh -efu
+
+# For resize rootfs with systemd-growfs@-.service
+# set x-systemd.growfs option  in /etc/fstab for rootfs
+sed -i '/^LABEL=ROOT/s/defaults/defaults,x-systemd.growfs/' /etc/fstab
