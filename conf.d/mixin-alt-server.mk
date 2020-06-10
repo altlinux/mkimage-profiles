@@ -26,10 +26,10 @@ mixin/alt-server: +installer +systemd \
 	@$(call add,MAIN_GROUPS,$(server_groups))
 	@$(call add,MAIN_LISTS,centaurus/cppcheck)
 	@$(call add,MAIN_LISTS,centaurus/disk)
-	@$(call add,THE_PROFILES,centaurus/10-server)
-	@$(call add,THE_PROFILES,centaurus/20-serverDC)
+	@$(call add,THE_PROFILES,centaurus-10-server)
+	@$(call add,THE_PROFILES,centaurus-20-serverDC)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,THE_PROFILES,centaurus/30-desktop)
+	@$(call add,THE_PROFILES,centaurus-30-desktop)
 endif
 	@$(call add,THE_PROFILES,minimal)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
