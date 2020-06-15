@@ -2,3 +2,5 @@ kernel-headers-std-def@!E2K
 kernel-headers-modules-std-def@!E2K
 kernel-headers-elbrus-def@E2K
 kernel-headers-modules-elbrus-def@E2K
+kernel-headers-bmitx-def@aarch64
+kernel-headers-modules-bmitx-def@aarch64

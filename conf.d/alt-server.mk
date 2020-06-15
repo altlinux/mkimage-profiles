@@ -35,6 +35,10 @@ distro/alt-server: distro/.base distro/.alt-server-vnc \
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_BRANDING,notes)
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,bmitx-def std-def)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-cleanup-kernel-stage3)
+endif
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)

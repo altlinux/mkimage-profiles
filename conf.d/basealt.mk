@@ -27,6 +27,10 @@ ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/virtualbox)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 endif
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,bmitx-def std-def)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-cleanup-kernel-stage3)
+endif
 	@$(call add,MAIN_LISTS,workstation/extras)
 	@$(call add,MAIN_LISTS,$(call tags,xorg vaapi))
 	@$(call add,THE_LISTS,$(call tags,archive extra))
