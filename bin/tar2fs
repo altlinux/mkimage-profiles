@@ -55,6 +55,13 @@ ppc*)
 	BOOTLOADERPARTSIZEM="8"
 	ROOTPART="2"
 	;;
+arm*|aarch64)
+	BLOCKDEV="/dev/sda"
+	EFIPART="1"
+	EFIPARTSIZEM="256"
+	EFIPARTFSTYPE="fat"
+	ROOTPART="2"
+	;;
 *)
 	if [ "$BOOTLOADER" == grub-efi ]; then
 		EFIPART="1"
@@ -348,6 +355,10 @@ cat boot.conf
 echo "** end of boot.conf"
 
 popd
+
+# Update cmdline.txt for Raspberry Pi
+[ -f "$ROOTFS/boot/efi/cmdline.txt" ] &&
+    sed -i "s/LABEL=ROOT/$ROOTDEV/" "$ROOTFS/boot/efi/cmdline.txt"
 
 # Setup bootloader
 case "$BOOTLOADER" in
