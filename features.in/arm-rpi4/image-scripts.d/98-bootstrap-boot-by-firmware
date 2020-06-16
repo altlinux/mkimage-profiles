@@ -1,3 +1,43 @@
-#!/bin/sh -efu
+#!/bin/sh -eu
 
-rpi4-boot-nouboot --bootstrap
+kflavour=
+kflavour="${GLOBAL_KFLAVOURS%% *}"
+
+mkdir -p /boot/efi
+
+uboots="rpi_3 rpi_3_32b rpi_4 rpi_4_32b"
+for uboot in $uboots; do
+	[ -d /usr/share/u-boot/$uboot ] &&
+	  cp -f /usr/share/u-boot/$uboot/* /boot/efi/
+	[ -f /boot/efi/kernel8.img ] &&
+	  mv /boot/efi/{kernel8.img,uboot-$uboot.bin}
+	[ -f /boot/efi/kernel7.img ] &&
+	  mv /boot/efi/{kernel7.img,uboot-$uboot.bin}
+done
+
+rm -f /boot/efi/config.txt
+
+[ "$GLOBAL_ARCH" = aarch64 ] && \
+	echo "arm_64bit=1" > /boot/efi/config.txt
+
+cat >> /boot/efi/config.txt <<EOF
+enable_uart=1
+disable_overscan=1
+dtparam=audio=on
+
+[pi3]
+kernel=uboot-rpi_3.bin
+dtoverlay=vc4-kms-v3d
+
+[pi4]
+kernel=uboot-rpi_4.bin
+dtoverlay=vc4-fkms-v3d
+
+[all]
+EOF
+
+[ "$GLOBAL_ARCH" = armh ] && \
+	sed -i 's/.bin/-32b.bin/g' /boot/efi/config.txt
+
+# Enable bootloading without u-boot
+sh -x rpi4-boot-nouboot $kflavour
