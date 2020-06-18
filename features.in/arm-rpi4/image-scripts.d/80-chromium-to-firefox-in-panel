@@ -1,0 +1,10 @@
+#!/bin/sh -efu
+
+fffile="/usr/share/applications/firefox.desktop"
+panfile="/etc/skel/.config/xfce4/panel/launcher-5/15592088901.desktop"
+
+if [ -f "$fffile" -a -f "$panfile" ]
+then
+	sed -i 's/Chromium/Firefox/' "$panfile"
+	sed -i 's/chromium/firefox/' "$panfile"
+fi

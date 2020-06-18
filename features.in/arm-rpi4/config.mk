@@ -16,4 +16,7 @@ endif
 	@$(call add,THE_PACKAGES,rpi4-resize-rootpart)
 	@$(call add,DEFAULT_SERVICES_ENABLE,attach-bluetooth)
 
+use/arm-rpi4/x11: use/arm-rpi4 \
+	use/browser/firefox/i18n use/browser/firefox/esr; @:
+
 endif
