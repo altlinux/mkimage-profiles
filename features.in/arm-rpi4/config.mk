@@ -17,6 +17,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_ENABLE,attach-bluetooth)
 
 use/arm-rpi4/x11: use/arm-rpi4 \
-	use/browser/firefox/i18n use/browser/firefox/esr; @:
+	use/browser/firefox/i18n use/browser/firefox/esr
+	@$(call add,THE_PACKAGES,celluloid celluloid-csd-disabled)
 
 endif
