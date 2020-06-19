@@ -166,6 +166,7 @@ i586-wine>2.9@x86_64
 libnss-fallback
 wine-gecko@X86
 wine-mono@X86
+winetricks@X86
 
 # Communication
 pidgin
@@ -195,6 +196,8 @@ virtualbox-guest-utils@X86
 xorg-dri-intel@X86
 xorg-drv-radeon
 zbar
+audit
+vixie-cron
 
 # New stuff
 xfce4-whiskermenu-plugin
