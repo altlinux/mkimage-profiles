@@ -108,6 +108,7 @@ starboard-preinstall
 # Authenticate with Active Directory and FreeIPA by SSSD
 task-auth-ad-sssd
 task-auth-freeipa
+sssd-ldap
 pam_pkcs11
 gvfs-shares
 shared-desktop-icons
@@ -229,3 +230,7 @@ systemd-settings-enable-log-to-tty12
 
 # Helper to deploy system services
 deploy
+
+# Network
+ipset
+vlan-utils
