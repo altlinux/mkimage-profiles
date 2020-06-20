@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Video conference server (Jitsi Meet)
+X-Alterator-PackageList=education/video-conferencing
+Name[ru_RU]=Сервер видеоконференций (Jitsi Meet)
+

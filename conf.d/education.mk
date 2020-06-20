@@ -40,7 +40,7 @@ distro/alt-education: distro/.installer mixin/education \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 9.1alpha $(ARCH))
+	@$(call set,META_VOL_ID,ALT Education 9.1rc1 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
@@ -55,6 +55,7 @@ distro/alt-education: distro/.installer mixin/education \
 	@$(call add,MAIN_GROUPS,education/teacher)
 	@$(call add,MAIN_GROUPS,education/kde5)
 	@$(call add,MAIN_GROUPS,education/server-apps-edu)
+	@$(call add,MAIN_GROUPS,education/video-conferencing)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-std-def kernel-headers-modules-std-def)
