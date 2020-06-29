@@ -9,5 +9,4 @@ endif
 use/uboot: use/kernel/initrd-setup $(UBOOT_TTY)
 	@$(call add_feature)
 	@$(call add,THE_LISTS,singleboard-tools)
-	@$(call try,TTY_DEV,tty1)
-	@$(call xport,TTY_DEV)
+	@$(call add,BASE_BOOTARGS,cma=192M)
