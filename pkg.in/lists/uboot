@@ -2,4 +2,6 @@ raspberrypi-firmware@ARM
 u-boot-meson@aarch64
 u-boot-sunxi@ARM
 u-boot-rockchip@aarch64
-u-boot-hifive-unleashed@riscv64
+fu540-bootloaders@riscv64
+opensbi-firmware-fu540@riscv64
+opensbi-firmware-qemu@riscv64

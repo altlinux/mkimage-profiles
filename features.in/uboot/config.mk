@@ -6,7 +6,16 @@ UBOOT_TTY := use/tty/S0
 endif
 endif
 
+ifeq (,$(filter-out riscv64,$(ARCH)))
+UBOOT_TTY := use/tty/S0
+endif
+
 use/uboot: use/kernel/initrd-setup $(UBOOT_TTY)
 	@$(call add_feature)
 	@$(call add,THE_LISTS,singleboard-tools)
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,BASE_BOOTARGS,cma=192M)
+endif
+ifeq (,$(filter-out riscv64,$(ARCH)))
+	@$(call add,BASE_BOOTARGS,earlyprintk debug no_alt_virt_keyboard)
+endif
