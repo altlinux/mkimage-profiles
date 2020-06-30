@@ -1,8 +1,6 @@
 #!/bin/sh -efu
 
-[ -d /usr/share/u-boot/rpi_4 ] &&
-  target_dir='/usr/share/u-boot/rpi_4' ||
-  target_dir='/usr/share/u-boot/rpi_4_32b'
+target_dir='/boot/efi'
 
 (
 cat << 'EOF'
@@ -35,7 +33,6 @@ fdt_addr=6000000
 fdt_addr_r=0x06000000
 fdt_high=ffffffffffffffff
 fdtcontroladdr=3af59a70
-fdtfile=bcm2711-rpi-4-b.dtb
 initrd_high=ffffffffffffffff
 kernel_addr_r=0x00080000
 load_efi_dtb=load ${devtype} ${devnum}:${distro_bootpart} ${fdt_addr_r} ${prefix}${efi_fdtfile}
