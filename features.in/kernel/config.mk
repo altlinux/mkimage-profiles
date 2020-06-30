@@ -59,11 +59,11 @@ endif
 ifeq (,$(filter-out e2k% ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,usb)
 endif
-ifneq (,$(filter-out e2k%,$(ARCH)))
+ifneq (,$(filter-out e2k% riscv64,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,qemu)
+endif
 	@$(call add,VM_INITRDMODULES,virtio-scsi virtio-blk virtio-rng virtio_net)
 	@$(call add,VM_INITRDMODULES,virtio-mmio virtio_pci virtio_console virtio_input)
-endif
 ifeq (,$(filter-out ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ipr ibmvscsi)
 endif
