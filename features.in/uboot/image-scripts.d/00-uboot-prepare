@@ -13,7 +13,7 @@ cat > /boot/extlinux/extlinux.conf << EOF
 menu title ALTLinux Boot Options
 
 default linux
-timeout 20
+timeout 70
 
 label linux
 	kernel /boot/vmlinuz
