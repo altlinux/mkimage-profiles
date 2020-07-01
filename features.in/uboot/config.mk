@@ -2,7 +2,7 @@ ifeq (,$(filter-out qcow2 qcow2c,$(IMAGE_TYPE)))
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 UBOOT_TTY := use/tty/AMA0
 else
-UBOOT_TTY := /use/tty/S0
+UBOOT_TTY := use/tty/S0
 endif
 endif
 
