@@ -8,7 +8,12 @@ ifeq (,$(filter-out mipsel,$(ARCH)))
 mixin/vm-archdep: use/tty/S0
 	@$(call set,KFLAVOURS,un-malta)
 else
+ifeq (,$(filter-out riscv64,$(ARCH)))
+mixin/vm-archdep: use/tty/S0
+	@$(call set,KFLAVOURS,un-def)
+else
 mixin/vm-archdep: ; @:
+endif
 endif
 endif
 	@$(call add,KMODULES,staging)
@@ -24,8 +29,13 @@ endif
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 
+ifeq (,$(filter-out riscv64,$(ARCH)))
+mixin/regular-vm-x11: mixin/regular-vm-base mixin/regular-x11 \
+	mixin/regular-desktop use/oem/vnc +wireless; @:
+else
 mixin/regular-vm-x11: mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/oem +wireless; @:
+endif
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xorg-96dpi)
 	@$(call add,THE_LISTS,remote-access)
