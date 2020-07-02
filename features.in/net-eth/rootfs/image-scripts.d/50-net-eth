@@ -6,11 +6,15 @@
 fatal() { echo "error: $*" >&2; exit 1; }
 
 # simple etcnet configurations are also picked up by NM
-if type -t NetworkManager >&/dev/null ||
-   type -t connmand >&/dev/null; then
-	NMCTL=yes
+if [ -n "$GLOBAL_NMCTL" ]; then
+	NMCTL="$GLOBAL_NMCTL"
 else
-	NMCTL=no
+	if type -t NetworkManager >&/dev/null ||
+	   type -t connmand >&/dev/null; then
+		NMCTL=yes
+	else
+		NMCTL=no
+	fi
 fi
 
 ETCNET_IFDIR="/etc/net/ifaces"
