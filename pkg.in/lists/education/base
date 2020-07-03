@@ -234,3 +234,6 @@ deploy
 # Network
 ipset
 vlan-utils
+
+alterator-gpupdate
+adp
