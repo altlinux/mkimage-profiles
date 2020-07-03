@@ -81,6 +81,7 @@ endif
 	@$(call add,MAIN_PACKAGES,lmms)
 	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
+	@$(call add,LIVE_PACKAGES,xfce-polkit)
 	@$(call add,LIVE_LISTS,slinux/net-base)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
