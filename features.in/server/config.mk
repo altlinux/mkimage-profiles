@@ -32,7 +32,7 @@ use/server/ovz: use/server/ovz-base
 use/server/virt: use/server use/kernel
 	@$(call add,BASE_PACKAGES,openssh)
 	@$(call set,STAGE1_KFLAVOUR,std-def)
-	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call set,KFLAVOURS,std-def)
 	@$(call add,THE_KMODULES,kvm)
 
 # NB: examine zabbix-preinstall package, initialization is NOT automatic!
