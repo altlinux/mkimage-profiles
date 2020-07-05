@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Satellite
+Name[ru_RU]=Cервер управления ресурсами
+Comment=The LINSTOR satellite component manages creation, modification and deletion of storage resources on each node that provides or uses storage resources managed by LINSTOR
+Comment[ru_RU]=Предоставляет серверу управления кластером информацию о ресурсах и выполняет полученные от него задачи
+X-Alterator-PackageList=storage/linstor-satellite
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/470-linstor

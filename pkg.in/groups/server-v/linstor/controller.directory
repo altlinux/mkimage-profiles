@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Controller
+Name[ru_RU]=Cервер управления кластером
+Comment=A LINSTOR controller manages the configuration of the LINSTOR cluster and all of its managed storage resources
+Comment[ru_RU]=Сервер управления кофигурацией кластера и его ресурсами
+X-Alterator-PackageList=storage/linstor-controller
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/470-linstor

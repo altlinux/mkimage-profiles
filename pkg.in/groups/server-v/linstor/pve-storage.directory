@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Linstor Plugin
+Name[ru_RU]=Модуль хранилища Linstor
+Comment=The Linstor PVE Plugin is a plugin that allows managing storage for VMs from the PVE GUI via LINSTOR.
+Comment[ru_RU]=Добавляет возможность управления сервером хранилища данных Linstor
+X-Alterator-PackageList=storage/linstor-pve
+X-Alterator-Required=no
+X-Alterator-Depends=server-v/linstor/client server-v/linstor/satellite
+X-Alterator-Parent=server-v/130-pve

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Client
+Name[ru_RU]=Клиент
+Comment=Client for manage controller
+Comment[ru_RU]=Клиент управления сервером
+X-Alterator-PackageList=storage/linstor-client
+X-Alterator-Required=no
+X-Alterator-Parent=server-v/470-linstor

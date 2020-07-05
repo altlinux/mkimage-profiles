@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Linstor
+Name[ru_RU]=Linstor
+X-Alterator-Required=no
+Comment=LINSTOR is a software that manages replicated volumes across a group of machines
+Comment[ru_RU]=Управление репликацией томов на группе серверов
+X-Alterator-Parent=server-v/400-storage
