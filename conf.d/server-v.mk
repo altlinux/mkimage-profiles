@@ -19,6 +19,9 @@ distro/server-v: moosefs = $(addprefix server-v/moosefs/,\
 distro/server-v: lizardfs = $(addprefix server-v/lizardfs/,\
 	cgiserv chunkserver client master metalogger)
 
+distro/server-v: linstor = $(addprefix server-v/linstor/,\
+	client controller satellite opennebula-addon pve-storage)
+
 distro/server-v: nfs = $(addprefix server-v/,\
 	nfs nfs-ganesha)
 
@@ -117,6 +120,7 @@ endif
 	@$(call add,MAIN_GROUPS,server-v/420-glusterfs $(glusterfs))
 	@$(call add,MAIN_GROUPS,server-v/450-nfs $(nfs))
 	@$(call add,MAIN_GROUPS,server-v/460-iscsi $(iscsi))
+	@$(call add,MAIN_GROUPS,server-v/470-linstor $(linstor))
 	@$(call add,MAIN_GROUPS,server-v/500-network $(network))
 	@$(call add,MAIN_GROUPS,server-v/600-monitoring $(monitoring))
 	@$(call add,MAIN_GROUPS,server-v/700-backup $(backup))
