@@ -10,4 +10,5 @@ kernel-modules-xtables-addons-un-def
 kernel-modules-kvdo-un-def
 kernel-modules-zfs-un-def
 zfs-utils
+ocfs2-tools
 vdo
