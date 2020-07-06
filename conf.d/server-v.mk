@@ -20,7 +20,7 @@ distro/server-v: lizardfs = $(addprefix server-v/lizardfs/,\
 	cgiserv chunkserver client master metalogger)
 
 distro/server-v: linstor = $(addprefix server-v/linstor/,\
-	client controller satellite opennebula-addon pve-storage)
+	client controller satellite opennebula-addon)
 
 distro/server-v: nfs = $(addprefix server-v/,\
 	nfs nfs-ganesha)
@@ -110,7 +110,7 @@ distro/server-v: distro/.server-v-base +installer \
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
 	@$(call add,MAIN_GROUPS,server-v/110-opennebula $(opennebula))
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call add,MAIN_GROUPS,server-v/130-pve server-v/pve)
+	@$(call add,MAIN_GROUPS,server-v/130-pve server-v/pve server-v/linstor/pve-storage)
 endif
 	@$(call add,MAIN_GROUPS,server-v/140-basic server-v/kvm)
 	@$(call add,MAIN_GROUPS,server-v/200-container $(container))
