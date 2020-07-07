@@ -1,0 +1,11 @@
+#!/bin/sh -efu
+
+# Changed audio scheduling from timer-based to
+# interrupt-driven to prevent unwanted crackle.
+
+pafile="/etc/pulse/default.pa"
+
+if [ -f "$pafile" ]
+then
+	sed -i 's/^load-module module-udev-detect$/load-module module-udev-detect tsched=0/' "$pafile"
+fi
