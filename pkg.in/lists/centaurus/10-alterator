@@ -68,3 +68,5 @@ alterator-trust
 alterator-vsftpd
 alterator-xinetd
 alterator-ulogd
+
+alterator-gpupdate

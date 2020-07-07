@@ -83,6 +83,7 @@ alterator-datetime
 alterator-users
 alterator-auth
 alterator-net-shares
+alterator-gpupdate
 
 # tags: mate, base
 
