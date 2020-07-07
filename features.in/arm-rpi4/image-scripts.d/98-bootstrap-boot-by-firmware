@@ -27,7 +27,7 @@ dtparam=audio=on
 
 [pi3]
 kernel=uboot-rpi_3.bin
-dtoverlay=vc4-kms-v3d
+# dtoverlay=vc4-kms-v3d
 
 [pi4]
 kernel=uboot-rpi_4.bin
