@@ -6,7 +6,7 @@ audit
 xmessage
 lsb-release
 alterator-quota
-grub-customizer
+grub-customizer@X86
 
 rpminstall
 gnome-software
