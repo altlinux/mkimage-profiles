@@ -201,4 +201,4 @@ hunspell-ru-lebedev
 # versions.
 xkill
 
-fwupd@!riscv64
+fwupd@!x86_64
