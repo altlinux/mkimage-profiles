@@ -82,6 +82,9 @@ vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
 
 vm/alt-workstation-tegra: vm/alt-workstation use/aarch64-tegra; @:
 
+ifeq (,$(filter-out armh,$(ARCH)))
+vm/alt-workstation-mcom02: vm/alt-workstation use/armh-mcom02/x11; @:
+endif
 endif
 vm/alt-workstation-cloud: vm/alt-p9-cloud use/x11/lightdm/gtk \
 	mixin/alt-workstation
