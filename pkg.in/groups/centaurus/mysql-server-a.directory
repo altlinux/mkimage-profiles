@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Mail Server  (SMTP, IMAP, POP3)
+Name=MySQL
 X-Alterator-PackageList=phpmyadmin
 X-Alterator-Parent=alterator
 X-Alterator-Depends=mysql-server

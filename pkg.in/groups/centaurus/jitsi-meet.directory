@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Jitsi Meet Videconferecing
+X-Alterator-PackageList=jitsi-meet
+X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Required=no
+Name[ru_RU]=Сервер видеоконференций Jitsi Meet
+Categories=Server;Networking
+

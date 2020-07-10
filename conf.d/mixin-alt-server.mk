@@ -1,5 +1,5 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
-	10-alterator 20-server-apps  50-freeipa 70-dev 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client)
+	10-alterator 20-server-apps  50-freeipa 70-dev 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client jitsi-meet)
 
 mixin/alt-server: +installer +systemd \
 	use/branding/notes use/syslinux/ui/gfxboot \
