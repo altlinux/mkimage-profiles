@@ -12,13 +12,13 @@ use/x11:
 	@$(call add,THE_KMODULES,$$(NVIDIA_KMODULES) $$(RADEON_KMODULES))
 	@$(call add,THE_PACKAGES,$$(NVIDIA_PACKAGES) $$(RADEON_PACKAGES))
 
+use/x11/xorg:: use/x11 use/x11/armsoc; @:
+
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-use/x11/xorg: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
+use/x11/xorg:: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
 	use/x11/armsoc
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
-else
-use/x11/xorg: use/x11 use/x11/armsoc; @:
 endif
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
@@ -34,6 +34,23 @@ use/x11/armsoc: use/x11 use/firmware
 	@$(call add,THE_PACKAGES,xorg-dri-armsoc)
 else
 use/x11/armsoc: use/x11; @:
+endif
+
+ifeq (,$(filter-out e2k%,$(ARCH)))
+# e2k: mostly radeon, 101 got mga2/vivante
+use/x11/xorg:: use/x11/radeon use/x11/amdgpu
+
+ifeq (,$(filter-out e2kv4,$(ARCH)))
+use/x11/mga2: use/x11
+	@$(call add,THE_PACKAGES,xorg-drv-mga2)
+else
+use/x11/mga2: use/x11; @:
+endif
+
+use/x11/smi: use/x11
+	@$(call add,THE_PACKAGES,xorg-drv-smi)
+else
+use/x11/smi: use/x11; @:
 endif
 
 # for those cases when no 3D means no use at all
