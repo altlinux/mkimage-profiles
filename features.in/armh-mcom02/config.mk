@@ -4,6 +4,7 @@ use/armh-mcom02: use/bootloader/uboot use/tty/S0 use/no-sleep
 	@$(call add_feature)
 	@$(call set,KFLAVOURS,mcom02)
 	@$(call add,THE_PACKAGES,u-boot-mcom02-firmware-tools u-boot-mcom02)
+	@$(call add,THE_PACKAGES,extlinux-fdtdir-cleanup-filetrigger)
 
 use/armh-mcom02/x11: use/armh-mcom02
 	@$(call add,THE_PACKAGES,xorg-drv-fbturbo)
