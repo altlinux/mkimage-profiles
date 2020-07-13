@@ -21,6 +21,7 @@ xorg-drv-keyboard
 xorg-drv-mouse
 xorg-drv-vboxvideo@X86
 xorg-drv-vmware@X86
+xorg-drv-smi@E2K
 xorg-drv-void
 ^xorg-dri-*
 xauth
