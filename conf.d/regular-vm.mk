@@ -2,7 +2,6 @@ ifeq (vm,$(IMAGE_CLASS))
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 mixin/vm-archdep: use/bootloader/uboot use/no-sleep
-	@$(call set,KFLAVOURS,mp lts)
 else
 ifeq (,$(filter-out mipsel,$(ARCH)))
 mixin/vm-archdep: use/tty/S0
@@ -17,6 +16,9 @@ endif
 endif
 endif
 	@$(call add,KMODULES,staging)
+ifeq (,$(filter-out i586 x86_64 armh aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def std-def)
+endif
 
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 	use/services/lvm2-disable
@@ -74,6 +76,9 @@ vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep
 
 vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
+ifeq (,$(filter-out armh aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,mp lts)
+endif
 
 vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep; @:
 
