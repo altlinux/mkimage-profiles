@@ -1,0 +1,24 @@
+#!/bin/sh -efu
+### Ensure that all the necesary system groups exist
+
+SCRIPT="/usr/share/install2/postinstall.d/86-all-groups"
+
+cat > "$SCRIPT" << EOF
+#!/bin/sh -efu
+
+. install2-init-functions
+
+# don't override the script start message on the same line
+echo "Ensuring that all the necesary system groups exist"
+
+echo '/usr/share/install3/default-groups
+/etc/alterator/auth/user-groups
+/etc/alterator/auth/admin-groups' \
+| while read LIST; do
+    [ -s "\$destdir\$LIST" ] || continue
+    for GROUP in \$(cat "\$destdir\$LIST"); do
+        exec_chroot groupadd -r "\$GROUP" &>/dev/null ||:
+    done
+done
+EOF
+chmod +x "$SCRIPT"
