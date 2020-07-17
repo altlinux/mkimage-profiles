@@ -196,6 +196,8 @@ udev-rule-generator-cdrom
 virtualbox-guest-utils@X86
 xorg-dri-intel@X86
 xorg-drv-radeon
+xorg-drv-synaptics
+xorg-conf-synaptics
 zbar
 audit
 vixie-cron
