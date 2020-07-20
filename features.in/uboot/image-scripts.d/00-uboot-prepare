@@ -17,5 +17,5 @@ label linux
 	kernel /boot/vmlinuz
 	initrd /boot/initrd.img
 	fdtdir /boot/dtb
-	append root=LABEL=ROOT ro $GLOBAL_BASE_BOOTARGS $TTY
+	append root=LABEL=ROOT ro $GLOBAL_BASE_BOOTARGS $GLOBAL_UBOOT_BOOTARGS $TTY
 EOF

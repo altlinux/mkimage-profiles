@@ -14,8 +14,9 @@ use/uboot: use/kernel/initrd-setup $(UBOOT_TTY)
 	@$(call add_feature)
 	@$(call add,THE_LISTS,singleboard-tools)
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-	@$(call add,BASE_BOOTARGS,cma=192M)
+	@$(call add,UBOOT_BOOTARGS,cma=192M)
 endif
 ifeq (,$(filter-out riscv64,$(ARCH)))
-	@$(call add,BASE_BOOTARGS,earlyprintk debug no_alt_virt_keyboard)
+	@$(call add,UBOOT_BOOTARGS,earlyprintk debug no_alt_virt_keyboard)
 endif
+	@$(call xport,UBOOT_BOOTARGS)
