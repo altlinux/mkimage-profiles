@@ -18,3 +18,4 @@ pve-storage
 pve-vncterm
 pve-xtermjs
 postfix
+control-sshd-permit-root-login
