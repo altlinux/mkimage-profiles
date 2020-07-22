@@ -57,3 +57,4 @@ nano
 mc
 installer-feature-repo-add
 ipmitool
+udev-rules-ioschedulers
