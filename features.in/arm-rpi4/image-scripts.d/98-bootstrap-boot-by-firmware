@@ -41,3 +41,5 @@ EOF
 
 # Enable bootloading without u-boot
 sh -x rpi4-boot-nouboot $kflavour
+
+exit 0
