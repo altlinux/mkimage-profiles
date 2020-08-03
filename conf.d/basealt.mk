@@ -80,6 +80,9 @@ vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
+vm/alt-workstation-rpi: vm/alt-workstation use/arm-rpi4/x11
+	@$(call set,KFLAVOURS,rpi-un rpi-def)
+
 vm/alt-workstation-tegra: vm/alt-workstation use/aarch64-tegra; @:
 
 ifeq (,$(filter-out armh,$(ARCH)))
