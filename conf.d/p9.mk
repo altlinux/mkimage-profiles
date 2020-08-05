@@ -54,6 +54,7 @@ vm/alt-p9-jeos-systemd vm/alt-p9-jeos-sysv vm/alt-p9-builder \
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-p9-jeos-systemd-rpi4 vm/alt-p9-jeos-sysv-rpi4 \
+	vm/alt-p9-builder-rpi4 \
 	vm/alt-p9-lxde-rpi4 vm/alt-p9-lxqt-rpi4 \
 	vm/alt-p9-mate-rpi4 vm/alt-p9-xfce-rpi4: \
 	vm/alt-p9-%-rpi4: vm/regular-%-rpi4 mixin/p9; @:
