@@ -63,8 +63,12 @@ use/live/install: use/metadata use/xdg-user-dirs use/syslinux/localboot.cfg \
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 
 # text-based installation script
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/live/textinstall: use/syslinux/lateboot.cfg
 	@$(call add,LIVE_PACKAGES,live-install)
+else
+use/live/textinstall: ; @:
+endif
 
 # a very simplistic one
 use/live/.x11: use/live use/x11 use/x11-autologin
