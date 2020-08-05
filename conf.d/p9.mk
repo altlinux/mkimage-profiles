@@ -52,13 +52,14 @@ vm/alt-p9-jeos-systemd vm/alt-p9-jeos-sysv vm/alt-p9-builder \
 	vm/alt-p9-xfce: \
 	vm/alt-p9-%: vm/regular-% mixin/p9; @:
 
-ifeq (,$(filter-out aarch64,$(ARCH)))
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/alt-p9-jeos-systemd-rpi4 vm/alt-p9-jeos-sysv-rpi4 \
 	vm/alt-p9-builder-rpi4 \
 	vm/alt-p9-lxde-rpi4 vm/alt-p9-lxqt-rpi4 \
 	vm/alt-p9-mate-rpi4 vm/alt-p9-xfce-rpi4: \
 	vm/alt-p9-%-rpi4: vm/regular-%-rpi4 mixin/p9; @:
 
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-p9-cinnamon-tegra vm/alt-p9-kde5-tegra \
 	vm/alt-p9-lxde-tegra vm/alt-p9-lxqt-tegra \
 	vm/alt-p9-mate-tegra vm/alt-p9-xfce-tegra: \
@@ -77,6 +78,7 @@ vm/alt-p9-lxde-mcom02 vm/alt-p9-lxqt-mcom02 \
 vm/alt-p9-lxde-mcom02-mali vm/alt-p9-lxqt-mcom02-mali \
 	vm/alt-p9-mate-mcom02-mali vm/alt-p9-xfce-mcom02-mali: \
 	vm/alt-p9-%-mcom02-mali: vm/regular-%-mcom02-mali mixin/p9; @:
+endif
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
