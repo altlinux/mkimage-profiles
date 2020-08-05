@@ -22,4 +22,13 @@ use/arm-rpi4/x11: use/arm-rpi4 \
 	use/browser/firefox/i18n use/browser/firefox/esr
 	@$(call add,THE_PACKAGES,celluloid celluloid-csd-disabled)
 
+use/arm-rpi4/kernel: use/arm-rpi4
+ifeq (aarch64,$(ARCH))
+	@$(call set,KFLAVOURS,rpi-def rpi-un)
+else
+	@$(call set,KFLAVOURS,rpi-def)
+endif
+
+use/arm-rpi4/full: use/arm-rpi4/kernel use/arm-rpi4/x11; @:
+
 endif
