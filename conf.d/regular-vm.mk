@@ -92,6 +92,8 @@ vm/regular-jeos-systemd-rpi4: vm/systemd-net mixin/regular-vm-jeos \
 vm/regular-jeos-sysv-rpi4: vm/net mixin/regular-vm-jeos \
 	use/arm-rpi4 +power; @:
 
+vm/regular-builder-rpi4: vm/regular-jeos-systemd-rpi4 mixin/regular-builder; @:
+
 vm/regular-lxde-rpi4: vm/.regular-gtk mixin/regular-lxde use/arm-rpi4; @:
 
 vm/regular-lxqt-rpi4: vm/.regular-gtk mixin/regular-lxqt use/arm-rpi4; @:
