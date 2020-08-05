@@ -22,7 +22,10 @@ use/dev/builder/full: use/dev use/dev/builder/live use/dev/repo
 	@$(call set,KFLAVOURS,$(BIGRAM))
 	@$(call add,THE_LISTS,$(call tags,server extra))
 	@$(call add,MAIN_LISTS,$(call tags,live builder))
-	@$(call add,MAIN_PACKAGES,syslinux pciids memtest86+ xorriso)
+ifeq (,$(filter-out i586 x86_64 ,$(ARCH)))
+	@$(call add,MAIN_PACKAGES,syslinux memtest86+)
+endif
+	@$(call add,MAIN_PACKAGES,pciids xorriso)
 	@$(call add,LIVE_PACKAGES,sudo perl-Gear-Remotes)
 
 use/dev/groups/builder: use/dev/repo
