@@ -31,7 +31,7 @@ metadata-.base:
 		if [ -n "$(DOT_BASE)" ]; then \
 			echo -e "\n## DOT_BASE\n$(DOT_BASE)"; \
 		fi; \
-	} | sed -re '/^[^[:space:]#]/ s/[[:space:]]+/\n/g' > .base
+		} | sed -re 's/^[[:space:]]+//' | sed -re '/^[^[:space:]#]/ s/[[:space:]]+/\n/g' > .base
 
 # see also alterator-pkg (backend3/pkg-install);
 # we only tar up what's up to it (note that e.g.
