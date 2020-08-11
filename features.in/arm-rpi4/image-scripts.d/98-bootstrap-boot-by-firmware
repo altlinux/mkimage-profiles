@@ -37,7 +37,7 @@ dtoverlay=vc4-fkms-v3d
 EOF
 
 [ "$GLOBAL_ARCH" = armh ] && \
-	sed -i 's/.bin/-32b.bin/g' /boot/efi/config.txt
+	sed -i 's/.bin/_32b.bin/g' /boot/efi/config.txt
 
 # Enable bootloading without u-boot
 sh -x rpi4-boot-nouboot $kflavour
