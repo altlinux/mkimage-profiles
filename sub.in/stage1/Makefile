@@ -21,13 +21,8 @@ include $(MKIMAGE_PREFIX)/targets.mk
 # here we try and come up with the installer kernel/modules, if any;
 # only a single kernel might be needed (STAGE1_KFLAVOUR sets explicitly);
 # kernel image copied from instrumental chroot into .work/syslinux/alt0/
-# Update: for grub allowed choose kernels
 
-ifeq (,$(filter-out x86_64 aarch64 ppc64le,$(ARCH)))
-STAGE1_KFLAVOUR ?= $(KFLAVOURS)
-else
 STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
-endif
 
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
 ifneq "$(STAGE1_KFLAVOUR)" ""

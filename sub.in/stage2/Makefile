@@ -29,13 +29,7 @@ IMAGE_PACKAGES += $(SYSTEM_PACKAGES) $(STAGE2_PACKAGES)
 
 # here we also try and come up with the stage1 kernel/modules, if any;
 # no kernel flavour specified will result in no modules for stage1 vmlinuz
-# Update: for grub allowed choose kernels
-
-ifeq (,$(filter-out x86_64 aarch64 ppc64le,$(ARCH)))
-STAGE1_KFLAVOUR ?= $(KFLAVOURS)
-else
 STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
-endif
 
 ifeq (,$(STAGE1_KFLAVOUR))
 $(error STAGE1_KFLAVOUR is utterly empty; cannot guess either)
