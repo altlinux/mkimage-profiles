@@ -87,21 +87,21 @@ vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep; @:
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 # Raspberry Pi 4
-vm/regular-jeos-systemd-rpi4: vm/systemd-net mixin/regular-vm-jeos use/tty/AMA0 \
+vm/regular-jeos-systemd-rpi: vm/systemd-net mixin/regular-vm-jeos use/tty/AMA0 \
 	use/arm-rpi4/kernel; @:
 
-vm/regular-jeos-sysv-rpi4: vm/net mixin/regular-vm-jeos use/tty/AMA0 \
+vm/regular-jeos-sysv-rpi: vm/net mixin/regular-vm-jeos use/tty/AMA0 \
 	use/arm-rpi4/kernel +power; @:
 
-vm/regular-builder-rpi4: vm/regular-jeos-systemd-rpi4 mixin/regular-builder; @:
+vm/regular-builder-rpi: vm/regular-jeos-systemd-rpi mixin/regular-builder; @:
 
-vm/regular-lxde-rpi4: vm/.regular-gtk mixin/regular-lxde use/arm-rpi4/full; @:
+vm/regular-lxde-rpi: vm/.regular-gtk mixin/regular-lxde use/arm-rpi4/full; @:
 
-vm/regular-lxqt-rpi4: vm/.regular-gtk mixin/regular-lxqt use/arm-rpi4/full; @:
+vm/regular-lxqt-rpi: vm/.regular-gtk mixin/regular-lxqt use/arm-rpi4/full; @:
 
-vm/regular-mate-rpi4: vm/.regular-gtk mixin/regular-mate use/arm-rpi4/full; @:
+vm/regular-mate-rpi: vm/.regular-gtk mixin/regular-mate use/arm-rpi4/full; @:
 
-vm/regular-xfce-rpi4: vm/.regular-gtk mixin/regular-xfce use/arm-rpi4/full; @:
+vm/regular-xfce-rpi: vm/.regular-gtk mixin/regular-xfce use/arm-rpi4/full; @:
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 # Nvidia Tegra (Jetson Nano only)
