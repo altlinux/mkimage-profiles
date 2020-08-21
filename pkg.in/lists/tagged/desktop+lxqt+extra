@@ -18,7 +18,7 @@ clementine-codecs-full
 quiterss
 
 # torrent client
-qbittorrent
+qbittorrent@!E2K
 
 # xmpp client
 psi-plus
