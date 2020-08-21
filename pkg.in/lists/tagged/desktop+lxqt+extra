@@ -11,8 +11,8 @@ icon-theme-simple
 focuswriter
 
 # media player; see also #30556 though
-clementine
-clementine-codecs-full
+clementine@!E2K
+clementine-codecs-full@!E2K
 
 # rss-reader
 quiterss
