@@ -1,15 +1,19 @@
 use/office:
 	@$(call add_feature)
+ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call try,THE_OFFICE,abiword gnumeric)
 	@$(call add,THE_PACKAGES,$$(THE_OFFICE))
+endif
 
 # support both LibreOffice and LibreOffice-still
 use/office/LibreOffice: use/office
 	@$(call set,THE_OFFICE,LibreOffice$$(LO_FLAVOUR))
 
 # the complete lack of dependencies is intentional
-use/office/LibreOffice/still:
+use/office/LibreOffice/still: ; @:
+ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call set,LO_FLAVOUR,-still)
+endif
 
 use/office/LibreOffice/lang: use/office/LibreOffice
 	@$(call add,THE_OFFICE,LibreOffice$$(LO_FLAVOUR)-langpack-kk)
