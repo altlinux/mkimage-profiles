@@ -3,8 +3,12 @@
 # distributions
 DISTRO_EXTS := .iso
 
-use/pack:
+use/pack::
 	@$(call add_feature)
+
+ifeq (,$(filter-out e2k%,$(ARCH)))
+use/pack:: use/e2k; @:
+endif
 
 # fallback type is isodata, might get set elsewhere to produce bootable iso
 use/pack/iso: use/pack
