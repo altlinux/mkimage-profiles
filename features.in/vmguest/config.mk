@@ -49,9 +49,15 @@ endif
 else
 
 # kvm-unsupported guest arch
+use/vmguest: ; @:
 use/vmguest/bare: ; @:
 use/vmguest/base: ; @:
 use/vmguest/complete: ; @:
+
+ifeq (,$(filter-out e2k%,$(ARCH)))
+# no kvm before e2kv6 either
+use/vmguest/kvm use/vmguest/kvm/x11: ; @:
+endif
 
 endif
 
