@@ -8,10 +8,11 @@ geany-themes
 kde5-profile
 kde5-kolourpaint
 synfigstudio@X86
+synfigstudio@E2K
 openscad@X86
-freecad
+freecad@!E2K
 dia
-qcad
+qcad@!E2K
 trikStudio
 kde5-marble
 wxMaxima
@@ -21,4 +22,4 @@ afce
 # KDE5 localization and profile
 kde5-profile
 qt5-translations
-kde5-khelpcenter
+kde5-khelpcenter@!E2K

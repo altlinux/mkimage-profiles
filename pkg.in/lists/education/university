@@ -12,14 +12,14 @@ monodevelop@X86
 # Texmacs
 wxMaxima
 octave
-freecad
-qcad
+freecad@!E2K
+qcad@!E2K
 openscad@X86
 openscad@aarch64
 projectlibre
-qgis
-qgis-grass
-qgis-python
+qgis@!E2K
+qgis-grass@!E2K
+qgis-python@!E2K
 openmpi
 fritzing
 python3-tools

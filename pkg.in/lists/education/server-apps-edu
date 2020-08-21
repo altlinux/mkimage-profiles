@@ -1,8 +1,8 @@
 # mediawiki moodle nextcloud are used from appropriate lists
-puppetserver
-puppetdb
+puppetserver@!E2K
+puppetdb@!E2K
 
-semaphore
+semaphore@!E2K
 ansible
 
 clamav
@@ -66,7 +66,7 @@ alt-domain-server
 alterator-net-eth
 alterator-net-pppoe
 alterator-net-pptp
-alterator-netinst
+alterator-netinst@X86
 alterator-net-openvpn
 alterator-net-routing
 alterator-openldap
@@ -89,12 +89,12 @@ installer-feature-apache2-userdir-stage3
 installer-feature-network-shares-client-stage3
 installer-feature-nfs-client-stage3
 installer-feature-nfs-server-stage3
-installer-feature-pxeboot-stage3
+installer-feature-pxeboot-stage3@X86
 installer-feature-shm-defaults-stage3
 installer-feature-start-avahi
 
 xrdp
 
-docker-ce
+docker-ce@X86
 
 tcpdump

@@ -2,7 +2,7 @@
 vlc-maxi
 simplescreenrecorder
 libva-driver-intel@X86
-libva-intel-media-driver@X86_64_ONLY
+libva-intel-media-driver@x86_64
 
 # Graphics
 ristretto
@@ -11,11 +11,11 @@ sane
 hplip-sane
 
 # Games
-gnome-games-gnomine
-gnome-games-gnotravex
-gnome-games-gnotski
+gnome-games-gnomine@!E2K
+gnome-games-gnotravex@!E2K
+gnome-games-gnotski@!E2K
 gnome-games-mahjongg
-gnome-games-sol
+gnome-games-sol@!E2K
 
 # Dictionary
 goldendict
@@ -32,10 +32,11 @@ fonts-ttf-google-crosextra-carlito
 
 # Other
 color-prompt-and-man
-nvidia-xconfig
+nvidia-xconfig@X86
+nvidia-xconfig@aarch64
 vlock
 hplip-PPDs
-hwinfo
+hwinfo@X86
 ntfs-3g
 perl-Crypt-Rijndael
 dvgrab

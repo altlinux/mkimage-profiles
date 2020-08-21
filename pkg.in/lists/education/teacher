@@ -4,5 +4,5 @@ itest-server
 installer-feature-init-italc@X86
 # Mass management
 ansible
-semaphore
+semaphore@!E2K
 virt-viewer
