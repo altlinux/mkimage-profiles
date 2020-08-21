@@ -15,7 +15,11 @@ use/docs/manual: use/docs
 	@$(call xport,DOCS)
 	@$(call add,THE_PACKAGES,docs-$$(DOCS))
 
+ifneq (,$(filter-out e2k%,$(ARCH)))
 use/docs/license: use/docs use/branding/notes
 	@$(call set,META_LICENSE_FILE,license.all.html)
+else
+use/docs/license:; @:
+endif
 
 use/docs/full: use/docs/indexhtml use/docs/manual use/docs/license; @:

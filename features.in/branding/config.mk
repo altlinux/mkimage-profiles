@@ -4,7 +4,9 @@ use/branding:
 
 # license notes, if any
 use/branding/notes: use/branding
+ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_BRANDING,notes)
+endif
 
 # NB: not every distro might have all the branding of its own
 use/branding/full: use/branding/notes use/syslinux/ui/gfxboot \
