@@ -18,6 +18,8 @@ else
 distro/.alt-server-vnc: ; @:
 endif
 
+ifneq (,$(filter-out e2k%,$(ARCH)))
+
 # FIXME: generalize vm-profile
 distro/alt-server: distro/.base distro/.alt-server-vnc \
 	mixin/alt-server use/vmguest/base \
@@ -44,7 +46,7 @@ endif
 distro/alt-server: monitoring = $(addprefix server-v/, 90-monitoring \
 	zabbix-agent telegraf prometheus-node_exporter monit collectd nagios-nrpe)
 
-ifeq (,$(filter-out e2k%,$(ARCH)))
+else
 
 distro/alt-server: distro/.e2k-installer mixin/alt-server
 ifeq (,$(filter-out e2k,$(ARCH)))
@@ -54,6 +56,6 @@ ifeq (,$(filter-out e2kv4,$(ARCH)))
 	@$(call set,META_APP_ID,ALT Server for Elbrus-80x)
 endif
 
-endif
+endif # e2k
 
 endif
