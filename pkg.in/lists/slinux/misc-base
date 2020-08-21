@@ -93,7 +93,7 @@ gst-plugins-bad1.0
 gst-plugins-ugly1.0
 
 fdisk
-cpufreq-simple@!riscv64
+cpufreq-simple@X86
 attr
 rfkill
 cifs-utils
@@ -144,7 +144,8 @@ alterator-printers
 #krb5-ticket-watcher-
 apt-repo
 #krb5-ticket-watcher-
-rekonq-@!riscv64
+rekonq-@X86
+rekonq-@ARM
 xdg-user-dirs
 x-cursor-theme-jimmac
 
@@ -190,7 +191,7 @@ gtk2-ssh-askpass
 systemd-analyze
 
 # Enable left mouse button by tapping by default
-xorg-conf-libinput-touchpad
+xorg-conf-libinput-touchpad@X86
 
 # Otherwise hunspell-ru  will be replace by it
 # during dist-upgrade
