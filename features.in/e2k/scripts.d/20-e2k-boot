@@ -1,0 +1,50 @@
+#!/bin/sh
+
+echo "** 20-e2k-boot START"
+
+cd "$WORKDIR"
+
+# slightly different logic as there's no boot *menu*:
+# ensure the user can install this if possible
+[ -f live    ] && default=live
+[ -f rescue  ] && default=rescue
+[ -f altinst ] && default=install
+
+cat > boot.conf << EOF
+# USB Flash note: write the contents including .disk/ onto
+# an ext2 formatted drive with "altinst" filesystem label
+
+default=$default
+timeout=3
+EOF
+
+for i in live altinst rescue; do
+	[ -f "$i" ] || continue
+
+	if [ "$i" = "altinst" ]; then
+		label=install
+		stage2=
+	else
+		label="$i"
+		stage2="stagename=$i"
+	fi
+
+	cat >> boot.conf << EOF
+
+label=$label
+    partition=0
+    image=/alt0/vmlinux.0
+    cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live automatic=method:cdrom ${stage2:+$stage2 }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
+    initrd=/alt0/full.cz
+
+label=${label}_flash
+    partition=0
+    image=/alt0/vmlinux.0
+    cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live lowmem automatic=method:disk,label:altinst,directory:/ ${stage2:+$stage2 }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
+    initrd=/alt0/full.cz
+EOF
+done
+
+ls -lh
+
+echo "** 20-e2k-boot END"
