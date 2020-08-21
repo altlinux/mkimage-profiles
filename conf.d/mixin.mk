@@ -49,10 +49,10 @@ mixin/regular-x11: use/luks use/volumes/regular \
 
 # common WM live/installer bits
 mixin/regular-desktop: use/x11/xorg +alsa use/xdg-user-dirs use/l10n \
-	use/fonts/otf/adobe use/fonts/otf/mozilla use/net-eth
+	use/fonts/otf/adobe use/fonts/otf/mozilla use/net-eth use/branding/notes
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit)
 	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
-	@$(call add,THE_BRANDING,alterator graphics indexhtml notes)
+	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
 	@$(call set,THE_IMAGEWRITER,altmediawriter)
 	@$(call add,THE_PACKAGES,upower bluez udev-rules-rfkill-uaccess)
