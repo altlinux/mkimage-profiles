@@ -1,8 +1,13 @@
-LibreOffice-still
-libreoffice-languagetool
-LibreOffice-still-langpack-ru
+LibreOffice-still@!E2K
+LibreOffice-still-langpack-ru@!E2K
 LibreOffice-still-gnome@X86
-LibreOffice-still-common
+LibreOffice-still-common@!E2K
+
+libreoffice5@E2K
+LibreOffice-langpack-ru@E2K
+LibreOffice-common@E2K
+
+libreoffice-languagetool
 odt2txt
 libcmis
 libwps
