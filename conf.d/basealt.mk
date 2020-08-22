@@ -30,6 +30,8 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
 	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
 	@$(call add,THE_PACKAGES,xorg-drv-smi)	# use/x11/smi
+	@$(call add,MAIN_GROUPS,workstation/alterator-web)
+	@$(call add,SERVICES_ENABLE,ahttpd)	# in case it gets installed
 ifeq (,$(filter-out e2k,$(ARCH)))
 	@$(call add,THE_PACKAGES,setup-alsa-elbrus-401)	# use/e2k/sound/401
 	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 401-PC)
