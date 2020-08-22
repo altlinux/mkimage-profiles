@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Management interface
+Name[ru_RU]=Интерфейс управления
+Comment=Alterator Web interface (port 8080)
+Comment[ru_RU]=Веб-интерфейс Alterator (порт 8080)
+X-Alterator-PackageList=workstation/alterator-web
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;XFCE;KDE;KDE4;
