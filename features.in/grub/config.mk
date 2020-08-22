@@ -10,11 +10,6 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
 	@$(call set,IMAGE_PACKTYPE,boot)
-else
-
-use/grub: ; @:
-
-endif
 
 # UI is overwritten
 use/grub/ui/%: use/grub
@@ -26,6 +21,11 @@ use/grub/ui/%: use/grub
 use/grub/%.cfg: use/grub
 	@$(call add,GRUB_CFG,$*)
 
-
 use/grub/timeout/%: use/grub
 	@$(call set,GRUB_TIMEOUT,$*)
+else
+
+use/grub: ; @:
+use/grub/ui/% use/grub/%.cfg use/grub/timeout/%: ; @:
+
+endif
