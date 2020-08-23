@@ -7,3 +7,4 @@ Comment=This enables autologin in single- or multi-seat configuration
 Comment[ru_RU]=Включает автоматический вход в систему на всех местах
 X-Alterator-PackageList=workstation/autologin
 X-Alterator-Required=no
+X-Alterator-Parent=workstation/90-e801

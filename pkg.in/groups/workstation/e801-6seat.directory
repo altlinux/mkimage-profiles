@@ -1,12 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Elbrus 801-PC (six seats)
-Name[ru_RU]=Эльбрус 801-РС (шесть рабочих мест)
+Name=Six seats
+Name[ru_RU]=Шесть мест
 Comment=Hexa-seat setup for Elbrus 801-PC with additional GPUs
-Comment[ru_RU]=Шесть рабочих мест на Эльбрус 801-РС с дополнительными видеокартами
+Comment[ru_RU]=Шесть рабочих мест на Эльбрус 801-РС (.400) с дополнительными видеокартами
 X-Alterator-PackageList=workstation/e801-6seat
 X-Alterator-Required=no
 X-Alterator-Conflicts=workstation/e801-1seat
 X-Alterator-Conflicts=workstation/e801-2seat
 X-Alterator-Conflicts=workstation/e801-3seat
+X-Alterator-Parent=workstation/90-e801

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Elbrus 801-PC (dual seat)
-Name[ru_RU]=Эльбрус 801-РС (два рабочих места)
+Name=Dual seat
+Name[ru_RU]=Два места
 Comment=Dual-seat setup for Elbrus 801-PC with additional GPU
 Comment[ru_RU]=Два рабочих места на Эльбрус 801-РС с дополнительной видеокартой
 X-Alterator-PackageList=workstation/e801-2seat
@@ -10,3 +10,4 @@ X-Alterator-Required=no
 X-Alterator-Conflicts=workstation/e801-1seat
 X-Alterator-Conflicts=workstation/e801-3seat
 X-Alterator-Conflicts=workstation/e801-6seat
+X-Alterator-Parent=workstation/90-e801
