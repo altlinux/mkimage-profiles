@@ -40,6 +40,7 @@ ifeq (,$(filter-out e2kv4,$(ARCH)))
 	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 801/101-PC)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-multiseat)
 	@$(call add,MAIN_GROUPS,$(workstation_groups_e2k))
+	@$(call add,MAIN_GROUPS,workstation/90-e801 workstation/91-e101)
 	@$(call add,THE_PACKAGES,test-audio)
 endif	# e2kv4
 endif	# e2k%
