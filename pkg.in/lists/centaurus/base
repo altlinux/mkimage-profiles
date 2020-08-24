@@ -1,5 +1,5 @@
 installer-feature-online-repo
-installer-feature-repo-add
+installer-feature-repo-add@!E2K
 make-initrd-multipath
 lsof
 man-pages
