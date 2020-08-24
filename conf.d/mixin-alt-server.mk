@@ -1,5 +1,5 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
-	10-alterator 20-server-apps  50-freeipa 70-dev 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client jitsi-meet)
+	10-alterator 20-server-apps  50-freeipa 70-dev 90-docs sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client)
 
 mixin/alt-server: +installer +systemd \
 	use/branding/notes use/syslinux/ui/gfxboot \
@@ -14,8 +14,11 @@ mixin/alt-server: +installer +systemd \
 	use/net/etcnet
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
+	@$(call add,THE_BRANDING,alterator)
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_BRANDING,bootloader bootsplash)
 	@$(call set,KFLAVOURS,std-def)
+endif
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
 	@$(call add,LIVE_LISTS,centaurus/live)
@@ -28,7 +31,7 @@ mixin/alt-server: +installer +systemd \
 	@$(call add,MAIN_LISTS,centaurus/disk)
 	@$(call add,THE_PROFILES,centaurus-10-server)
 	@$(call add,THE_PROFILES,centaurus-20-serverDC)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 e2k%,$(ARCH)))
 	@$(call add,THE_PROFILES,centaurus-30-desktop)
 endif
 	@$(call add,THE_PROFILES,minimal)
@@ -39,7 +42,10 @@ endif
 	@$(call add,INSTALL2_PACKAGES,installer-feature-load-tun)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-network-shares-stage3)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-auto-domain)
+ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
+	@$(call add,MAIN_GROUPS,centaurus/jitsi-meet)
+endif
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,COMMON_PACKAGES,vim-console)
