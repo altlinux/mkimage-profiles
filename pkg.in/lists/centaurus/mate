@@ -132,9 +132,7 @@ autofs
 avahi-daemon
 avahi-tools
 
-setup-mate-terminal@E2K
 setup-mate-nocomposite@E2K
-setup-libgl-dri3-disable@E2K
 avahi-daemon
 avahi-tools
 
