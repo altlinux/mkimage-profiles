@@ -20,10 +20,21 @@ use/office/LibreOffice/lang: use/office/LibreOffice
 	@$(call add,THE_OFFICE,LibreOffice$$(LO_FLAVOUR)-langpack-ru)
 	@$(call add,THE_OFFICE,LibreOffice$$(LO_FLAVOUR)-langpack-uk)
 
+use/office/LibreOffice/lang/extra: use/office/LibreOffice/lang
+	@$(call add,THE_OFFICE,LibreOffice$$(LO_FLAVOUR)-langpack-es)
+	@$(call add,THE_OFFICE,LibreOffice$$(LO_FLAVOUR)-langpack-pt-BR)
+
 use/office/LibreOffice/gtk2 use/office/LibreOffice/gtk3 \
-	use/office/LibreOffice/qt5 use/office/LibreOffice/kde5: \
+	use/office/LibreOffice/qt5 use/office/LibreOffice/kde5 \
+	use/office/LibreOffice/extensions \
+	use/office/LibreOffice/integrated: \
 	use/office/LibreOffice/%: use/office/LibreOffice
 	@$(call add,THE_OFFICE,LibreOffice$$(LO_FLAVOUR)-$*)
+
+use/office/LibreOffice/full: use/office/LibreOffice/still \
+	use/office/LibreOffice/gtk3 \
+	use/office/LibreOffice/extensions \
+	use/office/LibreOffice/integrated; @:
 
 use/office/calligra: use/office
 	@$(call set,THE_OFFICE,calligra)
