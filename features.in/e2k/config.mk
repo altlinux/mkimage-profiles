@@ -18,5 +18,32 @@ use/e2k: use/tty/S0
 use/e2k/x11: use/e2k use/x11
 	@$(call add,THE_PACKAGES,xorg-server xinit)
 
+ifeq (,$(filter-out e2kv4,$(ARCH)))
+use/e2k/x11/101: use/e2k/x11
+	@$(call add,MAIN_GROUPS,x-e2k/91-e101)
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e101-modesetting e101-mga2))
+
+use/e2k/multiseat/801/base:
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-multiseat)
+	@$(call add,MAIN_GROUPS,x-e2k/90-e801)
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-1seat e801-2seat))
+
+use/e2k/multiseat/801: use/e2k/multiseat/801/base
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-3seat e801-6seat))
+
+use/e2k/multiseat/801/full: use/e2k/multiseat/801 use/control
+	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
+	@$(call add,THE_PACKAGES,test-audio)
+	@$(call add,CONTROL,udisks2:shared)     ### media mount exclusivity
+else
+use/e2k/x11/101:; @:
+use/e2k/multiseat/801/base use/e2k/multiseat/801 use/e2k/multiseat/801/full:; @:
+endif	# e2kv4
+
+ifeq (,$(filter-out e2k,$(ARCH)))
 use/e2k/sound/401:
 	@$(call add,THE_PACKAGES,setup-alsa-elbrus-401)
+
+else
+use/e2k/sound/401:; @:
+endif	# e2k
