@@ -61,7 +61,7 @@ vm/alt-p9-jeos-systemd-rpi vm/alt-p9-jeos-sysv-rpi \
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-p9-cinnamon-tegra vm/alt-p9-kde5-tegra \
-	vm/alt-p9-lxde-tegra vm/alt-p9-lxqt-tegra \
+	vm/alt-p9-lxqt-tegra \
 	vm/alt-p9-mate-tegra vm/alt-p9-xfce-tegra: \
 	vm/alt-p9-%-tegra: vm/regular-%-tegra mixin/p9; @:
 
