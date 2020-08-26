@@ -2,12 +2,6 @@ ifeq (armh,$(ARCH))
 
 ifeq (ve,$(IMAGE_CLASS))
 
-# aliases for autobuild
-ve/regular-nexus7-e17: ve/nexus7-e17; @:
-ve/regular-nexus7-kde4: ve/nexus7-kde4; @:
-ve/altlinux-p7-nexus7-e17: ve/nexus7-e17; @:
-ve/altlinux-p7-nexus7-kde4: ve/nexus7-kde4; @:
-
 ve/.tegra3-base: ve/.base use/armh use/kernel
 	@$(call add,BASE_PACKAGES,nvidia-tegra)
 
@@ -21,11 +15,6 @@ ve/.nexus7-tablet: ve/.tegra3-tablet use/armh-nexus7 \
 	@$(call add,BASE_PACKAGES,mkinitrd)     ### rootsubdir support
 	@$(call add,BASE_PACKAGES,firmware-nexus7)
 	@$(call add,BASE_PACKAGES,livecd-ru)	### until l10n is there
-
-ve/nexus7-e17: ve/.nexus7-tablet use/x11/e17 use/x11/lightdm/gtk; @:
-
-ve/nexus7-kde4: ve/.nexus7-tablet use/x11/lightdm/kde +systemd +pulse +nm
-	@$(call add,BASE_LISTS,$(call tags,base kde4mobile))
 
 ve/nexus7-xfce: ve/.nexus7-tablet use/x11/xfce use/x11/lightdm/gtk +systemd
 	@$(call add,BASE_PACKAGES,florence at-spi2-atk)
@@ -70,12 +59,6 @@ vm/cubox-xfce: vm/.cubox-gtk \
 vm/cubox-mate: vm/.cubox-gtk use/x11/mate; @:
 	@$(call set,BRANDING,altlinux-centaurus)
 	@$(call add,THE_BRANDING,mate-settings)
-
-vm/cubox-tde: vm/.cubox-oem use/net-eth/dhcp use/x11-autostart +tde
-	@$(call add,BASE_LISTS,openscada)
-
-vm/cubox-kde4: vm/.cubox-oem use/x11/kde4 use/x11/kdm4 use/fonts/zerg +pulse
-	@$(call add,BASE_LISTS,$(call tags,desktop && kde4 && !extra))
 
 vm/cubox-server: vm/.cubox-bare use/deflogin/altlinuxroot use/control/sudo-su \
 	+sysvinit
