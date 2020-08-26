@@ -1,5 +1,7 @@
 # Multimedia
 vlc-maxi
+# better optimized for 8C
+mplayer@E2K
 simplescreenrecorder
 libva-driver-intel@X86
 libva-intel-media-driver@x86_64
@@ -18,7 +20,7 @@ gnome-games-mahjongg
 gnome-games-sol@!E2K
 
 # Dictionary
-goldendict
+goldendict@!E2K
 dict-mueller7-utf8
 
 # Fonts

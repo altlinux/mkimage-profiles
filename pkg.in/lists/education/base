@@ -10,7 +10,7 @@ codeblocks-contrib
 dia
 dosbox
 fbreader
-goldendict
+goldendict@!E2K
 dict-mueller7-utf8
 freebasic@X86
 gcc
@@ -30,7 +30,8 @@ fpc@X86
 fpc-ide@X86
 geany
 geany-plugins
-freeplane
+freeplane@!E2K
+freemind@E2K
 gnome-games-klotski
 gnome-games-mahjongg
 gnome-games-aisleriot@!E2K
@@ -72,7 +73,7 @@ kde5-khelpcenter@!E2K
 netpolice-filter
 netpolice-main
 # For Skydns
-ddclient
+ddclient@!E2K
 perl-IO-Socket-SSL
 
 # New utilites
@@ -98,7 +99,7 @@ openresolv-bind
 # GUI utilities
 gparted
 rosa-imagewriter
-grub-customizer
+grub-customizer@!E2K
 
 # Additional filesystem support
 fuse-exfat
@@ -129,6 +130,10 @@ LibreOffice-still-integrated@!E2K
 LibreOffice-still-gtk3@!E2K
 LibreOffice-still-langpack-ru@!E2K
 libreoffice-languagetool
+LibreOffice-extensions@E2K
+LibreOffice-integrated@E2K
+LibreOffice-gtk3@E2K
+LibreOffice-langpack-ru@E2K
 mythes-ru
 hyphen-ru
 gst-plugins-bad
@@ -139,8 +144,8 @@ postgresql-jdbc
 mysql-connector-java
 
 # Firmware
-^firmware-ipw[[:digit:]].*
-^firmware-zd[[:digit:]].*
+^firmware-ipw[[:digit:]]+
+^firmware-zd[[:digit:]]+
 ^xorg-extension-[[:alpha:]]+$
 firmware-p54
 
