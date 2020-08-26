@@ -1,9 +1,12 @@
+ifeq (,$(filter-out riscv64,$(ARCH)))
+# not available on riscv64 at the moment
+use/office use/office/LibreOffice/still use/office/LibreOffice/full: ; @:
+else
+
 use/office:
 	@$(call add_feature)
-ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call try,THE_OFFICE,abiword gnumeric)
 	@$(call add,THE_PACKAGES,$$(THE_OFFICE))
-endif
 
 # support both LibreOffice and LibreOffice-still
 use/office/LibreOffice: use/office
@@ -38,3 +41,5 @@ use/office/LibreOffice/full: use/office/LibreOffice/still \
 
 use/office/calligra: use/office
 	@$(call set,THE_OFFICE,calligra)
+
+endif	# !riscv64
