@@ -20,7 +20,7 @@ lsb@X86
 apt-rsync
 apt-repo
 installer-feature-online-repo
-installer-feature-repo-add
+installer-feature-repo-add@!E2K
 setbranding
 htop
 bash-completion
