@@ -91,16 +91,20 @@ endif
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/education: vm/alt-education; @:
 vm/alt-education: vm/systemd use/repo use/x11/armsoc \
 	use/oem use/bootloader/uboot mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
+	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
+	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
 vm/alt-education-rpi: vm/alt-education use/arm-rpi4/full; @:
-
-vm/alt-education-tegra: vm/alt-education use/aarch64-tegra; @:
-
 endif
+
+ifeq (,$(filter-out aarch64,$(ARCH)))
+vm/alt-education-tegra: vm/alt-education use/aarch64-tegra; @:
+endif
+
 endif
