@@ -21,7 +21,10 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 
 use/branding/complete: use/branding/full use/plymouth/full
-	@$(call add,INSTALL2_BRANDING,notes slideshow)
+	@$(call add,INSTALL2_BRANDING,slideshow)
+ifneq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,INSTALL2_BRANDING,notes)
+endif
 
 # http://altlinux.org/branding/slideshow
 use/branding/slideshow/once: use/branding
