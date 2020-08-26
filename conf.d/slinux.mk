@@ -23,9 +23,12 @@ vm/slinux: use/slinux/vm-base use/slinux/arm-base; @:
 
 vm/slinux-rpi: vm/slinux use/arm-rpi4/full; @:
 
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/slinux-tegra: use/slinux/vm-base use/slinux/arm-base \
 	use/aarch64-tegra; @:
+endif
+
 else
-vm/slinux: use/slinux/vm-base use/build-vm; @:
+vm/slinux: use/slinux/vm-base; @:
 endif
 endif
