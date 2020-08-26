@@ -21,8 +21,7 @@ ifeq (vm,$(IMAGE_CLASS))
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/slinux: use/slinux/vm-base use/slinux/arm-base; @:
 
-vm/slinux-rpi: vm/slinux use/arm-rpi4/x11
-	@$(call set,KFLAVOURS,rpi-un rpi-def)
+vm/slinux-rpi: vm/slinux use/arm-rpi4/full; @:
 
 vm/slinux-tegra: use/slinux/vm-base use/slinux/arm-base \
 	use/aarch64-tegra; @:
