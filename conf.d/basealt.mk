@@ -68,7 +68,6 @@ endif
 
 ifeq (vm,$(IMAGE_CLASS))
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-
 vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
 	use/oem use/repo use/bootloader/uboot mixin/alt-workstation
 	@$(call add,THE_PACKAGES,rootfs-installer-features)
@@ -76,13 +75,16 @@ vm/alt-workstation: vm/systemd use/x11/armsoc use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
 vm/alt-workstation-rpi: vm/alt-workstation use/arm-rpi4/full; @:
+endif
 
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-workstation-tegra: vm/alt-workstation use/aarch64-tegra; @:
+endif
 
 ifeq (,$(filter-out armh,$(ARCH)))
 vm/alt-workstation-mcom02: vm/alt-workstation use/armh-mcom02/x11; @:
 endif
-endif
+
 vm/alt-workstation-cloud: vm/alt-p9-cloud use/x11/lightdm/gtk \
 	mixin/alt-workstation
 	@$(call add,THE_PACKAGES,cloud-init-config-netplan)
