@@ -52,7 +52,9 @@ vm/icewm-setup: vm/.desktop-bare mixin/icewm use/oem use/x11-autostart
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 
 # some arbitrary gigabyte
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 vm/vagrant-base: vm/net use/vagrant
 	@$(call set,VM_SIZE,10737418240)
+endif
 
 endif
