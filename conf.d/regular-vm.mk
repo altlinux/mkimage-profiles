@@ -103,7 +103,7 @@ vm/regular-mate-rpi: vm/.regular-gtk mixin/regular-mate use/arm-rpi4/full; @:
 
 vm/regular-xfce-rpi: vm/.regular-gtk mixin/regular-xfce use/arm-rpi4/full; @:
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 # Nvidia Tegra (Jetson Nano only)
 vm/regular-cinnamon-tegra: vm/.regular-gtk mixin/regular-cinnamon \
 	use/x11/lightdm/slick use/aarch64-tegra; @:
