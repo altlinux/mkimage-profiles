@@ -1,7 +1,7 @@
 ifdef BUILDDIR
 
-# in deciseconds
-DEFAULT_TIMEOUT = 90
+# in seconds
+DEFAULT_TIMEOUT = 60
 
 # prepare data for grub installation;
 # see also stage1/scripts.d/01-grub

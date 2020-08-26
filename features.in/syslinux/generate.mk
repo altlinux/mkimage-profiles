@@ -1,7 +1,7 @@
 ifdef BUILDDIR
 
 # in deciseconds
-DEFAULT_TIMEOUT = 90
+DEFAULT_TIMEOUT = 600
 
 # prepare data for syslinux installation;
 # see also stage1/scripts.d/01-syslinux
