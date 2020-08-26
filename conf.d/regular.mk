@@ -210,7 +210,7 @@ distro/.regular-server-ovz: distro/.regular-server \
 distro/regular-server-ovz: distro/.regular-server-ovz +systemd; @:
 distro/regular-server-ovz-sysv: distro/.regular-server-ovz +sysvinit; @:
 
-distro/.regular-server-hyperv: distro/.regular-server-managed +systemd
+distro/regular-server-hyperv: distro/.regular-server-managed +systemd
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_PACKAGES,hyperv-daemons)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
