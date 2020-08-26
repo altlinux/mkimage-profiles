@@ -38,7 +38,7 @@ endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 # e2k: mostly radeon, 101 got mga2/vivante
-use/x11/xorg:: use/x11/radeon use/x11/amdgpu
+use/x11/xorg:: use/x11/radeon use/x11/amdgpu use/x11/nouveau
 
 ifeq (,$(filter-out e2kv4,$(ARCH)))
 use/x11/mga2: use/x11
