@@ -66,7 +66,9 @@ endif
 	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
-	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless use/l10n/default/ru_RU \
+	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless \
+	use/l10n/default/ru_RU \
+	use/office/LibreOffice/full \
 	use/docs/manual use/docs/indexhtml \
 	use/xdg-user-dirs/deep use/slinux/services
 	@$(call set,DOCS,simply-linux)
