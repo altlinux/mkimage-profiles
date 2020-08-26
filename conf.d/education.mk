@@ -98,8 +98,7 @@ vm/alt-education: vm/systemd use/repo use/x11/armsoc \
 	use/oem use/bootloader/uboot mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 
-vm/alt-education-rpi: vm/alt-education use/arm-rpi4/x11
-	@$(call set,KFLAVOURS,rpi-un rpi-def)
+vm/alt-education-rpi: vm/alt-education use/arm-rpi4/full; @:
 
 vm/alt-education-tegra: vm/alt-education use/aarch64-tegra; @:
 
