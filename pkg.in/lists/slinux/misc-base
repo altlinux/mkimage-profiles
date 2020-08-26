@@ -154,13 +154,6 @@ plymouth
 
 # Office
 java-1.8.0-openjdk
-LibreOffice-still@!riscv64
-LibreOffice-still-gtk3@!riscv64
-LibreOffice-still-langpack-ru@!riscv64
-LibreOffice-still-langpack-uk@!riscv64
-LibreOffice-still-langpack-es@!riscv64
-LibreOffice-still-langpack-kk@!riscv64
-LibreOffice-still-langpack-pt-BR@!riscv64
 atril-gtk
 atril-gtk-djvu
 atril-gtk-pixbuf
