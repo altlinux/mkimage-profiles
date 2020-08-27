@@ -34,6 +34,16 @@ fi
 grep -hv '^#' .in/[0-9][0-9]*.cfg > "$CFG"
 
 # there should be DEFAULT directive there (at least for alterator-netinst)
+if [ -n "$GLOBAL_SYSLINUX_DEFAULT" ]; then
+	if [ -n "$(grep -i "^label $GLOBAL_SYSLINUX_DEFAULT" "$CFG")" ]; then
+		DEFAULT="$GLOBAL_SYSLINUX_DEFAULT"
+		sed -i '/^default/d'
+		echo "default $DEFAULT" >> "$CFG"
+	else
+		echo "error: $GLOBAL_SYSLINUX_DEFAULT missing in $CFG" >&2
+		exit 1
+	fi
+fi
 if ! grep -i '^default' "$CFG"; then
 	DEFAULT="$(grep -i '^label ' "$CFG" | head -1 | cut -f2 -d' ')"
 	if [ -n "$DEFAULT" ]; then
