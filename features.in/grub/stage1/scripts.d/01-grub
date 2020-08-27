@@ -40,6 +40,16 @@ fi
 # there should be DEFAULT directive there (at least for alterator-netinst)
 default_change() {
 local CFG=$1
+if [ -n "$GLOBAL_GRUB_DEFAULT" ]; then
+	if [ -n "$(grep -i "$GLOBAL_GRUB_DEFAULT" "$CFG")" ]; then
+		DEFAULT="$GLOBAL_GRUB_DEFAULT"
+		sed -i '/^default/d'
+		echo "default=$DEFAULT" >> "$CFG"
+	else
+		echo "error: $GLOBAL_GRUB_DEFAULT missing in $CFG" >&2
+		exit 1
+	fi
+fi
 if ! grep -i '^default' "$CFG"; then
 	DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
 	if [ -n "$DEFAULT" ]; then
