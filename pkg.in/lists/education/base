@@ -90,7 +90,6 @@ krb5-kinit
 # Installer features
 installer-feature-xdg-user-dirs
 xdg-user-dirs-gtk
-installer-distro-junior-stage3
 installer-feature-auto-domain
 installer-feature-online-repo
 installer-feature-repo-add@!E2K
