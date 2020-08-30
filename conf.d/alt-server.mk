@@ -31,7 +31,9 @@ distro/alt-server: distro/.base distro/.alt-server-vnc \
 	@$(call add,MAIN_LISTS,centaurus/disk-dvd)
 	@$(call add,MAIN_LISTS,centaurus/disk-server-light)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-setup-plymouth)
+endif
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_BRANDING,notes)
