@@ -15,17 +15,9 @@ distro/alt-server: server_groups_desktop = $(addprefix centaurus/,\
         80-desktop emulators freenx-server mate office pidgin vlc xorg)
 endif
 
-ifeq (,$(filter-out x86_64 i586,$(ARCH)))
-distro/alt-server:: use/memtest
-endif
-
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-distro/alt-server:: use/efi/refind +efi
-endif
-
-ifeq (,$(filter-out ppc64le aarch64 e2k%,$(ARCH)))
-distro/alt-server:: use/install2/vnc/listen; @:
-endif
+distro/alt-server: monitoring = $(addprefix server-v/,\
+	90-monitoring zabbix-agent telegraf prometheus-node_exporter \
+	monit collectd nagios-nrpe)
 
 # FIXME: generalize vm-profile
 distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
@@ -59,7 +51,16 @@ ifeq (,$(filter-out e2kv4,$(ARCH)))
 	@$(call set,META_APP_ID,ALT Server for Elbrus-80x)
 endif
 
-distro/alt-server:: monitoring = $(addprefix server-v/, 90-monitoring \
-	zabbix-agent telegraf prometheus-node_exporter monit collectd nagios-nrpe)
+ifeq (,$(filter-out x86_64 i586,$(ARCH)))
+distro/alt-server:: use/memtest; @:
+endif
+
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+distro/alt-server:: use/efi/refind +efi; @:
+endif
+
+ifeq (,$(filter-out ppc64le aarch64 e2k%,$(ARCH)))
+distro/alt-server:: use/install2/vnc/listen; @:
+endif
 
 endif
