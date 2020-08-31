@@ -1,0 +1,4 @@
+#!/bin/sh
+# do not toss online repos into installer
+
+rm -f -- /etc/apt/sources.list.d/*.list ||:
