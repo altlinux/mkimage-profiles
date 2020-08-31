@@ -1,5 +1,6 @@
 use/e2k: use/tty/S0
 	@$(call add_feature)
+	@$(call add,THE_PACKAGES,pwmd)	# service disabled by default
 	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-fix-boot-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-ignore-cf-stage2)
