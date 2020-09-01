@@ -1,4 +1,5 @@
 # NB: these might hurt each other, for MAIN_LISTS
 libva-driver-intel@X86
 libva-intel-media-driver@X86
+libva-utils
 #xvba-video
