@@ -1,6 +1,5 @@
 use/e2k: use/tty/S0
 	@$(call add_feature)
-	@$(call add,THE_PACKAGES,pwmd)	# service disabled by default
 	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-fix-boot-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-ignore-cf-stage2)
@@ -13,6 +12,8 @@ use/e2k: use/tty/S0
 	@$(call add,INSTALL2_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,INSTALL2_PACKAGES,ifplugd)	# for net-eth link status
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,llvm)
+	@$(call add,THE_PACKAGES,pwmd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,pwmd)
 	@$(call set,KFLAVOURS,elbrus-def)	# no other flavours for now
 	@$(call xport,STAGE2_BOOTARGS)
 
