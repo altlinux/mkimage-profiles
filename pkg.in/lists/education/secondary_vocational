@@ -9,6 +9,7 @@ qt-creator-doc
 cmake
 ninja-build
 qt5-base-devel
+qt5-base-doc
 # Eclipse
 # Texmacs
 logisim
