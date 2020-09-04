@@ -214,6 +214,11 @@ menulibre
 mugshot
 xfce-polkit
 
+# New utilites
+disable-usb-autosuspend
+color-prompt-and-man
+shutter
+
 # Virtualization support
 xorg-drv-vmware@X86
 xorg-drv-vmmouse@X86
