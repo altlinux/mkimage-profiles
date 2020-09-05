@@ -33,7 +33,7 @@ case "$2" in
 		cp -avt "$dst" -- "$src"/{.disk,*}
 	grep -q "^default=.*_flash$" "$dst/boot.conf" || {
 		echo -n "updating default boot target... "
-		sed -i 's,default=install$,&_flash,' "$dst/boot.conf"
+		sed -i 's,default=.*$,&_flash,' "$dst/boot.conf"
 		echo "done"
 	}
 	echo -n "unmounting media... "
