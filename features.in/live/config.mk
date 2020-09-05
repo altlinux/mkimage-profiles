@@ -91,9 +91,13 @@ use/live/ru: use/live use/l10n/default/ru_RU; @:
 use/live/sound: use/live
 	@$(call add,LIVE_LISTS,sound/base)
 
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 # prepare bootloader for software suspend (see also install2)
 use/live/suspend: use/live
 	@$(call add,LIVE_PACKAGES,installer-feature-desktop-suspend-stage2)
+else
+use/live/suspend: use/live; @:
+endif
 
 # deny network/local drive access for security reasons
 use/live/privacy: use/services use/memclean use/deflogin \
