@@ -17,7 +17,7 @@ mixin/e2k-desktop: use/e2k/x11 use/l10n/default/ru_RU \
 	@$(call add,THE_PACKAGES,fonts-bitmap-terminus)
 
 mixin/e2k-livecd-install: use/e2k/x11
-	@$(call add,THE_PACKAGES,livecd-install alterator-notes)
+	@$(call add,THE_PACKAGES,livecd-install)
 	@$(call add,THE_PACKAGES,fdisk hdparm rsync openssh vim-console)
 	@$(call add,THE_PACKAGES,apt-repo)
 
@@ -50,9 +50,11 @@ mixin/regular-x11: use/luks use/volumes/regular \
 # common WM live/installer bits
 mixin/regular-desktop: +alsa +power use/x11/xorg use/xdg-user-dirs use/l10n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/net-eth use/branding/notes
-	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit)
-	@$(call add,THE_PACKAGES,alterator-notes dvd+rw-tools)
+	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
+ifneq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,THE_BRANDING,notes)
+endif
 	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
 	@$(call set,THE_IMAGEWRITER,altmediawriter)
 	@$(call add,THE_PACKAGES,upower bluez udev-rules-rfkill-uaccess)
