@@ -110,8 +110,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
 distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
-	use/browser/chromium
-	@$(call set,KFLAVOURS,un-def)
+	use/browser/chromium use/kernel/latest; @:
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
@@ -123,8 +122,7 @@ distro/regular-gnustep-sysv: distro/.regular-desktop-sysv \
 distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
-distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
-	@$(call set,KFLAVOURS,un-def)
+distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce use/kernel/latest;@:
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
@@ -143,8 +141,8 @@ distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment +power; 
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
-distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 +plymouth
-	@$(call set,KFLAVOURS,un-def)
+distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 \
+	use/kernel/latest +plymouth
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
 	@$(call add,LIVE_PACKAGES,gnome-flashback screenpen)
 
@@ -160,8 +158,7 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
 	use/rescue/rw use/efi/refind use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
-	use/mediacheck use/stage2/kms +wireless
-	@$(call set,KFLAVOURS,un-def)
+	use/mediacheck use/stage2/kms use/kernel/latest +wireless
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
 	@$(call add,RESCUE_LISTS,$(call tags,base bench))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
@@ -210,8 +207,8 @@ distro/.regular-server-ovz: distro/.regular-server \
 distro/regular-server-ovz: distro/.regular-server-ovz +systemd; @:
 distro/regular-server-ovz-sysv: distro/.regular-server-ovz +sysvinit; @:
 
-distro/regular-server-hyperv: distro/.regular-server-managed +systemd
-	@$(call set,KFLAVOURS,un-def)
+distro/regular-server-hyperv: distro/.regular-server-managed \
+	use/kernel/latest +systemd
 	@$(call add,THE_PACKAGES,hyperv-daemons)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
@@ -240,9 +237,7 @@ distro/regular-server-samba4: distro/.regular-server-managed +systemd
 distro/regular-server-lxd: distro/.regular-bare \
 	use/isohybrid +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
-	use/lxc/lxd use/tty/S0 \
-	use/init/systemd/multiuser
-	@$(call set,KFLAVOURS,un-def)
+	use/lxc/lxd use/tty/S0 use/init/systemd/multiuser use/kernel/latest
 	@$(call add,DEFAULT_SERVICES_ENABLE,sshd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,lxd-startup lxd-bridge lxcfs cgmanager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
