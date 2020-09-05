@@ -25,6 +25,7 @@ use/cleanup/alterator: use/cleanup
 use/cleanup/x11-alterator: use/cleanup/x11 use/cleanup/alterator
 	@$(call add,CLEANUP_PACKAGES,libmng qt4-common qt5-base-common)
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 # "basically everything else"; this *will* change with branches and distros
 use/cleanup/jeos: use/cleanup/x11-alterator
 	@$(call add,CLEANUP_PACKAGES,liblcms libjpeg 'libtiff*')
@@ -41,3 +42,9 @@ use/cleanup/jeos/full: use/cleanup/jeos
 	@$(call add,CLEANUP_PACKAGES,console-scripts console-vt-tools 'kbd*')
 	@$(call add,CLEANUP_PACKAGES,libsystemd-journal libsystemd-login)
 	@$(call add,CLEANUP_PACKAGES,dbus libdbus)
+
+else
+# non-x86 systems are much more prone to critical package removals,
+# just avoid those for now => stub it
+use/cleanup/jeos use/cleanup/jeos/full:; @:
+endif
