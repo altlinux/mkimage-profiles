@@ -73,11 +73,15 @@ distro/.regular-jeos-full: distro/.regular-jeos \
 	use/volumes/jeos use/ntp/chrony use/bootloader/grub +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
+ifeq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,CLEANUP_PACKAGES,acpid-events-power)
+else
 	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
-	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
 	@$(call set,KFLAVOURS,std-def)
+endif
+	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
 	@$(call add,BASE_KMODULES,drm)
 
 # NB:
