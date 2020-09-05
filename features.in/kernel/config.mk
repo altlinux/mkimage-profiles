@@ -22,6 +22,11 @@ endif
 endif
 	@$(call xport,KFLAVOURS)
 
+use/kernel/latest: use/kernel; @:
+ifeq (,$(filter-out aarch64 armh i586 ppc64le x86_64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def)
+endif
+
 # r8168 is a kludge, never install it by default
 use/kernel/net:
 	@$(call add,THE_KMODULES,e1000e igb)
