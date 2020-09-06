@@ -20,6 +20,14 @@ BROWSERS := $(BROWSERS_$(ARCH))
 $(addprefix use/browser/,$(BROWSERS)): use/browser/%: use/browser
 	@$(call set,THE_BROWSER,$*)
 
+ifneq (,$(filter-out x86_64 i586 aarch64 mipsel,$(ARCH)))
+use/browser/chromium: use/browser/firefox use/browser/firefox/esr; @:
+endif
+
+ifeq (,$(filter-out e2k%,$(ARCH)))
+use/browser/falkon: use/browser/firefox use/browser/firefox/esr; @:
+endif
+
 # support both firefox and firefox-esr
 use/browser/firefox: use/browser
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
