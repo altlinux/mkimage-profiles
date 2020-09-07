@@ -158,56 +158,56 @@ endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
 # Tavolga
-vm/tavolga-regular-jeos-systemd: vm/systemd-net mixin/regular-vm-jeos \
+vm/regular-jeos-systemd-tavolga: vm/systemd-net mixin/regular-vm-jeos \
 	use/mipsel-mitx; @:
 
-vm/tavolga-regular-jeos-sysv: vm/net mixin/regular-vm-jeos \
+vm/regular-jeos-sysv-tavolga: vm/net mixin/regular-vm-jeos \
 	use/mipsel-mitx +power; @:
 
-vm/tavolga-regular-builder: vm/tavolga-regular-jeos-sysv \
+vm/regular-builder-tavolga: vm/regular-jeos-sysv-tavolga \
 	mixin/regular-builder; @:
 
-vm/tavolga-regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
+vm/regular-icewm-sysv-tavolga: vm/.regular-desktop-sysv mixin/regular-icewm \
 	use/mipsel-mitx/x11; @:
 
-vm/tavolga-regular-lxde: vm/.regular-gtk mixin/regular-lxde \
+vm/regular-lxde-tavolga: vm/.regular-gtk mixin/regular-lxde \
 	use/mipsel-mitx/x11; @:
 
-vm/tavolga-regular-lxqt: vm/.regular-gtk mixin/regular-lxqt \
+vm/regular-lxqt-tavolga: vm/.regular-gtk mixin/regular-lxqt \
 	use/mipsel-mitx/x11; @:
 
-vm/tavolga-regular-mate: vm/.regular-gtk mixin/regular-mate \
+vm/regular-mate-tavolga: vm/.regular-gtk mixin/regular-mate \
 	use/mipsel-mitx/x11
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
-vm/tavolga-regular-xfce: vm/.regular-gtk mixin/regular-xfce \
+vm/regular-xfce-tavolga: vm/.regular-gtk mixin/regular-xfce \
 	use/mipsel-mitx/x11
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
 # bfk3
-vm/bfk3-regular-jeos-systemd: vm/systemd-net mixin/regular-vm-jeos \
+vm/regular-jeos-systemd-bfk3: vm/systemd-net mixin/regular-vm-jeos \
 	use/mipsel-bfk3; @:
 
-vm/bfk3-regular-jeos-sysv: vm/net mixin/regular-vm-jeos \
+vm/regular-jeos-sysv-bfk3: vm/net mixin/regular-vm-jeos \
 	use/mipsel-bfk3 +power; @:
 
-vm/bfk3-regular-builder: vm/bfk3-regular-jeos-sysv \
+vm/regular-builder-bfk3: vm/regular-jeos-sysv-bfk3 \
 	mixin/regular-builder; @:
 
-vm/bfk3-regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
+vm/regular-icewm-sysv-bfk3: vm/.regular-desktop-sysv mixin/regular-icewm \
 	use/mipsel-bfk3/x11; @:
 
-vm/bfk3-regular-lxde: vm/.regular-gtk mixin/regular-lxde \
+vm/regular-lxde-bfk3: vm/.regular-gtk mixin/regular-lxde \
 	use/mipsel-bfk3/x11; @:
 
-vm/bfk3-regular-lxqt: vm/.regular-gtk mixin/regular-lxqt \
+vm/regular-lxqt-bfk3: vm/.regular-gtk mixin/regular-lxqt \
 	use/mipsel-bfk3/x11; @:
 
-vm/bfk3-regular-mate: vm/.regular-gtk mixin/regular-mate \
+vm/regular-mate-bfk3: vm/.regular-gtk mixin/regular-mate \
 	use/mipsel-bfk3/x11
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
-vm/bfk3-regular-xfce: vm/.regular-gtk mixin/regular-xfce \
+vm/regular-xfce-bfk3: vm/.regular-gtk mixin/regular-xfce \
 	use/mipsel-bfk3/x11
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif

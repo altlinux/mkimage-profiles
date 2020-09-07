@@ -82,22 +82,22 @@ endif
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
-vm/tavolga-alt-p9-jeos-systemd vm/tavolga-alt-p9-jeos-sysv \
-	vm/tavolga-alt-p9-builder: \
-	vm/tavolga-alt-p9-%: vm/tavolga-regular-% mixin/p9; @:
+vm/alt-p9-jeos-systemd-tavolga vm/alt-p9-jeos-sysv-tavolga \
+	vm/alt-p9-builder-tavolga: \
+	vm/alt-p9-%-tavolga: vm/regular-%-tavolga mixin/p9; @:
 
-vm/tavolga-alt-p9-lxde vm/tavolga-alt-p9-lxqt \
-	vm/tavolga-alt-p9-mate vm/tavolga-alt-p9-xfce \
-	vm/tavolga-alt-p9-icewm-sysv: \
-	vm/tavolga-alt-p9-%: vm/tavolga-regular-% mixin/p9; @:
+vm/alt-p9-lxde-tavolga vm/alt-p9-lxqt-tavolga \
+	vm/alt-p9-mate-tavolga vm/alt-p9-xfce-tavolga \
+	vm/alt-p9-icewm-sysv-tavolga: \
+	vm/alt-p9-%-tavolga: vm/regular-%-tavolga mixin/p9; @:
 
-vm/bfk3-alt-p9-jeos-systemd vm/bfk3-alt-p9-jeos-sysv \
-	vm/bfk3-alt-p9-builder: \
-	vm/bfk3-alt-p9-%: vm/bfk3-regular-% mixin/p9; @:
+vm/alt-p9-jeos-systemd-bfk3 vm/alt-p9-jeos-sysv-bfk3 \
+	vm/alt-p9-builder-bfk3: \
+	vm/alt-p9-%-bfk3: vm/regular-%-bfk3 mixin/p9; @:
 
-vm/bfk3-alt-p9-lxde vm/bfk3-alt-p9-lxqt vm/bfk3-alt-p9-mate \
-	vm/bfk3-alt-p9-xfce vm/bfk3-alt-p9-icewm-sysv: \
-	vm/bfk3-alt-p9-%: vm/bfk3-regular-% mixin/p9; @:
+vm/alt-p9-lxde-bfk3 vm/alt-p9-lxqt-bfk3 vm/alt-p9-mate-bfk3 \
+	vm/alt-p9-xfce-bfk3 vm/alt-p9-icewm-sysv-bfk3: \
+	vm/alt-p9-%-bfk3: vm/regular-%-bfk3 mixin/p9; @:
 endif
 
 endif
