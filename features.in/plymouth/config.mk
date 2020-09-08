@@ -36,12 +36,12 @@ else
 use/plymouth/vm: use/plymouth; @:
 endif
 
-use/plymouth/base: use/plymouth/stage2 use/plymouth/vm
+use/plymouth/base: use/plymouth/stage2 use/plymouth/vm \
+	use/drm/full; @:
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-setup-plymouth)
 endif
 	@$(call add,BASE_PACKAGES_REGEXP,make-initrd-plymouth cpio)
-	@$(call add,BASE_KMODULES_REGEXP,drm.*)
 	@$(call add,THE_BRANDING,bootsplash)
 	@$(call add,THE_PACKAGES,make-initrd-plymouth)
 

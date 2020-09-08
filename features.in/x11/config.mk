@@ -5,19 +5,16 @@
 
 ## hardware support
 # the very minimal driver set
-use/x11:
+use/x11: use/drm
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$(call tags,base xorg))
-	@$(call add,THE_KMODULES,drm)	# required by recent nvidia.ko as well
-	@$(call add,THE_KMODULES,$$(NVIDIA_KMODULES) $$(RADEON_KMODULES))
-	@$(call add,THE_PACKAGES,$$(NVIDIA_PACKAGES) $$(RADEON_PACKAGES))
 
 use/x11/xorg:: use/x11 use/x11/armsoc; @:
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 use/x11/xorg:: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
-	use/x11/armsoc
+	use/drm/full
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 endif
 
@@ -38,7 +35,7 @@ endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 # e2k: mostly radeon, 101 got mga2/vivante
-use/x11/xorg:: use/x11/radeon use/x11/amdgpu use/x11/nouveau
+use/x11/xorg:: use/x11/radeon use/x11/amdgpu use/x11/nouveau use/drm/full
 
 ifeq (,$(filter-out e2kv4,$(ARCH)))
 use/x11/mga2: use/x11
@@ -59,18 +56,18 @@ endif
 use/x11/3d: use/x11/intel use/x11/nvidia/optimus use/x11/radeon; @:
 
 # somewhat lacking compared to radeon but still
-use/x11/nouveau: use/x11 use/firmware
-	@$(call set,NVIDIA_KMODULES,drm-nouveau)
-	@$(call set,NVIDIA_PACKAGES,xorg-drv-nouveau)
+use/x11/nouveau: use/x11 use/firmware use/drm/nouveau
+	@$(call try,NVIDIA_PACKAGES,xorg-drv-nouveau)
+	@$(call add,THE_PACKAGES,$$(NVIDIA_PACKAGES))
 
 # has performance problems but is getting better, just not there yet
-use/x11/radeon: use/x11 use/firmware
-	@$(call set,RADEON_KMODULES,drm-radeon)
-	@$(call add,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
+use/x11/radeon: use/x11 use/firmware use/drm/radeon
+	@$(call try,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
+	@$(call add,THE_PACKAGES,$$(RADEON_PACKAGES))
 
 # here's the future
 use/x11/amdgpu: use/x11 use/firmware
-	@$(call add,RADEON_PACKAGES,xorg-drv-amdgpu)
+	@$(call add,THE_PACKAGES,xorg-drv-amdgpu)
 
 # Vulkan is new and bleeding edge, only intel and amgpu(pro?)
 use/x11/vulkan: use/x11/intel use/x11/amdgpu
@@ -82,13 +79,16 @@ use/x11/glvnd: use/x11
 	@$(call add,THE_PACKAGES,libglvnd-glx,libglvnd-egl)
 
 # sometimes broken with current xorg-server
-use/x11/nvidia: use/x11
-	@$(call set,NVIDIA_KMODULES,nvidia)
+use/x11/nvidia:: use/x11/nouveau; @:
+use/x11/nvidia/optimus:: use/x11/nvidia; @:
+
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+use/x11/nvidia:: use/drm/nvidia
 	@$(call set,NVIDIA_PACKAGES,nvidia-settings nvidia-xconfig)
 
-use/x11/nvidia/optimus: use/x11/nvidia
-	@$(call add,THE_KMODULES,bbswitch)
-	@$(call add,THE_PACKAGES,bumblebee primus)
+use/x11/nvidia/optimus:: use/drm/nvidia/optimus
+	@$(call add,NVIDIA_PACKAGES,bumblebee primus)
+endif
 
 use/x11/wacom: use/x11
 	@$(call add,THE_PACKAGES,xorg-drv-wacom)
