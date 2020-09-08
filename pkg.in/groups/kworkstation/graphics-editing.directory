@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Graphics editing
+Comment=Graphics editing applications.
+X-Alterator-PackageList=kworkstation/graphics-editing
+X-Alterator-Required=yes
+Categories=KDE;GNOME
+
+Name[ru_RU]=Обработка графики
+Comment[ru_RU]=Приложения для обработки графических изображений.

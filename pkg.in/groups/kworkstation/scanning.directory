@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Scanning
+Comment=Applications and drivers for images scanning devices support.
+X-Alterator-PackageList=kworkstation/scanning
+X-Alterator-Required=yes
+Categories=KDE;GNOME;XFCE;
+
+Name[ru_RU]=Поддержка сканеров
+Comment[ru_RU]=Приложения и драйвера для поддержки работы с устройствами сканирования изображений

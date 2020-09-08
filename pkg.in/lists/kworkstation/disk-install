@@ -1,0 +1,29 @@
+# R7 Office
+libGConf
+fonts-ttf-liberation
+# CryptoPRO
+cryptopro-preinstall-full
+cryptopro-preinstall
+gnupg-pkcs11-scd
+libpkcs11-helper
+gnupg2
+# 1C
+1c-preinstall
+# FSIN
+openssh-gostcrypto
+openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
+openssh-server-gostcrypto openssh-server-control-gostcrypto
+openssh-common-gostcrypto
+#
+openvpn-gostcrypto openvpn-plugins-gostcrypto alterator-openvpn-server
+#
+freeipa-server freeipa-server-dns
+#
+alt-customize-branding
+task-samba-dc bind-utils tdb-utils installer-feature-sambaDC-stage3
+#
+alterator-kiosk
+#
+# MISC
+#kde5-maxi
+exim

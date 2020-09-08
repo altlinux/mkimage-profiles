@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Sound editing
+Comment=Sound editing applications.
+X-Alterator-PackageList=kworkstation/sound-editing
+X-Alterator-Required=yes
+Categories=KDE;GNOME;XFCE;
+
+Name[ru_RU]=Обработка звука
+Comment[ru_RU]=Приложения для обработки звуковых материалов.

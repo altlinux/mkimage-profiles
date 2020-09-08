@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/clients-backup
+X-Alterator-Required=no
+X-Alterator-Parent=kworkstation/z01-add-clients
+Categories=KDE;GNOME;XFCE
+
+Name=Backup
+Name[ru_RU]=Резервное копирование
+Comment=Data backup services clients.
+Comment[ru_RU]=Клиенты резервного копирования данных.

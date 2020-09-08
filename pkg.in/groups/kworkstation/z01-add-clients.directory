@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-Required=no
+X-Alterator-PackageList=kworkstation/clients-base
+Categories=KDE;
+
+Name=Service clients
+Name[ru_RU]=Клиенты сервисов
+Comment=Additional services clients.
+Comment[ru_RU]=Дополнительные клиенты различных сервисов.

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/clients-ad
+X-Alterator-Required=no
+X-Alterator-Parent=kworkstation/z01-add-clients
+Categories=KDE;GNOME;XFCE
+
+Name=Active Directory
+Name[ru_RU]=Активный каталог
+Comment=Active Directory client.
+Comment[ru_RU]=Клиент службы каталогов Active Directory.

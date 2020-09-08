@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Remote Desktop
+Comment=Remote desktop support applications.
+X-Alterator-PackageList=kworkstation/remote-desktop
+X-Alterator-Required=no
+Categories=KDE;
+
+Name[ru_RU]=Сетевой рабочий стол
+Comment[ru_RU]=Приложения для поддержки работы с сетевым рабочим столом.

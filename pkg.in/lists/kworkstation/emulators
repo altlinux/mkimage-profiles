@@ -1,0 +1,12 @@
+libnss-mdns@IA32
+libnss-myhostname@IA32
+xorg-dri-*@IA32
+
+wine-mono
+wine-gecko
+winetricks
+wine-vanilla@IA32
+libwine-vanilla-gl@IA32
+libwine-vanilla-twain@IA32
+
+virtualbox@x86_64

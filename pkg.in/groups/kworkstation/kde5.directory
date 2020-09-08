@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=K Desktop Environment (recommended)
+Comment=Main KDE components, without which it may be difficult to work with the system.
+X-Alterator-PackageList=kworkstation/kde5
+X-Alterator-Required=yes
+Categories=KDE;
+
+Name[ru_RU]=Графическое окружение KDE (рекомендуется)
+Comment[ru_RU]=Основные компоненты графического окружения KDE, без которых может быть затруднена работа с системой.

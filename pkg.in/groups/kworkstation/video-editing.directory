@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Video editing
+Comment=Video editing applications.
+X-Alterator-PackageList=kworkstation/video-editing
+X-Alterator-Required=yes
+Categories=KDE;
+
+Name[ru_RU]=Обработка видео
+Comment[ru_RU]=Приложения для обработки видеоматериалов.

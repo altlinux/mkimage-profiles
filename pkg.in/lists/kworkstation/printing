@@ -1,0 +1,15 @@
+kde5-printing
+
+cups
+cups-ppd
+samba-client-cups
+printer-drivers-base
+printer-drivers-X11
+hplip-hpijs
+hplip-PPDs
+printer-testpages
+
+bluez-cups
+
+system-config-printer-lib
+#system-config-printer

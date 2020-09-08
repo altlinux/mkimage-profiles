@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Printing
+Comment=Applications and drivers for printing devices support.
+X-Alterator-PackageList=kworkstation/printing
+X-Alterator-Required=yes
+Categories=KDE;
+
+Name[ru_RU]=Поддержка принтеров
+Comment[ru_RU]=Приложения и драйвера для поддержки работы с устройствами печати.

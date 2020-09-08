@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/clients-monitor
+X-Alterator-Required=no
+X-Alterator-Parent=kworkstation/z01-add-clients
+Categories=KDE;GNOME;XFCE
+
+Name=Мonitoring
+Name[ru_RU]=Наблюдение
+Comment=Monitoring systems clients.
+Comment[ru_RU]=Клиенты систем мониторинга.

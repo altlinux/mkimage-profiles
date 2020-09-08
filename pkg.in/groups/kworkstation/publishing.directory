@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Publishing
+Comment=Desktop publishing applications.
+X-Alterator-PackageList=kworkstation/publishing
+X-Alterator-Required=no
+Categories=KDE;GNOME;
+
+Name[ru_RU]=Издательская система
+Comment[ru_RU]=Приложения для визуальной вёрстки документов.

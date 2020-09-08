@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Edutainment
+Comment=Edutainment applications.
+X-Alterator-PackageList=kworkstation/edu
+X-Alterator-Required=no
+Categories=KDE;
+
+Name[ru_RU]=Образование
+Comment[ru_RU]=Образовательные приложения.

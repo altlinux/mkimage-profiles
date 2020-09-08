@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/clients-ipa
+X-Alterator-Required=no
+X-Alterator-Parent=kworkstation/z01-add-clients
+Categories=KDE;GNOME;XFCE
+
+Name=ALT domain (IPA)
+Name[ru_RU]=Домен Альт (IPA)
+Comment=FreeIPA client for ALT domain.
+Comment[ru_RU]=FreeIPA-клиент домена Альт.

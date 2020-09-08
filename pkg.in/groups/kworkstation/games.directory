@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+Name=Games
+Comment=Games сollection.
+X-Alterator-PackageList=kworkstation/games
+X-Alterator-Required=no
+Categories=KDE;GNOME;
+
+Name[ru_RU]=Игры
+Comment[ru_RU]=Сборник игр.
