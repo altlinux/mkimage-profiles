@@ -13,6 +13,7 @@ mixin/kworkstation-common-deps: \
 	use/power/acpi \
 	use/luks \
 	use/net-eth/dhcp use/net-ssh use/net/nm/nodelay \
+	use/ntp/chrony \
 	use/docs/full \
 	use/xdg-user-dirs \
 	use/l10n/default/ru_RU \
