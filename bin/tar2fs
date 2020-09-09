@@ -360,11 +360,13 @@ popd
 [ -f "$ROOTFS/boot/efi/cmdline.txt" ] &&
     sed -i "s/LABEL=ROOT/$ROOTDEV/" "$ROOTFS/boot/efi/cmdline.txt"
 
+# Update extlinux.conf
+[ -f "$ROOTFS/boot/extlinux/extlinux.conf" ] &&
+    sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/extlinux/extlinux.conf"
+
 # Setup bootloader
 case "$BOOTLOADER" in
 uboot)
-	EXTLINUX_CONF="$ROOTFS/boot/extlinux/extlinux.conf"
-	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$EXTLINUX_CONF"
 	parting set "$ROOTPART" boot on
 	;;
 lilo)
