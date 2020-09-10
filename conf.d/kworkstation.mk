@@ -41,7 +41,6 @@ endif
 	@$(call add,THE_PACKAGES,pam-limits-desktop)
 	@$(call add,THE_PACKAGES,systemd-presets-kdesktop)
 	@$(call add,THE_PACKAGES,etcnet-defaults-desktop)
-	@$(call add,THE_PACKAGES,grub-efi)
 	@$(call add,THE_PACKAGES,btrfs-progs)
 	@$(call add,THE_PACKAGES,fonts-ttf-dejavu)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-sans)
