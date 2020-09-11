@@ -11,14 +11,20 @@ vm/.bare: profile/bare
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 vm/.base-lilo: vm/.bare use/bootloader/lilo; @:
+else
+vm/.base-lilo: vm/.base-grub; @:
 endif
 
 ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
 vm/.base-grub: vm/.bare use/bootloader/grub; @:
+else
+vm/.base-grub: vm/.base-grub-efi; @:
 endif
 
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 vm/.base-grub-efi: vm/.bare use/efi/grub; @:
+else
+vm/.base-grub-efi: vm/.bare; @:
 endif
 
 endif
