@@ -19,6 +19,7 @@ alterator-datetime
 state-change-notify-postfix
 alterator-fbi
 alterator-groups
+alterator-grub
 alterator-limits
 alterator-logs
 alterator-multiseat
