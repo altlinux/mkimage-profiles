@@ -1,6 +1,7 @@
 #!/bin/sh -efu
 # ALT: write Elbrus boot media
 # public domain 2020 Michael Shigorin <mike@altlinux.org>
+# http://altlinux.org/elbrus
 
 error() { echo "$@" >&2; exit 1; }
 usage() { error "Usage: $0 /path/to/alt-e2k.iso /dev/sdX1_or_/dev/sr0"; }
