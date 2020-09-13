@@ -8,7 +8,7 @@ mixin/vm-archdep: use/tty/S0
 	@$(call set,KFLAVOURS,un-malta)
 else
 ifeq (,$(filter-out riscv64,$(ARCH)))
-mixin/vm-archdep: use/tty/S0
+mixin/vm-archdep: use/bootloader/uboot use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
 else
 mixin/vm-archdep: ; @:
