@@ -13,7 +13,6 @@ use/efi:
 	@$(call try,EFI_BOOTLOADER,grub-efi)	# default one
 	@$(call xport,EFI_BOOTLOADER)
 	@$(call add,THE_LISTS,$(EFI_LISTS))
-	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
@@ -21,6 +20,7 @@ ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
 ifeq (x86_64,$(ARCH))
 	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL) $$(EFI_BOOTLOADER))
+	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
 endif
 endif
 
