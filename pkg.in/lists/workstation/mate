@@ -14,8 +14,8 @@ mate-document-viewer-djvu
 vino-mate@X86
 
 # for mate-screensaver
-desktop-screensaver-modules-xscreensaver
-desktop-screensaver-modules-xscreensaver-gl
+desktop-screensaver-modules-xscreensaver@!mipsel
+desktop-screensaver-modules-xscreensaver-gl@!mipsel
 
 # put these two into a pkggroup so no-extra-services setup could be achieved
 #mate-user-share
