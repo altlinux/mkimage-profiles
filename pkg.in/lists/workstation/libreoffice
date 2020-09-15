@@ -7,10 +7,10 @@ libreoffice5@E2K
 LibreOffice-langpack-ru@E2K
 LibreOffice-common@E2K
 
-libreoffice-languagetool
+libreoffice-languagetool@!mipsel
 odt2txt
 libcmis
 libwps
 
-projectlibre
+projectlibre@!mipsel
 dia
