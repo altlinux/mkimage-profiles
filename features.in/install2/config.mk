@@ -125,6 +125,11 @@ use/install2/tools:
 use/install2/cleanup/vnc:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,x11vnc xorg-xvfb)
 
+# when VNC installation is less welcome than a few extra megs
+use/install2/cleanup/dri:
+	@$(call set,INSTALL2_CLEANUP_DRI,yes)
+	@$(call xport,INSTALL2_CLEANUP_DRI)
+
 # conflicts with luks feature
 use/install2/cleanup/crypto:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,gnupg)

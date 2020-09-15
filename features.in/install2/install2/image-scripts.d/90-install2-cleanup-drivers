@@ -1,6 +1,11 @@
 #!/bin/sh
 # drop extra drivers et al, purge kernel image(s)
 
+# xorg-dri-*
+if [ "$GLOBAL_INSTALL2_CLEANUP_DRI" = 'yes' ]; then
+	rm -r /usr/lib*/X11/modules/dri
+fi
+
 # no movies during installation so far
 rm -rf /usr/lib*/vdpau/ /usr/lib*/libXv*
 
