@@ -9,6 +9,7 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
+	use/ntp/chrony \
 	use/apt-conf/branch use/volumes/regular \
 	use/fonts/install2 \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
@@ -41,7 +42,6 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,SERVICES_DISABLE,auditd)
 	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2 bluetoothd libvirtd)
-	@$(call add,SERVICES_ENABLE,chronyd)
 	@$(call add,SERVICES_ENABLE,crond)
 	@$(call add,SERVICES_ENABLE,fstrim.timer)
 	@$(call add,SERVICES_DISABLE,powertop bridge gpm)
