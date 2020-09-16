@@ -50,6 +50,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	@$(call set,META_VOL_ID,ALT Workstation $(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_APP_ID,ALT Workstation $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 	@$(call set,DOCS,alt-workstation)
+	@$(call add,PINNED_PACKAGES,postfix)
 
 mixin/alt-workstation-install: +installer \
 	use/install2/fat use/install2/vnc \
