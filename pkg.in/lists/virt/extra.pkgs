@@ -29,3 +29,4 @@ crmsh
 pcs
 ansible
 docker-compose
+etcd
