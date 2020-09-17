@@ -28,3 +28,4 @@ resource-agents-nfs
 crmsh
 pcs
 ansible
+docker-compose
