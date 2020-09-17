@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Kubernetes services for master host
+Name[ru_RU]=Сервисы Kubernetes для управляющего хоста
+X-Alterator-PackageList=container/kubernetes-master
+X-Alterator-Required=no
+X-Alterator-Depends=server-v/docker
+X-Alterator-Parent=server-v/200-container

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Kubernetes management of containerized applications
-Name[ru_RU]=Оркестратор Kubernetes
-X-Alterator-PackageList=container/kubernetes
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/200-container
