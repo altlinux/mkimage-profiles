@@ -1,6 +1,8 @@
 # fontconfig setup
 use/fonts:
 	@$(call add_feature)
+	@$(call try,FONTS,fonts-ttf-google-croscore-arimo)
+	@$(call add,THE_PACKAGES,$$(FONTS))
 	@$(call xport,FONT_FEATURES_ENABLE)
 	@$(call xport,FONT_FEATURES_DISABLE)
 
@@ -22,39 +24,39 @@ use/fonts/infinality: use/fonts
 
 # #34142
 use/fonts/chinese: use/fonts
-	@$(call add,THE_PACKAGES,fonts-bitmap-wqy)
+	@$(call add,FONTS,fonts-bitmap-wqy)
 
 # a few typical font collections
 # NB: dejavu is ugly thus missing
 # NB: not depending on use/fonts intentionally,
 #     the scripts are unneeded to add packages
 use/fonts/otf/adobe:
-	@$(call add,THE_PACKAGES,fonts-otf-adobe-source-code-pro)
-	@$(call add,THE_PACKAGES,fonts-otf-adobe-source-sans-pro)
+	@$(call add,FONTS,fonts-otf-adobe-source-code-pro)
+	@$(call add,FONTS,fonts-otf-adobe-source-sans-pro)
 
 use/fonts/otf/mozilla:
-	@$(call add,THE_PACKAGES,fonts-otf-mozilla-fira)
+	@$(call add,FONTS,fonts-otf-mozilla-fira)
 
 use/fonts/ttf/google:
-	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-sans)
-	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-sans-mono)
-	@$(call add,THE_PACKAGES,fonts-ttf-google-droid-serif)
-	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-arimo)
-	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-cousine)
-	@$(call add,THE_PACKAGES,fonts-ttf-google-croscore-tinos)
+	@$(call add,FONTS,fonts-ttf-google-droid-sans)
+	@$(call add,FONTS,fonts-ttf-google-droid-sans-mono)
+	@$(call add,FONTS,fonts-ttf-google-droid-serif)
+	@$(call add,FONTS,fonts-ttf-google-croscore-arimo)
+	@$(call add,FONTS,fonts-ttf-google-croscore-cousine)
+	@$(call add,FONTS,fonts-ttf-google-croscore-tinos)
 
 use/fonts/ttf/google/extra: use/fonts/ttf/google
-	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-caladea)
-	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-carlito)
+	@$(call add,FONTS,fonts-ttf-google-crosextra-caladea)
+	@$(call add,FONTS,fonts-ttf-google-crosextra-carlito)
 
 use/fonts/ttf/redhat:
-	@$(call add,THE_PACKAGES,fonts-ttf-liberation)
+	@$(call add,FONTS,fonts-ttf-liberation)
 
 use/fonts/ttf/ubuntu:
-	@$(call add,THE_PACKAGES,fonts-ttf-ubuntu-font-family)
+	@$(call add,FONTS,fonts-ttf-ubuntu-font-family)
 
 use/fonts/ttf/xo:
-	@$(call add,THE_PACKAGES,fonts-ttf-XO)
-	@$(call add,THE_PACKAGES,fonts-ttf-PT)
-	@$(call add,THE_PACKAGES,fonts-ttf-Cormorant)
-	@$(call add,THE_PACKAGES,fonts-ttf-open-sans)
+	@$(call add,FONTS,fonts-ttf-XO)
+	@$(call add,FONTS,fonts-ttf-PT)
+	@$(call add,FONTS,fonts-ttf-Cormorant)
+	@$(call add,FONTS,fonts-ttf-open-sans)
