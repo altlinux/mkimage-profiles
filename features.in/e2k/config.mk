@@ -12,6 +12,7 @@ use/e2k: use/tty/S0
 	@$(call add,INSTALL2_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,INSTALL2_PACKAGES,ifplugd)	# for net-eth link status
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,llvm)
+	@$(call add,BASE_PACKAGES,mirror-e2k-alt)
 	@$(call add,THE_PACKAGES,pwmd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,pwmd)
 	@$(call set,KFLAVOURS,elbrus-def)	# no other flavours for now
