@@ -1,4 +1,4 @@
-use/e2k: use/tty/S0
+use/e2k: use/tty/S0 use/l10n/default/ru_RU
 	@$(call add_feature)
 	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-fix-boot-stage2)
