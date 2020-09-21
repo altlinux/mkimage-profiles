@@ -32,8 +32,8 @@ ifeq (distro,$(IMAGE_CLASS))
 
 mixin/education-live: \
 	use/live/install use/live/suspend \
-	use/live/repo use/live/x11 use/live/rw
-	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
+	use/live/repo use/live/x11 use/live/rw \
+	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_LISTS,slinux/net-base)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
