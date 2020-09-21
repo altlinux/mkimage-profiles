@@ -24,6 +24,10 @@ use/live: use/stage2 sub/rootfs@live sub/stage2@live \
 use/live/.base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base live))
 
+use/live/no-cleanup: \
+	use/cleanup/live-no-cleanupdb \
+	use/cleanup/live-no-cleanup-docs; @:
+
 use/live/base: use/live/.base use/net use/deflogin/live
 	@$(call add,LIVE_LISTS,$(call tags,base network))
 

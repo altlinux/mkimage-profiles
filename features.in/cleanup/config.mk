@@ -1,8 +1,15 @@
 use/cleanup:
 	@$(call add_feature)
-	@$(call xport,GLOBAL_LIVE_NO_CLEANUPDB)
+	@$(call xport,LIVE_NO_CLEANUPDB)
+	@$(call xport,LIVE_NO_CLEANUP_DOCS)
 	@$(call xport,CLEANUP_PACKAGES)
 	@$(call xport,CLEANUP_BASE_PACKAGES)
+
+use/cleanup/live-no-cleanupdb:
+	@$(call set,LIVE_NO_CLEANUPDB,yes)
+
+use/cleanup/live-no-cleanup-docs:
+	@$(call set,LIVE_NO_CLEANUP_DOCS,yes)
 
 use/cleanup/libs:
 	@$(call add,BASE_PACKAGES,apt-scripts)
