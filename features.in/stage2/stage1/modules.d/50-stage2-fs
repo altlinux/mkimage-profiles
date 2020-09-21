@@ -4,5 +4,6 @@ ext4.ko
 fat.ko
 mbcache.ko
 ntfs.ko
+fuse.ko
 reiserfs.ko
 vfat.ko
