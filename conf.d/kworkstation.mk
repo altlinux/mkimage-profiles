@@ -137,6 +137,7 @@ mixin/kworkstation-install-opts:
 mixin/kworkstation-live-deps: \
 	distro/.base use/rescue/base \
 	use/x11/xorg use/x11-autostart \
+	use/cleanup/live-no-cleanupdb \
 	+net-eth +vmguest
 
 mixin/kworkstation-live-opts:
