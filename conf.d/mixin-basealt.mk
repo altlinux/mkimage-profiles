@@ -17,7 +17,8 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	use/branding use/control use/services \
 	use/sound use/xdg-user-dirs \
 	use/docs/manual use/docs/indexhtml \
-	use/browser/firefox use/browser/firefox/esr
+	use/browser/firefox use/browser/firefox/esr \
+	use/cleanup/live-no-cleanupdb
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
 	@$(call add,COMMON_PACKAGES,vim-console)
@@ -36,7 +37,6 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	@$(call add,THE_LISTS,$(call tags,base desktop))
 	@$(call add,THE_LISTS,$(call tags,xorg vaapi))
 	@$(call add,THE_KMODULES,staging)
-	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,SERVICES_DISABLE,auditd)
