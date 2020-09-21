@@ -101,8 +101,8 @@ use/slinux/base: use/isohybrid use/luks \
 	use/branding/complete \
 	mixin/desktop-installer \
 	use/vmguest/kvm/x11 use/stage2/kms \
-	use/slinux/mixin-base; @:
-	@$(call set,GLOBAL_LIVE_NO_CLEANUPDB,true)
+	use/slinux/mixin-base \
+	use/cleanup/live-no-cleanupdb
 	@$(call set,KFLAVOURS,std-def)
 	@$(call add,LIVE_LISTS,slinux/live)
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
