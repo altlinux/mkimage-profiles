@@ -23,7 +23,7 @@ ifneq (,$(EFI_BOOTLOADER))
 endif
 	@$(call add,RESCUE_LISTS,\
 		$(call tags,(base || extra || server || backup || misc || fs) \
-			&& (rescue || comm || network || security || archive)))
+			&& !x11 && (rescue || comm || network || security || archive)))
 
 # rw slice, see also use/live/rw (don't use simultaneously)
 ifeq (,$(EFI_BOOTLOADER))
