@@ -22,6 +22,7 @@ mixin/kworkstation-common-deps: \
 	use/x11/sddm \
 	use/memtest \
 	use/init/systemd/settings/optimal \
+	use/cleanup/live-no-cleanupdb \
 	+net-eth +wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm
 #	use/x11/nvidia/optimus \
 
@@ -140,6 +141,7 @@ mixin/kworkstation-live-deps: \
 	distro/.base use/rescue/base \
 	use/x11/xorg use/x11-autostart \
 	use/cleanup/live-no-cleanupdb \
+	use/live/no-cleanup \
 	+net-eth +vmguest
 
 mixin/kworkstation-live-opts:
