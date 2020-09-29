@@ -30,14 +30,14 @@ use/fonts/chinese: use/fonts
 # NB: dejavu is ugly thus missing
 # NB: not depending on use/fonts intentionally,
 #     the scripts are unneeded to add packages
-use/fonts/otf/adobe:
+use/fonts/otf/adobe: use/fonts
 	@$(call add,FONTS,fonts-otf-adobe-source-code-pro)
 	@$(call add,FONTS,fonts-otf-adobe-source-sans-pro)
 
-use/fonts/otf/mozilla:
+use/fonts/otf/mozilla: use/fonts
 	@$(call add,FONTS,fonts-otf-mozilla-fira)
 
-use/fonts/ttf/google:
+use/fonts/ttf/google: use/fonts
 	@$(call add,FONTS,fonts-ttf-google-droid-sans)
 	@$(call add,FONTS,fonts-ttf-google-droid-sans-mono)
 	@$(call add,FONTS,fonts-ttf-google-droid-serif)
@@ -49,13 +49,13 @@ use/fonts/ttf/google/extra: use/fonts/ttf/google
 	@$(call add,FONTS,fonts-ttf-google-crosextra-caladea)
 	@$(call add,FONTS,fonts-ttf-google-crosextra-carlito)
 
-use/fonts/ttf/redhat:
+use/fonts/ttf/redhat: use/fonts
 	@$(call add,FONTS,fonts-ttf-liberation)
 
-use/fonts/ttf/ubuntu:
+use/fonts/ttf/ubuntu: use/fonts
 	@$(call add,FONTS,fonts-ttf-ubuntu-font-family)
 
-use/fonts/ttf/xo:
+use/fonts/ttf/xo: use/fonts
 	@$(call add,FONTS,fonts-ttf-XO)
 	@$(call add,FONTS,fonts-ttf-PT)
 	@$(call add,FONTS,fonts-ttf-Cormorant)
