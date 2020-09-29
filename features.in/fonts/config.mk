@@ -8,8 +8,12 @@ use/fonts:
 
 # standalone target to specify non-bitmap installer fonts
 use/fonts/install2:
+	@$(call try,INSTALL2_FONTS,fonts-ttf-google-croscore-arimo)
+	@$(call add,INSTALL2_PACKAGES,$$(SYSTEM_FONTS))
+
+use/fonts/system:
 	@$(call try,SYSTEM_FONTS,fonts-ttf-google-croscore-arimo)
-	@$(call add,SYSTEM_PACKAGES,$$(SYSTEM_FONTS))
+	@$(call add,SYSTEM_PACKAGES,$$(INSTALL2_FONTS))
 
 # just stating that kernels and font habits are pretty individual
 use/fonts/zerg: use/fonts
