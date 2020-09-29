@@ -89,7 +89,6 @@ mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
 mixin/regular-gnome3: use/x11/gnome3 use/fonts/ttf/redhat +nm-gtk
 	@$(call add,THE_PACKAGES,gnome3-regular xcalib templates)
 	@$(call add,THE_PACKAGES,chrome-gnome-shell)
-	@$(call add,THE_PACKAGES,firefox-gnome_shell_integration)
 	@$(call add,THE_PACKAGES,gnome-software-disable-updates)
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
