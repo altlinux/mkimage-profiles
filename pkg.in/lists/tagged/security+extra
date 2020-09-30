@@ -15,6 +15,3 @@ osec-mailreport
 
 # hardware reliability
 mcelog@X86
-
-# networking
-chaosreader
