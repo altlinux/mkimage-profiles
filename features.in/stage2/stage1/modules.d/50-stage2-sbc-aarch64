@@ -17,3 +17,8 @@ xhci-tegra.ko
 phy-generic.ko
 phy-tegra-usb.ko
 sunxi.ko
+dwc3_baikal.ko
+udc_core.ko
+xhci_plat_hcd.ko
+xhci_hcdi.ko
+sdhci_pltfm.ko
