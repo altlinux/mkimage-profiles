@@ -4,11 +4,6 @@ kernel-modules-ipset-std-def
 kernel-modules-xtables-addons-std-def
 kernel-modules-kvdo-std-def
 kernel-modules-zfs-std-def
-kernel-headers-un-def
-kernel-headers-modules-un-def
-kernel-modules-xtables-addons-un-def
-kernel-modules-kvdo-un-def
-kernel-modules-zfs-un-def
 zfs-utils
 ocfs2-tools
 vdo
