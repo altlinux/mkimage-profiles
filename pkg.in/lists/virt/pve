@@ -1,3 +1,6 @@
 pve-manager
 postfix
 control-sshd-permit-root-login
+
+kernel-modules-zfs-std-def
+zfs-utils
