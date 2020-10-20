@@ -122,3 +122,6 @@ gnustep-Waiho
 #gnustep-Yap
 #gnustep-Zillion
 gnustep-Zipper
+
+# fonts for unicode symbol support
+fonts-ttf-dejavu
