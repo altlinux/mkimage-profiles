@@ -62,6 +62,7 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console su agetty)
 	@$(call add,THE_LISTS,openssh)
+	@$(call set,SPEC_USER,officer:officer:64:64:/bin/bash)
 
 # ...and for somewhat bare distros
 distro/.regular-jeos: distro/.regular-jeos-base use/stage2/kms \

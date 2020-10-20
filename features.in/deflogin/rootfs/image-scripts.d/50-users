@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 # add regular user(s) assigning passwords and attributes of power
 
 # NB: care that the utilities exist; shadow-utils is warranted
@@ -33,4 +33,14 @@ set_sudo() {
 		[ -z "$passwd" ] || set_password "$login" "$passwd"
 		[ -z "$admin" ] || set_admin "$login"
 		[ -z "$sudo" ] || set_sudo "$login"
+	done
+
+# create special user
+[ -z "$GLOBAL_SPEC_USER" ] ||
+	echo "$GLOBAL_SPEC_USER" \
+	| tr ' ' '\n' \
+	| while IFS=':' read login group uid gid homedir shell; do
+	groupadd -g $gid $group >/dev/null 2>&1 || :
+	useradd -g $gid -u $uid -d $homedir -s $shell $login >/dev/null 2>&1 || :
+	usermod -G $group $login || :
 	done

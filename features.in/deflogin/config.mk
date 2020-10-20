@@ -6,6 +6,7 @@ use/deflogin:
 	@$(call xport,ROOTPW)
 	@$(call xport,USERS)
 	@$(call xport,GROUPS)
+	@$(call xport,SPEC_USER)
 
 # some presets
 # USERS variable chunk format is "login:passwd:admin:sudo"

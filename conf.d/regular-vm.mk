@@ -58,7 +58,8 @@ vm/regular-jeos-systemd: vm/systemd-net \
 	mixin/regular-vm-jeos mixin/vm-archdep
 	@$(call add,THE_PACKAGES,glibc-locales)
 
-vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power; @:
+vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power
+	@$(call set,SPEC_USER,officer:officer:64:64:/bin/bash)
 
 vm/regular-builder: vm/regular-jeos-sysv mixin/regular-builder
 	@$(call set,VM_SIZE,10737418240)
