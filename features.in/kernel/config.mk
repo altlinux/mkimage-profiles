@@ -10,14 +10,10 @@ use/kernel:
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call try,KFLAVOURS,elbrus-def)
 else
-ifeq (,$(filter-out armh,$(ARCH)))
-	@$(call try,KFLAVOURS,mp)
-else
 ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call try,KFLAVOURS,un-def)
 else
 	@$(call try,KFLAVOURS,std-def)
-endif
 endif
 endif
 	@$(call xport,KFLAVOURS)
