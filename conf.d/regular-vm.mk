@@ -1,23 +1,24 @@
 ifeq (vm,$(IMAGE_CLASS))
 
+mixin/vm-archdep:: ; @:
+
+ifeq (,$(filter-out i586 x86_64 armh aarch64,$(ARCH)))
+mixin/vm-archdep::
+	@$(call set,KFLAVOURS,un-def std-def)
+endif
+
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
-mixin/vm-archdep: use/bootloader/uboot use/no-sleep
-else
+mixin/vm-archdep:: use/bootloader/uboot use/no-sleep; @:
+endif
+
 ifeq (,$(filter-out mipsel,$(ARCH)))
-mixin/vm-archdep: use/tty/S0
+mixin/vm-archdep:: use/tty/S0
 	@$(call set,KFLAVOURS,un-malta)
-else
+endif
+
 ifeq (,$(filter-out riscv64,$(ARCH)))
 mixin/vm-archdep: use/bootloader/uboot use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
-else
-mixin/vm-archdep: ; @:
-endif
-endif
-endif
-	@$(call add,KMODULES,staging)
-ifeq (,$(filter-out i586 x86_64 armh aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,un-def std-def)
 endif
 
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
@@ -27,24 +28,26 @@ ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call add,THE_PACKAGES,bash-completion mc update-kernel)
 	@$(call add,THE_PACKAGES,vim-console)
+	@$(call add,KMODULES,staging)
 
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 
-ifeq (,$(filter-out riscv64,$(ARCH)))
-mixin/regular-vm-x11: mixin/regular-vm-base mixin/regular-x11 \
-	mixin/regular-desktop use/oem/vnc +wireless; @:
-else
-mixin/regular-vm-x11: mixin/regular-vm-base mixin/regular-x11 \
+mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/oem +wireless; @:
+
+ifeq (,$(filter-out riscv64,$(ARCH)))
+mixin/regular-vm-x11:: use/oem/vnc; @:
 endif
+
+vm/.regular-desktop:: vm/systemd mixin/regular-vm-x11 +systemd +systemd-optimal \
+	+plymouth; @:
+
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
+vm/.regular-desktop::
 	@$(call add,THE_PACKAGES,xorg-96dpi)
 	@$(call add,THE_LISTS,remote-access)
 endif
-
-vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 +systemd +systemd-optimal \
-	+plymouth; @:
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
 	use/init/sysv/polkit +power; @:
