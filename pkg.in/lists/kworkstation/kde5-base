@@ -50,6 +50,7 @@ curl
 ddcprobe
 dmidecode
 easy-rsa
+eepm
 etcnet-full
 fdisk
 fuse-exfat
