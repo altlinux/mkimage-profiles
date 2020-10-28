@@ -1,0 +1,33 @@
+#!/bin/sh -eu
+
+[ -n "$GLOBAL_ROOTFS_MAIN" ] || exit 0
+
+mv /ALTLinux /srv/ALT
+
+PREFIX=/srv/ALT
+cd "$PREFIX"
+
+COMPS="$(find -mindepth 1 -maxdepth 1 -type d -name 'RPMS.*' -printf '%f\n' |
+	sed 's/^RPMS\.//')"
+
+[ -z "$GLOBAL_VERBOSE" ] || echo "** COMPS=$COMPS" >&2
+[ -n "$COMPS" ] || exit 1
+
+for comp in $COMPS; do
+	for f in RPMS.$comp/*rpm; do
+		[ "$f" = "RPMS.$comp/$(rpm -qp $f).rpm" ] || mv $f RPMS.$comp/$(rpm -qp $f).rpm
+	done
+done
+
+genbasedir \
+	--topdir="/" \
+	--no-oldhashfile \
+	--partial \
+	--xz \
+	--bz2 \
+	--create \
+	--notautomatic=false \
+	$PREFIX $COMPS
+
+### drop this when genbasedir is fixed (--no-uncompressed)
+for c in $COMPS; do rm -f base/{pkg,src}list.$c; done
