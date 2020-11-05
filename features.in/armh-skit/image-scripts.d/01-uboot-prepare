@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Rewrite extlinux.conf
+mkdir -p /boot/extlinux
+cat > /boot/extlinux/extlinux.conf << EOF
+menu title ALT Boot Options
+
+default linux
+timeout 50
+
+label linux
+	kernel /boot/vmlinuz
+	initrd /boot/initrd.img
+	append root=LABEL=ROOT ro
+EOF

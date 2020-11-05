@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Drop fdtdir PATH
+sed -i '/fdtdir/d' /boot/extlinux/extlinux.conf

@@ -1,0 +1,6 @@
+#!/bin/sh -efu
+
+[ -f /etc/firsttime.d/alsa-set-initial-options ] &&
+	sed -i '/snd-seq-midi/d' /etc/firsttime.d/alsa-set-initial-options
+
+exit 0
