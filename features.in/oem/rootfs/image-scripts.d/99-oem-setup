@@ -13,4 +13,12 @@ echo "LANG=en_US.utf-8" >> /etc/sysconfig/i18n
 [ ! "$GLOBAL_OEM_NO_CLEANUP" = yes ] ||
 	sed -i 's/^REMOVE_SELF=.*/REMOVE_SELF=0/' /etc/alterator-setup/config
 
+# Set alterator-setup steps
+if [ -n "$GLOBAL_OEM_STEPS" ]; then
+	rm -f /etc/alterator-setup/steps
+	for OEM_STEP in $GLOBAL_OEM_STEPS; do
+		echo $OEM_STEP >> /etc/alterator-setup/steps
+	done
+fi
+
 :

@@ -8,6 +8,7 @@ use/oem: use/services use/branding
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(OEM_TARGET))
 	@$(call xport,OEM_TARGET)
 	@$(call xport,OEM_NO_CLEANUP)
+	@$(call xport,OEM_STEPS)
 
 use/oem/vnc: use/oem use/x11-vnc use/net-eth/dhcp
 	@$(call add,THE_PACKAGES,alterator-setup-x11vnc)

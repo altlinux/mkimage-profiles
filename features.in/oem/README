@@ -1,2 +1,20 @@
 Эта фича обеспечивает автоматический запуск предварительной настройки,
 характерный для OEM-образов.
+
+== Переназначение шагов alterator-setup ==
+Дефолтные шаги определяются в файле /etc/alterator-setup/steps.
+Его дефолтное содержание:
+sysconfig
+notes-license
+datetime
+root
+users
+setup-finish
+
+Для переопределения списка шагов используйте переменную OEM_STEPS.
+Пример:
+цель: use/oem
+	@$(call set,OEM_STEPS,sysconfig notes-license datetime setup-finish)
+
+Список доступных шагов для alterator-setup находится в
+/usr/share/alterator/steps/
