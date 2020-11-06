@@ -9,6 +9,7 @@ use/syslinux: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
 	@$(call set,IMAGE_PACKTYPE,boot)
+	@$(call xport,SYSLINUX_DEFAULT)
 else
 use/syslinux: ; @:
 endif
