@@ -19,7 +19,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd-wait-online)
 
 use/arm-rpi4/x11: use/arm-rpi4 \
-	use/browser/firefox/i18n use/browser/firefox/esr
+	use/browser/firefox use/browser/firefox/esr
 	@$(call add,THE_PACKAGES,celluloid celluloid-csd-disabled)
 
 use/arm-rpi4/kernel: use/arm-rpi4

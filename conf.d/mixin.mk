@@ -11,7 +11,7 @@ mixin/desktop-installer: +net-eth +vmguest \
 mixin/e2k-base: use/tty/S0 use/net-eth/dhcp; @:
 
 mixin/e2k-desktop: use/e2k/x11 use/l10n/default/ru_RU \
-	use/browser/firefox/esr use/browser/firefox/i18n \
+	use/browser/firefox/esr use/browser/firefox \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
 	@$(call add,THE_PACKAGES,xinit xterm mc)
 	@$(call add,THE_PACKAGES,fonts-bitmap-terminus)
@@ -39,7 +39,7 @@ mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
 
 ### regular.mk
 mixin/regular-x11: use/luks use/volumes/regular \
-	use/browser/firefox/i18n use/browser/firefox/h264 \
+	use/browser/firefox \
 	use/branding use/ntp/chrony use/services/lvm2-disable
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
