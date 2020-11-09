@@ -149,7 +149,7 @@ mixin/kworkstation-live-opts:
 		$(call tags,(base || desktop) && (l10n || network)))
 	@$(call add,EFI_BOOTARGS,live_rw)
 	@$(call add,SYSLINUX_CFG,live_rw)
-	@$(call add,SYSLINUX_CFG,live_rw_default)
+	@$(call set,SYSLINUX_DEFAULT,session)
 	@$(call add,LIVE_LISTS,kworkstation/kde5-base)
 	@$(call add,LIVE_LISTS,kworkstation/kde5)
 	@$(call add,LIVE_LISTS,kworkstation/emulators)
