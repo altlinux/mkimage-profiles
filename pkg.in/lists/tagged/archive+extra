@@ -27,7 +27,7 @@ nomarch
 ncompress
 unace
 unarj
-unzoo
+#unzoo
 uudeview
 
 # recovery
