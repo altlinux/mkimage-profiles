@@ -3,6 +3,8 @@
 
 repo_source='/etc/apt/sources.list.d/yandex.list'
 
+[ -z "$GLOBAL_ROOTFS_MAIN" ] || exit 0
+
 [ -s "$repo_source" ] || exit 0
 
 # regexps from alterator-pkg (via installer-feature-online-repo)
