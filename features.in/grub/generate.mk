@@ -27,10 +27,6 @@ ifdef LOCALE
 GRUB_CFG := $(GRUB_CFG) lang
 endif
 
-ifneq ($(words $(KFLAVOURS)),1)
-GRUB_CFG := $(GRUB_CFG) kernel
-endif
-
 DSTDIR  := $(BUILDDIR)/stage1/files/boot/grub/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
@@ -95,9 +91,6 @@ bootargs: clean
 		sed -i "s, lang=.lang,,g" $(DSTCFGS); \
 	fi; \
 	sed -i "/lang=@LOCALE@/d" $(DSTCFGS)
-	@if [ $$(echo $(KFLAVOURS) | wc -w) -gt 1 ]; then \
-		sed -i "s,@KFLAVOUR@,$(KFLAVOURS),g" $(DSTCFGS); \
-	fi
 	GRUBTHEME=$(GRUBTHEME); \
 	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS); \
