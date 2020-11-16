@@ -24,7 +24,7 @@ distro/.regular-x11: distro/.regular-base \
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
-	mixin/regular-desktop use/syslinux/ui/gfxboot use/efi/refind
+	mixin/regular-desktop use/syslinux/ui/gfxboot
 	@$(call add,THE_BRANDING,bootloader)
 
 # DE base target
@@ -103,7 +103,7 @@ endif
 
 distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
 	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
-	use/branding/complete use/branding/slideshow/once use/efi/refind
+	use/branding/complete use/branding/slideshow/once
 	@$(call set,INSTALLER,altlinux-desktop)
 
 # assumes somewhat more experienced user
@@ -159,7 +159,7 @@ distro/regular-kde5: distro/.regular-desktop \
 distro/regular-robo: distro/regular-mate +robotics use/live/ru; @:
 
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
-	use/rescue/rw use/efi/refind use/efi/shell use/efi/memtest86 \
+	use/rescue/rw use/efi/shell use/efi/memtest86 \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
 	use/mediacheck use/stage2/kms use/kernel/latest +wireless
