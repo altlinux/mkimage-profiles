@@ -31,3 +31,5 @@ genbasedir \
 
 ### drop this when genbasedir is fixed (--no-uncompressed)
 for c in $COMPS; do rm -f base/{pkg,src}list.$c; done
+
+apt-get update
