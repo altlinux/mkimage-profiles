@@ -6,6 +6,7 @@ use/arm-rpi4: use/bootloader/uboot
 endif
 	@$(call add_feature)
 	@$(call set,VM_PARTTABLE,msdos)
+	@$(call set,VM_BOOTTYPE,EFI)
 	@$(call add,BASE_KMODULES,staging)
 	@$(call add,THE_LISTS,uboot)
 	@$(call add,THE_PACKAGES,u-boot-tools)

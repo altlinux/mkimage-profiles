@@ -41,6 +41,8 @@ else
 	ARCH="$(arch)"
 fi
 
+BOOTTYPE="$8"
+
 case "$ARCH" in
 e2k)
 	BOOTFSTYPE="ext2"       # firmware knows it
@@ -55,15 +57,8 @@ ppc*)
 	BOOTLOADERPARTSIZEM="8"
 	ROOTPART="2"
 	;;
-arm*|aarch64)
-	BLOCKDEV="/dev/sda"
-	EFIPART="1"
-	EFIPARTSIZEM="256"
-	EFIPARTFSTYPE="fat"
-	ROOTPART="2"
-	;;
 *)
-	if [ "$BOOTLOADER" == grub-efi ]; then
+	if [ "$BOOTLOADER" == grub-efi -o "$BOOTTYPE" == EFI ]; then
 		EFIPART="1"
 		EFIPARTSIZEM="256"
 		EFIPARTFSTYPE="fat"
