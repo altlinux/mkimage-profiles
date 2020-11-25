@@ -30,7 +30,7 @@ use/plymouth/vm: use/plymouth use/branding use/kernel/initrd-setup
 	@$(call add,VM_INITRDFEATURES,plymouth)
 	@$(call add,THE_BRANDING,bootsplash)
 	@$(call add,THE_PACKAGES_REGEXP,make-initrd-plymouth)
-	@$(call add,BASE_BOOTARGS,quiet splash)
+	@$(call add,BASE_BOOTARGS,quiet)
 	@$(call add,THE_KMODULES,drm)
 else
 use/plymouth/vm: use/plymouth; @:
@@ -44,6 +44,7 @@ endif
 	@$(call add,BASE_PACKAGES_REGEXP,make-initrd-plymouth cpio)
 	@$(call add,THE_BRANDING,bootsplash)
 	@$(call add,THE_PACKAGES,make-initrd-plymouth)
+	@$(call add,BASE_BOOTARGS,splash)
 
 use/plymouth/full: use/plymouth/stage2 use/plymouth/base; @:
 
