@@ -64,7 +64,7 @@ lsblk
 lshw
 mc-full
 make-initrd-lvm
-make-initrd-ucode
+make-initrd-ucode@X86
 man-pages-ru
 mtr
 nano-editor
