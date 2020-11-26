@@ -18,13 +18,12 @@ mixin/kworkstation-common-deps: \
 	use/xdg-user-dirs \
 	use/l10n/default/ru_RU \
 	use/control use/services \
-	use/x11/3d use/x11/radeon use/x11/amdgpu use/x11/nvidia \
+	use/x11/intel use/x11/radeon use/x11/amdgpu use/x11/nvidia \
 	use/x11/sddm \
 	use/memtest \
 	use/init/systemd/settings/optimal \
 	use/cleanup/live-no-cleanupdb \
 	+net-eth +wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm
-#	use/x11/nvidia/optimus \
 
 mixin/kworkstation-common-opts:
 ifeq (,$(filter-out aarch64,$(ARCH)))
