@@ -101,7 +101,7 @@ xfsprogs
 xorg-conf-synaptics
 xorg-conf-libinput-touchpad
 
-ocl-nvidia
+ocl-nvidia@X86
 libva-driver-intel@X86
 libva-intel-media-driver@x86_64
 #libva-driver-vdpau
