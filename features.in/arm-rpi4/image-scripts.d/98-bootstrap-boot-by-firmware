@@ -27,7 +27,7 @@ dtparam=audio=on
 
 [pi3]
 kernel=uboot-rpi_3.bin
-dtoverlay=vc4-fkms-v3d
+#dtoverlay=vc4-fkms-v3d
 
 [pi4]
 kernel=uboot-rpi_4.bin
@@ -38,6 +38,10 @@ EOF
 
 [ "$GLOBAL_ARCH" = armh ] && \
 	sed -i 's/.bin/_32b.bin/g' /boot/efi/config.txt
+
+# framebuffer not working with dtoverlay=vc4-fkms-v3d on RPi3 aarch64
+[ "$GLOBAL_ARCH" = armh ] && \
+	sed -i '/#dtoverlay=vc4-fkms-v3d/s/#//' /boot/efi/config.txt
 
 # Enable bootloading without u-boot
 sh -x rpi4-boot-nouboot $kflavour
