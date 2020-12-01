@@ -26,10 +26,6 @@ mixin/kworkstation-common-deps: \
 	+net-eth +wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm
 
 mixin/kworkstation-common-opts:
-ifeq (,$(filter-out aarch64,$(ARCH)))
-	@$(call add,INSTALL2_PACKAGES,installer-feature-cleanup-kernel-stage3)
-	@$(call add,LIVE_PACKAGES,installer-feature-cleanup-kernel-stage3)
-endif
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,BRANDING,xalt-kworkstation)
