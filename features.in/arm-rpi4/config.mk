@@ -1,8 +1,8 @@
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 ifeq (aarch64,$(ARCH))
-use/arm-rpi4: use/efi/grub use/uboot
+use/arm-rpi4: use/efi/grub use/uboot use/auto-resize
 else
-use/arm-rpi4: use/bootloader/uboot
+use/arm-rpi4: use/bootloader/uboot use/auto-resize
 endif
 	@$(call add_feature)
 	@$(call set,VM_PARTTABLE,msdos)
@@ -15,7 +15,6 @@ endif
 	@$(call add,THE_PACKAGES,rpi4-boot-uboot-filetrigger)
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
 	@$(call add,THE_PACKAGES,brcm-patchram-plus)
-	@$(call add,THE_PACKAGES,rpi4-resize-rootpart)
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd-wait-online)
 
 use/arm-rpi4/x11: use/arm-rpi4
