@@ -21,7 +21,7 @@ mixin/kworkstation-common-deps: \
 	use/x11/intel use/x11/radeon use/x11/amdgpu use/x11/nvidia \
 	use/x11/sddm \
 	use/memtest \
-	use/init/systemd/settings/optimal \
+	use/init/systemd \
 	use/cleanup/live-no-cleanupdb \
 	+net-eth +wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm
 
