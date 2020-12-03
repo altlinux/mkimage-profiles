@@ -73,8 +73,13 @@ distro: bootargs
 
 # pass over additional parameters, if any
 bootargs: clean
+	@if [ -n "$(EFI_BOOTARGS)" ]; then \
+		echo "$(EFI_BOOTARGS)" > $(DSTDIR)/EFI_BOOTARGS; \
+	fi
 	@if [ -n "$(STAGE2_BOOTARGS)" ]; then \
 		sed -i "s,@bootargs@,$(STAGE2_BOOTARGS)," $(DSTCFGS); \
+		[ -f $(DSTDIR)/EFI_BOOTARGS ] && \
+			sed -i "s/$(STAGE2_BOOTARGS)//" $(DSTDIR)/EFI_BOOTARGS; \
 	fi; \
 	sed -i "s,@bootargs@,," $(DSTCFGS)
 	@if [ -n "$(RESCUE_BOOTARGS)" ]; then \

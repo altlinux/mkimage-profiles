@@ -5,6 +5,8 @@
 CFG="$WORKDIR/boot/grub/grub.cfg"
 CFG_EFI="$WORKDIR/EFI/BOOT/grub.cfg"
 
+
+
 if [ -n "$GLOBAL_EFI_BOOTLOADER" -a ! "$GLOBAL_EFI_BOOTLOADER" = "grub-efi" ]; then
 	rm -fr "$WORKDIR/boot"
 	exit 0
@@ -64,11 +66,19 @@ fi
 if [ -f "$CFG" ]; then
 	default_change "$CFG"
 	sed -i 's,@boot_path@,/boot,g' "$CFG"
+	sed -i 's,@efi_bootargs@,,g' "$CFG"
+fi
+
+if [ -f .in/EFI_BOOTARGS ]; then
+	EFI_BOOTARGS=$(cat .in/EFI_BOOTARGS)
 fi
 
 if [ -f "$CFG_EFI" ]; then
 	default_change "$CFG_EFI"
 	sed -i 's,@boot_path@,/EFI/BOOT,g' "$CFG_EFI"
+	[ -n "$EFI_BOOTARGS" ] &&
+		sed -i "s,@efi_bootargs@,$EFI_BOOTARGS,g" "$CFG_EFI"
+	sed -i "s, @efi_bootargs@,,g" "$CFG_EFI"
 fi
 
 # change @linux_suffix@
