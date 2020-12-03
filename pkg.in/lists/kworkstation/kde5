@@ -2,8 +2,9 @@
 pam0_kwallet5
 
 catdoc
-libnss-mdns
+gdb
 fuse-cryfs
+libnss-mdns
 
 pinentry-qt5
 quick-usb-formatter
