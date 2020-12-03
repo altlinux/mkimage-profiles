@@ -20,7 +20,6 @@ distro/.regular-x11: distro/.regular-base \
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
-	@$(call add,EFI_BOOTARGS,live_rw)
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
