@@ -38,10 +38,3 @@ use/browser/firefox/esr:
 
 use/browser/firefox/live: use/browser/firefox
 	@$(call add,THE_BROWSER,livecd-firefox)
-
-# inherently insecure, NPAPI only
-use/browser/plugin/flash: use/browser
-	@$(call add,THE_PACKAGES,mozilla-plugin-adobe-flash)
-
-use/browser/plugin/java: use/browser
-	@$(call add,THE_PACKAGES,mozilla-plugin-java-1.8.0-openjdk)

@@ -65,8 +65,7 @@ distro/live-webkiosk-mini: distro/.live-webkiosk-gtk \
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
 # NB: flash/java plugins are predictable security holes
-distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live \
-	use/browser/plugin/flash use/browser/plugin/java +vmguest; @:
+distro/live-webkiosk-flash: distro/live-webkiosk-mini use/plymouth/live +vmguest; @:
 
 distro/live-webkiosk: distro/live-webkiosk-mini use/live/desktop; @:
 
