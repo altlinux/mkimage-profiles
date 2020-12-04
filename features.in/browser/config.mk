@@ -39,9 +39,6 @@ use/browser/firefox/esr:
 use/browser/firefox/live: use/browser/firefox
 	@$(call add,THE_BROWSER,livecd-firefox)
 
-use/browser/seamonkey/i18n: use/browser/seamonkey
-	@$(call add,THE_BROWSER,seamonkey-ru)
-
 # inherently insecure, NPAPI only
 use/browser/plugin/flash: use/browser
 	@$(call add,THE_PACKAGES,mozilla-plugin-adobe-flash)
