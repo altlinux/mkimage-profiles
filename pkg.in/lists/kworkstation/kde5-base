@@ -46,7 +46,7 @@ bind-utils
 cpufreq-simple
 cifs-utils
 curl
-ddcprobe@IA32
+ddcprobe@X86
 dmidecode
 easy-rsa
 eepm
