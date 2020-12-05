@@ -3,7 +3,7 @@ bcm2835-dma.ko
 dwc2.ko
 dwc2_pci.ko
 dwc3.ko
-dwc3_pci.ko
+dwc3-pci.ko
 dwc3-qcom.ko
 dwc3-of-simple.ko
 dwc3-meson-g12a.ko
@@ -17,8 +17,8 @@ xhci-tegra.ko
 phy-generic.ko
 phy-tegra-usb.ko
 sunxi.ko
-dwc3_baikal.ko
-udc_core.ko
-xhci_plat_hcd.ko
-xhci_hcdi.ko
-sdhci_pltfm.ko
+dwc3-baikal.ko
+udc-core.ko
+xhci-plat-hcd.ko
+xhci-hcd.ko
+sdhci-pltfm.ko
