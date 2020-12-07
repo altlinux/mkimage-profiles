@@ -166,7 +166,8 @@ distro/kworkstation-install: \
 	emulators remote-desktop \
 	printing scanning \
 	video-editing sound-editing graphics-editing \
-	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor)
+	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor \
+	z02-add-additional additional-oem)
 
 distro/kworkstation-install: \
 	mixin/kworkstation-install-deps \
