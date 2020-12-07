@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/additional-oem
+X-Alterator-Required=no
+X-Alterator-Parent=kworkstation/z02-add-additional
+Categories=KDE;GNOME;XFCE
+
+Name=OEM-install
+Name[ru_RU]=ОЕМ-установка
+Comment=System setup at first boot.
+Comment[ru_RU]=Первоначальная настройка системы при первой загрузке.

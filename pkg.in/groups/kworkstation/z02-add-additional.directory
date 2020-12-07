@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-Required=no
+X-Alterator-PackageList=kworkstation/additional-base
+Categories=KDE;
+
+Name=Additional
+Name[ru_RU]=Дополнительно
+Comment=Additional options.
+Comment[ru_RU]=Дополнительные опции.
