@@ -74,3 +74,5 @@ htop
 
 # firmware update utils
 #fwupd@x86_64
+
+blacklist-pcspkr@X86
