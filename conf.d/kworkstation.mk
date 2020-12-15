@@ -5,7 +5,7 @@ mixin/kworkstation-common-deps: \
 	use/kernel/desktop use/kernel/net use/kernel/laptop \
 	use/live/x11 use/live use/live/sound use/live/repo/online \
 	use/syslinux/ui/gfxboot use/plymouth/full \
-	use/efi/refind use/efi/shell \
+	use/efi/grub use/efi/shell \
 	use/x11/xorg \
 	use/branding/complete \
 	use/firmware/wireless use/firmware/laptop use/firmware/cpu use/wireless/full \
@@ -29,6 +29,7 @@ mixin/kworkstation-common-opts:
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,BRANDING,xalt-kworkstation)
+	@$(call set,GRUBTHEME,branding-xalt-kworkstation)
 	@$(call set,DOCS,alt-kworkstation)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,THE_KMODULES,staging)
