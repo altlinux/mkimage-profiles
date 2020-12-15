@@ -55,6 +55,7 @@ fdisk
 fuse-exfat
 gpm
 hdparm
+inxi
 ipcalc
 jfsutils
 libproxy-kde
