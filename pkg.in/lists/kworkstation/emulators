@@ -5,8 +5,8 @@ xorg-dri-*@IA32
 wine-mono
 wine-gecko
 winetricks
-wine-vanilla@IA32
-libwine-vanilla-gl@IA32
-libwine-vanilla-twain@IA32
+wine@IA32
+libwine-gl@IA32
+libwine-twain@IA32
 
 virtualbox@x86_64
