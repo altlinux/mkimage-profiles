@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/cnc
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=CNC
+Name[ru_RU]=ЧПУ
+Comment=Computer numerical control.
+Comment[ru_RU]=Числовое программное управление.

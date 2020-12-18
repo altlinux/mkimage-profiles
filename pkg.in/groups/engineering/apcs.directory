@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/apcs
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=APCS
+Name[ru_RU]=АСУ ТП
+Comment=.Advanced Process Control
+Comment[ru_RU]=Австоматизированные системы управления технологическим процессом.

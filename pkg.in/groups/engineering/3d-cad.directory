@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/3d-cad
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=3D-CAD
+Name[ru_RU]=3D-CAD
+Comment=3D design.
+Comment[ru_RU]=Трёхмерное проектирование.

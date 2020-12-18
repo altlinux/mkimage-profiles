@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/cam
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=CAM
+Name[ru_RU]=CAM
+Comment=Computer-aided manufacturing.
+Comment[ru_RU]= Автоматизированные системы для подготовки управляющих программ ЧПУ-станков.

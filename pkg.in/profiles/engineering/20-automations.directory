@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Engineering Automation
+Name[ru_RU]=Инженерное ПО для АСУТП
+X-Alterator-Groups=engineering/2d-cad engineering/apcs engineering/cam engineering/cnc engineering/eda engineering/scada

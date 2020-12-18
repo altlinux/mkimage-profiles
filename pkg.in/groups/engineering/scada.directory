@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/scada
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=SCADA
+Name[ru_RU]=SCADA
+Comment=Computer-aided manufacturing.
+Comment[ru_RU]= Диспетчерское управление и сбор данных.

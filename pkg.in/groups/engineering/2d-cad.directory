@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/2d-cad
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=2D-CAD
+Name[ru_RU]=2D-CAD
+Comment=2D design.
+Comment[ru_RU]=Двухмерное проектирование.

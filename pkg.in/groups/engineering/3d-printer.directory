@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/3d-printer
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=3D-Printer
+Name[ru_RU]=3D-Printer
+Comment=3D printing.
+Comment[ru_RU]=3D печать.

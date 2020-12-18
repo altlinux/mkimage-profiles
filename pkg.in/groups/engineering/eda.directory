@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/eda
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=EDA
+Name[ru_RU]=EDA
+Comment=Electronic Design Automation.
+Comment[ru_RU]= Автоматизированные системы для разработки электронных устройств.

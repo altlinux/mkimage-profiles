@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Engineering applications
+X-Alterator-PackageList=engineering/misc
+X-Alterator-Required=no
+Name[ru_RU]=Инженерные приложения

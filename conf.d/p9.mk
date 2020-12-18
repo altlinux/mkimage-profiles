@@ -25,8 +25,6 @@ distro/alt-p9-jeos-sysv distro/alt-p9-jeos-ovz distro/alt-p9-jeos-systemd \
 
 distro/alt-p9-builder: distro/regular-builder mixin/p9; @:
 
-distro/alt-p9-engineering: distro/regular-engineering mixin/p9; @:
-
 ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/alt-p9-cnc-rt: distro/cnc-rt mixin/p9; @:
 endif

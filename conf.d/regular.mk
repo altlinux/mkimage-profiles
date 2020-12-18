@@ -249,17 +249,6 @@ distro/regular-server-lxd: distro/.regular-bare \
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-net-eth)
 
-distro/regular-engineering: distro/regular-lxde use/live/ru
-	@$(call add,THE_LISTS,engineering/2d-cad)
-	@$(call add,THE_LISTS,engineering/3d-cad)
-	@$(call add,THE_LISTS,engineering/3d-printer)
-	@$(call add,THE_LISTS,engineering/eda)
-	@$(call add,THE_LISTS,engineering/cam)
-	@$(call add,THE_LISTS,engineering/cnc)
-	@$(call add,THE_LISTS,engineering/apcs)
-	@$(call add,THE_LISTS,engineering/scada)
-	@$(call add,THE_LISTS,engineering/misc)
-
 endif
 
 ifeq (ve,$(IMAGE_CLASS))
