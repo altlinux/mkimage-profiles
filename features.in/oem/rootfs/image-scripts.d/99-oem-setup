@@ -25,6 +25,7 @@ if [ -n "$GLOBAL_OEM_INSTALL" ]; then
 	mkdir -p /var/lib/install3
 	tar -xf /.install3.tar -C /var/lib/install3/
 	rm /.install3.tar
+	touch /var/lib/install3/lists/.base
 fi
 
 :
