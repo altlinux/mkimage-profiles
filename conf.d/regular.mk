@@ -113,7 +113,7 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
 distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
-	use/browser/chromium use/kernel/latest; @:
+	use/kernel/latest; @:
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
