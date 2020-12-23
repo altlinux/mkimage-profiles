@@ -81,7 +81,7 @@ gnustep-Localize
 gnustep-Lynkeos
 #gnustep-Mixer
 gnustep-Money
-gnustep-MPDCon
+#gnustep-MPDCon
 #gnustep-MusicBox
 #gnustep-MusicKit
 gnustep-MyWiki
