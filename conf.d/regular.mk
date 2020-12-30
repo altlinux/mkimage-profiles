@@ -31,7 +31,6 @@ distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
 distro/.regular-desktop: distro/.regular-wm use/branding/full \
 	use/firmware/laptop +systemd +systemd-optimal
 	@$(call add,THE_BRANDING,bootloader)
-	@$(call add,THE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
