@@ -1,13 +1,16 @@
 kernel/drivers/usb/host
 kernel/drivers/usb/storage
+ehci-fsl.ko
 ehci-hcd.ko
 ehci-pci.ko
 ehci-platform.ko
 ohci-hcd.ko
+ohci-platform.ko
 uas.ko
 uhci-hcd.ko
 usb-storage.ko
 usbcore.ko
 xhci-hcd.ko
 xhci-pci.ko
+xhci-pci-renesas.ko
 xhci-plat-hcd.ko
