@@ -1,4 +1,4 @@
 all: $(GLOBAL_DEBUG) $(OEM_INSTALL:%=oem-install)
 
 oem-install:
-	@git archive HEAD:pkg > files/.install3.tar
+	@cd pkg && tar -cf ../files/.install3.tar *
