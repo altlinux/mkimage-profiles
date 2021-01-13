@@ -69,7 +69,7 @@ make-initrd-lvm
 make-initrd-ucode@X86
 man-pages-ru
 mtr
-nano-editor
+mcedit-editor
 net-tools
 netcat
 netlist
