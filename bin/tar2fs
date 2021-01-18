@@ -397,6 +397,7 @@ image=/boot/vmlinuz
 	EOF
 	;;
 grub-efi)
+	echo 'GRUB_DISABLE_OS_PROBER=true' >> "$ROOTFS"/etc/sysconfig/grub2
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
 	case "$ARCH" in
 		*86)
@@ -422,21 +423,24 @@ grub-efi)
 			  --removable  --no-uefi-secure-boot
 		;;
 	esac
+	sed -i '/GRUB_DISABLE_OS_PROBER=true/d' "$ROOTFS/etc/sysconfig/grub2"
 	;;
 grub)
+	echo 'GRUB_DISABLE_OS_PROBER=true' >> "$ROOTFS"/etc/sysconfig/grub2
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
 	case "$ARCH" in
 		*86*)
 			chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
 			sed -i 's/initrdefi/initrd16/g' "$ROOTFS/boot/grub/grub.cfg"
 			sed -i 's/linuxefi/linux16/g' "$ROOTFS/boot/grub/grub.cfg"
-			;;
+		;;
 		ppc*)
 			[ -z "$LOOPBOOTLOADER" ] ||
 				chroot "$ROOTFS" grub-install --target=powerpc-ieee1275 \
 				--no-nvram "$LOOPBOOTLOADER"
-			;;
+		;;
 	esac
+	sed -i '/GRUB_DISABLE_OS_PROBER=true/d' "$ROOTFS/etc/sysconfig/grub2"
 	;;
 esac
 
