@@ -98,7 +98,7 @@ bootargs: clean
 	sed -i "/lang=@LOCALE@/d" $(DSTCFGS)
 	GRUBTHEME=$(GRUBTHEME); \
 	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
-	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS); \
+	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS)
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \
