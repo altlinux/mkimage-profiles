@@ -6,6 +6,7 @@ gdb
 fuse-cryfs
 libnss-mdns
 
+alt-csp-cryptopro
 pinentry-qt5
 quick-usb-formatter
 rosa-imagewriter
@@ -68,6 +69,7 @@ LibreOffice-still-langpack-ru
 #LibreOffice-still-langpack-tt
 #LibreOffice-still-langpack-uk
 #^docs-ooo_infra_.*
+LibreOffice-plugin-altcsp
 
 kamoso
 
