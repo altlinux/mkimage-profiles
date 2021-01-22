@@ -44,7 +44,7 @@ fi
 BOOTTYPE="$8"
 
 case "$ARCH" in
-e2k)
+e2k*)
 	BOOTFSTYPE="ext2"       # firmware knows it
 	BLOCKDEV="/dev/sda"     # ...hopefully...
 	BOOTPART="1"
