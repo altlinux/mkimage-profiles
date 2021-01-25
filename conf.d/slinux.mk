@@ -12,9 +12,7 @@ distro/slinux: distro/.installer use/slinux/full use/rescue/base
 	@$(call add,MAIN_GROUPS,slinux/dropbox slinux/emulators-full slinux/games-base slinux/games slinux/games-full slinux/graphics-base slinux/graphics slinux/graphics-full-inkscape slinux/graphics-full-shotwell slinux/multimedia-full-audacity slinux/multimedia-base slinux/multimedia-full-cheese slinux/multimedia slinux/multimedia-full-shotcut slinux/multimedia-full-sound-juicer slinux/net-base)
 	@$(call set,META_VOL_ID,Simply Linux $(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_APP_ID,Simply Linux $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
-ifeq (aarch64,$(ARCH))
-	@$(call set,KFLAVOURS,lts std-def)
-endif
+	@$(call set,KFLAVOURS,un-def)
 endif
 
 ifeq (vm,$(IMAGE_CLASS))

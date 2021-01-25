@@ -103,7 +103,7 @@ use/slinux/base: use/isohybrid use/luks \
 	use/vmguest/kvm/x11 use/stage2/kms \
 	use/slinux/mixin-base \
 	use/cleanup/live-no-cleanupdb
-	@$(call set,KFLAVOURS,std-def)
+	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,slinux/live)
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
