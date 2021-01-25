@@ -25,13 +25,7 @@ endif
 		$(call tags,(base || extra || server || backup || misc || fs) \
 			&& !x11 && (rescue || comm || network || security || archive)))
 
-# rw slice, see also use/live/rw (don't use simultaneously)
-ifeq (,$(EFI_BOOTLOADER))
-use/rescue/rw: use/rescue use/syslinux
-	@$(call add,SYSLINUX_CFG,rescue_rw)
-else
-use/rescue/rw: use/rescue; @:
-endif
+use/rescue/rw: use/rescue use/syslinux/rescue_rw.cfg use/grub/rescue_rw.cfg; @:
 
 test/rescue:
 	@$(call xport,TEST_RESCUE)
