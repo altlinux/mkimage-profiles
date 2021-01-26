@@ -38,7 +38,8 @@ rm -rf /lib/modules/*/kernel/drivers/infiniband	###
 rm -rf /lib/modules/*/kernel/drivers/input/{gameport,joy*}
 rm -rf /lib/modules/*/kernel/drivers/isdn
 rm -rf /lib/modules/*/kernel/drivers/leds
-rm -rf /lib/modules/*/kernel/drivers/media
+# amdgpu require cec and rc
+#rm -rf /lib/modules/*/kernel/drivers/media/[^cec]*
 rm -rf /lib/modules/*/kernel/drivers/mtd*
 rm -rf /lib/modules/*/kernel/drivers/net/can
 rm -rf /lib/modules/*/kernel/drivers/net/hamradio
