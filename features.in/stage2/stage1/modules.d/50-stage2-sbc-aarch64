@@ -16,9 +16,11 @@ u132-hcd.ko
 xhci-tegra.ko
 phy-generic.ko
 phy-tegra-usb.ko
+reset-raspberrypi.ko
+sdhci-iproc.ko
+sdhci-pltfm.ko
 sunxi.ko
 dwc3-baikal.ko
 udc-core.ko
 xhci-plat-hcd.ko
 xhci-hcd.ko
-sdhci-pltfm.ko
