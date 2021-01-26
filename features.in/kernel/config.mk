@@ -71,6 +71,7 @@ ifeq (,$(filter-out ppc64le,$(ARCH)))
 endif
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,bcm2835 bcm2835-dma sunxi-mmc)
+	@$(call add,VM_INITRDMODULES,reset_raspberrypi)
 	@$(call add,VM_INITRDMODULES,nvmem_rockchip_efuse)
 	@$(call add,VM_INITRDMODULES,pwm-meson)
 	@$(call add,VM_INITRDMODULES,cb710-mmc mtk-sd tifm_sd usdhi6rol0 via-sdmmc)
