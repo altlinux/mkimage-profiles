@@ -51,7 +51,6 @@ all: debug timeout
 	@echo $(GRUB_FILES) > $(DSTDIR)/grub.list
 	@sed -i \
 		-e 's,@mkimage-profiles@,$(IMAGE_NAME),' \
-		-e 's,@relname@,$(RELNAME),g' \
 		$(DSTCFGS)
 
 # integerity check
@@ -64,10 +63,10 @@ timeout: distro
 	sed -i "s,@timeout@,$$TIMEOUT," $(DSTCFGS)
 
 distro: bootargs
-	@if [ -n "$(META_VOL_SET)" ]; then \
-		DISTRO="$(META_VOL_SET)"; \
+	@if [ -n "$(META_VOL_ID)" ]; then \
+		DISTRO="$(META_VOL_ID)"; \
 	else \
-		DISTRO="ALT"; \
+		DISTRO="$(RELNAME)"; \
 	fi; \
 	sed -i "s,@distro@,$$DISTRO," $(DSTCFGS)
 
