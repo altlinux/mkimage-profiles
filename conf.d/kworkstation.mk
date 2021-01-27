@@ -130,8 +130,6 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_LISTS,kworkstation/live-rescue)
 	@$(call add,THE_LISTS,kworkstation/kde5-base)
 	@$(call add,SERVICES_ENABLE,sshd)
-	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION) Workstation K Install $(ARCH))
-	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION) Workstation K Install $(ARCH) $(shell date +%F))
 
 mixin/kworkstation-live-deps: \
 	distro/.base use/rescue/base \
