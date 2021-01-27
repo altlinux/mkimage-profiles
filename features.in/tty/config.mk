@@ -9,7 +9,7 @@ ifeq (distro,$(IMAGE_CLASS))
 endif
 
 comma := ,
-use/tty/S0 use/tty/SI0 use/tty/AMA0: use/tty/%: use/tty
+use/tty/S0 use/tty/SIF0 use/tty/AMA0: use/tty/%: use/tty
 	@$(call add,THE_PACKAGES,agetty)
 	@$(call add,TTY_DEV,tty$*)
 	@$(call set,TTY_RATE,115200)
