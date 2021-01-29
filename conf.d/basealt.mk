@@ -67,8 +67,11 @@ vm/alt-workstation-mcom02: vm/.alt-workstation use/armh-mcom02/x11; @:
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
-vm/alt-workstation-tavolga: vm/.alt-workstation use/mipsel-mitx/x11; @:
-vm/alt-workstation-bfk3: vm/.alt-workstation use/mipsel-bfk3/x11; @:
+vm/alt-workstation::
+	@$(call add,THE_PACKAGES,mate-reduced-resource)
+
+vm/alt-workstation-bfk3: vm/alt-workstation use/mipsel-bfk3/x11; @:
+vm/alt-workstation-tavolga: vm/alt-workstation use/mipsel-mitx/x11; @:
 endif
 
 vm/alt-workstation-cloud: vm/alt-p9-cloud use/x11/lightdm/gtk \
