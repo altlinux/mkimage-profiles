@@ -141,6 +141,7 @@ mixin/kworkstation-live-deps: \
 mixin/kworkstation-live-opts:
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
+	@$(call add,GRUB_TIMEOUT,3)
 	@$(call add,EFI_BOOTARGS,live_rw)
 	@$(call add,SYSLINUX_CFG,live_rw)
 	@$(call set,SYSLINUX_DEFAULT,session)
