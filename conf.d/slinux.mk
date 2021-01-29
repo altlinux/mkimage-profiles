@@ -36,9 +36,12 @@ vm/slinux-mcom02: use/slinux/vm-base use/armh-mcom02/x11; @:
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
-vm/slinux-tavolga: use/slinux/vm-base use/mipsel-mitx/x11; @:
+vm/slinux::
+	@$(call add,THE_PACKAGES,installer-feature-bell-off-stage3)
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
-vm/slinux-bfk3: use/slinux/vm-base use/mipsel-bfk3/x11; @:
+vm/slinux-tavolga: vm/slinux use/mipsel-mitx/x11; @:
+vm/slinux-bfk3: vm/slinux use/mipsel-bfk3/x11; @:
 endif
 
 endif
