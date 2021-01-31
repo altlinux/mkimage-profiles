@@ -46,7 +46,6 @@ use/kernel/server:
 
 # for vm targets
 use/kernel/initrd-setup: use/kernel
-	@$(call add,VM_INITRDFEATURES,add-modules compress cleanup)
 	@$(call try,VM_FSTYPE,ext4)
 	@$(call add,VM_INITRDMODULES,$$(VM_FSTYPE))
 	@$(call add,VM_INITRDMODULES,ahci sd_mod)

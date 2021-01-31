@@ -27,6 +27,7 @@ fi
 
 for KVER in $kver; do
 	make-initrd -N -k "$KVER" AUTODETECT= \
+	  FEATURES+="add-modules compress cleanup $INITRDFEATURE" \
 	  MODULES_TRY_ADD+="$GLOBAL_VM_INITRDMODULES" \
 	  || { echo "** Error: make-initrd failed" >&2; exit 1; }
 done
