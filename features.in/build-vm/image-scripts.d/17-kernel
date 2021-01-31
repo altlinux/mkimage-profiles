@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -efu
 # predictable file locations make bootloader configuration simple;
 # this script relates to features.in/stage2/stage1/scripts.d/81-make-initfs
 
@@ -26,7 +26,7 @@ if [ -n "$GLOBAL_VM_INITRDFEATURES" ]; then
 fi
 
 for KVER in $kver; do
-	make-initrd -N -k "$KVER" AUTODETECT= \
+	make-initrd -N -v -k "$KVER" AUTODETECT= \
 	  FEATURES+="add-modules compress cleanup $INITRDFEATURE" \
 	  MODULES_TRY_ADD+="$GLOBAL_VM_INITRDMODULES" \
 	  || { echo "** Error: make-initrd failed" >&2; exit 1; }
