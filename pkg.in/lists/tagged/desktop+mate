@@ -1,8 +1,60 @@
-mate-default
-# this might be a tad too much anyways
-mate-maxi
+# MATE Desktop Core
+mate-applets
+mate-control-center
+mate-desktop
+mate-media
+mate-notification-daemon
+mate-panel
+mate-polkit
+mate-session
+mate-settings-daemon
+mate-window-manager
 
-#altlinux-freedesktop-menu-mate
+# Help browser
+yelp
+
+# tutorial
+mate-user-guide
+mate-menus
+
+# Utilities
+mate-system-monitor
+dconf-editor
+gucharmap
+mate-calc
+mate-image-viewer
+parcellite
+mate-menu-editor
+mate-power-manager
+mate-file-manager-open-terminal
+mate-file-manager-image-converter
+mate-file-manager-extensions
+mate-file-manager-wallpaper
+mate-backgrounds
+mate-system-log
+gnome-keyring
+seahorse
+
+# Applications
+## Default file manager
+mate-file-manager
+## ALT bug 39638
+gvfs
+## Default terminal emulator
+mate-terminal
+## Default archiving tool
+mate-file-manager-archiver
+## Default text editor
+mate-text-editor
+
+# Look & Feel
+## Default themes
+mate-icon-theme
+mate-themes
+libgtk2-engine-adwaita
+
+## Screensaver
+mate-screensaver
 
 ### should be dropped at some stage; see bugreports within this thread:
 # http://lists.altlinux.org/pipermail/sisyphus/2012-August/358079.html
