@@ -9,7 +9,6 @@ anacron
 os-prober
 make-initrd-lvm
 shadow-change
-chrony
 dhcpcd
 
 telnet

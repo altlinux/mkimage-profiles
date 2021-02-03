@@ -15,7 +15,6 @@ use/slinux/services-enabled:
 	@$(call add,SYSTEMD_SERVICES_ENABLE,anacron.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,avahi-daemon.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,bluetooth.service)
-	@$(call add,SYSTEMD_SERVICES_ENABLE,chronyd.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cpufreq-simple.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,crond.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups.service)
@@ -65,6 +64,7 @@ use/slinux/vm-base:: vm/systemd \
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless \
 	use/l10n/default/ru_RU \
+	use/ntp/chrony \
 	use/office/LibreOffice/full \
 	use/docs/manual use/docs/indexhtml \
 	use/xdg-user-dirs/deep use/slinux/services
@@ -104,7 +104,6 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call add,LIVE_LISTS,slinux/live)
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
-	@$(call add,STAGE2_PACKAGES,chrony)
 
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
