@@ -49,6 +49,8 @@ mixin/kworkstation-common-opts:
 	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-caladea)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-carlito)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans-symbols)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-emoji)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-emoji-color)
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,MAIN_LISTS,kworkstation/disk-install)
 	@$(call add,THE_LISTS,tagged/desktop+xorg)
