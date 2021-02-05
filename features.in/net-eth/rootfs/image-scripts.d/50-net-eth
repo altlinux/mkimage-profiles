@@ -42,11 +42,7 @@ write_etcnet_iface() {
 	append=
 	case "$proto" in
 	dhcp)
-		if [ $GLOBAL_ARCH = mipsel ]; then
-			append="DHCP_TIMEOUT=20"
-		else
-			append="DHCP_TIMEOUT=7"
-		fi
+		append="DHCP_TIMEOUT=$GLOBAL_NET_ETH_TIMEOUT"
 		;;
 	static)
 		echo "$ipv4addr" > "$dir/ipv4address"

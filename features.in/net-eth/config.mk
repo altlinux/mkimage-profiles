@@ -16,6 +16,11 @@ use/net-eth/networkd: use/net/networkd
 # typical boilerplate
 use/net-eth/dhcp: use/net-eth use/net/dhcp
 	@$(call add,NET_ETH,eth0:dhcp)
+	@$(call try,NET_ETH_TIMEOUT,7)
+	@$(call xport,NET_ETH_TIMEOUT)
+
+use/net-eth/dhcp/timeout/%: use/net-eth/dhcp
+	@$(call set,NET_ETH_TIMEOUT,$*)
 
 use/net-eth/networkd-dhcp: use/net-eth/networkd
 	@$(call add,NET_ETH,eth0:dhcp)

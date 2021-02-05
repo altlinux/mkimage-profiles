@@ -1,4 +1,4 @@
-use/mipsel-mitx: use/kernel use/tty/S0
+use/mipsel-mitx: use/kernel use/tty/S0 use/net-eth/dhcp/timeout/20
 	@$(call add_feature)
 	@$(call set,KFLAVOURS,mitx-xpa)
 	@$(call add,THE_PACKAGES,alt-config-be-t)
