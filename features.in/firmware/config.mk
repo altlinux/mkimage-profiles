@@ -5,6 +5,9 @@
 use/firmware:
 	@$(call add_feature)
 	@$(call add,SYSTEM_PACKAGES,firmware-linux)
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+	@$(call add,THE_PACKAGES,firmware-bcm4345)
+endif
 
 use/firmware/full: use/firmware/server use/firmware/laptop; @:
 
