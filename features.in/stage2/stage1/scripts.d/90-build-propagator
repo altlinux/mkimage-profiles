@@ -1,0 +1,33 @@
+#!/bin/sh -efu
+
+libdir="$(getconf LIBDIR)"
+
+case "`arch`" in
+	e2k)
+		kname=image
+		;;
+	*)
+		kname=vmlinuz
+		;;
+esac
+
+if [ -L /boot/$kname ]; then
+	kimage="$(readlink -mv /boot/$kname)"
+else
+	kimage="$(find /boot -type f -name "$kname-*" -print -quit)"
+fi
+kver="${kimage#/boot/$kname-}"
+
+mkmodpack -p /.in/modules -o /tmp/modules -k "$kver"
+
+rm -f /boot/full.cz
+
+[ ! -f /tmp/modules ] ||
+	cat "$libdir/propagator/initfs" /tmp/modules > /boot/full.cz
+
+sed \
+	-e "s,@LIBDIR@,$libdir," \
+	-e "s,@TMPDIR@,/tmp,g" \
+	< "$WORKDIR/initfs" |
+	gencpio - |
+	gzip -c >> /boot/full.cz

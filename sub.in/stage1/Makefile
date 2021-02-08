@@ -30,10 +30,8 @@ GLOBAL_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
 CHROOT_PACKAGES_REGEXP := $(call kpackages, \
 	$(STAGE1_KFLAVOUR),$(STAGE1_KMODULES),$(STAGE1_KMODULES_REGEXP))
 ifneq "$(findstring stage2,$(SUBPROFILES))" ""	### assumes stage2 ~ propagator
-PROPAGATOR_VERSION = ALT
-PROPAGATOR_MAR_MODULES = ./modules
-PROPAGATOR_INITFS = ./initfs
-BUILD_PROPAGATOR = prepare-modules build-propagator
+LIST_MODULES = .work/chroot/.in/modules
+PREPARE_MODULES = prepare-modules
 endif
 endif
 
@@ -51,8 +49,8 @@ prepare-modules:
 
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for sub.in/stage2/Makefile to include
-all: | debug prepare-workdir copy-tree run-scripts $(BUILD_PROPAGATOR) \
-	copy-$(BOOTLOADER) $(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
+all: | debug prepare-workdir copy-tree $(PREPARE_MODULES) run-scripts \
+	$(COPY_SQUASHCFG) pack-image $(GLOBAL_CLEAN_WORKDIR)
 	@if [ -s $(OUTDIR)/squashcfg.mk ]; then \
 		cp $(OUTDIR)/squashcfg.mk $(GLOBAL_BUILDDIR)/; \
 	fi
