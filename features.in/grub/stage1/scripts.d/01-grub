@@ -14,7 +14,7 @@ fi
 
 if [ -z "$GLOBAL_EFI_BOOTLOADER" ]; then
 	case "$GLOBAL_BOOTLOADER" in
-		ieee1275boot) ;;
+		ieee1275boot|grubpcboot) ;;
 		*) rm -fr "$WORKDIR/boot"
 		   exit 0;;
 	esac
@@ -31,12 +31,14 @@ fi
 # number ordering sponsored by shell's pathname expansion
 case "$GLOBAL_BOOTLOADER" in
 	ieee1275boot)
+		grep -hv '^#' $(find .in/*.cfg -not -name *_efi.cfg -not -name *_bios.cfg) > "$CFG" ;;
+	grubpcboot)
 		grep -hv '^#' $(find .in/*.cfg -not -name *_efi.cfg) > "$CFG" ;;
 esac
 
 if [ "$GLOBAL_EFI_BOOTLOADER" = "grub-efi" ]; then
 	mkdir -p "$WORKDIR/EFI/BOOT"
-	grep -hv '^#' $(find .in/*.cfg) > "$CFG_EFI"
+	grep -hv '^#' $(find .in/*.cfg -not -name *_bios.cfg) > "$CFG_EFI"
 fi
 
 # there should be DEFAULT directive there (at least for alterator-netinst)
