@@ -83,18 +83,6 @@ if [ -f "$CFG_EFI" ]; then
 	sed -i "s, @efi_bootargs@,,g" "$CFG_EFI"
 fi
 
-# change @linux_suffix@
-case "$GLOBAL_ARCH" in
-	i586|x86_64)
-		[ ! -f "$CFG" ] || sed -i 's/@linux_suffix@/16/g' "$CFG"
-		[ ! -f "$CFG_EFI" ] || sed -i 's/@linux_suffix@/efi/g' "$CFG_EFI"
-	;;
-	*)
-		[ ! -f "$CFG" ] || sed -i 's/@linux_suffix@//g' "$CFG"
-		[ ! -f "$CFG_EFI" ] || sed -i 's/@linux_suffix@//g' "$CFG_EFI"
-	;;
-esac
-
 # snippets are not going into the actual image
 if [ "$DEBUG" != 2 ]; then
 	rm -r .in/
