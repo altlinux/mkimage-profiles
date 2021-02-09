@@ -3,9 +3,13 @@
 # to add rescue image hash, if any
 # (for propagator in forensic mode)
 
-cd "$WORKDIR"
+# validate just in case (see also stage1 Makefile)
+if [ -z "$(find $WORKDIR/syslinux/*.cfg)" ]; then
+	echo "Warning: syslinux/*.cfg not found"
+	exit 0
+fi
 
-[ -d "syslinux" ] || exit 0
+cd "$WORKDIR"
 
 grep -qs "@rescue_hash@" syslinux/*.cfg || exit 0
 

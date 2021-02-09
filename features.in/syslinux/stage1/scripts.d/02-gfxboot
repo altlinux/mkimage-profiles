@@ -1,6 +1,10 @@
 #!/bin/sh
 
-[ -d "$WORKDIR/syslinux" ] || exit 0
+# validate just in case (see also stage1 Makefile)
+if [ ! -f "$WORKDIR/syslinux/$GLOBAL_BOOTLOADER.cfg" ]; then
+	echo "Warning: syslinux/*.cfg not found"
+	exit 0
+fi
 
 gfxboot_datadir=/usr/share/gfxboot
 

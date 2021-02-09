@@ -3,9 +3,13 @@
 # when the image sizes are finally known
 # NB: install2_size, live_size, rescue_size get defined here
 
-cd "$WORKDIR"
+# validate just in case (see also stage1 Makefile)
+if [ -z "$(find $WORKDIR/syslinux/*.cfg)" ]; then
+	echo "Warning: syslinux/*.cfg not found"
+	exit 0
+fi
 
-[ -d "syslinux" ] || exit 0
+cd "$WORKDIR"
 
 # apply size census while looking for potential squashfs images
 find -maxdepth 1 -type f -size +1M \
