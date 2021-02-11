@@ -27,7 +27,7 @@ kde5-file-actions-gost
 
 #altlinux-freedesktop-menu-nested-menu
 
-chromium-gost
+# #browser chromium-gost#
 #chromium-ublock_origin
 
 qmmp1

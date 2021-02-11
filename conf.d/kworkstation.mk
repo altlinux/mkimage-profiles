@@ -31,6 +31,7 @@ mixin/kworkstation-common-opts:
 	@$(call set,BRANDING,xalt-kworkstation)
 	@$(call set,GRUBTHEME,branding-xalt-kworkstation)
 	@$(call set,DOCS,alt-kworkstation)
+	@$(call try,THE_BROWSER,chromium-gost)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,BASE_PACKAGES,os-prober)
