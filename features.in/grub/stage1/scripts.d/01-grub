@@ -63,5 +63,29 @@ if [ "$DEBUG" != 2 ]; then
 	rm -r .in/
 fi
 
+# copy grub theme
+mkdir -p themes
+GRUBTHEME="$(grep -m1 '/theme.txt;' "$CFG" |rev | cut -f2 -d '/' |rev)"
+if [ -n "$GRUBTHEME" ]; then
+	if [ -d "/boot/grub/themes/$GRUBTHEME" ]; then
+		cp -r /boot/grub/themes/$GRUBTHEME themes/
+	else
+		echo "Error: Directory /boot/grub/themes/$GRUBTHEME not exist"
+		exit 1
+	fi
+fi
+
+# copy grub locale
+mkdir -p locale
+if [ ! -e "$boot/locale" -a -f "$CFG" ]; then
+	langs=$(grep -oP "([a-z]{2})(?=_[A-Z]{2})" "$CFG" | sort | uniq)
+	for i in $langs; do
+		fp="/usr/share/locale/$i/LC_MESSAGES/grub.mo"
+		[ -f $fp ] && cp -arf "$fp" "locale/$i.mo"
+	done
+fi
+
+exit 0
+
 # NB: there will be final macro expansion based on actual image sizes
 #     done by features.in/grub/scripts.d/20-propagator-ramdisk-grub
