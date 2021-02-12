@@ -3,16 +3,8 @@
 # copy modules; see also this feature's generate.mk
 
 CFG="$WORKDIR/boot/grub/grub.cfg"
-CFG_EFI="$WORKDIR/EFI/BOOT/grub.cfg"
 
-
-
-if [ -n "$GLOBAL_EFI_BOOTLOADER" -a ! "$GLOBAL_EFI_BOOTLOADER" = "grub-efi" ]; then
-	rm -fr "$WORKDIR/boot"
-	exit 0
-fi
-
-if [ -z "$GLOBAL_EFI_BOOTLOADER" ]; then
+if [ "$GLOBAL_EFI_BOOTLOADER" != 'grub-efi' ]; then
 	case "$GLOBAL_BOOTLOADER" in
 		ieee1275boot|grubpcboot) ;;
 		*) rm -fr "$WORKDIR/boot"
@@ -29,17 +21,7 @@ if [ -n "${GRUB_FILES% }" ]; then
 fi
 
 # number ordering sponsored by shell's pathname expansion
-case "$GLOBAL_BOOTLOADER" in
-	ieee1275boot)
-		grep -hv '^#' $(find .in/*.cfg -not -name *_efi.cfg -not -name *_bios.cfg) > "$CFG" ;;
-	grubpcboot)
-		grep -hv '^#' $(find .in/*.cfg -not -name *_efi.cfg) > "$CFG" ;;
-esac
-
-if [ "$GLOBAL_EFI_BOOTLOADER" = "grub-efi" ]; then
-	mkdir -p "$WORKDIR/EFI/BOOT"
-	grep -hv '^#' $(find .in/*.cfg -not -name *_bios.cfg) > "$CFG_EFI"
-fi
+grep -hv '^#' $(find .in/*.cfg) > "$CFG"
 
 # there should be DEFAULT directive there (at least for alterator-netinst)
 default_change() {
@@ -65,30 +47,20 @@ if ! grep -i '^default' "$CFG"; then
 fi
 }
 
-if [ -f "$CFG" ]; then
-	default_change "$CFG"
-	sed -i 's,@boot_path@,/boot,g' "$CFG"
-	sed -i 's,@efi_bootargs@,,g' "$CFG"
-fi
+default_change "$CFG"
 
-if [ -f .in/EFI_BOOTARGS ]; then
-	EFI_BOOTARGS=$(cat .in/EFI_BOOTARGS)
-fi
+case "$GLOBAL_BOOTLOADER" in
+	ieee1275boot|grubpcboot)
+		BOOT_PATH=/boot;;
+	*)
+		BOOT_PATH=/EFI/BOOT;;
+esac
 
-if [ -f "$CFG_EFI" ]; then
-	default_change "$CFG_EFI"
-	sed -i 's,@boot_path@,/EFI/BOOT,g' "$CFG_EFI"
-	[ -n "$EFI_BOOTARGS" ] &&
-		sed -i "s,@efi_bootargs@,$EFI_BOOTARGS,g" "$CFG_EFI"
-	sed -i "s, @efi_bootargs@,,g" "$CFG_EFI"
-fi
+sed -i "s,@boot_path@,$BOOT_PATH,g" "$CFG"
 
 # snippets are not going into the actual image
 if [ "$DEBUG" != 2 ]; then
 	rm -r .in/
-	cd $WORKDIR
-	[ -f "$CFG" ] || rm -r boot/grub
-	[ ! $(ls -A boot/ | wc -l) -eq 0 ] || rm -r boot/
 fi
 
 # NB: there will be final macro expansion based on actual image sizes
