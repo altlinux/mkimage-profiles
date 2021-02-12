@@ -64,4 +64,4 @@ if [ "$DEBUG" != 2 ]; then
 fi
 
 # NB: there will be final macro expansion based on actual image sizes
-#     done by features.in/grub/scripts.d/20-propagator-ramdisk
+#     done by features.in/grub/scripts.d/20-propagator-ramdisk-grub
