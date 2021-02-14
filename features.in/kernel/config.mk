@@ -25,21 +25,19 @@ endif
 
 # r8168 is a kludge, never install it by default
 use/kernel/net:
-	@$(call add,THE_KMODULES,e1000e igb)
+	@$(call add,THE_KMODULES,e1000e)
 	@$(call add,THE_KMODULES,r8125)
 	@$(call add,MAIN_KMODULES,r8168 rtl8168)
 
 use/kernel/wireless: use/firmware/wireless
-	@$(call add,THE_KMODULES,bcmwl ndiswrapper)
+	@$(call add,THE_KMODULES,bcmwl)
 
-use/kernel/laptop: use/firmware/laptop
-	@$(call add,THE_KMODULES,omnibook tp_smapi)
+use/kernel/laptop: use/firmware/laptop; @:
 
 use/kernel/desktop:
-	@$(call add,THE_KMODULES,lirc v4l)
+	@$(call add,THE_KMODULES,v4l)
 
-use/kernel/drm:
-	@$(call add,THE_KMODULES,drm)
+use/kernel/drm: use/drm; @:
 
 use/kernel/server:
 	@$(call add,THE_KMODULES,ipset kvm)
