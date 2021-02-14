@@ -6,7 +6,7 @@ use/server/base: use/server use/firmware/server \
 	@$(call set,BOOTVGA,)
 	@$(call add,THE_LISTS,server-base)
 	@$(call add,THE_KMODULES,e1000e igb)
-	@$(call add,STAGE1_KMODULES,e1000e igb)
+	@$(call add,STAGE1_KMODULES,e1000e)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 
 use/server/mini: use/server/base use/services/lvm2-disable
@@ -23,9 +23,9 @@ use/server/ovz-base: use/server
 	@$(call add,BASE_LISTS,$(call tags,base openvz))
 
 use/server/ovz: use/server/ovz-base
-	@$(call add,MAIN_KMODULES,ipset ipt-netflow opendpi pf_ring)
+	@$(call add,MAIN_KMODULES,ipset ipt-netflow)
 	@$(call add,MAIN_KMODULES,xtables-addons)	# t6/branch
-	@$(call add,MAIN_KMODULES,drbd kvm)
+	@$(call add,MAIN_KMODULES,drbd9 kvm)
 	@$(call add,MAIN_KMODULES,staging)
 	@$(call add,BASE_LISTS,$(call tags,server openvz))
 
