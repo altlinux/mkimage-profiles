@@ -4,7 +4,6 @@
 # "bare" ALSA (which is good enough for many of us) with persistent levels
 use/sound:
 	@$(call add_feature)
-	@$(call add,THE_KMODULES,alsa sound)
 	@$(call add,THE_LISTS,sound/base)
 	@$(call add,THE_LISTS,$$(THE_SOUND))
 
