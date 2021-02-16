@@ -183,7 +183,7 @@ distro/.regular-server: distro/.regular-server-base \
 	use/server/mini use/firmware/qlogic use/rescue/base \
 	use/ntp/chrony use/cleanup/libs use/bootloader/grub +efi
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
-	@$(call add,MAIN_PACKAGES,aptitude)
+	@$(call add,BASE_PACKAGES,aptitude)
 	@$(call add,CLEANUP_PACKAGES,qt4-common qt5-base-common)
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)

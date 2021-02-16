@@ -14,6 +14,7 @@ eject
 
 # Package management
 apt-repo
+aptitude
 
 # Partition management
 fdisk

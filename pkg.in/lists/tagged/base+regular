@@ -35,6 +35,7 @@ dmidecode@X86
 apt-repo
 apt-rsync
 apt-scripts
+aptitude
 update-kernel
 eepm
 
