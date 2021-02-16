@@ -13,7 +13,7 @@ endif
 # install aarch64 media bootloader
 ifeq (,$(filter-out aarch64,$(ARCH)))
 boot/iso:
-	@$(call set,BOOTLOADER,grubaa64boot)
+	@$(call set,BOOTLOADER,efiboot)
 endif
 
 # firmware is the bootloader
