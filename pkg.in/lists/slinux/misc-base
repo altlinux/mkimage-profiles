@@ -48,6 +48,7 @@ gparted
 #ntfsprogs-
 driconf-
 aspell-ru-lebedev
+vulkan-amdgpu@X86
 
 mate-file-archiver
 unzip
