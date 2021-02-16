@@ -55,10 +55,10 @@ use/kernel/initrd-setup: use/kernel
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ata_piix)
 endif
-ifeq (,$(filter-out i586 x86_64 aarch64 armh e2k% ppc64le,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64 armh e2k% ppc64le mipsel,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,usb)
 endif
-ifneq (,$(filter-out e2k% riscv64,$(ARCH)))
+ifneq (,$(filter-out e2k% riscv64 mipsel,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,qemu)
 endif
 	@$(call add,VM_INITRDMODULES,virtio-scsi virtio-blk virtio-rng virtio_net virtio-gpu)
