@@ -7,13 +7,13 @@ distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
 	mixin/alt-workstation-install \
-        use/memtest use/rescue/base use/bootloader/grub use/luks \
-        use/efi/refind use/efi/memtest86 use/efi/shell \
+	use/memtest use/rescue/base use/bootloader/grub use/luks \
+	use/efi/refind use/efi/memtest86 use/efi/shell \
 	use/install2/repo use/install2/suspend use/live/suspend \
-        use/live/install use/live/x11 use/live/repo use/live/rw \
-        use/vmguest/kvm/x11 use/stage2/kms \
+	use/live/install use/live/x11 use/live/repo use/live/rw \
+	use/vmguest/kvm/x11 use/stage2/kms \
 	use/branding/complete use/docs/license \
-        use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk \
+	use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk \
 	use/e2k/multiseat/801/full use/e2k/x11/101 use/e2k/sound/401
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
