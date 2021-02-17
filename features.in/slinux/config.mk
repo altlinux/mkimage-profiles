@@ -47,13 +47,12 @@ use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 use/slinux/arm-base: use/x11/armsoc use/bootloader/uboot
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-use/slinux/vm-base: vm/systemd \
-	use/oem/vnc use/bootloader/uboot use/slinux/mixin-base
+use/slinux/vm-base:: use/oem/vnc use/bootloader/uboot
 	@$(call set,KFLAVOURS,un-def)
-else
-use/slinux/vm-base: vm/systemd \
-	use/oem use/slinux/mixin-base
 endif
+
+use/slinux/vm-base:: vm/systemd \
+	use/oem use/slinux/mixin-base
 	@$(call add,THE_LISTS,slinux/games-base)
 	@$(call add,THE_LISTS,slinux/graphics-base)
 	@$(call add,THE_LISTS,slinux/multimedia-base)
