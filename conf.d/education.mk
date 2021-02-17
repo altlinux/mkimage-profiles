@@ -123,19 +123,33 @@ endif # distro
 
 ifeq (vm,$(IMAGE_CLASS))
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-vm/education: vm/alt-education; @:
-vm/alt-education: vm/systemd use/repo use/x11/armsoc \
-	use/oem use/bootloader/uboot mixin/education
+vm/.alt-education: vm/systemd use/repo use/oem mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
-vm/alt-education-rpi: vm/alt-education use/arm-rpi4/full; @:
+vm/alt-education:: vm/.alt-education
+
+ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
+vm/alt-education:: use/uboot
+	@$(call add,BASE_LISTS,uboot)
+endif
+
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full; @:
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-education-tegra: vm/alt-education use/aarch64-tegra; @:
+vm/alt-education-tegra: vm/.alt-education use/aarch64-tegra; @:
+endif
+
+ifeq (,$(filter-out armh,$(ARCH)))
+vm/alt-education-mcom02: vm/.alt-education use/armh-mcom02/x11; @:
+endif
+
+ifeq (,$(filter-out mipsel,$(ARCH)))
+vm/alt-education-tavolga: vm/.alt-education use/mipsel-mitx/x11; @:
+vm/alt-education-bfk3: vm/.alt-education use/mipsel-bfk3/x11; @:
 endif
 
 endif
