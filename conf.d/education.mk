@@ -43,7 +43,7 @@ mixin/education-installer: \
 	use/branding/complete \
 	use/install2/vnc use/install2/full \
 	use/l10n/default/ru_RU +vmguest \
-	+efi use/efi/refind use/efi/shell \
+	+efi use/efi/shell \
 	use/isohybrid use/luks \
 	use/install2/fonts \
 	+plymouth +wireless \
