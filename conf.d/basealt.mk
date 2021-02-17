@@ -8,7 +8,7 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
 	mixin/alt-workstation-install \
 	use/memtest use/rescue/base use/bootloader/grub use/luks \
-	use/efi/refind use/efi/memtest86 use/efi/shell \
+	use/efi/memtest86 use/efi/shell \
 	use/install2/repo use/install2/suspend use/live/suspend \
 	use/live/install use/live/x11 use/live/repo use/live/rw \
 	use/vmguest/kvm/x11 use/stage2/kms \
@@ -36,7 +36,6 @@ ifeq (,$(filter-out e2kv4,$(ARCH)))
 endif	# e2kv4
 endif	# e2k%
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
-	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 
 endif	# distro
 
