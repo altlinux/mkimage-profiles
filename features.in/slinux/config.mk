@@ -44,10 +44,8 @@ use/slinux/services-disabled:
 
 use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 
-use/slinux/arm-base: use/x11/armsoc use/bootloader/uboot
-
 ifeq (,$(filter-out riscv64,$(ARCH)))
-use/slinux/vm-base:: use/oem/vnc use/bootloader/uboot
+use/slinux/vm-base:: use/oem/vnc
 	@$(call set,KFLAVOURS,un-def)
 endif
 

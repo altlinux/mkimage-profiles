@@ -16,17 +16,19 @@ distro/slinux: distro/.installer use/slinux/full use/rescue/base
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-vm/slinux: use/slinux/vm-base use/slinux/arm-base; @:
+vm/slinux:: use/slinux/vm-base; @:
 
-vm/slinux-rpi: vm/slinux use/arm-rpi4/full; @:
+ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
+vm/slinux:: use/uboot
+	@$(call add,BASE_LISTS,uboot)
+endif
+
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full; @:
+endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/slinux-tegra: use/slinux/vm-base use/slinux/arm-base \
-	use/aarch64-tegra; @:
+vm/slinux-tegra: use/slinux/vm-base use/aarch64-tegra; @:
 endif
 
-else
-vm/slinux: use/slinux/vm-base; @:
-endif
 endif
