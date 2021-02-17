@@ -35,4 +35,10 @@ ifeq (,$(filter-out armh,$(ARCH)))
 vm/slinux-mcom02: use/slinux/vm-base use/armh-mcom02/x11; @:
 endif
 
+ifeq (,$(filter-out mipsel,$(ARCH)))
+vm/slinux-tavolga: use/slinux/vm-base use/mipsel-mitx/x11; @:
+
+vm/slinux-bfk3: use/slinux/vm-base use/mipsel-bfk3/x11; @:
+endif
+
 endif
