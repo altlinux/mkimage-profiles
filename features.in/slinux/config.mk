@@ -49,7 +49,7 @@ use/slinux/vm-base:: use/oem/vnc
 endif
 
 use/slinux/vm-base:: vm/systemd \
-	use/oem use/slinux/mixin-base
+	use/oem/distro use/slinux/mixin-base
 	@$(call add,THE_LISTS,slinux/games-base)
 	@$(call add,THE_LISTS,slinux/graphics-base)
 	@$(call add,THE_LISTS,slinux/multimedia-base)
