@@ -20,6 +20,11 @@ use/oem/vnc: use/oem use/x11-vnc use/net-eth/dhcp
 use/oem/no-cleanup: use/oem
 	@$(call set,OEM_NO_CLEANUP,yes)
 
+use/oem/distro: use/oem
+	@$(call try,OEM_STEPS,sysconfig notes-license datetime \
+		preinstall net-eth root users setup-finish)
+	@$(call add,THE_PACKAGES,alterator-net-eth)
+
 use/oem/install: use/oem use/repo/main
 	@$(call set,OEM_INSTALL,yes)
 	@$(call try,OEM_STEPS,sysconfig notes-license datetime pkg \
