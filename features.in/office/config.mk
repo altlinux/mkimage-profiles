@@ -37,7 +37,8 @@ use/office/LibreOffice/gtk2 use/office/LibreOffice/gtk3 \
 use/office/LibreOffice/full: use/office/LibreOffice/still \
 	use/office/LibreOffice/gtk3 \
 	use/office/LibreOffice/extensions \
-	use/office/LibreOffice/integrated; @:
+	use/office/LibreOffice/integrated \
+	use/office/LibreOffice/lang; @:
 
 use/office/calligra: use/office
 	@$(call set,THE_OFFICE,calligra)
