@@ -123,7 +123,7 @@ endif # distro
 
 ifeq (vm,$(IMAGE_CLASS))
 
-vm/.alt-education: vm/systemd use/repo use/oem mixin/education
+vm/.alt-education: vm/systemd use/repo use/oem/distro mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
