@@ -23,12 +23,12 @@ thunar-volman-plugin
 thunar-archive-plugin
 
 #screensaver
-xfce4-screensaver@!mipsel
-desktop-screensaver-modules-xscreensaver@!mipsel
-desktop-screensaver-modules-xscreensaver-gl@!mipsel
+xfce4-screensaver@X86
+desktop-screensaver-modules-xscreensaver@X86
+desktop-screensaver-modules-xscreensaver-gl@X86
 
-light-locker@mipsel
-light-locker-settings@mipsel
+light-locker@!X86
+light-locker-settings@!X86
 
 
 #samba
