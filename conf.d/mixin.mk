@@ -106,17 +106,7 @@ mixin/regular-xfce: mixin/xfce-base use/x11/xfce/full \
 
 mixin/regular-xfce-sysv: mixin/xfce-base \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
-	@$(call add,THE_PACKAGES,pnmixer pm-utils elinks mpg123)
-	@$(call add,THE_PACKAGES,alsa-oss ossp whdd wget cdrkit)
-	@$(call add,THE_PACKAGES,qasmixer)
-	@$(call add,THE_PACKAGES,xfce4-screensaver)
-	@$(call add,THE_PACKAGES,sysstat leafpad)
-	@$(call add,THE_PACKAGES,nload)
-	@$(call add,THE_PACKAGES,NetworkManager-tui)
-	@$(call add,THE_PACKAGES,apt-conf-ignore-systemd)
-	@$(call add,THE_PACKAGES,pandoc)
-	@$(call add,THE_PACKAGES,ddrescue)
-	@$(call add,THE_PACKAGES,gnome-disks)
+	@$(call add,THE_LISTS,xfce-sysv)
 
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
