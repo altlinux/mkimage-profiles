@@ -16,7 +16,7 @@ distro/slinux: distro/.installer use/slinux/full use/rescue/base
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/slinux:: use/slinux/vm-base; @:
+vm/slinux:: use/slinux/vm-base use/auto-resize; @:
 
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 vm/slinux:: use/uboot
