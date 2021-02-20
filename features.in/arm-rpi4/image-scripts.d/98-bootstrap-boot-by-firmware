@@ -24,6 +24,7 @@ cat >> /boot/efi/config.txt <<EOF
 enable_uart=1
 disable_overscan=1
 dtparam=audio=on
+hdmi_ignore_edid_audio=1
 
 [pi3]
 kernel=uboot-rpi_3.bin
