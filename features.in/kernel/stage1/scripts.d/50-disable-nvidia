@@ -1,0 +1,3 @@
+#!/bin/sh
+# exclude nvidia to prevent load before kernel module switch
+echo 'BLACKLIST_MODULES += nvidia nvidia-drm nvidia-modeset' >> /etc/initrd.mk
