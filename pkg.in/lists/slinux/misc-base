@@ -121,6 +121,7 @@ alterator-pkg
 alterator-services
 alterator-sysconfig
 alterator-users
+alterator-root
 alterator-x11
 alterator-xkb
 
