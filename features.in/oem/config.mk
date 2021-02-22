@@ -24,9 +24,11 @@ use/oem/distro: use/oem
 	@$(call try,OEM_STEPS,sysconfig notes-license datetime \
 		preinstall net-eth root users setup-finish)
 	@$(call add,THE_PACKAGES,alterator-net-eth)
+	@$(call add,THE_PACKAGES,installer-common-stage3)
 
 use/oem/install: use/oem use/repo/main
 	@$(call set,OEM_INSTALL,yes)
 	@$(call try,OEM_STEPS,sysconfig notes-license datetime pkg \
 		preinstall net-eth root users setup-finish)
 	@$(call add,THE_PACKAGES,alterator-pkg alterator-net-eth)
+	@$(call add,THE_PACKAGES,installer-common-stage3)
