@@ -85,6 +85,9 @@ else
 	@$(call add,THE_LISTS,slinux/browser-chromium)
 	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
 endif
+ifeq (,$(filter-out armh aarch64 i586 x86_64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def)
+endif
 
 use/slinux/base: use/isohybrid use/luks \
 	+plymouth use/memtest +vmguest \
@@ -100,7 +103,6 @@ use/slinux/base: use/isohybrid use/luks \
 	use/vmguest/kvm/x11 use/stage2/kms \
 	use/slinux/mixin-base \
 	use/cleanup/live-no-cleanupdb
-	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,slinux/live)
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
