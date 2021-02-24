@@ -55,7 +55,6 @@ use/slinux/vm-base:: vm/systemd \
 	@$(call add,THE_LISTS,slinux/multimedia-base)
 	@$(call add,THE_LISTS,slinux/net-base)
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
-	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-online-repo)
 	@$(call add,THE_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
