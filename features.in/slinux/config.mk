@@ -54,12 +54,6 @@ use/slinux/vm-base:: vm/systemd \
 	@$(call add,THE_LISTS,slinux/graphics-base)
 	@$(call add,THE_LISTS,slinux/multimedia-base)
 	@$(call add,THE_LISTS,slinux/net-base)
-	@$(call add,THE_PACKAGES,rootfs-installer-features)
-	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
-	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
-	@$(call add,THE_PACKAGES,installer-feature-online-repo)
-	@$(call add,THE_PACKAGES,installer-feature-samba-usershares-stage2)
-	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless \
@@ -69,6 +63,7 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	use/docs/manual use/docs/indexhtml \
 	use/xdg-user-dirs/deep use/slinux/services
 	@$(call set,DOCS,simply-linux)
+	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,THE_LISTS,gnome-p2p)
 	@$(call add,LIVE_LISTS,slinux/games-base)
 	@$(call add,LIVE_LISTS,slinux/graphics-base)
@@ -104,7 +99,6 @@ use/slinux/base: use/isohybrid use/luks \
 	use/slinux/mixin-base \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_LISTS,slinux/live)
-	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 
 use/slinux/full: use/slinux/base
