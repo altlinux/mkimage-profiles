@@ -99,7 +99,6 @@ afpfs-ng
 bindfs
 dosfstools
 exfat-utils
-exofs-utils
 fatback
 fatresize
 fuse-chironfs
