@@ -13,7 +13,9 @@ pandoc
 pm-utils
 pnmixer
 qasmixer
+SysVinit-usermode
 sysstat
 xfce4-screensaver
+vlock
 wget
 whdd
