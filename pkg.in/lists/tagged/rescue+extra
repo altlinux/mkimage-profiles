@@ -63,7 +63,6 @@ openssl
 # Applications/Editors
 biew@X86
 hexedit
-lde
 nano
 tweak
 vim-console
@@ -101,11 +100,9 @@ dosfstools
 exfat-utils
 fatback
 fatresize
-fuse-chironfs
 fuse-chunkfs
 fuse-ciopfs
 fuse-exfat
-fuse-funion
 fuse-zfs@X86
 hfsprogs
 ifuse
