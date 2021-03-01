@@ -26,6 +26,8 @@ alterator-services
 alterator-x11@!E2K
 alterator-xkb
 
+alterator-update-kernel
+
 glxinfo
 glxgears
 xorg-conf-synaptics@X86
