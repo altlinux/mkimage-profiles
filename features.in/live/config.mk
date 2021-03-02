@@ -31,12 +31,7 @@ use/live/no-cleanup: \
 use/live/base: use/live/.base use/net use/deflogin/live
 	@$(call add,LIVE_LISTS,$(call tags,base network))
 
-# rw slice, see http://www.altlinux.org/make-initrd-propagator and #28289
-ifeq (,$(EFI_BOOTLOADER))
 use/live/rw: use/live use/syslinux/live_rw.cfg use/grub/live_rw.cfg; @:
-else
-use/live/rw: use/live use/grub/live_rw.cfg; @:
-endif
 
 # graphical target (not enforcing xorg drivers or blobs)
 use/live/x11: use/live/base use/deflogin/desktop use/x11-autologin use/sound \
