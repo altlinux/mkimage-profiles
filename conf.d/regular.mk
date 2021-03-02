@@ -12,26 +12,26 @@ distro/.regular-bare: distro/.base +net-eth use/kernel/net use/docs/license \
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi; @:
 
 # graphical target (not enforcing xorg drivers or blobs)
-distro/.regular-x11: distro/.regular-base \
-	use/x11/wacom use/x11/amdgpu +vmguest +wireless \
-	use/stage2/cifs use/live/rw use/live/x11 use/live/repo \
-	use/live/install use/live/suspend use/browser/firefox/live
-	@$(call add,LIVE_PACKAGES,livecd-install-apt-cache)
+distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
+	use/x11/wacom use/x11/amdgpu +wireless \
+	use/stage2/cifs use/live/x11 use/live/repo \
+	use/live/suspend use/browser/firefox/live \
+	use/syslinux/ui/gfxboot use/grub/ui/gfxboot
+	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
-	@$(call add,LIVE_PACKAGES,gpm livecd-install-apt-cache)
+	@$(call add,LIVE_PACKAGES,gpm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 
 # WM base target
-distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
-	mixin/regular-desktop \
-	use/syslinux/ui/gfxboot use/grub/ui/gfxboot
-	@$(call add,THE_BRANDING,bootloader)
+distro/.regular-wm: distro/.regular-x11 \
+	mixin/regular-desktop +vmguest \
+	use/live/rw use/live/install
+	@$(call add,LIVE_PACKAGES,livecd-install-apt-cache)
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm use/branding/full \
 	use/firmware/laptop +systemd +systemd-optimal
-	@$(call add,THE_BRANDING,bootloader)
 	@$(call set,KFLAVOURS,std-def)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
