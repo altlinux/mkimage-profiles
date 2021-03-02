@@ -31,8 +31,7 @@ distro/.regular-wm: distro/.regular-x11 \
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm use/branding/full \
-	use/firmware/laptop +systemd +systemd-optimal
-	@$(call set,KFLAVOURS,std-def)
+	use/firmware/laptop +systemd +systemd-optimal; @:
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
