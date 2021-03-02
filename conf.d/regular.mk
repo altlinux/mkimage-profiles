@@ -23,7 +23,8 @@ distro/.regular-x11: distro/.regular-base \
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 mixin/regular-x11 \
-	mixin/regular-desktop use/syslinux/ui/gfxboot
+	mixin/regular-desktop \
+	use/syslinux/ui/gfxboot use/grub/ui/gfxboot
 	@$(call add,THE_BRANDING,bootloader)
 
 # DE base target
