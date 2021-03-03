@@ -3,6 +3,7 @@ mate-applets
 mate-control-center
 mate-desktop
 mate-media
+mate-menus
 mate-notification-daemon
 mate-panel
 mate-polkit
@@ -15,7 +16,6 @@ yelp
 
 # tutorial
 mate-user-guide
-mate-menus
 
 # Utilities
 mate-system-monitor
@@ -26,18 +26,24 @@ mate-image-viewer
 parcellite
 mate-menu-editor
 mate-power-manager
-mate-file-manager-open-terminal
-mate-file-manager-image-converter
-mate-file-manager-extensions
-mate-file-manager-wallpaper
 mate-backgrounds
 mate-system-log
 gnome-keyring
 seahorse
+mate-utils
+mate-sensors-applet
 
 # Applications
-## Default file manager
+## Default file manager and extesnsions
 mate-file-manager
+mate-file-manager-actions
+mate-file-manager-beesu
+mate-file-manager-extensions
+mate-file-manager-image-converter
+mate-file-manager-open-terminal
+mate-file-manager-sendto
+mate-file-manager-share
+mate-file-manager-wallpaper
 ## ALT bug 39638
 gvfs
 ## Default terminal emulator
@@ -46,6 +52,11 @@ mate-terminal
 mate-file-manager-archiver
 ## Default text editor
 mate-text-editor
+## pdf viewer
+mate-document-viewer
+mate-document-viewer-djvu
+mate-document-viewer-thumbnailer
+mate-document-viewer-caja
 
 # Look & Feel
 ## Default themes
