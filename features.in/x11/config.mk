@@ -5,7 +5,7 @@
 
 ## hardware support
 # the very minimal driver set
-use/x11: use/drm
+use/x11:
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$(call tags,base xorg))
 
@@ -19,7 +19,7 @@ use/x11/xorg:: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
 endif
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/x11/intel: use/x11
+use/x11/intel: use/x11 use/drm
 	@$(call add,THE_PACKAGES,xorg-drv-intel)
 	@$(call add,THE_PACKAGES,xorg-dri-intel)	### #25044
 else
@@ -27,7 +27,7 @@ use/x11/intel: use/x11; @:
 endif
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
-use/x11/armsoc: use/x11 use/firmware
+use/x11/armsoc: use/x11 use/firmware use/drm
 	@$(call add,THE_PACKAGES,xorg-dri-armsoc)
 else
 use/x11/armsoc: use/x11; @:
@@ -38,13 +38,13 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 use/x11/xorg:: use/x11/radeon use/x11/amdgpu use/x11/nouveau use/drm/full
 
 ifeq (,$(filter-out e2kv4,$(ARCH)))
-use/x11/mga2: use/x11
+use/x11/mga2: use/x11 use/drm
 	@$(call add,THE_PACKAGES,xorg-drv-mga2)
 else
 use/x11/mga2: use/x11; @:
 endif
 
-use/x11/smi: use/x11
+use/x11/smi: use/x11 use/drm
 	@$(call add,THE_PACKAGES,xorg-drv-smi)
 else
 use/x11/smi: use/x11; @:
