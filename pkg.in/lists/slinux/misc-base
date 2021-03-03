@@ -10,6 +10,7 @@ os-prober
 make-initrd-lvm
 shadow-change
 dhcpcd
+test-audio
 
 telnet
 b43-fwcutter
