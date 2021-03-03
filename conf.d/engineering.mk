@@ -4,8 +4,9 @@ mixin/alt-engineering-install: engineering_groups = $(addprefix engineering/,\
 mixin/alt-engineering-live: engineering_lists = $(addprefix engineering/,\
 	2d-cad 3d-cad 3d-printer apcs cam cnc eda scada misc)
 
-mixin/alt-engineering: mixin/regular-lxqt use/x11/lightdm/gtk \
-	+systemd +systemd-optimal mixin/p9; @:
+mixin/alt-engineering: mixin/regular-mate use/x11/lightdm/gtk \
+	+systemd +systemd-optimal mixin/p9
+	@$(call add,THE_PACKAGES,theme-mate-windows)
 
 mixin/alt-engineering-install: mixin/alt-engineering
 	@$(call add,MAIN_GROUPS,$(engineering_groups))
