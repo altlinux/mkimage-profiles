@@ -14,11 +14,11 @@ endif
 	@$(call add,THE_PACKAGES,rpi4-boot-nouboot-filetrigger)
 	@$(call add,THE_PACKAGES,rpi4-boot-uboot-filetrigger)
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
-	@$(call add,THE_PACKAGES,brcm-patchram-plus)
+	@$(call add,THE_PACKAGES,pi-bluetooth)
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd-wait-online)
 
 use/arm-rpi4/x11: use/arm-rpi4
-	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd attach-bluetooth)
+	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd hciuart)
 
 use/arm-rpi4/kernel: use/arm-rpi4
 ifeq (aarch64,$(ARCH))
