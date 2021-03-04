@@ -1,9 +1,13 @@
 # p9 base kits
 
-mixin/p9: use/browser/firefox/esr
+mixin/p9::
 	@$(call set,BRANDING,alt-starterkit)
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-p9-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT p9 $$(IMAGE_FLAVOUR)/$(ARCH))
+
+ifneq (,$(filter-out aarch64,$(ARCH)))
+mixin/p9:: use/browser/firefox/esr
+endif
 
 ifeq (distro,$(IMAGE_CLASS))
 
