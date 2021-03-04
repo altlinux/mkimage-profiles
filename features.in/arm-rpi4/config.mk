@@ -22,7 +22,7 @@ use/arm-rpi4/x11: use/arm-rpi4
 
 use/arm-rpi4/kernel: use/arm-rpi4
 ifeq (aarch64,$(ARCH))
-	@$(call set,KFLAVOURS,rpi-def rpi-un)
+	@$(call set,KFLAVOURS,rpi-un rpi-def)
 else
 	@$(call set,KFLAVOURS,rpi-def)
 endif
