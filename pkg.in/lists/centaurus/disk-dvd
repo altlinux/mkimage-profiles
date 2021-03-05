@@ -74,9 +74,6 @@ mariadb-server
 php7-soap
 php7-calendar
 
-fprintd
-pam_fprintd
-libfprint2
 xprobe2
 
 libqt4-sql-mysql
