@@ -90,6 +90,7 @@ system-report
 systemd-analyze
 tcpdump
 udev-android
+udev-extras
 udev-rule-generator-cdrom
 udev-rules-ioschedulers
 update-kernel
