@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=NetworkManager daemon
+X-Alterator-PackageList=centaurus/nm-daemon
+X-Alterator-Required=no
+Name[ru_RU]=Система управления сетевыми интерфейсами NetworkManager
+
