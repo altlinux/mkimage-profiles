@@ -17,7 +17,9 @@ use/uboot: use/kernel/initrd-setup $(UBOOT_TTY)
 ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,UBOOT_BOOTARGS,earlyprintk debug no_alt_virt_keyboard)
 endif
+	@$(call try,UBOOT_TIMEOUT,50)
 	@$(call xport,UBOOT_BOOTARGS)
+	@$(call xport,UBOOT_TIMEOUT)
 else
 use/uboot: ; @:
 endif
