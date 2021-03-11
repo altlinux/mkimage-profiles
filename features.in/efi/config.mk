@@ -16,7 +16,7 @@ use/efi:
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
-	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION FB_EFI)
+	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION FB_EFI EFIVAR_FS)
 	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
 ifeq (x86_64,$(ARCH))
 	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL) $$(EFI_BOOTLOADER))
