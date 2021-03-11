@@ -28,7 +28,7 @@ hdmi_ignore_edid_audio=1
 
 [pi3]
 kernel=uboot-rpi_3.bin
-#dtoverlay=vc4-fkms-v3d
+dtoverlay=vc4-fkms-v3d
 
 [pi4]
 kernel=uboot-rpi_4.bin
