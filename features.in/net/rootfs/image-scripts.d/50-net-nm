@@ -7,5 +7,9 @@ defcfg=/etc/net/ifaces/default/options-eth
 if  [ -x /usr/sbin/NetworkManager -o -x /usr/sbin/connmand ]; then
 	shell_config_set "$defcfg" NM_CONTROLLED yes
 	shell_config_set "$defcfg" DISABLED yes
-	shell_config_set "$defcfg" BOOTPROTO static
+	if [ NM_Native = 'yes' ]; then
+		shell_config_set "$defcfg" BOOTPROTO static
+	else
+		shell_config_set "$defcfg" BOOTPROTO dhcp
+	fi
 fi

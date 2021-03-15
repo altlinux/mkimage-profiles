@@ -1,4 +1,5 @@
 +nm: use/net/nm; @:
++nm-native: use/net/nm/native; @:
 
 use/net: use/services use/pkgpriorities
 	@$(call add_feature)
@@ -21,6 +22,11 @@ use/net/nm: use/net
 	@$(call add,DEFAULT_SERVICES_ENABLE,network) # need for NM?
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-save-nfs) # keep interface up
+	@$(call xport,NM_native)
+
+# use NetworkManager(native)
+use/net/nm/native: use/net/nm
+	@$(call set,NM_Native,yes)
 
 # NOT recommended unless you know what you're doing
 # (e.g. dnsmasq can win a race against dhcpcd)
