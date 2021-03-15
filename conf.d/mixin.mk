@@ -48,8 +48,9 @@ mixin/regular-x11: use/luks use/volumes/regular \
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 
 # common WM live/installer bits
-mixin/regular-desktop: +alsa +power use/x11/xorg use/xdg-user-dirs use/l10n \
-	use/fonts/otf/adobe use/fonts/otf/mozilla use/net-eth use/branding/notes
+mixin/regular-desktop: +alsa +power +nm-native use/net-eth \
+	use/x11/xorg use/xdg-user-dirs use/l10n \
+	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 ifneq (,$(filter-out e2k%,$(ARCH)))
@@ -73,7 +74,6 @@ mixin/regular-wmaker: use/fonts/ttf/redhat use/x11/wmaker
 
 mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,regular icewm))
-	@$(call add,THE_LISTS,$(call tags,desktop nm))
 	@$(call add,THE_PACKAGES,icewm-startup-networkmanager)
 	@$(call add,THE_PACKAGES,mnt)
 
@@ -92,7 +92,7 @@ mixin/regular-gnome3: use/x11/gnome3 use/fonts/ttf/redhat +nm-gtk
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
-	+nm +pulse
+	+pulse
 	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
 
 mixin/xfce-base: use/x11/xfce +nm-gtk \

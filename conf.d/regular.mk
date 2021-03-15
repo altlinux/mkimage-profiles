@@ -151,7 +151,7 @@ distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 \
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth
 	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
 
-distro/regular-deepin: distro/.regular-gtk use/x11/deepin +nm
+distro/regular-deepin: distro/.regular-gtk use/x11/deepin
 	@$(call add,THE_PACKAGES,deepin-regular)
 
 distro/regular-kde5: distro/.regular-desktop \
