@@ -23,22 +23,7 @@ ISODATA_COPY = $(BOOT_COPY)
 
 DATE_F    := $(shell date +%F)
 
-ifeq (isodata,$(IMAGE_PACKTYPE))
-BOOT_TYPE :=
-else
-ifeq (,$(filter-out e2k%,$(ARCH)))
-BOOT_TYPE := e2kboot
-endif
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-BOOT_TYPE := isolinux
-endif
-ifeq (,$(filter-out aarch64,$(ARCH)))
-BOOT_TYPE := efiboot
-endif
-ifeq (,$(filter-out ppc64le,$(ARCH)))
-BOOT_TYPE := ieee1275boot
-endif
-endif
+BOOT_TYPE := $(BOOTLOADER)
 
 all: | $(GLOBAL_DEBUG) prep copy-subdirs copy-tree run-scripts pack-image \
 	postprocess $(GLOBAL_CLEAN_WORKDIR)
