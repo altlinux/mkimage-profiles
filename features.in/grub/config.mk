@@ -9,7 +9,6 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call try,BOOTVGA,normal)
 endif
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
-	@$(call set,IMAGE_PACKTYPE,boot)
 
 # UI is overwritten
 use/grub/ui/%: use/grub

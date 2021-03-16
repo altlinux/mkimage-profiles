@@ -8,7 +8,6 @@ use/syslinux: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 	@$(call add,SYSLINUX_FILES,/usr/lib/syslinux/pxelinux.0)
 	@$(call try,META_SYSTEM_ID,SYSLINUX)
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
-	@$(call set,IMAGE_PACKTYPE,boot)
 	@$(call xport,SYSLINUX_DEFAULT)
 else
 use/syslinux: ; @:
