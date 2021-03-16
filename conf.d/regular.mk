@@ -7,6 +7,9 @@ distro/.regular-bare: distro/.base +net-eth use/kernel/net use/docs/license \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call try,SAVE_PROFILE,yes)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
 
 # base target (for most images)
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi; @:
