@@ -8,12 +8,6 @@ fatresize
 
 make-initrd-ucode@X86
 
-lvm2
-make-initrd-lvm
-
-mdadm
-make-initrd-mdadm
-
 shadow-change
 
 openssh
