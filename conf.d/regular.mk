@@ -21,6 +21,7 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 	use/live/suspend use/browser/firefox/live \
 	use/syslinux/ui/gfxboot use/grub/ui/gfxboot
 	@$(call add,THE_BRANDING,bootloader)
+	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
