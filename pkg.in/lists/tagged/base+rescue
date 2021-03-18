@@ -30,7 +30,7 @@ mc
 
 # Provisioning
 udpcast
-partclone@X86
+partclone
 
 # l10n
 glibc-locales
