@@ -35,7 +35,7 @@ xorg-conf-synaptics@X86
 cpu-x@X86
 fuse-exfat
 hdparm
-inxi@X86
+inxi
 lcdtest
 lm_sensors3
 lsblk
@@ -57,7 +57,7 @@ sysfsutils
 
 mc
 
-apf@X86
+apf
 
 udev-extras
 
