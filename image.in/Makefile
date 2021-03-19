@@ -65,7 +65,7 @@ GLOBAL_HSH_APT_CONFIG := $(wildcard $(APTCONF))
 
 # take the latter part for complex-specified subprofiles like stage2@live;
 # care to exclude non-directories holding no makefiles like rootfs
-SUBDIRS = $(sort $(dir $(wildcard $(addsuffix /Makefile,$(SUBPROFILE_DIRS)))))
+SUBDIRS = $(dir $(wildcard $(addsuffix /Makefile,$(SUBPROFILE_DIRS))))
 
 # the lib/build-*.mk comes from features.in/build-*/lib
 include $(sort $(wildcard lib/*.mk))
