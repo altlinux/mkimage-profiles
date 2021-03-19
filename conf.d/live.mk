@@ -1,19 +1,29 @@
 # live images
 ifeq (distro,$(IMAGE_CLASS))
 
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 distro/dos: distro/.boot use/dos use/syslinux/ui/menu
 	@$(call set,RELNAME,ALT FreeDOS)
 
+distro/syslinux: distro/.boot \
+	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt
+	@$(call set,BOOTLOADER,isolinux)
+endif
+
+ifeq (,$(filter-out i586 x86_64 aarch64 ppc64le riscv64,$(ARCH)))
+distro/grub: distro/.boot use/grub use/memtest +efi; @:
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
+endif
+
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
-	use/efi/signed use/efi/refind use/efi/shell; @:
+	use/efi/shell +efi; @:
 
 distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
 	@$(call set,SYSLINUX_CFG,rescue_remote)
 	@$(call set,SYSLINUX_DIRECT,1)
 	@$(call add,RESCUE_PACKAGES,livecd-net-eth)
-
-distro/syslinux: distro/.boot \
-	use/syslinux/localboot.cfg use/syslinux/ui/vesamenu use/hdt; @:
 
 distro/.live-base: distro/.base use/live/base; @:
 distro/.live-x11: distro/.live-base use/live/x11; @:
