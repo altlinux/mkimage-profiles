@@ -3,9 +3,9 @@
 # check relevant kernel features availability
 
 CONFIGS=/boot/config-*
-GZ_OPTS="-comp gzip -noI"
+GZ_OPTS="-comp gzip"
 XZ_OPTS="-comp xz"
-LZO_OPTS="-comp lzo -noI"
+LZO_OPTS="-comp lzo"
 
 verbose() { [ -z "$GLOBAL_VERBOSE" ] || echo "** $@" >&2; }
 fatal() { echo "** error: $@" >&2; exit 1; }
@@ -43,7 +43,7 @@ options()
 		if [ "$GLOBAL_SQUASHFS" = "tight" ] && configured "X86"; then
 			XZ_OPTS="$XZ_OPTS -b 524288 -Xbcj x86"
 		else
-			XZ_OPTS="$XZ_OPTS -b 262144 -noI"
+			XZ_OPTS="$XZ_OPTS -b 262144"
 		fi
 		echo "$XZ_OPTS"
 	else	# go fast, or even faster if possible
