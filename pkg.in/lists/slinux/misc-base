@@ -122,6 +122,7 @@ alterator-packages
 alterator-pkg
 alterator-services
 alterator-sysconfig
+alterator-update-kernel
 alterator-users
 alterator-root
 alterator-x11
