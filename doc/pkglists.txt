@@ -18,7 +18,8 @@
 ** SYSTEM_PACKAGES, STAGE2_PACKAGES
 ** STAGE1_KMODULES, STAGE1_KMODULES_REGEXP,
     STAGE2_KMODULES, STAGE2_KMODULES_REGEXP
-*** STAGE1_KFLAVOUR или последний из KFLAVOURS
+*** STAGE1_KFLAVOURS или KFLAVOURS для grub, для других загрузчиков
+    последний из STAGE1_KFLAVOURS или KFLAVOURS
 
 * install2: компактная "живая" система, содержащая только инсталятор
 ** см. stage2
@@ -47,4 +48,5 @@
 ** STAGE1_PACKAGES, SYSTEM_PACKAGES
 ** STAGE1_PACKAGES_REGEXP
 ** STAGE1_KMODULES_REGEXP
-*** STAGE1_KFLAVOUR или последний из KFLAVOURS
+*** STAGE1_KFLAVOURS или KFLAVOURS для grub, для других загрузчиков
+    последний из STAGE1_KFLAVOURS или KFLAVOURS

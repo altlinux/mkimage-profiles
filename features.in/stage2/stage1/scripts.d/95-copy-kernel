@@ -14,15 +14,16 @@ esac
 
 if [ -L "/boot/$kname" ]; then
 	kimage="$(readlink -ev /boot/$kname)"
-else
-	kimage="$(find /boot -type f -name "$kname-*" -print -quit)"
+	kverdef="${kimage#/boot/$kname-}"
 fi
 
-if [ -n "$kimage" ]; then
-	cp -af "$kimage" boot/$kname
-	[ ! -f /boot/full.cz ] ||
-		cp -af /boot/full.cz boot/full.cz
-fi
+kimage="$(find /boot -type f -name "$kname-*")"
+propagator="$(find /boot -type f -name 'full-*.cz')"
+
+cp $verbose -af $kimage boot/
+mv boot/$kname-$kverdef boot/$kname
+cp $verbose -af $propagator boot/
+mv boot/full-$kverdef.cz boot/full.cz
 
 # config is generated in mkimage
 case "$GLOBAL_EFI_BOOTLOADER" in

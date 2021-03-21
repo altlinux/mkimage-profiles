@@ -32,9 +32,8 @@ NB: пути приводятся от верхнего уровня; проек
 * features.in/kernel/stage1/scripts.d/80-make-initrd
 * features.in/stage2/stage1/scripts.d/03-test-kernel
 * sub.in/stage1/Makefile
-** ожидают, что в stage1 попадёт строго одно ядро сообразно
-    явному указанию в STAGE1_KFLAVOUR (либо последнее указанное
-    в KFLAVOURS)
+** если используется загрузчик отличный от grub, то в stage1 попадёт
+   последнее ядро, указанное в STAGE1_KFLAVOURS или KFLAVOURS
 ** если добавить какой-либо kernel-image в STAGE1_PACKAGES*,
     результат может быть неожиданным
 ** обратите внимание: bin/tar2fs умеет несколько ядер

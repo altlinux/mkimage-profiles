@@ -11,23 +11,20 @@ case "`arch`" in
 		;;
 esac
 
-if [ -L /boot/$kname ]; then
-	kimage="$(readlink -mv /boot/$kname)"
-else
-	kimage="$(find /boot -type f -name "$kname-*" -print -quit)"
-fi
-kver="${kimage#/boot/$kname-}"
+kimage="$(find /boot -type f -name "$kname-*")"
 
-mkmodpack -p /.in/modules -o /tmp/modules -k "$kver"
+rm -f /boot/full*.cz
 
-rm -f /boot/full.cz
+for kver in $kimage; do
+	kver="${kver#/boot/$kname-}"
+	mkmodpack -p /.in/modules -o /tmp/modules-"$kver" -k "$kver"
+	cat "$libdir/propagator/initfs" /tmp/modules-"$kver" > /boot/full-"$kver".cz
 
-[ ! -f /tmp/modules ] ||
-	cat "$libdir/propagator/initfs" /tmp/modules > /boot/full.cz
+	sed \
+		-e "s,@LIBDIR@,$libdir," \
+		-e "s,@TMPDIR@,/tmp,g" \
+		< "$WORKDIR/initfs" |
+		gencpio - |
+		gzip -c >> /boot/full-"$kver".cz
 
-sed \
-	-e "s,@LIBDIR@,$libdir," \
-	-e "s,@TMPDIR@,/tmp,g" \
-	< "$WORKDIR/initfs" |
-	gencpio - |
-	gzip -c >> /boot/full.cz
+done

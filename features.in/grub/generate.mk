@@ -99,9 +99,6 @@ bootargs: clean
 		sed -i "s, lang=.lang,,g" $(DSTCFGS); \
 	fi; \
 	sed -i "/lang=@LOCALE@/d" $(DSTCFGS)
-	@if [ $$(echo $(KFLAVOURS) | wc -w) -gt 1 ]; then \
-		sed -i "s,@KFLAVOUR@,$(KFLAVOURS),g" $(DSTCFGS); \
-	fi
 	GRUBTHEME=$(GRUBTHEME); \
 	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS)

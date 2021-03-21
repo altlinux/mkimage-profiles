@@ -25,18 +25,29 @@ include stage2cfg.mk
 # requisite stuff
 IMAGE_PACKAGES += $(SYSTEM_PACKAGES) $(STAGE2_PACKAGES)
 
-# here we also try and come up with the stage1 kernel/modules, if any;
-# no kernel flavour specified will result in no modules for stage1 vmlinuz
-STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
+# here we try and come up with the installer kernel/modules, if any;
+# only for grub allowed multiple kernels, for other a single kernel
+# might be needed (STAGE1_KFLAVOURS sets explicitly);
+# kernel image copied from instrumental chroot into .work/boot/
+ifeq (grubpcboot,$(BOOTLOADER))
+STAGE1_KFLAVOURS ?= $(KFLAVOURS)
+endif
+ifeq (grub-efi,$(EFI_BOOTLOADER))
+STAGE1_KFLAVOURS ?= $(KFLAVOURS)
+endif
+ifeq (ieee1275boot,$(BOOTLOADER))
+STAGE1_KFLAVOURS ?= $(KFLAVOURS)
+endif
+STAGE1_KFLAVOURS ?= $(lastword $(KFLAVOURS))
 
-ifeq (,$(STAGE1_KFLAVOUR))
-$(error STAGE1_KFLAVOUR is utterly empty; cannot guess either)
+ifeq (,$(STAGE1_KFLAVOURS))
+$(error STAGE1_KFLAVOURS is utterly empty; cannot guess either)
 endif
 
 # need kernel modules only (which require corresponding kernel-image);
 # these go into work chroot; NB: no vmlinuz there (unless live-install)
 IMAGE_PACKAGES_REGEXP += $(call kpackages, \
-			 $(STAGE1_KFLAVOUR), \
+			 $(STAGE1_KFLAVOURS), \
 			 $(STAGE1_KMODULES) $(STAGE1_KMODULES_REGEXP) \
 			 $(STAGE2_KMODULES) $(STAGE2_KMODULES_REGEXP))
 

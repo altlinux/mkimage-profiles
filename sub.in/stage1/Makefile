@@ -19,16 +19,25 @@ COPY_TREE = ./files
 include $(MKIMAGE_PREFIX)/targets.mk
 
 # here we try and come up with the installer kernel/modules, if any;
-# only a single kernel might be needed (STAGE1_KFLAVOUR sets explicitly);
-# kernel image copied from instrumental chroot into .work/syslinux/alt0/
-
-STAGE1_KFLAVOUR ?= $(lastword $(KFLAVOURS))
+# only for grub allowed multiple kernels, for other a single kernel
+# might be needed (STAGE1_KFLAVOURS sets explicitly);
+# kernel image copied from instrumental chroot into .work/boot/
+ifeq (grubpcboot,$(BOOTLOADER))
+STAGE1_KFLAVOURS ?= $(KFLAVOURS)
+endif
+ifeq (grub-efi,$(EFI_BOOTLOADER))
+STAGE1_KFLAVOURS ?= $(KFLAVOURS)
+endif
+ifeq (ieee1275boot,$(BOOTLOADER))
+STAGE1_KFLAVOURS ?= $(KFLAVOURS)
+endif
+STAGE1_KFLAVOURS ?= $(lastword $(KFLAVOURS))
 
 # propagator needed iff stage1 kernel installed (not for e.g. syslinux.iso)
-ifneq "$(STAGE1_KFLAVOUR)" ""
-GLOBAL_STAGE1_KFLAVOUR := $(STAGE1_KFLAVOUR)
+ifneq "$(STAGE1_KFLAVOURS)" ""
+GLOBAL_STAGE1_KFLAVOURS := $(STAGE1_KFLAVOURS)
 CHROOT_PACKAGES_REGEXP := $(call kpackages, \
-	$(STAGE1_KFLAVOUR),$(STAGE1_KMODULES),$(STAGE1_KMODULES_REGEXP))
+	$(STAGE1_KFLAVOURS),$(STAGE1_KMODULES),$(STAGE1_KMODULES_REGEXP))
 ifneq "$(findstring stage2,$(SUBPROFILES))" ""	### assumes stage2 ~ propagator
 LIST_MODULES = .work/chroot/.in/modules
 PREPARE_MODULES = prepare-modules
@@ -45,7 +54,7 @@ GLOBAL_SQUASHFS := $(SQUASHFS)
 
 prepare-modules:
 	@echo $(foreach V,$(STAGE1_MODLISTS),$(wildcard modules.d/??-$(V))) \
-	| xargs -r -- cat >> $(PROPAGATOR_MAR_MODULES)
+	| xargs -r -- cat >> $(LIST_MODULES)
 
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for sub.in/stage2/Makefile to include

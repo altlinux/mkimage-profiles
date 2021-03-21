@@ -49,18 +49,23 @@ fi
 
 default_change "$CFG"
 
-case "$GLOBAL_BOOTLOADER" in
-	ieee1275boot|grubpcboot)
-		BOOT_PATH=/boot;;
-	*)
-		BOOT_PATH=/EFI/BOOT;;
-esac
-
-sed -i "s,@boot_path@,$BOOT_PATH,g" "$CFG"
-
 # snippets are not going into the actual image
 if [ "$DEBUG" != 2 ]; then
 	rm -r .in/
+fi
+
+# change kernels version for multiple kernels only
+if [ $(echo "$GLOBAL_KFLAVOURS" | wc -w) -gt 1 ]; then
+	kver=
+	echo $GLOBAL_KFLAVOURS
+	for KFLAVOUR in $GLOBAL_KFLAVOURS; do
+		kver+=" $(rpm -qa 'kernel-image*' \
+			--qf '%{version}-%{name}-%{release}\n' \
+			| grep "$KFLAVOUR" \
+			| sed 's/kernel-image-//')"
+	done
+
+	sed -i "s,@KFLAVOUR@,$kver,g" $CFG
 fi
 
 # copy grub theme
