@@ -17,7 +17,7 @@ use/server/mini: use/server/base use/services/lvm2-disable
 	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus)
 
 use/server/ovz-base: use/server
-	@$(call set,STAGE1_KFLAVOUR,std-def)
+	@$(call set,STAGE1_KFLAVOURS,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
 	@$(call add,BASE_PACKAGES,lftp wget hdparm)
 	@$(call add,BASE_LISTS,$(call tags,base openvz))
@@ -31,7 +31,7 @@ use/server/ovz: use/server/ovz-base
 
 use/server/virt: use/server use/kernel
 	@$(call add,BASE_PACKAGES,openssh)
-	@$(call set,STAGE1_KFLAVOUR,std-def)
+	@$(call set,STAGE1_KFLAVOURS,std-def)
 	@$(call set,KFLAVOURS,std-def)
 	@$(call add,THE_KMODULES,kvm)
 
