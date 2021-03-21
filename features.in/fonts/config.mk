@@ -7,11 +7,7 @@ use/fonts:
 	@$(call xport,FONT_FEATURES_DISABLE)
 
 # standalone target to specify non-bitmap installer fonts
-use/fonts/install2:
-	@$(call try,INSTALL2_FONTS,fonts-ttf-google-croscore-arimo)
-	@$(call add,INSTALL2_PACKAGES,$$(INSTALL2_FONTS))
-
-use/fonts/system:
+use/fonts/install2 use/fonts/system:
 	@$(call try,SYSTEM_FONTS,fonts-ttf-google-croscore-arimo)
 	@$(call add,SYSTEM_PACKAGES,$$(SYSTEM_FONTS))
 
