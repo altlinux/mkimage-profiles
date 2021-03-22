@@ -128,7 +128,13 @@ distro/regular-gnustep-sysv: distro/.regular-desktop-sysv \
 distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
-distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce use/kernel/latest;@:
+distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,KFLAVOURS,std-def un-def)
+endif
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,mp un-def)
+endif
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
