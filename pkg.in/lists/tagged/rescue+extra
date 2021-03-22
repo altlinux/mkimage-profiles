@@ -97,12 +97,11 @@ squashfs-tools
 afpfs-ng
 bindfs
 dosfstools
-exfat-utils
+exfatprogs
 fatback
 fatresize
 fuse-chunkfs
 fuse-ciopfs
-fuse-exfat
 fuse-zfs@X86
 hfsprogs
 ifuse
