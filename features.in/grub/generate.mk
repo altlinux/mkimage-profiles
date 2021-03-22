@@ -102,6 +102,14 @@ bootargs: clean
 	GRUBTHEME=$(GRUBTHEME); \
 	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS)
+	@echo STAGE1_INITRD=$(STAGE1_INITRD)
+	@if [ "$(STAGE1_INITRD)" = PROPAGATOR ]; then \
+		sed -i "s,@initrd@,full," $(DSTCFGS); \
+		sed -i "s,@initrd_ext@,cz," $(DSTCFGS); \
+	else \
+		sed -i "s,@initrd@,initrd," $(DSTCFGS); \
+		sed -i "s,@initrd_ext@,img," $(DSTCFGS); \
+	fi
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \

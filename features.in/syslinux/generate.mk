@@ -90,6 +90,11 @@ bootargs: clean
 		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTCFGS); \
 	fi; \
 	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTCFGS)
+	@if [ "$(STAGE1_INITRD)" = PROPAGATOR ]; then \
+		sed -i "s,@initrd@,full.cz," $(DSTCFGS); \
+	else \
+		sed -i "s,@initrd@,initrd.img," $(DSTCFGS); \
+	fi
 
 clean: copy
 	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
