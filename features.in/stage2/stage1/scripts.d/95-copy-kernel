@@ -19,11 +19,18 @@ fi
 
 kimage="$(find /boot -type f -name "$kname-*")"
 propagator="$(find /boot -type f -name 'full-*.cz')"
+[ -n "$propagator" ] ||
+	initrd="$(find /boot -type f -name 'initrd-*.img')"
 
 cp $verbose -af $kimage boot/
 mv boot/$kname-$kverdef boot/$kname
-cp $verbose -af $propagator boot/
-mv boot/full-$kverdef.cz boot/full.cz
+if [ -n "$propagator" ]; then
+	cp $verbose -af $propagator boot/
+	mv boot/full-$kverdef.cz boot/full.cz
+else
+	cp $verbose -af $initrd boot/
+	mv boot/initrd-$kverdef.img boot/initrd.img
+fi
 
 # config is generated in mkimage
 case "$GLOBAL_EFI_BOOTLOADER" in
