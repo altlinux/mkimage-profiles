@@ -152,7 +152,7 @@ rekonq-@ARM
 xdg-user-dirs
 x-cursor-theme-jimmac
 
-plymouth
+plymouth@!E2K
 #branding-simply-linux-bootsplash
 
 # Office
