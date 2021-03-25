@@ -1,0 +1,20 @@
+#!/bin/sh
+# postprocess configurations
+# set special automatic method
+# workaround the bug 39811
+
+gcfg='boot/grub/grub.cfg'
+scfg='syslinux/*.cfg'
+
+cd "$WORKDIR"
+
+# apply method disk with uuid if available
+[ -n "$GLOBAL_UUID_ISO" ] || exit 0
+
+if [ -n "$(find $scfg)" ]; then
+	sed -i "s/automatic=method:cdrom/automatic=method:disk,uuid:$GLOBAL_UUID_ISO/" $scfg
+fi
+
+if [ -f "$gcfg" ]; then
+	sed -i "s/automatic=method:cdrom/automatic=method:disk,uuid:$GLOBAL_UUID_ISO/" $gcfg
+fi

@@ -1,0 +1,13 @@
+По умолчанию при сборке образа xorriso генерирует UUID образа
+вида YYYY-MM-DD-hh-mm-ss-cc из текущего времени.
+Если в командной строке xorriso есть пареметр
+-volume_date uuid YYYYMMDDhhmmsscc
+то UUID образа генерируется из него.
+Данная фича читает текущее время и создаёт переменные:
+UUID_ISO, содержащую YYYY-MM-DD-hh-mm-ss-cc
+UUID_ISO_SHRT, содержащую YYYYMMDDhhmmsscc
+Также фича добавляет в initrd файл
+/lib/udev/rules.d/60-cdrom_id.rules
+Это позволяет идентифицировать CD/DVD по UUID
+и использовать для загрузки инсталлятора
+method:disk,uuid:YYYY-MM-DD-hh-mm-ss-cc

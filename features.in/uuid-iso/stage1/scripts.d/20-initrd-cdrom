@@ -1,0 +1,9 @@
+#!/bin/sh
+# add 60-cdrom_id.rules to identify CD/DVD by UUID
+# if it's available
+
+if [ -f /lib/udev/rules.d/60-cdrom_id.rules ]; then
+	echo "PUT_FILES += /lib/udev/rules.d/60-cdrom_id.rules" >> /etc/initrd.mk
+else
+	echo "uuid-iso, 20-initrd-cdrom: skipping 60-cdrom_id.rules (missing)"
+fi
