@@ -1,0 +1,83 @@
+#!/bin/sh -efux
+# NB: /etc/initrd.mk carefully prepared by earlier scripts
+
+fatal() { echo "** error: $@" >&1; exit 1; }
+
+kver=
+for KFLAVOUR in $GLOBAL_KFLAVOURS; do
+	kver+=" $(rpm -qa 'kernel-image*' \
+		--qf '%{version}-%{name}-%{release}\n' \
+	| grep "$KFLAVOUR" \
+	| sed 's/kernel-image-//')"
+done
+
+[ -n "$kver" ] ||
+	fatal "no kernel version identified"
+
+[ -s /.in/modules ] ||
+	fatal "kernel modules set not found"
+
+cat >> /etc/initrd.mk <<EOF
+FEATURES += add-modules compress cleanup rdshell
+FEATURES += bootchain-localdev
+FEATURES += bootchain-liverw
+FEATURES += bootchain-waitdev
+FEATURES += bootchain-getimage
+FEATURES += bootchain-nfs
+FEATURES += bootchain-cifs
+EOF
+
+echo "MODULES_TRY_ADD += $(grep -v ^# /.in/modules |
+	grep -v / |
+	grep .ko |
+	sort -u | tr -s '\n' ' ')" >> /etc/initrd.mk
+
+echo "MODULES_TRY_ADD += $(grep ^# -v /.in/modules |
+	grep -v .ko |
+	sort -u |
+	sed 's,$,/,g' | tr -s '\n' ' ')" >> /etc/initrd.mk
+
+dialog --create-rc /etc/dialogrc.tmp
+cat /etc/dialogrc.tmp |sed -E \
+	-e 's/^(use_colors).*/\1 = ON/' \
+	-e 's/^(use_shadow).*/\1 = ON/' \
+	-e 's/^(screen_color).*/\1 = \(WHITE,RED,ON\)/' \
+		> /etc/dialogrc.error
+rm -f /etc/dialogrc.tmp
+
+# replace generated config bootchain to stage1 chroot
+mv /.image/bootchain /etc/sysconfig/
+
+echo "PUT_FILES += /etc/sysconfig/bootchain" >> /etc/initrd.mk
+echo "PUT_FILES += /etc/dialogrc.error" >> /etc/initrd.mk
+
+# FIXME: large storage systems can get that tmpfs filled up
+# with debug data as of make-initrd 2.2.12
+rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
+	/usr/share/make-initrd/data/lib/uevent/filters/debug
+
+MAKE_INITRD_OPTS="--no-checks AUTODETECT="
+MAKE_INITRD_VER="`make-initrd -V \
+	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
+
+[ -z "$GLOBAL_VERBOSE" ] ||
+	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
+
+cd /boot
+for KVER in $kver; do
+	make-initrd $MAKE_INITRD_OPTS -k "$KVER" ||
+		fatal "make-initrd failed"
+done
+
+case `arch` in
+e2k)
+	kname=image;;
+*)
+	kname=vmlinuz;;
+esac
+
+rm -f $kname initrd.img
+ln -s $kname-$KVER $kname
+ln -s initrd-$KVER.img initrd.img
+
+:

@@ -1,0 +1,74 @@
+# /etc/sysconfig/bootchain example
+
+#############################
+# Bootchain defaults        #
+#############################
+
+# Where to create the chain, for example: mntdir=/run/bootchain
+# mntdir=/dev/bootchain
+
+# Change VT number to show log on specified TTY, empty value turns off this VT
+# BC_LOG_VT=3
+
+# Delay in seconds before auto-activate interactive VT, empty value for switch immediately
+# BC_FGVT_ACTIVATE=7
+
+# Full path to the bootchain log or character special device name
+# BC_LOGFILE=/var/log/bootchained.log
+
+# Common timeout in seconds for all waitdev steps:
+# this make possible using fallback after last waitdev step
+#
+# WAITDEV_TIMEOUT=
+
+
+#############################
+# Pipeline defaults         #
+#############################
+
+# Where to create the chain, for example: mntdir=/run/pipeline
+# mntdir=/dev/pipeline
+
+# Full path to the bootchain log or character special device name
+# BC_LOGFILE=/var/log/pipelined.log
+
+
+#############################
+# ALT Linux specific values #
+#############################
+
+# altboot back title
+OEM_WELCOME_TEXT="Welcome to ALT!"
+
+# Distribution name, for example
+OEM_DISTRIBUTION="@distro@"
+
+# ISO-image mount point (required for ALT)
+OEM_CDROOT=/image
+
+# Default stage2 filename for boot from ISO-9660
+OEM_DEFAULT_STAGE2=altinst
+
+# Persistent storage device LABEL for Live-RW sessions
+OEM_LIVE_STORAGE=alt-live-storage
+
+# Live storage device LABEL for mark non-usable devices
+OEM_BAD_STORAGE=alt-slow-storage
+
+# Local storage device LABEL with the OEM drivers update
+OEM_SETUP_STORAGE=alt-drivers-update
+
+# Mount point inside stage2 for read additional images
+# OEM_IMAGES_BASE=/tmp/images
+
+# Directory inside stage2 for mount images as LiveCD slices
+# OEM_OVERLAYS_DIR=/tmp/overlays
+
+# HTTP and FTP base directory
+OEM_URL_NETINST=/pub/distributions/ALTLinux/p9/
+
+# NFS path with overlays-live sub-directory, containing slice images
+# OEM_NFS_NETINST=/srv/public/netinst
+
+# SAMBA share with overlays-live sub-directory, containing slice images
+# OEM_CIFS_NETINST=/netinst
