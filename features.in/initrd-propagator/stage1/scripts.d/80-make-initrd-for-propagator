@@ -19,14 +19,9 @@ done
 rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
 	/usr/share/make-initrd/data/lib/uevent/filters/debug
 
-MAKE_INITRD_OPTS="--no-checks"
+MAKE_INITRD_OPTS="--no-checks --no-depmod AUTODETECT= "
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
-
-# make-initrd >= 0.7.8
-if [ "`rpmvercmp "$MAKE_INITRD_VER" "0.7.8"`" != "-1" ]; then
-	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS --no-depmod"
-fi
 
 [ -z "$GLOBAL_VERBOSE" ] ||
 	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
