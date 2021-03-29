@@ -102,8 +102,7 @@ bootargs: clean
 	GRUBTHEME=$(GRUBTHEME); \
 	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS)
-	@echo STAGE1_INITRD=$(STAGE1_INITRD)
-	@if [ "$(STAGE1_INITRD)" = PROPAGATOR ]; then \
+	@if [ "$(STAGE1_INITRD)" = initrd-propagator ]; then \
 		sed -i "s,@initrd@,full," $(DSTCFGS); \
 		sed -i "s,@initrd_ext@,cz," $(DSTCFGS); \
 	else \
