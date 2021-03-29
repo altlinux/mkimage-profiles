@@ -13,7 +13,9 @@ esac
 
 kimage="$(find /boot -type f -name "$kname-*")"
 
-rm -f /boot/full*.cz
+# cleanup old propagator
+old_propagator="$(find /boot -type f -name "full*.cz")"
+[ -z "$old_propagator" ] || rm $old_propagator
 
 for kver in $kimage; do
 	kver="${kver#/boot/$kname-}"
