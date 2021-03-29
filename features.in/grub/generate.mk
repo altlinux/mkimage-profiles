@@ -31,6 +31,11 @@ ifneq ($(words $(KFLAVOURS)),1)
 GRUB_CFG := $(GRUB_CFG) kernel
 endif
 
+ifeq (initrd-propagator,$(STAGE1_INITRD))
+STAGE1_INITRD_BOOTARGS := changedisk automatic=method:cdrom
+STAGE1_INITRD_STAGE2_OPTION := stagename
+endif
+
 DSTDIR  := $(BUILDDIR)/stage1/files/boot/grub/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
@@ -109,6 +114,8 @@ bootargs: clean
 		sed -i "s,@initrd@,initrd," $(DSTCFGS); \
 		sed -i "s,@initrd_ext@,img," $(DSTCFGS); \
 	fi
+	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTARGS)|g" $(DSTCFGS)
+	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \

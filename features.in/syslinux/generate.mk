@@ -31,6 +31,11 @@ endif
 DSTDIR  := $(BUILDDIR)/stage1/files/syslinux/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
+ifeq (initrd-propagator,$(STAGE1_INITRD))
+STAGE1_INITRD_BOOTARGS := changedisk automatic=method:cdrom
+STAGE1_INITRD_STAGE2_OPTION := stagename
+endif
+
 # we can do SYSLINUX_{CFG,MODULES,FILES}
 # CFG have only cfg snippet
 # FILES have only filenames (absolute or relative to /usr/lib/syslinux/)
@@ -95,6 +100,8 @@ bootargs: clean
 	else \
 		sed -i "s,@initrd@,initrd.img," $(DSTCFGS); \
 	fi
+	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTARGS)|g" $(DSTCFGS)
+	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 
 clean: copy
 	@if [ "$(SYSLINUX_UI)" = gfxboot ]; then \
