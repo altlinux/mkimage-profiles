@@ -46,6 +46,7 @@ cciss.ko
 cdrom.ko
 ch.ko
 cifs.ko
+cmac.ko.
 DAC960.ko
 dc395x.ko
 de4x5.ko
