@@ -12,7 +12,7 @@ use/init: use/pkgpriorities
 # the wrong syslogd-daemon provider already
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
-	@$(call add,THE_PACKAGES,rsyslog-classic)
+	@$(call add,THE_PACKAGES,rsyslog-classic startup)
 	@$(call add,PINNED_PACKAGES,rsyslog-classic)
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,mount-efivars)
