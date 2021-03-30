@@ -9,6 +9,7 @@ endif
 ifeq (,$(filter-out riscv64,$(ARCH)))
 ifeq (,$(filter-out qcow2 qcow2c,$(IMAGE_TYPE)))
 UBOOT_TTY := use/tty/S0
+UBOOT_NOFDTDIR := 1
 else
 UBOOT_TTY := use/tty/SIF0
 endif
@@ -24,6 +25,7 @@ endif
 	@$(call try,UBOOT_TIMEOUT,50)
 	@$(call xport,UBOOT_BOOTARGS)
 	@$(call xport,UBOOT_TIMEOUT)
+	@$(call xport,UBOOT_NOFDTDIR)
 else
 use/uboot: ; @:
 endif

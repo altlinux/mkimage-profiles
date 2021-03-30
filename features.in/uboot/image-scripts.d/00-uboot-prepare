@@ -19,3 +19,5 @@ label linux
 	fdtdir /boot/dtb
 	append root=LABEL=ROOT ro $GLOBAL_BASE_BOOTARGS $GLOBAL_UBOOT_BOOTARGS $TTY
 EOF
+
+[ -z "${GLOBAL_UBOOT_NOFDTDIR:-}" ] || sed -i -e '/^[\t]*fdtdir \/boot\/dtb$/d' /boot/extlinux/extlinux.conf
