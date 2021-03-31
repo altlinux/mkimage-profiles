@@ -1,11 +1,14 @@
 # ALT Education
 
-mixin/education: use/kernel use/firmware \
-	+systemd \
+mixin/education: \
+	use/kernel/desktop use/kernel/net use/kernel/laptop \
+	use/firmware use/firmware/wireless use/firmware/laptop \
+	+systemd +systemd-optimal \
 	use/services \
 	use/ntp/chrony \
 	use/volumes/education \
-	use/x11/xorg use/x11/amdgpu use/x11/lightdm/gtk +pulse \
+	+x11 use/x11/3d \
+	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm use/net-eth/dhcp \
 	use/xdg-user-dirs/deep \
 	use/office/LibreOffice/still \
@@ -113,7 +116,6 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,MAIN_KMODULES,bbswitch)
 	@$(call add,BASE_PACKAGES,nextcloud-client)
-	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
 	@$(call add,THE_PACKAGES,syslinux)
 	@$(call add,MAIN_PACKAGES,owamp-server)
 
