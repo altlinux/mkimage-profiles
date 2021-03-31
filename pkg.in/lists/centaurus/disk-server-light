@@ -93,7 +93,6 @@ libzmalloc
 apt-rsync
 bash-completion
 bind-doc
-bzip2-doc
 bzlib-devel-static
 cfdisk
 db4.7-utils

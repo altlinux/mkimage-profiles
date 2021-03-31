@@ -5,7 +5,6 @@ pam_mount
 cifs-utils
 pam_ccreds
 libsss_nss_idmap
-libwbclient-sssd
 
 udev-alsa
 
