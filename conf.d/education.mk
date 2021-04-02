@@ -42,6 +42,7 @@ mixin/education-live: \
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 
 mixin/education-installer: \
+	+installer \
 	use/memtest \
 	use/branding/complete \
 	use/install2/vnc use/install2/full \
