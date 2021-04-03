@@ -1,1 +1,12 @@
 task-edu-server-apps
+installer-feature-repo-add
+installer-feature-online-repo
+installer-feature-resolver-bind-stage3
+installer-feature-apache2-indexhtml-stage3
+installer-feature-apache2-userdir-stage3
+installer-feature-network-shares-client-stage3
+installer-feature-nfs-client-stage3
+installer-feature-nfs-server-stage3
+installer-feature-pxeboot-stage3@X86
+installer-feature-shm-defaults-stage3
+installer-feature-start-avahi 

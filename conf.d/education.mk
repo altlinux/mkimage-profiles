@@ -19,6 +19,7 @@ mixin/education: \
 	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call add,THE_LISTS,slinux/xfce-base)
+	@$(call add,THE_LISTS,education/installer-features)
 	@$(call add,THE_LISTS,education/misc)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)

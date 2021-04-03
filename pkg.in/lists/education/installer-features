@@ -1,0 +1,7 @@
+# Installer features
+installer-feature-xdg-user-dirs                                                      
+installer-feature-auto-domain
+installer-feature-online-repo
+installer-feature-repo-add@!E2K
+installer-feature-resolver-bind-stage3
+installer-feature-lightdm-stage3 
