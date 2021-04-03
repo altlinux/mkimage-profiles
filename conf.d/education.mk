@@ -38,7 +38,9 @@ mixin/education-live: \
 	use/live/repo use/live/x11 use/live/rw \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
-	@$(call add,LIVE_LISTS,slinux/net-base)
+	@$(call add,LIVE_PACKAGES,chromium)
+	@$(call add,LIVE_PACKAGES,mc-full)
+	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 
 mixin/education-installer: \
