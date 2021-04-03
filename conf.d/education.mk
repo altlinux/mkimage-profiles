@@ -62,6 +62,7 @@ mixin/education-installer: \
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
+	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
 	@$(call add,MAIN_GROUPS,education/02_gradeschool)
 	@$(call add,MAIN_GROUPS,education/03_highschool)
