@@ -1,12 +1,1 @@
-italc3-master@X86
-italc3-master@E2K
-#nxclient
-itest-server
-installer-feature-init-italc@X86
-installer-feature-init-italc@E2K
-# Mass management
-ansible
-semaphore@!E2K
-virt-viewer
-
-OpenBoard
+task-edu-teacher
