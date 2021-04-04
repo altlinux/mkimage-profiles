@@ -3,4 +3,4 @@
 
 DOT_BASE += $(call kpackages, \
 	    $(KFLAVOURS), \
-	    $(THE_KMODULES) $(BASE_KMODULES) $(BASE_KMODULES_REGEXP))
+	    $(sort $(THE_KMODULES) $(BASE_KMODULES) $(BASE_KMODULES_REGEXP)))
