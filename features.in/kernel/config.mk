@@ -30,7 +30,9 @@ use/kernel/net:
 	@$(call add,MAIN_KMODULES,r8168 rtl8168)
 
 use/kernel/wireless: use/firmware/wireless
-	@$(call add,THE_KMODULES,bcmwl)
+	@$(call add,THE_KMODULES,bcmwl staging)
+	@$(call add,THE_KMODULES,rtl8188fu rtl8192eu rtl8723de rtl8812au)
+	@$(call add,THE_KMODULES,rtl8821ce rtl8821cu rtl88x2bu rtl8723bu)
 
 use/kernel/laptop: use/firmware/laptop; @:
 
