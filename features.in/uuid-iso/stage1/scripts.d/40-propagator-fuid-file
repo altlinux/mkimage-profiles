@@ -1,0 +1,5 @@
+#!/bin/sh
+# add file named as UUID for use with fuid option in propagator
+
+cd "$WORKDIR"
+touch $GLOBAL_UUID_ISO
