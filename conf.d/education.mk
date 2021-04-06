@@ -112,8 +112,11 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_KMODULES,lsadrv bbswitch)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,MAIN_KMODULES,bbswitch)
-	@$(call add,BASE_PACKAGES,nextcloud-client)
+	@$(call add,THE_PACKAGES,chromium)
+	@$(call add,THE_PACKAGES,mc-full)
+	@$(call add,THE_PACKAGES,remmina remmina-plugins)
 	@$(call add,THE_PACKAGES,syslinux)
+	@$(call add,BASE_PACKAGES,nextcloud-client)
 	@$(call add,MAIN_PACKAGES,owamp-server)
 
 endif
