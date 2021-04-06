@@ -4,7 +4,7 @@ ifeq (distro,$(IMAGE_CLASS))
 # common ground (really lowlevel)
 distro/.regular-bare: distro/.base +net-eth use/kernel/net use/docs/license \
 	use/stage2/fs use/stage2/hid use/stage2/md \
-	use/stage2/mmc use/stage2/net use/stage2/net-nfs \
+	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call try,SAVE_PROFILE,yes)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
@@ -17,7 +17,7 @@ distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi; @:
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 	use/x11/wacom use/x11/amdgpu +wireless \
-	use/stage2/cifs use/live/x11 use/live/repo \
+	use/live/x11 use/live/repo \
 	use/live/suspend use/browser/firefox/live \
 	use/syslinux/ui/gfxboot use/grub/ui/gfxboot
 	@$(call add,THE_BRANDING,bootloader)
