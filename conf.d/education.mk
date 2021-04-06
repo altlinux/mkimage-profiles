@@ -19,7 +19,6 @@ mixin/education: \
 	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call add,THE_LISTS,slinux/xfce-base)
-	@$(call add,THE_LISTS,education/installer-features)
 	@$(call add,THE_LISTS,education/misc)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
@@ -61,7 +60,6 @@ mixin/education-installer: \
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
 	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
@@ -98,8 +96,6 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_PACKAGES,xorg-conf-noblank)
 	@$(call add,THE_PACKAGES,firefox-esr-ru flashrom)
 	@$(call add,THE_PACKAGES,xscreensaver-hacks-rss_glx)
-	@$(call add,DEFAULT_SERVICES_ENABLE,acpid dnsmasq)
-	@$(call add,DEFAULT_SERVICES_DISABLE,upower clamd clamsmtpd)
 	@$(call add,CLEANUP_PACKAGES,plymouth plymouth-scripts)
 	@$(call add,CONTROL,pam_mktemp:disabled)	### private /tmp dirs
 	@$(call add,INSTALL2_PACKAGES,ImageMagick-tools)	### DROPME: for import on /pkg ###
@@ -130,8 +126,6 @@ ifeq (vm,$(IMAGE_CLASS))
 
 vm/.alt-education: vm/systemd use/repo use/oem/distro mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
-	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
-	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
 vm/alt-education:: vm/.alt-education
 
