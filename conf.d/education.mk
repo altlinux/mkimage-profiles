@@ -60,7 +60,6 @@ mixin/education-installer: \
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
-	@$(call add,MAIN_LISTS,slinux/not-install-full)
 	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
 	@$(call add,MAIN_GROUPS,education/02_gradeschool)
