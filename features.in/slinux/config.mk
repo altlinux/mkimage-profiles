@@ -92,6 +92,7 @@ use/slinux/base: use/isohybrid use/luks \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/live/x11 use/live/rw use/install2/fonts \
+	use/install2/fat \
 	use/efi/memtest86 use/efi/shell \
 	use/bootloader/grub \
 	use/branding/complete \
