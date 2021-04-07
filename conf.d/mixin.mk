@@ -91,6 +91,7 @@ mixin/regular-gnome3: use/x11/gnome3 use/fonts/ttf/redhat +nm-gtk
 	@$(call add,THE_PACKAGES,gnome-software-disable-updates)
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
+	use/x11/kde5-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+pulse
 	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)

@@ -165,7 +165,7 @@ distro/regular-deepin: distro/.regular-gtk use/x11/deepin
 	@$(call add,THE_PACKAGES,deepin-regular)
 
 distro/regular-kde5: distro/.regular-desktop \
-	mixin/regular-kde5 use/domain-client use/x11/sddm +plymouth; @:
+	mixin/regular-kde5 use/domain-client +plymouth; @:
 
 distro/regular-robo: distro/regular-mate +robotics use/live/ru; @:
 
