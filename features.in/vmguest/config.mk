@@ -22,8 +22,7 @@ use/vmguest/kvm use/vmguest/kvm/x11: ; @:
 endif
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/vmguest/vbox: use/vmguest
-	@$(call add,THE_KMODULES,virtualbox-addition virtualbox-addition-guest)
+use/vmguest/vbox: use/vmguest; @:
 
 use/vmguest/vbox/x11: use/vmguest/vbox
 	@$(call add,THE_KMODULES,drm)
