@@ -9,7 +9,7 @@ mixin/education: \
 	use/volumes/education \
 	+x11 use/x11/3d \
 	use/x11/lightdm/gtk +pulse \
-	+nm use/x11/gtk/nm use/net-eth/dhcp \
+	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
 	use/office/LibreOffice/still \
 	use/office/LibreOffice/gtk3 \
