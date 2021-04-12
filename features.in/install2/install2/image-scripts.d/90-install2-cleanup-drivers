@@ -115,6 +115,6 @@ rm -rf /lib/modules/*/kernel/net/rds
 rm -rf /lib/modules/*/kernel/net/rose
 rm -rf /lib/modules/*/kernel/net/sctp
 rm -rf /lib/modules/*/kernel/net/tipc
-rm -rf /lib/modules/*/kernel/net/{wimax,wireless,mac80211}
+rm -rf /lib/modules/*/kernel/net/{wimax}
 rm -rf /lib/modules/*/kernel/net/x25
 rm -rf /lib/modules/*/kernel/sound
