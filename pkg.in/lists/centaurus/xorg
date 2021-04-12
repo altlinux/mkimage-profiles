@@ -55,9 +55,7 @@ spice-vdagent
 xorg-drv-qxl
 
 kernel-modules-drm-std-def@!E2K
-kernel-modules-drm-radeon-std-def@!E2K
 kernel-modules-drm-nouveau-std-def@!E2K
 kernel-modules-v4l-std-def@!E2K
-kernel-modules-lirc-std-def@!E2K
 
 cpio
