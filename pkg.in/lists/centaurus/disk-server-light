@@ -153,9 +153,6 @@ ddrescue
 disktype
 dmidecode
 dump rmt
-#exim
-finger
-greylistd
 hddtemp
 iptstate
 #spamassassin
