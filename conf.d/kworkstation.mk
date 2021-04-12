@@ -119,6 +119,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,INSTALL2_PACKAGES,apt-scripts-nvidia)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-kdesktop)
 	@$(call add,INSTALL2_PACKAGES,udev-rules-ioschedulers)
+	@$(call add,INSTALL2_PACKAGES,passwdqc-utils)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-dri-nouveau xorg-drv-nouveau)
 	@$(call add,MAIN_GROUPS,$(kworkstation_groups))
 	@$(call add,BASE_PACKAGES,alterator-postinstall)
