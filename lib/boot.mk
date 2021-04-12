@@ -14,7 +14,7 @@ ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 	@$(call try,BOOTLOADER,efiboot)
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
-	@$(call try,BOOTLOADER,e2k-boot)
+	@$(call try,BOOTLOADER,e2kboot)
 endif
 ifeq (,$(filter-out ppc64le,$(ARCH)))
 	@$(call try,BOOTLOADER,ieee1275boot)
