@@ -102,7 +102,6 @@ fatback
 fatresize
 fuse-chunkfs
 fuse-ciopfs
-fuse-zfs@X86
 hfsprogs
 ifuse
 libevt-tools@X86
@@ -151,7 +150,6 @@ fuse-curlftpfs
 fuse-lftpfs
 fuse-sshfs
 hostinfo
-hping2
 hping3@X86
 httpry
 httpry-scripts
