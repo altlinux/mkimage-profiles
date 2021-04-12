@@ -42,7 +42,7 @@ kde5-connect
 
 isomaster
 kde5-k3b
-fbreader
+#fbreader
 #kde5-basket
 kmymoney
 kmymoney-i18n
