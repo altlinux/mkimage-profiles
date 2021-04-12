@@ -15,6 +15,7 @@ alterator-fbi
 alterator-groups
 alterator-limits
 alterator-logs
+alterator-multiseat
 alterator-net-iptables
 alterator-net-openvpn
 alterator-net-routing
