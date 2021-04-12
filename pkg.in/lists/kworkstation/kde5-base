@@ -110,6 +110,7 @@ libva-driver-intel@X86
 libva-intel-media-driver@x86_64
 #libva-driver-vdpau
 #libvdpau-va-gl
+vulkan-amdgpu@X86
 
 chromium-gost
 
