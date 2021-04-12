@@ -84,8 +84,6 @@ libini
 
 mongo-server@x86_64
 mongo-server@aarch64
-python-module-PyQt4
-python-module-ZSI
 rdesktop
 gsynaptics
 clamtk
