@@ -10,7 +10,7 @@ distro/server-nano: distro/.server-base use/bootloader/lilo +power \
 	@$(call add,BASE_LISTS,$(call tags,server network))
 	@$(call add,BASE_PACKAGES,dhcpcd cpio)
 
-distro/server-mini: distro/.server-base +net-eth \
+distro/server-mini: distro/.server-base \
 	use/server/mini use/kernel/net use/efi use/power/acpi/button
 	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
