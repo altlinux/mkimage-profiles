@@ -132,18 +132,6 @@ zlib-devel-static
 # at@
 screen
 
-# asy@
-#cyrus-imapd cyrus-imapd-doc cyrus-imapd-murder cyrus-imapd-utils
-#quagga
-
-# bga@
-
-# dlebkov@
-ipsec-tools
-
-# enp@
-#drbd
-#heartbeat
 
 # force@
 bonnie@X86
