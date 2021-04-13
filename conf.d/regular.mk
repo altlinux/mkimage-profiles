@@ -39,7 +39,7 @@ distro/.regular-desktop: distro/.regular-wm use/branding/full \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
-distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit; @:
+distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit +net-eth; @:
 
 distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
 	use/syslinux/ui/gfxboot use/x11/gdm2.20; @:
