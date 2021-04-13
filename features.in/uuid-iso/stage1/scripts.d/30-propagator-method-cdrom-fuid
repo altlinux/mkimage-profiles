@@ -12,9 +12,9 @@ cd "$WORKDIR"
 [ -n "$GLOBAL_UUID_ISO" ] || exit 0
 
 if [ -n "$(find $scfg)" ]; then
-	sed -i "s/automatic=method:cdrom/automatic=method:disk,uuid:$GLOBAL_UUID_ISO/" $scfg
+	sed -i "s/automatic=method:cdrom/automatic=method:cdrom,fuid:$GLOBAL_UUID_ISO/" $scfg
 fi
 
 if [ -f "$gcfg" ]; then
-	sed -i "s/automatic=method:cdrom/automatic=method:disk,uuid:$GLOBAL_UUID_ISO/" $gcfg
+	sed -i "s/automatic=method:cdrom/automatic=method:cdrom,fuid:$GLOBAL_UUID_ISO/" $gcfg
 fi
