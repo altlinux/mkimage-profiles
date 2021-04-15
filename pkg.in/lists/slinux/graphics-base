@@ -12,3 +12,6 @@ gimagereader-qt5@!riscv64
 tesseract
 tesseract-langpack-ru
 tesseract-langpack-en
+
+glmark2@aarch64
+glmark2-es2@aarch64
