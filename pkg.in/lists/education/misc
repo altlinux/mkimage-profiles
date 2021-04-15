@@ -49,25 +49,27 @@ fonts-ttf-unifont
 
 # Alterator
 alterator-browser-qt
+alterator-fbi
 alterator-standalone
 alterator-notes
+
 alterator-auth
-alterator-gpupdate
 alterator-datetime
+alterator-gpupdate
+alterator-grub
 alterator-net-eth
-alterator-net-pppoe
 alterator-net-openvpn
+alterator-net-pppoe
 alterator-net-pptp
 alterator-packages
-alterator-printers
 alterator-pkg
+alterator-printers
+alterator-root
 alterator-services
 alterator-sysconfig
 alterator-users
-alterator-root
 alterator-x11
 alterator-xkb
-alterator-fbi
 
 # Authentication and computer management via group policy
 task-auth-ad-sssd
