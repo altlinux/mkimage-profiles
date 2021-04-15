@@ -88,7 +88,7 @@ distro/alt-education: distro/.installer \
 	mixin/education \
 	mixin/education-live \
 	mixin/education-installer \
-	use/e2k/multiseat/801/full +power
+	use/e2k/multiseat/801/full use/power/acpi
 	@$(call set,INSTALLER,education)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_GROUPS,education/06_kdesc)
