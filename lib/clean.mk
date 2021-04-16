@@ -44,7 +44,7 @@ distclean: clean
 			exit 128; \
 		else \
 			$(MAKE) -C "$(SYMLINK)" $@ \
-				GLOBAL_BUILDDIR="$$build" $(LOG) ||: \
+				GLOBAL_BUILDDIR="$$build" $(LOG) ||:; \
 			rm -rf "$$build"; \
 		fi; \
 	fi; \
