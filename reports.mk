@@ -28,6 +28,7 @@ endef
 
 all: reports/targets reports/scripts reports/cleanlog reports/contents
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
+		rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 	fi
 
