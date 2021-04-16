@@ -75,6 +75,10 @@ reports/contents: reports/prep
 			echo "reports.mk: missing isoinfo" >&2; \
 		fi; \
 	esac
+	@cat $(BUILDLOG) | grep -E 'chroot/.in/[^/]*.rpm' | cut -d' ' -f 1 | tr -d "'"'`' | \
+		rev | cut -d'/' -f 1 | rev | sort -u > "$(REPORTDIR)/list-rpms.txt"
+	@cat $(BUILDLOG) | grep -E 'chroot/.in/[^/]*.rpm' | cut -d' ' -f 1 | tr -d "'"'`' | \
+		xargs rpm -qp --queryformat '%{sourcerpm}\n' | sort -u > "$(REPORTDIR)/list-srpms.txt"
 
 else
 all:; @:
