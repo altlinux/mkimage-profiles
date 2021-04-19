@@ -5,6 +5,10 @@ i586-wine@x86_64
 i586-libwine-gl@x86_64
 i586-libwine-twain@x86_64
 wine-mono@X86
+winetricks@X86
+# For winetricks
+zenity@X86
+
 i586-xorg-dri-.*@x86_64
 cabextract@X86
 dosbox
