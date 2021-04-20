@@ -55,6 +55,7 @@ alterator-notes
 
 alterator-auth
 alterator-datetime
+alterator-control
 alterator-gpupdate
 alterator-grub
 alterator-net-eth
