@@ -1,4 +1,4 @@
-use/oem: use/services use/branding
+use/oem: use/services use/branding use/deflogin/root
 	@$(call add_feature)
 	@$(call add,DEFAULT_SERVICES_ENABLE,messagebus alteratord)
 	@$(call add,THE_PACKAGES,alterator-setup alterator-notes)
