@@ -27,8 +27,10 @@ ifdef LOCALE
 GRUB_CFG := $(GRUB_CFG) lang
 endif
 
+ifdef KFLAVOURS
 ifneq ($(words $(KFLAVOURS)),1)
 GRUB_CFG := $(GRUB_CFG) kernel
+endif
 endif
 
 ifeq (initrd-propagator,$(STAGE1_INITRD))
