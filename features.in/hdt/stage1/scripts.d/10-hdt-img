@@ -1,0 +1,27 @@
+#!/bin/sh -efu
+
+[ "$GLOBAL_BOOTLOADER" = grubpcboot ] || exit 0
+
+cd "$WORKDIR"
+
+mkdir -p boot syslinux
+cp /usr/lib/syslinux/hdt.c32 "$WORKDIR"/syslinux/
+
+cat > syslinux/syslinux.cfg << EOF
+default hdt
+label hdt
+  menu label ^Hardware info
+  com32 hdt.c32
+  append quiet
+EOF
+
+# floppy disk 720 KiB
+dd if=/dev/zero of=boot/hdt.img bs=512 count="1440"
+mkfs.fat -n HDT -F 12 boot/hdt.img
+mcopy -i boot/hdt.img -s syslinux ::
+
+#dd if=/usr/lib/syslinux/ldlinux.bss of=boot/hdt.img conv=notrunc
+syslinux -d /syslinux --install boot/hdt.img
+
+rm -r syslinux
+cp /usr/lib/syslinux/memdisk boot
