@@ -44,7 +44,7 @@ use/live/x11: use/live/base use/deflogin/desktop use/x11-autologin use/sound \
 # a browser is requested too, the recommended one can be overridden downstream
 use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
 	use/l10n use/browser/firefox/live use/xdg-user-dirs/deep \
-	use/syslinux/localboot.cfg +vmguest; @:
+	use/syslinux/localboot.cfg use/grub/localboot_bios.cfg +vmguest; @:
 
 # preconfigure apt for both live and installed-from-live systems
 use/live/repo: use/live
@@ -56,7 +56,8 @@ use/live/repo/online:
 	@$(call add,LIVE_PACKAGES,livecd-online-repo)
 
 # alterator-based permanent installation
-use/live/install: use/metadata use/xdg-user-dirs use/syslinux/localboot.cfg \
+use/live/install: use/metadata use/xdg-user-dirs \
+	use/syslinux/localboot.cfg use/grub/localboot_bios.cfg \
 	use/bootloader/live use/bootloader/grub
 	@$(call add,LIVE_PACKAGES,livecd-install)
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
