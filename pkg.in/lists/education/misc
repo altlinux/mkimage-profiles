@@ -213,7 +213,6 @@ gst-plugins-good1.0
 gst-plugins-bad1.0
 gst-plugins-ugly1.0
 alsa-set-initial-options
-udev-alsa
 dvgrab
 mjpegtools
 transcode
