@@ -136,7 +136,7 @@ dbus-tools-gui
 xfburn
 medit
 mate-calc
-gksu
+beesu
 zenity
 mate-search-tool
 libmate-desktop
