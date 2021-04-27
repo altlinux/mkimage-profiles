@@ -68,6 +68,9 @@ convert-image/tar.xz:
 convert-image/img: tar2fs
 	mv "$(VM_RAWDISK)" "$(IMAGE_OUTPATH)"
 
+convert-image/img.xz: tar2fs
+	$(VM_XZ_COMMAND) < "$(VM_RAWDISK)" > "$(IMAGE_OUTPATH)"
+
 convert-image/qcow2 convert-image/qcow2c convert-image/vmdk \
 	convert-image/vdi convert-image/vhd: check-qemu tar2fs
 	@VM_COMPRESS=; \

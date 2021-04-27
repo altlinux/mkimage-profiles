@@ -41,7 +41,7 @@ $(foreach c,$(VE_ARCHIVES), \
 endif
 
 # extensions for buld-vm
-VM_EXTS := .tar .tar.gz .tar.xz .img .qcow2 .qcow2c .vdi .vmdk .vhd
+VM_EXTS := .tar .tar.gz .tar.xz .img .img.xz .qcow2 .qcow2c .vdi .vmdk .vhd
 VM_TAVOLGA_EXTS := .recovery.tar
 
 ifeq (vm,$(IMAGE_CLASS))
