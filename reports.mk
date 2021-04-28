@@ -26,7 +26,8 @@ define report_body
 fi; }
 endef
 
-all: reports/targets reports/scripts reports/cleanlog reports/contents
+all: reports/targets reports/scripts reports/cleanlog \
+	reports/contents reports/packages
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
 		rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
@@ -75,10 +76,16 @@ reports/contents: reports/prep
 			echo "reports.mk: missing isoinfo" >&2; \
 		fi; \
 	esac
-	@cat $(BUILDLOG) | grep -E 'chroot/.in/[^/]*.rpm' | cut -d' ' -f 1 | tr -d "'"'`' | \
-		rev | cut -d'/' -f 1 | rev | sort -u > "$(REPORTDIR)/list-rpms.txt"
-	@cat $(BUILDLOG) | grep -E 'chroot/.in/[^/]*.rpm' | cut -d' ' -f 1 | tr -d "'"'`' | \
-		xargs rpm -qp --queryformat '%{sourcerpm}\n' | sort -u > "$(REPORTDIR)/list-srpms.txt"
+
+reports/packages: reports/prep
+	@grep -E 'chroot/.in/[^/]*.rpm' < $(BUILDLOG) | \
+		cut -d' ' -f 1 | tr -d "'"'`' | \
+		rev | cut -d'/' -f 1 | rev | \
+		sort -u > "$(REPORTDIR)/list-rpms.txt"
+	@grep -E 'chroot/.in/[^/]*.rpm' < $(BUILDLOG) | \
+		cut -d' ' -f 1 | tr -d "'"'`' | \
+		xargs rpm -qp --queryformat '%{sourcerpm}\n' | \
+		sort -u > "$(REPORTDIR)/list-srpms.txt"
 
 else
 all:; @:
