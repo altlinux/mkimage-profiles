@@ -56,6 +56,7 @@ mixin/kworkstation-common-opts:
 	@$(call add,THE_LISTS,tagged/desktop+xorg)
 	@$(call add,THE_LISTS,tagged/xorg+misc)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
+	@$(call add,CONTROL,fusermount:wheelonly)
 	@$(call add,SERVICES_ENABLE,smb)
 	@$(call add,SERVICES_ENABLE,nmb)
 	@$(call add,SERVICES_ENABLE,postfix)
