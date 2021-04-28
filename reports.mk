@@ -77,6 +77,7 @@ reports/contents: reports/prep
 		fi; \
 	esac
 
+reports/packages: SHELL = /bin/bash
 reports/packages: reports/prep
 	@grep -E 'chroot/.in/[^/]*.rpm' < $(BUILDLOG) | \
 		cut -d' ' -f 1 | tr -d "'"'`' | \
