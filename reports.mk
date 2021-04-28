@@ -79,10 +79,9 @@ reports/contents: reports/prep
 
 reports/packages: reports/prep
 	@grep -E 'chroot/.in/[^/]*.rpm' < $(BUILDLOG) | \
-		cut -d' ' -f 1 | tr -d "'"'`' | sed 's,^.*/,,' | \
-		sort -u > "$(REPORTDIR)/list-rpms.txt"
-	@grep -E 'chroot/.in/[^/]*.rpm' < $(BUILDLOG) | \
 		cut -d' ' -f 1 | tr -d "'"'`' | \
+		tee /dev/stderr 2> >(sed 's,^.*/,,' | \
+			sort -u > "$(REPORTDIR)/list-rpms.txt") | \
 		xargs rpm -qp --queryformat '%{sourcerpm}\n' | \
 		sort -u > "$(REPORTDIR)/list-srpms.txt"
 
