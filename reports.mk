@@ -54,9 +54,9 @@ reports/targets: reports/prep
 		exit 0; \
 	fi; \
 	if type -t dot >&/dev/null; then \
-		OUT="$(REPORTDIR)/$(@F).png"; \
+		OUT="$(REPORTDIR)/$(@F).svgz"; \
 		report-targets < "$(REPORT_PATH)" \
-		| dot -Tpng -o "$$OUT" \
+		| dot -Tsvgz -o "$$OUT" \
 		&& $(call report,target graph report); \
 	else \
 		OUT="$(BUILDDIR)/targets.dot"; \
