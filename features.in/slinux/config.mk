@@ -98,6 +98,7 @@ use/slinux/base: use/isohybrid use/luks \
 	use/branding/complete \
 	mixin/desktop-installer \
 	use/vmguest/kvm/x11 use/stage2/kms \
+	use/e2k/multiseat/801/full use/e2k/x11/101 use/e2k/sound/401 \
 	use/slinux/mixin-base \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_LISTS,slinux/live)
