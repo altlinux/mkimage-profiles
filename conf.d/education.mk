@@ -56,7 +56,7 @@ mixin/education-installer: \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/install2/fat
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 9.2rc1 $(ARCH))
+	@$(call set,META_VOL_ID,ALT Education 9.2 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
