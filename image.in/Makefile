@@ -41,8 +41,8 @@ IMAGE_VERSION := -$(DISTRO_VERSION)
 IMAGE_VER_LINK := $(IMAGE_NAME)$(IMAGE_VERSION)-latest-$(ARCH).$(IMAGE_TYPE)
 endif
 
-IMAGE_OUTFILE  := \
-	$(IMAGE_NAME)$(IMAGE_VERSION)-$(STATUS)$(DATE)-$(ARCH).$(IMAGE_TYPE)
+IMAGE_OUTNAME  := $(IMAGE_NAME)$(IMAGE_VERSION)-$(STATUS)$(DATE)-$(ARCH)
+IMAGE_OUTFILE  := $(IMAGE_OUTNAME).$(IMAGE_TYPE)
 IMAGE_OUTDIR   := $(IMAGEDIR)$(IMAGE_SORTDIR:%=/%)
 IMAGE_OUTPATH  := $(IMAGE_OUTDIR)/$(IMAGE_OUTFILE)
 IMAGE_RELPATH  := $(IMAGE_SORTDIR:%=%/)$(IMAGE_OUTFILE)
@@ -94,6 +94,9 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	if [ ! -n "$$OUTSIZE" ]; then \
 		echo "** error: $(IMAGE_OUTPATH) missing" >&2; \
 		exit 1; \
+	fi; \
+	if [ -n "$(VM_SAVE_TAR)" ]; then \
+		echo "** tarball saved: $(IMAGE_OUTPATH)/$(IMAGE_OUTNAME).$(VM_SAVE_TAR)" >&2; \
 	fi; \
 	echo "** image: $(IMAGE_OUTPATH) [$$OUTSIZE]" >&2 && \
 	echo "IMAGE_OUTPATH = $(IMAGE_OUTPATH)" && \
