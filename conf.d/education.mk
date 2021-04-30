@@ -11,10 +11,7 @@ mixin/education: \
 	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
-	use/office/LibreOffice/still \
-	use/office/LibreOffice/gtk3 \
-	use/office/LibreOffice/extensions \
-	use/office/LibreOffice/integrated
+	use/office/LibreOffice/full
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
@@ -33,6 +30,7 @@ ifeq (distro,$(IMAGE_CLASS))
 mixin/education-live: \
 	use/live/install use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
+	use/office/LibreOffice/full \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_PACKAGES,chromium)
