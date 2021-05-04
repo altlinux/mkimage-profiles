@@ -33,7 +33,7 @@ glxgears
 xorg-conf-synaptics@X86
 
 cpu-x@X86
-fuse-exfat
+exfatprogs
 hdparm
 inxi
 lcdtest
