@@ -23,6 +23,7 @@ mixin/education: \
 	@$(call add,THE_PACKAGES,xinput xorg-drv-libinput)
 	@$(call add,THE_PACKAGES,net-tools fdisk gdisk parted partclone)
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
+	@$(call add,THE_PACKAGES,jre)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 
 ifeq (distro,$(IMAGE_CLASS))
@@ -36,6 +37,7 @@ mixin/education-live: \
 	@$(call add,LIVE_PACKAGES,chromium)
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
+	@$(call add,LIVE_PACKAGES,jre)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 
 mixin/education-installer: \
