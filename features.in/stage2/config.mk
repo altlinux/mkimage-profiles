@@ -1,5 +1,5 @@
 # "1" is not a typo
-use/stage2: sub/stage1 use/initrd-propagator use/uuid-iso
+use/stage2: sub/stage1 use/initrd-propagator
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,make-initrd file iproute2)
 	@$(call add,STAGE1_MODLISTS,$$(FEATURES))

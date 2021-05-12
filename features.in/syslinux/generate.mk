@@ -31,11 +31,6 @@ endif
 DSTDIR  := $(BUILDDIR)/stage1/files/syslinux/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
-ifeq (initrd-propagator,$(STAGE1_INITRD))
-STAGE1_INITRD_BOOTARGS := changedisk automatic=method:cdrom
-STAGE1_INITRD_STAGE2_OPTION := stagename
-endif
-
 # we can do SYSLINUX_{CFG,MODULES,FILES}
 # CFG have only cfg snippet
 # FILES have only filenames (absolute or relative to /usr/lib/syslinux/)

@@ -33,11 +33,6 @@ GRUB_CFG := $(GRUB_CFG) kernel
 endif
 endif
 
-ifeq (initrd-propagator,$(STAGE1_INITRD))
-STAGE1_INITRD_BOOTARGS := changedisk automatic=method:cdrom
-STAGE1_INITRD_STAGE2_OPTION := stagename
-endif
-
 DSTDIR  := $(BUILDDIR)/stage1/files/boot/grub/.in
 DSTCFGS := $(DSTDIR)/*.cfg
 
