@@ -103,7 +103,7 @@ else
 	@$(call add,MAIN_GROUPS,education/06_kde5)
 	@$(call add,MAIN_GROUPS,education/09_video-conferencing)
 endif	# e2k%
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-un-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-modules-un-def)
