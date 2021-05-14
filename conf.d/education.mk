@@ -116,9 +116,10 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,chromium)
 	@$(call add,THE_PACKAGES,mc-full)
 	@$(call add,THE_PACKAGES,remmina remmina-plugins)
+endif
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,syslinux)
 	@$(call add,MAIN_PACKAGES,owamp-server)
-
 endif
 
 endif # distro
