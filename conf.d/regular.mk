@@ -125,6 +125,10 @@ distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
 
 distro/regular-gnustep-sysv: distro/.regular-desktop-sysv \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,isolinux)
+endif
+
 distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
