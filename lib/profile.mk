@@ -91,6 +91,7 @@ profile/bare: profile/init use/pkgpriorities
 	fi; \
 	} >&2
 	@$(call try,MKIMAGE_PREFIX,/usr/share/mkimage)
+	@$(call try,GLOBAL_PREFIX,$(MKIMAGE_PREFIX))
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
