@@ -12,7 +12,6 @@ pcsc-lite-ccid
 pcsc-lite-openct
 
 pam_pkcs11
-pam_p11
 
 openssl
 openssl-engines
