@@ -6,5 +6,4 @@ Name[ru_RU]=Сервер контейнеризации LXD
 X-Alterator-PackageList=virt/opennebula/node-lxd
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/opennebula/server server-virt/opennebula/gui server-virt/opennebula/gate server-virt/opennebula/flow
-X-Alterator-Depends=server-v/lxd
 X-Alterator-Parent=server-v/110-opennebula
