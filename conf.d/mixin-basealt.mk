@@ -7,6 +7,7 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	sound-editing thunderbird vlc freeipa-client)
 
 mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
+	use/kernel/latest \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
 	use/ntp/chrony \

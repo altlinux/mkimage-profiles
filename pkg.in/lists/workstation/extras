@@ -2,17 +2,17 @@
 openssl-engines
 
 # just in case
-kernel-headers-modules-std-def
-kernel-headers-std-def
-kernel-image-un-def
-kernel-modules-drm-ancient-un-def
-kernel-modules-drm-radeon-un-def
-kernel-modules-v4l-un-def
-kernel-modules-drm-un-def
-kernel-modules-staging-un-def
-kernel-modules-drm-nouveau-un-def@X86
-kernel-modules-virtualbox-un-def@x86_64
-kernel-modules-virtualbox-addition-un-def@X86
+#kernel-headers-modules-std-def
+#kernel-headers-std-def
+#kernel-image-un-def
+#kernel-modules-drm-ancient-un-def
+#kernel-modules-drm-radeon-un-def
+#kernel-modules-v4l-un-def
+#kernel-modules-drm-un-def
+#kernel-modules-staging-un-def
+#kernel-modules-drm-nouveau-un-def@X86
+#kernel-modules-virtualbox-un-def@x86_64
+#kernel-modules-virtualbox-addition-un-def@X86
 kernel-headers-modules-un-def
 kernel-headers-un-def
 
