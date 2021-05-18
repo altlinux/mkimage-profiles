@@ -4,6 +4,8 @@ kernel-modules-ipset-std-def
 kernel-modules-xtables-addons-std-def
 kernel-modules-kvdo-std-def
 kernel-modules-zfs-std-def
+kernel-modules-hinic-std-def@aarch64
+kernel-modules-hifc-std-def@aarch64
 zfs-utils
 ocfs2-tools
 vdo
