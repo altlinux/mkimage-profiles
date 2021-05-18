@@ -31,7 +31,7 @@ kde5-file-actions-gost
 #chromium-ublock_origin
 
 qmmp1
-qmmp-skins
+#qmmp-skins
 
 samba
 # system-config-samba
