@@ -9,7 +9,7 @@ kernel-modules-hifc-std-def@aarch64
 zfs-utils
 ocfs2-tools
 vdo
-
+systemd-settings-disable-kill-user-processes
 net-snmp
 corosync
 pacemaker
