@@ -4,7 +4,8 @@ gimp-help-en
 gimp-plugin-gutenprint
 gimp-script-ISONoiseReduction
 gimp-plugin-ufraw@X86
-darktable@X86
+darktable@x86_64
+darktable@aarch64
 inkscape
 hugin@X86
 autopano-sift-C
