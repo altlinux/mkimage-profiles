@@ -36,8 +36,11 @@ if [ -n "$GLOBAL_GRUB_DEFAULT" ]; then
 		exit 1
 	fi
 fi
+DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
+if grep -i '@default_id@' "$CFG"; then
+	sed -i "s/@default_id@/$DEFAULT/" "$CFG"
+fi
 if ! grep -i '^\s*\(set\s\+\)\?default=' "$CFG"; then
-	DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
 	if [ -n "$DEFAULT" ]; then
 		echo "default=$DEFAULT" >> "$CFG"
 	else
