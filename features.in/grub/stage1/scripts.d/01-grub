@@ -29,25 +29,20 @@ local CFG=$1
 if [ -n "$GLOBAL_GRUB_DEFAULT" ]; then
 	if [ -n "$(grep -i "$GLOBAL_GRUB_DEFAULT" "$CFG")" ]; then
 		DEFAULT="$GLOBAL_GRUB_DEFAULT"
-		sed -i '/^default/d'
-		echo "default=$DEFAULT" >> "$CFG"
 	else
 		echo "error: $GLOBAL_GRUB_DEFAULT missing in $CFG" >&2
 		exit 1
 	fi
-fi
-DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
-if grep -i '@default_id@' "$CFG"; then
-	sed -i "s/@default_id@/$DEFAULT/" "$CFG"
-fi
-if ! grep -i '^\s*\(set\s\+\)\?default=' "$CFG"; then
-	if [ -n "$DEFAULT" ]; then
-		echo "default=$DEFAULT" >> "$CFG"
-	else
+elif [ -n "$(grep -i "--id 'linux'" "$CFG")" ]; then
+	DEFAULT=linux
+else
+	DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
+	if [ -z "$DEFAULT" ]; then
 		echo "error: no DEFAULT or UI directive and cannot guess for $CFG" >&2
 		exit 1
 	fi
 fi
+sed -i "s/@default_id@/$DEFAULT/" "$CFG"
 }
 
 default_change "$CFG"
