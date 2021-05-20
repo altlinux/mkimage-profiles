@@ -30,11 +30,10 @@ VM_XZ_COMMAND ?= xz -T0
 RECOVERY_LINE ?= Press ENTER to start
 
 # tarball save
-#SAVE_TARBALL := convert-image/tar
-ifdef VM_SAVE_TAR
+ifdef VM_SAVE_TARBALL
 ifeq (,$(filter-out img img.xz qcow2 qcow2c vdi vmdk vhd,$(IMAGE_TYPE)))
-ifeq (,$(filter-out tar tar.gz tar.xz,$(VM_SAVE_TAR)))
-SAVE_TARBALL := convert-image/$(VM_SAVE_TAR)
+ifeq (,$(filter-out tar tar.gz tar.xz,$(VM_SAVE_TARBALL)))
+SAVE_TARBALL := convert-image/$(VM_SAVE_TARBALL)
 endif
 endif
 endif

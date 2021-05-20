@@ -95,8 +95,8 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 		echo "** error: $(IMAGE_OUTPATH) missing" >&2; \
 		exit 1; \
 	fi; \
-	if [ -n "$(VM_SAVE_TAR)" ]; then \
-		echo "** tarball saved: $(IMAGE_OUTPATH)/$(IMAGE_OUTNAME).$(VM_SAVE_TAR)" >&2; \
+	if [ -n "$(VM_SAVE_TARBALL)" ]; then \
+		echo "** tarball saved: $(IMAGE_OUTPATH)/$(IMAGE_OUTNAME).$(VM_SAVE_TARBALL)" >&2; \
 	fi; \
 	echo "** image: $(IMAGE_OUTPATH) [$$OUTSIZE]" >&2 && \
 	echo "IMAGE_OUTPATH = $(IMAGE_OUTPATH)" && \
