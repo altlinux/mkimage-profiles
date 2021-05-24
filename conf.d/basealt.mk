@@ -44,7 +44,6 @@ ifeq (vm,$(IMAGE_CLASS))
 
 vm/.alt-workstation: vm/systemd use/x11/lightdm/gtk \
 	use/oem/distro use/repo mixin/alt-workstation
-	@$(call add,THE_PACKAGES,rootfs-installer-features)
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
