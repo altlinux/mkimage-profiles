@@ -74,7 +74,7 @@ mtr
 net-tools
 tcpdump
 ipcalc
-python-module-serial
+python3-module-serial
 inxi
 hwinfo@!E2K
 htop
