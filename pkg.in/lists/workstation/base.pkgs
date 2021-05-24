@@ -5,6 +5,7 @@ alterator-x11
 alterator-logs
 alterator-updates
 alterator-net-iptables
+alterator-update-kernel
 
 task-auth-ad-sssd
 task-auth-ldap-sssd
