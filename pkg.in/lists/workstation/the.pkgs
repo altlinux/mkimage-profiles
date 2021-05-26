@@ -43,3 +43,6 @@ test-audio
 
 glmark2@aarch64
 glmark2-es2@aarch64
+
+java-9-openjdk-
+java-9-openjdk-headless-
