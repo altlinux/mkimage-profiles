@@ -25,6 +25,7 @@ pciutils
 usbutils
 acpi
 dmidecode@X86
+dmidecode@aarch64
 
 apt-repo
 apt-rsync
