@@ -81,7 +81,6 @@ else
 	@$(call add,MAIN_PACKAGES,firmware-linux)
 	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
-	@$(call set,KFLAVOURS,std-def)
 endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
 	@$(call add,BASE_KMODULES,drm)
