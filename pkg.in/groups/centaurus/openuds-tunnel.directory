@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OpenUDS VDS tunneling 
+X-Alterator-PackageList=centaurus/openuds-tunnel
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Conflicts=centaurus/openuds
+Name[ru_RU]=Сервер туннелирования виртуальных рабочих столов OpenUDS
+Categories=Server;Networking
+
