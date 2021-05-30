@@ -5,7 +5,8 @@ mixin/alt-engineering-live: engineering_lists = $(addprefix engineering/,\
 	2d-cad 3d-cad 3d-printer apcs cam cnc eda scada misc)
 
 mixin/alt-engineering: mixin/regular-mate use/x11/lightdm/gtk \
-	mixin/p9 use/l10n +systemd +systemd-optimal +nm-gtk +plymouth
+	use/l10n +systemd +systemd-optimal +nm-gtk +plymouth \
+	$(STARTERKIT)
 	@$(call add,THE_PACKAGES,theme-mate-windows)
 
 mixin/alt-engineering-install: mixin/alt-engineering
@@ -20,14 +21,14 @@ mixin/alt-engineering-live: mixin/alt-engineering \
 	@$(call add,LIVE_LISTS,$(engineering_lists))
 
 ifeq (distro,$(IMAGE_CLASS))
-distro/alt-p9-engineering-live: distro/.regular-x11 \
+distro/regular-engineering-live: distro/.regular-x11 \
 	mixin/alt-engineering-live; @:
 
-distro/alt-p9-engineering-install: distro/.regular-install-x11 \
+distro/regular-engineering-install: distro/.regular-install-x11 \
 	mixin/alt-engineering-install; @:
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/alt-p9-engineering: vm/.regular-desktop mixin/alt-engineering-install \
+vm/regular-engineering: vm/.regular-desktop mixin/alt-engineering-install \
 	use/oem/install; @:
 endif
