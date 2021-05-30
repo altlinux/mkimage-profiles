@@ -38,6 +38,8 @@ include::../README[]
 
 include::params.txt[]
 
+include::branch.txt[]
+
 include::features.txt[]
 
 include::pkglists.txt[]

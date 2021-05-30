@@ -17,6 +17,9 @@ endif
 IMAGE_CONF    := $(firstword $(subst ., ,$(IMAGE_TARGET)))# ve/generic
 IMAGE_CLASS   := $(firstword $(subst /, ,$(IMAGE_TARGET)))# ve
 IMAGE_FILE    := $(lastword  $(subst /, ,$(IMAGE_TARGET)))# generic.tar.gz
+ifdef BRANCH
+IMAGE_FILE    := $(subst regular,alt-$(BRANCH),$(IMAGE_FILE))
+endif
 IMAGE_NAME    := $(firstword $(subst ., ,$(IMAGE_FILE)))#   generic
 IMAGE_TYPE    := $(subst $(IMAGE_NAME).,,$(IMAGE_FILE))#    tar.gz
 ifeq ($(IMAGE_NAME),$(IMAGE_TYPE)$(IMAGE_GUESS))

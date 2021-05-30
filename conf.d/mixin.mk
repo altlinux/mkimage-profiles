@@ -1,5 +1,14 @@
 ### various mixins with their origin
 
+# for stable branch base kits
+ifdef BRANCH
+STARTERKIT := mixin/starterkit
+mixin/starterkit: use/browser/firefox/esr
+	@$(call set,BRANDING,alt-starterkit)
+	@$(call set,IMAGE_FLAVOUR,$(subst alt-$(BRANCH)-,,$(IMAGE_NAME)))
+	@$(call set,META_VOL_ID,ALT $(BRANCH) $$(IMAGE_FLAVOUR)/$(ARCH))
+endif
+
 ### desktop.mk
 mixin/desktop-installer: +net-eth +vmguest \
 	use/bootloader/os-prober use/x11-autostart use/fonts/install2 use/sound
