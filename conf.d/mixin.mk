@@ -7,6 +7,8 @@ mixin/starterkit: use/browser/firefox/esr
 	@$(call set,BRANDING,alt-starterkit)
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-$(BRANCH)-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT $(BRANCH) $$(IMAGE_FLAVOUR)/$(ARCH))
+else
+STARTERKIT :=
 endif
 
 ### desktop.mk
