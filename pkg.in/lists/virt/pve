@@ -5,3 +5,4 @@ kernel-modules-ipset-std-def
 kernel-modules-xtables-addons-std-def
 kernel-modules-zfs-std-def
 zfs-utils
+alt-issue-server-pve
