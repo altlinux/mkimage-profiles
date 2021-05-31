@@ -69,6 +69,7 @@ SHELL = /bin/bash
 		else \
 			exit 1; \
 		fi; \
+		if [ -n "$(AUTOCLEAN)" ]; then $(MAKE) distclean; fi; \
 	done; \
 	if [ "$$n" -lt "$(NUM_TARGETS)" ]; then say; fi
 
