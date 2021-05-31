@@ -7,8 +7,7 @@ mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +plymouth \
 
 ifeq (distro,$(IMAGE_CLASS))
 distro/regular-cnc-rt: distro/.regular-x11 mixin/cnc-rt \
-	use/live/install
-	@$(call add,EFI_BOOTARGS,efi=runtime)
+	use/live/install; @:
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
