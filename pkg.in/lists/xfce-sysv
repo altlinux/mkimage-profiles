@@ -3,6 +3,7 @@ apt-conf-ignore-systemd
 cdrkit
 ddrescue
 elinks
+fbset
 gnome-disks
 leafpad
 mpg123
