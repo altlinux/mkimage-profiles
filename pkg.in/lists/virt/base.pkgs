@@ -58,3 +58,4 @@ mc
 installer-feature-repo-add
 ipmitool
 udev-rules-ioschedulers
+alt-issue-server
