@@ -56,6 +56,8 @@ use/kernel/initrd-setup: use/kernel
 	@$(call add,VM_INITRDMODULES,drivers/usb/storage drivers/nvmem)
 	@$(call add,VM_INITRDMODULES,drivers/virtio)
 	@$(call add,VM_INITRDMODULES,drm/virtio)
+	@$(call add,VM_INITRDMODULES,virtio-scsi.ko virtio_blk.ko virtio-rng virtio_net.ko virtio-gpu.ko)
+	@$(call add,VM_INITRDMODULES,virtio-mmio.ko virtio_pci.ko virtio_console.ko virtio_input.ko)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ata_piix.ko)
 endif
