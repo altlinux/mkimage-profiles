@@ -63,8 +63,8 @@ SHELL = /bin/bash
 			say "** ARCH: $$ARCH"; \
 		fi; \
 		if $(MAKE) -f main.mk ARCH=$$ARCH $@ $(POSTPROC); then \
-			if [ -n "$$REPORT" ]; then \
-				$(MAKE) -f reports.mk ARCH=$$ARCH; \
+			if [ -n "$(REPORT)" ]; then \
+				$(MAKE) -f reports.mk ARCH=$$ARCH REPORT=$(REPORT); \
 			fi; \
 		else \
 			exit 1; \
