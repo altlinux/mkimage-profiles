@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Directory
-Name=Opennebula Server
-Name[ru_RU]=Сервер Opennebula
+Name=Opennebula Control Server
+Name[ru_RU]=Сервер управления Opennebula
 X-Alterator-Groups=server-v/opennebula/server server-v/opennebula/flow server-v/opennebula/gate server-v/opennebula/gui

@@ -49,7 +49,7 @@ distro/server-v: logging = $(addprefix server-v/,\
 	rsyslog-classic systemd-journal-remote)
 
 distro/server-v: profiles = $(addprefix server-v/,\
-	111-opennebula-node 112-opennebula-server 113-opennebula-lxd 140-basic 201-docker)
+	111-opennebula-server 112-opennebula-node 113-opennebula-lxd 140-basic 201-docker)
 #121-openstack-node 122-openstack-controller 
 
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
