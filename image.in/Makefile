@@ -101,11 +101,13 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 	echo "** image: $(IMAGE_OUTPATH) [$$OUTSIZE]" >&2 && \
 	echo "IMAGE_OUTPATH = $(IMAGE_OUTPATH)" && \
 	echo "IMAGE_OUTFILE = $(IMAGE_OUTFILE)" && \
-	ln -sf "$(IMAGE_RELPATH)" "$(IMAGE_LINKPATH)" && \
-	ln -sf "$(IMAGE_RELDIR)" "$(OUT_LINK)" && \
-	ln -sf "$(IMAGE_LINK)" "$(IMAGEDIR)/$(CURRENT_LINK).$(IMAGE_TYPE)"; \
-	if [ -n "$(IMAGE_VER_LINK)" ]; then \
-		ln -sf "$(IMAGE_RELPATH)" "$(IMAGEDIR)/$(IMAGE_VER_LINK)"; \
+	if [ ! -n "$(NO_SYMLINK)" ]; then \
+		ln -sf "$(IMAGE_RELPATH)" "$(IMAGE_LINKPATH)" && \
+		ln -sf "$(IMAGE_RELDIR)" "$(OUT_LINK)" && \
+		ln -sf "$(IMAGE_LINK)" "$(IMAGEDIR)/$(CURRENT_LINK).$(IMAGE_TYPE)"; \
+		if [ -n "$(IMAGE_VER_LINK)" ]; then \
+			ln -sf "$(IMAGE_RELPATH)" "$(IMAGEDIR)/$(IMAGE_VER_LINK)"; \
+		fi; \
 	fi; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		mkdir -p "$(LOGDIR)"; \
