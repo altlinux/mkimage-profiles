@@ -31,6 +31,8 @@ all: reports/targets reports/scripts reports/cleanlog \
 	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
 		rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
 		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
+		mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.log; \
+		mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.cfg; \
 	fi
 
 reports/prep:
