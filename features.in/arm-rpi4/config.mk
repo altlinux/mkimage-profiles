@@ -24,7 +24,7 @@ use/arm-rpi4/kernel: use/arm-rpi4
 	@$(call add,THE_PACKAGES,rpi4-boot-uboot-filetrigger)
 	@$(call xport,RPI_NOUBOOT)
 ifeq (aarch64,$(ARCH))
-	@$(call set,KFLAVOURS,rpi-un rpi-def)
+	@$(call set,KFLAVOURS,rpi-def rpi-un)
 else
 	@$(call set,KFLAVOURS,rpi-def)
 endif
