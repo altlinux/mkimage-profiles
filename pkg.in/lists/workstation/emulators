@@ -10,9 +10,5 @@ i586-libwine-twain@x86_64
 i586-libnss-mdns@x86_64
 i586-libnss-myhostname@x86_64
 
-winetricks@X86
-# For winetricks
-zenity@X86
-
 dosbox
 rtc@E2K
