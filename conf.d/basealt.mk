@@ -48,6 +48,7 @@ vm/.alt-workstation: vm/systemd use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 
 vm/alt-workstation:: vm/.alt-workstation
+	@$(call add,THE_LISTS,workstation/libreoffice)
 
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 vm/alt-workstation:: use/uboot
