@@ -266,4 +266,5 @@ endif
 
 ifeq (ve,$(IMAGE_CLASS))
 ve/docker-sisyphus: ve/docker; @:
+ve/regular-chroot: ve/generic $(STARTERKIT); @:
 endif
