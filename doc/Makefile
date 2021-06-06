@@ -68,4 +68,4 @@ pdf: prep
 clean:
 	@echo "** cleaning up"
 	@if [ -d "$(BUILDDIR)" ]; then cd "$(BUILDDIR)"; fi; \
-	rm -rf $(DOCS_OUT) $(DOCS_TMP) $(PROJECT).chunked/ .fop.xconf
+	rm -rf $(DOCS_OUT) $(DOCS_TMP) $(PROJECT).chunked/
