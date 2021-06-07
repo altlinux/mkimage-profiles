@@ -12,7 +12,7 @@ STARTERKIT :=
 endif
 
 ### desktop.mk
-mixin/desktop-installer: +net-eth +vmguest \
+mixin/desktop-installer: +vmguest \
 	use/bootloader/os-prober use/x11-autostart use/fonts/install2 use/sound
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
