@@ -59,3 +59,4 @@ installer-feature-repo-add
 ipmitool
 udev-rules-ioschedulers
 alt-issue-server
+systemd-settings-disable-kill-user-processes
