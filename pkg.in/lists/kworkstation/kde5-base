@@ -52,6 +52,7 @@ ddcprobe@X86
 dmidecode
 easy-rsa
 eepm
+eepm-yum
 etcnet-full
 fdisk
 gpm
