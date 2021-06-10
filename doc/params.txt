@@ -94,6 +94,7 @@ $HOME/.mkimage/profiles.mk.
 * LOGDIR
 ** указывает путь для сохранения логов сборки
 ** значение: равно $(IMAGEDIR) (по умолчанию), либо другой путь
+** NB: в силу специфики обработки передаётся только явно
 ** см. lib/build.mk, lib/profile.mk
 
 * MKIMAGE_PREFIX
