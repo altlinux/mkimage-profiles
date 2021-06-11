@@ -151,7 +151,7 @@ use/x11/cinnamon: use/x11/xorg +pulse
 	@$(call add,IM_PACKAGES,imsettings-cinnamon)
 
 use/x11/deepin: use/x11/xorg +pulse
-	@$(call add,THE_PACKAGES,deepin-default)
+	@$(call add,THE_LISTS,$(call tags,deepin desktop))
 
 use/x11/gnome3: use/x11/xorg use/x11/gdm +pulse
 	@$(call add,THE_PACKAGES,gnome3-default)
