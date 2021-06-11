@@ -10,6 +10,12 @@ REPORTDIR := $(BUILDDIR)/reports
 IMAGE_OUTPATH := $(shell sed -n 's/^IMAGE_OUTPATH = \(.*\)/\1/p' $(BUILDLOG))
 IMAGE_OUTFILE := $(shell sed -n 's/^IMAGE_OUTFILE = \(.*\)/\1/p' $(BUILDLOG))
 LOGDIR := $(shell sed -n 's/^LOGDIR = \(.*\)/\1/p' $(BUILDLOG))
+ifeq (,$(IMAGE_OUTPATH))
+TARGET_NAME := $(shell sed -n 's/^IMAGE_NAME = \(.*\)/\1/p' $(BUILDDIR)/distcfg.mk)
+TARGET_TYPE := $(shell sed -n 's/^IMAGE_TYPE = \(.*\)/\1/p' $(BUILDDIR)/distcfg.mk)
+TARGET_NAME := $(TARGET_NAME).$(TARGET_TYPE)
+LOGDIR := $(LOGDIR)/CHECK
+endif
 
 # for a multi-image build there's no sense to refer to buildroot
 # contained reports as these are very ephemeral between builds
@@ -26,17 +32,21 @@ define report_body
 fi; }
 endef
 
+ifneq (,$(IMAGE_OUTPATH))
 all: reports/targets reports/scripts reports/cleanlog \
 	reports/contents reports/packages
-	@if [ -n "$(IMAGE_OUTPATH)" ]; then \
-		rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
-		cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"; \
-		mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.log; \
-		mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.cfg; \
-	fi
+	@rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"
+	@cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"
+	@mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.log
+	@mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.cfg
+else
+all: reports/prep reports/targets reports/scripts
+	@rm -fr "$(LOGDIR)/$(TARGET_NAME).reports"
+	@cp -a "$(REPORTDIR)" "$(LOGDIR)/$(TARGET_NAME).reports"
+endif
 
 reports/prep:
-	@mkdir -p "$(REPORTDIR)"
+	@mkdir -p "$(REPORTDIR)" "$(LOGDIR)"
 
 # try to drop common noise rendering diff(1) mostly useless
 reports/cleanlog: reports/prep
