@@ -113,8 +113,9 @@ mixin/xfce-base: use/x11/xfce +nm-gtk \
 	@$(call add,THE_PACKAGES,xreader)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 
-mixin/regular-xfce: mixin/xfce-base use/x11/xfce/full \
-	use/domain-client; @:
+mixin/regular-xfce: mixin/xfce-base use/domain-client +pulse
+	@$(call add,THE_PACKAGES,light-locker pavucontrol)
+	@$(call add,THE_PACKAGES,xfce4-pulseaudio-plugin xfce-polkit)
 
 mixin/regular-xfce-sysv: mixin/xfce-base \
 	use/fonts/otf/adobe use/fonts/otf/mozilla
