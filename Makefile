@@ -19,12 +19,6 @@ export ARCHES ARCH
 
 export PATH := $(CURDIR)/bin:$(PATH)
 
-# supervise target tracing; leave stderr alone
-ifdef REPORT
-export REPORT_PATH := $(shell mktemp --tmpdir mkimage-profiles.report.XXXXXXX)
-POSTPROC := | report-filter > $(REPORT_PATH)
-endif
-
 # recursive make considered useful for m-p
 MAKE += -r --no-print-directory
 
@@ -62,12 +56,12 @@ SHELL = /bin/bash
 			fi; \
 			say "** ARCH: $$ARCH"; \
 		fi; \
-		if $(MAKE) -f main.mk ARCH=$$ARCH $@ $(POSTPROC); then \
-			if [ -n "$(REPORT)" ]; then \
-				$(MAKE) -f reports.mk ARCH=$$ARCH REPORT=$(REPORT); \
-			fi; \
+		if [ -n "$(REPORT)" ]; then \
+			REPORT_PATH=$$(mktemp --tmpdir mkimage-profiles.report.XXXXXXX); \
+			$(MAKE) -f main.mk ARCH=$$ARCH $@ | report-filter > $$REPORT_PATH || exit 1; \
+			$(MAKE) -f reports.mk ARCH=$$ARCH REPORT=$(REPORT) REPORT_PATH=$$REPORT_PATH; \
 		else \
-			exit 1; \
+			$(MAKE) -f main.mk ARCH=$$ARCH $@ || exit 1; \
 		fi; \
 		if [ -n "$(AUTOCLEAN)" ]; then $(MAKE) distclean; fi; \
 	done; \
