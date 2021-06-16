@@ -23,8 +23,8 @@ VM_RAWDISK := $(IMAGE_OUTDIR)/$(IMAGE_NAME).raw
 VM_FSTYPE ?= ext4
 VM_SIZE ?= 0
 
-VM_GZIP_COMMAND ?= gzip
-VM_XZ_COMMAND ?= xz -T0
+VM_GZIP_COMMAND ?= gzip -f
+VM_XZ_COMMAND ?= xz -T0 -f
 
 # tavolga
 RECOVERY_LINE ?= Press ENTER to start
