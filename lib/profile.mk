@@ -2,6 +2,7 @@ ifndef MKIMAGE_PROFILES
 $(error this makefile is designed to be included in toplevel one)
 endif
 
+ifneq (,$(filter-out $(DIRECT_TARGETS),$(MAKECMDGOALS)))
 # this could have come from env; or could be symlinked; or is made anew
 # (the reuse rationale is avoiding extra tmpdir lookups)
 # NB: immediate assignment matters
@@ -19,6 +20,7 @@ endif
 
 ifeq (,$(BUILDDIR))
 $(error suitable BUILDDIR unavailable)
+endif
 endif
 
 # even smart caching only hurts when every build goes from scratch
