@@ -30,6 +30,10 @@ MAKE += -s
 LOG = 2>>$(BUILDLOG) >/dev/null
 endif
 
+ifeq (,$(filter-out $(DIRECT_TARGETS),$(MAKECMDGOALS)))
+LOG = >/dev/null 2>&1
+endif
+
 # in build.mk, naive TIME gets expanded a bit too early (no need to export btw)
 DATE = $(shell date +%Y%m%d)
 TIME = `date +%H:%M:%S`
