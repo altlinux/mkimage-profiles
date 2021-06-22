@@ -43,8 +43,6 @@ distclean: clean
 			echo "** ERROR: invalid \`"$(SYMLINK)"' symlink" >&2; \
 			exit 128; \
 		else \
-			$(MAKE) -C "$(SYMLINK)" $@ \
-				GLOBAL_BUILDDIR="$$build" $(LOG) ||:; \
 			rm -rf "$$build"; \
 		fi; \
 	fi; \
