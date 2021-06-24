@@ -34,6 +34,7 @@ tcpdump
 ipcalc
 python-module-serial
 inxi
+color-prompt-and-man
 
 accountsservice
 
