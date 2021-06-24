@@ -48,6 +48,9 @@ alterator-updates
 alterator-xinetd
 alterator-quota
 
+alterator-update-kernel
+alterator-multiseat
+
 squid
 
 
