@@ -71,6 +71,8 @@ vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 
 vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep; @:
 
+vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep; @:
+
 vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep; @:
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
@@ -97,6 +99,9 @@ vm/regular-jeos-sysv-rpi: vm/net mixin/regular-vm-jeos use/tty/AMA0 \
 	use/arm-rpi4/kernel +power; @:
 
 vm/regular-builder-rpi: vm/regular-jeos-systemd-rpi mixin/regular-builder; @:
+
+vm/regular-deepin-rpi: vm/.regular-gtk use/x11/deepin use/arm-rpi4/full
+	@$(call add,THE_PACKAGES,deepin-regular)
 
 vm/regular-lxde-rpi: vm/.regular-gtk mixin/regular-lxde use/arm-rpi4/full; @:
 
