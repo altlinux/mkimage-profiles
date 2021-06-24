@@ -39,8 +39,6 @@ accountsservice
 alterator-printers
 alterator-multiseat
 
-alterator-gpupdate
-
 test-audio
 
 glmark2@aarch64

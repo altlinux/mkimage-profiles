@@ -4,7 +4,7 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization 50-publishing \
 	agents emulators ganttproject gnome-peer-to-peer graphics-editing \
 	libreoffice mate-usershare pidgin raccess scanning scribus \
-	sound-editing thunderbird vlc freeipa-client)
+	sound-editing thunderbird vlc freeipa-client admc)
 
 mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	use/kernel/latest \
