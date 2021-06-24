@@ -94,3 +94,4 @@ urbackup-client
 urbackup-server
 
 alt-csp-cryptopro
+inxi hwinfo htop iotop
