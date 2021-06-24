@@ -36,6 +36,7 @@ python-module-serial
 inxi
 hwinfo@!E2K
 htop
+iotop
 color-prompt-and-man
 
 accountsservice
