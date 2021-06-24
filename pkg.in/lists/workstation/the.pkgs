@@ -35,6 +35,7 @@ ipcalc
 python-module-serial
 inxi
 hwinfo@!E2K
+htop
 color-prompt-and-man
 
 accountsservice
