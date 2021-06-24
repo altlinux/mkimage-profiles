@@ -68,7 +68,7 @@ prep:
 #     - "rootfs@/": copy feature's rootfs parts into BUILDDIR toplevel
 $(FEATURES):
 	@feat=$@; \
-	args="-qab --exclude README --exclude config.mk"; \
+	args="-qab --exclude .gitignore --exclude README --exclude config.mk"; \
 	args="$$args --exclude generate.mk --exclude generate.sh"; \
 	if [ -n "$(GLOBAL_DEBUG)" ]; then \
 		echo "** adding $$feat feature"; \
