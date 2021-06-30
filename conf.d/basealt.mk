@@ -2,7 +2,7 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	3rdparty blender clamav cloud-clients freecad \
-	gtk-dictionary kvm smartcard voip-clients)
+	gtk-dictionary kvm smartcard voip-clients vlc)
 
 distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
@@ -17,10 +17,15 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	use/e2k/multiseat/801/full use/e2k/x11/101 use/e2k/sound/401
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
+	@$(call add,LIVE_LISTS,workstation/vlc)
 endif
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/virtualbox)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
+endif
+ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
+	@$(call add,MAIN_GROUPS,workstation/celluloid)
+	@$(call add,LIVE_LISTS,workstation/celluloid)
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
@@ -49,27 +54,35 @@ vm/.alt-workstation: vm/systemd use/x11/lightdm/gtk \
 
 vm/alt-workstation:: vm/.alt-workstation
 	@$(call add,THE_LISTS,workstation/libreoffice)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call add,THE_LISTS,workstation/vlc)
+endif
 
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 vm/alt-workstation:: use/uboot
 	@$(call add,BASE_LISTS,uboot)
+	@$(call add,THE_LISTS,workstation/celluloid)
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full; @:
+vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
+	@$(call add,THE_LISTS,workstation/celluloid)
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-workstation-tegra: vm/.alt-workstation use/aarch64-tegra; @:
+vm/alt-workstation-tegra: vm/.alt-workstation use/aarch64-tegra
+	@$(call add,THE_LISTS,workstation/vlc)
 endif
 
 ifeq (,$(filter-out armh,$(ARCH)))
-vm/alt-workstation-mcom02: vm/.alt-workstation use/armh-mcom02/x11; @:
+vm/alt-workstation-mcom02: vm/.alt-workstation use/armh-mcom02/x11
+	@$(call add,THE_LISTS,workstation/celluloid)
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
 vm/alt-workstation::
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
+	@$(call add,THE_LISTS,workstation/celluloid)
 
 vm/alt-workstation-bfk3: vm/alt-workstation use/mipsel-bfk3/x11; @:
 vm/alt-workstation-tavolga: vm/alt-workstation use/mipsel-mitx/x11; @:
