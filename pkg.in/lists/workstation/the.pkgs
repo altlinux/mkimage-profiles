@@ -5,10 +5,44 @@ pam-limits-desktop
 beesu
 audit
 xmessage
+etcnet-defaults-desktop
 lsb-release
 alterator-quota
 alterator-control
+alterator-x11
+alterator-logs
+alterator-updates
+alterator-net-iptables
+alterator-update-kernel
+
 grub-customizer@X86
+
+xorg-conf-libinput-touchpad
+
+# Support Chinese characters
+fonts-bitmap-wqy
+
+make-initrd-ucode@X86
+iucode_tool@X86
+firmware-intel-ucode@X86
+
+task-auth-ad-sssd
+task-auth-ldap-sssd
+
+apt-indicator
+
+recoll-extras
+
+# compat libs
+libusb-compat@IA32
+
+screen
+terminfo-extra
+
+# Console fonts workaround
+vconsole-setup-kludge@X86
+
+fwupd@x86_64
 
 rpminstall
 gnome-software
