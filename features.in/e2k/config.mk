@@ -36,7 +36,7 @@ use/e2k/multiseat/801: use/e2k/multiseat/801/base
 
 use/e2k/multiseat/801/full: use/e2k/multiseat/801 use/control
 	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
-	@$(call add,THE_PACKAGES,test-audio)
+	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
 	@$(call add,CONTROL,udisks2:shared)     ### media mount exclusivity
 else
 use/e2k/x11/101:; @:
