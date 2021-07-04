@@ -1,7 +1,3 @@
 # CAM (Computer-aided manufacturing)
 # and G-Code generators
-camotics
-pycam
-flatcam
-pcb2gcodeGUI
-rastercarve
+engineering-CAM
