@@ -1,5 +1,5 @@
 mixin/alt-engineering-install: engineering_groups = $(addprefix engineering/,\
-	05-apps 2d-cad 3d-cad 3d-printer apcs cam cnc eda)
+	05-apps 2d-cad 3d-cad 3d-printer apcs cam cnc eda misc)
 
 mixin/alt-engineering-live: engineering_lists = $(addprefix engineering/,\
 	2d-cad 3d-cad 3d-printer apcs cam cnc eda misc)

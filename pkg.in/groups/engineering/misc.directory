@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=engineering/misc
+X-Alterator-Required=no
+Categories=Engineering
+X-Alterator-Parent=engineering/05-apps
+Name=Miscellanous engineering applications
+Name[ru_RU]=Другие инженерные приложения
+Comment=Engineering applications not in any category.
+Comment[ru_RU]=Инженерные приложения, невошедшие ни в одну категорию.
