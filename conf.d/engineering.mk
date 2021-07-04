@@ -1,8 +1,8 @@
 mixin/alt-engineering-install: engineering_groups = $(addprefix engineering/,\
-	05-apps 2d-cad 3d-cad 3d-printer apcs cam cnc eda scada)
+	05-apps 2d-cad 3d-cad 3d-printer apcs cam cnc eda)
 
 mixin/alt-engineering-live: engineering_lists = $(addprefix engineering/,\
-	2d-cad 3d-cad 3d-printer apcs cam cnc eda scada misc)
+	2d-cad 3d-cad 3d-printer apcs cam cnc eda misc)
 
 mixin/alt-engineering: mixin/regular-mate use/x11/lightdm/gtk \
 	use/l10n +systemd +systemd-optimal +nm-gtk +plymouth \
