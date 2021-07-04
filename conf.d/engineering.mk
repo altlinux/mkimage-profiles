@@ -1,8 +1,8 @@
 mixin/alt-engineering-install: engineering_groups = $(addprefix engineering/,\
-	05-apps 2d-cad 3d-cad 3d-printer apcs cam cnc eda misc)
+	05-apps 2d-cad 3d-cad 3d-printer apcs cam eda misc)
 
 mixin/alt-engineering-live: engineering_lists = $(addprefix engineering/,\
-	2d-cad 3d-cad 3d-printer apcs cam cnc eda misc)
+	2d-cad 3d-cad 3d-printer apcs cam eda misc)
 
 mixin/alt-engineering: mixin/regular-mate use/x11/lightdm/gtk \
 	use/l10n +systemd +systemd-optimal +nm-gtk +plymouth \
@@ -11,6 +11,9 @@ mixin/alt-engineering: mixin/regular-mate use/x11/lightdm/gtk \
 
 mixin/alt-engineering-install: mixin/alt-engineering
 	@$(call add,MAIN_GROUPS,$(engineering_groups))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+	@$(call add,MAIN_GROUPS,engineering/cnc)
+endif
 	@$(call add,MAIN_KFLAVOURS,rt)
 	@$(call add,THE_PROFILES,minimal)
 	@$(call add,THE_PROFILES,engineering/10-design)
@@ -19,6 +22,9 @@ mixin/alt-engineering-install: mixin/alt-engineering
 mixin/alt-engineering-live: mixin/alt-engineering \
 	use/live/ru use/live/rw
 	@$(call add,LIVE_LISTS,$(engineering_lists))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+	@$(call add,LIVE_LISTS,engineering/cnc)
+endif
 
 ifeq (distro,$(IMAGE_CLASS))
 distro/regular-engineering-live: distro/.regular-x11 \
