@@ -6,5 +6,5 @@ Categories=Engineering
 X-Alterator-Parent=engineering/05-apps
 Name=EDA
 Name[ru_RU]=EDA
-Comment=Electronic Design Automation.
-Comment[ru_RU]= Автоматизированные системы для разработки электронных устройств.
+Comment=Electronic Design Automation software.
+Comment[ru_RU]=Программного обеспечения для автоматизации проектирования электронных устройств.

@@ -6,5 +6,5 @@ Categories=Engineering
 X-Alterator-Parent=engineering/05-apps
 Name=CAM
 Name[ru_RU]=CAM
-Comment=Computer-aided manufacturing.
-Comment[ru_RU]= Автоматизированные системы для подготовки управляющих программ ЧПУ-станков.
+Comment=Computer-aided manufacturing software and gcode generators.
+Comment[ru_RU]=Cистемы автоматизации технологической подготовки производства и генераторы gcode.
