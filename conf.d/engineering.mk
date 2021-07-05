@@ -15,7 +15,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,engineering/cnc)
 endif
 	@$(call add,MAIN_KFLAVOURS,rt)
-	@$(call add,THE_PROFILES,minimal)
+	@$(call add,THE_PROFILES,engineering/00-minimal)
 	@$(call add,THE_PROFILES,engineering/10-design)
 	@$(call add,THE_PROFILES,engineering/20-automations)
 
