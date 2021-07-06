@@ -120,6 +120,8 @@ openssh openssh-clients openssh-askpass-common openssh-server openssh-common ope
 kde5-network-manager-nm
 kde5-video-player-smplayer
 kde5-audio-player-qmmp
+kde5-runtime
+kde5-mini
 kde5-small
 plasma5-kscreen
 
