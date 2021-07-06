@@ -8,7 +8,7 @@ gnupg-pkcs11-scd
 libpkcs11-helper
 gnupg2
 # 1C
-1c-preinstall@X86
+#1c-preinstall@X86
 # FSIN
 openssh-gostcrypto
 openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
