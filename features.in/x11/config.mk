@@ -115,7 +115,7 @@ use/x11/kde5-display-manager-lightdm: \
 	use/x11/%: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,$*)
 	@$(call set,THE_DM_SERVICE,lightdm)
-	@$(call add,PINNED_PACKAGES,kde5-display-manager-5-sddm:Extra)
+	@$(call add,PINNED_PACKAGES,kde5-display-manager-sddm:Extra)
 
 use/x11/gdm: \
 	use/x11/%: use/x11/dm
