@@ -13,10 +13,6 @@ distro/live-mediacheck: distro/.base use/mediacheck +plymouth; @:
 distro/live-testserver: distro/live-install use/server/mini
 	@$(call set,KFLAVOURS,std-def el-smp)
 
-distro/live-gns3: distro/live-icewm
-	@$(call add,LIVE_LISTS,gns3)
-	@$(call add,LIVE_KMODULES,kvm virtualbox)
-
 # NB: requires runtime Server/ServerActive setup in zabbix_agentd.conf
 distro/live-zabbix: distro/live-icewm use/net-eth
 	@$(call add,THE_PACKAGES,zabbix-agent)
