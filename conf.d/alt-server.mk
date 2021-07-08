@@ -50,6 +50,9 @@ endif
 ifeq (,$(filter-out e2kv4,$(ARCH)))
 	@$(call set,META_APP_ID,ALT Server for Elbrus-80x)
 endif
+ifeq (,$(filter-out e2kv5,$(ARCH)))
+	@$(call set,META_APP_ID,ALT Server for Elbrus-90x)
+endif
 
 ifeq (,$(filter-out x86_64 i586,$(ARCH)))
 distro/alt-server:: use/memtest; @:
