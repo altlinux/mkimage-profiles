@@ -66,5 +66,5 @@ hardlinkpy
 hardlink
 
 # Bootable FAT images
-makebootfat
-make-freedos-floppy
+makebootfat@X86
+make-freedos-floppy@X86
