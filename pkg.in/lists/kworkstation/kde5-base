@@ -43,7 +43,6 @@ avahi-daemon
 bash-completion
 bc
 bind-utils
-bridge-utils
 cpufreq-simple
 cifs-utils
 curl

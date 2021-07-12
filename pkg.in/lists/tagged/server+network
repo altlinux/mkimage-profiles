@@ -15,7 +15,6 @@ traceroute
 vlan-utils
 ntpdate
 tcpdump
-bridge-utils
 wget
 ppp-pppoe
 rp-pppoe-client

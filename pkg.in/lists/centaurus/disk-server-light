@@ -150,7 +150,6 @@ ipsec-tools
 
 # force@
 bonnie@X86
-bridge-utils
 ccze
 ddrescue
 disktype

@@ -44,8 +44,6 @@ alterator-fbi
 # wacom driver and utilities
 xorg-drv-wacom
 
-bridge-utils
-
 #bacula
 ###
 
