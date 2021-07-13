@@ -220,8 +220,3 @@ wabread@X86
 
 # Mobile
 android-tools
-jmtpfs
-fuse-obexfs
-fuse-siefs
-gammu
-usbmuxd
