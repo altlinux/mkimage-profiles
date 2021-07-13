@@ -29,7 +29,6 @@ gpm
 mc
 
 # Provisioning
-udpcast
 partclone
 
 # l10n
