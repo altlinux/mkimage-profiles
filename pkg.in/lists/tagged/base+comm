@@ -1,5 +1,3 @@
-lrzsz
 minicom
 picocom
-sredird
-python-module-serial
+python3-module-serial
