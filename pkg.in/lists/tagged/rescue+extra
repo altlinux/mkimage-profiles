@@ -114,7 +114,6 @@ libuna-tools
 libwrc-tools@X86
 ntfs-3g
 ocfs2-tools
-vmfs-tools
 
 # Filesystem recovery/cleanup
 extundelete
