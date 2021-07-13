@@ -135,7 +135,6 @@ archivemount
 fuse-7z
 
 # Applications/Networking
-adcfw-log
 arpwatch
 cifs-utils
 curl
