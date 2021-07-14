@@ -9,7 +9,6 @@ LibreOffice-common@E2K
 
 java-1.8.0-openjdk@!mipsel
 libreoffice-languagetool@!mipsel
-odt2txt
 libcmis
 libwps
 
