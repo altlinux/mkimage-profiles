@@ -168,7 +168,6 @@ iucode_tool@X86
 firmware-intel-ucode@X86
 #mod_geoip
 p0f
-star@X86
 sysstat
 
 # icesik@
