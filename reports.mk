@@ -70,6 +70,11 @@ reports/targets: reports/prep
 		report-targets < "$(REPORT_PATH)" \
 		| dot -Tsvgz -o "$$OUT" \
 		&& $(call report,target graph report); \
+		if type -t rsvg-convert >&/dev/null; then \
+			IN="$$OUT"; \
+			OUT="$(REPORTDIR)/$(@F).pdf"; \
+			rsvg-convert -f pdf "$$IN" -o "$$OUT"; \
+		fi; \
 	else \
 		OUT="$(BUILDDIR)/targets.dot"; \
 		report-targets < "$(REPORT_PATH)" > "$$OUT" \
