@@ -6,6 +6,7 @@ include lib/common.mk
 
 BUILDDIR := $(shell sed -n 's/^.* BUILDDIR = \(.*\)/\1/p' "$(REPORT_PATH)")
 BUILDLOG := $(BUILDDIR)/$(BUILD_LOG)
+BUILDCFG := $(BUILDDIR)/distcfg.mk
 REPORTDIR := $(BUILDDIR)/reports
 IMAGE_OUTPATH := $(shell sed -n 's/^IMAGE_OUTPATH = \(.*\)/\1/p' $(BUILDLOG))
 IMAGE_OUTFILE := $(shell sed -n 's/^IMAGE_OUTFILE = \(.*\)/\1/p' $(BUILDLOG))
@@ -43,6 +44,9 @@ else
 all: reports/prep reports/targets reports/scripts
 	@rm -fr "$(LOGDIR)/$(TARGET_NAME).reports"
 	@cp -a "$(REPORTDIR)" "$(LOGDIR)/$(TARGET_NAME).reports"
+	@if [ -f "$(BUILDCFG)" ]; then \
+		cp -a "$(BUILDCFG)" "$(LOGDIR)/$(TARGET_NAME).reports/build.cfg"; \
+	fi
 endif
 
 reports/prep:
