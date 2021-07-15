@@ -40,6 +40,8 @@ all: reports/targets reports/scripts reports/cleanlog \
 	@cp -a "$(REPORTDIR)" "$(LOGDIR)/$(IMAGE_OUTFILE).reports"
 	@mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.log
 	@mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.cfg
+	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
+		"$(LOGDIR)/$(IMAGE_OUTFILE).reports/pkg.list"
 else
 all: reports/prep reports/targets reports/scripts
 	@rm -fr "$(LOGDIR)/$(TARGET_NAME).reports"
@@ -47,6 +49,8 @@ all: reports/prep reports/targets reports/scripts
 	@if [ -f "$(BUILDCFG)" ]; then \
 		cp -a "$(BUILDCFG)" "$(LOGDIR)/$(TARGET_NAME).reports/build.cfg"; \
 	fi
+	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
+		"$(LOGDIR)/$(TARGET_NAME).reports/pkg.list"	 
 endif
 
 reports/prep:
