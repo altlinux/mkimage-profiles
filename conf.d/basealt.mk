@@ -55,6 +55,7 @@ vm/.alt-workstation: vm/systemd use/x11/lightdm/gtk \
 	use/oem/distro use/repo mixin/alt-workstation
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
+	@$(call add,THE_PACKAGES,alterator-gpupdate)
 	@$(call add,THE_LISTS,workstation/libreoffice)
 
 vm/alt-workstation:: vm/.alt-workstation
