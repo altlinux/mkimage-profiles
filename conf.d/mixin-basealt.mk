@@ -72,6 +72,7 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 endif
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 	@$(call add,LIVE_PACKAGES,installer-feature-lightdm-stage3)
+	@$(call add,LIVE_PACKAGES,alterator-gpupdate)
 	@$(call add,MAIN_PACKAGES,solaar)
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,MAIN_GROUPS,$(workstation_groups))
