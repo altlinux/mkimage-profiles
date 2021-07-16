@@ -16,7 +16,8 @@ use/vmguest/kvm: use/vmguest
 	@$(call add,THE_PACKAGES,qemu-guest-agent)
 
 use/vmguest/kvm/x11: use/vmguest/kvm
-	@$(call add,THE_PACKAGES,spice-vdagent xorg-drv-qxl)
+	@$(call add,THE_PACKAGES,spice-vdagent xorg-drv-qxl xorg-drv-spiceqxl)
+	@$(call add,THE_PACKAGES_REGEXP,xorg-dri-virtio.*)
 else
 use/vmguest/kvm use/vmguest/kvm/x11: ; @:
 endif
