@@ -83,3 +83,5 @@ include::vm.txt[]
 include::qemu.txt[]
 
 include::archdep.txt[]
+
+include::metadep.txt[]

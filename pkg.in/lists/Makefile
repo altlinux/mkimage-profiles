@@ -20,7 +20,7 @@ include $(BUILDDIR)/functions.mk
 SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
-all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups grep-archdep
+all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups grep-metadep grep-archdep
 	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
 # env | sort -u | grep _LISTS | xargs -r cp -t
@@ -38,6 +38,13 @@ copy-groups:
 grep-archdep:
 	@find $(TARGET) -type f \
 	| xargs -r -I __ -- archdep-filter -a "$(ARCH)" -i __
+
+grep-metadep:
+	@APT_CACHE=$(BUILDDIR)/.work/pkgbox/aptbox/apt-cache; \
+	if [ -f "$$APT_CACHE" ]; then \
+		find $(TARGET) -type f \
+		| xargs -r -I __ -- metadep-expander "$$APT_CACHE" __; \
+	fi
 
 # do beforehand as foreach gets expanded before recipe execution
 $(TARGET):
