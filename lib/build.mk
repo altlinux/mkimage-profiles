@@ -57,10 +57,13 @@ IMAGEDIR ?= $(shell \
 )
 
 LOGDIR ?= $(wildcard $(IMAGEDIR))
+make-aptbox:
+	@mkdir -p $(BUILDDIR)/.work/pkgbox; \
+	mkaptbox --without-stuff --target=$(ARCH) --apt-config=$(wildcard $(APTCONF)) -- $(BUILDDIR)/.work/pkgbox
 
 # actual build starter
 # NB: our output MUST go into stderr to escape POSTPROC
-build-image: profile/populate
+build-image: make-aptbox profile/populate
 	@{ \
 	if [ -n "$(CHECK)" ]; then \
 		echo "$(TIME) skipping actual image build (CHECK is set)"; \
