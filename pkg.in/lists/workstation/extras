@@ -1,6 +1,14 @@
 # GOST encryption
 openssl-engines
 
+# gostcrypo repo component is needed
+openssh-gostcrypto
+openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
+openssh-server-gostcrypto openssh-server-control-gostcrypto
+openssh-common-gostcrypto
+openvpn-gostcrypto openvpn-plugins-gostcrypto
+alterator-openvpn-server
+
 # just in case
 #kernel-headers-modules-std-def
 #kernel-headers-std-def
