@@ -9,6 +9,9 @@ openssh-common-gostcrypto
 openvpn-gostcrypto openvpn-plugins-gostcrypto
 alterator-openvpn-server
 
+# for AltHa
+alterator-secsetup
+
 # just in case
 #kernel-headers-modules-std-def
 #kernel-headers-std-def
