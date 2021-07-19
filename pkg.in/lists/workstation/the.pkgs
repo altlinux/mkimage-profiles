@@ -33,6 +33,8 @@ apt-indicator
 
 recoll-extras
 
+onboard
+
 # compat libs
 libusb-compat@IA32
 
