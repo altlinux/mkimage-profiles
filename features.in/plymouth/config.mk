@@ -29,7 +29,7 @@ ifeq (vm,$(IMAGE_CLASS))
 use/plymouth/vm: use/plymouth use/branding use/kernel/initrd-setup
 	@$(call add,VM_INITRDFEATURES,plymouth)
 	@$(call add,THE_BRANDING,bootsplash)
-	@$(call add,THE_PACKAGES_REGEXP,make-initrd-plymouth)
+	@$(call add,THE_PACKAGES,make-initrd-plymouth)
 	@$(call add,BASE_BOOTARGS,quiet)
 	@$(call add,THE_KMODULES,drm)
 else
