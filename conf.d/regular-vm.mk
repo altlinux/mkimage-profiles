@@ -8,7 +8,7 @@ mixin/vm-archdep::
 endif
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot use/no-sleep; @:
+mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
