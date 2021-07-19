@@ -57,18 +57,23 @@ ppc*)
 	BOOTLOADERPARTSIZEM="8"
 	ROOTPART="2"
 	;;
+arm*|aarch64)
+	ROOTPART="1"
+	BLOCKDEV="/dev/sda"
+	CUR_BOUNDARY=15 # offset 16 MiB for singleboard's
+	;;
 *)
-	if [ "$BOOTLOADER" == grub-efi -o "$BOOTTYPE" == EFI ]; then
-		EFIPART="1"
-		EFIPARTSIZEM="256"
-		EFIPARTFSTYPE="fat"
-		ROOTPART="2"
-	else
-		ROOTPART="1"
-	fi
+	ROOTPART="1"
 	BLOCKDEV="/dev/sda"
 	;;
 esac
+
+if [ "$BOOTLOADER" == grub-efi -o "$BOOTTYPE" == EFI ]; then
+	EFIPART="1"
+	EFIPARTSIZEM="256"
+	EFIPARTFSTYPE="fat"
+	ROOTPART="2"
+fi
 
 PARTTABLE="$7"
 if [ -z "$PARTTABLE" ]; then
@@ -201,7 +206,7 @@ parting mklabel "$PARTTABLE"
 if [ -n "$BOOTLOADERPART" ] && [ -n "$BOOTLOADERPARTSIZEM" ]; then
 	case "$ARCH" in
 		ppc*)
-			parting mkpart primary ext2 2048s $((BOOTLOADERPARTSIZEM + 1))MiB
+			parting mkpart primary ext2 $((CUR_BOUNDARY+1))MiB $((BOOTLOADERPARTSIZEM + 1))MiB
 			CUR_BOUNDARY="$BOOTLOADERPARTSIZEM"
 			parting set 1 prep on
 			parting set 1 boot on
@@ -212,9 +217,9 @@ fi
 if [ -n "$EFIPART" ]; then
 	EFIDEV="$EFIDEV$EFIPART"
 	if [ "$PARTTABLE" == gpt ]; then
-		parting mkpart fat32 2048s $(($EFIPARTSIZEM + 1))MiB
+		parting mkpart fat32 $((CUR_BOUNDARY+1))MiB $(($EFIPARTSIZEM + 1))MiB
 	else
-		parting mkpart primary fat32 2048s $(($EFIPARTSIZEM + 1))MiB
+		parting mkpart primary fat32 $((CUR_BOUNDARY+1))MiB $(($EFIPARTSIZEM + 1))MiB
 	fi
 	CUR_BOUNDARY="$EFIPARTSIZEM"
 	parting set 1 boot on
