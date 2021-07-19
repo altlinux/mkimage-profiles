@@ -21,6 +21,8 @@ use/arm-rpi4/x11: use/arm-rpi4
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd hciuart)
 
 use/arm-rpi4/kernel: use/arm-rpi4
+	@$(call set,RPI_NOUBOOT,yes)
+	@$(call xport,RPI_NOUBOOT)
 ifeq (aarch64,$(ARCH))
 	@$(call set,KFLAVOURS,rpi-un rpi-def)
 else
