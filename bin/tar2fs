@@ -361,14 +361,18 @@ popd
     sed -i "s/LABEL=ROOT/$ROOTDEV/" "$ROOTFS/boot/efi/cmdline.txt"
 
 # Update extlinux.conf
-[ -f "$ROOTFS/boot/extlinux/extlinux.conf" ] &&
-    sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/extlinux/extlinux.conf"
+if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ]; then
+	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/extlinux/extlinux.conf"
+	if [ "$PARTTABLE" == gpt ]; then
+		parting set "$ROOTPART" legacyboot on
+	fi
+	if [ "$PARTTABLE" == msdos ]; then
+		parting set "$ROOTPART" boot on
+	fi
+fi
 
 # Setup bootloader
 case "$BOOTLOADER" in
-uboot)
-	parting set "$ROOTPART" boot on
-	;;
 lilo)
 	# configure and install bootloader
 	REGEXP='^.*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
