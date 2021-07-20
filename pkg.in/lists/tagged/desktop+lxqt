@@ -1,6 +1,6 @@
 # metapackage
-lxqt-mini
-lxqt-regular
+lxqt-mini@META
+lxqt-regular@META
 
 # media-player
 mpv

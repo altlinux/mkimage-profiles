@@ -1,2 +1,4 @@
-cinnamon-regular
+cinnamon-minimal@META
+cinnamon-default@META
+cinnamon-regular@META
 installer-feature-xdg-user-dirs
