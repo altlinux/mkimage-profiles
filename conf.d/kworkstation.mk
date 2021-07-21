@@ -92,9 +92,11 @@ mixin/kworkstation-install-deps: \
 	distro/.installer mixin/desktop-installer \
 	use/install2/suspend use/install2/net use/install2 use/install2/stage3 \
 	use/install2/vmguest \
+	use/grub/localboot_bios.cfg \
 	+installer
 
 mixin/kworkstation-install-opts:
+	@$(call set,GRUB_DEFAULT,harddisk)
 	@$(call set,INSTALLER,centaurus)
 	@$(call add,STAGE1_MODLISTS,stage2-ntfs)
 	@$(call add,STAGE2_KMODULES,drm-nouveau)
@@ -142,13 +144,14 @@ mixin/kworkstation-live-deps: \
 	use/x11/xorg use/x11-autostart \
 	use/cleanup/live-no-cleanupdb \
 	use/live/no-cleanup \
+	use/grub/live_rw.cfg \
 	+net-eth +vmguest
 
 mixin/kworkstation-live-opts:
 	@$(call add,BASE_LISTS, \
 		$(call tags,(base || desktop) && (l10n || network)))
 	@$(call add,GRUB_TIMEOUT,3)
-	@$(call add,EFI_BOOTARGS,live_rw)
+	@$(call set,GRUB_DEFAULT,session)
 	@$(call add,SYSLINUX_CFG,live_rw)
 	@$(call set,SYSLINUX_DEFAULT,session)
 	@$(call add,LIVE_LISTS,kworkstation/kde5-base)
