@@ -85,8 +85,8 @@ mixin/kworkstation-common-opts:
 	@$(call add,CLEANUP_PACKAGES,'^kernel-modules-drm-nouveau.*')
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION) Workstation K $(ARCH))
-	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION) Workstation K $(ARCH) $(shell date +%F))
+	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K $(ARCH))
+	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K $(ARCH) $(shell date +%F))
 
 mixin/kworkstation-install-deps: \
 	distro/.installer mixin/desktop-installer \
@@ -165,8 +165,8 @@ mixin/kworkstation-live-opts:
 	@$(call add,LIVE_LISTS,kworkstation/sound-editing)
 	@$(call add,LIVE_LISTS,kworkstation/video-editing)
 	@$(call add,SERVICES_DISABLE,sshd)
-	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION) Workstation K Live $(ARCH))
-	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION) Workstation K Live $(ARCH) $(shell date +%F))
+	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K Live $(ARCH))
+	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K Live $(ARCH) $(shell date +%F))
 
 distro/kworkstation-install: \
 	kworkstation_groups = $(addprefix kworkstation/,\
