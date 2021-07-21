@@ -11,7 +11,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
 	use/ntp/chrony \
-	use/apt-conf/branch use/volumes/regular \
+	use/apt-conf/branch use/volumes/alt-workstation \
 	use/fonts/install2 \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
 	use/fonts/ttf/google use/fonts/ttf/google/extra \
