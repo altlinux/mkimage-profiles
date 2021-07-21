@@ -36,12 +36,7 @@ qmmp1
 samba
 # system-config-samba
 
-kde5-messenger-client-dummy
-#kde5-messenger-client-mix
-psi-plus psi-plus-l10n psi-plus-plugin-autoreply psi-plus-plugin-cleaner psi-plus-plugin-conferencelogger psi-plus-plugin-contentdownloader
-psi-plus-plugin-enummessages psi-plus-plugin-historykeeper psi-plus-plugin-image psi-plus-plugin-imagepreview psi-plus-plugin-messagefilter
-psi-plus-plugin-otr psi-plus-plugin-stopspam psi-plus-plugin-storagenotes
-#ring-client-kde5
+kde5-messenger-client-mix
 kde5-connect
 
 isomaster
