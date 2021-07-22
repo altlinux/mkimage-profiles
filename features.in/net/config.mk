@@ -25,7 +25,7 @@ use/net/nm: use/net
 	@$(call xport,NM_native)
 
 # use NetworkManager(native)
-use/net/nm/native: use/net/nm
+use/net/nm/native:
 	@$(call set,NM_Native,yes)
 
 # NOT recommended unless you know what you're doing
