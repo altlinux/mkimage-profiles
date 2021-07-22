@@ -40,8 +40,10 @@ ifeq (,$(filter-out riscv64,$(ARCH)))
 mixin/regular-vm-x11:: use/oem/vnc; @:
 endif
 
-vm/.regular-desktop:: vm/systemd mixin/regular-vm-x11 +systemd +systemd-optimal \
-	+plymouth; @:
+vm/.regular-desktop:: vm/systemd mixin/regular-vm-x11 \
+	+systemd +systemd-optimal +plymouth
+	@$(call add,THE_PACKAGES,bluez)
+	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 vm/.regular-desktop::

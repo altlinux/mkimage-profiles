@@ -69,9 +69,8 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 endif
 	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
 	@$(call set,THE_IMAGEWRITER,altmediawriter)
-	@$(call add,THE_PACKAGES,upower bluez udev-rules-rfkill-uaccess)
+	@$(call add,THE_PACKAGES,upower udev-rules-rfkill-uaccess)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
-	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
 
