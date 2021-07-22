@@ -40,7 +40,6 @@ nfs-utils
 openssh-clients
 rsync
 traceroute
-vlan-utils
 ntpdate
 tcpdump
 ifplugd

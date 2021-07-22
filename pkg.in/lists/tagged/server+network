@@ -12,7 +12,6 @@ netlist
 nfs-utils
 rsync
 traceroute
-vlan-utils
 ntpdate
 tcpdump
 wget
