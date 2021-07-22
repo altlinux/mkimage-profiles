@@ -11,11 +11,11 @@ wmdiskmon
 wmeyes
 wmfishtime
 #wmfmio		--> requires hardware and setup
-wmforkplop
+#wmforkplop	--> needed fonts-ttf-vera, which breaks cyrillic into gnustep
 wmfortune
 #wmgtemp	--> requires lm_sensors configuration
 #wmhdaps	--> requires that hdaps.ko be loaded
-wmhdplop
+#wmhdplop	--> needed fonts-ttf-vera, which breaks cyrillic into gnustep
 wmibam
 #wmix		--> /dev/mixer
 wmlife
