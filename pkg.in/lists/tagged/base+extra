@@ -12,6 +12,7 @@ nano
 dosfstools
 ntfs-3g
 reiserfsprogs
+f2fs-tools
 cifs-utils
 extundelete
 
