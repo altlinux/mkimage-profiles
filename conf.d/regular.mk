@@ -194,7 +194,7 @@ distro/.regular-server-base: distro/.regular-install use/server/base
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 
-distro/.regular-server: distro/.regular-server-base \
+distro/.regular-server: distro/.regular-server-base use/net/etcnet \
 	use/server/mini use/firmware/qlogic use/rescue/base \
 	use/ntp/chrony use/cleanup/libs use/bootloader/grub +efi
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
