@@ -25,6 +25,7 @@ mixin/education: \
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,jre)
 	@$(call add,THE_LISTS,$(call tags,base regular))
+	@$(call add,THE_LISTS,$(call tags,base extra))
 
 ifeq (distro,$(IMAGE_CLASS))
 
@@ -39,6 +40,7 @@ mixin/education-live: \
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
 	@$(call add,LIVE_PACKAGES,jre)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
+	@$(call add,LIVE_LISTS,$(call tags,base extra))
 
 mixin/education-installer: \
 	+installer \
