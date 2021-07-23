@@ -8,8 +8,8 @@ use/net: use/services use/pkgpriorities
 	@$(call set,THE_NET_SUBSYS,network-config-subsystem)
 
 use/net/etcnet: use/net
-	@$(call set,THE_NET_SUBSYS,etcnet)
-	@$(call add,DEFAULT_SERVICES_ENABLE,network)
+	@$(call set,THE_NET_SUBSYS,etcnet udev-rule-generator)
+	@$(call add,DEFAULT_SERVICES_ENABLE,network udevd-final)
 
 use/net/dhcp: use/net
 	@$(call add,THE_PACKAGES,dhcpcd)
