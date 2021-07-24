@@ -51,4 +51,16 @@ ve/systemd-networkd: ve/systemd-bare use/net/networkd
 ve/systemd-etcnet: ve/systemd-bare use/net/etcnet
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
+ve/lxc-sysvinit-etcnet: ve/sysvinit-etcnet use/net-eth use/lxc-guest
+	@$(call add,BASE_PACKAGES,vim-console)
+	@$(call add,NET_ETH,eth0:dhcp)
+
+ve/lxc-systemd-networkd: ve/systemd-networkd use/net-eth/networkd use/lxc-guest
+	@$(call add,BASE_PACKAGES,vim-console)
+	@$(call add,NET_ETH,eth0:dhcp)
+
+ve/lxc-systemd-etcnet: ve/systemd-etcnet use/net-eth use/lxc-guest
+	@$(call add,BASE_PACKAGES,vim-console)
+	@$(call add,NET_ETH,eth0:dhcp)
+
 endif
