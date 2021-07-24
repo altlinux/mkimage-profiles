@@ -8,6 +8,10 @@ ifeq (cpio,$(IMAGE_PACKTYPE))
 MKI_CPIO_COMPRESS = $(IMAGE_COMPRESS)
 endif
 
+ifeq (squash,$(IMAGE_PACKTYPE))
+pack-image: CLEANUP_OUTDIR=
+endif
+
 # some VEs _can_ contain kernels (think ARM multiboot
 # but this can also help VE/VM hybrid images)
 IMAGE_PACKAGES = $(DOT_BASE) \
