@@ -35,3 +35,6 @@ use/firmware/wireless: use/firmware
 
 use/firmware/laptop: use/firmware/cpu
 	@$(call add,THE_KMODULES,acpi_call)
+ifeq (,$(filter-out x86_64,$(ARCH)))
+	@$(call add,THE_PACKAGES,firmware-alsa-sof)
+endif
