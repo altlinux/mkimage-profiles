@@ -8,8 +8,10 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	$(STARTERKIT)
 	@$(call try,SAVE_PROFILE,yes)
+ifndef BRANCH
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
+endif
 endif
 
 # base target (for most images)
@@ -135,11 +137,13 @@ distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
+ifndef BRANCH
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
 endif
 ifeq (,$(filter-out aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,mp un-def)
+endif
 endif
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
