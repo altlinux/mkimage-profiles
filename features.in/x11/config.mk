@@ -88,9 +88,6 @@ use/x11/nvidia:: use/drm/nvidia
 
 use/x11/nvidia/optimus:: use/drm/nvidia/optimus
 	@$(call add,NVIDIA_PACKAGES,bumblebee)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,NVIDIA_PACKAGES,primus)
-endif
 endif
 
 use/x11/wacom: use/x11
