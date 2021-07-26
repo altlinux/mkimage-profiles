@@ -1,0 +1,4 @@
+udev-conf-e901-3seat
+setup-udisks-disable-automount
+setup-multiseat-polkit
+setup-multiseat-pulse
