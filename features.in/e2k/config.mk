@@ -21,7 +21,25 @@ use/e2k: use/tty/S0 use/l10n/default/ru_RU
 use/e2k/x11: use/e2k use/x11
 	@$(call add,THE_PACKAGES,xorg-server xinit)
 
+ifeq (,$(filter-out e2kv5,$(ARCH)))
+use/e2k/multiseat/full: use/e2k/multiseat/901/full; @:
+
+# 6seat not tested so far but 1E8CB has three suitable PCIe slots
+use/e2k/multiseat/901:
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-multiseat) #sic!
+	@$(call add,MAIN_GROUPS,x-e2k/90-e901)
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e901-1seat e901-2seat))
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e901-3seat))
+
+use/e2k/multiseat/901/full: use/e2k/multiseat/901 use/control
+	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
+	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
+	@$(call add,CONTROL,udisks2:shared)     ### media mount exclusivity
+endif	# e2kv5
+
 ifeq (,$(filter-out e2kv4,$(ARCH)))
+use/e2k/multiseat/full: use/e2k/multiseat/801/full; @:
+
 use/e2k/x11/101: use/e2k/x11
 	@$(call add,MAIN_GROUPS,x-e2k/91-e101)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e101-modesetting))
@@ -38,10 +56,12 @@ use/e2k/multiseat/801/full: use/e2k/multiseat/801 use/control
 	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
 	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
 	@$(call add,CONTROL,udisks2:shared)     ### media mount exclusivity
-else
-use/e2k/x11/101:; @:
-use/e2k/multiseat/801/base use/e2k/multiseat/801 use/e2k/multiseat/801/full:; @:
 endif	# e2kv4
+
+ifeq (,$(filter-out e2k,$(ARCH)))
+use/e2k/x11/101:; @:
+use/e2k/multiseat/full:; @:
+endif	# e2k(v3)
 
 ifeq (,$(filter-out e2k,$(ARCH)))
 use/e2k/sound/401:
