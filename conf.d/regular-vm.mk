@@ -102,8 +102,7 @@ vm/regular-jeos-sysv-rpi: vm/net mixin/regular-vm-jeos use/tty/AMA0 \
 
 vm/regular-builder-rpi: vm/regular-jeos-systemd-rpi mixin/regular-builder; @:
 
-vm/regular-deepin-rpi: vm/.regular-gtk use/x11/deepin use/arm-rpi4/full
-	@$(call add,THE_PACKAGES,deepin-regular)
+vm/regular-deepin-rpi: vm/.regular-gtk mixin/regular-deepin use/arm-rpi4/full; @:
 
 vm/regular-lxde-rpi: vm/.regular-gtk mixin/regular-lxde use/arm-rpi4/full; @:
 
