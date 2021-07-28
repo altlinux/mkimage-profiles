@@ -65,7 +65,7 @@ vm/regular-jeos-systemd: vm/systemd-net \
 
 vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
-vm/regular-builder: vm/regular-jeos-sysv mixin/regular-builder
+vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder
 	@$(call set,VM_SIZE,10737418240)
 
 vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
