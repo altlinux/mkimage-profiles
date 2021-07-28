@@ -95,8 +95,7 @@ mixin/regular-gnustep: use/x11/gnustep use/x11/gdm2.20 use/mediacheck \
 mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
 	use/fonts/ttf/google use/net/nm/mmgui use/im; @:
 
-mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm
-	@$(call add,THE_PACKAGES,deepin-regular)
+mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 
 mixin/regular-gnome3: use/x11/gnome3 use/fonts/ttf/redhat +nm-gtk
 	@$(call add,THE_PACKAGES,gnome3-regular xcalib templates)
