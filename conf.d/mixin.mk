@@ -111,6 +111,7 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
 	@$(call add,THE_BRANDING,xfce-settings)
+	@$(call add,THE_PACKAGES,xfce4-regular)
 	@$(call add,THE_PACKAGES,xreader)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 

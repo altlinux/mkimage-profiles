@@ -137,7 +137,7 @@ use/x11/gtk/nm: use/net/nm
 	@$(call add,THE_LISTS,$(call tags,desktop nm))
 
 use/x11/xfce: use/x11
-	@$(call add,THE_PACKAGES,xfce4-minimal xfce4-default xfce4-regular)
+	@$(call add,THE_PACKAGES,xfce4-minimal xfce4-default)
 	@$(call add,IM_PACKAGES,imsettings-xfce)
 
 use/x11/xfce/full: use/x11/xfce +pulse
