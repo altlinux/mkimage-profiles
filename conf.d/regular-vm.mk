@@ -29,6 +29,7 @@ endif
 	@$(call add,THE_PACKAGES,bash-completion mc update-kernel)
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
+	@$(call set,VM_SIZE,7516192768)
 
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
@@ -65,8 +66,7 @@ vm/regular-jeos-systemd: vm/systemd-net \
 
 vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
-vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder
-	@$(call set,VM_SIZE,10737418240)
+vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder; @:
 
 vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	mixin/vm-archdep; @:
