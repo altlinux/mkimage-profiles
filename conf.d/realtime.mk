@@ -1,4 +1,4 @@
-mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +plymouth \
+mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal \
 	mixin/regular-desktop mixin/regular-lxqt use/x11/lightdm/gtk $(STARTERKIT)
 	@$(call set,KFLAVOURS,rt)
 	@$(call add,THE_LISTS,realtime/tests)
