@@ -35,7 +35,9 @@ mixin/education-live: \
 	use/office/LibreOffice/full \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,chromium)
+endif
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
 	@$(call add,LIVE_PACKAGES,jre)
