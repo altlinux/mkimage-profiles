@@ -32,6 +32,7 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
 	@$(call add,THE_PACKAGES,xorg-drv-smi)	# use/x11/smi
 	@$(call add,THE_PACKAGES,flashrom)
+	@$(call add,MAIN_PACKAGES,alterator-secsetup)
 	@$(call add,MAIN_GROUPS,workstation/alterator-web)
 	@$(call add,SERVICES_ENABLE,ahttpd)	# in case it gets installed
 ifeq (,$(filter-out e2k,$(ARCH)))
