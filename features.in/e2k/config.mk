@@ -34,7 +34,6 @@ use/e2k/multiseat/901:
 use/e2k/multiseat/901/full: use/e2k/multiseat/901 use/control
 	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
 	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
-	@$(call add,CONTROL,udisks2:shared)     ### media mount exclusivity
 endif	# e2kv5
 
 ifeq (,$(filter-out e2kv4,$(ARCH)))
@@ -55,7 +54,6 @@ use/e2k/multiseat/801: use/e2k/multiseat/801/base
 use/e2k/multiseat/801/full: use/e2k/multiseat/801 use/control
 	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
 	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
-	@$(call add,CONTROL,udisks2:shared)     ### media mount exclusivity
 endif	# e2kv4
 
 ifeq (,$(filter-out e2k,$(ARCH)))
