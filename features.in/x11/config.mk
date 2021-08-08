@@ -2,6 +2,7 @@
 +icewm: use/x11/icewm; @:
 +xmonad: use/x11/xmonad; @:
 +nm-gtk: use/x11/gtk/nm; @:
++screensaver: use/x11/xscreensaver/gl; @:
 
 ## hardware support
 # the very minimal driver set
@@ -192,3 +193,13 @@ use/x11/leechcraft: use/x11
 
 use/x11/kde5: use/x11/xorg use/x11/kde/synaptic
 	@$(call add,THE_PACKAGES,kde5-big)
+
+## screensavers
+use/x11/xscreensaver:
+	@$(call add,THE_LISTS,$(call tags,base xscreensaver))
+
+use/x11/xscreensaver/gl: use/x11/xscreensaver
+	@$(call add,THE_LISTS,$(call tags,desktop xscreensaver))
+
+use/x11/xscreensaver/frontend: use/x11/xscreensaver
+	@$(call add,THE_PACKAGES,xscreensaver-frontend)
