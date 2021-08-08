@@ -90,6 +90,9 @@ endif
 ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,abiword gnumeric)
 endif
+ifeq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,THE_LISTS,$(call tags,xscreensaver && (base || desktop)))
+endif
 ifeq (,$(filter-out armh aarch64 i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def)
 endif
