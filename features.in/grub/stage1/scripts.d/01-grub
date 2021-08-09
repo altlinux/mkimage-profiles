@@ -33,14 +33,8 @@ if [ -n "$GLOBAL_GRUB_DEFAULT" ]; then
 		echo "error: $GLOBAL_GRUB_DEFAULT missing in $CFG" >&2
 		exit 1
 	fi
-elif [ -n "$(grep -i "--id 'linux'" "$CFG")" ]; then
-	DEFAULT=linux
 else
-	DEFAULT="$(grep -i '\-\-id ' "$CFG" | head -1 | rev| cut -f2 -d' ' |rev)"
-	if [ -z "$DEFAULT" ]; then
-		echo "error: no DEFAULT or UI directive and cannot guess for $CFG" >&2
-		exit 1
-	fi
+	grep -i '\-\-id ' "$CFG" | grep 'linux' && DEFAULT=linux
 fi
 sed -i "s/@default_id@/$DEFAULT/" "$CFG"
 }
