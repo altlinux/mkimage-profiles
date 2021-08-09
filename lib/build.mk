@@ -59,6 +59,8 @@ IMAGEDIR ?= $(shell \
 LOGDIR ?= $(wildcard $(IMAGEDIR))
 make-aptbox:
 	@mkdir -p $(BUILDDIR)/.work/pkgbox; \
+	mkdir -p $(BUILDDIR)/.work/.cache; \
+	mkdir -p $(BUILDDIR)/.work/.out; \
 	mkaptbox --without-stuff --target=$(ARCH) --apt-config=$(wildcard $(APTCONF)) -- $(BUILDDIR)/.work/pkgbox
 
 # actual build starter
