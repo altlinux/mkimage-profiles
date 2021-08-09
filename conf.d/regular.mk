@@ -77,7 +77,8 @@ distro/.regular-jeos: distro/.regular-jeos-base use/stage2/kms \
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 
 distro/.regular-jeos-full: distro/.regular-jeos \
-	use/volumes/jeos use/ntp/chrony use/bootloader/grub +efi
+	use/volumes/jeos use/ntp/chrony use/bootloader/grub \
+	use/grub/localboot_bios.cfg +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 ifeq (,$(filter-out e2k%,$(ARCH)))
