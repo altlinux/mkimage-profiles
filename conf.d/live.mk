@@ -16,6 +16,11 @@ distro/grub: distro/.boot use/grub use/hdt +efi \
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
+
+distro/grub-ui: distro/grub use/branding use/grub/ui/gfxboot; @:
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+	@$(call add,STAGE1_BRANDING,bootloader)
+endif
 endif
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
