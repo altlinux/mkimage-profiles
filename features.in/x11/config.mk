@@ -59,7 +59,7 @@ endif
 # for those cases when no 3D means no use at all
 # NB: blobs won't Just Work (TM) along with nouveau/radeon
 #     as free drivers get prioritized during autodetection
-use/x11/3d: use/x11/intel use/x11/nvidia/optimus use/x11/radeon; @:
+use/x11/3d: use/x11/intel use/x11/radeon use/x11/amdgpu use/x11/nvidia; @:
 
 # somewhat lacking compared to radeon but still
 use/x11/nouveau: use/x11 use/firmware use/drm/nouveau
