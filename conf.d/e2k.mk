@@ -16,6 +16,7 @@ vm/.e2k-rescue: vm/e2k-live \
 
 vm/alt-rescue: vm/.e2k-rescue +sysvinit
 	@$(call add,KFLAVOURS,elbrus-def)
+	@$(call add,THE_PACKAGES,firmware-linux)
 
 vm/e2k-xfce: vm/.e2k-rescue mixin/e2k-desktop use/x11/xfce
 	@$(call add,THE_PACKAGES,pnmixer)
