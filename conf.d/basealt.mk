@@ -70,6 +70,10 @@ vm/alt-workstation:: use/uboot
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+vm/alt-workstation:: use/no-sleep use/arm-rpi4; @:
+endif
+
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
 	@$(call add,THE_LISTS,workstation/celluloid)
 endif
