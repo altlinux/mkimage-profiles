@@ -35,6 +35,10 @@ vm/slinux:: use/uboot
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+vm/slinux:: use/no-sleep use/arm-rpi4; @:
+endif
+
+ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full
 	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 endif
