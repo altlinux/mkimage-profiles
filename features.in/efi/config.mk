@@ -34,7 +34,8 @@ use/efi/shell: use/efi
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)
 	@$(call add,COMMON_PACKAGES,shim-signed)
-	@$(call add,RESCUE_PACKAGES,openssl pesign)
+	@$(call add,COMMON_PACKAGES,mokutil pesign)
+	@$(call add,RESCUE_PACKAGES,openssl)
 
 use/efi/lilo: use/efi use/bootloader/lilo
 	@$(call set,EFI_BOOTLOADER,elilo)
