@@ -5,7 +5,7 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/bare: vm/.base-lilo +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
-vm/systemd: vm/.base-grub +systemd
+vm/systemd: vm/.base-grub use/init/systemd
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
 	@$(call add,BASE_PACKAGES,apt)
 
