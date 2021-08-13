@@ -61,7 +61,8 @@ make-aptbox:
 	@mkdir -p $(BUILDDIR)/.work/pkgbox; \
 	mkdir -p $(BUILDDIR)/.work/.cache; \
 	mkdir -p $(BUILDDIR)/.work/.out; \
-	mkaptbox --without-stuff --target=$(ARCH) --apt-config=$(wildcard $(APTCONF)) -- $(BUILDDIR)/.work/pkgbox
+	APTCONF=$(wildcard $(APTCONF)); \
+	mkaptbox --without-stuff --target=$(ARCH) $${APTCONF:+--apt-config=$$APTCONF} -- $(BUILDDIR)/.work/pkgbox
 
 # actual build starter
 # NB: our output MUST go into stderr to escape POSTPROC
