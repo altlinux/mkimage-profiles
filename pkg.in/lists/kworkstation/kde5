@@ -77,7 +77,5 @@ kde5-kio-gdrive
 # 3dparty
 #skype-preinstall@IA32
 
-kde5-runtime
-kde5-small
-kde5
-kde5-big
+kde5@META
+kde5-big@META
