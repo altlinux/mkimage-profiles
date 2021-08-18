@@ -10,7 +10,7 @@ metapkgs="$(grep -e @META "$f" | grep -v '^#')"
 
 for metapkg in $metapkgs; do
 	metapkg=${metapkg%@META}
-	if ! "$APT_CACHE" show "$metapkg" 1>&2 2>/dev/null; then
+	if ! "$APT_CACHE" show "$metapkg" > /dev/null 2>&1; then
 		echo "Error: Metapackage $metapkg not available!!!"
 		exit 1
 	fi
