@@ -1,0 +1,10 @@
+#!/bin/sh
+
+[ -h /sbin/init ] || exit 0
+[ -n "$GLOBAL_SYSTEMD_RESOLVED" ] || exit 0
+
+if [ "$GLOBAL_SYSTEMD_RESOLVED" = stub ]; then
+    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+else
+    ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+fi

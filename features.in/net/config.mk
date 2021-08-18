@@ -43,3 +43,12 @@ use/net/connman: use/net
 use/net/networkd: use/net
 	@$(call set,THE_NET_SUBSYS,systemd-networkd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,systemd-networkd)
+	@$(call xport,SYSTEMD_RESOLVED)
+
+use/net/networkd/resolved: use/net/networkd
+	@$(call add,DEFAULT_SERVICES_ENABLE,systemd-resolved)
+	@$(call set,SYSTEMD_RESOLVED,yes)
+
+use/net/networkd/resolved-stub: use/net/networkd
+	@$(call add,DEFAULT_SERVICES_ENABLE,systemd-resolved)
+	@$(call set,SYSTEMD_RESOLVED,stub)
