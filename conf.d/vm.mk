@@ -19,7 +19,8 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 	@$(call add,BASE_PACKAGES,su)
 
 # vm/net or vm/systemd-net
-vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm use/tty/S0
+vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm use/tty/S0 \
+	use/net/networkd/resolved
 	@$(call add,THE_KMODULES,drm)
 	@$(call add,BASE_PACKAGES,update-kernel)
 	@$(call add,BASE_PACKAGES,apt-scripts)

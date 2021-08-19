@@ -45,7 +45,7 @@ ve/systemd-bare: ve/.apt use/init/systemd \
 	use/control/sudo-su use/repo use/net-ssh
 	@$(call add,BASE_PACKAGES,interactivesystem su)
 
-ve/systemd-networkd: ve/systemd-bare use/net/networkd
+ve/systemd-networkd: ve/systemd-bare use/net/networkd/resolved
 	@$(call add,BASE_PACKAGES,apt-scripts)
 	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
