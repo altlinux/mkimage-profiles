@@ -49,7 +49,7 @@ gcalctool
 synaptic
 synaptic-usermode
 apt-indicator
-gksu
+beesu
 cups
 ghostscript-cups
 cups-pdf

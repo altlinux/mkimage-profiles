@@ -67,7 +67,7 @@ gnome-software@!riscv64
 gnome-software-disable-updates@!riscv64
 
 alt-rootfs-installer
-gksu
+beesu
 cups
 cups-filters
 cups-pdf

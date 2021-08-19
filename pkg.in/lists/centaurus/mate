@@ -95,7 +95,7 @@ totem-video-thumbnailer@X86
 installer-feature-samba-usershares-stage2
 gtk2-ssh-askpass
 installer-feature-centaurus-keyring
-gksu
+beesu
 branding-alt-server-graphics@X86
 lightdm-gtk-greeter
 lightdm
