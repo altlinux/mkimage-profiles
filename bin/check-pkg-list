@@ -6,7 +6,7 @@
 # which are definitely absent; the build might still bail out
 # but at least 80% of failures can be predicted early now
 #
-# usage: check-pkg-list [-n pkgnames] pkglist ...
+# usage: check-pkg-list [-n pkgnames] [--aptbox $PATH/to/aptbox] pkglist ...
 # (pkgnames file should contain `apt-cache pkgnames`)
 # NB: -n pkgnames MUST go first, if given
 
@@ -20,24 +20,9 @@ exit_handler() {
 	exit $rc
 }
 
-# find the most recent apt.conf in workdirs
-apt_conf() {
-	debug "looking for workdirs with aptboxes..."
-	find -maxdepth 3 -name .work \
-	| while read dir; do
-		file="$dir/aptbox/etc/apt/apt.conf"
-		[ -f "$file" ] && echo "$file"
-	done \
-	| xargs -r ls -t -- \
-	| head -1
-}
-
 # figure out apt.conf from recent aptbox or fallback to system one
-# TODO: would be nice to cache the dump inside aptbox
 dump_pkgnames() {
-	conf="`apt_conf`"
-	debug "autodetected apt.conf: ${conf:-<system>}, dumping pkgnames"
-	apt-cache ${conf:+-c $conf} pkgnames | sort > "$favaillist"
+	${APTBOX:+$APTBOX/}apt-cache pkgnames  | sort -u > "$favaillist"
 }
 
 check_pkglist() {
@@ -60,7 +45,7 @@ check_pkglist() {
 
 	# return unavailable packages
 	debug "unavailable packagenames, if any:"
-	comm -23 "$fpkgnames" "$ftemp"
+	comm -23 "$fpkgnames" "$favaillist"
 
 	# return unavailable wildcards
 	debug "unavailable wildcards, if any:"
@@ -81,15 +66,28 @@ fpkgnames="`mktemp $TEMP/pkgchecker.names.XXXXX`"
 fpkgwildcards="`mktemp $TEMP/pkgchecker.wildcards.XXXXX`"
 ftemp="`mktemp $TEMP/pkgchecker.XXXXX`"
 
-# make sure pkgnames dump is handy
-case "$1" in
-"-n"|"--pkgnames")
-	[ -f "$2" ] && {
-		sort "$2" > "$favaillist"
-		shift; shift
-	} || error "-n needs valid pkgnames filename"
-	;;
-esac
+# check args
+while :; do
+	case "$1" in
+	# make sure pkgnames dump is handy
+	"-n"|"--pkgnames")
+		[ -f "$2" ] && {
+			sort "$2" > "$favaillist"
+			shift; shift
+		} || error "-n needs valid pkgnames filename"
+		;;
+	# PATH to aptbox
+	"--aptbox")
+		[ -d "$2" ] && {
+			APTBOX="$2"
+			shift; shift
+		} || error "--aptbox needs valid directory"
+		;;
+	*)
+		break
+		;;
+	esac
+done
 
 [ -s "$favaillist" ] || dump_pkgnames
 
