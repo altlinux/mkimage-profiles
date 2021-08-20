@@ -16,7 +16,7 @@ debug() { [ -n "$GLOBAL_VERBOSE" ] && echo `basename $0`: $* >&2; }
 exit_handler() {
 	local rc=$?
 	trap - EXIT
-	rm -f -- "$ftemp" "$fpkgnames" "$fpkgwildcards" "$favaillist"
+	rm -f -- "$ftemp" "$fpkgnames" "$fpkgwildcards" "$favaillist" "$fpkgerrors"
 	exit $rc
 }
 
@@ -28,7 +28,6 @@ dump_pkgnames() {
 check_pkglist() {
 	fprofilelist="$1"
 	[ -f "$fprofilelist" ] || error "invalid packagelist filename: $fprofilelist"
-	[ -n "$MULTI" ] && echo "-- $fprofilelist"
 	debug "checking $fprofilelist against $favaillist"
 
 	# cleaning pkg list from comments, empty lines,
@@ -45,15 +44,19 @@ check_pkglist() {
 
 	# return unavailable packages
 	debug "unavailable packagenames, if any:"
-	comm -23 "$fpkgnames" "$favaillist"
+	comm -23 "$fpkgnames" "$favaillist" > "$fpkgerrors"
 
 	# return unavailable wildcards
 	debug "unavailable wildcards, if any:"
 	while read i; do
 		# replacing * with regexp's \.+
 		pattern="^`echo ${i#^} | sed -e 's/\*/.\\\\+/'`$"
-		grep -q "$pattern" "$favaillist" || echo "$i"
+		grep -q "$pattern" "$favaillist" || echo "$i" >> "$fpkgerrors"
 	done < "$fpkgwildcards"
+	if [ -s "$fpkgerrors" ]; then
+		echo "Error: Packages are not available in $fprofilelist:" >&2
+		cat $fpkgerrors >&2
+	fi
 }
 
 [ "$#" -gt 0 ] || error "need at least one argument, a packagelist to check"
@@ -64,6 +67,7 @@ trap exit_handler HUP INT QUIT TERM EXIT
 favaillist="`mktemp $TEMP/pkgchecker.avail.XXXXX`"
 fpkgnames="`mktemp $TEMP/pkgchecker.names.XXXXX`"
 fpkgwildcards="`mktemp $TEMP/pkgchecker.wildcards.XXXXX`"
+fpkgerrors="`mktemp $TEMP/pkgchecker.error.XXXXX`"
 ftemp="`mktemp $TEMP/pkgchecker.XXXXX`"
 
 # check args
@@ -90,9 +94,6 @@ while :; do
 done
 
 [ -s "$favaillist" ] || dump_pkgnames
-
-# now on to the real job; Q: skip *.in or not?
-[ "$#" -eq 1 ] && MULTI= || MULTI=1
 
 for list in "$@"; do
 	check_pkglist "$list"
