@@ -11,6 +11,9 @@ REPORTDIR := $(BUILDDIR)/reports
 IMAGE_OUTPATH := $(shell sed -n 's/^IMAGE_OUTPATH = \(.*\)/\1/p' $(BUILDLOG))
 IMAGE_OUTFILE := $(shell sed -n 's/^IMAGE_OUTFILE = \(.*\)/\1/p' $(BUILDLOG))
 LOGDIR := $(shell sed -n 's/^LOGDIR = \(.*\)/\1/p' $(BUILDLOG))
+ifeq (,$(LOGDIR))
+LOGDIR := $(shell sed -n 's/^LOGDIR ?= \(.*\)/\1/p' $(BUILDCFG))
+endif
 ifeq (,$(IMAGE_OUTPATH))
 TARGET_NAME := $(shell sed -n 's/^IMAGE_NAME = \(.*\)/\1/p' $(BUILDDIR)/distcfg.mk)
 TARGET_TYPE := $(shell sed -n 's/^IMAGE_TYPE = \(.*\)/\1/p' $(BUILDDIR)/distcfg.mk)
