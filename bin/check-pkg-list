@@ -10,6 +10,8 @@
 # (pkgnames file should contain `apt-cache pkgnames`)
 # NB: -n pkgnames MUST go first, if given
 
+RET_ERROR=
+
 error() { echo `basename $0`: $* >&2; exit 1; }
 
 exit_handler() {
@@ -50,6 +52,7 @@ check_pkglist() {
 	done < "$fpkgwildcards"
 	if [ -s "$fpkgerrors" ]; then
 		echo "Error: Packages are not available in $fprofilelist:" >&2
+		RET_ERROR=1
 		cat $fpkgerrors >&2
 	fi
 }
@@ -93,3 +96,5 @@ done
 for list in "$@"; do
 	check_pkglist "$list"
 done
+
+[ -z "$RET_ERROR" ] || error "Some lists contain unavailable packages"
