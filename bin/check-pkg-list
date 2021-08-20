@@ -11,7 +11,6 @@
 # NB: -n pkgnames MUST go first, if given
 
 error() { echo `basename $0`: $* >&2; exit 1; }
-debug() { [ -n "$GLOBAL_VERBOSE" ] && echo `basename $0`: $* >&2; }
 
 exit_handler() {
 	local rc=$?
@@ -28,8 +27,6 @@ dump_pkgnames() {
 check_pkglist() {
 	fprofilelist="$1"
 	[ -f "$fprofilelist" ] || error "invalid packagelist filename: $fprofilelist"
-	debug "checking $fprofilelist against $favaillist"
-
 	# cleaning pkg list from comments, empty lines,
 	# splitting several pkgnames on the same line
 	sed -e '/^#/d' -e '/^[ 	]*$/d' -e 's/ \+$//' -e 's/[ 	]\+/\n/g' \
@@ -43,11 +40,9 @@ check_pkglist() {
 	fgrep 	 '*' "$ftemp" > "$fpkgwildcards"
 
 	# return unavailable packages
-	debug "unavailable packagenames, if any:"
 	comm -23 "$fpkgnames" "$favaillist" > "$fpkgerrors"
 
 	# return unavailable wildcards
-	debug "unavailable wildcards, if any:"
 	while read i; do
 		# replacing * with regexp's \.+
 		pattern="^`echo ${i#^} | sed -e 's/\*/.\\\\+/'`$"
