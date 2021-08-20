@@ -2,7 +2,6 @@
 #         (and only those!) over to $(BUILDDIR)
 
 ifndef BUILDDIR
-
 pkgdups:
 	@find -type f ! -name README ! -name Makefile \
 	| grep -v '~$$' \
@@ -20,7 +19,7 @@ include $(BUILDDIR)/functions.mk
 SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
-all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups grep-metadep grep-archdep
+all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups grep-metadep grep-archdep check-lists
 	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
 # env | sort -u | grep _LISTS | xargs -r cp -t
@@ -29,6 +28,12 @@ copy-lists:
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),$($V))) \
 	| xargs -r -- cp --parents -at $(TARGET) --
+
+check-lists:
+	@APTBOX=$(BUILDDIR)/.work/pkgbox/aptbox; \
+	if [ -d "$$APTBOX" ]; then \
+		check-pkg-list --aptbox "$$APTBOX" `find $(TARGET) -type f`; \
+	fi
 
 copy-groups: PKGDIR = ..
 copy-groups:
