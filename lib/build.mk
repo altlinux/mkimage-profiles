@@ -57,12 +57,15 @@ IMAGEDIR ?= $(shell \
 )
 
 LOGDIR ?= $(wildcard $(IMAGEDIR))
-make-aptbox:
+
+make-aptbox: ; @:
+ifneq (0,$(CHECK))
 	@mkdir -p $(BUILDDIR)/.work/pkgbox; \
 	mkdir -p $(BUILDDIR)/.work/.cache; \
 	mkdir -p $(BUILDDIR)/.work/.out; \
 	APTCONF=$(wildcard $(APTCONF)); \
 	mkaptbox --without-stuff --target=$(ARCH) $${APTCONF:+--apt-config=$$APTCONF} -- $(BUILDDIR)/.work/pkgbox
+endif
 
 # actual build starter
 # NB: our output MUST go into stderr to escape POSTPROC
