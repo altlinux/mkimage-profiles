@@ -12,9 +12,8 @@ use/efi:
 	@$(call set,MKI_VER_OPTIMAL,0.2.17)	# for EFI_BOOTARGS
 	@$(call try,EFI_BOOTLOADER,grub-efi)	# default one
 	@$(call xport,EFI_BOOTLOADER)
-	@$(call add,THE_LISTS,$(EFI_LISTS))
+	@$(call add,COMMON_LISTS,$(EFI_LISTS))
 ifeq (distro,$(IMAGE_CLASS))
-	@$(call add,RESCUE_LISTS,$(EFI_LISTS))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION FB_EFI EFIVAR_FS)
 	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
