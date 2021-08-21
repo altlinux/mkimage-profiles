@@ -97,7 +97,7 @@ vm/alt-workstation-bfk3: vm/alt-workstation use/mipsel-bfk3/x11; @:
 vm/alt-workstation-tavolga: vm/alt-workstation use/mipsel-mitx/x11; @:
 endif
 
-vm/alt-workstation-cloud: vm/alt-p9-cloud use/x11/lightdm/gtk \
+vm/alt-workstation-cloud: vm/cloud-systemd use/x11/lightdm/gtk \
 	mixin/alt-workstation
 	@$(call add,THE_PACKAGES,cloud-init-config-netplan)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,network.service)
