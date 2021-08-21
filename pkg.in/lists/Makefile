@@ -27,7 +27,8 @@ copy-lists:
 	@echo $(foreach V, \
 		$(filter %_LISTS,$(sort $(.VARIABLES))), \
 		$(if $(filter environment% file,$(origin $V)),$($V))) \
-	| xargs -r -- cp --parents -at $(TARGET) --
+	|xargs -r -- cp --parents -at $(TARGET) --; \
+	find $(TARGET) -name 'README' -delete -o -name 'Makefile' -delete
 
 check-lists:
 	@APTBOX=$(BUILDDIR)/.work/pkgbox/aptbox; \
