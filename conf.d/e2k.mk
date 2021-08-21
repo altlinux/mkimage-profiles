@@ -1,3 +1,4 @@
+ifeq (,$(filter-out e2k%,$(ARCH)))
 ifeq (vm,$(IMAGE_CLASS))
 
 vm/.e2k-bare: vm/.bare use/e2k
@@ -71,4 +72,5 @@ distro/.e2k-installer-base: distro/.base mixin/e2k-base \
 distro/.e2k-installer-sysv: distro/.e2k-installer-base +sysvinit; @:
 distro/.e2k-installer: distro/.e2k-installer-base +systemd; @:
 
+endif
 endif
