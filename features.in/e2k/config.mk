@@ -1,3 +1,4 @@
+ifeq (,$(filter-out e2k%,$(ARCH)))
 use/e2k: use/tty/S0 use/l10n/default/ru_RU
 	@$(call add_feature)
 	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
@@ -68,3 +69,7 @@ use/e2k/sound/401:
 else
 use/e2k/sound/401:; @:
 endif	# e2k
+else
+use/e2k:; @:
+use/e2k/%:; @:
+endif	# e2k%
