@@ -2,6 +2,9 @@
 ifneq (,$(DEBUG))
 
 ifeq (distro,$(IMAGE_CLASS))
+# For check all package lists
+distro/pkg-all-lists: distro/.init
+	@$(call add,THE_LISTS,*)
 
 distro/syslinux-auto: distro/.boot use/hdt use/syslinux/timeout/1; @:
 distro/syslinux-noescape: distro/syslinux-auto use/syslinux/noescape.cfg; @:
