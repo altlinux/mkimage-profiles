@@ -1,7 +1,7 @@
-repetierhost
+#repetierhost
 repraptor
 slic3r
-skeinforge
+#skeinforge
 CuraEngine
 meshlab
 GLC_Player
