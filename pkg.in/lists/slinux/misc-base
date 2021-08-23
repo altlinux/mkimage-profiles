@@ -175,7 +175,6 @@ settime-rfc867
 
 # Dirty hackaround for #28753
 alsa-set-initial-options
-udev-alsa
 
 # Console fonts workaround
 vconsole-setup-kludge
