@@ -174,9 +174,6 @@ use/x11/wmaker: use/x11
 use/x11/gnustep: use/x11
 	@$(call add,THE_LISTS,$(call tags,gnustep desktop))
 
-use/x11/xmonad: use/x11
-	@$(call add,THE_LISTS,$(call tags,xmonad desktop))
-
 use/x11/mate: use/x11 +pulse
 	@$(call add,THE_LISTS,$(call tags,mate desktop))
 	@$(call add,IM_PACKAGES,imsettings-mate)

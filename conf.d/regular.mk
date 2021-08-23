@@ -154,9 +154,6 @@ distro/regular-xfce-sysv-install: distro/.regular-install-x11-full \
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
 
-distro/regular-xmonad: distro/.regular-gtk use/x11/xmonad
-	@$(call add,LIVE_PACKAGES,livecd-regular-xmonad)
-
 distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
 
 distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment +power; @:
