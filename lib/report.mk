@@ -1,6 +1,6 @@
 # enable make target tracing
 
-ifdef REPORT
+ifneq (,$(REPORT))
 TRACE_PREFIX := trace:building
 OLD_SHELL := $(SHELL)
 SHELL = $(info $(TRACE_PREFIX) $@$(if $^$|, -> $^ $|))$(OLD_SHELL)
