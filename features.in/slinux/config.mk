@@ -119,6 +119,3 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 #	@$(call add,THE_KMODULES,fglrx)
 	@$(call add,MAIN_KMODULES,bbswitch)
 endif
-
-use/slinux/arm: use/slinux use/x11/lightdm/gtk
-	@$(call add,THE_LISTS,slinux-arm)
