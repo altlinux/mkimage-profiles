@@ -168,9 +168,6 @@ use/x11/lxqt: use/x11 +pulse
 use/x11/fvwm: use/x11
 	@$(call add,THE_LISTS,$(call tags,fvwm desktop))
 
-use/x11/sugar: use/x11
-	@$(call add,THE_LISTS,$(call tags,sugar desktop))
-
 use/x11/wmaker: use/x11
 	@$(call add,THE_LISTS,$(call tags,wmaker desktop))
 
