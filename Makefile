@@ -48,6 +48,8 @@ SHELL = /bin/bash
 		| grep -nx "$@" \
 		| cut -d: -f1`"; \
 		say "** goal: $@ [$$n/$(NUM_TARGETS)]"; \
+	else \
+		say "** goal: $@"; \
 	fi; \
 	for ARCH in $(ARCHES); do \
 		if [ -z "$(QUIET)" ]; then \
