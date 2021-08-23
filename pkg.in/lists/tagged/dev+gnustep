@@ -2,7 +2,7 @@
 #gnustep-charsets
 gnustep-dbuskit
 gnustep-pdfkit
-gnustep-projectcenter
+#gnustep-projectcenter
 gnustep-renaissance
 gnustep-simplewebkit
 gnustep-sqlclient
