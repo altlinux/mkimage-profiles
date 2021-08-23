@@ -9,6 +9,9 @@ vm/systemd: vm/.base-grub use/init/systemd
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
 	@$(call add,BASE_PACKAGES,apt)
 
+vm/acos: vm/.base-grub use/init/systemd use/net-eth/networkd-dhcp use/net-ssh
+	@$(call add,BASE_PACKAGES,ostree dracut ignition docker-engine sudo su)
+
 # handle ROOTPW (through deflogin)
 vm/net: vm/bare use/net-eth/dhcp use/net-ssh \
 	use/repo use/control/sudo-su use/deflogin
