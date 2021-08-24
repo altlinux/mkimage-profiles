@@ -73,6 +73,7 @@ ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,drivers/usb/dwc2 drivers/usb/dwc3)
 	@$(call add,VM_INITRDMODULES,drivers/phy drivers/usb/phy)
 	@$(call add,VM_INITRDMODULES,drivers/bus)
+	@$(call add,VM_INITRDMODULES,drivers/soc)
 	@$(call add,VM_INITRDMODULES,drivers/pwm drivers/regulator)
 	@$(call add,VM_INITRDMODULES,drivers/i2c)
 endif
