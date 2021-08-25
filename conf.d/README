@@ -23,8 +23,9 @@
 * для пользовательского окружения (live, main) предназначены
   THE_PACKAGES, THE_LISTS, THE_GROUPS, THE_PACKAGES_REGEXP
 
-* для "обычного общего" (live, main, rescue) есть COMMON_PACKAGES
-  (NB: тоже попадают в базовую установку)
+* для "обычного общего" (live, main, rescue) есть COMMON_PACKAGES и
+  COMMON_LISTS
+  (NB: тоже попадают в базовую установку, ve/ и vm/ сборки)
 
 * SYSTEM_PACKAGES стоит применять крайне осторожно -- эти пакеты попадут
   во все стадии, в том числе в образ чувствительной к объёму install2

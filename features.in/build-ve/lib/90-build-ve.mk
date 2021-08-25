@@ -19,7 +19,7 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 		 $(COMMON_PACKAGES) \
 		 $(BASE_PACKAGES) \
 		 $(THE_PACKAGES) \
-		 $(call list,$(BASE_LISTS) $(THE_LISTS))
+		 $(call list,$(BASE_LISTS) $(THE_LISTS) $(COMMON_LISTS))
 
 IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
                         $(BASE_PACKAGES_REGEXP)

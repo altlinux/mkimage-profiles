@@ -5,7 +5,7 @@
 
 * main: пакетная база для установки
 ** sub.in/main/Makefile, features.in/*/main/lib/
-** THE_LISTS, BASE_LISTS, MAIN_LISTS
+** THE_LISTS, BASE_LISTS, MAIN_LISTS, COMMON_LISTS
 ** THE_GROUPS, MAIN_GROUPS
 ** THE_PACKAGES, BASE_PACKAGES, MAIN_PACKAGES,
     SYSTEM_PACKAGES, COMMON_PACKAGES
@@ -31,7 +31,7 @@
 ** см. stage2
 ** features.in/live/live/stage2cfg.mk,
     features.in/*/live/lib/
-** THE_LISTS, LIVE_LISTS
+** THE_LISTS, LIVE_LISTS, COMMON_LISTS
 ** THE_GROUPS, LIVE_GROUPS
 ** THE_PACKAGES, LIVE_PACKAGES, COMMON_PACKAGES
 ** THE_PACKAGES_REGEXP, LIVE_PACKAGES_REGEXP
@@ -41,7 +41,7 @@
 ** см. stage2
 ** features.in/rescue/rescue/stage2cfg.mk
 ** RESCUE_PACKAGES, COMMON_PACKAGES
-** RESCUE_LISTS
+** RESCUE_LISTS, COMMON_LISTS
 
 * stage1: ядро и загрузчик второй стадии
 ** sub.in/stage1/Makefile, features.in/*/stage1/lib/

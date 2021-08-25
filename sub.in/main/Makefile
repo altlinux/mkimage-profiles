@@ -27,6 +27,7 @@ IMAGE_PACKAGES_REGEXP = $(BASE_PACKAGES_REGEXP) \
 IMAGE_PACKAGES = $(SYSTEM_PACKAGES) $(COMMON_PACKAGES) \
 		 $(BASE_PACKAGES) $(THE_PACKAGES) $(MAIN_PACKAGES) \
 		 $(call map,list,$(BASE_LISTS) $(THE_LISTS) $(MAIN_LISTS) \
+				 $(COMMON_LISTS) \
 				 $(call groups2lists))
 
 -include $(sort $(wildcard lib/*.mk))
