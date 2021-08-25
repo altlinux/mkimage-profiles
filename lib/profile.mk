@@ -68,7 +68,7 @@ profile/init: distclean
 			else \
 				echo; \
 			fi >&2; \
-			exit 1; \
+			[ "$(CHECK)" = 0 ] || exit 1; \
 		fi; \
 	fi; \
 	mp-commit -i "$(BUILDDIR)" "derivative profile initialized"; \
