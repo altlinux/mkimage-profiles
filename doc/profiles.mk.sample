@@ -2,7 +2,7 @@
 # NB: REPORT doesn't work here, it's somewhat special
 
 # where to look for apt.conf; system one used by default
-ifdef BRANCH
+ifneq (,$(BRANCH))
 APTCONF = ~/apt/apt.conf.$(BRANCH).$(ARCH)
 else
 APTCONF = ~/apt/apt.conf.sisyphus.$(ARCH)

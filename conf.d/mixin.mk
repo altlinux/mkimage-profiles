@@ -1,7 +1,7 @@
 ### various mixins with their origin
 
 # for stable branch base kits
-ifdef BRANCH
+ifneq (,$(BRANCH))
 STARTERKIT := mixin/starterkit
 mixin/starterkit: use/browser/firefox/esr
 	@$(call set,BRANDING,alt-starterkit)
