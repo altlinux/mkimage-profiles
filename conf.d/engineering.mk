@@ -6,8 +6,7 @@ mixin/alt-engineering-live: engineering_lists = $(addprefix engineering/,\
 
 mixin/alt-engineering: mixin/regular-desktop mixin/regular-mate \
 	use/x11/lightdm/gtk \
-	use/l10n +systemd +systemd-optimal +nm-gtk +plymouth \
-	$(STARTERKIT)
+	use/l10n +systemd +systemd-optimal +nm-gtk +plymouth
 	@$(call add,THE_PACKAGES,theme-mate-windows)
 
 mixin/alt-engineering-install: mixin/alt-engineering

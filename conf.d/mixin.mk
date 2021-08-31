@@ -1,16 +1,5 @@
 ### various mixins with their origin
 
-# for stable branch base kits
-ifneq (,$(BRANCH))
-STARTERKIT := mixin/starterkit
-mixin/starterkit: use/browser/firefox/esr
-	@$(call set,BRANDING,alt-starterkit)
-	@$(call set,IMAGE_FLAVOUR,$(subst alt-$(BRANCH)-,,$(IMAGE_NAME)))
-	@$(call set,META_VOL_ID,ALT $(BRANCH) $$(IMAGE_FLAVOUR)/$(ARCH))
-else
-STARTERKIT :=
-endif
-
 ### desktop.mk
 mixin/desktop-installer: +vmguest \
 	use/bootloader/os-prober use/x11-autostart use/fonts/install2 use/sound
@@ -57,6 +46,9 @@ mixin/regular-x11: use/luks use/volumes/regular \
 	@$(call add,THE_PACKAGES,btrfs-progs)
 	@$(call add,THE_PACKAGES,gpm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
+ifneq (,$(BRANCH))
+	@$(call set,FX_FLAVOUR,-esr)
+endif
 
 # common WM live/installer bits
 mixin/regular-desktop: +alsa +power +nm-native \
