@@ -1,10 +1,18 @@
 # "1" is not a typo
-use/stage2: sub/stage1 use/initrd-propagator
+use/stage2:: sub/stage1
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,make-initrd file iproute2)
 	@$(call add,STAGE1_MODLISTS,$$(FEATURES))
 	@$(call xport,STAGE1_PACKAGES)
 	@$(call xport,STAGE1_KCONFIG)
+
+ifeq (,$(BRANCH))
+use/stage2:: use/initrd-bootchain; @:
+else ifneq (,$(filter-out p10 p9 p8 p7 p6 p5,$(BRANCH)))
+use/stage2:: use/initrd-bootchain; @:
+else
+use/stage2:: use/initrd-propagator; @:
+endif
 
 # building blocks for propagator's module cove
 use/stage2/ata use/stage2/drm use/stage2/fs use/stage2/hid use/stage2/md \
