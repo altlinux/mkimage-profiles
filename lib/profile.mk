@@ -97,7 +97,11 @@ profile/bare: profile/init use/pkgpriorities
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
-	@$(call try,BRANDING,alt-sisyphus)
+ifeq (,$(BRANCH))
+	@$(call set,BRANDING,alt-sisyphus)
+else
+	@$(call try,BRANDING,alt-starterkit)
+endif
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-alterator:Essential)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-bootsplash:Essential)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-bootloader:Essential)
