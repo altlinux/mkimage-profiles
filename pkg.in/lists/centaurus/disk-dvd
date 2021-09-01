@@ -64,7 +64,7 @@ perl-Crypt-Rijndael
 
 #needed for crypto
 lsb@X86
-python-module-Crypto
+python3-module-Crypto
 
 postgresql-jdbc
 #postgresql10-1C-server

@@ -161,7 +161,7 @@ pulseaudio-daemon
 pulseaudio-bluez
 bluez
 alsa-plugins-pulse
-python-module-smbc
+python3-module-smbc
 system-config-printer
 system-config-printer-udev
 installer-feature-xdg-user-dirs
