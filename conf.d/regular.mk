@@ -43,7 +43,7 @@ distro/.regular-desktop: distro/.regular-wm use/branding/full \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
-distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit +net-eth; @:
+distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit; @:
 
 distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
 	use/syslinux/ui/gfxboot use/x11/gdm2.20; @:
@@ -246,8 +246,9 @@ distro/regular-server-pve: distro/.regular-server-base +systemd \
 distro/regular-builder: distro/.regular-bare mixin/regular-builder \
 	use/dev/builder/full use/stage2/kms +sysvinit +efi +power \
 	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
-	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30 use/stage2/net-eth
+	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
+	@$(call add,THE_PACKAGES,livecd-net-eth)
 
 distro/regular-server-samba4: distro/.regular-server-managed +systemd
 	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))

@@ -31,8 +31,10 @@ endif
 	@$(call add,KMODULES,staging)
 	@$(call set,VM_SIZE,7516192768)
 
-mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
-	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
+mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
+	use/net/etcnet use/net/dhcp
+	@$(call add,THE_PACKAGES,livecd-net-eth)
+	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 livecd-net-eth)
 
 mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/oem +wireless; @:
@@ -53,18 +55,18 @@ vm/.regular-desktop::
 endif
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
-	use/init/sysv/polkit use/net-eth +power; @:
+	use/init/sysv/polkit +power; @:
 
 vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 	@$(call add,THE_PACKAGES,blueberry)
 
 vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
 
-vm/regular-jeos-systemd: vm/systemd-net \
+vm/regular-jeos-systemd: vm/systemd \
 	mixin/regular-vm-jeos mixin/vm-archdep
 	@$(call add,THE_PACKAGES,glibc-locales)
 
-vm/regular-jeos-sysv: vm/net mixin/regular-vm-jeos mixin/vm-archdep +power; @:
+vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
 vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder; @:
 
