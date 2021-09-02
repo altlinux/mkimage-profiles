@@ -12,6 +12,8 @@ ifndef BOOTLOADER
 $(error syslinux feature enabled but BOOTLOADER undefined)
 endif
 
+STAGE1_INITRD_BOOTARGS := $(STAGE1_INITRD_TYPEARGS)=$(STAGE1_INITRD_BOOTMETHOD)
+
 # UI is backed by modules in modern syslinux
 # (except for built-in text prompt)
 ifdef SYSLINUX_UI
@@ -96,6 +98,8 @@ bootargs: clean
 		sed -i "s,@initrd@,initrd.img," $(DSTCFGS); \
 	fi
 	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTARGS)|g" $(DSTCFGS)
+	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTMETHOD)|g" $(DSTCFGS)
+	@sed -i "s|@initrd_typeargs@|$(STAGE1_INITRD_TYPEARGS)|g" $(DSTCFGS)
 	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 
 clean: copy
