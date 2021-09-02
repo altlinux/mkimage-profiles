@@ -30,6 +30,10 @@ use/stage2/kms/nvidia: use/stage2/kms \
 use/stage2/cifs: use/stage2/net-cifs
 	@$(call add,STAGE1_PACKAGES,cifs-utils)
 
+# grub submenu 'Network installation'
+use/stage2/net-install: use/stage2/net use/stage2/cifs \
+	use/stage2/net-nfs use/grub/netinstall.cfg; @:
+
 # eth0 instead of enp0s3
 use/stage2/net-eth: use/stage2
 	@$(call add,STAGE1_PACKAGES,udev-rule-generator-net)
