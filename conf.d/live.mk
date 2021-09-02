@@ -21,6 +21,13 @@ distro/grub-ui: distro/grub use/branding use/grub/ui/gfxboot; @:
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,STAGE1_BRANDING,bootloader)
 endif
+
+distro/grub-net-install: distro/.base use/stage2/net-install +efi \
+	use/firmware use/grub/sdab_bios.cfg
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
+	@$(call set,KFLAVOURS,un-def std-def)
 endif
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
