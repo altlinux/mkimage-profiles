@@ -7,6 +7,8 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	use/stage2/mmc use/stage2/net-install \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call try,SAVE_PROFILE,yes)
+	@$(call add,THE_PACKAGES,udev-rule-generator)
+	@$(call add,DEFAULT_SERVICES_ENABLE,udevd-final)
 ifeq (,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
