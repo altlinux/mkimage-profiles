@@ -38,7 +38,7 @@ ifneq "$(STAGE1_KFLAVOURS)" ""
 GLOBAL_STAGE1_KFLAVOURS := $(STAGE1_KFLAVOURS)
 CHROOT_PACKAGES_REGEXP := $(call kpackages, \
 	$(STAGE1_KFLAVOURS),$(STAGE1_KMODULES),$(STAGE1_KMODULES_REGEXP))
-ifneq "$(findstring stage2,$(SUBPROFILES))" ""	### assumes stage2 ~ propagator
+ifneq "$(STAGE1_MODLISTS))" ""
 LIST_MODULES = .work/chroot/.in/modules
 PREPARE_MODULES = prepare-modules
 endif
