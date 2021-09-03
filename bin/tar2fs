@@ -364,7 +364,7 @@ popd
 if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ]; then
 	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/extlinux/extlinux.conf"
 	if [ "$PARTTABLE" == gpt ]; then
-		parting set "$ROOTPART" legacyboot on
+		parting set "$ROOTPART" legacy_boot on
 	fi
 	if [ "$PARTTABLE" == msdos ]; then
 		parting set "$ROOTPART" boot on
