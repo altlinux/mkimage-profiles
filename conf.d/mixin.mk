@@ -139,7 +139,7 @@ mixin/regular-rescue: use/rescue use/isohybrid use/luks use/branding \
 	use/syslinux/ui/menu use/syslinux/timeout/600 \
 	use/firmware/qlogic test/rescue/no-x11 +sysvinit; @:
 
-mixin/regular-builder: use/dev/builder/base use/net-eth/dhcp use/ntp/chrony
+mixin/regular-builder: use/dev/builder/base use/net/dhcp use/ntp/chrony
 	@$(call add,THE_PACKAGES,bash-completion elinks gpm lftp openssh)
 	@$(call add,THE_PACKAGES,rpm-utils screen tmux wget zsh)
 	@$(call add,THE_PACKAGES,apt-repo aptitude eepm)
