@@ -6,10 +6,14 @@ use/stage2:: sub/stage1
 	@$(call xport,STAGE1_PACKAGES)
 	@$(call xport,STAGE1_KCONFIG)
 
+ifneq (,$(filter-out e2k%,$(ARCH)))
 ifeq (,$(BRANCH))
 use/stage2:: use/initrd-bootchain; @:
 else ifneq (,$(filter-out p10 p9 p8 p7 p6 p5,$(BRANCH)))
 use/stage2:: use/initrd-bootchain; @:
+else
+use/stage2:: use/initrd-propagator; @:
+endif
 else
 use/stage2:: use/initrd-propagator; @:
 endif
