@@ -65,7 +65,7 @@ OEM_SETUP_STORAGE=alt-drivers-update
 # OEM_OVERLAYS_DIR=/tmp/overlays
 
 # HTTP and FTP base directory
-OEM_URL_NETINST=/pub/distributions/ALTLinux/p9/
+# OEM_URL_NETINST=/pub/distributions/ALTLinux/p10/images/
 
 # NFS path with overlays-live sub-directory, containing slice images
 # OEM_NFS_NETINST=/srv/public/netinst
