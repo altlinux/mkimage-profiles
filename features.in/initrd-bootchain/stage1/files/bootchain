@@ -64,8 +64,13 @@ OEM_SETUP_STORAGE=alt-drivers-update
 # Directory inside stage2 for mount images as LiveCD slices
 # OEM_OVERLAYS_DIR=/tmp/overlays
 
-# HTTP and FTP base directory
-# OEM_URL_NETINST=/pub/distributions/ALTLinux/p10/images/
+# HTTP and FTP default base directory for netinstall
+# (if empty "/pub/netinst/current" path will be used)
+# OEM_URL_NETINST=/pub/distributions/ALTLinux/p10/images
+
+# HTTP and FTP default server name or IP-address for netinstall
+# (if empty near gateway will be used)
+# OEM_SRV_NETINST=ftp.altlinux.org
 
 # NFS path with overlays-live sub-directory, containing slice images
 # OEM_NFS_NETINST=/srv/public/netinst
