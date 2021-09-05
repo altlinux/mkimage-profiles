@@ -98,10 +98,10 @@ vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep; @:
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 # Raspberry Pi 4
-vm/regular-jeos-systemd-rpi: vm/systemd-net mixin/regular-vm-jeos use/tty/AMA0 \
+vm/regular-jeos-systemd-rpi: vm/systemd mixin/regular-vm-jeos use/tty/AMA0 \
 	use/arm-rpi4/kernel; @:
 
-vm/regular-jeos-sysv-rpi: vm/net mixin/regular-vm-jeos use/tty/AMA0 \
+vm/regular-jeos-sysv-rpi: vm/bare mixin/regular-vm-jeos use/tty/AMA0 \
 	use/arm-rpi4/kernel +power; @:
 
 vm/regular-builder-rpi: vm/regular-jeos-systemd-rpi mixin/regular-builder; @:
@@ -171,10 +171,10 @@ endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
 # Tavolga
-vm/regular-jeos-systemd-tavolga: vm/systemd-net mixin/regular-vm-jeos \
+vm/regular-jeos-systemd-tavolga: vm/systemd mixin/regular-vm-jeos \
 	use/mipsel-mitx; @:
 
-vm/regular-jeos-sysv-tavolga: vm/net mixin/regular-vm-jeos \
+vm/regular-jeos-sysv-tavolga: vm/bare mixin/regular-vm-jeos \
 	use/mipsel-mitx +power; @:
 
 vm/regular-builder-tavolga: vm/regular-jeos-sysv-tavolga \
@@ -198,10 +198,10 @@ vm/regular-xfce-tavolga: vm/.regular-gtk mixin/regular-xfce \
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
 # bfk3
-vm/regular-jeos-systemd-bfk3: vm/systemd-net mixin/regular-vm-jeos \
+vm/regular-jeos-systemd-bfk3: vm/systemd mixin/regular-vm-jeos \
 	use/mipsel-bfk3; @:
 
-vm/regular-jeos-sysv-bfk3: vm/net mixin/regular-vm-jeos \
+vm/regular-jeos-sysv-bfk3: vm/bare mixin/regular-vm-jeos \
 	use/mipsel-bfk3 +power; @:
 
 vm/regular-builder-bfk3: vm/regular-jeos-sysv-bfk3 \
