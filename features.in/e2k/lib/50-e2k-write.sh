@@ -10,8 +10,16 @@ usage() { error "Usage: $0 /path/to/alt-e2k.iso /dev/sdX1_or_/dev/sr0"; }
 [ -s "$1" ] || usage
 [ -b "$2" ] || usage
 
+
 checkuid() { [ "$(id -u)" = 0 ] || error "$0: need to run as root"; }
 format() { mkfs.ext2 -E packed_meta_blocks=1,num_backup_sb=1 -L altinst "$1"; }
+
+# use a partition block device, not the whole disk one
+checkpart() {
+	dev="${1#/dev/}"
+	[ -n "$dev" ] || usage
+	[ -f "/sys/class/block/$dev/partition" ] || usage
+}
 
 case "$2" in
 /dev/sr[0-9]*|dvd*|cd*)
@@ -21,6 +29,7 @@ case "$2" in
 	;;
 /dev/sd*)
 	grep -q "^$1" /proc/mounts && error "$1 mounted already"
+	checkpart "$2"
 	checkuid
 	[ "$(blkid -o value -s LABEL "$2")" = "altinst" ] || format "$2"
 	src="$(mktemp -d)"
@@ -37,6 +46,7 @@ case "$2" in
 		sed -i 's,default=.*$,&_flash,' "$dst/boot.conf"
 		echo "done"
 	}
+
 	echo -n "unmounting media... "
 	umount "$src" "$dst"
 	echo "done."
