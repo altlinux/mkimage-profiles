@@ -1,4 +1,4 @@
-# /etc/sysconfig/bootchain example
+# /etc/sysconfig/bootchain
 
 #############################
 # Bootchain defaults        #
@@ -11,15 +11,14 @@
 # BC_LOG_VT=3
 
 # Delay in seconds before auto-activate interactive VT, empty value for switch immediately
-# BC_FGVT_ACTIVATE=7
+BC_FGVT_ACTIVATE=@bc_fgvt_activate@
 
 # Full path to the bootchain log or character special device name
 # BC_LOGFILE=/var/log/bootchained.log
 
 # Common timeout in seconds for all waitdev steps:
 # this make possible using fallback after last waitdev step
-#
-# WAITDEV_TIMEOUT=
+WAITDEV_TIMEOUT=@waitdev_timeout@
 
 
 #############################
@@ -38,42 +37,42 @@
 #############################
 
 # altboot back title
-OEM_WELCOME_TEXT="Welcome to ALT!"
+OEM_WELCOME_TEXT="@oem_welcome_text@"
 
 # Distribution name, for example
 OEM_DISTRIBUTION="@distro@"
 
 # ISO-image mount point (required for ALT)
-OEM_CDROOT=/image
+OEM_CDROOT=@oem_cdroot@
 
 # Default stage2 filename for boot from ISO-9660
-OEM_DEFAULT_STAGE2=altinst
+OEM_DEFAULT_STAGE2=@oem_default_stage2@
 
 # Persistent storage device LABEL for Live-RW sessions
-OEM_LIVE_STORAGE=alt-live-storage
+OEM_LIVE_STORAGE=@oem_live_storage@
 
 # Live storage device LABEL for mark non-usable devices
-OEM_BAD_STORAGE=alt-slow-storage
+OEM_BAD_STORAGE=@oem_bad_storage@
 
 # Local storage device LABEL with the OEM drivers update
-OEM_SETUP_STORAGE=alt-drivers-update
+OEM_SETUP_STORAGE=@oem_setup_storage@
 
 # Mount point inside stage2 for read additional images
-# OEM_IMAGES_BASE=/tmp/images
+OEM_IMAGES_BASE=@oem_images_base@
 
 # Directory inside stage2 for mount images as LiveCD slices
-# OEM_OVERLAYS_DIR=/tmp/overlays
+OEM_OVERLAYS_DIR=@oem_overlays_dir@
 
 # HTTP and FTP default base directory for netinstall
 # (if empty "/pub/netinst/current" path will be used)
-# OEM_URL_NETINST=/pub/distributions/ALTLinux/p10/images
+OEM_URL_NETINST=@oem_url_netinst@
 
 # HTTP and FTP default server name or IP-address for netinstall
 # (if empty near gateway will be used)
-# OEM_SRV_NETINST=ftp.altlinux.org
+OEM_SRV_NETINST=@oem_srv_netinst@
 
 # NFS path with overlays-live sub-directory, containing slice images
-# OEM_NFS_NETINST=/srv/public/netinst
+OEM_NFS_NETINST=@oem_nfs_netinst@
 
 # SAMBA share with overlays-live sub-directory, containing slice images
-# OEM_CIFS_NETINST=/netinst
+OEM_CIFS_NETINST=@oem_cifs_netinst@
