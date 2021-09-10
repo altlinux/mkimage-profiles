@@ -29,7 +29,6 @@ endif
 	@$(call add,THE_PACKAGES,bash-completion mc update-kernel)
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
-	@$(call set,VM_SIZE,7516192768)
 
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
 	use/net/etcnet use/net/dhcp
@@ -52,6 +51,7 @@ ifeq (,$(filter-out armh aarch64,$(ARCH)))
 vm/.regular-desktop::
 	@$(call add,THE_PACKAGES,xorg-96dpi)
 	@$(call add,THE_LISTS,remote-access)
+	@$(call try,VM_SIZE,6442450944)
 endif
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
@@ -65,6 +65,7 @@ vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
 vm/regular-jeos-systemd: vm/systemd \
 	mixin/regular-vm-jeos mixin/vm-archdep
 	@$(call add,THE_PACKAGES,glibc-locales)
+	@$(call try,VM_SIZE,3221225472)
 
 vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
@@ -77,7 +78,8 @@ vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep; @:
 
 vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep; @:
 
-vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep; @:
+vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep
+	@$(call set,VM_SIZE,8589934592)
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
 
@@ -90,7 +92,8 @@ ifeq (,$(filter-out armh aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,mp)
 endif
 
-vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep; @:
+vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep
+	@$(call set,VM_SIZE,7516192768)
 
 vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep; @:
 
