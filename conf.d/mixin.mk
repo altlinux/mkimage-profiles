@@ -72,7 +72,7 @@ mixin/desktop-extra:
 mixin/regular-wmaker: use/fonts/ttf/redhat use/x11/wmaker +nm-gtk
 	@$(call add,LIVE_PACKAGES,livecd-install-wmaker)
 	@$(call add,LIVE_PACKAGES,installer-feature-no-xconsole-stage3)
-	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmpomme wmxkbru xxkb)
+	@$(call add,MAIN_PACKAGES,wmgtemp wmhdaps wmxkbru xxkb)
 
 mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,regular icewm))
