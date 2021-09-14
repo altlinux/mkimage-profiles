@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo 'MODULES_TRY_ADD += drivers/gpu/drm' >> /etc/initrd.mk
