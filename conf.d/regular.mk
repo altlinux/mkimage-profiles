@@ -34,7 +34,6 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 ifeq (,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 distro/regular-net-install: distro/grub-net-install
-	@$(call add,STAGE2_BOOTARGS,ramdisk_size=600000)
 	@$(call set,BOOTCHAIN_OEM_SRV_NETINST,nightly.altlinux.org)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTCHAIN_OEM_URL_NETINST,/sisyphus/snapshots/$(DATE)/regular-jeos-sysv-$(DATE)-$(ARCH).iso)
