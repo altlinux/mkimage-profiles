@@ -25,6 +25,7 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm use/tty/S0 \
 	use/net/networkd/resolved
 	@$(call add,THE_KMODULES,drm)
+	@$(call add,VM_INITRDMODULES,sr_mod)
 	@$(call add,BASE_PACKAGES,update-kernel)
 	@$(call add,BASE_PACKAGES,apt-scripts)
 	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
