@@ -3,32 +3,13 @@
 # copy modules; see also this feature's generate.mk
 
 MODDIR="/usr/lib/syslinux"
-CFG="$GLOBAL_BOOTLOADER.cfg"
 
-# validate just in case (see also stage1 Makefile)
 case "$GLOBAL_BOOTLOADER" in
-	isolinux|syslinux) ;;
-	*) echo "Warning: GLOBAL_BOOTLOADER not supported: \`$GLOBAL_BOOTLOADER'" >&2;
-	   rm -fr "$WORKDIR/syslinux"
-	   exit 0;;
+	isolinux|syslinux) CFG="$GLOBAL_BOOTLOADER.cfg";;
+	*) CFG="isolinux.cfg";;
 esac
 
 cd "$WORKDIR/syslinux"
-
-# copy extra files, if any
-SYSLINUX_FILES="$(cat .in/syslinux.list)"
-if [ -n "${SYSLINUX_FILES% }" ]; then
-	cp -a $SYSLINUX_FILES .
-fi
-
-# prune module-specific config snippets; skip built-in one
-SYSLINUX_MODULES="$(cat .in/modules.list)"
-if [ -n "$SYSLINUX_MODULES" ]; then
-	for module in $SYSLINUX_MODULES; do
-		if [ "$modules" == "prompt" ]; then continue; fi
-		cp -a $MODDIR/$module.c?? . || rm .in/[0-9][0-9]$module.cfg
-	done
-fi
 
 # number ordering sponsored by shell's pathname expansion
 grep -hv '^#' .in/[0-9][0-9]*.cfg > "$CFG"
@@ -56,6 +37,27 @@ fi
 
 # snippets are not going into the actual image
 if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
+
+# validate just in case (see also stage1 Makefile)
+case "$GLOBAL_BOOTLOADER" in
+	isolinux|syslinux) ;;
+	*) exit 0;;
+esac
+
+# copy extra files, if any
+SYSLINUX_FILES="$(cat .in/syslinux.list)"
+if [ -n "${SYSLINUX_FILES% }" ]; then
+	cp -a $SYSLINUX_FILES .
+fi
+
+# prune module-specific config snippets; skip built-in one
+SYSLINUX_MODULES="$(cat .in/modules.list)"
+if [ -n "$SYSLINUX_MODULES" ]; then
+	for module in $SYSLINUX_MODULES; do
+		if [ "$modules" == "prompt" ]; then continue; fi
+		cp -a $MODDIR/$module.c?? . || rm .in/[0-9][0-9]$module.cfg
+	done
+fi
 
 # NB: there will be final macro expansion based on actual image sizes
 #     done by features.in/syslinux/scripts.d/20-propagator-ramdisk
