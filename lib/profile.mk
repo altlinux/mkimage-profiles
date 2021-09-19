@@ -98,7 +98,7 @@ profile/bare: profile/init use/pkgpriorities
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
 ifeq (,$(BRANCH))
-	@$(call set,BRANDING,alt-sisyphus)
+	@$(call try,BRANDING,alt-sisyphus)
 else
 	@$(call try,BRANDING,alt-starterkit)
 endif
