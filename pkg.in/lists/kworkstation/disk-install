@@ -17,6 +17,8 @@ openssh-common-gostcrypto
 #
 openvpn-gostcrypto openvpn-plugins-gostcrypto alterator-openvpn-server
 #
+alterator-openvpn-server alterator-ca
+#
 freeipa-server freeipa-server-dns
 #
 alt-customize-branding
