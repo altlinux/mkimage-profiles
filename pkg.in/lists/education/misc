@@ -12,6 +12,7 @@ vulkan-amdgpu@X86
 ristretto
 simple-scan
 sane
+sane-frontends
 atril-gtk
 atril-gtk-djvu
 atril-gtk-pixbuf
@@ -54,21 +55,27 @@ alterator-standalone
 alterator-notes
 
 alterator-auth
-alterator-datetime
 alterator-control
+alterator-datetime
 alterator-gpupdate
+alterator-groups
 alterator-grub
+alterator-logs
 alterator-net-eth
+alterator-net-general
 alterator-net-openvpn
 alterator-net-pppoe
 alterator-net-pptp
+alterator-net-wifi
 alterator-packages
 alterator-pkg
 alterator-printers
 alterator-root
 alterator-services
+alterator-sslkey
 alterator-sysconfig
 alterator-update-kernel
+alterator-updates
 alterator-users
 alterator-x11
 alterator-xkb
@@ -82,6 +89,9 @@ adp
 settime-rfc867
 x11spice@x86_64
 x11spice@aarch64
+pam_pkcs11
+gvfs-shares
+shared-desktop-icons
 
 # Base utilities
 tzdata
@@ -104,7 +114,6 @@ fvwm-
 fvwm-full-
 apt-repo
 eepm
-eepm-yum
 apt-rsync
 xdg-user-dirs
 vconsole-setup-kludge
@@ -140,7 +149,7 @@ zenity
 mate-search-tool
 libmate-desktop
 yelp                                                                                           
-rosa-imagewriter
+altmediawriter
 system-config-printer
 system-config-printer-udev
 xkill
@@ -187,6 +196,9 @@ ocfs2-tools
 cpufreq-simple@X86
 hplip-PPDs
 hplip-sane
+udev-rule-generator-cdrom
+xorg-drv-synaptics
+xorg-conf-synaptics
 
 # Network utilities
 iproute2
@@ -201,6 +213,12 @@ libnss-mdns
 i586-glibc-nss@x86_64
 i586-libnss-mdns@x86_64
 i586-libnss-myhostname@x86_64
+autossh
+ntpdate
+keyutils
+krb5-kinit
+openresolv-bind
+ipset
 
 # Multimedia support
 pulseaudio-daemon
@@ -220,3 +238,54 @@ test-audio
 wodim
 glxgears
 glxinfo
+
+# Additional filesystem support
+fuse-exfat
+
+# Communications
+pidgin
+pidgin-libnotify
+
+# Other stuff
+htop
+avplay
+cabextract
+cheese
+libsqlite
+lm_sensors3-utils
+man-pages-ru
+media-player-info
+nano
+quick-usb-formatter
+rpm-build
+setbranding
+system-report
+zbar
+audit
+vixie-cron
+screenfetch
+debhelper
+xdg-user-dirs-gtk
+
+# New stuff
+xfce4-whiskermenu-plugin
+menulibre
+mugshot
+xfce-polkit
+screenkey
+
+# Search
+recoll-full
+
+# Append all modules from xscreensaver
+desktop-screensaver-modules-xscreensaver
+desktop-screensaver-modules-xscreensaver-gl
+systemd-settings-enable-showstatus
+systemd-settings-disable-dumpcore
+systemd-settings-enable-log-to-tty12
+
+# Helper to deploy system services
+deploy
+
+# Other architecture-depended utilities
+task-edu-tools
