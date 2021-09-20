@@ -190,6 +190,9 @@ update-kernel
 printer-drivers-base@!riscv64
 udev-extras
 fdisk
+gdisk
+parted
+partclone
 ntfs-3g
 xorg-drv-wacom
 ocfs2-tools
@@ -199,6 +202,9 @@ hplip-sane
 udev-rule-generator-cdrom
 xorg-drv-synaptics
 xorg-conf-synaptics
+xinput
+xorg-drv-libinput
+usbutils
 
 # Network utilities
 iproute2
@@ -219,6 +225,8 @@ keyutils
 krb5-kinit
 openresolv-bind
 ipset
+lftp
+links2
 
 # Multimedia support
 pulseaudio-daemon
@@ -266,6 +274,7 @@ vixie-cron
 screenfetch
 debhelper
 xdg-user-dirs-gtk
+pv
 
 # New stuff
 xfce4-whiskermenu-plugin
