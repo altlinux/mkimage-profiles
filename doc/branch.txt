@@ -8,7 +8,7 @@
 * прописать в ~/.mkimage/profiles.mk:
 
 --------------------------------------
-ifdef BRANCH
+ifneq (,$(BRANCH))
 APTCONF = ~/apt/apt.conf.$(BRANCH).$(ARCH)
 else
 APTCONF = ~/apt/apt.conf.sisyphus.$(ARCH)
