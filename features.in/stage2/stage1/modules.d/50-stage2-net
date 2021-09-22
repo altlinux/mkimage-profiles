@@ -1,4 +1,5 @@
 kernel/drivers/net/\([^w]\|w[^i]\).\+\.ko
+kernel/drivers/net/ethernet
 3c574_cs.ko
 3c589_cs.ko
 3c59x.ko
