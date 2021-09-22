@@ -1,8 +1,8 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
-	3rdparty clamav cloud-clients freecad \
-	gtk-dictionary kvm smartcard voip-clients vlc)
+	3rdparty kvm clamav cloud-clients freecad \
+	gtk-dictionary smartcard voip-clients vlc)
 
 distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \

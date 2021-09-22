@@ -1,14 +1,6 @@
 # GOST encryption
 openssl-engines
 
-# gostcrypo repo component is needed
-openssh-gostcrypto
-openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
-openssh-server-gostcrypto openssh-server-control-gostcrypto
-openssh-common-gostcrypto
-openvpn-gostcrypto openvpn-plugins-gostcrypto
-alterator-openvpn-server
-
 # for AltHa
 alterator-secsetup
 
@@ -30,3 +22,14 @@ kernel-headers-un-def
 chromium
 
 chromium-gost
+
+# gostcrypo repo component is needed
+openvpn-gostcrypto openvpn-plugins-gostcrypto
+alterator-openvpn-server
+
+openssh-gostcrypto
+openssh-common-gostcrypto
+openssh-askpass-common-gostcrypto
+openssh-clients-gostcrypto
+openssh-server-control-gostcrypto
+openssh-server-gostcrypto
