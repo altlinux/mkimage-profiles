@@ -88,9 +88,6 @@ vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep
 
 vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-ifeq (,$(filter-out armh aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,mp)
-endif
 
 vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep
 	@$(call set,VM_SIZE,7516192768)
