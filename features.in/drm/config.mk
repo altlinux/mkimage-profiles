@@ -38,13 +38,7 @@ use/drm/stage2/radeon: use/drm/stage2
 	@$(call add,STAGE1_DRM_KMODULES,drm-radeon)
 
 use/drm/stage2/nouveau: use/drm/stage2
-	@$(call try,STAGE1_NVIDIA_KMODULES,drm-nouveau)
-	@$(call add,STAGE1_DRM_KMODULES,$$(STAGE1_NVIDIA_KMODULES))
-
-use/drm/stage2/nvidia: use/drm/stage2/nouveau; @:
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-	@$(call set,STAGE1_NVIDIA_KMODULES,nvidia)
-endif
+	@$(call add,STAGE1_DRM_KMODULES,drm-nouveau)
 
 use/drm/stage2/full: use/drm/stage2/ancient use/drm/stage2/radeon \
 	use/drm/stage2/nouveau; @:
