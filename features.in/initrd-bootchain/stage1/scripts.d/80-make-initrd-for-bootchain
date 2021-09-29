@@ -25,6 +25,8 @@ FEATURES += bootchain-waitdev
 FEATURES += bootchain-getimage
 FEATURES += bootchain-nfs
 FEATURES += bootchain-cifs
+PUT_UDEV_RULES += *-net-setup-link.rules *-net-description.rules
+PUT_FILES += /lib/systemd/network/99-default.link
 EOF
 
 echo "MODULES_TRY_ADD += $(grep -v ^# /.in/modules |
