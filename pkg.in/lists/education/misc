@@ -302,8 +302,5 @@ systemd-settings-enable-showstatus
 systemd-settings-disable-dumpcore
 systemd-settings-enable-log-to-tty12
 
-# Helper to deploy system services
-deploy
-
 # Other architecture-depended utilities
 task-edu-tools
