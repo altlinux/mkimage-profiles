@@ -15,7 +15,6 @@ kernel-headers-std-def
 #kernel-modules-staging-un-def
 #kernel-modules-drm-nouveau-un-def@X86
 #kernel-modules-virtualbox-un-def@x86_64
-#kernel-modules-virtualbox-addition-un-def@X86
 #kernel-headers-modules-un-def
 #kernel-headers-un-def
 
