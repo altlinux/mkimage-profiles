@@ -19,24 +19,25 @@ done
 
 cd /boot
 
-VM_INITRDMODULES="$GLOBAL_VM_INITRDMODULES"
-VM_INITRDMODULES+=" $(grep '^MODULES_TRY_ADD +=' /etc/initrd.mk |
-	sed 's/MODULES_TRY_ADD +=//g' | tr "\n" " " )"
-
-VM_INITRDFEATURES="$GLOBAL_VM_INITRDFEATURES"
-VM_INITRDFEATURES+=" $(grep '^FEATURES +=' /etc/initrd.mk |
-	sed 's/FEATURES +=//g' | tr "\n" " " )"
+# creating a special initrd.mk
+cp /etc/initrd.mk /etc/initrd.mk.oem
+echo 'FEATURES += add-modules compress cleanup kbd rdshell rootfs' \
+	>> /etc/initrd.mk.oem
 
 if [ -n "$GLOBAL_VM_INITRDFEATURES" ]; then
 	for INITRDFEATURE in $GLOBAL_VM_INITRDFEATURES; do
-		echo "FEATURES += $INITRDFEATURE" >> /etc/initrd.mk
+		echo "FEATURES += $INITRDFEATURE" >> /etc/initrd.mk.oem
+	done
+fi
+
+if [ -n "$GLOBAL_VM_INITRDMODULES" ]; then
+	for INITRDMODULE in $GLOBAL_VM_INITRDMODULES; do
+		echo "MODULES_TRY_ADD += $INITRDMODULE" >> /etc/initrd.mk.oem
 	done
 fi
 
 for KVER in $kver; do
-	make-initrd -N -v -k "$KVER" AUTODETECT= \
-	  FEATURES+="add-modules compress cleanup kbd rdshell rootfs $VM_INITRDFEATURES" \
-	  MODULES_TRY_ADD+="$VM_INITRDMODULES" \
+	make-initrd -N -v -k "$KVER" AUTODETECT= -c /etc/initrd.mk.oem \
 	  || { echo "** Error: make-initrd failed" >&2; exit 1; }
 done
 
