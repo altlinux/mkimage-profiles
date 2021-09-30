@@ -5,8 +5,8 @@ openssl-engines
 alterator-secsetup
 
 # just in case
-#kernel-headers-modules-std-def
-#kernel-headers-std-def
+kernel-headers-modules-std-def
+kernel-headers-std-def
 #kernel-image-un-def
 #kernel-modules-drm-ancient-un-def
 #kernel-modules-drm-radeon-un-def
@@ -16,8 +16,8 @@ alterator-secsetup
 #kernel-modules-drm-nouveau-un-def@X86
 #kernel-modules-virtualbox-un-def@x86_64
 #kernel-modules-virtualbox-addition-un-def@X86
-kernel-headers-modules-un-def
-kernel-headers-un-def
+#kernel-headers-modules-un-def
+#kernel-headers-un-def
 
 chromium
 
