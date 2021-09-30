@@ -17,7 +17,7 @@ mixin/education: \
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,education/misc)
-	@$(call add,THE_PACKAGES,jre)
+	@$(call add,THE_PACKAGES,java-11-openjdk)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
 	@$(call add,THE_LISTS,$(call tags,base regular))
@@ -36,7 +36,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 endif
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
-	@$(call add,LIVE_PACKAGES,jre)
+	@$(call add,LIVE_PACKAGES,java-11-openjdk)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 
@@ -56,7 +56,7 @@ mixin/education-installer: \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/install2/fat
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 9.2 $(ARCH))
+	@$(call set,META_VOL_ID,ALT Education 10.0beta $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
