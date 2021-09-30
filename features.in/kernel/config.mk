@@ -43,6 +43,11 @@ use/kernel/drm: use/drm; @:
 use/kernel/server:
 	@$(call add,THE_KMODULES,ipset kvm)
 
+use/kernel/disable-usb-autosuspend:
+	@$(call add,BASE_BOOTARGS,usbcore.autosuspend=-1)
+	@$(call add,STAGE2_BOOTARGS,usbcore.autosuspend=-1)
+	@$(call add,SYSTEM_PACKAGES,disable-usb-autosuspend)
+
 # for vm targets
 use/kernel/initrd-setup: use/kernel
 	@$(call try,VM_FSTYPE,ext4)
