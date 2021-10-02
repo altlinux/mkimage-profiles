@@ -82,6 +82,8 @@ ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,drivers/soc)
 	@$(call add,VM_INITRDMODULES,drivers/pwm drivers/regulator)
 	@$(call add,VM_INITRDMODULES,drivers/i2c)
+	@$(call add,VM_INITRDMODULES,drivers/mfd)
+	@$(call add,VM_INITRDMODULES,drivers/clk)
 endif
 	@$(call xport,VM_INITRDMODULES)
 	@$(call xport,VM_INITRDFEATURES)
