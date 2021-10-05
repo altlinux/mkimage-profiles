@@ -20,6 +20,7 @@ mixin/education: \
 	@$(call add,THE_PACKAGES,java-11-openjdk)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
+	@$(call add,THE_PACKAGES,settings-alsa-sof-force)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,THE_LISTS,$(call tags,base extra))
 
