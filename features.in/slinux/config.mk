@@ -1,4 +1,4 @@
-use/slinux: use/x11
+use/slinux: use/x11 use/volumes/alt-workstation
 	@$(call add_feature)
 	@$(call set,BRANDING,simply-linux)
 	@$(call set,GRUBTHEME,slinux)
