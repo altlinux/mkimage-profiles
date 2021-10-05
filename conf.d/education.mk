@@ -78,6 +78,7 @@ mixin/education-installer: \
 	@$(call add,MAIN_PACKAGES,stellarium)
 	@$(call add,MAIN_PACKAGES,libreoffice-block-macros)
 	@$(call add,MAIN_PACKAGES,lmms)
+	@$(call add,MAIN_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
