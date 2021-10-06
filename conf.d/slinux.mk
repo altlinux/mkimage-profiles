@@ -16,7 +16,7 @@ endif
 	@$(call set,META_VOL_ID,Simply Linux $(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_APP_ID,Simply Linux $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 ifneq (,$(filter-out e2k%,$(ARCH)))
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,std-def)
 endif
 endif
 

@@ -82,7 +82,7 @@ else
 	@$(call add,THE_LISTS,slinux/browser-chromium)
 endif
 ifeq (,$(filter-out armh aarch64 i586 x86_64,$(ARCH)))
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,std-def)
 endif
 
 use/slinux/base: use/isohybrid use/luks \
