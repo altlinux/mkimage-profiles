@@ -98,7 +98,7 @@ bootargs: clean
 		sed -i "s,@initrd@,initrd.img," $(DSTCFGS); \
 	fi
 	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTARGS)|g" $(DSTCFGS)
-	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTMETHOD)|g" $(DSTCFGS)
+	@sed -i "s|@initrd_bootmethod@|$(STAGE1_INITRD_BOOTMETHOD)|g" $(DSTCFGS)
 	@sed -i "s|@initrd_typeargs@|$(STAGE1_INITRD_TYPEARGS)|g" $(DSTCFGS)
 	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 
