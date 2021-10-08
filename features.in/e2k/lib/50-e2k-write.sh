@@ -42,9 +42,12 @@ case "$2" in
 	rsync -Pavc --inplace --delete --numeric-ids "$src/" "$dst/" ||
 		cp -avt "$dst" -- "$src"/{.disk,*}
 	grep -q "^default=.*_flash$" "$dst/boot.conf" || {
-		echo -n "updating default boot target... "
-		sed -i 's,default=.*$,&_flash,' "$dst/boot.conf"
-		echo "done"
+		cur="$(sed -rn 's/^default=(.*)$/\1/p' "$dst/boot.conf")"
+		grep -q "^label=${cur}_flash$" "$dst/boot.conf" && {
+			echo -n "updating default boot target... "
+			sed -i 's,^default=.*$,&_flash,' "$dst/boot.conf"
+			echo "done"
+		} ||:
 	}
 
 	echo -n "unmounting media... "
