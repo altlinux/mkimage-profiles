@@ -8,13 +8,13 @@
 # mntdir=/dev/bootchain
 
 # Change VT number to show log on specified TTY, empty value turns off this VT
-# BC_LOG_VT=3
+BC_LOG_VT=@bc_log_vt@
 
 # Delay in seconds before auto-activate interactive VT, empty value for switch immediately
 BC_FGVT_ACTIVATE=@bc_fgvt_activate@
 
 # Full path to the bootchain log or character special device name
-# BC_LOGFILE=/var/log/bootchained.log
+BC_LOGFILE=@bc_logfile@
 
 # Common timeout in seconds for all waitdev steps:
 # this make possible using fallback after last waitdev step

@@ -19,3 +19,5 @@ use/initrd-bootchain: use/uuid-iso
 	@$(call try,BOOTCHAIN_OEM_SRV_NETINST,)
 	@$(call try,BOOTCHAIN_OEM_NFS_NETINST,/srv/public/netinst)
 	@$(call try,BOOTCHAIN_OEM_CIFS_NETINST,/netinst)
+	@$(call try,BOOTCHAIN_LOGFILE,/var/log/bootchained.log)
+	@$(call try,BOOTCHAIN_LOG_VT,3)

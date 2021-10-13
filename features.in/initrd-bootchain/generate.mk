@@ -28,6 +28,8 @@ all: debug
 		-e "s,@oem_srv_netinst@,$(BOOTCHAIN_OEM_SRV_NETINST)," \
 		-e "s,@oem_nfs_netinst@,$(BOOTCHAIN_OEM_NFS_NETINST)," \
 		-e "s,@oem_cifs_netinst@,$(BOOTCHAIN_OEM_CIFS_NETINST)," \
+		-e "s,@bc_logfile@,$(BOOTCHAIN_LOGFILE)," \
+		-e "s,@bc_log_vt@,$(BOOTCHAIN_LOG_VT)," \
 		$(BOOTCHAIN_CFG)
 
 debug:
