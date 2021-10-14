@@ -1,4 +1,4 @@
-xorg-drv-ati
+xorg-drv-ati@!riscv64
 xorg-drv-cirrus@X86
 #xorg-drv-mga
 xorg-drv-modesetting
