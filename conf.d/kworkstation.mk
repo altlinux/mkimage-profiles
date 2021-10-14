@@ -23,11 +23,11 @@ mixin/kworkstation-common-deps: \
 	use/memtest \
 	use/init/systemd \
 	use/cleanup/live-no-cleanupdb \
+	use/stage2/mmc \
 	+net-eth +wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm
 
 mixin/kworkstation-common-opts:
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call set,BRANDING,xalt-kworkstation)
 	@$(call set,GRUBTHEME,branding-xalt-kworkstation)
 	@$(call set,DOCS,alt-kworkstation)
