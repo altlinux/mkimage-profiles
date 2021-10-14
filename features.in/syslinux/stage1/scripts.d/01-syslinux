@@ -35,9 +35,6 @@ if ! grep -i '^default' "$CFG"; then
 	fi
 fi
 
-# snippets are not going into the actual image
-if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
-
 # validate just in case (see also stage1 Makefile)
 case "$GLOBAL_BOOTLOADER" in
 	isolinux|syslinux) ;;
@@ -58,6 +55,9 @@ if [ -n "$SYSLINUX_MODULES" ]; then
 		cp -a $MODDIR/$module.c?? . || rm .in/[0-9][0-9]$module.cfg
 	done
 fi
+
+# snippets are not going into the actual image
+if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
 
 # NB: there will be final macro expansion based on actual image sizes
 #     done by features.in/syslinux/scripts.d/20-propagator-ramdisk
