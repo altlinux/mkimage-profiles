@@ -73,7 +73,7 @@ kamoso
 
 kde5-ktorrent
 #eiskaltdcpp-qt
-kde5-kio-gdrive
+#kde5-kio-gdrive
 
 # 3dparty
 #skype-preinstall@IA32
