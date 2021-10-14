@@ -12,7 +12,7 @@ BROWSERS_aarch64 = chromium netsurf epiphany falkon otter-browser elinks links2
 BROWSERS_armh = netsurf epiphany falkon otter-browser elinks links2
 BROWSERS_mipsel = chromium seamonkey netsurf epiphany falkon otter-browser \
 		  elinks links2
-BROWSERS_riscv64 = netsurf elinks
+BROWSERS_riscv64 = midori netsurf elinks
 BROWSERS_e2k = netsurf elinks links2
 BROWSERS_e2kv4 := $(BROWSERS_e2k)
 BROWSERS := $(BROWSERS_$(ARCH))
@@ -28,9 +28,13 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 use/browser/falkon: use/browser/firefox use/browser/firefox/esr; @:
 endif
 
+ifeq (,$(filter-out riscv64,$(ARCH)))
+use/browser/firefox: use/browser/midori
+else
 # support both firefox and firefox-esr
 use/browser/firefox: use/browser
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
+endif
 
 # the complete lack of dependencies is intentional
 use/browser/firefox/esr:
