@@ -18,6 +18,12 @@ use/x11/xorg:: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 endif
 
+ifeq (,$(filter-out riscv64,$(ARCH)))
+use/x11/xorg:: use/x11/amdgpu use/drm/full
+	@$(call add,THE_LISTS,$(call tags,desktop xorg))
+endif
+
+
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/x11/intel: use/x11 use/drm
 	@$(call add,THE_PACKAGES,xorg-drv-intel)
