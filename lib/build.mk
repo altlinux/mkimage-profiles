@@ -47,6 +47,7 @@ endif
 
 
 # to be passed into distcfg.mk; suggestions are welcome
+ifneq (,$(filter-out $(DIRECT_TARGETS),$(MAKECMDGOALS)))
 IMAGEDIR ?= $(shell \
 	if [ -d "$$HOME/out" -a -w "$$HOME/out" ]; then \
 		echo "$$HOME/out"; \
@@ -55,6 +56,7 @@ IMAGEDIR ?= $(shell \
 		mkdir -p "$$dir" && echo "$$dir" || echo "/tmp"; \
 	fi; \
 )
+endif
 
 LOGDIR ?= $(wildcard $(IMAGEDIR))
 
