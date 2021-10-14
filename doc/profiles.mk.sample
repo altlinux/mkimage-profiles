@@ -8,6 +8,9 @@ else
 APTCONF = ~/apt/apt.conf.sisyphus.$(ARCH)
 endif
 
+# path to save out image
+IMAGEDIR = ~/out/$(BRANCH)/$(shell date +%Y%m%d)
+
 # turns on GLOBAL_VERBOSE and prettier output
 #DEBUG = 1
 
