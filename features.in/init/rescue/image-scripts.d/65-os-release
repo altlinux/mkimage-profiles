@@ -1,10 +1,15 @@
 #!/bin/sh
 # Install /etc/*-release files if needed
-if [ -d /usr/share/branding-data-current ]; then
-	[ -e /etc/altlinux-release ] ||
-	cp -at /etc -- \
-		/usr/share/branding-data-current/release/altlinux-release
-	[ -e /etc/os-release ] ||
-	cp -at /etc -- \
-		/usr/share/branding-data-current/release/os-release
-fi
+rel_file=
+for rel_file in altlinux-release os-release; do
+	if ! [ -e /etc/"$rel_file" ]; then
+		# in case it is dangling symlink
+		rm -f /etc/"$rel_file"
+		if [ -r /usr/share/branding-data-current/release/"$rel_file" ]; then
+			cp -at /etc -- \
+				/usr/share/branding-data-current/release/"$rel_file"
+						elif [ -r /usr/lib/"$rel_file" ]; then
+							cp -a /usr/lib/"$rel_file" /etc/"$rel_file"
+		fi
+	fi
+done
