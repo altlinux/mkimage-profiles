@@ -115,6 +115,7 @@ fvwm-full-
 apt-repo
 eepm
 apt-rsync
+apt-updatecache
 xdg-user-dirs
 vconsole-setup-kludge
 systemd-analyze
