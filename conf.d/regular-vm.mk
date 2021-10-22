@@ -17,7 +17,7 @@ mixin/vm-archdep:: use/tty/S0
 endif
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot use/tty/S0
+mixin/vm-archdep:: use/bootloader/uboot
 	@$(call set,KFLAVOURS,un-def)
 endif
 
