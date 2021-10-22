@@ -57,7 +57,7 @@ use/kernel/initrd-setup: use/kernel
 	@$(call add,VM_INITRDMODULES,evdev.ko)
 	@$(call add,VM_INITRDMODULES,drivers/pci)
 	@$(call add,VM_INITRDMODULES,drivers/mmc drivers/usb/host)
-	@$(call add,VM_INITRDMODULES,drivers/usb/storage drivers/nvmem)
+	@$(call add,VM_INITRDMODULES,drivers/usb/storage drivers/nvmem drivers/nvme)
 	@$(call add,VM_INITRDMODULES,drivers/virtio)
 	@$(call add,VM_INITRDMODULES,drm/virtio)
 	@$(call add,VM_INITRDMODULES,virtio_scsi.ko virtio_blk.ko virtio-rng virtio_net.ko virtio-gpu.ko)
