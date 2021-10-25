@@ -38,7 +38,7 @@ ve/samba-DC: ve/generic
 	@$(call add,BASE_PACKAGES,task-samba-dc glibc-locales net-tools)
 
 ve/sysvinit-etcnet: ve/base use/net/etcnet \
-        use/control/sudo-su use/repo use/net-ssh
+	use/control/sudo-su use/repo use/net-ssh
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
 ve/systemd-bare: ve/.apt use/init/systemd \
