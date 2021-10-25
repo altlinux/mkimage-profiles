@@ -4,12 +4,15 @@
 # http://altlinux.org/elbrus
 
 error() { echo "$@" >&2; exit 1; }
-usage() { error "Usage: $0 /path/to/alt-e2k.iso /dev/sdX1_or_/dev/sr0"; }
+usage() { error "Usage: $0 [-f] /path/to/alt-e2k.iso /dev/sdX1_or_/dev/sr0"; }
+
+# "yes, this flash drive's filesystem can be overwritten"
+force=
+[ "$1" = "-f" ] && force=1 && shift
 
 [ $# = 2  ] || usage
 [ -s "$1" ] || usage
 [ -b "$2" ] || usage
-
 
 checkuid() { [ "$(id -u)" = 0 ] || error "$0: need to run as root"; }
 format() { mkfs.ext2 -E packed_meta_blocks=1,num_backup_sb=1 -L altinst "$1"; }
@@ -28,9 +31,10 @@ case "$2" in
 	growisofs -dvd-compat -Z "$2"="$1"
 	;;
 /dev/sd*)
-	grep -q "^$1" /proc/mounts && error "$1 mounted already"
+	grep -qw "^$2" /proc/mounts && [ -z "$force" ] && error "$2 mounted"
 	checkpart "$2"
 	checkuid
+
 	[ "$(blkid -o value -s LABEL "$2")" = "altinst" ] || format "$2"
 	src="$(mktemp -d)"
 	dst="$(mktemp -d)"
@@ -51,7 +55,7 @@ case "$2" in
 	}
 
 	echo -n "unmounting media... "
-	umount "$src" "$dst"
+	umount "$src" "$dst" && rmdir "$src" "$dst"
 	echo "done."
 	;;
 *)
