@@ -66,4 +66,7 @@ ve/lxc-systemd-etcnet: ve/.lxc-base ve/systemd-etcnet use/net-eth; @:
 ve/lxc-systemd-networkd: ve/.lxc-base \
 	ve/systemd-networkd use/net-eth/networkd; @:
 
+ve/lxc-builder: ve/lxc-sysvinit-etcnet use/dev/builder/base use/repo
+	@$(call add,BASE_LISTS,openssh)
+
 endif
