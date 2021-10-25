@@ -111,7 +111,7 @@ reports/packages: reports/prep
 		cut -d' ' -f 1 | tr -d "'"'`' | \
 		tee /dev/stderr 2> >(sed 's,^.*/,,' | \
 			sort -u > "$(REPORTDIR)/list-rpms.txt") | \
-		xargs rpm -qp --queryformat '%{sourcerpm}\n' | \
+		xargs -r rpm -qp --queryformat '%{sourcerpm}\n' | \
 		sort -u > "$(REPORTDIR)/list-srpms.txt"
 
 else
