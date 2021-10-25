@@ -70,7 +70,7 @@
 
 См. тж.:
 
-* http://altlinux.org/m-p: обзорная документация, в т.ч. howto
+* https://altlinux.org/mkimage-profiles: обзорная документация, в т.ч. howto
 * doc/:
 ** params.txt: переменные, указываемые при запуске сборки
 ** pkglists.txt: формирование состава образа
@@ -81,4 +81,4 @@
 
 Удачи; что не так -- пишите.
 
-Michael Shigorin <mike@altlinux.org>
+Michael Shigorin <mike@altlinux.org>, Anton Midyukov <antohami@altlinux.org>

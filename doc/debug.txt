@@ -23,4 +23,4 @@
 ** build/reports/cleanlog.log -- более пригодный для diff(1) журнал сборки
 
 Общая информация по отладке сборки профилей mkimage доступна на вики:
-http://www.altlinux.org/Mkimage/debug
+https://www.altlinux.org/Mkimage/debug

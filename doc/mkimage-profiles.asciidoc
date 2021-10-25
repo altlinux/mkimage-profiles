@@ -28,7 +28,7 @@ mkimage-profiles, или _m-p_ — результат осмысления и о
 
 Выполняем начальные инструкции по документации:
 
-  git clone git://git.altlinux.org/people/mike/packages/mkimage-profiles.git
+  git clone git://git.altlinux.org/gears/m/mkimage-profiles.git
   cd mkimage-profiles
   make rescue.iso
 

@@ -1,4 +1,5 @@
-.\" Copyright (C) 2010-2016 Michael Shigorin <mike@altlinux.org>
+.\" Copyright (C) 2010-2020 Michael Shigorin <mike@altlinux.org>
+.\" Copyright (C) 2020-2021 Anton Midyukov <antohami@altlinux.org>
 .\"
 .\" Documentation for mkimage-profiles project.
 .\"
@@ -16,7 +17,7 @@
 .\" along with this program; if not, write to the Free Software
 .\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 .\" 
-.TH "MKIMAGE-PROFILES" "9" "June 2017" "mkimage-profiles @VERSION@" "ALT"
+.TH "MKIMAGE-PROFILES" "9" "October 2021" "mkimage-profiles @VERSION@" "ALT"
 .SH "NAME"
 mkimage-profiles \- ALT distribution family metaprofile
 .SH "SYNOPSIS"
@@ -100,15 +101,15 @@ into the generated image as a tarball for better reproducibility.
 should result in a minimal bootable ISO image.
 
 Another example is Regular Builds project yielding weekly images:
-.BR http://en.altlinux.org/regular
+.BR https://en.altlinux.org/regular
 .SH "AUTHOR"
-Written by Michael Shigorin <mike@altlinux.org>
+Written by Michael Shigorin <mike@altlinux.org>, Anton Midyukov <antohami@altlinux.org>
 .SH "REPORTING BUGS"
-Report bugs to http://bugzilla.altlinux.org
+Report bugs to https://bugzilla.altlinux.org
 .br
 (Sisyphus project, mkimage-profiles component).
 .SH "COPYRIGHT"
-Copyright \(co) 2010-2017  Michael Shigorin <mike@altlinux.org>
+Copyright \(co) 2010-2020  Michael Shigorin <mike@altlinux.org>, 2020-2021  Anton Midyukov <antohami@altlinux.org>
 .br
 This is free software; see the source for copying conditions.
 There is NO WARRANTY; not even for MERCHANTABILITY or
@@ -123,7 +124,7 @@ files in the tree starting with the toplevel one for more
 information; these can be assembled into a handbook using
 .BR asciidoc(1)
 (available at
-.BR http://nightly.altlinux.org/docs/
+.BR https://nightly.altlinux.org/docs/
 as weekly HTML/PDF updates).
 
 Specific topics are covered within
@@ -138,4 +139,4 @@ file.
 .BR hsh(1),
 .BR mkimage,
 .br
-.BR http://www.vimeo.com/23522095
+.BR https://www.vimeo.com/23522095

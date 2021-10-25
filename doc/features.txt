@@ -7,7 +7,7 @@
 
 * scripts.d/ или image-scripts.d/ различных стадий;
 * пакеты installer-feature-*
-  (тж. http://www.altlinux.org/Installer/beans).
+  (тж. https://www.altlinux.org/Installer/beans).
 
 В большинстве случаев можно рекомендовать создание feature
 средствами метапрофиля, поскольку при этом дерево кода более
