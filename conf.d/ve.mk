@@ -55,16 +55,15 @@ ve/systemd-etcnet: ve/systemd-bare use/net/etcnet
 	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
-ve/lxc-sysvinit-etcnet: ve/sysvinit-etcnet use/net-eth use/lxc-guest
-	@$(call add,BASE_PACKAGES,vim-console)
+ve/.lxc-bare: use/lxc-guest
 	@$(call add,NET_ETH,eth0:dhcp)
 
-ve/lxc-systemd-networkd: ve/systemd-networkd use/net-eth/networkd use/lxc-guest
+ve/.lxc-base: ve/.lxc-bare
 	@$(call add,BASE_PACKAGES,vim-console)
-	@$(call add,NET_ETH,eth0:dhcp)
 
-ve/lxc-systemd-etcnet: ve/systemd-etcnet use/net-eth use/lxc-guest
-	@$(call add,BASE_PACKAGES,vim-console)
-	@$(call add,NET_ETH,eth0:dhcp)
+ve/lxc-sysvinit-etcnet: ve/.lxc-base ve/sysvinit-etcnet use/net-eth; @:
+ve/lxc-systemd-etcnet: ve/.lxc-base ve/systemd-etcnet use/net-eth; @:
+ve/lxc-systemd-networkd: ve/.lxc-base \
+	ve/systemd-networkd use/net-eth/networkd; @:
 
 endif
