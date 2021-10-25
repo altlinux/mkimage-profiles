@@ -45,15 +45,13 @@ ve/systemd-bare: ve/.apt use/init/systemd \
 	use/control/sudo-su use/repo use/net-ssh
 	@$(call add,BASE_PACKAGES,interactivesystem su)
 
-ve/systemd-networkd: ve/systemd-bare use/net/networkd/resolved
+ve/systemd-base: ve/systemd-bare
 	@$(call add,BASE_PACKAGES,apt-scripts)
 	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
-ve/systemd-etcnet: ve/systemd-bare use/net/etcnet
-	@$(call add,BASE_PACKAGES,apt-scripts)
-	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
-	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
+ve/systemd-networkd: ve/systemd-base use/net/networkd/resolved; @:
+ve/systemd-etcnet: ve/systemd-base use/net/etcnet; @:
 
 ve/.lxc-bare: use/lxc-guest
 	@$(call add,NET_ETH,eth0:dhcp)
