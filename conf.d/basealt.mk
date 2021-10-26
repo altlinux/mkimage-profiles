@@ -57,7 +57,11 @@ vm/.alt-workstation: vm/systemd use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,THE_PACKAGES,alterator-gpupdate)
+ifeq (,$(filter-out armh,$(ARCH)))
+	@$(call add,THE_LISTS,workstation/libreoffice-latest)
+else
 	@$(call add,THE_LISTS,workstation/libreoffice)
+endif
 
 vm/alt-workstation:: vm/.alt-workstation
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))

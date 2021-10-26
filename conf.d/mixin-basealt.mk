@@ -30,7 +30,9 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
 	@$(call add,LIVE_LISTS,workstation/live.pkgs)
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
+ifneq (,$(filter-out armh,$(ARCH)))
 	@$(call add,LIVE_LISTS,$(call tags,desktop office))
+endif
 	@$(call add,THE_LISTS,workstation/mate)
 	@$(call add,THE_LISTS,workstation/the.pkgs)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))

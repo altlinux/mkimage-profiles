@@ -1,0 +1,12 @@
+LibreOffice
+LibreOffice-langpack-ru
+LibreOffice-gtk3
+LibreOffice-common
+
+java-1.8.0-openjdk@!mipsel
+libreoffice-languagetool@!mipsel
+libcmis
+libwps
+
+projectlibre@!mipsel
+dia
