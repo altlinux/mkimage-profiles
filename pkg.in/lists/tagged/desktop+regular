@@ -48,7 +48,7 @@ fonts-bitmap-terminus
 ldd-requires@X86
 alt-rootfs-installer
 
-gparted@X86
+gparted
 gpart
 
 x11-ssh-askpass
