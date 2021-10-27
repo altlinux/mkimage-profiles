@@ -13,6 +13,10 @@ use/e2k: use/tty/S0 use/l10n/default/ru_RU
 	@$(call add,INSTALL2_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,INSTALL2_PACKAGES,ifplugd)	# for net-eth link status
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,llvm)
+ifeq (,$(filter-out e2kv4 e2kv5,$(ARCH)))
+	@# 8C/8CB specific
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
+endif
 	@$(call add,BASE_PACKAGES,mirror-e2k-alt)
 	@$(call add,THE_PACKAGES,pwmd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,pwmd)
