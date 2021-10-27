@@ -112,6 +112,7 @@ distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,pciutils input-utils glxgears glxinfo)
+	@$(call add,LIVE_PACKAGES,glibc-locales apulse)
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind alteratord messagebus)
 	@$(call add,SERVICES_DISABLE,livecd-net-eth)
 
