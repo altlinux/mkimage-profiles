@@ -17,7 +17,11 @@ mixin/education: \
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,education/misc)
+ifeq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,THE_PACKAGES,jre)
+else
 	@$(call add,THE_PACKAGES,java-11-openjdk)
+endif
 	@$(call add,THE_PACKAGES,thunderbird)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
@@ -38,7 +42,11 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 endif
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
+ifeq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,LIVE_PACKAGES,jre)
+else
 	@$(call add,LIVE_PACKAGES,java-11-openjdk)
+endif
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
