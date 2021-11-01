@@ -7,7 +7,7 @@
 # TODO: KEYMAP for default keymap?
 use/l10n:
 	@$(call add_feature)
-	@$(call add,THE_PACKAGES,glibc-locales)
+	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,LOCALES,en_US)
 	@$(call add,XKB_KEYMAPS,us)
 	@$(call try,LOCALE,en_US)
