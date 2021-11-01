@@ -67,8 +67,10 @@ alterator-net-openvpn
 alterator-net-pppoe
 alterator-net-pptp
 alterator-net-wifi
+alterator-osec
 alterator-packages
 alterator-pkg
+alterator-ports-access
 alterator-printers
 alterator-root
 alterator-services
