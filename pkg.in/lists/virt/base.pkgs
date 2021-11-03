@@ -42,7 +42,6 @@ eepm
 systemd-networkd
 systemd-container
 libnss-systemd
-libnss-resolve
 zsh
 bash-completion
 bc
