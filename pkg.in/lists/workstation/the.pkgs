@@ -91,6 +91,3 @@ test-audio
 
 glmark2@aarch64
 glmark2-es2@aarch64
-
-java-9-openjdk-@!E2K
-java-9-openjdk-headless-@!E2K
