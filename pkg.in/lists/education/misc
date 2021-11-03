@@ -299,7 +299,6 @@ xpdf-utils
 desktop-screensaver-modules-xscreensaver
 desktop-screensaver-modules-xscreensaver-gl
 systemd-settings-enable-showstatus
-systemd-settings-disable-dumpcore
 systemd-settings-enable-log-to-tty12
 
 # Other architecture-depended utilities
