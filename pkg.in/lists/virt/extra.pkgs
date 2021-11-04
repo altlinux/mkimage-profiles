@@ -22,7 +22,6 @@ resource-agents-libvirt
 resource-agents-lvm
 resource-agents-lxc
 resource-agents-nfs
-crmsh
 pcs
 ansible
 docker-compose
