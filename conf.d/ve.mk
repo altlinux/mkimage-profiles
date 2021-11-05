@@ -31,8 +31,8 @@ ve/generic: ve/base use/repo
 ve/openvpn: ve/bare
 	@$(call add,BASE_LISTS,$(call tags,server openvpn))
 
-ve/pgsql94: ve/generic
-	@$(call add,BASE_PACKAGES,postgresql9.4-server)
+ve/pgsql: ve/generic
+	@$(call add,BASE_PACKAGES,postgresql-server)
 
 ve/samba-DC: ve/generic
 	@$(call add,BASE_PACKAGES,task-samba-dc glibc-locales net-tools)
