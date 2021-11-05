@@ -98,9 +98,6 @@ distro/live-webkiosk-chromium: distro/.live-webkiosk use/fonts/ttf/google +efi
 distro/live-webkiosk-seamonkey: distro/.live-webkiosk use/fonts/ttf/google
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-seamonkey)
 
-distro/live-webkiosk-qupzilla: distro/.live-webkiosk use/fonts/otf/mozilla
-	@$(call add,LIVE_PACKAGES,livecd-webkiosk-qupzilla)
-
 distro/.live-3d: distro/.live-x11 use/x11/3d \
 	use/x11/lightdm/gtk +icewm +sysvinit
 	@$(call add,LIVE_PACKAGES,glxgears glxinfo)
