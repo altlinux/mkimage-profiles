@@ -289,7 +289,7 @@ perl-Image-ExifTool
 antiword
 unrtf
 wv
-python-module-pychm
+python3-module-pychm
 python3-module-lxml
 aspell
 aspell-ru-rk
