@@ -147,7 +147,8 @@ vm/alt-education:: use/no-sleep use/arm-rpi4; @:
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full; @:
+vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full
+	@$(call add,THE_PACKAGES,task-edu-lite)
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
