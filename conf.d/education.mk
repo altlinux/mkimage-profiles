@@ -93,7 +93,8 @@ distro/alt-education: distro/.installer \
 	mixin/education \
 	mixin/education-live \
 	mixin/education-installer \
-	use/e2k/multiseat/full use/power/acpi
+	use/e2k/multiseat/full use/power/acpi \
+	use/control
 	@$(call set,INSTALLER,education)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_GROUPS,education/06_kdesc)
@@ -125,6 +126,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,syslinux)
 	@$(call add,MAIN_PACKAGES,owamp-server)
 endif
+	@$(call add,CONTROL,sudo:public)
 
 endif # distro
 
