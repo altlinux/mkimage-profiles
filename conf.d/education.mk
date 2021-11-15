@@ -28,6 +28,7 @@ endif
 	@$(call add,THE_PACKAGES,settings-alsa-sof-force)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,THE_LISTS,$(call tags,base extra))
+	@$(call add,SERVICES_DISABLE,host2cat)
 
 ifeq (distro,$(IMAGE_CLASS))
 
