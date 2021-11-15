@@ -163,6 +163,7 @@ synaptic-usermode
 gnome-software@!riscv64
 gnome-software-disable-updates@!riscv64
 rpminstall
+appinstall
 
 # Menu
 altlinux-freedesktop-menu-shallow-menu
