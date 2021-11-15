@@ -137,6 +137,7 @@ mixin/office: use/fonts/ttf/google use/fonts/ttf/xo
 #     an unrecovered filesystem's journal
 mixin/regular-rescue: use/rescue use/isohybrid use/luks use/branding \
 	use/syslinux/ui/menu use/syslinux/timeout/600 \
+	use/rescue/.base use/syslinux/sdab.cfg use/grub/sdab_bios.cfg \
 	use/firmware/qlogic test/rescue/no-x11 +sysvinit; @:
 
 mixin/regular-builder: use/dev/builder/base use/net/dhcp use/ntp/chrony

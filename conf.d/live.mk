@@ -31,6 +31,7 @@ endif
 endif
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
+	use/rescue/.base use/syslinux/sdab.cfg use/grub/sdab_bios.cfg \
 	use/efi/shell +efi; @:
 
 distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth

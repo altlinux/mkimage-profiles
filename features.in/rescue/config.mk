@@ -9,8 +9,7 @@ use/rescue/base: use/rescue/.base
 	@$(call add,RESCUE_LISTS,\
 		$(call tags,base && (rescue || network || security || archive)))
 
-use/rescue: use/rescue/.base use/syslinux/sdab.cfg use/grub/sdab_bios.cfg \
-	use/services use/firmware/full +wireless
+use/rescue: use/rescue/.base use/services use/firmware/full +wireless
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,RESCUE_PACKAGES,grub2-pc lilo syslinux)
