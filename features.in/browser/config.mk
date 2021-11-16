@@ -40,5 +40,9 @@ endif
 use/browser/firefox/esr:
 	@$(call set,FX_FLAVOUR,-esr)
 
+ifneq (,$(filter-out riscv64,$(ARCH)))
 use/browser/firefox/live: use/browser/firefox
 	@$(call add,THE_BROWSER,livecd-firefox)
+else
+use/browser/firefox/live: ; @:
+endif
