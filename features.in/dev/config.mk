@@ -16,7 +16,9 @@ use/dev/builder/base: use/dev/mkimage
 
 use/dev/builder/live: use/dev/builder/base
 	@$(call add,LIVE_LISTS,$(call tags,live builder))
+ifeq (,$(filter-out x86_64 ,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,livecd-qemu-arch qemu-user-binfmt_misc)
+endif
 
 use/dev/builder/full: use/dev use/dev/builder/live use/dev/repo
 ifdef BIGRAM
