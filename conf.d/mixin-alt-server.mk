@@ -17,7 +17,7 @@ mixin/alt-server: +installer +systemd \
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_BRANDING,bootloader bootsplash)
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,std-def)
 endif
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
