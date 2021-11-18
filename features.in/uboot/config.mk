@@ -7,9 +7,8 @@ endif
 endif
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-ifeq (,$(filter-out qcow2 qcow2c,$(IMAGE_TYPE)))
+ifeq (,$(filter-out img qcow2 qcow2c,$(IMAGE_TYPE)))
 UBOOT_TTY := use/tty/S0
-UBOOT_NOFDTDIR := 1
 else
 UBOOT_TTY := use/tty/SIF0
 endif
