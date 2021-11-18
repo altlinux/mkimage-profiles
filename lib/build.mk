@@ -21,9 +21,14 @@ LOWSPACE = 1024
 # it's also nice to know how long and much it takes
 START += time -f "%E %PCPU %Mk"
 
-
 # e2k* builds always run natively, and without setarch
-ifeq (,$(findstring e2k,$(ARCH)))
+ifneq (,$(findstring e2k,$(ARCH)))
+USE_QEMU := 0
+else
+USE_QEMU ?= 1
+endif
+
+ifeq ($(USE_QEMU),1)
 
 # /usr/bin/{i586,x86_64} are setarch(8) symlinks but arm is not;
 # armh (armv7l) doesn't have any but should cope with qemu-arm.static;
