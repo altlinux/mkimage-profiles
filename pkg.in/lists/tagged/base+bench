@@ -15,7 +15,7 @@ stream-mem
 bonnie
 bonnie++
 iozone
-fio
+fio@!riscv64
 ffsb
 
 # networking
