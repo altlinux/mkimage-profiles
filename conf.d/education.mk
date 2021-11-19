@@ -22,6 +22,7 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 else
 	@$(call add,THE_PACKAGES,java-11-openjdk)
 endif
+	@$(call add,THE_PACKAGES,mousepad)
 	@$(call add,THE_PACKAGES,thunderbird)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
@@ -42,6 +43,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 endif
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
+	@$(call add,LIVE_PACKAGES,mousepad)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,jre)
 else
