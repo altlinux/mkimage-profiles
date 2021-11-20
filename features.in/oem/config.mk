@@ -11,11 +11,9 @@ use/oem: use/services use/branding use/deflogin/root
 	@$(call xport,OEM_STEPS)
 	@$(call xport,OEM_INSTALL)
 
-use/oem/vnc: use/oem use/x11-vnc use/net-eth/dhcp
-	@$(call add,THE_PACKAGES,alterator-setup-x11vnc)
-	@$(call set,OEM_TARGET,setup-vnc)
-	@$(call set,NMCTL,no)
-	@$(call xport,NMCTL)
+use/oem/vnc: use/oem use/net-eth/dhcp
+	@$(call add,THE_PACKAGES,alterator-vnc)
+	@$(call add,THE_PACKAGES,x11vnc x11vnc-service xorg-drv-dummy)
 
 use/oem/no-cleanup: use/oem
 	@$(call set,OEM_NO_CLEANUP,yes)
