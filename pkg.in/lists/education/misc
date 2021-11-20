@@ -203,6 +203,7 @@ ocfs2-tools
 cpufreq-simple@X86
 hplip-PPDs
 hplip-sane
+sane-airscan
 udev-rule-generator-cdrom
 xorg-drv-synaptics
 xorg-conf-synaptics
