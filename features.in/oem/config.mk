@@ -1,9 +1,9 @@
 use/oem: use/services use/branding use/deflogin/root
 	@$(call add_feature)
 	@$(call add,DEFAULT_SERVICES_ENABLE,messagebus alteratord)
-	@$(call add,THE_PACKAGES,alterator-setup alterator-notes)
-	@$(call add,THE_PACKAGES,rootfs-installer-features)
-	@$(call add,THE_BRANDING,alterator notes)
+	@$(call add,BASE_PACKAGES,alterator-setup alterator-notes)
+	@$(call add,BASE_PACKAGES,rootfs-installer-features)
+	@$(call add,BASE_BRANDING,alterator notes)
 	@$(call try,OEM_TARGET,setup)
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(OEM_TARGET))
 	@$(call xport,OEM_TARGET)
@@ -12,8 +12,8 @@ use/oem: use/services use/branding use/deflogin/root
 	@$(call xport,OEM_INSTALL)
 
 use/oem/vnc: use/oem use/net-eth/dhcp
-	@$(call add,THE_PACKAGES,alterator-vnc)
-	@$(call add,THE_PACKAGES,x11vnc x11vnc-service xorg-drv-dummy)
+	@$(call add,BASE_PACKAGES,alterator-vnc)
+	@$(call add,BASE_PACKAGES,x11vnc x11vnc-service xorg-drv-dummy)
 
 use/oem/no-cleanup: use/oem
 	@$(call set,OEM_NO_CLEANUP,yes)
@@ -21,12 +21,12 @@ use/oem/no-cleanup: use/oem
 use/oem/distro: use/oem
 	@$(call try,OEM_STEPS,sysconfig notes-license datetime \
 		preinstall net-eth root users setup-finish)
-	@$(call add,THE_PACKAGES,alterator-net-eth)
-	@$(call add,THE_PACKAGES,installer-common-stage3)
+	@$(call add,BASE_PACKAGES,alterator-net-eth)
+	@$(call add,BASE_PACKAGES,installer-common-stage3)
 
 use/oem/install: use/oem use/repo/main
 	@$(call set,OEM_INSTALL,yes)
 	@$(call try,OEM_STEPS,sysconfig notes-license datetime pkg \
 		preinstall net-eth root users setup-finish)
-	@$(call add,THE_PACKAGES,alterator-pkg alterator-net-eth)
-	@$(call add,THE_PACKAGES,installer-common-stage3)
+	@$(call add,BASE_PACKAGES,alterator-pkg alterator-net-eth)
+	@$(call add,BASE_PACKAGES,installer-common-stage3)
