@@ -11,7 +11,7 @@ use/oem: use/services use/branding use/deflogin/root
 	@$(call xport,OEM_STEPS)
 	@$(call xport,OEM_INSTALL)
 
-use/oem/vnc: use/oem use/net-eth/dhcp
+use/oem/vnc: use/oem
 	@$(call add,BASE_PACKAGES,alterator-vnc)
 	@$(call add,BASE_PACKAGES,x11vnc x11vnc-service xorg-drv-dummy)
 
