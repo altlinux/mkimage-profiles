@@ -4,13 +4,13 @@ lxqt-regular@META
 
 # media-player
 mpv
-qmmp1
+qmmp1@!riscv64
 
 # graphics
 easypaint
 
 # text-editor
-featherpad
+featherpad@!riscv64
 
 gvfs-shares
 gvfs-backend-mtp
