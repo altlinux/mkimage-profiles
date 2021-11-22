@@ -2,7 +2,7 @@
 # filter stdin or file for words related to
 # the specified target architecture
 #
-# args: -a arch [-i file]
+# args: [-a arch] [-i file]
 
 if [ "$1" = "-a" -a -n "$2" ]; then
 	a="$2"
@@ -43,7 +43,7 @@ sed -rn "s/\<([^@ ]*)\>|\<([^@ ]*)@$a\>[^ ]*\>/\1\2/pg" |
 sed -rn "s/\<([^@ ]*)\>|\<[^ ]*@\!$a\>[^ ]*\> */\1/pg" |
 sed -r  "s/\<([^@ ]*)@\![^ ]+\>/\1/g" |
 sed -r  "s/\<([^@ ]*)@[^@ ]+\> *//g" |
-sed -r  "s/^ +//;s/ +$//" |
+sed -r  "s/^ +//;s/ +$//;/^$/d" |
 if [ -n "$f" ]; then
 	cat > "$t" && mv "$t" "$f"
 else
