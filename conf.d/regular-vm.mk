@@ -1,6 +1,6 @@
 ifeq (vm,$(IMAGE_CLASS))
 
-mixin/vm-archdep:: ; @:
+mixin/vm-archdep:: use/auto-resize; @:
 
 ifeq (,$(filter-out i586 x86_64 armh aarch64,$(ARCH)))
 mixin/vm-archdep::
