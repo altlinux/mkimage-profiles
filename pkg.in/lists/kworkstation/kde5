@@ -51,6 +51,7 @@ samba
 samba-usershares
 # system-config-samba
 
+#kde5-akonadi-database-mysql
 kde5-messenger-client-mix
 
 isomaster
