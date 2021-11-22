@@ -49,3 +49,7 @@ if [ -n "$f" ]; then
 else
 	cat
 fi
+
+# stick this for debugging sed pipeline and run the script
+# with >/dev/null to see what flows in a particular place:
+#   tee /dev/stderr |
