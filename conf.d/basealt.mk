@@ -2,7 +2,17 @@ ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	3rdparty kvm clamav cloud-clients freecad \
-	gtk-dictionary smartcard voip-clients vlc)
+	gtk-dictionary smartcard voip-clients)
+
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+distro/alt-workstation: mediaplayer = workstation/vlc
+endif
+ifeq (,$(filter-out aarch64 armh mipsel riscv64,$(ARCH)))
+distro/alt-workstation: mediaplayer = workstation/celluloid
+endif
+ifeq (,$(filter-out e2k%,$(ARCH)))
+distro/alt-workstation: mediaplayer = workstation/smplayer
+endif
 
 distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
@@ -17,16 +27,11 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
-	@$(call add,LIVE_LISTS,workstation/vlc)
 endif
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/blender)
 	@$(call add,MAIN_GROUPS,workstation/virtualbox)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
-endif
-ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
-	@$(call add,MAIN_GROUPS,workstation/celluloid)
-	@$(call add,LIVE_LISTS,workstation/celluloid)
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
@@ -36,6 +41,8 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_PACKAGES,alterator-secsetup)
 	@$(call add,MAIN_GROUPS,workstation/alterator-web)
 	@$(call add,SERVICES_ENABLE,ahttpd)	# in case it gets installed
+	@$(call add,MAIN_GROUPS,$(mediaplayer))
+	@$(call add,LIVE_LISTS,$(mediaplayer))
 ifeq (,$(filter-out e2k,$(ARCH)))
 	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 401-PC)
 endif	# e2k
@@ -63,15 +70,12 @@ else
 	@$(call add,THE_LISTS,workstation/libreoffice)
 endif
 
-vm/alt-workstation:: vm/.alt-workstation +vmguest
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,THE_LISTS,workstation/vlc)
-endif
+vm/alt-workstation:: vm/.alt-workstation  +vmguest
+	@$(call add,THE_LISTS,$(mediaplayer))
 
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 vm/alt-workstation:: use/uboot
 	@$(call add,BASE_LISTS,uboot)
-	@$(call add,THE_LISTS,workstation/celluloid)
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
