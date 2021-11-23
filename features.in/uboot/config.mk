@@ -7,11 +7,7 @@ endif
 endif
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-ifeq (,$(filter-out img qcow2 qcow2c,$(IMAGE_TYPE)))
 UBOOT_TTY := use/tty/S0
-else
-UBOOT_TTY := use/tty/SIF0
-endif
 endif
 
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
