@@ -150,7 +150,7 @@ hping3@X86
 httpry
 httpry-scripts
 iftop
-infiniband-diags
+infiniband-diags@!riscv64
 iperf
 iperf3
 ipmitool
