@@ -142,10 +142,7 @@ use/install2/cleanup/x11-hwdrivers:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-glamor)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-mach64 xorg-drv-mga)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-nouveau)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-openchrome)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-r128 xorg-drv-radeon)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-s3virge xorg-drv-savage)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-sis)
 
 # massive purge of anything not critical to installer boot (l10n included!)
 use/install2/cleanup/everything: use/install2/cleanup/x11-hwdrivers \
