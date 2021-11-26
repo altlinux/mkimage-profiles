@@ -33,8 +33,7 @@ use/firmware/wireless: use/firmware
 	@$(call add,THE_PACKAGES_REGEXP,firmware-zd.*)
 	@$(call add,THE_PACKAGES_REGEXP,firmware-rt.*)
 
-use/firmware/laptop: use/firmware/cpu
-	@$(call add,THE_KMODULES,acpi_call)
+use/firmware/laptop: use/firmware/cpu; @:
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,firmware-alsa-sof)
 endif
