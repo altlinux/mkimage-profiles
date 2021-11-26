@@ -7,5 +7,5 @@ Categories=KDE;GNOME;XFCE
 
 Name=OEM-install
 Name[ru_RU]=ОЕМ-установка
-Comment=System setup at first boot.
-Comment[ru_RU]=Первоначальная настройка системы при первой загрузке.
+Comment=System setup at first boot after install.
+Comment[ru_RU]=Первоначальная настройка системы при первом запуске после установки.
