@@ -201,8 +201,8 @@ ntfs-3g
 xorg-drv-wacom
 ocfs2-tools
 cpufreq-simple@X86
-hplip-PPDs
 hplip-sane
+gutenprint-cups-ppds
 sane-airscan
 udev-rule-generator-cdrom
 xorg-drv-synaptics
