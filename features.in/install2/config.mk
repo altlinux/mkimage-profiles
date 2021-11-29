@@ -5,6 +5,8 @@
 use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	use/cleanup/installer use/install2/autoinstall use/grub/install2.cfg
 	@$(call add_feature)
+	@$(call add,INSTALL2_PACKAGES,installer-common-stage2)
+	@$(call add,PINNED_PACKAGES,installer-common-stage2)
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,INSTALL2_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
 	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)
