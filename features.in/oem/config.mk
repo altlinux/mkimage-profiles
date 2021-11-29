@@ -3,6 +3,7 @@ use/oem: use/services use/branding use/deflogin/root
 	@$(call add,DEFAULT_SERVICES_ENABLE,messagebus alteratord)
 	@$(call add,BASE_PACKAGES,alterator-setup alterator-notes)
 	@$(call add,BASE_PACKAGES,rootfs-installer-features)
+	@$(call add,PINNED_PACKAGES,rootfs-installer-features)
 	@$(call add,BASE_BRANDING,alterator notes)
 	@$(call try,OEM_TARGET,setup)
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(OEM_TARGET))
