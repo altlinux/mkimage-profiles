@@ -61,6 +61,7 @@ use/live/install: use/metadata use/xdg-user-dirs \
 	use/bootloader/live use/bootloader/grub
 	@$(call add,LIVE_PACKAGES,livecd-install)
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
+	@$(call add,PINNED_PACKAGES,livecd-installer-features)
 
 # text-based installation script
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
