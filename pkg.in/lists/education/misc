@@ -109,6 +109,7 @@ pam-limits-desktop
 bash-completion
 mc-full
 inxi
+hw-probe
 hwinfo@X86
 attr
 rfkill
