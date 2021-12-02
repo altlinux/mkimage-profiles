@@ -166,6 +166,11 @@ gnome-software-disable-updates@!riscv64
 rpminstall
 appinstall
 
+# Flatpak support
+flatpak
+flatpak-repo-flathub
+xdg-desktop-portal-gtk
+
 # Menu
 altlinux-freedesktop-menu-shallow-menu
 altlinux-freedesktop-menu-mate-like-menu@!riscv64
