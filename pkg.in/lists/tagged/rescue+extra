@@ -169,7 +169,7 @@ ngrep
 nmap
 p0f
 pdsh
-perftest@!riscv64,E2K
+perftest@!E2K,riscv64
 rsh
 rsync
 scanssh
@@ -205,7 +205,7 @@ tmux
 
 # Development/Debuggers
 gdb
-ltrace@!riscv64,E2K
+ltrace@!E2K,riscv64
 strace
 sysstat
 udis86@X86
@@ -217,4 +217,4 @@ scrounge-ntfs@X86
 wabread@X86
 
 # Mobile
-android-tools@!riscv64,E2K
+android-tools@!E2K,riscv64

@@ -41,7 +41,7 @@ smartmontools
 #smbios-utils
 
 # Misc^2
-kexec-tools@!riscv64,E2K
+kexec-tools@!E2K,riscv64
 multipath-tools
 lsof
 parallel
