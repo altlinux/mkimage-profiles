@@ -6,6 +6,8 @@ GL_USER - define default gitlab-runner username ('gitlab-runner' by default)
 GL_SSH_KEY - ssh pubkey added to authorized_keys of GL_USER
 
 NOTE: this feature depends on network enablement in hasher (see [2] for details)
+      and mkimage [3]
 
 1. https://docs.gitlab.com/runner/install/linux-manually.html
 2. https://bugzilla.altlinux.org/34596
+3. https://git.altlinux.org/people/legion/packages/mkimage.git?p=mkimage.git;a=commitdiff;h=6e90f032f15f89de1c2c523a725e369ab6cad1a0
