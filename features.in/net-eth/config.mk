@@ -25,4 +25,7 @@ use/net-eth/dhcp/timeout/%: use/net-eth/dhcp
 use/net-eth/networkd-dhcp: use/net-eth/networkd
 	@$(call add,NET_ETH,eth0:dhcp)
 
+use/net-eth/networkd-dhcp4: use/net-eth/networkd
+	@$(call add,NET_ETH,eth0:dhcp4)
+
 # use e.g. eth0:static:10.0.0.2/24:10.0.0.1 for predefined static configuration

@@ -22,7 +22,7 @@ SYSTEMD_IFDIR="/etc/systemd/network"
 
 write_iface() {
 	case "$proto" in
-	dhcp)
+	dhcp*)
 		;;
 	static)
 		[ -n "$ipv4addr" ] || fatal "ipv4addr missing"
@@ -41,7 +41,7 @@ write_etcnet_iface() {
 	mkdir -p "$dir"
 	append=
 	case "$proto" in
-	dhcp)
+	dhcp*)
 		append="DHCP_TIMEOUT=$GLOBAL_NET_ETH_TIMEOUT"
 		;;
 	static)
@@ -62,6 +62,21 @@ write_etcnet_iface() {
 
 write_systemd_iface() {
 	case "$proto" in
+	dhcp4)
+		echo "[Match]"
+		echo "Name=$iface"
+		echo
+		echo "[Network]"
+		echo "DHCP=ipv4"
+		echo "IPv6AcceptRA=no"
+		echo "LinkLocalAddressing=ipv4"
+		echo
+		echo "[DHCP]"
+		echo "UseMTU=yes"
+		echo "UseDomains=yes"
+		echo "UseNTP=yes"
+		echo
+		;;
 	dhcp)
 		echo "[Match]"
 		echo "Name=$iface"
