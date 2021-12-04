@@ -65,6 +65,7 @@ vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
 vm/regular-jeos-systemd: vm/systemd \
 	mixin/regular-vm-jeos mixin/vm-archdep
 	@$(call add,THE_PACKAGES,glibc-locales)
+	@$(call add,THE_PACKAGES,systemd-settings-disable-kill-user-processes)
 	@$(call try,VM_SIZE,3221225472)
 
 vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
