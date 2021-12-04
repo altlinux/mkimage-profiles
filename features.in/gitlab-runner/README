@@ -1,0 +1,11 @@
+This feature installs gitlab-runner according official guide [1]
+
+The following envs can be altered:
+
+GL_USER - define default gitlab-runner username ('gitlab-runner' by default)
+GL_SSH_KEY - ssh pubkey added to authorized_keys of GL_USER
+
+NOTE: this feature depends on network enablement in hasher (see [2] for details)
+
+1. https://docs.gitlab.com/runner/install/linux-manually.html
+2. https://bugzilla.altlinux.org/34596

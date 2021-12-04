@@ -1,0 +1,61 @@
+#!/bin/sh -efu
+
+gl_url="https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-"
+
+add_user() {
+	useradd -c 'Gitlab Runner' -m "$1"
+	[ -z "$GLOBAL_GL_SSH_KEY" ] || echo "$GLOBAL_GL_SSH_KEY" >> /home/"$1"/.ssh/authorized_keys
+	usermod -L "$1" ||
+	echo "*** failed to add user '$1'"
+}
+
+
+case "$GLOBAL_ARCH" in
+	x86_64)
+		gl_url="${gl_url}amd64"
+	;;
+	i586)
+		gl_url="${gl_url}386"
+	;;
+	armh)
+		gl_url="${gl_url}arm"
+	;;
+	aarch64)
+		gl_url="${gl_url}arm64"
+	;;
+	ppc64le)
+		gl_url="${gl_url}ppc64le"
+	;;
+	*)
+		echo "arch $GLOBAL_ARCH not supported!"
+		exit 1
+	;;
+esac
+
+if [ -n "$GLOBAL_GL_USER" ]; then
+	add_user "$GLOBAL_GL_USER"
+	echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
+	curl -L --output /usr/local/bin/gitlab-runner "$gl_url"
+	chmod +x /usr/local/bin/gitlab-runner
+	cat > /lib/systemd/system/gitlab-runner.service << EOF
+[Unit]
+Description=GitLab Runner
+ConditionFileIsExecutable=/usr/local/bin/gitlab-runner
+
+After=syslog.target network.target
+
+[Service]
+StartLimitInterval=5
+StartLimitBurst=10
+ExecStart=/usr/bin/gitlab-runner "run" "--working-directory" "/home/$GLOBAL_GL_USER" "--config" "/etc/gitlab-runner/config.toml" "--service" "gitlab-runner" "--user" "$GLOBAL_GL_USER"
+
+Restart=always
+
+RestartSec=120
+EnvironmentFile=-/etc/sysconfig/gitlab-runner
+
+[Install]
+WantedBy=multi-user.target
+EOF
+    systemctl enable gitlab-runner
+fi
