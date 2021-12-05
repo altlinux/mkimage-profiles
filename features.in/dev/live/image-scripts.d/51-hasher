@@ -55,7 +55,7 @@ if [ -x "$ZSHELL" ]; then
 	install -m644 -o "$USER" -g "$USER" /dev/null "$HOME/.zshrc"
 	cat >> "$HOME/.zsh_history" <<-EOF
 	git clone git://git.altlinux.org/gears/m/mkimage-profiles.git && cd mkimage-profiles && make help/distro
-	make -C /usr/share/mkimage-profiles syslinux.iso
+	make -C /usr/share/mkimage-profiles grub.iso
 	git clone git://git.altlinux.org/gears/h/hello.git && cd hello && gear-hsh
 	EOF
 fi
@@ -81,7 +81,7 @@ Here are some ALT package/image build tools prepared for you:
 
 Examples (use right/middle mouse button to paste; see ~/hasher/repo/):
 * ${white}git clone git://git.altlinux.org/gears/h/hello.git && cd hello && gear-hsh${gray}
-* ${white}make -C /usr/share/mkimage-profiles syslinux.iso${gray}
+* ${white}make -C /usr/share/mkimage-profiles grub.iso${gray}
 
 EOH
 EOF
