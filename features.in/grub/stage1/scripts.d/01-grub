@@ -62,7 +62,9 @@ fi
 
 # copy grub theme
 mkdir -p themes
-GRUBTHEME="$(grep -m1 '/theme.txt;' "$CFG" |rev | cut -f2 -d '/' |rev)"
+GRUBTHEME="$(grep -m1 '/theme.txt;' "$CFG" |tail -n 1)"
+GRUBTHEME="${GRUBTHEME%/*}"
+GRUBTHEME="${GRUBTHEME##*/}"
 if [ -n "$GRUBTHEME" ]; then
 	if [ -d "/boot/grub/themes/$GRUBTHEME" ]; then
 		cp -r /boot/grub/themes/$GRUBTHEME themes/
