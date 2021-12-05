@@ -1,0 +1,14 @@
+#!/bin/sh -efu
+
+GRUB_CFG=/etc/sysconfig/grub2
+
+[ -s "$GRUB_CFG" ] || exit 0
+
+GRUBTHEME="$(cat "$GRUB_CFG" |grep '^GRUB_THEME=.*' |tail -n 1)"
+GRUBTHEME="${GRUBTHEME%/*}"
+GRUBTHEME="${GRUBTHEME##*/}"
+
+[ -z "$GRUBTHEME" ] || exit 0
+
+sed '/^GRUB_TERMINAL_OUTPUT=.*/d' -i "$GRUB_CFG"
+echo 'GRUB_TERMINAL_OUTPUT="console"' >> "$GRUB_CFG"
