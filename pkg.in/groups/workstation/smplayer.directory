@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=SMPlayer
+Name[ru_RU]=Медиаплеер (SMPlayer)
+X-Alterator-PackageList=workstation/smplayer
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/30-multimedia
