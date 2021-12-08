@@ -15,6 +15,9 @@ for uboot in $uboots; do
 	  mv /boot/efi/{kernel7.img,uboot-$uboot.bin}
 done
 
+# copy actualy dtb
+cp /boot/dtb/bcm27*-rpi-*.dtb /boot/efi/
+
 rm -f /boot/efi/config.txt
 
 [ "$GLOBAL_ARCH" = aarch64 ] && \
