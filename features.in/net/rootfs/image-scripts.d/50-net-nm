@@ -4,7 +4,7 @@
 
 defcfg=/etc/net/ifaces/default/options-eth
 
-[ -f defcfg ] || exit 0
+[ -f "$defcfg" ] || exit 0
 
 if  [ -x /usr/sbin/NetworkManager -o -x /usr/sbin/connmand ]; then
 	shell_config_set "$defcfg" NM_CONTROLLED yes
