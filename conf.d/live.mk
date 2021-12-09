@@ -129,11 +129,10 @@ distro/live-0ad: distro/.live-games
 
 distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
-	@$(call add,LIVE_PACKAGES,gimp tintii immix fim)
+	@$(call add,LIVE_PACKAGES,gimp tintii immix)
 	@$(call add,LIVE_PACKAGES,darktable geeqie rawstudio ufraw)
-	@$(call add,LIVE_PACKAGES,macrofusion python-module-pygtk-libglade)
+	@$(call add,LIVE_PACKAGES,macrofusion)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync usbutils)
-	@$(call add,LIVE_PACKAGES,design-graphics-sisyphus2)
 
 # NB: use/browser won't do as it provides a *single* browser ATM
 distro/live-privacy: distro/.base +efi +systemd +vmguest \
