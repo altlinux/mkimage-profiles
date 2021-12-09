@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Directory
-X-Alterator-PackageList=kworkstation/additional-oem
+X-Alterator-PackageList=kworkstation/add-oem
 X-Alterator-Required=no
 X-Alterator-Parent=kworkstation/z02-add-additional
 Categories=KDE;GNOME;XFCE

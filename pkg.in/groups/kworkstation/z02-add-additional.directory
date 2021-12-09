@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Directory
 X-Alterator-Required=no
-X-Alterator-PackageList=kworkstation/additional-base
+X-Alterator-PackageList=kworkstation/add-base
 Categories=KDE;
 
 Name=Additional
