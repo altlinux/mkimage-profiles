@@ -20,7 +20,7 @@ all:
 		else \
 			action="initialized"; \
 		fi; \
-		rsync -qa --exclude .gitignore "$$src/" "$(BUILDDIR)/$$dst/" && \
+		rsync -qa "$$src/" "$(BUILDDIR)/$$dst/" && \
 		mp-commit "$(BUILDDIR)/$$dst/" \
 			"$$dst subprofile $$action$${neq:+ (using $$src)}"; \
 	done

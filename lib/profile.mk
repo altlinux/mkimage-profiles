@@ -42,7 +42,7 @@ profile/init: distclean
 	if [ -z $(QUIET) ]; then \
 		echo -n "$(TIME) initializing BUILDDIR: "; \
 	fi; \
-	rsync -qaxH --exclude .gitignore --delete-after image.in/ "$(BUILDDIR)"/; \
+	rsync -qaxH --delete-after image.in/ "$(BUILDDIR)"/; \
 	mkdir "$(BUILDDIR)"/.mki; \
 	} >&2
 	@$(call put,ifndef DISTCFG_MK)
