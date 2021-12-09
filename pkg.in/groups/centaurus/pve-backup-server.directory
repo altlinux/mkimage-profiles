@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Proxmox backup server
+X-Alterator-PackageList=centaurus/pve-backup-server
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/20-server-apps
+Name[ru_RU]=Сервер резервного копирования от проекта Proxmox 
+Categories=Server;Networking
