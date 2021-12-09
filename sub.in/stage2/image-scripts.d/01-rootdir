@@ -2,5 +2,3 @@
 # fixup chroot's toplevel directory permissions (use to become 1775)
 
 chmod 755 /
-
-rm -f /.gitignore
