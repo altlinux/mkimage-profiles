@@ -11,6 +11,8 @@ endif
 	@$(call add,THE_LISTS,uboot)
 	@$(call add,THE_PACKAGES,u-boot-tools)
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
+	@$(call set,THE_BROWSER,chromium)
+	@$(call add,THE_PACKAGES,chromium firefox-esr-ru-)
 
 use/arm-rpi4/x11: use/arm-rpi4
 	@$(call add,THE_PACKAGES,pi-bluetooth)
