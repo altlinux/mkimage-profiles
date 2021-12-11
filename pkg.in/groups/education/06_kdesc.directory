@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=KDE Software
+Name=KDE 5 environment
 X-Alterator-PackageList=education/kdesc
-Name[ru_RU]=Программы KDE
+Name[ru_RU]=Среда KDE 5
 

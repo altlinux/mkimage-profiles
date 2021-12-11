@@ -22,3 +22,17 @@ kde5-marble
 kde5-profile
 kde5-skanlite
 kde5-spectacle
+
+# trying to add task-edu-kde5 as fully as possible
+kde5
+kf5-plasma-workspace
+kde5-network-manager-nm
+libqimageblitz5
+kde5-krfb
+kde5-edu
+kde5-printing
+kde5-scanning
+kde5-connect
+LibreOffice-still-kde5@!E2K
+nextcloud-client-kde5@!E2K
+branding-alt-education-kde-settings
