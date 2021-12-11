@@ -71,8 +71,7 @@ vm/regular-jeos-systemd: vm/systemd \
 
 vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
-vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder \
-	+nm +wireless; @:
+vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm; @:
 
 vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	mixin/vm-archdep; @:

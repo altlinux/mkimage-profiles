@@ -257,7 +257,7 @@ distro/regular-server-pve: distro/.regular-server-base +systemd \
 		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)
 
 distro/regular-builder: distro/.regular-bare mixin/regular-builder \
-	use/dev/builder/live use/stage2/kms +sysvinit +efi +power +nm +wireless \
+	use/dev/builder/live use/stage2/kms +sysvinit +efi +power +nm \
 	use/live/base use/live/rw use/live/repo use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
