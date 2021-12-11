@@ -122,7 +122,6 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,xscreensaver-hacks-rss_glx)
 	@$(call add,CLEANUP_PACKAGES,plymouth plymouth-scripts)
 	@$(call add,CONTROL,pam_mktemp:disabled)	### private /tmp dirs
-	@$(call add,INSTALL2_PACKAGES,ImageMagick-tools)	### DROPME: for import on /pkg ###
 else
 	@$(call add,MAIN_GROUPS,education/06_kde5)
 	@$(call add,MAIN_GROUPS,education/09_video-conferencing)
