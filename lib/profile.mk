@@ -39,7 +39,7 @@ profile/init: distclean
 		echo "$(TIME) ERROR: invalid BUILDDIR: \`$(BUILDDIR)'"; \
 		exit 128; \
 	fi; \
-	if [ -z $(QUIET) ]; then \
+	if [ -z "$(QUIET)" ]; then \
 		echo -n "$(TIME) initializing BUILDDIR: "; \
 	fi; \
 	rsync -qaxH --delete-after image.in/ "$(BUILDDIR)"/; \
@@ -75,11 +75,11 @@ profile/init: distclean
 	if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
 		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
-		if [ -z $(QUIET) ]; then \
+		if [ -z "$(QUIET)" ]; then \
 			echo "$(SYMLINK)/"; \
 		fi; \
 	else \
-		if [ -z $(QUIET) ]; then \
+		if [ -z "$(QUIET)" ]; then \
 			echo "$(BUILDDIR)/"; \
 		fi; \
 	fi $(SHORTEN); \
@@ -120,7 +120,7 @@ endif
 # put the derived SUBPROFILE_DIRS here to get it logged in clear text by the way
 profile/finalize:
 	@$(call put,SUBPROFILE_DIRS = $$(notdir $$(subst @,/,$$(SUBPROFILES))))
-	@if [ -s $(RC) ]; then $(call put,-include $(value RC)); fi
+	@if [ -s "$(RC)" ]; then $(call put,-include $(value RC)); fi
 	@$(call put,endif)
 	@mp-commit "$(BUILDDIR)" "image configuration finalized"
 
