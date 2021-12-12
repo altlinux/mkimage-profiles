@@ -104,7 +104,10 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/x11/kde5-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+pulse
-	@$(call add,THE_PACKAGES,kde5-telepathy falkon-kde5)
+	@$(call add,THE_PACKAGES,kde5-telepathy)
+ifneq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,THE_PACKAGES,falkon-kde5)
+endif
 
 mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
