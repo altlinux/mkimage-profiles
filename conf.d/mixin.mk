@@ -51,7 +51,7 @@ ifneq (,$(BRANCH))
 endif
 
 # common WM live/installer bits
-mixin/regular-desktop: +alsa +power +nm-native \
+mixin/regular-desktop: +alsa +nm-native \
 	use/x11/xorg use/xdg-user-dirs use/l10n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)

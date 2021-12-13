@@ -56,7 +56,7 @@ distro/.regular-desktop: distro/.regular-wm use/branding/full \
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
-distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit; @:
+distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit +power; @:
 
 distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
 	use/syslinux/ui/gfxboot use/x11/gdm2.20; @:
@@ -74,7 +74,7 @@ distro/.regular-install: distro/.regular-base +installer \
 distro/.regular-jeos-base: distro/.regular-bare \
 	use/isohybrid use/branding \
 	use/install2/repo use/install2/packages \
-	use/net/etcnet use/power/acpi/button
+	use/net/etcnet
 	@$(call set,BOOTVGA,)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
@@ -106,7 +106,7 @@ endif
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
-	+sysvinit
+	+sysvinit +power
 	@$(call add,BASE_PACKAGES,apt-conf-ignore-systemd)
 
 distro/regular-jeos-systemd: distro/.regular-jeos-full \
@@ -167,7 +167,7 @@ distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
 
 distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
 
-distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment +power; @:
+distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
 
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
