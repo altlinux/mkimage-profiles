@@ -161,7 +161,7 @@ use/x11/gnome3: use/x11/xorg use/x11/gdm +pulse
 	@$(call add,THE_PACKAGES,gnome3-minimal gnome3-default)
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
-use/x11/enlightenment: use/x11 use/net/connman +pulse
+use/x11/enlightenment: use/x11 use/net/connman use/power/acpi +pulse
 	@$(call add,THE_LISTS,$(call tags,enlightenment desktop))
 
 use/x11/lxde: use/x11
