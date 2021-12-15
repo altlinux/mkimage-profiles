@@ -2,6 +2,12 @@
 # gather syslinux configuration from snippets;
 # copy modules; see also this feature's generate.mk
 
+# snippets are not going into the actual image
+final_exit () {
+	if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
+	exit 0
+}
+
 MODDIR="/usr/lib/syslinux"
 
 case "$GLOBAL_BOOTLOADER" in
@@ -38,7 +44,7 @@ fi
 # validate just in case (see also stage1 Makefile)
 case "$GLOBAL_BOOTLOADER" in
 	isolinux|syslinux) ;;
-	*) exit 0;;
+	*) final_exit;;
 esac
 
 # copy extra files, if any
@@ -56,8 +62,7 @@ if [ -n "$SYSLINUX_MODULES" ]; then
 	done
 fi
 
-# snippets are not going into the actual image
-if [ "$DEBUG" != 2 ]; then rm -r .in/; fi
+final_exit
 
 # NB: there will be final macro expansion based on actual image sizes
 #     done by features.in/syslinux/scripts.d/20-propagator-ramdisk
