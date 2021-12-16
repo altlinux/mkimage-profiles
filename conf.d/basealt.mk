@@ -81,6 +81,8 @@ endif
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
 	@$(call add,THE_LISTS,workstation/celluloid)
+	@$(call set,THE_BROWSER,chromium)
+	@$(call add,THE_PACKAGES,chromium firefox-esr-ru-)
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
