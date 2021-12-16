@@ -32,7 +32,7 @@ copy-lists:
 
 save_packages_to_lists:
 	@$(foreach V, \
-		$(filter-out CLEANUP_% %CLEANUP_PACKAGES GLOBAL_% PINNED_%,$(filter %_PACKAGES,$(sort \
+		$(filter-out NO_SORT_% CLEANUP_% %CLEANUP_PACKAGES GLOBAL_% PINNED_%,$(filter %_PACKAGES,$(sort \
 		$(.VARIABLES)))),echo $($V) | sed -e 's/\s\+/\n/g' \
 		| sort -u > $(TARGET)/$V;)
 
