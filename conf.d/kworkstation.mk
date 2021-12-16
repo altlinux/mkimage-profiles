@@ -30,6 +30,9 @@ mixin/kworkstation-common-deps: \
 
 mixin/kworkstation-common-opts:
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
 	@$(call set,BRANDING,xalt-kworkstation)
 	@$(call set,GRUBTHEME,branding-xalt-kworkstation)
 	@$(call set,DOCS,alt-kworkstation)
