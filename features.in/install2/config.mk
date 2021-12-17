@@ -52,7 +52,7 @@ use/install2/vbox:
 use/install2/vmware:
 	@$(call add,STAGE1_KMODULES,vmware)
 	@$(call add,STAGE1_KMODULES,scsi)	# mptspi in led-ws
-	@$(call add,INSTALL2_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
+	@$(call add,INSTALL2_PACKAGES,xorg-dri-vmwgfx xorg-drv-vmware xorg-drv-vmmouse)
 
 use/install2/vmguest: use/install2/kvm use/install2/vbox use/install2/vmware; @:
 
