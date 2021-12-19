@@ -1,10 +1,4 @@
-xorg-drv-ati@!riscv64
 xorg-drv-cirrus@X86
-#xorg-drv-mga
-xorg-drv-modesetting
-#xorg-drv-nv@X86
-xorg-drv-qxl@X86
-#xorg-drv-s3
-#xorg-drv-s3virge
-#xorg-drv-savage
-#xorg-drv-sis
+xorg-drv-mga@X86
+xorg-drv-qxl
+xorg-drv-spiceqxl
