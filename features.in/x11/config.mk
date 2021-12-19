@@ -69,8 +69,7 @@ use/x11/nouveau: use/x11 use/firmware use/drm/nouveau
 
 # has performance problems but is getting better, just not there yet
 use/x11/radeon: use/x11 use/firmware use/drm/radeon
-	@$(call try,RADEON_PACKAGES,xorg-drv-ati xorg-drv-radeon)
-	@$(call add,THE_PACKAGES,$$(RADEON_PACKAGES))
+	@$(call add,THE_PACKAGES,xorg-drv-ati xorg-drv-radeon)
 
 # here's the future
 use/x11/amdgpu: use/x11 use/firmware
