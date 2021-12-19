@@ -10,20 +10,20 @@ use/x11:
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$(call tags,base xorg))
 
-use/x11/xorg:: use/x11 use/x11/armsoc; @:
+use/x11/xorg:: use/x11 use/x11/armsoc use/x11/intel use/drm
+	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-use/x11/xorg:: use/x11/intel use/x11/nouveau use/x11/radeon use/x11/amdgpu \
-	use/drm/full
-	@$(call add,THE_LISTS,$(call tags,desktop xorg))
+ifeq (distro,$(IMAGE_CLASS))
+use/x11/xorg:: use/x11/nouveau use/x11/radeon use/x11/amdgpu \
+	use/drm/full; @:
+endif
 endif
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-use/x11/xorg:: use/x11/amdgpu use/drm/full
-	@$(call add,THE_LISTS,$(call tags,desktop xorg))
+use/x11/xorg:: use/x11/amdgpu; @:
 endif
-
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/x11/intel: use/x11 use/drm
