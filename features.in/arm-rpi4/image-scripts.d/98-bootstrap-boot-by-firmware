@@ -16,7 +16,7 @@ for uboot in $uboots; do
 done
 
 # copy actualy dtb
-cp /boot/dtb/bcm27*-rpi-*.dtb /boot/efi/
+cp /boot/dtb/bcm27*-rpi-*.dtb /boot/efi/ || :
 
 rm -f /boot/efi/config.txt
 
