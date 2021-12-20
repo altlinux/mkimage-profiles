@@ -88,6 +88,7 @@ ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,drivers/gpu/drm/bridge)
 	@$(call add,VM_INITRDMODULES,drivers/gpu/drm/rockchip)
 	@$(call add,VM_INITRDMODULES,drivers/gpu/drm/sun4i)
+	@$(call add,VM_INITRDMODULES,tegra-drm.ko)
 endif
 	@$(call xport,VM_INITRDMODULES)
 	@$(call xport,VM_INITRDFEATURES)
