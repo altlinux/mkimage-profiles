@@ -13,7 +13,12 @@ distro/.init: profile/bare
 	@$(call set,META_PUBLISHER,ALT Linux Team)
 
 distro/.boot: distro/.init boot/iso
+ifeq (,$(BRANCH))
 	@$(call set,META_VOL_ID,ALT $(IMAGE_NAME)/$(ARCH))
+else
+	@$(call set,IMAGE_FLAVOUR,$(subst alt-$(BRANCH)-,,$(IMAGE_NAME)))
+	@$(call set,META_VOL_ID,ALT $(BRANCH) $$(IMAGE_FLAVOUR)/$(ARCH))
+endif
 	@$(call set,META_VOL_SET,ALT)
 
 # NB: the last flavour in KFLAVOURS gets to be the default one;
