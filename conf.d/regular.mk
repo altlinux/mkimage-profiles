@@ -231,7 +231,7 @@ distro/.regular-server-full: distro/.regular-server-managed \
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd +systemd-optimal; @:
 
-distro/regular-server-sysv: distro/.regular-server-full +sysvinit; @:
+distro/regular-server-sysv: distro/.regular-server-full +sysvinit +power; @:
 
 distro/.regular-server-ovz: distro/.regular-server \
 	use/server/ovz use/server/groups/tools use/cleanup/x11-alterator
