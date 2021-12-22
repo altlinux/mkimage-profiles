@@ -22,8 +22,7 @@ plasma5-discover
 flatpak-repo-flathub
 plasma5-discover-flatpak
 plasma5-discover-fwupd
-#plasma5-discover-packagekit
-apt-indicator
+plasma5-discover-packagekit
 openssl-gost-engine
 kde5-kreslimit
 kde5-file-actions-gost
