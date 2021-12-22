@@ -2,6 +2,7 @@
 sysctl-conf-userns
 firmware-alsa-sof
 
+pinentry-qt5
 gst-plugins-good1.0-qt5
 pavucontrol
 
