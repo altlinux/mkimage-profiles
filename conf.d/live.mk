@@ -58,7 +58,7 @@ distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
 
 distro/live-builder-mini: distro/.live-base use/dev/builder/base \
 	use/syslinux/timeout/30 use/isohybrid \
-	use/stage2/net-eth use/net-eth/dhcp; @:
+	use/stage2/net-eth use/net-eth/dhcp +sysvinit; @:
 
 distro/live-builder: distro/live-builder-mini \
 	use/dev/builder/full use/live/rw +efi; @:
@@ -66,8 +66,10 @@ distro/live-builder: distro/live-builder-mini \
 distro/live-install: distro/.live-base use/live/textinstall; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
 
-distro/live-icewm: distro/.live-desktop use/x11/lightdm/gtk +icewm; @:
-distro/live-fvwm: distro/.live-desktop-ru use/x11/lightdm/gtk use/x11/fvwm; @:
+distro/live-icewm: distro/.live-desktop use/x11/gdm2.20 use/ntp +icewm \
+	+sysvinit; @:
+distro/live-fvwm: distro/.live-desktop-ru use/x11/gdm2.20 use/ntp use/x11/fvwm \
+	+sysvinit; @:
 
 distro/live-rescue: distro/live-icewm +efi
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
