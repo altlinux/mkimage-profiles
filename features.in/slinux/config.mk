@@ -81,6 +81,9 @@ ifeq (,$(filter-out armh aarch64 mipsel e2k%,$(ARCH)))
 else
 	@$(call add,THE_LISTS,slinux/browser-chromium)
 endif
+ifeq (,$(filter-out riscv64,$(ARCH)))
+	@$(call add,THE_PACKAGES,abiword gnumeric)
+endif
 ifeq (,$(filter-out armh aarch64 i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def)
 endif
