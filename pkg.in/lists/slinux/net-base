@@ -1,9 +1,10 @@
 thunderbird@!riscv64
 thunderbird-ru@!riscv64
+sylpheed@riscv64
 
 pidgin@!riscv64
 pidgin-libnotify@!riscv64
 
 rdesktop
-remmina@!riscv64
-remmina-plugins@!riscv64
+remmina
+remmina-plugins
