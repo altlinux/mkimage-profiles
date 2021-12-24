@@ -21,6 +21,8 @@ mixin/vm-archdep:: use/bootloader/uboot
 	@$(call set,KFLAVOURS,un-def)
 endif
 
+mixin/vm-archdep-x11: mixin/vm-archdep +vmguest; @:
+
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 	use/services/lvm2-disable
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
@@ -74,27 +76,27 @@ vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm; @:
 
 vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
-	mixin/vm-archdep; @:
+	mixin/vm-archdep-x11; @:
 
-vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep; @:
+vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11; @:
 
-vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep; @:
+vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep-x11; @:
 
-vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep
+vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep-x11
 	@$(call set,VM_SIZE,8589934592)
 
-vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep; @:
+vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep-x11; @:
 
-vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep
+vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep-x11
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
 
-vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep
+vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep-x11
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
-vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep
+vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep-x11
 	@$(call set,VM_SIZE,7516192768)
 
-vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep; @:
+vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep-x11; @:
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 # Raspberry Pi 4
