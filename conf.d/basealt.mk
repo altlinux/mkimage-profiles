@@ -63,7 +63,7 @@ else
 	@$(call add,THE_LISTS,workstation/libreoffice)
 endif
 
-vm/alt-workstation:: vm/.alt-workstation
+vm/alt-workstation:: vm/.alt-workstation +vmguest
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_LISTS,workstation/vlc)
 endif
