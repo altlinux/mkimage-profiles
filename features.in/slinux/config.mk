@@ -56,6 +56,7 @@ use/slinux/vm-base:: vm/systemd \
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
 use/slinux/vm-base:: use/oem/vnc use/browser/epiphany
+	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 	@$(call set,KFLAVOURS,un-def)
 endif
 
