@@ -43,11 +43,6 @@ use/slinux/services-disabled:
 
 use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 
-ifeq (,$(filter-out riscv64,$(ARCH)))
-use/slinux/vm-base:: use/oem/vnc
-	@$(call set,KFLAVOURS,un-def)
-endif
-
 use/slinux/vm-base:: vm/systemd \
 	use/oem/distro use/slinux/mixin-base
 	@$(call add,THE_LISTS,slinux/games-base)
@@ -58,6 +53,11 @@ use/slinux/vm-base:: vm/systemd \
 	@$(call add,THE_PACKAGES,installer-feature-online-repo)
 	@$(call add,THE_PACKAGES,installer-feature-samba-usershares-stage2)
 	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
+
+ifeq (,$(filter-out riscv64,$(ARCH)))
+use/slinux/vm-base:: use/oem/vnc
+	@$(call set,KFLAVOURS,un-def)
+endif
 
 use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless \
