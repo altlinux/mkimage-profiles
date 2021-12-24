@@ -55,7 +55,7 @@ use/slinux/vm-base:: vm/systemd \
 	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-use/slinux/vm-base:: use/oem/vnc
+use/slinux/vm-base:: use/oem/vnc use/browser/epiphany
 	@$(call set,KFLAVOURS,un-def)
 endif
 
