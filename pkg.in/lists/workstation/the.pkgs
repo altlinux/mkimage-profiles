@@ -50,7 +50,7 @@ rpminstall
 gnome-software
 gnome-software-disable-updates
 
-rosa-imagewriter
+altmediawriter
 
 # h.264 for firefox-esr 52.9.0-alt1.E2K.8 (ffmpeg 3)
 libavcodec57@E2K
