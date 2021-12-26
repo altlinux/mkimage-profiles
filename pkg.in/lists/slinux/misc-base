@@ -143,6 +143,7 @@ altmediawriter
 #aen
 #elinks-
 rpminstall
+appinstall@X86
 system-config-printer
 system-config-printer-udev
 alterator-printers
