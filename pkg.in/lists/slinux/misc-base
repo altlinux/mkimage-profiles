@@ -74,6 +74,7 @@ cups-filters
 cups-pdf
 avahi-daemon
 blueberry
+udev-rules-rfkill-uaccess
 update-kernel
 printer-drivers-base@!riscv64
 udev-extras
