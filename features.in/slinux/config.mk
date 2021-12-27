@@ -76,7 +76,7 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,THE_KMODULES,staging)
-ifeq (,$(filter-out armh aarch64 mipsel e2k%,$(ARCH)))
+ifeq (,$(filter-out armh mipsel e2k%,$(ARCH)))
 	@$(call add,THE_LISTS,slinux/browser-firefox)
 	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 else
