@@ -151,31 +151,18 @@ vm/.alt-education: vm/systemd use/repo use/oem/distro mixin/education
 
 vm/alt-education:: vm/.alt-education
 
-ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
+ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 vm/alt-education:: use/uboot
 	@$(call add,BASE_LISTS,uboot)
 endif
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-education:: use/no-sleep use/arm-rpi4; @:
 endif
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full
 	@$(call add,THE_PACKAGES,task-edu-lite)
-endif
-
-ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-education-tegra: vm/.alt-education use/aarch64-tegra; @:
-endif
-
-ifeq (,$(filter-out armh,$(ARCH)))
-vm/alt-education-mcom02: vm/.alt-education use/armh-mcom02/x11; @:
-endif
-
-ifeq (,$(filter-out mipsel,$(ARCH)))
-vm/alt-education-tavolga: vm/.alt-education use/mipsel-mitx/x11; @:
-vm/alt-education-bfk3: vm/.alt-education use/mipsel-bfk3/x11; @:
 endif
 
 endif
