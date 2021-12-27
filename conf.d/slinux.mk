@@ -21,17 +21,11 @@ endif
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/slinux:: use/slinux/vm-base use/auto-resize
-ifeq (,$(filter-out armh aarch64 mipsel e2k%,$(ARCH)))
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
-else
-	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
-endif
+vm/slinux:: use/slinux/vm-base use/auto-resize; @:
 
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 vm/slinux:: use/uboot
 	@$(call add,BASE_LISTS,uboot)
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
@@ -39,30 +33,24 @@ vm/slinux:: use/no-sleep use/arm-rpi4; @:
 endif
 
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
+vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full; @:
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/slinux-tegra: use/slinux/vm-base use/aarch64-tegra
-	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
+vm/slinux-tegra: use/slinux/vm-base use/aarch64-tegra; @:
 endif
 
 ifeq (,$(filter-out armh,$(ARCH)))
-vm/slinux-mcom02: use/slinux/vm-base use/armh-mcom02/x11
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
+vm/slinux-mcom02: use/slinux/vm-base use/armh-mcom02/x11; @:
 endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
 vm/slinux::
 	@$(call add,THE_PACKAGES,installer-feature-bell-off-stage3)
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 
-vm/slinux-tavolga: vm/slinux use/mipsel-mitx/x11
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
-vm/slinux-bfk3: vm/slinux use/mipsel-bfk3/x11
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
+vm/slinux-tavolga: vm/slinux use/mipsel-mitx/x11; @:
+vm/slinux-bfk3: vm/slinux use/mipsel-bfk3/x11; @:
 endif
 
 endif

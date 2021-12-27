@@ -78,8 +78,10 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	@$(call add,THE_KMODULES,staging)
 ifeq (,$(filter-out armh aarch64 mipsel e2k%,$(ARCH)))
 	@$(call add,THE_LISTS,slinux/browser-firefox)
+	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 else
 	@$(call add,THE_LISTS,slinux/browser-chromium)
+	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
 endif
 ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,abiword gnumeric)
@@ -107,11 +109,6 @@ use/slinux/base: use/isohybrid use/luks \
 	@$(call add,LIVE_LISTS,slinux/live)
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
-ifeq (,$(filter-out armh aarch64 mipsel e2k%,$(ARCH)))
-	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
-else
-	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
-endif
 
 use/slinux/full: use/slinux/base
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
