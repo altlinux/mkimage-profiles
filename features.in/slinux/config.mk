@@ -49,6 +49,9 @@ use/slinux/vm-base:: vm/systemd \
 	@$(call add,THE_LISTS,slinux/graphics-base)
 	@$(call add,THE_LISTS,slinux/multimedia-base)
 	@$(call add,THE_LISTS,slinux/net-base)
+ifeq (,$(filter-out riscv64,$(ARCH)))
+	@$(call add,THE_LISTS,slinux/claws-mail)
+endif
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-online-repo)
 	@$(call add,THE_PACKAGES,installer-feature-samba-usershares-stage2)
