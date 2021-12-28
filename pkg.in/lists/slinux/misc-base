@@ -134,7 +134,7 @@ alterator-xkb
 mate-search-tool
 libmate-desktop
 yelp
-altmediawriter
+altmediawriter@!riscv64
 
 #compiz
 #python-module-fusion-icon-gtk
