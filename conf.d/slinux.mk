@@ -21,7 +21,7 @@ endif
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/slinux:: use/slinux/vm-base use/auto-resize; @:
+vm/slinux:: use/slinux/vm-base use/auto-resize +vmguest; @:
 
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 vm/slinux:: use/uboot
