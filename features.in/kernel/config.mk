@@ -23,7 +23,6 @@ endif
 
 # r8168 is a kludge, never install it by default
 use/kernel/net:
-	@$(call add,THE_KMODULES,e1000e)
 	@$(call add,THE_KMODULES,r8125)
 	@$(call add,MAIN_KMODULES,r8168 rtl8168)
 

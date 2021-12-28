@@ -5,8 +5,6 @@ use/server/base: use/server use/firmware/server \
 	use/net-ssh use/syslinux/timeout/600 use/grub/timeout/60
 	@$(call set,BOOTVGA,)
 	@$(call add,THE_LISTS,server-base)
-	@$(call add,THE_KMODULES,e1000e igb)
-	@$(call add,STAGE1_KMODULES,e1000e)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-server-raid-fixup-stage2)
 
 use/server/mini: use/server/base use/services/lvm2-disable
