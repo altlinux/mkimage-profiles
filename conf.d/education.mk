@@ -149,7 +149,7 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.alt-education: vm/systemd use/repo use/oem/distro mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 
-vm/alt-education:: vm/.alt-education
+vm/alt-education:: vm/.alt-education +vmguest; @:
 
 ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 vm/alt-education:: use/uboot
