@@ -1,5 +1,16 @@
 ifeq (vm,$(IMAGE_CLASS))
 
+ifeq (,$(filter-out qcow2 qcow2c,$(IMAGE_TYPE)))
+vm/regular-systemd: vm/systemd-net use/vmguest/kvm use/tty/S0 \
+	use/deflogin/root use/net/networkd/resolved
+	@$(call add,BASE_PACKAGES,apt-repo)
+	@$(call add,BASE_PACKAGES,hasher nfs-clients git rpm-build)
+	@$(call add,BASE_PACKAGES,kernel-build-tools gear)
+	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
+	@$(call add,DEFAULT_SERVICES_ENABLE,nfs-client.target)
+	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
+endif
+
 mixin/vm-archdep:: use/auto-resize; @:
 
 ifeq (,$(filter-out i586 x86_64 armh aarch64,$(ARCH)))
