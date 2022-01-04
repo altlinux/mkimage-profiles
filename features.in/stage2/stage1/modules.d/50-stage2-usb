@@ -14,3 +14,7 @@ xhci-hcd.ko
 xhci-pci.ko
 xhci-pci-renesas.ko
 xhci-plat-hcd.ko
+dwc3-pci.ko
+dwc3-baikal.ko
+udc-core.ko
+xhci-hcdi.ko
