@@ -1,3 +1,4 @@
 kubernetes-kubeadm
 kubernetes-master
+kubernetes-crio
 cri-tools
