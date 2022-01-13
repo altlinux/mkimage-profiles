@@ -2,7 +2,5 @@ libwbclient
 task-auth-ad-sssd
 kde5-autofs-shares
 krb5-ticket-watcher
-usbguard
-usbguard-dbus
 task-auth-ldap-sssd
 alterator-gpupdate
