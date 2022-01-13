@@ -5,5 +5,4 @@ Name=Kubernetes services for node host
 Name[ru_RU]=Сервисы Kubernetes для вычислительного хоста
 X-Alterator-PackageList=container/kubernetes-node
 X-Alterator-Required=no
-X-Alterator-Depends=server-v/docker
 X-Alterator-Parent=server-v/200-container

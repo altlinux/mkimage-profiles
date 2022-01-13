@@ -129,7 +129,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
 	@$(call add,DEFAULT_SERVICES_ENABLE,fstrim.timer)
 	@$(call add,DEFAULT_SERVICES_ENABLE,libvirtd)
-	@$(call add,DEFAULT_SERVICES_ENABLE,docker lxd kubelet kube-proxy)
+	@$(call add,DEFAULT_SERVICES_ENABLE,docker lxd crio kubelet kube-proxy)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bind mysqld openvswitch)
 	@$(call add,DEFAULT_SERVICES_ENABLE,rsyslogd systemd-journal-gatewayd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop bridge gpm)
