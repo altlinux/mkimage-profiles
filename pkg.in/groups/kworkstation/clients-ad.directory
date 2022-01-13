@@ -6,6 +6,6 @@ X-Alterator-Parent=kworkstation/z01-add-clients
 Categories=KDE;GNOME;XFCE
 
 Name=Active Directory
-Name[ru_RU]=Активный каталог
+Name[ru_RU]=Активный каталог(AD)
 Comment=Active Directory client.
 Comment[ru_RU]=Клиент службы каталогов Active Directory.
