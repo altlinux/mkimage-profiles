@@ -1,4 +1,4 @@
 #!/bin/sh
 # TODO: invent some way to remove this inter-subprofile thing
 
-rm -vf $WORKDIR/{squashcfg.mk,initfs,.gitignore}
+rm -vf $WORKDIR/{squashcfg.mk,initfs,.gitignore,.empty}
