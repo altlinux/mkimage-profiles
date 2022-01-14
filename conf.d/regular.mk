@@ -256,11 +256,18 @@ distro/regular-server-pve: distro/.regular-server-base +systemd \
 		pve-firewall pve-ha-crm pve-manager pveproxy pvedaemon \
 		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)
 
-distro/regular-builder: distro/.regular-bare mixin/regular-builder \
-	use/dev/builder/live/sysv use/stage2/kms +sysvinit +efi +power +nm \
+distro/.regular-builder: distro/.regular-bare mixin/regular-builder \
+	use/stage2/kms +efi +power \
 	use/live/base use/live/rw use/live/repo use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
+
+distro/regular-builder: distro/.regular-builder +systemd +nm \
+	use/dev/builder/live/systemd; @:
+
+# old regular-builder
+distro/regular-builder-sysv: distro/.regular-builder +sysvinit \
+	use/dev/builder/live/sysv
 	@$(call add,THE_PACKAGES,livecd-net-eth)
 
 distro/regular-server-samba4: distro/.regular-server-managed +systemd
