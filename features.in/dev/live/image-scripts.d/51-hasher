@@ -98,8 +98,6 @@ EOF
 # hasher
 WORKDIR="$TMP/hasher"
 ln -s "$WORKDIR" "$HOME/hasher"
-echo "rpm-dir file://$HOME/hasher/repo $ARCH hasher" \
-	>> /etc/apt/sources.list.d/hasher.list
 
 mkdir "$HOME/.hasher"
 cat >> "$HOME/.hasher/config" << EOF
@@ -107,6 +105,104 @@ packager="\$(rpm --eval %packager)"
 def_target=$ARCH
 export GCC_USE_CCACHE=1
 mkdir -p "$WORKDIR"
+EOF
+
+# create apt.conf for supported ARCHES and BRANCHES
+# use format: $BRANCH-$ARCH
+create_apt_conf () {
+	local PORTS=
+	local SIGN=
+	local BRANCH=$(echo "$1" | cut -f1 -d '-')
+	local ARCH=$(echo "$1" | cut -f2 -d '-')
+	local EXT_BRANCH=$(echo "$1" | cut -f3 -d '-')
+
+	[ -n "$ARCH" ] || [ -n "$BRANCH" ] || exit 1
+	[ -z "$EXT_BRANCH" ] || [ "$EXT_BRANCH" = port ] || exit 1
+
+	[ "$EXT_BRANCH" = port ] && PORTS=1
+
+	if [ "$BRANCH" = sisyphus ]; then
+		BRANCH_PATH=Sisyphus
+		SIGN='[alt]'
+	else
+		BRANCH_PATH=$BRANCH/branch
+		SIGN="[$BRANCH]"
+	fi
+
+	if [ -n "$PORTS" ]; then
+		BRANCH_PATH=ports/$ARCH/$BRANCH
+		SIGN="[$BRANCH-$ARCH]"
+	fi
+
+	mkdir -p "$HOME/apt/lists/partial" \
+		"$HOME/apt/cache/$BRANCH/$ARCH/archives/partial" \
+		"$HOME/apt/cache/$BRANCH/noarch/archives/partial"
+
+	cat > "$HOME/apt/apt.conf.$BRANCH.$ARCH" << EOF
+Dir::Etc::main "/dev/null";
+Dir::Etc::SourceParts "/var/empty";
+Dir::Etc::SourceList "$HOME/apt/sources.list.$BRANCH.$ARCH";
+Dir::State::lists "$HOME/apt/lists/";
+Dir::Cache "$HOME/apt/cache/$BRANCH/$ARCH";
+;Debug::pkgMarkInstall "true";
+;Debug::pkgProblemResolver "true";
+EOF
+
+	cat > "$HOME/apt/sources.list.$BRANCH.$ARCH" << EOF
+rpm-dir file://$HOME/hasher/repo $ARCH hasher
+# Official repo (slow)
+#rpm $SIGN http://ftp.altlinux.org/pub/distributions/ALTLinux/$BRANCH_PATH $ARCH classic
+#rpm $SIGN http://ftp.altlinux.org/pub/distributions/ALTLinux/$BRANCH_PATH noarch classic
+# Yandex mirror (fast)
+rpm $SIGN http://mirror.yandex.ru/altlinux/$BRANCH_PATH $ARCH classic
+rpm $SIGN http://mirror.yandex.ru/altlinux/$BRANCH_PATH noarch classic
+EOF
+
+}
+
+target_apt_confs="
+sisyphus-x86_64
+sisyphus-i586
+sisyphus-aarch64
+sisyphus-armh
+sisyphus-ppc64le
+sisyphus-mipsel-port
+sisyphus-riscv64-port
+p10-x86_64
+p10-i586
+p10-aarch64
+p10-armh
+p10-ppc64le
+p9-x86_64
+p9-i586
+p9-aarch64
+p9-armh
+p9-ppc64le
+p9-mipsel-port
+"
+
+for target_apt_conf in $target_apt_confs; do
+	create_apt_conf "$target_apt_conf"
+done
+
+# setup mkimage-profiles settings
+# add mkimage-profiles settings
+mkdir -p $HOME/.mkimage
+cat > $HOME/.mkimage/profiles.mk << EOF
+ifneq (,\$(BRANCH))
+APTCONF = ~/apt/apt.conf.\$(BRANCH).\$(ARCH)
+IMAGEDIR = ~/out/\$(BRANCH)/\$(shell date +%Y%m%d)
+else
+APTCONF = ~/apt/apt.conf.sisyphus.\$(ARCH)
+IMAGEDIR = ~/out/sisyphus/\$(shell date +%Y%m%d)
+endif
+
+CLEAN = 1
+DEBUG = 1
+REPORT = 1
+NO_SYMLINK = 1
+#NICE = 1
+#QUIET = 1
 EOF
 
 # fix owner:group
