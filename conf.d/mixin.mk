@@ -146,7 +146,6 @@ mixin/regular-builder: use/dev/builder/base use/net/dhcp use/ntp/chrony
 	@$(call add,THE_PACKAGES,bash-completion elinks gpm lftp openssh)
 	@$(call add,THE_PACKAGES,rpm-utils screen tmux wget zsh)
 	@$(call add,THE_PACKAGES,apt-repo aptitude eepm)
-	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 
 ### vm.mk
 mixin/cloud-init:

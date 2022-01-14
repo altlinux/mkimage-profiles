@@ -269,6 +269,7 @@ distro/regular-builder: distro/.regular-builder +systemd +nm \
 distro/regular-builder-sysv: distro/.regular-builder +sysvinit \
 	use/dev/builder/live/sysv
 	@$(call add,THE_PACKAGES,livecd-net-eth)
+	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
 
 distro/regular-server-samba4: distro/.regular-server-managed +systemd
 	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))
