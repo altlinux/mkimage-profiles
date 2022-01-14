@@ -109,6 +109,9 @@ export GCC_USE_CCACHE=1
 mkdir -p "$WORKDIR"
 EOF
 
+# fix owner:group
+chown $USER:$USER -R "$HOME"
+
 # online repo needs network not isolation
 echo "export share_network=1" >> /etc/profile.d/hasher.sh
 chmod +x /etc/profile.d/hasher.sh
