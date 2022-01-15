@@ -84,7 +84,8 @@ vm/regular-jeos-systemd: vm/systemd \
 
 vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
-vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm; @:
+vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm
+	@$(call add,THE_PACKAGES,NetworkManager-tui)
 
 vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	mixin/vm-archdep-x11; @:
