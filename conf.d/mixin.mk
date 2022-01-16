@@ -65,6 +65,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
+	@$(call add,CONTROL,fusermount:public)
 
 mixin/desktop-extra:
 	@$(call add,BASE_LISTS,$(call tags,(archive || base) && extra))
