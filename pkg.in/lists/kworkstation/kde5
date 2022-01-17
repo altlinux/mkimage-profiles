@@ -16,7 +16,7 @@ gparted
 kde5-ksystemlog
 kde5-kcm-grub2
 #
-appinstall
+appinstall@X86
 synaptic-kde
 #plasma5-discover-maxi
 plasma5-discover
