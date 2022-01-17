@@ -33,3 +33,14 @@
 @$(call set,GRUB_DEFAULT,live)
 
 Именем дефолтного пункта является --id.
+
+Запуск iso образа с неправильно работающей в grub графике (только EFI):
+На ESP-разделе образа можно отредактировать конфиг EFI/BOOT/grub.cfg,
+добавив в его начало:
+
+GRUB_TERMINAL='console'
+
+Если нужно включить последовательную консоль, пропишите в нём:
+
+GRUB_TERMINAL='console serial'
+GRUB_SERIAL_COMMAND='serial --unit=0 --speed=115200'
