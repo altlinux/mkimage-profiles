@@ -104,6 +104,7 @@ usbutils
 #userpasswd
 vim-console
 wget
+xauthority-hostname-updater
 xinput
 xfsprogs
 xorg-conf-synaptics
