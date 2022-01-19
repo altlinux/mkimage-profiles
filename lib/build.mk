@@ -76,7 +76,7 @@ endif
 
 # actual build starter
 # NB: our output MUST go into stderr to escape POSTPROC
-build-image: make-aptbox profile/populate
+build-image: profile/populate
 	@{ \
 	if [ -n "$(CHECK)" ]; then \
 		echo "$(TIME) skipping actual image build (CHECK is set)"; \

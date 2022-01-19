@@ -131,7 +131,7 @@ profile/dump-vars:
 	fi $(LOG)
 
 # step 3 entry point: copy the needed parts into BUILDDIR
-profile/populate: profile/finalize profile/dump-vars
+profile/populate: profile/finalize profile/dump-vars make-aptbox
 	@for dir in sub.in features.in pkg.in; do \
 		$(MAKE) -C $$dir $(LOG); \
 	done
