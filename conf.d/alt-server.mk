@@ -60,7 +60,7 @@ distro/alt-server:: use/memtest; @:
 endif
 
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-distro/alt-server:: use/efi/refind +efi; @:
+distro/alt-server:: +efi; @:
 endif
 
 ifeq (,$(filter-out ppc64le aarch64 e2k%,$(ARCH)))
