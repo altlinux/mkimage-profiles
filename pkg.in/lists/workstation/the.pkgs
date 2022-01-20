@@ -47,6 +47,7 @@ vconsole-setup-kludge@X86
 fwupd@x86_64
 
 rpminstall
+appinstall@X86
 gnome-software
 gnome-software-disable-updates
 
