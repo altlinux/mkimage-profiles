@@ -4,6 +4,7 @@ xsane-gimp2@!riscv64
 # inkscape
 gphoto2
 sane
+sane-airscan
 hplip-sane@!riscv64
 xsane@!riscv64
 xsane-doc@!riscv64
