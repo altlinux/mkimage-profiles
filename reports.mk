@@ -53,7 +53,7 @@ all: reports/prep reports/targets reports/scripts
 		cp -a "$(BUILDCFG)" "$(LOGDIR)/$(TARGET_NAME).reports/build.cfg"; \
 	fi
 	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
-		"$(LOGDIR)/$(TARGET_NAME).reports/pkg.list"	 
+		"$(LOGDIR)/$(TARGET_NAME).reports/pkg.list"
 endif
 
 reports/prep:
