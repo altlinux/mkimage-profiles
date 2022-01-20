@@ -7,5 +7,5 @@ Categories=KDE;GNOME;XFCE
 
 Name=Tablet PC
 Name[ru_RU]=Планшетный компьютер
-Comment=Additional software for touchscreen devices.
-Comment[ru_RU]=Дополнительное ПО для устройств с сенсорным экраном.
+Comment=If you are installing the system on a tablet computer with a touch screen. Otherwise, you don't need it.
+Comment[ru_RU]=Если вы устанавливаете систему на планшетный компьютер с сенсорным экраном. Иначе вам это не нужно.
