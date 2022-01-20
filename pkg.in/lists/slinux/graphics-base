@@ -6,6 +6,8 @@ gphoto2
 sane
 hplip-sane@!riscv64
 xsane@!riscv64
+xsane-doc@!riscv64
+xsane-doc-ru@!riscv64
 
 ristretto
 gimagereader-qt5@!riscv64
