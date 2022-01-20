@@ -110,9 +110,9 @@ reports/packages: reports/prep
 	@grep -E 'chroot/.in/[^/]*.rpm' < $(BUILDLOG) | \
 		cut -d' ' -f 1 | tr -d "'"'`' | \
 		tee /dev/stderr 2> >(sed 's,^.*/,,' | \
-			sort -u > "$(REPORTDIR)/list-rpms.txt") | \
+		sort -u > "$(REPORTDIR)/list-rpms.txt") | \
 		xargs -r rpm -qp --queryformat '%{sourcerpm}\n' | \
-		sort -u > "$(REPORTDIR)/list-srpms.txt"
+		sort -u > "$(REPORTDIR)/list-srpms.txt" || :
 
 else
 all:; @:
