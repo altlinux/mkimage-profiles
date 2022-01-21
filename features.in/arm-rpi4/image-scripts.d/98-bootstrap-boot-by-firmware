@@ -5,20 +5,43 @@ kflavour="${GLOBAL_KFLAVOURS%% *}"
 
 mkdir -p /boot/efi
 
-uboots="rpi_3 rpi_3_32b rpi_4 rpi_4_32b"
-for uboot in $uboots; do
-	[ -d /usr/share/u-boot/$uboot ] &&
-	  cp -f /usr/share/u-boot/$uboot/* /boot/efi/
-	[ -f /boot/efi/kernel8.img ] &&
-	  mv /boot/efi/{kernel8.img,uboot-$uboot.bin}
-	[ -f /boot/efi/kernel7.img ] &&
-	  mv /boot/efi/{kernel7.img,uboot-$uboot.bin}
-done
+cp /usr/share/raspberrypi-firmware/*.{bin,dat,elf} /boot/efi/
 
-# copy actualy dtb
+[ -f /usr/share/u-boot/rpi_3/kernel8.img ] &&
+	cp /usr/share/u-boot/rpi_3/kernel8.img \
+	   /boot/efi/uboot-rpi_3.bin
+[ -f /usr/share/u-boot/rpi_3_32b/kernel7.img ] &&
+	cp /usr/share/u-boot/rpi_3_32b/kernel7.img \
+	   /boot/efi/uboot-rpi_3_32b.bin
+[ -f /usr/share/u-boot/rpi_4/kernel8.img ] &&
+	cp /usr/share/u-boot/rpi_4/kernel8.img \
+	   /boot/efi/uboot-rpi_4.bin
+[ -f /usr/share/u-boot/rpi_4_32b/kernel7.img ] &&
+	cp /usr/share/u-boot/rpi_4_32b/kernel7.img \
+	   /boot/efi/uboot-rpi_4_32b.bin
+
+# copy actualy dtb's for default kernel
 cp /boot/dtb/bcm27*-rpi-*.dtb /boot/efi/ || :
+[ -f /boot/efi/bcm2710-rpi-3-b.dtb ] ||
+	cp /boot/dtb/bcm2837-rpi-3-b.dtb \
+	   /boot/efi/bcm2710-rpi-3-b.dtb || :
+[ -f /boot/efi/bcm2710-rpi-3-b-plus.dtb ] ||
+	cp /boot/dtb/bcm2837-rpi-3-b-plus.dtb \
+	   /boot/efi/bcm2710-rpi-3-b-plus.dtb || :
+[ -f /boot/efi/bcm2710-rpi-cm3.dtb ] ||
+	cp /boot/dtb/bcm2837-rpi-cm3-io3.dtb \
+	   /boot/efi/bcm2710-rpi-cm3.dtb || :
+[ -f /boot/efi/bcm2711-rpi-cm4.dtb ] ||
+	cp /boot/dtb/bcm2711-rpi-cm4-io.dtb \
+	   /boot/efi/bcm2711-rpi-cm4.dtb || :
+[ -d /boot/dtb/overlays ] &&
+	cp -r /boot/dtb/overlays /boot/efi/ || :
 
-rm -f /boot/efi/config.txt
+# copy missing dtb's from raspberrypi-firmware
+for dtb in /usr/share/raspberrypi-firmware/*.dtb; do
+	[ -f "/boot/efi/$(basename $dtb)" ] ||
+		cp "$dtb" /boot/efi/
+done
 
 [ "$GLOBAL_ARCH" = aarch64 ] && \
 	echo "arm_64bit=1" > /boot/efi/config.txt
