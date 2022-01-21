@@ -3,4 +3,4 @@
 
 chmod 755 /
 
-rm -f /.gitignore
+rm -f /.empty
