@@ -131,7 +131,7 @@ distro/live-0ad: distro/.live-games
 
 distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
-	@$(call add,LIVE_PACKAGES,gimp tintii immix)
+	@$(call add,LIVE_PACKAGES,gimp immix)
 	@$(call add,LIVE_PACKAGES,darktable geeqie rawstudio ufraw)
 	@$(call add,LIVE_PACKAGES,macrofusion)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync usbutils)
