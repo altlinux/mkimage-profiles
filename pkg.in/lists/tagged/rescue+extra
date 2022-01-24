@@ -133,7 +133,7 @@ archivemount
 fuse-7z
 
 # Applications/Networking
-arpwatch
+#arpwatch
 cifs-utils
 curl
 davfs2
