@@ -157,6 +157,8 @@ altmediawriter
 system-config-printer
 system-config-printer-udev
 xkill
+eiciel
+polkit-rule-udisks2-mount
 
 # Package managenment
 synaptic
