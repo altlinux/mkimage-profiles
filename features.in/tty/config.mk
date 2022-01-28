@@ -5,7 +5,7 @@ use/tty:
 	@$(call xport,BASE_BOOTARGS)
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-serial-stage2)
-	@$(call add,BASE_PACKAGES,installer-feature-serial-stage3)
+	@$(call add,THE_PACKAGES,installer-feature-serial-stage3)
 endif
 
 comma := ,
