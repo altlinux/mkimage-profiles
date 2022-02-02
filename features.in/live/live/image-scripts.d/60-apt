@@ -3,6 +3,9 @@
 
 [ -n "$GLOBAL_LIVE_REPO" ] || exit 0
 
+# no public repos for e2k for now, unfortunately
+[ `arch` != "e2k" ] || exit 0
+
 PROTO="${GLOBAL_LIVE_REPO%/*}"	# http, ftp, rsync
 case "$PROTO" in
 http|ftp|rsync)
