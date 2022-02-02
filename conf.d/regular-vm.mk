@@ -42,6 +42,7 @@ endif
 	@$(call add,THE_PACKAGES,bash-completion mc update-kernel)
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
+	@$(call set,REPO,http/yandex)
 
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
 	use/net/etcnet use/net/dhcp

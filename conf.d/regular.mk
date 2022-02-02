@@ -12,6 +12,7 @@ ifeq (,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
+	@$(call set,LIVE_REPO,http/yandex)
 endif
 
 # base target (for most images)
