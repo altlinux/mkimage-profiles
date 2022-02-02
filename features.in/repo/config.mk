@@ -1,7 +1,9 @@
 use/repo:
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,gnupg)
+	@$(call try,REPO,rsync/alt)
 	@$(call xport,ROOTFS_MAIN)
+	@$(call xport,REPO)
 
 use/repo/main:: sub/main use/repo; @:
 
