@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-[ -n "$GLOBAL_ROOTFS_MAIN" ] || exit 0
+[ -n "$GLOBAL_REPO_MAIN" ] || exit 0
 
 mv /ALTLinux /srv/ALT
 

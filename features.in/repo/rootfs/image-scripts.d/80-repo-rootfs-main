@@ -2,7 +2,7 @@
 # configure package repository of the image (provided by sub/main);
 # this script will be run iff both live and repo features are used
 
-[ -n "$GLOBAL_ROOTFS_MAIN" ] || exit 0
+[ -n "$GLOBAL_REPO_MAIN" ] || exit 0
 
 DIR=/etc/apt/sources.list.d
 
