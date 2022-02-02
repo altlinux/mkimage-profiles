@@ -4,7 +4,34 @@
 [ -n "$GLOBAL_LIVE_REPO" ] || exit 0
 
 PROTO="${GLOBAL_LIVE_REPO%/*}"	# http, ftp, rsync
+case "$PROTO" in
+http|ftp|rsync)
+;;
+*)
+	echo "Error: protocol $PROTO not supported" >&2
+	exit 1
+;;
+esac
+
 MIRROR="${GLOBAL_LIVE_REPO#*/}"	# alt, heanet, kiev, yandex, ...
 
-sed -i "s,^#\(rpm \[.*\] ${PROTO:-http}.*\),\1," \
-	"/etc/apt/sources.list.d/${MIRROR:-yandex}.list" ||:
+if [ -z "$MIRROR" ]; then
+	echo "Error: variable MIRROR is not set!!!" >&2
+	echo "Set REPO variable in the format: PROTO/MIRROR" >&2
+	echo "Example: http/yandex" >&2
+	exit 1
+fi
+
+repo_source="/etc/apt/sources.list.d/$MIRROR.list"
+
+if [ ! -s "$repo_source" ]; then
+	echo "Error: $repo_source is not exist" >&2
+	exit 1
+fi
+
+# regexps from alterator-pkg (via installer-feature-online-repo)
+prefix_re="[[:space:]]*rpm[[:space:]]\+\([^[:space:]]\+[[:space:]]\+\)\?"
+host_re="${PROTO:-http}:\/\/\([^[:space:]]\+\)[[:space:]]\+"
+updates_re="${prefix_re}${host_re}\([^[:space:]]\+\/\)\?"
+
+sed -i "s/^#\($updates_re\)/\1/" "$repo_source"
