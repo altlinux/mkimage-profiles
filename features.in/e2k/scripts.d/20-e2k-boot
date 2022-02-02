@@ -29,17 +29,21 @@ for i in live altinst rescue; do
 		stage2="stagename=$i"
 	fi
 
+# Rename kernel image, unable to boot kernel from CD/DVD
+# if its name does not contain "." (mcst#6856).
+mv boot/image{,.0}
+
 	cat >> boot.conf << EOF
 
 label=$label
     partition=0
-    image=/boot/image
+    image=/boot/image.0
     cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live automatic=method:cdrom ${stage2:+$stage2 }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
     initrd=/boot/full.cz
 
 label=${label}_flash
     partition=0
-    image=/boot/image
+    image=/boot/image.0
     cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live lowmem automatic=method:disk,label:altinst,directory:/ ${stage2:+$stage2 }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
     initrd=/boot/full.cz
 EOF
