@@ -132,5 +132,6 @@ plasma5-kscreen
 alt-app-starter
 
 # GTK2/GTK3 theme
+gtk-theme-breeze
 gtk3-theme-breeze
 gtk2-theme-breeze
