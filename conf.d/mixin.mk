@@ -55,6 +55,7 @@ mixin/regular-desktop: +alsa +nm-native \
 	use/x11/xorg use/xdg-user-dirs use/l10n \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)
+	@$(call add,THE_PACKAGES,polkit-rule-admin-root)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_BRANDING,notes)
