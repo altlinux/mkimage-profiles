@@ -24,7 +24,7 @@ use/drm/nvidia/optimus::
 	@$(call add,NVIDIA_KMODULES,bbswitch)
 endif
 
-use/drm/full: use/drm/ancient use/drm/radeon \
+use/drm/full: use/drm use/drm/radeon \
 	use/drm/nouveau; @:
 
 use/drm/stage2:
@@ -40,5 +40,5 @@ use/drm/stage2/radeon: use/drm/stage2
 use/drm/stage2/nouveau: use/drm/stage2
 	@$(call add,STAGE1_DRM_KMODULES,drm-nouveau)
 
-use/drm/stage2/full: use/drm/stage2/ancient use/drm/stage2/radeon \
+use/drm/stage2/full: use/drm/stage2 use/drm/stage2/radeon \
 	use/drm/stage2/nouveau; @:
