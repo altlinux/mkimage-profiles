@@ -31,7 +31,7 @@ $ mkdir -p ~/out ~/tmp
 
 тестовая сборка (в каталоге mkimage-profiles)::
 ----
-$ make syslinux.iso
+$ make grub.iso
 ----
 
 список доступных целей::
