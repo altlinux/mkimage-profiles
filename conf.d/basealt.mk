@@ -105,6 +105,6 @@ endif
 
 vm/alt-workstation-cloud: vm/cloud-systemd use/x11/lightdm/gtk \
 	mixin/alt-workstation
-	@$(call add,THE_PACKAGES,cloud-init-config-netplan)
+	@$(call add,THE_PACKAGES,cloud-init-config-netplan systemd-networkd)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,network.service)
 endif
