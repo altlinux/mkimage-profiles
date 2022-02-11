@@ -1,0 +1,10 @@
+#!/bin/sh -eu
+
+etc_machine_id=/etc/machine-id
+dbus_machine_id=/var/lib/dbus/machine-id
+
+[ -f "$etc_machine_id" ] || exit 0
+
+rm -f "$etc_machine_id" "$dbus_machine_id"
+touch "$etc_machine_id"
+chmod 0444 "$etc_machine_id"
