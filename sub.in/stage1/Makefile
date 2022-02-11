@@ -54,7 +54,8 @@ GLOBAL_SQUASHFS := $(SQUASHFS)
 
 prepare-modules:
 	@echo $(foreach V,$(STAGE1_MODLISTS),$(wildcard modules.d/??-$(V))) \
-	| xargs -r -- cat >> $(LIST_MODULES)
+	| xargs -r -- cat >> $(LIST_MODULES); \
+	sed -i '/^$$/d' $(LIST_MODULES)
 
 # scripts prepare bootloader configuration, too
 # NB: we pass tested squashfs options for sub.in/stage2/Makefile to include
