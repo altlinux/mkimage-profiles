@@ -14,12 +14,24 @@ done
 [ -n "$kver" ] ||
 	fatal "no kernel version identified"
 
+
+[ -s /.in/modules ] ||
+	fatal "kernel modules set not found"
+
+cat >> /etc/initrd.mk <<EOF
+FEATURES += add-modules compress cleanup
+EOF
+
+for module in $(grep -v ^# /.in/modules | sort -u | tr -s '\n' ' '); do
+	echo "MODULES_TRY_ADD += $module" >> /etc/initrd.mk
+done
+
 # FIXME: large storage systems can get that tmpfs filled up
 # with debug data as of make-initrd 2.2.12
 rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
 	/usr/share/make-initrd/data/lib/uevent/filters/debug
 
-MAKE_INITRD_OPTS="--no-checks --no-depmod AUTODETECT= "
+MAKE_INITRD_OPTS="--no-checks AUTODETECT= "
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
 

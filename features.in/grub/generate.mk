@@ -106,13 +106,8 @@ bootargs: clean
 	GRUBTHEME=$(GRUBTHEME); \
 	[ -n "$$GRUBTHEME" ] || GRUBTHEME=$$(cut -d "-" -f2 <<< $(BRANDING)); \
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS)
-	@if [ "$(STAGE1_INITRD)" = initrd-propagator ]; then \
-		sed -i "s,@initrd@,full," $(DSTCFGS); \
-		sed -i "s,@initrd_ext@,cz," $(DSTCFGS); \
-	else \
-		sed -i "s,@initrd@,initrd," $(DSTCFGS); \
-		sed -i "s,@initrd_ext@,img," $(DSTCFGS); \
-	fi
+	@sed -i "s,@initrd@,initrd," $(DSTCFGS)
+	@sed -i "s,@initrd_ext@,img," $(DSTCFGS)
 	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTARGS)|g" $(DSTCFGS)
 	@sed -i "s|@initrd_bootmethod@|$(STAGE1_INITRD_BOOTMETHOD)|g" $(DSTCFGS)
 	@sed -i "s|@initrd_typeargs@|$(STAGE1_INITRD_TYPEARGS)|g" $(DSTCFGS)

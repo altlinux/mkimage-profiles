@@ -92,11 +92,7 @@ bootargs: clean
 		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTCFGS); \
 	fi; \
 	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTCFGS)
-	@if [ "$(STAGE1_INITRD)" = initrd-propagator ]; then \
-		sed -i "s,@initrd@,full.cz," $(DSTCFGS); \
-	else \
-		sed -i "s,@initrd@,initrd.img," $(DSTCFGS); \
-	fi
+	@sed -i "s,@initrd@,initrd.img," $(DSTCFGS)
 	@sed -i "s|@initrd_bootargs@|$(STAGE1_INITRD_BOOTARGS)|g" $(DSTCFGS)
 	@sed -i "s|@initrd_bootmethod@|$(STAGE1_INITRD_BOOTMETHOD)|g" $(DSTCFGS)
 	@sed -i "s|@initrd_typeargs@|$(STAGE1_INITRD_TYPEARGS)|g" $(DSTCFGS)
