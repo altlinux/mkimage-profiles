@@ -29,8 +29,9 @@ PUT_UDEV_RULES += *-net-setup-link.rules *-net-description.rules
 PUT_FILES += /lib/systemd/network/99-default.link
 EOF
 
-echo "MODULES_TRY_ADD += $(grep -v ^# /.in/modules |
-	sort -u | tr -s '\n' ' ')" >> /etc/initrd.mk
+for module in $(grep -v ^# /.in/modules | sort -u | tr -s '\n' ' '); do
+	echo "MODULES_TRY_ADD += $module" >> /etc/initrd.mk
+done
 
 dialog --create-rc /etc/dialogrc.tmp
 cat /etc/dialogrc.tmp |sed -E \
