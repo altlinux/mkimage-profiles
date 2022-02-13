@@ -18,6 +18,7 @@ gvfs-backend-mtp
 icon-theme-oxygen
 x-cursor-theme-jimmac
 
-light-locker
+# for lock screen session menu entry
+xscreensaver-frontend
 
 xdg-user-dirs-gtk
