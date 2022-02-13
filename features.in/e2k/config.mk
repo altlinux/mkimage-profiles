@@ -18,6 +18,7 @@ ifeq (,$(filter-out e2kv4 e2kv5,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
 endif
 	@$(call add,BASE_PACKAGES,mirror-e2k-alt)
+	@$(call add,THE_PACKAGES,fruid_print)
 	@$(call add,THE_PACKAGES,pwmd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,pwmd)
 	@$(call set,KFLAVOURS,elbrus-def)	# no other flavours for now
