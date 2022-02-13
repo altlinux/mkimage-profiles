@@ -30,14 +30,7 @@ PUT_FILES += /lib/systemd/network/99-default.link
 EOF
 
 echo "MODULES_TRY_ADD += $(grep -v ^# /.in/modules |
-	grep -v / |
-	grep .ko |
 	sort -u | tr -s '\n' ' ')" >> /etc/initrd.mk
-
-echo "MODULES_TRY_ADD += $(grep ^# -v /.in/modules |
-	grep -v .ko |
-	sort -u |
-	sed 's,$,/,g' | tr -s '\n' ' ')" >> /etc/initrd.mk
 
 dialog --create-rc /etc/dialogrc.tmp
 cat /etc/dialogrc.tmp |sed -E \
