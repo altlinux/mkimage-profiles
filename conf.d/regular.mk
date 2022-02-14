@@ -135,6 +135,11 @@ distro/.regular-install-x11-full: distro/.regular-install-x11 \
 	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
 	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
 
+distro/.regular-install-x11-systemd: distro/.regular-install-x11 \
+	use/x11/lightdm/gtk +systemd +systemd-optimal
+	@$(call add,THE_PACKAGES,bluez)
+	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
+
 distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
 	use/kernel/latest; @:
 
@@ -160,6 +165,9 @@ else
 	@$(call set,KFLAVOURS,un-def)
 endif
 endif
+
+distro/regular-xfce-install: distro/.regular-install-x11-systemd \
+	mixin/regular-xfce; @:
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
