@@ -9,8 +9,7 @@ fi >&2
 [ -n "$GLOBAL_CLEANUP_PACKAGES" ] ||
 	[ -n "$GLOBAL_CLEANUP_BASE_PACKAGES" ] || exit 0
 
-export GLOBAL_CLEANUP_PACKAGES="$GLOBAL_CLEANUP_PACKAGES \
-	$GLOBAL_CLEANUP_BASE_PACKAGES"
+CLEANUP_PACKAGES="$GLOBAL_CLEANUP_PACKAGES $GLOBAL_CLEANUP_BASE_PACKAGES"
 
 SCRIPT="/usr/share/install2/postinstall.d/01-remove-pkgs"
 
@@ -20,10 +19,10 @@ cat > "$SCRIPT" << EOF
 . install2-init-functions
 
 # don't override the script start message on the same line
-echo "removing $GLOBAL_CLEANUP_PACKAGES"
+echo "removing $CLEANUP_PACKAGES"
 
 # remove temporary packages from the installed system
-list="\$(exec_chroot rpmquery -a --qf='%{NAME}\\n' $GLOBAL_CLEANUP_PACKAGES)"
+list="\$(exec_chroot rpmquery -a --qf='%{NAME}\\n' $CLEANUP_PACKAGES)"
 [ -z "\$list" ] || exec_chroot apt-get remove -f -y  -- \$list
 EOF
 chmod +x "$SCRIPT"
