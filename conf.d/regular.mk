@@ -68,7 +68,9 @@ distro/.regular-install: distro/.regular-base +installer \
 	use/branding use/bootloader/grub use/luks use/stage2/kms \
 	use/install2/fs use/install2/vnc use/install2/repo
 	@$(call add,INSTALL2_PACKAGES,fdisk)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
+endif
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator)
