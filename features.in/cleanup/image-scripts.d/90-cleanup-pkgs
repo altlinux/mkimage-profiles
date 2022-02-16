@@ -1,6 +1,10 @@
 #!/bin/sh -efu
 # remove temporary packages from the installed system
 
+if [ -n "$GLOBAL_VERBOSE" ]; then
+	echo "** GLOBAL_CLEANUP_PACKAGES: $GLOBAL_CLEANUP_PACKAGES"
+fi >&2
+
 [ -n "$GLOBAL_CLEANUP_PACKAGES" ] || exit 0
 
 list="$(rpmquery -a --qf='%{NAME}\n' $GLOBAL_CLEANUP_PACKAGES)"
