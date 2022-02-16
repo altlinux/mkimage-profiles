@@ -22,7 +22,9 @@ endif
 	@$(call add,THE_PROFILES,engineering/20-automations)
 
 mixin/alt-engineering-live: mixin/alt-engineering \
-	use/live/ru use/live/rw use/live/desktop
+	use/live/ru use/live/rw use/live/desktop \
+	use/cleanup/live-no-cleanupdb \
+	use/cleanup/live-no-cleanup-docs
 	@$(call add,LIVE_LISTS,$(engineering_lists))
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,LIVE_LISTS,engineering/cnc)
