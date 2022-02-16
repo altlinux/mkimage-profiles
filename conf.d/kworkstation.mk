@@ -176,7 +176,8 @@ mixin/kworkstation-live-opts:
 	@$(call add,LIVE_LISTS,kworkstation/sound-editing)
 	@$(call add,LIVE_LISTS,kworkstation/video-editing)
 	@$(call add,SERVICES_DISABLE,sshd)
-	@$(call add,CLEANUP_PACKAGES,'flatpak snapd')
+	@$(call add,CLEANUP_LIVE_PACKAGES,'flatpak')
+	@$(call add,CLEANUP_LIVE_PACKAGES,'snapd')
 	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K Live $(ARCH))
 	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K Live $(ARCH) $(shell date +%F))
 
