@@ -3,9 +3,13 @@
 
 if [ -n "$GLOBAL_VERBOSE" ]; then
 	echo "** GLOBAL_CLEANUP_PACKAGES: $GLOBAL_CLEANUP_PACKAGES"
+	echo "** GLOBAL_CLEANUP_LIVE_PACKAGES: $GLOBAL_CLEANUP_LIVE_PACKAGES"
 fi >&2
 
-[ -n "$GLOBAL_CLEANUP_PACKAGES" ] || exit 0
-list="$(rpmquery -a --qf='%{NAME}\n' $GLOBAL_CLEANUP_PACKAGES)"
+[ -n "$GLOBAL_CLEANUP_PACKAGES" $GLOBAL_CLEANUP_LIVE_PACKAGES ] || exit 0
+
+CLEANUP_PACKAGES="$GLOBAL_CLEANUP_PACKAGES $GLOBAL_CLEANUP_LIVE_PACKAGES"
+
+list="$(rpmquery -a --qf='%{NAME}\n' $CLEANUP_PACKAGES)"
 [ -z "$list" ] || apt-get remove -f -y -- $list
 :

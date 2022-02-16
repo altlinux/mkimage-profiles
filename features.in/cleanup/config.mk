@@ -4,6 +4,7 @@ use/cleanup:
 	@$(call xport,LIVE_NO_CLEANUP_DOCS)
 	@$(call xport,CLEANUP_PACKAGES)
 	@$(call xport,CLEANUP_BASE_PACKAGES)
+	@$(call xport,CLEANUP_LIVE_PACKAGES)
 
 use/cleanup/live-no-cleanupdb:
 	@$(call set,LIVE_NO_CLEANUPDB,yes)
