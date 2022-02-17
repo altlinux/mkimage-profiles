@@ -1,2 +1,2 @@
 kernel/drivers/virtio
-kernel/drivers/char/virtio_console
+kernel/drivers/char/virtio_console.ko

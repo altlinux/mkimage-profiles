@@ -1,2 +1,2 @@
-cifs.ko
-cmac.ko
+kernel/fs/cifs/cifs.ko
+kernel/crypto/cmac.ko

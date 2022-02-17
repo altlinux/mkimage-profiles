@@ -1,7 +1,3 @@
-iosf_mbi.ko
-mmc_block.ko
-mmc_core.ko
-sdhci-acpi.ko
-sdhci-pci.ko
-sdhci-pltfm.ko
-sdhci.ko
+kernel/drivers/mmc/core/mmc_block.ko
+kernel/drivers/mmc/core/mmc_core.ko
+kernel/drivers/mmc/host

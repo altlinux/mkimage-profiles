@@ -1,6 +1,6 @@
-lockd.ko
-nfs.ko
-nfsv2.ko
-nfsv3.ko
-nfsv4.ko
-sunrpc.ko
+kernel/fs/lockd/lockd.ko
+kernel/fs/nfs/nfs.ko
+kernel/fs/nfs/nfsv2.ko
+kernel/fs/nfs/nfsv3.ko
+kernel/fs/nfs/nfsv4.ko
+kernel/net/sunrpc/sunrpc.ko
