@@ -117,6 +117,7 @@ postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
 
 debug::
 	@echo "TOPDIR=$(TOPDIR)"
+	@echo "CURDIR=$(CURDIR)"
 	@echo "IMAGEDIR=$(IMAGEDIR)"
 	@echo "ARCH=$(ARCH)"
 	@echo "GLOBAL_TARGET=$(GLOBAL_TARGET)"
