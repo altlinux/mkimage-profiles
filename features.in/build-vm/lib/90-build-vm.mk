@@ -52,6 +52,8 @@ check-qemu:
 tar2fs: $(SAVE_TARBALL) check-sudo prepare-tarball-qemu
 	@if [ -x /usr/share/mkimage-profiles/bin/tar2fs ]; then \
 		TOPDIR=/usr/share/mkimage-profiles; \
+	else \
+		[ -z "$(MKIMAGE_PROFILES)" ] || TOPDIR=$(MKIMAGE_PROFILES); \
 	fi; \
 	if ! sudo $$TOPDIR/bin/tar2fs \
 		"$(VM_TARBALL)" "$(VM_RAWDISK)" "$(VM_SIZE)" "$(VM_FSTYPE)" \
