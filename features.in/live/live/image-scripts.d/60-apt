@@ -28,7 +28,7 @@ fi
 repo_source="/etc/apt/sources.list.d/$MIRROR.list"
 
 if [ ! -s "$repo_source" ]; then
-	echo "Error: $repo_source is not exist" >&2
+	echo "Error: $repo_source does not exist" >&2
 	exit 1
 fi
 
