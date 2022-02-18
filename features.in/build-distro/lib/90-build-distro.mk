@@ -40,8 +40,4 @@ dot-disk:
 	fi
 	@echo "$(ARCH)" >files/.disk/arch
 	@echo "$(DATE)" >files/.disk/date
-	@if type -t git >&/dev/null; then \
-		( cd $(TOPDIR) && test -d .git && \
-		git show-ref --head -ds -- HEAD ||:) \
-		>files/.disk/commit 2>/dev/null; \
-	fi
+	@if [ -s commit ]; then cp commit files/.disk/; fi

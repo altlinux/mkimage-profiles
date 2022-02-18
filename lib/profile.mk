@@ -71,6 +71,9 @@ profile/init: distclean
 			[ "$(CHECK)" = 0 ] || exit 1; \
 		fi; \
 	fi; \
+	if type -t git >&/dev/null && [ -d .git ]; then \
+		git show -s --format=%H > "$(BUILDDIR)"/commit; \
+	fi; \
 	mp-commit -i "$(BUILDDIR)" "derivative profile initialized"; \
 	if [ -w . ]; then \
 		rm -f "$(SYMLINK)" && \
