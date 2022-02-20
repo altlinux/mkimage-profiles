@@ -22,11 +22,4 @@ for kver in $kimage; do
 	mkmodpack -p /.in/modules -o /tmp/modules-"$kver" -k "$kver"
 	cat "$libdir/propagator/initfs" /tmp/modules-"$kver" > /boot/full-"$kver".cz
 
-	sed \
-		-e "s,@LIBDIR@,$libdir," \
-		-e "s,@TMPDIR@,/tmp,g" \
-		< "$WORKDIR/initfs" |
-		gencpio - |
-		gzip -c >> /boot/full-"$kver".cz
-
 done
