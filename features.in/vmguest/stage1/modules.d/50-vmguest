@@ -1,12 +1,18 @@
-# vmguest
+# qemu
 kernel/drivers/virtio
-vmxnet3.ko
-virtio_net.ko
+kernel/drivers/net/virtio_net.ko
 #
 # hyper-v
-hv_balloon.ko
-hv_netvsc.ko
-hv_sock.ko
-hv_storvsc.ko
-hv_vmbus.ko
-uio_hv_generic.ko
+kernel/drivers/hid/hid-hyperv.ko
+kernel/drivers/hv
+kernel/drivers/input/serio/hyperv-keyboard.ko
+kernel/drivers/net/hyperv
+kernel/drivers/pci/controller/pci-hyperv-intf.ko
+kernel/drivers/pci/controller/pci-hyperv.ko
+kernel/drivers/uio/uio_hv_generic.ko
+kernel/drivers/video/fbdev/hyperv_fb.ko
+#
+# vmware
+kernel/drivers/misc/vmw_vmci
+kernel/drivers/scsi/vmw_pvscsi.ko
+kernel/drivers/net/vmxnet3
