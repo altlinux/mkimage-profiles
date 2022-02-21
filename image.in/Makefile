@@ -79,7 +79,7 @@ copy-tree: $(SAVE_PROFILE:%=save-profile)
 
 save-profile:
 	@mkdir -p files/.disk; \
-	git archive --prefix=mkimage-profile/ HEAD ":!.work" \
+	git archive --prefix=mkimage-profile/ HEAD \
 	| gzip -9 > files/.disk/profile.tgz
 
 .PHONY: imagedir postprocess debug
