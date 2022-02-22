@@ -23,11 +23,12 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 endif
 
 distro/grub-net-install: distro/.base use/stage2/net-install +efi \
-	use/firmware use/grub/sdab_bios.cfg
+	use/firmware use/grub/sdab_bios.cfg use/l10n
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
 	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call set,GRUB_DEFAULT,network)
 endif
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
