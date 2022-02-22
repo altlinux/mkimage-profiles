@@ -1,5 +1,8 @@
+kernel/drivers/clk
 kernel/drivers/dma
+kernel/drivers/i2c
 kernel/drivers/mmc/host
+kernel/drivers/phy
 kernel/drivers/regulator
 kernel/drivers/soc
 kernel/drivers/usb/dwc2
