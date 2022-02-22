@@ -15,7 +15,7 @@ xorg-drv-vboxvideo@X86
 xorg-drv-synaptics
 xorg-drv-libinput
 # for those who need these
-xorg-drv-vesa
+xorg-drv-vesa@X86
 xorg-drv-qxl@X86
 xorg-drv-keyboard
 xorg-drv-mouse

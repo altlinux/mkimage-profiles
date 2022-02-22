@@ -4,7 +4,7 @@ xorg-drv-evdev
 xorg-drv-synaptics
 xorg-drv-libinput
 
-xorg-drv-vesa@!riscv64
+xorg-drv-vesa@X86
 xorg-drv-fbdev
 
 xauth
