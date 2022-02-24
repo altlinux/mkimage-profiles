@@ -22,7 +22,7 @@ distro/alt-server: monitoring = $(addprefix server-v/,\
 # FIXME: generalize vm-profile
 distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
 	use/bootloader/grub use/rescue/base use/stage2/kms\
-	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/docs/license use/docs/manual use/docs/indexhtml
