@@ -59,7 +59,7 @@ endif
 
 mixin/alt-workstation-install: +installer \
 	use/install2/fat use/install2/vnc \
-	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,alt-workstation)
