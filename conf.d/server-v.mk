@@ -70,7 +70,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/kernel/server use/kernel/drm \
 	use/firmware use/firmware/cpu \
 	use/net/etcnet use/net-ssh \
-	use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/scsi use/stage2/usb \
 	use/stage2/kms \
