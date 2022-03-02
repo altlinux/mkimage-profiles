@@ -278,6 +278,9 @@ distro/.regular-builder: distro/.regular-bare mixin/regular-builder \
 distro/regular-builder: distro/.regular-builder +systemd +nm \
 	use/dev/builder/live/systemd
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def)
+endif
 
 # old regular-builder
 distro/regular-builder-sysv: distro/.regular-builder +sysvinit \
