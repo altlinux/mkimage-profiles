@@ -130,7 +130,11 @@ create_apt_conf () {
 	fi
 
 	if [ -n "$PORTS" ]; then
-		BRANCH_PATH=ports/$ARCH/$BRANCH
+		if [ "$BRANCH" = sisyphus ]; then
+			BRANCH_PATH=ports/$ARCH/Sisyphus
+		else
+			BRANCH_PATH=ports/$ARCH/$BRANCH
+		fi
 		SIGN="[$BRANCH-$ARCH]"
 	fi
 
