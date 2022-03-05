@@ -113,9 +113,7 @@ endif
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-notes:Essential)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-release:Essential)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-slideshow:Essential)
-ifeq (,$(REPO:altlinux%=))
 	@$(call set,PACKAGES_REQUIRED_INITROOT,basesystem branding-$$(BRANDING)-release)
-endif
 	@$(call xport,ARCH)
 	@mp-commit "$(BUILDDIR)" "image configuration defaults set"
 
