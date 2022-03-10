@@ -8,6 +8,7 @@ printer-drivers-X11
 hplip-hpijs
 hplip-PPDs
 printer-testpages
+printer-driver-oki
 
 bluez-cups
 
