@@ -9,6 +9,7 @@ hplip-hpijs
 hplip-PPDs
 printer-testpages
 printer-driver-oki
+printer-driver-brlaser
 
 bluez-cups
 
