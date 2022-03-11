@@ -24,7 +24,8 @@ endif
 
 distro/grub-net-install: distro/.base +efi \
 	use/firmware use/grub/sdab_bios.cfg use/l10n \
-	use/stage2/net-install use/stage2/hid use/stage2/usb use/stage2/sbc
+	use/stage2/net-install use/stage2/hid use/stage2/usb \
+	use/stage2/ata use/stage2/sbc
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
@@ -34,6 +35,7 @@ endif
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
 	use/rescue/.base use/syslinux/sdab.cfg use/grub/sdab_bios.cfg \
+	use/stage2/ata use/stage2/hid use/stage2/usb \
 	use/efi/shell +efi; @:
 
 distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
@@ -41,14 +43,16 @@ distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
 	@$(call set,SYSLINUX_DIRECT,1)
 	@$(call add,RESCUE_PACKAGES,livecd-net-eth)
 
-distro/.live-base: distro/.base use/live/base; @:
+distro/.live-base: distro/.base use/live/base \
+	use/stage2/ata use/stage2/hid use/stage2/usb; @:
+
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
-distro/.live-desktop: distro/.base +live use/live/install use/stage2/net-eth \
+distro/.live-desktop: distro/.live-x11 +live use/live/install use/stage2/net-eth \
 	use/plymouth/live; @:
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
-distro/.live-kiosk: distro/.base use/live/base use/live/autologin \
+distro/.live-kiosk: distro/.live-base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
 	use/fonts/otf/adobe
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
