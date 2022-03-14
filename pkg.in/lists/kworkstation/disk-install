@@ -25,6 +25,7 @@ alt-customize-branding
 task-samba-dc bind-utils tdb-utils installer-feature-sambaDC-stage3
 #
 alterator-kiosk
+alterator-net-domain
 #
 # KDE
 #kde5-maxi
