@@ -59,6 +59,7 @@ eepm
 eepm-yum
 etcnet-full
 fdisk
+glxinfo
 gpm
 hdparm
 inxi
@@ -103,6 +104,7 @@ usb-modeswitch
 usbutils
 #userpasswd
 vim-console
+vulkan-tools
 wget
 xauthority-hostname-updater
 xinput
