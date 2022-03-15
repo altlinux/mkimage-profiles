@@ -105,7 +105,6 @@ mixin/education-installer: \
 distro/education: distro/alt-education; @:
 distro/alt-education: distro/.installer \
 	mixin/education \
-	mixin/education-live \
 	mixin/education-installer \
 	use/e2k/multiseat/full use/power/acpi \
 	use/control
