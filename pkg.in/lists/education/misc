@@ -171,7 +171,6 @@ appinstall
 # Flatpak support
 flatpak
 flatpak-repo-flathub
-xdg-desktop-portal-gtk
 
 # Menu
 altlinux-freedesktop-menu-shallow-menu
