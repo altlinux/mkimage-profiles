@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Directory
 Name=Plasma (recommended)
-Comment=Main KDE Plasma workspace components and applications, without which it may be difficult to work with the system.
+Comment=Vital KDE Plasma workspace components and applications, without which it may be difficult to work with the system.
 X-Alterator-PackageList=kworkstation/kde5
 X-Alterator-Required=yes
 Categories=KDE;
 
 Name[ru_RU]=Plasma (рекомендуется)
-Comment[ru_RU]=Основные компоненты и приложения графического окружения рабочего стола KDE Plasma, без которых может быть затруднена работа с системой.
+Comment[ru_RU]=Жизненно необходимые компоненты и приложения графического окружения рабочего стола KDE Plasma, без которых может быть затруднена работа с системой.
