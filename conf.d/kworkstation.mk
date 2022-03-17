@@ -108,8 +108,6 @@ mixin/kworkstation-install-opts:
 	@$(call set,INSTALLER,centaurus)
 	@$(call add,STAGE1_MODLISTS,stage2-ntfs)
 	@$(call add,STAGE2_KMODULES,drm-nouveau)
-	@$(call add,STAGE2_BOOTARGS,logo.nologo loglevel=3 udev.log-priority=3) # vga=current
-	@$(call add,STAGE2_BOOTARGS,systemd.show_status=0)
 	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
