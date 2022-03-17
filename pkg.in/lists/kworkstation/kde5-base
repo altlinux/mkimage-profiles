@@ -120,6 +120,7 @@ libva-intel-media-driver@x86_64
 #libvdpau-va-gl
 vulkan-amdgpu@X86
 
+ca-certificates-digital.gov.ru
 chromium-gost
 
 openvpn-gostcrypto
