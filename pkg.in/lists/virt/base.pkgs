@@ -39,7 +39,6 @@ apt-rsync
 apt-scripts
 update-kernel
 eepm
-systemd-networkd
 systemd-container
 libnss-systemd
 zsh
