@@ -1,7 +1,7 @@
 # mostly X11 counterparts/GUIs to some rescue+extra packages
 binwalk
 dsniff-X11@X86
-dvdisaster
+dvdisaster@X86
 extract
 gparted
 jhead
