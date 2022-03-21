@@ -3,6 +3,7 @@ vlc-plugin-h264
 vlc-plugin-h265
 vlc-plugin-modplug
 vlc-plugin-speex
+vlc-plugin-gnutls
 
 totem-video-thumbnailer@X86
 simplescreenrecorder@X86
