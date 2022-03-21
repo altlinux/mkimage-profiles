@@ -204,3 +204,6 @@ fwupd@x86_64
 
 #https://bugzilla.altlinux.org/39067
 eepm
+
+# Russian Trusted Root CA
+ca-certificates-digital.gov.ru
