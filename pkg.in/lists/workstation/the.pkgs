@@ -59,6 +59,9 @@ libavdevice57@E2K
 libavfilter6@E2K
 libavformat57@E2K
 
+# Russian Trusted Root CA
+ca-certificates-digital.gov.ru
+
 disable-usb-autosuspend@X86
 
 bluez
