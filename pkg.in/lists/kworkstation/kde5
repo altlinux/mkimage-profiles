@@ -5,6 +5,8 @@ catdoc
 gdb
 fuse-cryfs
 libnss-mdns
+libcuda
+nvidia-modprobe
 
 alt-csp-cryptopro
 rosa-crypto-tool
