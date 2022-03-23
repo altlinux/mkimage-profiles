@@ -30,7 +30,6 @@ endif
 	@$(call add,BASE_LISTS,workstation/3rdparty)
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,THE_LISTS,$(call tags,base extra))
-	@$(call add,SERVICES_DISABLE,host2cat)
 
 ifeq (distro,$(IMAGE_CLASS))
 
@@ -102,7 +101,6 @@ mixin/education-installer: \
 	@$(call add,MAIN_PACKAGES,lmms)
 	@$(call add,MAIN_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,MAIN_PACKAGES,settings-alsa-sof-force)
-	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 #FIXME#	mixin/education-live \
 	#
