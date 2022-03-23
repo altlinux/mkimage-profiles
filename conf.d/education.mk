@@ -35,7 +35,7 @@ endif
 ifeq (distro,$(IMAGE_CLASS))
 
 mixin/education-live: \
-	use/live/install use/live/suspend \
+	use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
 	use/office/LibreOffice/full \
 	use/cleanup/live-no-cleanupdb
