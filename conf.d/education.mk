@@ -35,9 +35,10 @@ endif
 ifeq (distro,$(IMAGE_CLASS))
 
 mixin/education-live: \
+	mixin/education-base \
+	mixin/education \
 	use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
-	use/office/LibreOffice/full \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
@@ -55,12 +56,7 @@ endif
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 
-mixin/education-installer: \
-	+installer \
-	use/install2/repo \
-	use/memtest \
-	use/branding/complete \
-	use/install2/vnc use/install2/full \
+mixin/education-base: \
 	use/l10n/default/ru_RU +vmguest \
 	+efi use/efi/shell \
 	use/isohybrid use/luks \
@@ -69,13 +65,26 @@ mixin/education-installer: \
 	+plymouth \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
-	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
-	use/install2/fat
+	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
 	@$(call set,META_VOL_ID,ALT Education 10.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
+	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
+	@$(call add,THE_PACKAGES,alterator-fbi)
+	@$(call add,THE_PACKAGES,alt-rootfs-installer)
+	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,STAGE2_PACKAGES,chrony)
+
+mixin/education-installer: \
+	+installer \
+	use/install2/repo \
+	use/memtest \
+	use/branding/complete \
+	use/install2/vnc use/install2/full \
+	use/install2/fat \
+	mixin/education-base
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
@@ -85,9 +94,6 @@ mixin/education-installer: \
 	@$(call add,MAIN_GROUPS,education/05_university)
 	@$(call add,MAIN_GROUPS,education/07_teacher)
 	@$(call add,MAIN_GROUPS,education/08_server-apps-edu)
-	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
-	@$(call add,THE_PACKAGES,alterator-fbi)
-	@$(call add,THE_PACKAGES,alt-rootfs-installer)
 	@$(call add,BASE_PACKAGES,os-prober)
 	@$(call add,BASE_PACKAGES,guest-account)
 	@$(call add,MAIN_PACKAGES,iperf3)
@@ -96,12 +102,11 @@ mixin/education-installer: \
 	@$(call add,MAIN_PACKAGES,lmms)
 	@$(call add,MAIN_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,MAIN_PACKAGES,settings-alsa-sof-force)
-	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
-	@$(call add,STAGE2_PACKAGES,chrony)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 
 #FIXME#	mixin/education-live \
 	#
+distro/alt-education-live: distro/.base mixin/education-live; @:
 distro/education: distro/alt-education; @:
 distro/alt-education: distro/.installer \
 	mixin/education \
