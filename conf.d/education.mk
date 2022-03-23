@@ -84,7 +84,8 @@ mixin/education-installer: \
 	use/branding/complete \
 	use/install2/vnc use/install2/full \
 	use/install2/fat \
-	mixin/education-base
+	mixin/education-base \
+	use/docs/manual use/docs/indexhtml
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
@@ -102,6 +103,7 @@ mixin/education-installer: \
 	@$(call add,MAIN_PACKAGES,lmms)
 	@$(call add,MAIN_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,MAIN_PACKAGES,settings-alsa-sof-force)
+	@$(call set,DOCS,alt-education)
 
 #FIXME#	mixin/education-live \
 	#
