@@ -316,3 +316,6 @@ systemd-settings-enable-log-to-tty12
 
 # Other architecture-depended utilities
 task-edu-tools
+
+# Russian Root CA certificate
+ca-certificates-digital.gov.ru
