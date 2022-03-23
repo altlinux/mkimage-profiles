@@ -54,6 +54,7 @@ endif
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
+	@$(call add,CONTROL,tcb_chkpwd:tcb)
 
 mixin/education-base: \
 	use/l10n/default/ru_RU +vmguest \
