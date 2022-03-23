@@ -114,6 +114,7 @@ xorg-conf-synaptics
 xorg-conf-libinput-touchpad
 
 ocl-nvidia
+clinfo
 libva-driver-intel@X86
 libva-intel-media-driver@x86_64
 #libva-driver-vdpau
