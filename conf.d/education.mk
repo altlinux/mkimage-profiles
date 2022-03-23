@@ -57,6 +57,7 @@ endif
 
 mixin/education-installer: \
 	+installer \
+	use/install2/repo \
 	use/memtest \
 	use/branding/complete \
 	use/install2/vnc use/install2/full \

@@ -1,7 +1,6 @@
 deploy
 task-edu-server-apps
 installer-feature-repo-add
-installer-feature-online-repo
 installer-feature-resolver-bind-stage3
 installer-feature-apache2-indexhtml-stage3
 installer-feature-apache2-userdir-stage3
