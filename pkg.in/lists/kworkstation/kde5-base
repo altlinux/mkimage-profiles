@@ -7,6 +7,8 @@ pinentry-qt5
 gst-plugins-good1.0-qt5
 pavucontrol
 
+plasma5-discover-packagekit@META
+
 alt-kworkstation-addon
 alterator-standalone
 alterator-auth
