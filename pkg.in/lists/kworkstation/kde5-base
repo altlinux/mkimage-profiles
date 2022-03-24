@@ -128,11 +128,11 @@ ca-certificates-digital.gov.ru
 chromium-gost
 
 openvpn-gostcrypto
-kde5-network-manager-etcnet
+kde5-network-manager-etcnet@META
 openssh openssh-clients openssh-askpass-common openssh-server openssh-common openssh-server-control
-kde5-network-manager-nm
-kde5-video-player-smplayer
-kde5-audio-player-qmmp
+kde5-network-manager-nm@META
+kde5-video-player-smplayer@META
+kde5-audio-player-qmmp@META
 kde5-mini@META
 kde5-small@META
 plasma5-kscreen
