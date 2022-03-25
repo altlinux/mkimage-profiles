@@ -1,5 +1,5 @@
 deploy
-task-edu-server-apps
+task-edu-server-apps@META
 installer-feature-repo-add
 installer-feature-resolver-bind-stage3
 installer-feature-apache2-indexhtml-stage3
