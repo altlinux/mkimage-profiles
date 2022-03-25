@@ -106,7 +106,7 @@ mixin/education-installer: \
 #FIXME#	mixin/education-live \
 	#
 distro/alt-education-live: distro/.base mixin/education-live \
-	mixin/education-base mixin/education; @:
+	mixin/education-base mixin/education use/branding/full; @:
 
 distro/education: distro/alt-education; @:
 distro/alt-education: distro/.installer \
