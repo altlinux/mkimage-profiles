@@ -34,8 +34,6 @@ endif
 ifeq (distro,$(IMAGE_CLASS))
 
 mixin/education-live: \
-	mixin/education-base \
-	mixin/education \
 	use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
 	use/cleanup/live-no-cleanupdb
@@ -107,7 +105,9 @@ mixin/education-installer: \
 
 #FIXME#	mixin/education-live \
 	#
-distro/alt-education-live: distro/.base mixin/education-live; @:
+distro/alt-education-live: distro/.base mixin/education-live \
+	mixin/education-base mixin/education; @:
+
 distro/education: distro/alt-education; @:
 distro/alt-education: distro/.installer \
 	mixin/education \
