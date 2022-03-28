@@ -125,6 +125,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-alterator-setup-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-sddm-setup)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-packagekit-setup)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-xprofile-clear)
 	@$(call add,INSTALL2_PACKAGES,apt-scripts-nvidia)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-kdesktop)
 	@$(call add,INSTALL2_PACKAGES,udev-rules-ioschedulers)
