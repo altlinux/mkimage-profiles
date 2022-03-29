@@ -72,10 +72,6 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	use/xdg-user-dirs/deep use/slinux/services
 	@$(call set,DOCS,simply-linux)
 	@$(call add,THE_LISTS,gnome-p2p)
-	@$(call add,LIVE_LISTS,slinux/games-base)
-	@$(call add,LIVE_LISTS,slinux/graphics-base)
-	@$(call add,LIVE_LISTS,slinux/multimedia-base)
-	@$(call add,LIVE_LISTS,slinux/net-base)
 	@$(call add,THE_LISTS,slinux/misc-base)
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
@@ -97,13 +93,22 @@ ifeq (,$(filter-out armh aarch64 i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def)
 endif
 
+use/slinux/live: use/live/x11 use/live/rw \
+	use/live/repo \
+	use/cleanup/live-no-cleanupdb
+	@$(call add,LIVE_LISTS,slinux/live)
+	@$(call add,LIVE_LISTS,slinux/games-base)
+	@$(call add,LIVE_LISTS,slinux/graphics-base)
+	@$(call add,LIVE_LISTS,slinux/multimedia-base)
+	@$(call add,LIVE_LISTS,slinux/net-base)
+
 use/slinux/base: use/isohybrid use/luks \
 	+plymouth use/memtest +vmguest \
 	+efi \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
-	use/live/x11 use/live/rw use/install2/fonts \
+	use/install2/fonts \
 	use/install2/fat \
 	use/efi/memtest86 use/efi/shell \
 	use/bootloader/grub \
@@ -111,9 +116,7 @@ use/slinux/base: use/isohybrid use/luks \
 	mixin/desktop-installer \
 	use/vmguest/kvm/x11 use/stage2/kms \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401 \
-	use/slinux/mixin-base \
-	use/cleanup/live-no-cleanupdb
-	@$(call add,LIVE_LISTS,slinux/live)
+	use/slinux/mixin-base
 	@$(call add,BASE_PACKAGES,installer-distro-simply-linux-stage3)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 
