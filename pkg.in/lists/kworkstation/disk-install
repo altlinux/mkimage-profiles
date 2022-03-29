@@ -10,6 +10,9 @@ libpkcs11-helper
 gnupg2
 # 1C
 1c-preinstall@X86
+# VipNet CSP
+vipnetcsp4-preinstall
+libjcpkcs11
 # FSIN
 openssh-gostcrypto
 openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
@@ -42,4 +45,3 @@ telnet
 yandex-browser-preinstall
 kesl10-preinstall
 sputnik-browser-preinstall
-vipnetcsp4-preinstall
