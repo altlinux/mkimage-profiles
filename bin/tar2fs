@@ -165,7 +165,6 @@ for i in losetup sfdisk parted kpartx $MKFS; do
 	fi
 done
 
-LOOPDEV="$(losetup --find)"	# would be sad about non-binary megabytes too
 ROOTFS="$WORKDIR/chroot"
 
 BOOTFS=
@@ -204,7 +203,8 @@ trap exit_handler EXIT ERR
 rm -f -- "$IMG"
 OFFSET="$(($CUR_BOUNDARY + $EFIPARTSIZEM + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + $ROOTSIZEM - 1))"
 dd if=/dev/zero of="$IMG" conv=notrunc bs=$MB count=1 seek="$OFFSET"
-losetup "$LOOPDEV" "$IMG"
+losetup -f "$IMG"
+LOOPDEV=$(losetup -j "$IMG" | cut -f 1 -d ':')
 
 parting mklabel "$PARTTABLE"
 
