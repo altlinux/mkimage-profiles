@@ -13,6 +13,8 @@ gnupg2
 # VipNet CSP
 vipnetcsp4-preinstall
 libjcpkcs11
+# MyOffice standart edition
+postgresql12-contrib
 # FSIN
 openssh-gostcrypto
 openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
