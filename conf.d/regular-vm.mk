@@ -73,7 +73,7 @@ vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
 	use/init/sysv/polkit +power; @:
 
 vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
-	@$(call add,THE_PACKAGES,blueberry)
+	@$(call add,THE_PACKAGES,blueman)
 
 vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
 
