@@ -1,8 +1,3 @@
-# choose std kernel flavour for max RAM size support
-ifeq (i586,$(ARCH))
-BIGRAM := std-pae
-endif
-
 use/kernel:
 	@$(call add_feature)
 ifeq (,$(filter-out e2k%,$(ARCH)))
