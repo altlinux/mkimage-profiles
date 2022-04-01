@@ -19,6 +19,15 @@ vipnetcsp4-preinstall
 libjcpkcs11
 # MyOffice standart edition
 postgresql12-contrib
+# 2FA
+pcsc-tools
+gnutls-utils
+pkcs11-profiles-rutokenecp
+pam_pkcs11-isbc
+pkcs11-profiles-isbc
+pkcs11-profiles-p11-kit-proxy
+card-actions
+libjcpkcs11
 # FSIN
 openssh-gostcrypto
 openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
