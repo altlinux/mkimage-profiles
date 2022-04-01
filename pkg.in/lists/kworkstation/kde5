@@ -7,6 +7,7 @@ fuse-cryfs
 libnss-mdns
 libcuda
 nvidia-modprobe
+plasma5-libkscreen-utils
 
 alt-csp-cryptopro
 rosa-crypto-tool
