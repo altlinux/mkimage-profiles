@@ -67,6 +67,7 @@ glxinfo
 gpm
 hdparm
 inxi
+i2c-tools
 ipcalc
 jfsutils
 libproxy-kde
