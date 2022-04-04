@@ -9,6 +9,7 @@ kde5-filelight
 kde5-spectacle
 inxi
 glmark2
+glmark2-wayland
 glxgears
 glxinfo
 efivar
