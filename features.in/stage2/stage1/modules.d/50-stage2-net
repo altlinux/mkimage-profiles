@@ -1,10 +1,17 @@
 kernel/drivers/net/ethernet
 kernel/drivers/net/phy
 kernel/drivers/net/usb
+kernel/drivers/net/bareudp.ko
 kernel/drivers/net/ifb.ko
 kernel/drivers/net/macsec.ko
 kernel/drivers/net/mii.ko
+kernel/drivers/net/mdio.ko
 kernel/drivers/net/netconsole.ko
 kernel/drivers/net/sungem_phy.ko
+kernel/drivers/net/tap.ko
 kernel/drivers/net/tun.ko
 kernel/drivers/net/vxlan.ko
+kernel/net/ipv4
+kernel/net/ipv6
+kernel/net/dsa/dsa_core.ko
+kernel/net/packet/af_packet.ko
