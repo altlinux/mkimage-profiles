@@ -92,8 +92,8 @@ endif
 	@$(call add,CLEANUP_PACKAGES,'^kernel-modules-drm-nouveau.*')
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K $(ARCH))
-	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K $(ARCH) $(shell date +%F))
+	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) $(ARCH))
+	@$(call set,META_APP_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) $(ARCH) $(shell date +%F))
 
 mixin/kworkstation-install-deps: \
 	distro/.installer mixin/desktop-installer \
