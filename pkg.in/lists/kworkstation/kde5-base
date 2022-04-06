@@ -132,7 +132,7 @@ openvpn-gostcrypto
 kde5-network-manager-etcnet@META
 openssh openssh-clients openssh-askpass-common openssh-server openssh-common openssh-server-control
 kde5-network-manager-nm@META
-kde5-video-player-smplayer@META
+kde5-video-player-haruna@META
 kde5-audio-player-qmmp@META
 kde5-mini@META
 kde5-small@META
