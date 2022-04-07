@@ -91,6 +91,7 @@ alterator-printers
 alterator-multiseat
 
 test-audio
+pa-conf-switch-on-connect
 
 glmark2@aarch64
 glmark2-es2@aarch64
