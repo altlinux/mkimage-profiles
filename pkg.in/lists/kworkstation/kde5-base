@@ -22,10 +22,8 @@ alterator-limits
 alterator-logs
 alterator-multiseat
 alterator-net-iptables
-alterator-net-openvpn
 alterator-net-routing
 alterator-net-shares
-alterator-net-wifi
 alterator-notes
 alterator-osec
 alterator-ports-access
