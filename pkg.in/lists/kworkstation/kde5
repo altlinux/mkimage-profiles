@@ -77,8 +77,5 @@ kde5-ktorrent
 #eiskaltdcpp-qt
 #kde5-kio-gdrive
 
-# 3dparty
-#skype-preinstall@IA32
-
 kde5@META
 kde5-big@META
