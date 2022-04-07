@@ -11,6 +11,7 @@ make-initrd-lvm
 shadow-change
 dhcpcd
 test-audio
+pa-conf-switch-on-connect
 
 telnet
 b43-fwcutter
