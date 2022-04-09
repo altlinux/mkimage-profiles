@@ -12,7 +12,10 @@
 
 RET_ERROR=
 
-error() { echo `basename $0`: $* >&2; exit 1; }
+error() {
+	echo `basename $0`: $* >&2
+	exit 1
+}
 
 exit_handler() {
 	local rc=$?
@@ -51,7 +54,7 @@ check_pkglist() {
 		grep -q "$pattern" "$favaillist" || echo "$i" >> "$fpkgerrors"
 	done < "$fpkgwildcards"
 	if [ -s "$fpkgerrors" ]; then
-		echo "Error: Packages are not available in $fprofilelist:" >&2
+		echo "** error: Packages are not available in $fprofilelist:" >&2
 		RET_ERROR=1
 		cat $fpkgerrors >&2
 	fi
