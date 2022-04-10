@@ -25,9 +25,11 @@ ifeq (2,$(DEBUG))
 SHELL += -x
 endif
 LOG = >>$(BUILDLOG) 2>&1
+LOG_STDERR = 2> >(tee -a $(BUILDLOG) >&2) 1>>$(BUILDLOG)
 else
 MAKE += -s
 LOG = 2>>$(BUILDLOG) >/dev/null
+LOG_STDERR = 2> >(tee -a $(BUILDLOG) >&2) 1>/dev/null
 endif
 
 ifeq (,$(filter-out $(DIRECT_TARGETS),$(MAKECMDGOALS)))
