@@ -22,11 +22,11 @@ TARGET := $(BUILDDIR)/$(SUFFIX)
 all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups save_packages_to_lists grep-metadep grep-archdep check-lists
 	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
-# env | sort -u | grep _LISTS | xargs -r cp -t
+# env | grep _LISTS | sort -u | xargs -r cp -t
 copy-lists:
-	@echo $(foreach V, \
-		$(filter %_LISTS,$(sort $(.VARIABLES))), \
-		$(if $(filter environment% file,$(origin $V)),$($V))) \
+	@echo $(sort $(foreach V, \
+		$(filter %_LISTS,$(.VARIABLES)), \
+		$(if $(filter environment% file,$(origin $V)),$($V)))) \
 	|xargs -r -- cp --parents -at $(TARGET) --; \
 	find $(TARGET) -name 'README' -delete -o -name 'Makefile' -delete
 
@@ -45,7 +45,7 @@ check-lists:
 
 copy-groups: PKGDIR = ..
 copy-groups:
-	@echo $(call groups2lists) \
+	@echo $(sort $(call groups2lists)) \
 	| xargs -r -- cp --parents -at $(TARGET) --
 
 grep-archdep:
