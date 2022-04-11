@@ -6,8 +6,7 @@ use/slinux: use/x11 use/volumes/alt-workstation
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
 
-use/slinux/services-enabled:
-	@$(call add_feature)
+use/slinux/services-enabled: use/services
 	@$(call add,SYSTEMD_SERVICES_ENABLE,NetworkManager.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,NetworkManager-wait-online.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,ModemManager.service)
@@ -26,8 +25,7 @@ use/slinux/services-enabled:
 	@$(call add,SYSTEMD_SERVICES_ENABLE,smb.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,x11presetdrv.service)
 
-use/slinux/services-disabled:
-	@$(call add_feature)
+use/slinux/services-disabled: use/services
 	@$(call add,SYSTEMD_SERVICES_DISABLE,acpid.service)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,clamd.service)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,consolesaver.service)
