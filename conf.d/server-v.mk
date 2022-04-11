@@ -74,7 +74,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/scsi use/stage2/usb \
 	use/stage2/kms \
-	use/server/virt use/docs/license
+	use/server/virt use/docs/license use/docs/manual
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 	@$(call set,BRANDING,alt-server-v)
@@ -86,8 +86,8 @@ distro/.server-v-base: distro/.base distro/.installer \
 	@$(call add,INSTALL2_PACKAGES,fonts-ttf-google-croscore-arimo)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
-	@$(call add,THE_BRANDING,alterator graphics)
-	@$(call add,THE_BRANDING,indexhtml slideshow)
+	@$(call add,THE_BRANDING,alterator)
+	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_PACKAGES,alterator-fbi alterator-notes)
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,THE_LISTS,$(call tags,server alterator))
