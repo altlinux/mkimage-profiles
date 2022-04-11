@@ -100,11 +100,11 @@ distro/server-v: distro/.server-v-base +installer \
 	use/install2/net use/install2/autoinstall \
 	use/apt-conf/branch use/install2/repo
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
-	@$(call set,IMAGE_FLAVOUR,$(subst alt-10-,,$(IMAGE_NAME)))
-	@$(call set,META_VOL_ID,ALT Server-V 10.0.0 $(ARCH))
+	@$(call set,IMAGE_FLAVOUR,$(subst alt-10.1-,,$(IMAGE_NAME)))
+	@$(call set,META_VOL_ID,ALT Server-V 10.1.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
-	@$(call set,META_APP_ID,ALT Server-V 10.0.0 $(ARCH) $(shell date +%F))
+	@$(call set,META_APP_ID,ALT Server-V 10.1.0 $(ARCH) $(shell date +%F))
 	@$(call set,DOCS,alt-server-v)
 	@$(call add,BASE_LISTS,virt/base.pkgs)
 	@$(call add,MAIN_LISTS,virt/extra.pkgs)
