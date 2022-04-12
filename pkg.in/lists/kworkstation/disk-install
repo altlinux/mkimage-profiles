@@ -14,6 +14,7 @@ gnupg2
 postgresql13-1C
 postgresql13-1C-server
 postgresql13-1C-contrib
+haspd@IA32
 # VipNet CSP
 vipnetcsp4-preinstall
 libjcpkcs11
