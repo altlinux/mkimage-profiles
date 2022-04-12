@@ -107,6 +107,7 @@ update-kernel
 usb-modeswitch
 usbutils
 #userpasswd
+vdpauinfo
 vim-console
 vulkan-tools
 wget
