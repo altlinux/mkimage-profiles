@@ -32,6 +32,7 @@ distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
 	@$(call add,MAIN_GROUPS,$(server_groups_desktop))
 	@$(call add,MAIN_LISTS,centaurus/disk-dvd)
 	@$(call add,MAIN_LISTS,centaurus/disk-server-light)
+	@$(call add,THE_LISTS,monitoring/zabbix-agent)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
 endif
