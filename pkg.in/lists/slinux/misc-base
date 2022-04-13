@@ -52,6 +52,7 @@ gparted
 #driconf-
 aspell-ru-lebedev
 vulkan-amdgpu@X86
+cpu-x@X86
 
 mate-file-archiver
 unzip
