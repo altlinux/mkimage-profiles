@@ -23,6 +23,8 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 endif
 endif
 
+distro/slinux-bloat: distro/slinux use/slinux/live
+
 ifeq (vm,$(IMAGE_CLASS))
 vm/slinux:: use/slinux/vm-base use/auto-resize +vmguest; @:
 
