@@ -146,7 +146,6 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_PACKAGES,owamp-server)
 endif
 	@$(call add,CONTROL,sudo:public)
-	@$(call add,CONTROL,fusermount:wheelonly)
 
 endif # distro
 
