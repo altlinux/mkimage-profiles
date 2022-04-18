@@ -65,9 +65,7 @@ ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 distro/alt-server:: +efi; @:
 endif
 
-ifeq (,$(filter-out ppc64le aarch64 e2k%,$(ARCH)))
 distro/alt-server:: use/install2/vnc/listen; @:
-endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/alt-server:: +power +net-eth; @:
