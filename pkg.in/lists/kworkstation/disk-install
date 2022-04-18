@@ -29,6 +29,10 @@ pkcs11-profiles-isbc
 pkcs11-profiles-p11-kit-proxy
 card-actions
 libjcpkcs11
+# misc preinstalls
+yandex-browser-preinstall
+kesl10-preinstall
+sputnik-browser-preinstall
 # FSIN
 openssh-gostcrypto
 openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
@@ -58,8 +62,5 @@ vsftpd
 anonftp
 vlock
 telnet
-yandex-browser-preinstall
-kesl10-preinstall
-sputnik-browser-preinstall
 kde5-display-manager-lightdm
 glibc
