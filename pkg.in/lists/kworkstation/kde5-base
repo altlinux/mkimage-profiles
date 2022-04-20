@@ -70,6 +70,7 @@ i2c-tools
 ipcalc
 jfsutils
 libproxy-kde
+libproxy-networkmanager
 libva-utils
 lsb-release
 lsblk
