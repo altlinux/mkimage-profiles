@@ -148,7 +148,6 @@ rpminstall
 appinstall@X86
 system-config-printer
 system-config-printer-udev
-alterator-printers
 #krb5-ticket-watcher-
 apt-repo
 #krb5-ticket-watcher-
