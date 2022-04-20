@@ -50,6 +50,7 @@ rpminstall
 appinstall@X86
 gnome-software
 gnome-software-disable-updates
+packagekit
 
 altmediawriter
 
