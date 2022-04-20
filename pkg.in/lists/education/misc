@@ -165,6 +165,7 @@ synaptic
 synaptic-usermode
 gnome-software@!riscv64
 gnome-software-disable-updates@!riscv64
+packagekit
 rpminstall
 appinstall
 
