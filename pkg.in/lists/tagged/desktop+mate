@@ -1,6 +1,9 @@
 mate-default@META
 mate-maxi@META
 
+# don't show /proc /sys on desktop
+gvfs
+
 ### should be dropped at some stage; see bugreports within this thread:
 # http://lists.altlinux.org/pipermail/sisyphus/2012-August/358079.html
 iso-codes
