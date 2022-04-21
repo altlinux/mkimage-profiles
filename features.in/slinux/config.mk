@@ -118,6 +118,7 @@ use/slinux/base: use/isohybrid use/luks \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401 \
 	use/slinux/mixin-base
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,BASE_PACKAGES,make-initrd-mdadm mdadm)
 
 use/slinux/full: use/slinux/base \
 	use/install2/repo
