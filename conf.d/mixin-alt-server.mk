@@ -11,7 +11,8 @@ mixin/alt-server: +installer +systemd \
 	use/fonts/install2 \
 	use/install2/stage3 \
 	use/firmware/server \
-	use/net/etcnet
+	use/net/etcnet \
+	use/tty
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
 	@$(call add,THE_BRANDING,alterator)
