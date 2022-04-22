@@ -2,8 +2,8 @@ mixin/alt-server: server_groups = $(addprefix centaurus/,\
 	10-alterator 20-server-apps  50-freeipa 70-dev sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client nm-daemon systemd-networkd openuds openuds-tunnel admc)
 
 mixin/alt-server: +installer +systemd \
-	use/branding/notes use/syslinux/ui/gfxboot \
-	use/plymouth/stage2 use/control use/services \
+	use/branding/notes \
+	use/control use/services \
 	use/l10n/default/ru_RU use/install2/stage3 \
 	use/install2/vnc use/install2/xfs use/install2/fat \
 	use/volumes/cliff-server \
@@ -17,7 +17,6 @@ mixin/alt-server: +installer +systemd \
 	@$(call set,BRANDING,alt-server)
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-	@$(call add,THE_BRANDING,bootloader bootsplash)
 	@$(call set,KFLAVOURS,std-def)
 	@$(call add,MAIN_GROUPS,centaurus/pve-backup-server)
 endif

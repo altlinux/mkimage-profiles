@@ -43,9 +43,6 @@ x-cursor-theme-jimmac
 menu-icons-default
 
 branding-alt-server-graphics
-branding-alt-server-bootloader@X86
-branding-alt-server-bootsplash@X86
-make-initrd-plymouth@X86
 
 firefox-esr
 firefox-esr-ru
