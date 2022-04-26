@@ -34,6 +34,9 @@ ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/virtualbox)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 endif
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+	@$(call add,MAIN_GROUPS,workstation/flatpak)
+endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
 	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
