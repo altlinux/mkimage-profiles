@@ -68,6 +68,7 @@ synaptic-usermode
 apt-indicator
 gnome-software@!riscv64
 gnome-software-disable-updates@!riscv64
+packagekit@!riscv64
 
 alt-rootfs-installer
 beesu
