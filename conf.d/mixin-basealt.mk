@@ -44,7 +44,7 @@ endif
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,SERVICES_DISABLE,auditd)
-	@$(call add,SERVICES_ENABLE,cups smb nmb httpd2 bluetoothd libvirtd)
+	@$(call add,SERVICES_ENABLE,cups cups-browsed smb nmb httpd2 bluetoothd libvirtd)
 	@$(call add,SERVICES_ENABLE,crond)
 	@$(call add,SERVICES_ENABLE,fstrim.timer)
 	@$(call add,SERVICES_DISABLE,powertop bridge gpm)
