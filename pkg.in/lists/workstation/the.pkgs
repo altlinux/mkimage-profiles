@@ -8,6 +8,8 @@ xmessage
 etcnet-defaults-desktop
 lsb-release
 man-pages
+mdadm
+make-initrd-mdadm
 alterator-quota
 alterator-control
 alterator-x11
