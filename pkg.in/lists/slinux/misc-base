@@ -12,6 +12,7 @@ shadow-change
 dhcpcd
 test-audio
 pa-conf-switch-on-connect
+man-pages
 
 telnet
 b43-fwcutter
