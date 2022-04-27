@@ -13,6 +13,7 @@ dhcpcd
 test-audio
 pa-conf-switch-on-connect
 man-pages
+etcnet-defaults-desktop
 
 telnet
 b43-fwcutter
