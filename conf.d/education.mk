@@ -128,7 +128,7 @@ else
 	@$(call add,MAIN_GROUPS,education/09_video-conferencing)
 endif	# e2k%
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,std-def)
+	@$(call set,KFLAVOURS,std-def un-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-modules-std-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
