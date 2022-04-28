@@ -4,6 +4,7 @@
 use/net: use/services use/pkgpriorities
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,$$(THE_NET_SUBSYS))
+	@$(call add,THE_PACKAGES,iputils)
 	@$(call add,PINNED_PACKAGES,$$(THE_NET_SUBSYS))
 	@$(call set,THE_NET_SUBSYS,network-config-subsystem)
 
