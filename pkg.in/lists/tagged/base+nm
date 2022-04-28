@@ -6,4 +6,6 @@ NetworkManager-pptp
 NetworkManager-l2tp
 NetworkManager-openconnect
 
+iputils
+
 usb-modeswitch
