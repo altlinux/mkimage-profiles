@@ -128,7 +128,6 @@ alterator-net-pppoe
 alterator-net-openvpn
 alterator-net-pptp
 alterator-packages
-alterator-pkg
 alterator-services
 alterator-sysconfig
 alterator-update-kernel
