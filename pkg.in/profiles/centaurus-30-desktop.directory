@@ -2,4 +2,4 @@
 Type=Directory
 Name=Workstation
 Name[ru_RU]=Рабочая станция
-X-Alterator-Groups=centaurus/mate centaurus/office centaurus/alterator centaurus/bacula-client-a centaurus/bacula-client centaurus/xorg centaurus/docs centaurus/vlc centaurus/cups
+X-Alterator-Groups=centaurus/mate centaurus/office centaurus/alterator centaurus/bacula-client-a centaurus/bacula-client centaurus/xorg centaurus/docs centaurus/vlc centaurus/cups centaurus/nm-daemon

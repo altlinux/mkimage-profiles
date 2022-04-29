@@ -3,6 +3,7 @@ Encoding=UTF-8
 Type=Directory
 Name=NetworkManager daemon
 X-Alterator-PackageList=centaurus/nm-daemon
-X-Alterator-Required=no
+X-Alterator-Parent=centaurus/901-net-if-mgt
+X-Alterator-Required=yes
 Name[ru_RU]=Система управления сетевыми интерфейсами NetworkManager
 
