@@ -219,6 +219,7 @@ xorg-conf-synaptics
 xinput
 xorg-drv-libinput
 usbutils
+iio-sensor-proxy
 
 # Network utilities
 iproute2
