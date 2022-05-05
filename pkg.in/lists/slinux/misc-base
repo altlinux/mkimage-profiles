@@ -135,6 +135,7 @@ alterator-users
 alterator-root
 alterator-x11
 alterator-xkb
+alterator-zram-swap
 
 #additional
 mate-search-tool
