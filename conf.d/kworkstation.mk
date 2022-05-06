@@ -176,8 +176,8 @@ mixin/kworkstation-live-opts:
 	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,CLEANUP_LIVE_PACKAGES,'flatpak')
 	@$(call add,CLEANUP_LIVE_PACKAGES,'snapd')
-	@$(call set,META_VOL_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K Live $(ARCH))
-	@$(call set,META_APP_ID,ALT $(DISTRO_VERSION)$(STATUS) Workstation K Live $(ARCH) $(shell date +%F))
+	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) Live $(ARCH))
+	@$(call set,META_APP_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) Live $(ARCH) $(shell date +%F))
 
 distro/kworkstation-install: \
 	kworkstation_groups = $(addprefix kworkstation/,\
