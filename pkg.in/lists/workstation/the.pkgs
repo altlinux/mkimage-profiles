@@ -5,6 +5,7 @@ pam-limits-desktop
 beesu
 audit
 xmessage
+lsof
 etcnet-defaults-desktop
 lsb-release
 man-pages
