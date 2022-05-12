@@ -44,7 +44,7 @@ contemplate_dirs()
 # hasher emits no meaningful errors regarding those, sigh
 check_options()
 {
-	! egrep -q "^$1 $2 .*no(dev|exec)" /proc/mounts
+	! grep -E -q "^$1 $2 .*no(dev|exec)" /proc/mounts
 }
 
 # pick existing, writeable, >256M free space dirs

@@ -19,7 +19,7 @@ cd /usr/share/X11/locale &&
 # xkb; don't drop "pc" yet
 cd /usr/share/X11/xkb/symbols &&
 	ls \
-	| egrep -v 'by|en|kz|pt|ru|ua|us|pc|....*' \
+	| grep -E -v 'by|en|kz|pt|ru|ua|us|pc|....*' \
 	| xargs rm -rf --
 
 # gconv
@@ -30,7 +30,7 @@ cd /usr/lib*/gconv &&
 for dir in /usr/{lib*,share}/locale; do
 	cd "$dir" && \
 	ls \
-	| egrep -v '^be|en|kk|pt|ru|uk' \
+	| grep -E -v '^be|en|kk|pt|ru|uk' \
 	| xargs rm -rf --;
 done
 

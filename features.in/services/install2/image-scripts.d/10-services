@@ -19,7 +19,7 @@ switch() {
 	sname="${sname%.socket}"
 
 	[ -n "$CHECK_FILES" ] && \
-		egrep -qs "^[[:blank:]]*$sname(.service|.socket)?[[:blank:]]*$" \
+		grep -E -qs "^[[:blank:]]*$sname(.service|.socket)?[[:blank:]]*$" \
 			$CHECK_FILES && return ||:
 
 	# avoid service duplication: drop sevice without unit type

@@ -11,7 +11,7 @@ USER=altlinux
 add_nopasswdlogin_group()
 {
 	[ -f "/etc/pam.d/$1" ] &&
-	egrep -qs '^auth.+user[[:blank:]]+ingroup[[:blank:]]+nopasswdlogin' "/etc/pam.d/$1" &&
+	grep -E -qs '^auth.+user[[:blank:]]+ingroup[[:blank:]]+nopasswdlogin' "/etc/pam.d/$1" &&
 	groupadd -r nopasswdlogin &&
 	gpasswd -a "$USER" nopasswdlogin
 }

@@ -33,4 +33,4 @@ transformed="$(sed \
 [ -z "$transformed" ] ||
 	find $transformed \
 	| sed 's,^\./,,' \
-	| egrep -v '(\.sw.|~)$'
+	| grep -E -v '(\.sw.|~)$'

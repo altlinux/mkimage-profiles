@@ -115,7 +115,7 @@ build-image: profile/populate
 		fi; \
 		tail -n $(MAX_LINES) "$(BUILDLOG)" \
 		| GREP_COLOR="$(ANSI_FAIL)" \
-		  egrep --color=auto -m "$(MAX_ERRORS)" "$(GOTCHA)"; \
+		  grep -E --color=auto -m "$(MAX_ERRORS)" "$(GOTCHA)"; \
 		df -P $(BUILDDIR) | awk 'END { if ($$4 < $(LOWSPACE)) \
 			{ print "NB: low space on "$$6" ("$$5" used)"}}'; \
 	fi; \

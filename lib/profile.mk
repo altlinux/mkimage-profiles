@@ -56,7 +56,7 @@ profile/init: distclean
 			SOURCELIST Dir::Etc::sourcelist/f \
 			SOURCEPARTS Dir::Etc::sourceparts/d`; \
 		find "$$SOURCEPARTS" -mindepth 1 -maxdepth 1 -name '*.list' \
-		| xargs egrep -hv -e '^#|^[[:blank:]]*$$' -- "$$SOURCELIST" \
+		| xargs grep -E -hv -e '^#|^[[:blank:]]*$$' -- "$$SOURCELIST" \
 		| tee $(BUILDDIR)/sources.list; \
 		echo; \
 	} $(LOG); \
