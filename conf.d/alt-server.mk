@@ -40,7 +40,7 @@ endif
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_BRANDING,notes)
-	@$(call add,BASE_KMODULES,kvm virtualbox)
+	@$(call add,BASE_KMODULES,virtualbox)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
