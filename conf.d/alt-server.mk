@@ -43,7 +43,7 @@ endif
 	@$(call add,BASE_KMODULES,virtualbox)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
-	@$(call add,EFI_BOOTARGS,lang=ru_RU)
+	@$(call add,STAGE2_BOOTARGS,lang=ru_RU)
 ifeq (,$(filter-out e2k,$(ARCH)))
 	@$(call set,META_APP_ID,ALT Server for Elbrus-4.4)
 endif

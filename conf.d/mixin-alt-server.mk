@@ -5,7 +5,7 @@ mixin/alt-server: server_groups = $(addprefix centaurus/,\
 mixin/alt-server: +installer +systemd \
 	use/branding/notes \
 	use/control use/services \
-	use/l10n/default/ru_RU use/install2/stage3 \
+	use/install2/stage3 \
 	use/install2/vnc use/install2/xfs use/install2/fat \
 	use/volumes/cliff-server \
 	use/apt-conf/branch \
