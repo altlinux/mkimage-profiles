@@ -16,6 +16,9 @@ mixin/alt-server: +installer +systemd \
 	use/tty
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
