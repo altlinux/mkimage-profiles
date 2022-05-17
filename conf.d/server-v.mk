@@ -77,6 +77,9 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/server/virt use/docs/license use/docs/manual
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,EFI_BOOTARGS,lang=ru_RU)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
 	@$(call set,BRANDING,alt-server-v)
 	@$(call set,INSTALLER,alt-server-v)
 	@$(call add,INSTALL2_PACKAGES,alterator-notes)
