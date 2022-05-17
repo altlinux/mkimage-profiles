@@ -19,7 +19,6 @@ use/slinux/services-enabled: use/services
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups.socket)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups-browsed.service)
-	@$(call add,SYSTEMD_SERVICES_ENABLE,dnsmasq.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,lightdm.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,lvm2-monitor.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,network.service)
@@ -39,6 +38,7 @@ use/slinux/services-disabled: use/services
 	@$(call add,SYSTEMD_SERVICES_DISABLE,openvpn.service)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,sshd.service)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,syslogd.service)
+	@$(call add,SYSTEMD_SERVICES_DISABLE,dnsmasq.service)
 
 use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 
