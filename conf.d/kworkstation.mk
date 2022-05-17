@@ -55,6 +55,8 @@ endif
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans-symbols)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans-symbols2)
 	@$(call add,THE_PACKAGES,fonts-ttf-material-icons)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-emoji)
+	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-emoji-color)
 	@$(call add,THE_LISTS,$(call tags,basesystem alterator))
 	@$(call add,MAIN_LISTS,kworkstation/disk-install)
 	@$(call add,THE_LISTS,tagged/desktop+xorg)
