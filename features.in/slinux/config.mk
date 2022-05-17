@@ -121,6 +121,9 @@ use/slinux/base: use/isohybrid use/luks \
 
 use/slinux/full: use/slinux/base \
 	use/install2/repo
+ifeq (,$(filter-out x86_64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def std-def)
+endif
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
 	@$(call add,THE_LISTS,slinux/misc-full)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
