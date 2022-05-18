@@ -101,7 +101,8 @@ endif
 distro/server-v: distro/.server-v-base +installer \
 	use/ntp/chrony \
 	use/install2/net use/install2/autoinstall \
-	use/apt-conf/branch use/install2/repo
+	use/apt-conf/branch use/install2/repo \
+	use/vmguest
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-10.1-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT Server-V 10.1.0 $(ARCH))
