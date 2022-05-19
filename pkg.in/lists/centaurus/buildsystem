@@ -11,3 +11,4 @@ hasher-priv
 time
 mkimage
 apt-utils
+builder-useradd
