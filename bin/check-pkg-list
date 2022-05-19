@@ -41,8 +41,8 @@ check_pkglist() {
 	> "$ftemp" # got list of pkgnames we need
 
 	# split pkgnames without wildcards and with wildcards
-	fgrep -v '*' "$ftemp" > "$fpkgnames"
-	fgrep 	 '*' "$ftemp" > "$fpkgwildcards"
+	grep -F -v '*' "$ftemp" > "$fpkgnames"
+	grep -F 	 '*' "$ftemp" > "$fpkgwildcards"
 
 	# return unavailable packages
 	comm -23 "$fpkgnames" "$favaillist" > "$fpkgerrors"
