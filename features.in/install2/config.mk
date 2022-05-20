@@ -44,7 +44,6 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 
 # virtualbox guest support for installer
 use/install2/vbox:
-	@$(call add,STAGE1_KMODULES,virtualbox-addition vboxguest)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-vboxvideo)
 
 # see also use/vmguest/vmware
