@@ -91,6 +91,9 @@ endif
 ifeq (,$(filter-out armh aarch64 i586 x86_64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def)
 endif
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,rpi-un std-def)
+endif
 
 use/slinux/live: use/live/x11 use/live/rw \
 	use/live/repo \
