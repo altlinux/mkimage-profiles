@@ -2,7 +2,7 @@ livecd-timezone
 
 lftp-
 
-python-module-PyQt4-
+#python-module-PyQt4-
 libqt4-test-
 libqt4-uitools-
 #libqt4-xmlpatterns-
