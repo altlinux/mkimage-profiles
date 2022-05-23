@@ -51,6 +51,7 @@ else
 	@$(call add,LIVE_PACKAGES,java-11-openjdk)
 endif
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,LIVE_PACKAGES,btrfs-progs)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
@@ -73,6 +74,7 @@ mixin/education-base: \
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,alt-rootfs-installer)
+	@$(call add,THE_PACKAGES,btrfs-progs)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 
@@ -86,6 +88,7 @@ mixin/education-installer: \
 	mixin/education-base \
 	use/docs/manual use/docs/indexhtml
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
+	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
 	@$(call add,MAIN_GROUPS,education/02_gradeschool)
