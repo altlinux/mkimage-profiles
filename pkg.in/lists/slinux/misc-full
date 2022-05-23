@@ -3,7 +3,7 @@ homebank
 homebank-help
 stardict-mueller7
 stardict-wn
-stardict-engcom
+#stardict-engcom
 
 # NVIDIA drivers
 #kernel-modules-nvidia-@KERNEL_MOD@
