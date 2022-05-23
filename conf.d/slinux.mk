@@ -13,7 +13,7 @@ distro/slinux: distro/.installer use/slinux/full use/rescue/base
 ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,slinux/multimedia-full-obs-studio)
 endif
-ifneq (,$(filter-out e2k%,$(ARCH)))
+ifneq (,$(filter-out e2k% riscv64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,slinux/dropbox slinux/graphics-full-shotwell slinux/flatpak)
 endif
 	@$(call set,META_VOL_ID,Simply Linux $(DISTRO_VERSION) $(ARCH))
