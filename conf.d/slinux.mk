@@ -9,7 +9,10 @@ distro/slinux-live: distro/.livecd-install use/slinux/base use/slinux/live
 
 distro/slinux: distro/.installer use/slinux/full use/rescue/base
 	@$(call set,INSTALLER,simply-linux)
-	@$(call add,MAIN_GROUPS,slinux/emulators-full slinux/games-base slinux/games slinux/games-full slinux/graphics-base slinux/graphics slinux/graphics-full-inkscape slinux/multimedia-full-audacity slinux/multimedia-base slinux/multimedia-full-cheese slinux/multimedia slinux/multimedia-full-shotcut slinux/multimedia-full-sound-juicer slinux/multimedia-full-obs-studio slinux/net-base)
+	@$(call add,MAIN_GROUPS,slinux/emulators-full slinux/games-base slinux/games slinux/games-full slinux/graphics-base slinux/graphics slinux/graphics-full-inkscape slinux/multimedia-full-audacity slinux/multimedia-base slinux/multimedia-full-cheese slinux/multimedia slinux/multimedia-full-shotcut slinux/multimedia-full-sound-juicer slinux/net-base)
+ifneq (,$(filter-out riscv64,$(ARCH)))
+	@$(call add,MAIN_GROUPS,slinux/multimedia-full-obs-studio)
+endif
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_GROUPS,slinux/dropbox slinux/graphics-full-shotwell)
 endif
