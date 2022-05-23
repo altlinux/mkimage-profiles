@@ -38,7 +38,7 @@ perl-Crypt-Rijndael
 
 ffmpeg
 dvgrab
-mencoder
+mencoder@!riscv64
 transcode
 jack-audio-connection-kit
 
