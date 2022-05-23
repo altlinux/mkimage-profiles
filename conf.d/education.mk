@@ -52,6 +52,7 @@ else
 endif
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,LIVE_PACKAGES,btrfs-progs)
+	@$(call add,LIVE_PACKAGES,xfsprogs xfsinfo xfsdump)
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
