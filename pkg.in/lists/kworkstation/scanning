@@ -6,9 +6,10 @@ tesseract-langpack-ru
 #tesseract-langpack-uk
 gimagereader-qt5
 hplip-sane
-imagescan-sane
 libsane-gphoto2
 sane-airscan
+imagescan-sane
 iscan-free
 iscan-data
 firmware-iscan
+epsonscan2
