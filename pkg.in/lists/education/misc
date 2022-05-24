@@ -81,6 +81,7 @@ alterator-updates
 alterator-users
 alterator-x11
 alterator-xkb
+alterator-zram-swap
 
 # Authentication and computer management via group policy
 task-auth-ad-sssd
