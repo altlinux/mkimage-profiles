@@ -20,6 +20,7 @@ mixin/alt-server: +installer +systemd \
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
 	@$(call add,MAIN_GROUPS,centaurus/proxmox-backup-server)
+	@$(call add,MAIN_GROUPS,centaurus/lsb-core)
 endif
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
