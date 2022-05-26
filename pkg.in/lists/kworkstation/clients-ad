@@ -5,3 +5,4 @@ krb5-ticket-watcher
 task-auth-ldap-sssd
 alterator-gpupdate
 gpui
+admc
