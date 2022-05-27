@@ -92,7 +92,7 @@ distro/.regular-jeos: distro/.regular-jeos-base use/stage2/kms \
 	use/syslinux/lateboot.cfg use/cleanup/jeos
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 
-distro/.regular-jeos-full: distro/.regular-jeos \
+distro/.regular-jeos-full: distro/.regular-jeos use/install2/vmguest \
 	use/volumes/jeos use/ntp/chrony use/bootloader/grub \
 	use/grub/localboot_bios.cfg +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
