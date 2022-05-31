@@ -150,6 +150,8 @@ gtk2-ssh-askpass
 installer-feature-centaurus-keyring
 beesu
 branding-alt-server-graphics@X86
+branding-alt-server-mate-settings
+installer-feature-lightdm-stage3
 lightdm-gtk-greeter
 lightdm
 dconf
