@@ -5,5 +5,5 @@ Name=Systemd network configuration daemon
 X-Alterator-PackageList=centaurus/systemd-networkd
 X-Alterator-Parent=centaurus/901-net-if-mgt
 X-Alterator-Required=no
-Name[ru_RU]=Система управления сетевыми интерфейсами Systemd-networkd
+Name[ru_RU]=Система управления Systemd-networkd
 
