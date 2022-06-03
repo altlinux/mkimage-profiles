@@ -1,2 +1,3 @@
-java-11-openjdk@!mipsel
+java-11-openjdk@!E2K,mipsel
+java-1.8.0-openjdk@E2K,mipsel
 ganttproject
