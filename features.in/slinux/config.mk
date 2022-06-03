@@ -123,6 +123,9 @@ use/slinux/base: use/isohybrid use/luks \
 	use/vmguest/kvm/x11 use/stage2/kms \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401 \
 	use/slinux/mixin-base
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,BOOTLOADER,grubpcboot)
+endif
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 
 use/slinux/full: use/slinux/base \
