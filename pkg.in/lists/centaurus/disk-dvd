@@ -17,7 +17,7 @@ etckeeper
 #kernel
 kernel-build-tools
 kernel-doc-std
-kernel-doc-un
+kernel-doc-un@!E2K
 
 c-icap
 virt-viewer
