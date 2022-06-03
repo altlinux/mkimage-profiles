@@ -16,6 +16,7 @@ man-pages
 etcnet-defaults-desktop
 mdadm
 make-initrd-mdadm
+gzip-utils
 
 telnet
 b43-fwcutter
