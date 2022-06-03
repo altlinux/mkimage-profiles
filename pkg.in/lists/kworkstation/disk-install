@@ -21,14 +21,20 @@ libjcpkcs11
 # MyOffice standart edition
 postgresql12-contrib
 # 2FA
+#opensc
+#pcsc-lite-ccid
+#librtpkcs11ecp
 pcsc-tools
 gnutls-utils
 pkcs11-profiles-rutokenecp
 pam_pkcs11-isbc
+#isbc-pkcs11
 pkcs11-profiles-isbc
 pkcs11-profiles-p11-kit-proxy
 card-actions
 libjcpkcs11
+libp11
+libp11-kit
 # misc preinstalls
 yandex-browser-preinstall
 kesl10-preinstall
