@@ -22,6 +22,8 @@ endif
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call add,MAIN_LISTS,centaurus/list-kernel-modules-std-def)
+	@$(call add,MAIN_LISTS,centaurus/list-kernel-modules-un-def)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-cleanup-kernel-stage3)
 	@$(call add,BASE_KMODULES,drm)
 	@$(call add,MAIN_GROUPS,centaurus/proxmox-backup-server)
