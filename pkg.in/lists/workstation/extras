@@ -16,7 +16,7 @@ alterator-secsetup
 #kernel-headers-modules-un-def
 #kernel-headers-un-def
 
-chromium
+chromium@x86_64,aarch64
 
 chromium-gost
 
