@@ -71,7 +71,6 @@ ca-certificates-digital.gov.ru
 disable-usb-autosuspend@X86
 
 bluez
-pulseaudio-bluez
 gnome-bluetooth
 
 gpm
@@ -95,6 +94,7 @@ accountsservice
 
 alterator-multiseat
 
+pulseaudio-daemon
 test-audio
 pa-conf-switch-on-connect
 

@@ -13,4 +13,4 @@ pam_pkcs11
 
 openssl
 openssl-engines
-openssl-engine_pkcs11
+libp11
