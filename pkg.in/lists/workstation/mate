@@ -32,7 +32,6 @@ mate-screensaver
 gnome-keyring
 seahorse
 gvfs-backends
-gvfs-utils
 fuse-gvfs
 mate-document-viewer 
 mate-document-viewer-thumbnailer
