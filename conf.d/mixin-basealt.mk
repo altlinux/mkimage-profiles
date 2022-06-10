@@ -7,7 +7,6 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	sound-editing thunderbird freeipa-client admc)
 
 mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
-	use/kernel/desktop \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
 	use/ntp/chrony \
@@ -21,6 +20,21 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm +power \
 	use/docs/manual use/docs/indexhtml \
 	use/browser/firefox use/browser/firefox/esr \
 	use/cleanup/live-no-cleanupdb
+ifeq (,$(filter-out x86_64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call add,MAIN_PACKAGES,kernel-headers-modules-un-def)
+	@$(call add,MAIN_PACKAGES,kernel-headers-un-def)
+else
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,rpi-un std-def)
+	@$(call add,MAIN_PACKAGES,kernel-headers-modules-rpi-un)
+	@$(call add,MAIN_PACKAGES,kernel-headers-rpi-un)
+else
+	@$(call set,KFLAVOURS,std-def)
+endif
+endif
+	@$(call add,MAIN_PACKAGES,kernel-headers-modules-std-def)
+	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
 	@$(call add,COMMON_PACKAGES,vim-console)
