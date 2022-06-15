@@ -69,7 +69,7 @@ endif
 ifeq (,$(filter-out ppc64le,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ipr.ko ibmvscsi.ko)
 endif
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,drivers/dma drivers/reset)
 	@$(call add,VM_INITRDMODULES,drivers/usb/dwc2 drivers/usb/dwc3)
 	@$(call add,VM_INITRDMODULES,drivers/phy drivers/usb/phy)
