@@ -61,10 +61,11 @@ use/e2k/multiseat/801: use/e2k/multiseat/801/base
 use/e2k/multiseat/801/full: use/e2k/multiseat/801 use/control
 	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
 	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
+else
+use/e2k/x11/101:; @:
 endif	# e2kv4
 
 ifeq (,$(filter-out e2k,$(ARCH)))
-use/e2k/x11/101:; @:
 use/e2k/multiseat/full:; @:
 endif	# e2k(v3)
 
