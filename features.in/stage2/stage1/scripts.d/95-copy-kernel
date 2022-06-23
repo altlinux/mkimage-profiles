@@ -33,3 +33,20 @@ case "$GLOBAL_EFI_BOOTLOADER" in
 		cp -lpLf boot/initrd.img EFI/BOOT/full.cz
 	;;
 esac
+
+# copy dtb for default kernel
+if [ -n "$GLOBAL_COPY_DTB" ]; then
+	dtb_dir=
+	[ -d /boot/devicetree/$kverdef ] && dtb_dir=/boot/devicetree/$kverdef
+	[ -z "$dtb_dir" ] && [ -d /lib/devicetree/$kverdef ] &&
+		dtb_dir=/lib/devicetree/$kverdef
+	if [ -n "$dtb_dir" ]; then
+		cp -r "$dtb_dir/" dtb
+		# cleanup symlinks which are duplicated for compatibility
+		find dtb/ -type l -delete
+		# fix permissions for copy-tree
+		chmod -R 755 dtb
+	else
+		echo "dtb directory for $kverdef not found"
+	fi
+fi
