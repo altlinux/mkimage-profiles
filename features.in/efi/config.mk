@@ -66,3 +66,12 @@ use/efi use/efi/signed use/efi/debug use/efi/grub use/efi/lilo \
   use/efi/refind use/efi/shell use/efi/memtest86: use/isohybrid; @:
 
 endif
+
+# copy devicetree for default kernel on ESP partition
+use/efi/dtb: use/efi; @:
+ifeq (distro,$(IMAGE_CLASS))
+ifneq (,$(filter-out $(aarch64 riscv64),$(ARCH)))
+	@$(call set,GLOBAL_COPY_DTB,1)
+	@$(call add,EFI_FILES_REPLACE,dtb)
+endif
+endif
