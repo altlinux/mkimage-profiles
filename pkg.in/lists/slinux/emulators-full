@@ -1,9 +1,9 @@
-wine@i586
-libwine-gl@i586
-libwine-twain@i586
+wine@X86
+wine-gl@X86
+wine-twain@X86
 i586-wine@x86_64
-i586-libwine-gl@x86_64
-i586-libwine-twain@x86_64
+i586-wine-gl@x86_64
+i586-wine-twain@x86_64
 wine-mono@X86
 winetricks@X86
 # For winetricks
