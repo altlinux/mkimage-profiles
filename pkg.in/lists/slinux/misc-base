@@ -1,4 +1,5 @@
 # Basic packages
+sudo
 tzdata
 vim-console
 openssh-server
