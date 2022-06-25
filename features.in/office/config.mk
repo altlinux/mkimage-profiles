@@ -1,12 +1,12 @@
-ifeq (,$(filter-out riscv64,$(ARCH)))
-# not available on riscv64 at the moment
-use/office use/office/LibreOffice/still use/office/LibreOffice/full: ; @:
-else
-
 use/office:
 	@$(call add_feature)
 	@$(call try,THE_OFFICE,abiword gnumeric)
 	@$(call add,THE_PACKAGES,$$(THE_OFFICE))
+
+ifeq (,$(filter-out riscv64,$(ARCH)))
+# other office not available on riscv64 at the moment
+use/office/%: use/office; @:
+else
 
 # support both LibreOffice and LibreOffice-still
 use/office/LibreOffice: use/office
