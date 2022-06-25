@@ -60,7 +60,7 @@ endif
 	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
-use/slinux/vm-base:: use/oem/vnc use/browser/epiphany
+use/slinux/vm-base:: use/oem/vnc
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 	@$(call set,KFLAVOURS,un-def)
 endif
@@ -78,11 +78,7 @@ use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,THE_KMODULES,staging)
-ifeq (,$(filter-out armh mipsel e2k% i586,$(ARCH)))
-	@$(call add,THE_LISTS,slinux/browser-firefox)
-else
-	@$(call add,THE_LISTS,slinux/browser-chromium)
-endif
+	@$(call add,THE_LISTS,slinux/browser)
 ifeq (,$(filter-out armh mipsel e2k%,$(ARCH)))
 	@$(call add,THE_LISTS,slinux/multimedia-player-celluloid)
 else

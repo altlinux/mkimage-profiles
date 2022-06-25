@@ -1,4 +1,6 @@
-firefox-esr
+chromium@x86_64,aarch64
+firefox-esr@E2K,i586,armh,mipsel
+epiphany@riscv64
 
 # h.264 for firefox-esr 52.9.0-alt1.E2K.8 (ffmpeg 3)
 libavcodec57@E2K
