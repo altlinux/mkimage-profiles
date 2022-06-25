@@ -81,9 +81,6 @@ ifeq (,$(filter-out armh mipsel e2k%,$(ARCH)))
 else
 	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
 endif
-ifeq (,$(filter-out riscv64,$(ARCH)))
-	@$(call add,THE_PACKAGES,abiword gnumeric)
-endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_LISTS,$(call tags,xscreensaver && (base || desktop)))
 endif
