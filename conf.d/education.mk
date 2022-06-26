@@ -39,8 +39,11 @@ mixin/education-live: \
 	use/live/repo use/live/x11 use/live/rw \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,chromium)
+endif
+ifeq (,$(filter-out i586,$(ARCH)))
+	@$(call add,LIVE_PACKAGES,firefox-esr)
 endif
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
@@ -141,9 +144,14 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_KMODULES,lsadrv bbswitch)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,MAIN_KMODULES,bbswitch)
-	@$(call add,THE_PACKAGES,chromium)
 	@$(call add,THE_PACKAGES,mc-full)
 	@$(call add,THE_PACKAGES,remmina remmina-plugins)
+endif
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+	@$(call add,THE_PACKAGES,chromium)
+endif
+ifeq (,$(filter-out i586,$(ARCH)))
+	@$(call add,THE_PACKAGES,firefox-esr)
 endif
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,syslinux)
