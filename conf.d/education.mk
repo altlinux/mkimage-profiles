@@ -12,7 +12,8 @@ mixin/education: \
 	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
-	use/office/LibreOffice/full
+	use/office/LibreOffice/full \
+	use/browser/chromium
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
@@ -39,12 +40,6 @@ mixin/education-live: \
 	use/live/repo use/live/x11 use/live/rw \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call add,LIVE_PACKAGES,chromium)
-endif
-ifeq (,$(filter-out i586,$(ARCH)))
-	@$(call add,LIVE_PACKAGES,firefox-esr)
-endif
 	@$(call add,LIVE_PACKAGES,mc-full)
 	@$(call add,LIVE_PACKAGES,remmina remmina-plugins)
 	@$(call add,LIVE_PACKAGES,mousepad)
@@ -146,12 +141,6 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_KMODULES,bbswitch)
 	@$(call add,THE_PACKAGES,mc-full)
 	@$(call add,THE_PACKAGES,remmina remmina-plugins)
-endif
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call add,THE_PACKAGES,chromium)
-endif
-ifeq (,$(filter-out i586,$(ARCH)))
-	@$(call add,THE_PACKAGES,firefox-esr)
 endif
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,syslinux)
