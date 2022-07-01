@@ -7,7 +7,7 @@ mixin/alt-server: +installer +systemd \
 	use/control use/services \
 	use/install2/stage3 \
 	use/install2/vnc use/install2/xfs use/install2/fat \
-	use/volumes/cliff-server \
+	use/volumes/alt-server \
 	use/apt-conf/branch \
 	use/fonts/install2 \
 	use/install2/stage3 \
