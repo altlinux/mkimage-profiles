@@ -17,16 +17,16 @@ use/dev/builder/base: use/dev/mkimage
 use/dev/builder/live: use/dev/builder/base
 	@$(call add,LIVE_LISTS,$(call tags,live builder))
 
+use/dev/builder/live/sysv: use/dev/builder/live; @:
 ifeq (,$(filter-out x86_64 ,$(ARCH)))
-use/dev/builder/live/sysv: use/dev/builder/live
 	@$(call add,LIVE_PACKAGES,livecd-qemu-arch qemu-user-binfmt_misc)
+endif
 
 use/dev/builder/live/systemd: use/dev/builder/live
+	@$(call add,LIVE_PACKAGES,systemd-settings-disable-kill-user-processes)
+ifeq (,$(filter-out x86_64 ,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,qemu-user-static-binfmt)
 	@$(call add,DEFAULT_SERVICES_ENABLE,systemd-binfmt)
-else
-use/dev/builder/live/sysv use/dev/builder/live/systemd: \
-	use/dev/builder/live; @:
 endif
 
 use/dev/builder/full: use/dev use/dev/builder/live use/dev/repo
