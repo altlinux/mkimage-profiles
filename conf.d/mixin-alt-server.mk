@@ -51,7 +51,6 @@ endif
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-alphabet-profiles)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-load-tun)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-network-shares-stage3)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-auto-domain)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
