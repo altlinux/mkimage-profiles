@@ -104,6 +104,7 @@ distro/server-v: distro/.server-v-base +installer \
 	use/apt-conf/branch use/install2/repo \
 	use/vmguest
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
+	@$(call add,STAGE2_BOOTARGS,mpath)
 	@$(call set,IMAGE_FLAVOUR,$(subst alt-10.1-,,$(IMAGE_NAME)))
 	@$(call set,META_VOL_ID,ALT Server-V 10.1.0 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
@@ -142,6 +143,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_ENABLE,pve-manager pve-cluster pveproxy pvedaemon pvestatd \
 		pve-firewall pvefw-logger pve-guests pve-ha-crm pve-ha-lrm spiceproxy \
 		lxc lxcfs lxc-net lxc-monitord qmeventd)
+	@$(call add,SERVICES_ENABLE,multipathd)
 
 #	@$(call add,MAIN_GROUPS,server-v/141-cockpit $(cockpit))
 #	@$(call add,MAIN_GROUPS,server-v/430-moosefs $(moosefs))
