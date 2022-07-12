@@ -6,7 +6,8 @@ wine-mono
 wine-gecko
 winetricks
 wine@IA32
-libwine-gl@IA32
-libwine-twain@IA32
+wine-gl
+wine-twain
+wine-cpcsp_proxy@IA32
 
 virtualbox@x86_64
