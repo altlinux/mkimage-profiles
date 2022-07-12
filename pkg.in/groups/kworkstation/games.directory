@@ -2,7 +2,7 @@
 Type=Directory
 Name=Games
 Comment=Games сollection.
-X-Alterator-PackageList=kworkstation/games
+X-Alterator-PackageList=kworkstation/games;kworkstation/games-base
 X-Alterator-Required=no
 Categories=KDE;GNOME;
 
