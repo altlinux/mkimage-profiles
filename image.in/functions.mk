@@ -31,7 +31,8 @@ groups2lists = $(shell $(groups2lists_body))
 define groups2lists_body
 { if [ -n "$(THE_GROUPS)$(MAIN_GROUPS)" ]; then \
 	  sed -rn 's,^X-Alterator-PackageList=(.*)$$,\1,p' \
-		$(call map,group,$(THE_GROUPS) $(MAIN_GROUPS)); \
+		$(call map,group,$(THE_GROUPS) $(MAIN_GROUPS)) | \
+		sed 's/;/\n/g'; \
 fi; }
 endef
 
