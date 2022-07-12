@@ -148,6 +148,8 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_LISTS,$(call tags,rescue crypto))
 	@$(call add,LIVE_LISTS,sound/pulseaudio)
 	@$(call add,LIVE_LISTS,kworkstation/live-rescue)
+	@$(call add,LIVE_LISTS,kworkstation/printing)
+	@$(call add,LIVE_LISTS,kworkstation/scanning)
 	@$(call add,THE_LISTS,kworkstation/kde5-base)
 	@$(call add,SERVICES_ENABLE,sshd)
 
