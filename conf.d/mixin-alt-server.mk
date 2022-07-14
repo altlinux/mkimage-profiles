@@ -21,7 +21,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,un-def std-def)
+	@$(call set,KFLAVOURS,std-def)
 	@$(call add,MAIN_LISTS,centaurus/list-kernel-modules-std-def)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,BASE_KMODULES,drm)
