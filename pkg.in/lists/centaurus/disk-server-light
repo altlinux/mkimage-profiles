@@ -72,7 +72,6 @@ syslinux@X86
 # kernel
 kernel-build-tools
 kernel-doc-std
-kernel-doc-un@!E2K
 ###kernel-headers-modules-@KERNEL_MOD@
 ###kernel-headers-@KERNEL_MOD@
 
