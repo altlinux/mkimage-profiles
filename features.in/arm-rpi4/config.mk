@@ -18,16 +18,14 @@ use/arm-rpi4/x11: use/arm-rpi4
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd hciuart)
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd-wait-online)
 
-use/arm-rpi4/kernel: use/arm-rpi4
+use/arm-rpi4/kernel: use/arm-rpi4; @:
+ifeq (aarch64,$(ARCH))
 	@$(call set,RPI_NOUBOOT,yes)
 	@$(call add,THE_PACKAGES,rpi4-boot-switch)
 	@$(call add,THE_PACKAGES,rpi4-boot-nouboot-filetrigger)
 	@$(call add,THE_PACKAGES,rpi4-boot-uboot-filetrigger)
 	@$(call xport,RPI_NOUBOOT)
-ifeq (aarch64,$(ARCH))
 	@$(call set,KFLAVOURS,rpi-def rpi-un)
-else
-	@$(call set,KFLAVOURS,rpi-def)
 endif
 
 use/arm-rpi4/full: use/arm-rpi4/kernel use/arm-rpi4/x11; @:
