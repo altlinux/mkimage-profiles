@@ -37,6 +37,10 @@ distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
 endif
+	@$(call add,STAGE2_BOOTARGS,mpath)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
+	@$(call add,SYSTEM_PACKAGES,multipath-tools)
+	@$(call add,SERVICES_ENABLE,multipathd)
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_BRANDING,notes)
