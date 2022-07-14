@@ -38,10 +38,6 @@ ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full; @:
 endif
 
-ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/slinux-tegra: use/slinux/vm-base use/aarch64-tegra; @:
-endif
-
 ifeq (,$(filter-out armh,$(ARCH)))
 vm/slinux-mcom02: use/slinux/vm-base use/armh-mcom02/x11; @:
 endif

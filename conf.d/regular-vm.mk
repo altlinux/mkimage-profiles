@@ -131,19 +131,6 @@ vm/regular-mate-rpi: vm/.regular-gtk mixin/regular-mate use/arm-rpi4/full; @:
 
 vm/regular-xfce-rpi: vm/.regular-gtk mixin/regular-xfce use/arm-rpi4/full; @:
 
-# Nvidia Tegra (Jetson Nano only)
-vm/regular-cinnamon-tegra: vm/.regular-gtk mixin/regular-cinnamon \
-	use/x11/lightdm/slick use/aarch64-tegra; @:
-
-vm/regular-kde5-tegra: vm/.regular-gtk mixin/regular-kde5 use/aarch64-tegra
-	@$(call add,THE_PACKAGES,kde5-ksplash-disabled)
-
-vm/regular-lxqt-tegra: vm/.regular-gtk mixin/regular-lxqt use/aarch64-tegra; @:
-
-vm/regular-mate-tegra: vm/.regular-gtk mixin/regular-mate use/aarch64-tegra; @:
-
-vm/regular-xfce-tegra: vm/.regular-gtk mixin/regular-xfce use/aarch64-tegra; @:
-
 endif
 
 ifeq (,$(filter-out armh,$(ARCH)))

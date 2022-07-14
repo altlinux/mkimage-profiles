@@ -92,11 +92,6 @@ vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
 	@$(call set,THE_BROWSER,chromium)
 endif
 
-ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-workstation-tegra: vm/.alt-workstation use/aarch64-tegra
-	@$(call add,THE_LISTS,workstation/vlc)
-endif
-
 ifeq (,$(filter-out armh,$(ARCH)))
 vm/alt-workstation-mcom02: vm/.alt-workstation use/armh-mcom02/x11
 	@$(call add,THE_LISTS,workstation/celluloid)
