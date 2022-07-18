@@ -152,14 +152,16 @@ distro/live-privacy: distro/.base +efi +systemd +vmguest \
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_LISTS,$(call tags,archive extra))
-	@$(call add,LIVE_PACKAGES,chromium gedit mc-full pinta xchm livecd-ru)
-	@$(call add,LIVE_PACKAGES,LibreOffice-langpack-ru java-1.8.0-openjdk)
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+	@$(call add,LIVE_PACKAGES,chromium)
+endif
+	@$(call add,LIVE_PACKAGES,gedit mc-full pinta xchm)
+	@$(call add,LIVE_PACKAGES,LibreOffice-langpack-ru java-11-openjdk)
 	@$(call add,LIVE_PACKAGES,mate-document-viewer-caja)
 	@$(call add,LIVE_PACKAGES,mate-document-viewer-djvu)
 	@$(call add,LIVE_PACKAGES,cups system-config-printer livecd-admin-cups)
 	@$(call add,LIVE_KMODULES,staging)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
-	@$(call add,EFI_BOOTARGS,live_rw)
 
 distro/live-privacy-dev: distro/live-privacy use/live/rw use/live/repo \
 	use/dev/repo use/dev/mkimage use/dev use/control/sudo-su
