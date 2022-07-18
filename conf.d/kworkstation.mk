@@ -42,6 +42,7 @@ endif
 	@$(call add,BASE_PACKAGES,plymouth-plugin-label)
 	@$(call add,THE_PACKAGES,pam-limits-desktop)
 	@$(call add,THE_PACKAGES,systemd-presets-kdesktop)
+	@$(call add,THE_PACKAGES,systemd-oomd-defaults)
 	@$(call add,THE_PACKAGES,etcnet-defaults-desktop)
 	@$(call add,THE_PACKAGES,btrfs-progs)
 	@$(call set,INSTALL2_FONTS,fonts-ttf-google-croscore-arimo)
