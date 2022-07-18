@@ -139,6 +139,8 @@ mixin/kworkstation-install-opts:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,shared-mime-info glib-networking libgtk+3-schemas gtk-update-icon-cache libgtk+3)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,libat-spi2-core at-spi2-core at-spi2-atk)
 	@$(call add,MAIN_GROUPS,$(kworkstation_groups))
+	@$(call add,THE_PROFILES,kworkstation/10-workstation)
+	@$(call add,THE_PROFILES,kworkstation/20-webterminal)
 	@$(call add,BASE_PACKAGES,alterator-postinstall)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm mdadm)
 	@$(call add,BASE_PACKAGES,apt-scripts-nvidia)
@@ -192,7 +194,7 @@ distro/kworkstation-install: \
 	printing scanning \
 	video-editing sound-editing graphics-editing \
 	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor \
-	z02-add-additional add-oem add-tablet)
+	z02-add-additional add-oem add-tablet add-webterminal)
 
 distro/kworkstation-install: \
 	mixin/kworkstation-install-deps \
