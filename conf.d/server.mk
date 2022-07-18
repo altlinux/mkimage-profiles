@@ -20,9 +20,11 @@ distro/server-mini-systemd-networkd: distro/.server-base \
 	use/server/mini use/efi use/firmware
 	@$(call set,INSTALLER,altlinux-server)
 
+ifneq (,$(filter-out x86_64 aarch64,$(ARCH)))
 distro/server-ovz: distro/server-mini use/server/ovz use/server/groups/base \
 	use/install2/net use/hdt use/rescue \
 	use/firmware/server use/firmware/cpu +wireless; @:
+endif
 
 distro/server-zabbix: distro/server-mini use/server/zabbix; @:
 

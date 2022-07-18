@@ -245,14 +245,17 @@ distro/.regular-server-full: distro/.regular-server-managed \
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd +systemd-optimal; @:
 
+
 distro/regular-server-sysv: distro/.regular-server-full +sysvinit +power; @:
 
+ifeq (,$(filter-out x86_64,$(ARCH)))
 distro/.regular-server-ovz: distro/.regular-server \
 	use/server/ovz use/server/groups/tools use/cleanup/x11-alterator
 	@$(call add,MAIN_GROUPS,tools/vzstats)
 
 distro/regular-server-ovz: distro/.regular-server-ovz +systemd; @:
 distro/regular-server-ovz-sysv: distro/.regular-server-ovz +sysvinit; @:
+endif
 
 distro/regular-server-hyperv: distro/.regular-server-managed \
 	use/kernel/latest +systemd

@@ -14,6 +14,7 @@ use/server/mini: use/server/base use/services/lvm2-disable
 	@$(call add,MAIN_LISTS,osec)
 	@$(call add,DEFAULT_SERVICES_DISABLE,messagebus)
 
+ifeq (,$(filter-out x86_64,$(ARCH)))
 use/server/ovz-base: use/server
 	@$(call set,STAGE1_KFLAVOURS,std-def)
 	@$(call set,KFLAVOURS,std-def ovz-el)
@@ -26,6 +27,7 @@ use/server/ovz: use/server/ovz-base
 	@$(call add,MAIN_KMODULES,drbd9 kvm)
 	@$(call add,MAIN_KMODULES,staging)
 	@$(call add,BASE_LISTS,$(call tags,server openvz))
+endif
 
 use/server/virt: use/server use/kernel
 	@$(call add,BASE_PACKAGES,openssh)
