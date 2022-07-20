@@ -155,7 +155,7 @@ distro/live-privacy: distro/.base +efi +systemd +vmguest \
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,chromium)
 endif
-	@$(call add,LIVE_PACKAGES,gedit mc-full pinta xchm)
+	@$(call add,LIVE_PACKAGES,gedit mc-full easypaint xchm)
 	@$(call add,LIVE_PACKAGES,LibreOffice-langpack-ru java-11-openjdk)
 	@$(call add,LIVE_PACKAGES,mate-document-viewer-caja)
 	@$(call add,LIVE_PACKAGES,mate-document-viewer-djvu)
