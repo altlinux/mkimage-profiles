@@ -1,16 +1,12 @@
 firefox-esr
 firefox-esr-ru
 wine@X86
-wine-gl@X86
-wine-twain@X86
 
 wine-mono@X86
 wine-gecko@X86
 
 i586-wine@x86_64
-i586-wine-gl@x86_64
 i586-xorg-dri-*@x86_64
-i586-wine-twain@x86_64
 i586-libnss-mdns@x86_64
 i586-libnss-myhostname@x86_64
 
