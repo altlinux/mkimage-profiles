@@ -3,13 +3,9 @@ task-edu@META
 # WINE
 glibc-gconv-modules@X86
 wine-programs@X86
-wine-gl@X86
-wine-twain@X86
 wine@X86
-i586-wine-gl@x86_64
-i586-wine-twain@x86_64
 i586-wine@x86_64
-libnss-fallback
+libnss-fallback@X86
 wine-gecko@X86
 wine-mono@X86
 winetricks@X86
