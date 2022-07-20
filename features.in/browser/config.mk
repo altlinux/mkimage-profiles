@@ -28,6 +28,10 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 use/browser/falkon: use/browser/firefox use/browser/firefox/esr; @:
 endif
 
+ifneq (,$(filter-out i586 x86_64,$(ARCH)))
+use/browser/seamonkey: use/browser/firefox use/browser/firefox/esr; @:
+endif
+
 ifeq (,$(filter-out riscv64,$(ARCH)))
 use/browser/firefox: use/browser/midori
 else
