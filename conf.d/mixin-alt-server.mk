@@ -1,6 +1,16 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
-	00-system 10-alterator 20-server-apps 50-freeipa 70-dev 901-net-if-mgt sambaDC buildsystem dhcp-server-a diag-tools \
-	dns-server-a ftp-server-a mail-server-a mediawiki owncloud domain-server freeipa-client nm-daemon systemd-networkd openuds openuds-tunnel admc)
+	00-system 10-alterator 20-server-apps 50-freeipa 70-dev 901-net-if-mgt \
+	sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a \
+	mail-server-a mediawiki owncloud domain-server freeipa-client nm-daemon \
+	systemd-networkd openuds openuds-tunnel admc)
+
+mixin/alt-server: server_main_kmodules = bcmwl ch34x dm-secdel drbd9 drm-ancient \
+	drm-nouveau drm e1000e hifc hinic i40e ide ipset ipt_netflow ipt-ratelimit \
+	ipt-so ixgbe kvdo LiME linux-gpib lsadrv ndpi nvidia nxp-pn71xx-getmobit \
+	promethean r8125 r8168 rtl8168 rtl8188fu rtl8192eu rtl8192fu rtl8723bu \
+	rtl8812au rtl8821ce rtl8821cu rtl88x2bu rtw89 staging tripso usb-vhci \
+	v4l2loopback vboxsf vhba virtualbox-addition-guest virtualbox-addition \
+	virtualbox-addition-video virtualbox xtables-addons zfs
 
 mixin/alt-server: +installer +systemd \
 	use/branding/notes \
@@ -22,12 +32,12 @@ endif
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def)
-	@$(call add,MAIN_LISTS,centaurus/list-kernel-modules-std-def)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,BASE_KMODULES,drm)
 	@$(call add,MAIN_GROUPS,centaurus/proxmox-backup-server)
 	@$(call add,MAIN_GROUPS,centaurus/lsb-core)
 endif
+	@$(call add,MAIN_KMODULES,$(server_main_kmodules))
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
 	@$(call add,LIVE_LISTS,centaurus/live)
