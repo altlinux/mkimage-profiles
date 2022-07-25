@@ -141,7 +141,6 @@ mixin/kworkstation-install-opts:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,libat-spi2-core at-spi2-core at-spi2-atk)
 	@$(call add,MAIN_GROUPS,$(kworkstation_groups))
 	@$(call add,THE_PROFILES,kworkstation/10-workstation)
-	@$(call add,THE_PROFILES,kworkstation/20-webterminal)
 	@$(call add,BASE_PACKAGES,alterator-postinstall)
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm mdadm)
 	@$(call add,BASE_PACKAGES,apt-scripts-nvidia)
