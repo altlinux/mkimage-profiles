@@ -13,10 +13,16 @@ vm/regular-systemd: vm/systemd-net use/vmguest/kvm use/tty/S0 \
 
 mixin/vm-archdep:: use/auto-resize; @:
 
-ifeq (,$(filter-out i586 x86_64 armh aarch64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 mixin/vm-archdep::
 	@$(call set,KFLAVOURS,std-def un-def)
 endif
+
+ifeq (,$(filter-out armh,$(ARCH)))
+mixin/vm-archdep::
+	@$(call set,KFLAVOURS,mp)
+endif
+
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
