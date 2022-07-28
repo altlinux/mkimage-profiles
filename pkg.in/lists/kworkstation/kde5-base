@@ -110,6 +110,7 @@ usbutils
 #userpasswd
 vdpauinfo
 vim-console
+vkd3d-utils
 vulkan-tools
 wget
 xauthority-hostname-updater
