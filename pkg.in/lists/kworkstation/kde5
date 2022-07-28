@@ -15,6 +15,7 @@ quick-usb-formatter
 altmediawriter
 #
 gparted
+timeshift
 #
 accountsservice
 kde5-ksystemlog
