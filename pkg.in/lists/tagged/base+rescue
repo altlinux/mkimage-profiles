@@ -54,6 +54,7 @@ curl
 davfs2
 rsync
 nfs-utils
+ntpdate
 wget
 
 # Serial console
