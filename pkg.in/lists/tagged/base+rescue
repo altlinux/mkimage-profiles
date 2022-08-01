@@ -16,8 +16,45 @@ eject
 apt-repo
 aptitude
 
+# Disk utils
+gpart
+hdparm
+lsblk
+lsmount
+lvm2
+mdadm-tool
+smartmontools
+testdisk
+
 # Partition management
+cfdisk
+cgdisk
 fdisk
+fixparts
+gdisk
+sfdisk
+parted
+
+# Filesystem maintenance
+btrfs-progs
+dosfstools
+e2fsprogs
+exfatprogs
+f2fs-tools
+jfsprogs
+mtools
+ntfs-3g
+reiser4progs
+reiserfsprogs
+xfsprogs
+
+# Applications/Networking
+cifs-utils
+curl
+davfs2
+rsync
+nfs-utils
+wget
 
 # Serial console
 agetty
@@ -27,6 +64,8 @@ gpm
 
 # File management
 mc
+vim-console
+nano
 
 # Provisioning
 partclone
