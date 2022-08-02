@@ -48,8 +48,6 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_PACKAGES,alterator-secsetup)
 	@$(call add,MAIN_GROUPS,workstation/alterator-web)
 	@$(call add,SERVICES_ENABLE,ahttpd)	# in case it gets installed
-	@$(call add,MAIN_GROUPS,$(mediaplayer))
-	@$(call add,LIVE_LISTS,$(mediaplayer))
 ifeq (,$(filter-out e2k,$(ARCH)))
 	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 401-PC)
 endif	# e2k
@@ -60,6 +58,8 @@ ifeq (,$(filter-out e2kv5,$(ARCH)))
 	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 901-PC)
 endif	# e2kv5
 endif	# e2k%
+	@$(call add,MAIN_GROUPS,$(mediaplayer))
+	@$(call add,LIVE_LISTS,$(mediaplayer))
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 
 endif	# distro
