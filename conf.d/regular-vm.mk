@@ -20,7 +20,7 @@ endif
 
 ifeq (,$(filter-out armh,$(ARCH)))
 mixin/vm-archdep::
-	@$(call set,KFLAVOURS,mp)
+	@$(call set,KFLAVOURS,un-def mp)
 endif
 
 
