@@ -53,7 +53,7 @@ endif
 mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
 	use/net/etcnet use/net/dhcp
 	@$(call add,THE_PACKAGES,livecd-net-eth)
-	@$(call add,THE_LISTS, $(call tags,base network))
+	@$(call add,THE_LISTS, $(call tags,base && (network || regular)))
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 livecd-net-eth)
 
 mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
