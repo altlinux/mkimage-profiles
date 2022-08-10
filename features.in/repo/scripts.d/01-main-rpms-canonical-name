@@ -1,0 +1,16 @@
+#!/bin/sh -eu
+
+PREFIX=ALTLinux
+cd "$WORKDIR/$PREFIX"
+
+COMPS="$(find -mindepth 1 -maxdepth 1 -type d -name 'RPMS.*' -printf '%f\n' |
+        sed 's/^RPMS\.//')"
+
+[ -z "$GLOBAL_VERBOSE" ] || echo "** COMPS=$COMPS" >&2
+[ -n "$COMPS" ] || exit 1
+
+for comp in $COMPS; do
+        for f in RPMS.$comp/*rpm; do
+                [ "$f" = "RPMS.$comp/$(rpm -qp $f).rpm" ] || mv $f RPMS.$comp/$(rpm -qp $f).rpm
+        done
+done
