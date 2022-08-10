@@ -1,0 +1,6 @@
+#!/bin/sh -efu
+# save rpm and srpm lists
+
+cd /tmp
+rpm -qa --qf '%{name}-%{version}-%{release}.%{arch}.rpm\n' | sort -u > rpm.txt
+rpm -qa --qf '%{sourcerpm}\n' | sort -u > srpm.txt

@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+[ -d /.image/ALTLinux ] || exit 0
+
+mkdir -p /.image/.disk/pkglists/main/
+cd /.image/.disk/pkglists/main/
+find /.image/ALTLinux/RPMS.*/ -type f -name '*.rpm' | sed 's|.*/||' |
+	sort -u > rpm.txt
+find /.image/ALTLinux/RPMS.*/ -type f -name '*.rpm' |
+	xargs -r rpm -qp --queryformat '%{sourcerpm}\n' | sort -u > srpm.txt

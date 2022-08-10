@@ -1,0 +1,12 @@
+#!/bin/sh -efu
+# save rpm and srpm lists
+
+cd /.our
+mkdir -p .disk/pkglists/live/{work,image}
+cd .disk/pkglists/live/
+
+rpm -qa --qf '%{name}-%{version}-%{release}.%{arch}.rpm\n' | sort -u > work/rpm.txt
+rpm -qa --qf '%{sourcerpm}\n' | sort -u > work/srpm.txt
+
+cp /.image/tmp/rpm.txt image/
+cp /.image/tmp/srpm.txt image/
