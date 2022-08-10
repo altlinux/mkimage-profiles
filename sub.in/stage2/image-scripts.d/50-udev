@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# for udev
-ln -sf /proc/mounts /etc/mtab
-
-# pam_console_apply is harmful during install
-find /etc/udev/rules.d/ -type f -print0 |
-	xargs -r0 grep -F -Zl pam_console_apply -- |
-	xargs -r0 rm -fv --
