@@ -2,4 +2,4 @@
 # if we're configured for running live hooks,
 # there should be a place for them either
 
-chkconfig livecd-run-hooks on >&/dev/null && mkdir /live.hooks ||:
+chkconfig livecd-run-hooks on >&/dev/null ||:
