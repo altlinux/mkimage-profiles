@@ -1,6 +1,11 @@
 #!/bin/sh
 # FIXME: there should be less brutal i18n tuning
 
+# don't cripple the image to be copied over
+[ -n "$GLOBAL_LIVE_INSTALL"] || \
+	[ -x /usr/sbin/live-install ] || \
+	[ -x /usr/sbin/livecd-install ] && exit 0
+
 cd /usr/share/locale
 rm -r *@*
 for i in */; do

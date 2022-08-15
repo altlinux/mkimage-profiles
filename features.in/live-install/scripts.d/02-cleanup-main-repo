@@ -1,0 +1,9 @@
+#!/bin/sh -efu
+
+PREFIX=ALTLinux
+RPM_LIVE_LIST="$WORKDIR/.disk/pkglists/live/image/rpm.txt"
+[ -d "$WORKDIR/$PREFIX/RPMS.main" ] || exit 0
+[ -f "$RPM_LIVE_LIST" ] || exit 1
+
+cd "$WORKDIR/$PREFIX/RPMS.main"
+cat "$RPM_LIVE_LIST" | grep -v kernel-image | grep -v kernel-modules | xargs rm -fv

@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # don't cripple the image to be copied over
-[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install ] && exit 0
+[ -x /usr/sbin/live-install -o -x /usr/sbin/livecd-install -o -n "$GLOBAL_LIVE_INSTALL" ] &&
+	exit 0
 
 # remove unused fonts
 cd /usr/share/fonts/bitmap/misc/ &&

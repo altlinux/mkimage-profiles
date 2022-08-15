@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo -n "*** vm-profile.scm provided by: "
+rpm -qf /var/cache/alterator/vm-profile.scm ||:

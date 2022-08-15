@@ -1,5 +1,10 @@
 #!/bin/sh -e
 
+# don't cripple the image to be copied over
+[ -n "$GLOBAL_LIVE_INSTALL"] || \
+	[ -x /usr/sbin/live-install ] || \
+	[ -x /usr/sbin/livecd-install ] && exit 0
+
 if [ -n "$GLOBAL_LIVE_CLEANUP_KDRIVERS" ]; then
 	for i in $GLOBAL_LIVE_CLEANUP_KDRIVERS; do
 		rm -rf /lib/modules/*/"$i"
