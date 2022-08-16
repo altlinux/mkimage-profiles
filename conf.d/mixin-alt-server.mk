@@ -10,7 +10,7 @@ mixin/alt-server: server_main_kmodules = bcmwl ch34x dm-secdel drbd9 drm-ancient
 	promethean r8125 r8168 rtl8168 rtl8188fu rtl8192eu rtl8192fu rtl8723bu \
 	rtl8812au rtl8821ce rtl8821cu rtl88x2bu rtw89 staging tripso usb-vhci \
 	v4l2loopback vboxsf vhba virtualbox-addition-guest virtualbox-addition \
-	virtualbox-addition-video virtualbox xtables-addons zfs
+	virtualbox-addition-video virtualbox xtables-addons
 
 mixin/alt-server: +installer +systemd \
 	use/branding/notes \
