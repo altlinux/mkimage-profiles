@@ -87,10 +87,11 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	@$(call add,THE_LISTS,openssh)
 
 # ...and for somewhat bare distros
-distro/.regular-jeos: distro/.regular-jeos-base use/stage2/kms \
+distro/.regular-jeos: distro/.regular-jeos-base \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/syslinux/lateboot.cfg use/cleanup/jeos
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
+	@$(call add,STAGE2_BOOTARGS,nomodeset)
 
 distro/.regular-jeos-full: distro/.regular-jeos use/install2/vmguest \
 	use/volumes/jeos use/ntp/chrony use/bootloader/grub \
@@ -105,7 +106,6 @@ else
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
-	@$(call add,BASE_KMODULES,drm)
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
