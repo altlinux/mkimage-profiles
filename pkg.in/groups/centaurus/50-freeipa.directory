@@ -3,7 +3,6 @@ Encoding=UTF-8
 Type=Directory
 Name=FreeIPA domain
 X-Alterator-PackageList=centaurus/zero
-X-Alterator-Conflicts=sambaDC
 X-Alterator-Required=no
 Name[ru_RU]=Домен FreeIPA
 Categories=Networking
