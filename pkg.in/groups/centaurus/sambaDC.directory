@@ -5,6 +5,7 @@ Name=SambaDC Server (AD controller)
 X-Alterator-PackageList=centaurus/sambaDC
 X-Alterator-Required=no
 X-Alterator-Parent=centaurus/20-server-apps
+X-Alterator-Conflicts=centaurus/freeipa-server
 Name[ru_RU]=Сервер SambaDC (контроллер AD)
 Categories=Server;Networking
 
