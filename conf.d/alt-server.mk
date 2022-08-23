@@ -12,7 +12,7 @@ endif
 
 ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 e2k%,$(ARCH)))
 distro/alt-server: server_groups_desktop = $(addprefix centaurus/,\
-        80-desktop emulators freenx-server mate office pidgin vlc xorg)
+        80-desktop emulators freenx-server mate office pidgin vlc xorg scanning)
 endif
 
 distro/alt-server: monitoring = $(addprefix server-v/,\
