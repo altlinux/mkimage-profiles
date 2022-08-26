@@ -17,14 +17,22 @@ apt-repo
 aptitude
 
 # Disk utils
+dc3dd
+dcfldd
+ddrescue
 gpart
 hdparm
 lsblk
 lsmount
 lvm2
 mdadm-tool
+photorec
+scalpel
+sleuthkit
 smartmontools
 testdisk
+wipefreespace
+whdd
 
 # Partition management
 cfdisk
