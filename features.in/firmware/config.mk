@@ -20,6 +20,9 @@ endif
 
 use/firmware/server: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
+ifneq (,$(filter-out riscv64 mipsel,$(ARCH)))
+	@$(call add,SYSTEM_PACKAGES,firmware-ast_dp501)
+endif
 	@$(call add,THE_PACKAGES_REGEXP,firmware-ql.*)
 
 use/firmware/qlogic: use/firmware
