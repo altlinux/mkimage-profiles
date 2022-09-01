@@ -6,8 +6,6 @@ cifs-utils
 pam_ccreds
 libsss_nss_idmap
 
-virtualbox-guest-additions@X86
-
 samba-client
 nfs-clients
 autofs

@@ -12,7 +12,7 @@ endif
 
 ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 e2k%,$(ARCH)))
 distro/alt-server: server_groups_desktop = $(addprefix centaurus/,\
-        80-desktop emulators freenx-server mate office pidgin vlc xorg scanning)
+        80-desktop emulators freenx-server mate office pidgin vlc xorg scanning vbox-host vbox-guest)
 endif
 
 distro/alt-server: monitoring = $(addprefix server-v/,\
@@ -44,7 +44,6 @@ endif
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_BRANDING,notes)
-	@$(call add,BASE_KMODULES,virtualbox)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 	@$(call add,STAGE2_BOOTARGS,lang=ru_RU)
