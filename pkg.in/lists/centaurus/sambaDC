@@ -1,6 +1,4 @@
-samba-dc
-ldb-tools
-krb5-kinit
+task-samba-dc@META
 bind-utils
 ldap-user-tools
 task-auth-ad-sssd
