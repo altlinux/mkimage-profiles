@@ -290,6 +290,7 @@ vixie-cron
 screenfetch
 debhelper
 xdg-user-dirs-gtk
+libgtk2-engine-adwaita
 pv
 
 # New stuff
