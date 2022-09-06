@@ -6,6 +6,9 @@ pinentry-gnome3
 gcr
 pinentry-qt5-
 
+# It is back!
+mate-default
+# FIXME: drop this list, mate-default should be enough
 # mate-default:
 zenity
 mate-polkit
