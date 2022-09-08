@@ -166,7 +166,7 @@ system-config-printer
 system-config-printer-udev
 installer-feature-xdg-user-dirs
 xdg-user-dirs-gtk
-pulseaudio-daemon
+pulseaudio@META
 alsa-plugins-pulse
 rpminstall
 apt-repo
