@@ -99,6 +99,11 @@ else
 use/live/suspend: use/live; @:
 endif
 
+# for kiosks
+use/live/runapp: use/live;
+	@$(call add,LIVE_PACKAGES,livecd-runapp)
+	@$(call xport,LIVE_RUNAPP_BINARY)
+
 # deny network/local drive access for security reasons
 use/live/privacy: use/services use/memclean use/deflogin \
 	use/stage2/ata use/stage2/drm use/stage2/hid \

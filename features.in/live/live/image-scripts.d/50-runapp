@@ -1,0 +1,19 @@
+#!/bin/sh -efux
+# see also live-0ad
+
+rpm -q livecd-runapp || exit 0
+[ -n "${GLOBAL_LIVE_RUNAPP_BINARY:-}" ] || exit 0
+
+CONFIG=/etc/sysconfig/livecd-runapp
+
+if [ -s "$CONFIG" ]; then
+	echo "$CONFIG exists, not overriding (from $(rpm -qf "$CONFIG"))"
+	exit 0
+fi
+
+mkdir -p "$(dirname "$CONFIG")"
+cat >> "$CONFIG" << _EOF_
+# mkimage-profiles live 50-runapp hook
+BINARY=$GLOBAL_LIVE_RUNAPP_BINARY
+_EOF_
+:
