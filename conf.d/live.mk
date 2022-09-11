@@ -52,7 +52,7 @@ distro/.live-desktop: distro/.live-x11 +live use/live/install use/stage2/net-eth
 	use/plymouth/live; @:
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
-distro/.live-kiosk: distro/.live-base use/live/autologin \
+distro/.live-kiosk: distro/.live-base use/live/autologin use/live/runapp \
 	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
 	use/fonts/otf/adobe
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
@@ -141,6 +141,11 @@ distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,darktable geeqie rawstudio ufraw)
 	@$(call add,LIVE_PACKAGES,macrofusion)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync usbutils)
+
+distro/live-blender: distro/.live-games
+	@$(call add,LIVE_PACKAGES,blender)
+	@$(call set,LIVE_RUNAPP_BINARY,blender)
+	@$(call try,HOMEPAGE,http://blender.com/)
 
 # NB: use/browser won't do as it provides a *single* browser ATM
 distro/live-privacy: distro/.base +efi +systemd +vmguest \
