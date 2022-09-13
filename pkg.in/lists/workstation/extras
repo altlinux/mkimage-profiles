@@ -30,3 +30,5 @@ openssh-askpass-common-gostcrypto
 openssh-clients-gostcrypto
 openssh-server-control-gostcrypto
 openssh-server-gostcrypto
+
+eepm-yum
