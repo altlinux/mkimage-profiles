@@ -159,7 +159,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,SERVICES_ENABLE,sshd)
 
 mixin/kworkstation-live-deps: \
-	distro/.base use/rescue/base \
+	distro/.base use/rescue \
 	use/x11/xorg use/x11-autostart \
 	use/live/no-cleanup \
 	use/grub/live_rw.cfg \
