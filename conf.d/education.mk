@@ -38,6 +38,7 @@ ifeq (distro,$(IMAGE_CLASS))
 mixin/education-live: \
 	use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
+	use/rescue/base use/memtest \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_PACKAGES,mc-full)
@@ -80,7 +81,7 @@ mixin/education-base: \
 mixin/education-installer: \
 	+installer \
 	use/install2/repo \
-	use/memtest \
+	use/rescue/base use/memtest \
 	use/branding/complete \
 	use/install2/vnc use/install2/full \
 	use/install2/fat \
