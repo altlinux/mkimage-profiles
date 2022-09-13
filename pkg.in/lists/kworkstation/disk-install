@@ -36,7 +36,6 @@ libjcpkcs11
 libp11
 libp11-kit
 # misc preinstalls
-yandex-browser-preinstall
 kesl10-preinstall
 # FSIN
 openssh-gostcrypto
