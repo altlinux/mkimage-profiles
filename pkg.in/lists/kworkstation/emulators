@@ -5,9 +5,7 @@ xorg-dri-*@IA32
 wine-mono@X86
 wine-gecko@X86
 winetricks@X86
-wine@X86
-i586-wine@x86_64
-wine-cpcsp_proxy@X86
-i586-wine-cpcsp_proxy@x86_64
+wine@IA32
+wine-cpcsp_proxy@IA32
 
 virtualbox@x86_64
