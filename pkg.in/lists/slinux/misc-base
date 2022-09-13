@@ -86,6 +86,9 @@ blueberry
 udev-rules-rfkill-uaccess
 update-kernel
 printer-drivers-base
+printer-driver-brlaser
+printer-driver-oki
+
 hostname-hook-hosts
 libnss-mdns
 i586-glibc-nss@x86_64
