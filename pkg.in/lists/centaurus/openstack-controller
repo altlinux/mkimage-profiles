@@ -34,4 +34,5 @@ mongo
 mongo-server-mongod
 python-module-troveclient
 mariadb-server
+mariadb@META
 rabbitmq-server

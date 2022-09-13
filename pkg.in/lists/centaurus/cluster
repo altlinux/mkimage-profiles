@@ -36,6 +36,7 @@ xCAT-nbroot-core-x86_64
 atftp
 #xCATsn
 mariadb-server
+mariadb@META
 
 # ldap support
 nss-ldapd

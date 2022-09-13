@@ -70,6 +70,7 @@ postgresql-jdbc
 #postgresql10-1C-server
 
 mariadb-server
+mariadb@META
 
 php7-soap
 php7-calendar
