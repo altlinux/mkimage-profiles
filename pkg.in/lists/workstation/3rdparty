@@ -1,7 +1,12 @@
 1c-preinstall@X86
+postgresql14-1C
+postgresql14-1C-server
+postgresql14-1C-contrib
+
 cryptopro-preinstall-full@X86
 cryptopro-preinstall@X86
 alt-csp-cryptopro
+
 google-chrome-preinstall@X86
 vmware-view-preinstall@X86
 skype-preinstall@x86_64
