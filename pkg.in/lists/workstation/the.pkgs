@@ -19,6 +19,7 @@ alterator-updates
 alterator-net-iptables
 alterator-update-kernel
 alterator-zram-swap
+alterator-limits
 
 grub-customizer@X86
 
