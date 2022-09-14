@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Mediawiki (1st system boot can take a long time)
-X-Alterator-PackageList=centaurus/mediawiki
-X-Alterator-Required=no
-X-Alterator-Parent=centaurus/20-server-apps
-Name[ru_RU]=Сервер mediawiki (1-я загрузка системы может стать долгой)
-Categories=Server;Networking
