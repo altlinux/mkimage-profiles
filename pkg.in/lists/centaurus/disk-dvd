@@ -72,8 +72,8 @@ postgresql-jdbc
 mariadb-server
 mariadb@META
 
-php7-soap
-php7-calendar
+php8.0-soap
+php8.0-calendar
 
 xprobe2
 
