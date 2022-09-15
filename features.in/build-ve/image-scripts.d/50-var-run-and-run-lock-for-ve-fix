@@ -1,0 +1,6 @@
+#!/bin/sh
+
+[ ! -L /var/run ] && rm -rf /var/run && mkdir -p /run && ln -s ../run /var/run
+[ ! -L /var/lock ] && rm -rf /var/lock && mkdir -p /run/lock && ln -s ../run/lock /var/lock
+
+:
