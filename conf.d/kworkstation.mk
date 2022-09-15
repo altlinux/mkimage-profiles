@@ -194,7 +194,7 @@ distro/kworkstation-install: \
 	kde5 \
 	games \
 	emulators remote-desktop \
-	printing scanning \
+	printing publishing scanning \
 	video-editing sound-editing graphics-editing \
 	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor \
 	z02-add-additional add-oem add-tablet add-webterminal)
