@@ -37,6 +37,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,centaurus/proxmox-backup-server)
 	@$(call add,MAIN_GROUPS,centaurus/lsb-core)
 	@$(call add,MAIN_GROUPS,centaurus/token)
+	@$(call add,MAIN_PACKAGES,mate-reduced-resource)
 endif
 	@$(call add,MAIN_KMODULES,$(server_main_kmodules))
 	@$(call add,BASE_LISTS,centaurus/base)
