@@ -68,6 +68,7 @@ vlock
 telnet
 kde5-display-manager-lightdm
 glibc
+alterator-dhcp
 alterator-mirror
 alterator-netinst
 alterator-updates
