@@ -68,6 +68,8 @@ vlock
 telnet
 kde5-display-manager-lightdm
 glibc
+alterator-mirror
+alterator-netinst
 alterator-updates
 alien
 virt-viewer
