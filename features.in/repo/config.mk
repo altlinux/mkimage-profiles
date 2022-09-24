@@ -5,7 +5,8 @@ use/repo:
 	@$(call xport,REPO_MAIN)
 	@$(call xport,REPO)
 
-use/repo/main:: sub/main use/repo; @:
+use/repo/main:: sub/main use/repo
+	@$(call add,LIVE_PACKAGES,livecd-main-repo)
 
 ifeq (vm,$(IMAGE_CLASS))
 use/repo/main::
