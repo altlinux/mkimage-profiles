@@ -155,6 +155,8 @@ ifeq (vm,$(IMAGE_CLASS))
 
 vm/.alt-education: vm/systemd use/repo use/oem/distro mixin/education
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
+	@$(call add,THE_PACKAGES,task-edu-lite)
+	@$(call add,PINNED_PACKAGES,task-edu-lite:Extra)
 
 vm/alt-education:: vm/.alt-education +vmguest; @:
 
@@ -168,8 +170,7 @@ vm/alt-education:: use/no-sleep use/arm-rpi4; @:
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full
-	@$(call add,THE_PACKAGES,task-edu-lite)
+vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full; @:
 endif
 
 endif
