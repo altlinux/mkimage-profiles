@@ -26,7 +26,7 @@ switch() {
 	[ "$sname" = "$1" ] || shell_config_del "$STATUS" "$sname"
 
 	case "$2" in
-	on|off)
+	on|off|enabled|disabled)
 		shell_config_set "$STATUS" "$1" "$2";;
 	esac
 }
@@ -76,6 +76,29 @@ if [ -s "$CONFDIR"/services-off ]; then
 		cp -a "$CONFDIR"/{services-off,systemd-disabled}
 	fi
 fi
+
+rm "$STATUS"
+
+# Enable|Disable logind services
+STATUS=`mktemp`
+CHECK_FILES=
+
+for f in systemd-user-enabled systemd-user-disabled; do
+	[ -s "$CONFDIR/$f" ] || continue
+	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
+done
+
+for i in $GLOBAL_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i enabled;  done
+for i in $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE; do switch $i disabled; done
+
+SERVICES="$GLOBAL_SYSTEMD_USER_SERVICES_ENABLE $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE"
+SERVICES="$(echo "$SERVICES" | tr ' ' '\n' | sort -u)"
+
+for i in $SERVICES; do
+	onoff="$(shell_config_get "$STATUS" "$i")"
+	[ -n "$onoff" ] || continue
+	echo "$i" >> "$CONFDIR"/systemd-user-"$onoff"
+done
 
 rm "$STATUS"
 

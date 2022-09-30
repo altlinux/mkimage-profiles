@@ -4,6 +4,7 @@
 
 CHKCONFIG=
 SYSTEMCTL=
+SYSTEMD_USER=
 
 [ ! -x /sbin/chkconfig ] || CHKCONFIG=1
 [ ! -x /bin/systemctl  ] || SYSTEMCTL=1
@@ -19,7 +20,7 @@ switch() {
 	esac
 
 	{
-		[ -z "$SYSTEMCTL" ] || /bin/systemctl --no-reload $sc $1
+		[ -z "$SYSTEMCTL" ] || /bin/systemctl --no-reload $SYSTEMD_USER $sc $1
 		[ -z "$CHKCONFIG" ] || /sbin/chkconfig $1 $cc
 	} # 2>/dev/null
 }
@@ -36,5 +37,10 @@ for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
 CHKCONFIG=
 for i in $GLOBAL_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
+
+# systemd-logind services
+SYSTEMD_USER='--user --global'
+for i in $GLOBAL_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE; do switch $i off; done
 
 :

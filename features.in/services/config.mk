@@ -6,6 +6,9 @@ use/services: sub/rootfs
 	@$(call xport,SERVICES_DISABLE)
 	@$(call xport,SYSTEMD_SERVICES_ENABLE)
 	@$(call xport,SYSTEMD_SERVICES_DISABLE)
+	@$(call xport,SYSTEMD_USER_SERVICES_ENABLE)
+	@$(call xport,SYSTEMD_USER_SERVICES_DISABLE)
+
 
 use/services/lvm2-disable: use/services
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
