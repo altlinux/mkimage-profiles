@@ -177,6 +177,9 @@ distro/regular-xfce-install: distro/.regular-install-x11-systemd \
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
+distro/regular-gnome3-install: distro/.regular-install-x11-systemd mixin/regular-gnome3 \
+	use/kernel/latest +plymouth; @:
+
 distro/regular-xfce-sysv-install: distro/.regular-install-x11-full \
 	mixin/regular-xfce-sysv use/init/sysv/polkit use/x11/gdm2.20; @:
 
