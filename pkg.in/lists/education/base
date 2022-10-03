@@ -1,4 +1,5 @@
 task-edu@META
+task-edu-lite@META
 
 # WINE
 glibc-gconv-modules@X86
