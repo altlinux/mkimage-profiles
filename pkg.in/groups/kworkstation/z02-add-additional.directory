@@ -4,7 +4,7 @@ X-Alterator-Required=no
 X-Alterator-PackageList=kworkstation/add-base
 Categories=KDE;
 
-Name=Additional
-Name[ru_RU]=Дополнительно
-Comment=Additional options.
-Comment[ru_RU]=Дополнительные опции.
+Name=Additional (attention)
+Name[ru_RU]=Дополнительно (внимание)
+Comment=Additional options for special use.
+Comment[ru_RU]=Дополнительные опции для специального использования.
