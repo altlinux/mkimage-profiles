@@ -67,7 +67,7 @@ lsb@X86
 python3-module-Crypto
 
 postgresql-jdbc
-#postgresql10-1C-server
+postgresql14-1C-server
 
 mariadb-server
 mariadb@META
