@@ -39,3 +39,4 @@ postgresql12-contrib
 
 systemd-settings-enable-kill-user-processes
 state-change-notify-postfix
+vlock
