@@ -36,3 +36,5 @@ eepm-yum
 postgresql12
 postgresql12-server
 postgresql12-contrib
+
+systemd-settings-enable-kill-user-processes
