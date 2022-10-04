@@ -6,4 +6,5 @@ admx-basealt
 samba-dc-common
 admx-firefox
 admx-chromium
+admx-msi-setup
 gpui
