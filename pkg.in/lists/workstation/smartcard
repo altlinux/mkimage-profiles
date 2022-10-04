@@ -10,7 +10,10 @@ pcsc-lite-asedriveiiie-usb
 pcsc-lite-ccid
 
 pam_pkcs11
+libjcpkcs11
+isbc-pkcs11
 
 openssl
 openssl-engines
 libp11
+
