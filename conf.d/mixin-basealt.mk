@@ -44,7 +44,7 @@ endif
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
 	@$(call add,LIVE_LISTS,workstation/live.pkgs)
-	@$(call add,LIVE_LISTS,$(call tags,desktop sane))
+	@$(call add,LIVE_LISTS,workstation/scanning)
 ifneq (,$(filter-out armh,$(ARCH)))
 	@$(call add,LIVE_LISTS,workstation/libreoffice)
 endif
