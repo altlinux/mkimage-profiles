@@ -1,2 +1,3 @@
 freeipa-client
 task-auth-freeipa
+krb5-ticket-watcher

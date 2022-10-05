@@ -8,3 +8,4 @@ admx-firefox
 admx-chromium
 admx-msi-setup
 gpui
+krb5-ticket-watcher
