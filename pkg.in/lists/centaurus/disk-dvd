@@ -68,6 +68,7 @@ python3-module-Crypto
 
 postgresql-jdbc
 postgresql14-1C-server
+postgresql14-1C-contrib
 
 mariadb-server
 mariadb@META
