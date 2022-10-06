@@ -66,6 +66,8 @@ mate-file-manager-extensions
 mate-file-manager-wallpaper
 mate-backgrounds
 
+pam_gnome-keyring
+
 vino-mate@X86
 
 # for mate-screensaver
