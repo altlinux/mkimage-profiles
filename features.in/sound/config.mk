@@ -18,4 +18,4 @@ use/sound/pulse: use/sound
 
 use/sound/pipewire: use/sound
 	@$(call set,THE_SOUND,sound/pipewire)
-	@$(call add,SYSTEMD_USER_SERVICES_ENABLE,pipewire pipewire-pulse pipewire-media-session)
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,pipewire pipewire-pulse pipewire-media-session)
