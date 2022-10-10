@@ -44,12 +44,17 @@ for i in $GLOBAL_DEFAULT_SERVICES_DISABLE; do switch $i off; done
 for i in $GLOBAL_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
 
-# systemd services
+# defaults systemd services
+for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour systemd services
 for i in $GLOBAL_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
 
 SERVICES="$GLOBAL_DEFAULT_SERVICES_ENABLE $GLOBAL_DEFAULT_SERVICES_DISABLE"
 SERVICES="$SERVICES $GLOBAL_SERVICES_ENABLE $GLOBAL_SERVICES_DISABLE"
+SERVICES="$SERVICES $GLOBAL_DEFAULT_SYSTEMD_SERVICES_ENABLE $GLOBAL_DEFAULT_SYSTEMD_SERVICES_DISABLE"
 SERVICES="$SERVICES $GLOBAL_SYSTEMD_SERVICES_ENABLE $GLOBAL_SYSTEMD_SERVICES_DISABLE"
 SERVICES="$(echo $SERVICES | tr " " "\n" | sort -u)"
 
@@ -88,9 +93,15 @@ for f in systemd-user-enabled systemd-user-disabled; do
 	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
 done
 
+# defaults logind services
+for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i enabled;  done
+for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_DISABLE; do switch $i disabled; done
+
+# explicitly specified behaviour logind services
 for i in $GLOBAL_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i enabled;  done
 for i in $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE; do switch $i disabled; done
 
+SERVICES="$GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_ENABLE $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_DISABLE"
 SERVICES="$GLOBAL_SYSTEMD_USER_SERVICES_ENABLE $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE"
 SERVICES="$(echo "$SERVICES" | tr ' ' '\n' | sort -u)"
 

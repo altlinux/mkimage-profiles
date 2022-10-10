@@ -33,13 +33,25 @@ for i in $GLOBAL_DEFAULT_SERVICES_DISABLE; do switch $i off; done
 for i in $GLOBAL_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
 
-# systemd services
+## systemd services
 CHKCONFIG=
+
+# defaults
+for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour
 for i in $GLOBAL_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
 
-# systemd-logind services
+## systemd-logind services
 SYSTEMD_USER='--user --global'
+
+# defaults
+for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour
 for i in $GLOBAL_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE; do switch $i off; done
 
