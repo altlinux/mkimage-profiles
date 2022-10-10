@@ -11,3 +11,9 @@
 
 Предприняты особые меры в виде скрипта для install2,
 чтобы передать указание настроить службы инсталятору.
+
+Для включения systemd-специфичных сервисов рекомендуется использовать
+DEFAULT_SYSTEMD_SERVICES_* и SYSTEMD_SERVICES_*.
+
+Для включения служб systemd-logind нужно использовать
+DEFAULT_SYSTEMD_USER_SERVICES_* и SYSTEMD_USER_SERVICES_*.
