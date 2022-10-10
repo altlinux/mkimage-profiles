@@ -154,8 +154,8 @@ distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
 	mixin/regular-wmaker use/live/autologin
 	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
 
-distro/regular-gnustep-sysv: distro/.regular-desktop-sysv \
-	mixin/regular-wmaker mixin/regular-gnustep; @:
+distro/regular-gnustep-sysv: distro/regular-wmaker-sysv \
+	mixin/regular-gnustep; @:
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,isolinux)
 endif
