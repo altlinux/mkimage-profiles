@@ -1,0 +1,11 @@
+#!/bin/sh -efu
+# setup settings for live user
+
+[ -f /etc/sysconfig/livecd-user.conf ] || exit 0
+
+cat > /etc/sysconfig/livecd-user.conf << EOF
+LIVECD_LOGIN="${GLOBAL_LIVE_USER:-}"
+LIVECD_GROUPS="${GLOBAL_GROUPS:-}"
+LIVECD_ADMIN=1
+LIVECD_SUDO=1
+EOF

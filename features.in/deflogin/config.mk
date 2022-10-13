@@ -7,15 +7,18 @@ use/deflogin:
 	@$(call xport,USERS)
 	@$(call xport,GROUPS)
 	@$(call xport,SPEC_USER)
+	@$(call xport,LIVE_USER)
 
 # some presets
 # USERS variable chunk format is "login:passwd:admin:sudo"
 # GROUPS are just stashed there to include USERS logins created
 
-# basic livecd: root and altlinux users with no password at all
+# basic livecd: root with no password, live user is created at startup
 use/deflogin/live: use/deflogin
 	@$(call set,ROOTPW_EMPTY,1)
-	@$(call add,USERS,altlinux::1:1)
+	@$(call try,LIVE_USER,altlinux)
+	@$(call add,LIVE_PACKAGES,livecd-user)
+	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-user)
 
 # real thing: some control added
 use/deflogin/desktop: use/deflogin/live \
