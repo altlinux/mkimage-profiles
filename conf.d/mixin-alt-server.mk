@@ -1,5 +1,5 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
-	00-system 10-alterator 20-server-apps 50-freeipa 70-dev 901-net-if-mgt \
+	10-alterator 20-server-apps 50-freeipa 70-dev 901-net-if-mgt \
 	sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a \
 	mail-server-a owncloud domain-server freeipa-client nm-daemon \
 	systemd-networkd openuds openuds-tunnel admc)
@@ -35,13 +35,13 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,BASE_KMODULES,drm)
 	@$(call add,MAIN_GROUPS,centaurus/proxmox-backup-server)
-	@$(call add,MAIN_GROUPS,centaurus/lsb-core)
 	@$(call add,MAIN_GROUPS,centaurus/token)
 	@$(call add,MAIN_PACKAGES,mate-reduced-resource)
 endif
 	@$(call add,MAIN_KMODULES,$(server_main_kmodules))
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
+	@$(call add,BASE_LISTS,centaurus/lsb-core)
 	@$(call add,LIVE_LISTS,centaurus/live)
 	@$(call add,LIVE_LISTS,centaurus/remmina)
 	@$(call add,LIVE_LISTS,centaurus/cups)

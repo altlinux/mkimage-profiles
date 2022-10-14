@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Core module of the Linux Standard Base (LSB), ISO/IEC 23360 Part 1
-X-Alterator-PackageList=centaurus/lsb-core
-X-Alterator-Required=no
-X-Alterator-Parent=centaurus/00-system
-Name[ru_RU]=Базовый модуль Linux Standard Base (LSB), ISO/IEC 23360, часть 1
