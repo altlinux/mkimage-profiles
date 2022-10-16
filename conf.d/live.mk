@@ -52,7 +52,7 @@ distro/.live-desktop: distro/.live-x11 +live use/live/install use/stage2/net-eth
 	use/plymouth/live; @:
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
-distro/.live-kiosk: distro/.live-base use/live/autologin use/live/runapp \
+distro/.live-kiosk: distro/.live-base use/live/autologin \
 	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
 	use/fonts/otf/adobe
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
@@ -142,7 +142,7 @@ distro/live-gimp: distro/live-icewm use/live/ru
 	@$(call add,LIVE_PACKAGES,macrofusion)
 	@$(call add,LIVE_PACKAGES,qtfm openssh-clients rsync usbutils)
 
-distro/live-blender: distro/.live-games
+distro/live-blender: distro/.live-games use/live/runapp
 	@$(call add,LIVE_PACKAGES,blender)
 	@$(call set,LIVE_RUNAPP_BINARY,blender)
 	@$(call try,HOMEPAGE,http://blender.com/)
