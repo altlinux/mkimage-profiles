@@ -27,7 +27,7 @@ endif
 
 use/plymouth/base: use/plymouth/stage2 use/drm/full; @:
 ifeq (distro,$(IMAGE_CLASS))
-	@$(call add,INSTALL2_PACKAGES,installer-feature-setup-plymouth)
+	@$(call add,BASE_PACKAGES,installer-feature-setup-plymouth)
 endif
 	@$(call add,THE_BRANDING,bootsplash graphics)
 	@$(call add,THE_PACKAGES,make-initrd-plymouth cpio)
