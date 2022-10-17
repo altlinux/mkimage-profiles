@@ -45,7 +45,8 @@ endif
 # WM base target
 distro/.regular-wm: distro/.regular-x11 \
 	mixin/regular-desktop +vmguest \
-	use/live/rw use/live/install; @:
+	use/live/rw +live-installer
+	@$(call set,INSTALLER,altlinux-desktop)
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
