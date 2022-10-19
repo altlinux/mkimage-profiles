@@ -7,6 +7,10 @@ if [ ! -x /usr/bin/X ]; then
 fi
 
 USER=altlinux
+if ! id "$USER" >&/dev/null; then
+     echo "SKIP autologin: $USER does not exist"
+     exit 0
+fi
 
 add_nopasswdlogin_group()
 {
