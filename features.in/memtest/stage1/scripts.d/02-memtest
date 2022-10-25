@@ -1,7 +1,11 @@
 #!/bin/sh
 
 mkdir -p "$WORKDIR"/boot
-MEMTEST="$(find /boot/ -name 'memtest*' -print -quit)"
+MEMTEST="$(find /boot/ -name 'memtest*.bin' -print -quit)"
+MEMTEST_EFI="$(find /boot/ -name 'memtest*.efi' -print -quit)"
 # hdt wiki recommends adding .bin
 [ -z "$MEMTEST" ] ||
 	cp -f "$MEMTEST" "$WORKDIR"/boot/memtest.bin
+
+[ -z "$GLOBAL_EFI_BOOTLOADER" ] || [ -z "$MEMTEST_EFI" ] ||
+	cp -f "$MEMTEST_EFI" "$WORKDIR"/boot/memtest.efi
