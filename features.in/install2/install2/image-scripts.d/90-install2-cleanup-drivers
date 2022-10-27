@@ -24,7 +24,6 @@ if [ -n "$GLOBAL_INSTALL2_CLEANUP_KDRIVERS" ]; then
 fi
 
 ## static part
-rm -rf /lib/modules/*/kernel/arch
 rm -rf /lib/modules/*/kernel/drivers/atm
 rm -rf /lib/modules/*/kernel/drivers/bluetooth
 rm -rf /lib/modules/*/kernel/drivers/char/{ipmi,hw_random,mwave,tpm}
