@@ -44,9 +44,11 @@ menu-icons-default
 
 branding-alt-server-graphics
 
-firefox-esr
-firefox-esr-ru
-firefox-esr-uk
+chromium@aarch64
+
+firefox-esr@!aarch64
+firefox-esr-ru@!aarch64
+firefox-esr-uk@!aarch64
 
 spice-vdagent
 xorg-drv-qxl

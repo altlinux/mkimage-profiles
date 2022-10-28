@@ -82,7 +82,8 @@ alterator-gpupdate
 
 # tags: mate, base
 
-firefox-esr
+chromium@aarch64
+firefox-esr@!aarch64
 mate-minimal@META
 zenity
 #mate-polkit

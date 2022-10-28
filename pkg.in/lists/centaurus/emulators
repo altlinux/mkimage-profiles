@@ -1,5 +1,6 @@
-firefox-esr
-firefox-esr-ru
+chromium@aarch64
+firefox-esr@!aarch64
+firefox-esr-ru@!aarch64
 wine@X86
 
 wine-mono@X86
