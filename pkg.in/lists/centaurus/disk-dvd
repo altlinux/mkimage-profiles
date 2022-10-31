@@ -99,3 +99,4 @@ alt-csp-cryptopro
 inxi hwinfo htop iotop
 
 sssd-ldap
+tigervnc-server
