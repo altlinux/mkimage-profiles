@@ -47,6 +47,8 @@ distro/.regular-wm: distro/.regular-x11 \
 	mixin/regular-desktop +vmguest \
 	use/live/rw +live-installer
 	@$(call set,INSTALLER,alt-workstation)
+	@$(call set,GRUB_DEFAULT,live)
+	@$(call set,SYSLINUX_DEFAULT,live)
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
