@@ -55,6 +55,9 @@ endif	# e2kv4
 ifeq (,$(filter-out e2kv5,$(ARCH)))
 	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 901-PC)
 endif	# e2kv5
+ifeq (,$(filter-out e2kv6,$(ARCH)))
+	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 201-PC)
+endif	# e2kv6
 endif	# e2k%
 	@$(call add,MAIN_GROUPS,$(mediaplayer))
 	@$(call add,LIVE_LISTS,$(mediaplayer))
