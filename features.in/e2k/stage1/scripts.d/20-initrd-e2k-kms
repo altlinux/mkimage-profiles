@@ -1,4 +1,8 @@
 #!/bin/sh
-# ensure early kms so stage1 issues can at least be displayed on tty0
+# ensure early kms so stage1 issues can at least be displayed on tty0;
+# trying to preload the missing modules will result in image build failure
 
-echo 'MODULES_PRELOAD += radeon galcore vivante' >> /etc/initrd.mk
+cat >> /etc/initrd.mk << EOF
+MODULES_PRELOAD += radeon
+#MODULES_ADD += mga2 galcore vivante
+EOF
