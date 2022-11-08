@@ -24,6 +24,7 @@ vm/systemd-net: vm/systemd use/net-eth/networkd-dhcp use/net-ssh \
 # vm/net or vm/systemd-net
 vm/cloud-systemd: vm/systemd-net mixin/cloud-init use/vmguest/kvm use/tty/S0 \
 	use/net/networkd/resolved
+	@$(call add,THE_PACKAGES,cloud-init-config-netplan)
 	@$(call add,THE_KMODULES,drm)
 	@$(call add,VM_INITRDMODULES,sr_mod)
 	@$(call add,BASE_PACKAGES,update-kernel)
