@@ -101,6 +101,9 @@ endif
 distro/.regular-jeos-full: distro/.regular-jeos use/install2/vmguest \
 	use/volumes/jeos use/ntp/chrony use/bootloader/grub \
 	use/grub/localboot_bios.cfg +efi
+ifeq (sisyphus,$(BRANCH))
+	@$(call set,KFLAVOURS,un-def)
+endif
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 ifeq (,$(filter-out e2k%,$(ARCH)))
