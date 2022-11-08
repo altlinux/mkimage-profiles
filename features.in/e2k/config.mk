@@ -8,6 +8,7 @@ use/e2k: use/tty/S0 use/l10n/default/ru_RU
 	@$(call add,STAGE2_PACKAGES,agetty)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-xorg-conf-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-fix-boot-stage2)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-fstrim-stage2)
 	@$(call add,INSTALL2_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,INSTALL2_PACKAGES,ifplugd)	# for net-eth link status
