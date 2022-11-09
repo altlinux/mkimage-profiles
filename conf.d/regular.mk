@@ -85,18 +85,12 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	@$(call add,THE_LISTS,openssh)
 
 # ...and for somewhat bare distros
-distro/.regular-jeos: distro/.regular-jeos-base \
+distro/.regular-jeos: distro/.regular-jeos-base use/stage2/drm \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/syslinux/lateboot.cfg use/cleanup/jeos
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,STAGE2_BOOTARGS,xdriver=vesa)
-ifeq (x86_64,$(ARCH))
-	@$(call add,EFI_BOOTARGS,xdriver=fbdev)
-endif
-else
-	@$(call add,STAGE2_BOOTARGS,xdriver=fbdev)
-endif
+	@$(call add,STAGE1_PACKAGES,firmware-linux)
+	@$(call add,STAGE1_KMODULES,drm)
 
 distro/.regular-jeos-full: distro/.regular-jeos use/install2/vmguest \
 	use/volumes/jeos use/ntp/chrony use/bootloader/grub \
