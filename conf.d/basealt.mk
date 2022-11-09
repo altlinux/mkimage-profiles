@@ -109,8 +109,12 @@ vm/alt-workstation-bfk3: vm/alt-workstation use/mipsel-bfk3/x11; @:
 vm/alt-workstation-tavolga: vm/alt-workstation use/mipsel-mitx/x11; @:
 endif
 
-vm/alt-workstation-cloud: vm/cloud-systemd use/x11/lightdm/gtk \
-	mixin/alt-workstation
-	@$(call add,THE_PACKAGES,cloud-init-config-netplan systemd-networkd)
-	@$(call add,SYSTEMD_SERVICES_DISABLE,network.service)
+vm/alt-workstation-cloud: vm/systemd use/x11/lightdm/gtk \
+	mixin/alt-workstation mixin/cloud-init use/vmguest/kvm use/tty/S0
+	@$(call add,THE_PACKAGES,cloud-init-config-network-manager)
+	@$(call add,THE_KMODULES,drm)
+	@$(call add,VM_INITRDMODULES,sr_mod)
+	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
+	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
+	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
 endif
