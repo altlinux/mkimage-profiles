@@ -43,6 +43,7 @@ endif
 	@$(call add,SERVICES_ENABLE,multipathd)
 	@$(call add,INSTALL2_PACKAGES,strace)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
+	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,INSTALL2_BRANDING,notes)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
