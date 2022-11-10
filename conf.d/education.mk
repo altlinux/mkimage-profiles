@@ -164,7 +164,7 @@ distro/alt-education-lite-live: distro/.base mixin/education-lite-live \
 	mixin/education-lite-base mixin/education-lite use/branding/full; @:
 
 distro/education: distro/alt-education; @:
-distro/alt-education: distro/.base \
+distro/alt-education:: distro/.base \
 	mixin/education \
 	mixin/education-installer \
 	mixin/education-live \
@@ -202,6 +202,10 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call add,CONTROL,sudo:public)
 	@$(call add,CONTROL,fusermount:wheelonly)
+
+ifeq (,$(filter-out e2k%,$(ARCH)))
+distro/alt-education:: +power; @:
+endif
 
 endif # distro
 
