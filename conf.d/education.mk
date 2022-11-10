@@ -22,11 +22,11 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,jre)
 else
 	@$(call add,THE_PACKAGES,java-11-openjdk)
+	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 endif
 	@$(call add,THE_PACKAGES,mousepad)
 	@$(call add,THE_PACKAGES,thunderbird)
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)                            
-	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
 	@$(call add,THE_LISTS,$(call tags,base regular))
