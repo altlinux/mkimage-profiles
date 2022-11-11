@@ -100,3 +100,5 @@ inxi hwinfo htop iotop
 
 sssd-ldap
 tigervnc-server
+
+zabbix-server-pgsql
