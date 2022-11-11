@@ -20,6 +20,8 @@ kernel-doc-std
 
 c-icap
 virt-viewer
+virt-install
+virt-manager
 
 b43-fwcutter
 
