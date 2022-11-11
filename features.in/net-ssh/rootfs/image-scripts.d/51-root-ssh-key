@@ -1,0 +1,10 @@
+#!/bin/sh -efu
+
+TMPDIR=/tmp
+SSH_DIR=/root/.ssh
+
+if [ -e "$TMPDIR/root_ssh_key.pub" ]; then
+    mkdir -pm0700 "$SSH_DIR"
+    install -v -pm0600 "$TMPDIR/root_ssh_key.pub" "$SSH_DIR/authorized_keys"
+    rm -fv "$TMPDIR/root_ssh_key.pub"
+fi

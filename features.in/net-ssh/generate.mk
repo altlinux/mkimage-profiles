@@ -3,11 +3,11 @@ ifneq (,$(BUILDDIR))
 include $(BUILDDIR)/distcfg.mk
 
 # prepare the provided public SSH key to be carried over into the image
-all: SSH_DIR = $(BUILDDIR)/files/root/.ssh
+all: TMPDIR = $(BUILDDIR)/files/tmp
 all:
 	@if [ -s "$(SSH_KEY)" ]; then \
-		mkdir -pm0700 "$(SSH_DIR)"; \
-		install -pm0600 "$(SSH_KEY)" "$(SSH_DIR)/authorized_keys"; \
+		mkdir -p "$(TMPDIR)"; \
+		cp -v "$(SSH_KEY)" "$(TMPDIR)/root_ssh_key.pub"; \
 	fi
 
 endif
