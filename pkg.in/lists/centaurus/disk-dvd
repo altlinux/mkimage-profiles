@@ -104,3 +104,4 @@ sssd-ldap
 tigervnc-server
 
 zabbix-server-pgsql
+admx-msi-setup
