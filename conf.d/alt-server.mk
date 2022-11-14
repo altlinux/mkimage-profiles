@@ -12,7 +12,12 @@ endif
 
 ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 e2k%,$(ARCH)))
 distro/alt-server: server_groups_desktop = $(addprefix centaurus/,\
-        80-desktop emulators freenx-server mate office pidgin vlc xorg scanning vbox-host vbox-guest)
+        80-desktop emulators freenx-server mate office pidgin vlc xorg scanning)
+endif
+
+ifeq (,$(filter-out x86_64,$(ARCH)))
+distro/alt-server: server_groups_virtualbox = $(addprefix centaurus/,\
+        vbox-host vbox-guest)
 endif
 
 distro/alt-server: monitoring = $(addprefix server-v/,\
@@ -30,6 +35,7 @@ distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
 	@$(call add,MAIN_GROUPS,$(server_groups_primary))
 	@$(call add,MAIN_GROUPS,$(server_groups_virtipa))
 	@$(call add,MAIN_GROUPS,$(server_groups_desktop))
+	@$(call add,MAIN_GROUPS,$(server_groups_virtualbox))
 	@$(call add,MAIN_LISTS,centaurus/disk-dvd)
 	@$(call add,MAIN_LISTS,centaurus/disk-server-light)
 	@$(call add,THE_LISTS,monitoring/zabbix-agent)
