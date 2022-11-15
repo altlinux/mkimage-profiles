@@ -7,6 +7,7 @@ use/net: use/services use/pkgpriorities
 	@$(call add,THE_PACKAGES,iputils)
 	@$(call add,PINNED_PACKAGES,$$(THE_NET_SUBSYS))
 	@$(call set,THE_NET_SUBSYS,network-config-subsystem)
+	@$(call xport,TARGET_HOSTNAME)
 
 use/net/etcnet: use/net
 	@$(call set,THE_NET_SUBSYS,etcnet)

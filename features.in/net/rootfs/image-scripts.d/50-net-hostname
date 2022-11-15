@@ -1,0 +1,10 @@
+#!/bin/sh -efu
+#
+# Sets up the node's hostname.
+
+. shell-config
+
+if [ -n "${GLOBAL_TARGET_HOSTNAME:-}" ]; then
+	shell_config_set /etc/sysconfig/network 'TARGET_HOSTNAME' "$GLOBAL_TARGET_HOSTNAME"
+	echo "$GLOBAL_TARGET_HOSTNAME" >/etc/hostname
+fi
