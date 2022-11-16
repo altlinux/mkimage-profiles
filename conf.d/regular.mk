@@ -6,8 +6,10 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
-	use/tty
+	use/stage2/drm use/tty
 	@$(call try,SAVE_PROFILE,yes)
+	@$(call add,STAGE1_PACKAGES,firmware-linux)
+	@$(call add,STAGE1_KMODULES,drm)
 ifeq (sisyphus,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
@@ -85,12 +87,10 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	@$(call add,THE_LISTS,openssh)
 
 # ...and for somewhat bare distros
-distro/.regular-jeos: distro/.regular-jeos-base use/stage2/drm \
+distro/.regular-jeos: distro/.regular-jeos-base \
 	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
 	use/syslinux/lateboot.cfg use/cleanup/jeos
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
-	@$(call add,STAGE1_PACKAGES,firmware-linux)
-	@$(call add,STAGE1_KMODULES,drm)
 
 distro/.regular-jeos-full: distro/.regular-jeos use/install2/vmguest \
 	use/volumes/jeos use/ntp/chrony use/bootloader/grub \
