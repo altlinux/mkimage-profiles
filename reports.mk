@@ -45,6 +45,10 @@ all: reports/targets reports/scripts reports/cleanlog \
 	@mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.cfg
 	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
 		"$(LOGDIR)/$(IMAGE_OUTFILE).reports/pkg.list"
+ifeq (2,$(REPORT))
+	@cd "$(LOGDIR)" && tar -cf "$(IMAGE_OUTFILE).reports.tar" "$(IMAGE_OUTFILE).reports" && \
+		rm -r "$(IMAGE_OUTFILE).reports"
+endif
 else
 all: reports/prep reports/targets reports/scripts
 	@rm -fr "$(LOGDIR)/$(TARGET_NAME).reports"
@@ -54,6 +58,10 @@ all: reports/prep reports/targets reports/scripts
 	fi
 	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
 		"$(LOGDIR)/$(TARGET_NAME).reports/pkg.list"
+ifeq (2,$(REPORT))
+	@cd "$(LOGDIR)" && tar -cf "$(TARGET_NAME).reports.tar" "$(TARGET_NAME).reports" && \
+		rm -r "$(TARGET_NAME).reports"
+endif
 endif
 
 reports/prep:
