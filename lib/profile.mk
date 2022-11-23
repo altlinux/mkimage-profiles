@@ -33,7 +33,7 @@ RC = $(HOME)/.mkimage/profiles.mk
 
 # step 1: initialize the off-tree mkimage profile (BUILDDIR)
 # NB: our output MUST go into stderr to escape POSTPROC
-profile/init: distclean
+profile/init: $(shell [ -L $(BUILDDIR) ] || echo distclean)
 	@{ \
 	if [ "`realpath "$(BUILDDIR)/"`" = / ]; then \
 		echo "$(TIME) ERROR: invalid BUILDDIR: \`$(BUILDDIR)'"; \
@@ -75,7 +75,7 @@ profile/init: distclean
 		git show -s --format=%H > "$(BUILDDIR)"/commit; \
 	fi; \
 	mp-commit -i "$(BUILDDIR)" "derivative profile initialized"; \
-	if [ -w . ]; then \
+	if [ -w . -a ! -L "$(BUILDDIR)" ]; then \
 		rm -f "$(SYMLINK)" && \
 		ln -s "$(BUILDDIR)" "$(SYMLINK)" && \
 		if [ -z "$(QUIET)" ]; then \
