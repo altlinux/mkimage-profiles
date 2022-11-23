@@ -30,7 +30,7 @@ ifeq (,$(filter-out x86_64 ,$(ARCH)))
 endif
 
 use/dev/builder/full: use/dev use/dev/builder/live use/dev/repo
-ifdef BIGRAM
+ifneq (,$(BIGRAM))
 	@$(call set,KFLAVOURS,$(BIGRAM))
 endif
 	@$(call add,THE_LISTS,$(call tags,server extra))

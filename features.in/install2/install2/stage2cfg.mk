@@ -1,6 +1,6 @@
 # stage2 mod: build install2 subprofile (installer "live" part)
 
-ifndef INSTALLER
+ifeq (,$(INSTALLER))
 $(error install2 feature enabled but INSTALLER undefined)
 endif
 

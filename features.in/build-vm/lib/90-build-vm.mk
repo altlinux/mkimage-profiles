@@ -10,7 +10,7 @@ IMAGE_PACKAGES = $(DOT_BASE) \
 IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
                         $(BASE_PACKAGES_REGEXP)
 
-ifdef EFI_BOOTLOADER
+ifneq (,$(EFI_BOOTLOADER))
 VM_BOOTLOADER=$(EFI_BOOTLOADER)
 else
 VM_BOOTLOADER=$(BASE_BOOTLOADER)
@@ -30,7 +30,7 @@ VM_XZ_COMMAND ?= xz -T0 -f
 RECOVERY_LINE ?= Press ENTER to start
 
 # tarball save
-ifdef VM_SAVE_TARBALL
+ifneq (,$(VM_SAVE_TARBALL))
 ifeq (,$(filter-out img img.xz qcow2 qcow2c vdi vmdk vhd,$(IMAGE_TYPE)))
 ifeq (,$(filter-out tar tar.gz tar.xz,$(VM_SAVE_TARBALL)))
 SAVE_TARBALL := convert-image/$(VM_SAVE_TARBALL)
@@ -69,7 +69,7 @@ prepare-tarball-qemu:
 		tar -rf "$(VM_TARBALL)" ./.host/qemu*) ||:
 
 convert-image/tar:
-ifdef SAVE_TARBALL
+ifneq (,$(SAVE_TARBALL))
 	cp "$(VM_TARBALL)" "$(VM_OUT_TARBALL)"
 else
 	mv "$(VM_TARBALL)" "$(VM_OUT_TARBALL)"

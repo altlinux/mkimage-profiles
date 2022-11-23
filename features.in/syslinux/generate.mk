@@ -1,4 +1,4 @@
-ifdef BUILDDIR
+ifneq (,$(BUILDDIR))
 
 # in deciseconds
 DEFAULT_TIMEOUT = 600
@@ -8,7 +8,7 @@ DEFAULT_TIMEOUT = 600
 
 include $(BUILDDIR)/distcfg.mk
 
-ifndef BOOTLOADER
+ifeq (,$(BOOTLOADER))
 $(error syslinux feature enabled but BOOTLOADER undefined)
 endif
 
@@ -16,14 +16,14 @@ STAGE1_INITRD_BOOTARGS := $(STAGE1_INITRD_TYPEARGS)=$(STAGE1_INITRD_BOOTMETHOD)
 
 # UI is backed by modules in modern syslinux
 # (except for built-in text prompt)
-ifdef SYSLINUX_UI
+ifneq (,$(SYSLINUX_UI))
 SYSLINUX_MODULES := $(SYSLINUX_MODULES) $(SYSLINUX_UI)
 else
 $(warning no syslinux ui configured, default is now none)
 SYSLINUX_UI := none
 endif
 
-ifndef SYSLINUX_DIRECT
+ifeq (,$(SYSLINUX_DIRECT))
 # SUBPROFILES are considered SYSLINUX_CFG too
 # (note these can appear like stage2@live);
 # 01defaults.cfg is included indefinitely

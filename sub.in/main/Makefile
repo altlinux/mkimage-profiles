@@ -1,6 +1,6 @@
 # step 4: build main subprofile (requisite + optional packages for media)
 
-ifndef GLOBAL_BUILDDIR
+ifeq (,$(GLOBAL_BUILDDIR))
 $(error GLOBAL_BUILDDIR not defined)
 endif
 

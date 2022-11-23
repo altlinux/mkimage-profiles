@@ -1,6 +1,6 @@
 # step 3: copy the needed subprofiles to $(BUILDDIR)
 
-ifndef BUILDDIR
+ifeq (,$(BUILDDIR))
 $(error BUILDDIR not defined)
 endif
 

@@ -1,10 +1,10 @@
 # build asciidoc books
 
-ifdef BUILDDIR
+ifneq (,$(BUILDDIR))
 DEST = -D "$(BUILDDIR)"
 endif
 
-ifdef DEBUG
+ifneq (,$(DEBUG))
 VERBOSE = --verbose
 endif
 

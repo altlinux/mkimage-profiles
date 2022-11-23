@@ -1,6 +1,6 @@
 # step 4: build stage1 subprofile (installer bootstrap)
 
-ifndef GLOBAL_BUILDDIR
+ifeq (,$(GLOBAL_BUILDDIR))
 $(error GLOBAL_BUILDDIR not defined)
 endif
 
@@ -8,7 +8,7 @@ include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
-ifndef BOOTLOADER
+ifeq (,$(BOOTLOADER))
 $(error BOOTLOADER not defined)
 endif
 GLOBAL_BOOTLOADER := $(BOOTLOADER)

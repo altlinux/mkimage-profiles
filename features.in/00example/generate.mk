@@ -10,7 +10,7 @@
 
 include $(BUILDDIR)/distcfg.mk
 
-ifndef 00EXAMPLE
+ifeq (,$(00EXAMPLE))
 $(warning this is an example, who might want to include it? :])
 endif
 

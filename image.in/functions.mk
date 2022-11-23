@@ -1,7 +1,7 @@
 ifneq (clean,$(MAKECMDGOALS))
 ifneq (distclean,$(MAKECMDGOALS))
 
-ifndef INCLUDED_FUNCTIONS_MK
+ifeq (,$(INCLUDED_FUNCTIONS_MK))
 INCLUDED_FUNCTIONS_MK = 1
 
 # globals

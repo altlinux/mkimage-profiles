@@ -6,12 +6,12 @@ MAX_LINES = 200
 MAX_ERRORS = 5
 GOTCHA := ^(((\*\* )?(E:|[Ee]rror|[Ww]arning).*)|(.* (FAILURE|FATAL|ERROR|conflicts|Conflicts:|Depends:) .*)|(.* (Stop|failed|not found)\.)|(not allowed))$$
 
-ifndef MKIMAGE_PROFILES
+ifeq (,$(MKIMAGE_PROFILES))
 $(error this makefile is designed to be included in toplevel one)
 endif
 
 # try not to bog down the system, both CPU and I/O wise
-ifdef NICE
+ifneq (,$(NICE))
 START := nice $(shell ionice -c3 echo "ionice -c3" 2>/dev/null)
 endif
 

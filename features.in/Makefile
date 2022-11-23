@@ -1,7 +1,6 @@
 # step 3: copy the needed features to $(BUILDDIR)
 #         (only regarding the needed subprofiles)
-
-ifndef BUILDDIR
+ifeq (,$(BUILDDIR))
 
 help/plus all: banner
 	@$(call grepper,'^+')

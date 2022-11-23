@@ -3,7 +3,7 @@
 # NB: stage2 is not standalone but rather a common base
 #     for all livecd images (installer, live, rescue)
 
-ifndef GLOBAL_BUILDDIR
+ifeq (,$(GLOBAL_BUILDDIR))
 $(error GLOBAL_BUILDDIR not defined)
 endif
 
@@ -54,7 +54,7 @@ IMAGE_PACKAGES_REGEXP += $(call kpackages, \
 -include $(sort $(wildcard lib/*.mk))
 
 # see also ./scripts.d/99-elf-stats
-ifdef GLOBAL_SQUASHFS_SORT
+ifneq (,$(GLOBAL_SQUASHFS_SORT))
 ifeq (tight,$(SQUASHFS))
 CHROOT_PACKAGES += file
 pack-image: PACK_SQUASHFS_OPTS += -sort /.our/elf.lst

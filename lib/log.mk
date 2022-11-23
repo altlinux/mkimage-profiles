@@ -2,7 +2,7 @@
 # you can add plain $(LOG) to a rule recipe line to moderate it
 # (logfile is automatically truncated during profile/init)
 
-ifndef MKIMAGE_PROFILES
+ifeq (,$(MKIMAGE_PROFILES))
 $(error this makefile is designed to be included in toplevel one)
 endif
 
@@ -17,7 +17,7 @@ endif
 BUILDLOG ?= $(BUILDDIR)/$(BUILD_LOG)
 
 # LOG holds a redirecting postprocessor
-ifdef DEBUG
+ifneq (,$(DEBUG))
 # 1) makefile target; 2) also passed to script hooks
 GLOBAL_DEBUG := debug
 GLOBAL_VERBOSE ?= $(DEBUG)

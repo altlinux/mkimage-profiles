@@ -1,4 +1,4 @@
-ifndef MKIMAGE_PROFILES
+ifeq (,$(MKIMAGE_PROFILES))
 $(error this makefile is designed to be included in toplevel one)
 endif
 

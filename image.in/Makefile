@@ -36,7 +36,7 @@ IMAGEDIR := $(wildcard $(IMAGEDIR))
 IMAGE_SORTDIR := $(wildcard $(SORTDIR))
 
 # use distro version in image name if defined
-ifdef DISTRO_VERSION
+ifneq (,$(DISTRO_VERSION))
 IMAGE_VERSION := -$(DISTRO_VERSION)
 IMAGE_VER_LINK := $(IMAGE_NAME)$(IMAGE_VERSION)-latest-$(ARCH).$(IMAGE_TYPE)
 endif

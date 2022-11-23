@@ -6,12 +6,12 @@
 -include $(HOME)/.mkimage/profiles.mk
 
 # for immediate assignment
-ifndef ARCH
+ifeq (,$(ARCH))
 ARCH := $(shell arch \
 	| sed 's/i686/i586/; s/armv7.*/armh/; s/armv.*/arm/')
 endif
 
-ifndef ARCHES
+ifeq (,$(ARCHES))
 ARCHES := $(ARCH)
 endif
 

@@ -1,7 +1,6 @@
 # step 3: copy package lists referenced in distro configuration
 #         (and only those!) over to $(BUILDDIR)
-
-ifndef BUILDDIR
+ifeq (,$(BUILDDIR))
 pkgdups:
 	@find -type f ! -name README ! -name Makefile \
 	| grep -v '~$$' \

@@ -1,7 +1,7 @@
 # step 3: copy package groups referenced in distro configuration
 #         (and only those!) over to $(BUILDDIR)
 
-ifndef BUILDDIR
+ifeq (,$(BUILDDIR))
 
 check all: check-parents check-echo check-pkglists; @:
 

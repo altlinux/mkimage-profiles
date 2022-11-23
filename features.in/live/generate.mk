@@ -1,18 +1,18 @@
 # set up livecd browser redirection page
 
-ifdef BUILDDIR
+ifneq (,$(BUILDDIR))
 
 include $(BUILDDIR)/distcfg.mk
 
-ifndef HOMEPAGE
+ifeq (,$(HOMEPAGE))
 HOMEPAGE = http://altlinux.org/
 endif
 
-ifndef HOMENAME
+ifeq (,$(HOMENAME))
 HOMENAME = ALT
 endif
 
-ifndef HOMEWAIT
+ifeq (,$(HOMEWAIT))
 HOMEWAIT = 3
 endif
 

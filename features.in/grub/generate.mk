@@ -1,4 +1,4 @@
-ifdef BUILDDIR
+ifneq (,$(BUILDDIR))
 
 # in seconds
 DEFAULT_TIMEOUT = 60
@@ -8,28 +8,28 @@ DEFAULT_TIMEOUT = 60
 
 include $(BUILDDIR)/distcfg.mk
 
-ifndef BOOTLOADER
+ifeq (,$(BOOTLOADER))
 $(error grub feature enabled but BOOTLOADER undefined)
 endif
 
 STAGE1_INITRD_BOOTARGS := $(STAGE1_INITRD_TYPEARGS)=$(STAGE1_INITRD_BOOTMETHOD)
 
-ifndef GRUB_DIRECT
+ifeq (,$(GRUB_DIRECT))
 # SUBPROFILES are considered GRUB_CFG too
 # (note these can appear like stage2@live);
 # 01defaults.cfg is included indefinitely
 GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults fwsetup_efi
 endif
 
-ifdef GRUB_UI
+ifneq (,$(GRUB_UI))
 GRUB_CFG := $(GRUB_CFG) gfxterm
 endif
 
-ifdef LOCALE
+ifneq (,$(LOCALE))
 GRUB_CFG := $(GRUB_CFG) lang
 endif
 
-ifdef KFLAVOURS
+ifneq (,$(KFLAVOURS))
 ifneq ($(words $(KFLAVOURS)),1)
 GRUB_CFG := $(GRUB_CFG) kernel
 endif

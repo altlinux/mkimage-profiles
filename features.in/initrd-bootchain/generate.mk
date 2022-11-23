@@ -1,6 +1,6 @@
 # set up initrd-bootchain config
 
-ifdef BUILDDIR
+ifneq (,$(BUILDDIR))
 
 include $(BUILDDIR)/distcfg.mk
 

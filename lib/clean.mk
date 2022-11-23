@@ -8,12 +8,12 @@ SYMLINK = build
 # tmpfs-sparing extra rule: cleanup workdir after completing each stage
 # (as packed results are saved this only lowers RAM pressure)
 # NB: it's useful enough to be enabled by default in DEBUG abscence
-ifndef DEBUG
+ifeq (,$(DEBUG))
 CLEAN ?= 1
 endif
-ifdef CLEAN
+ifneq (,$(CLEAN))
 export GLOBAL_CLEAN_WORKDIR = clean-current
-ifdef DEBUG
+ifneq (,$(DEBUG))
 WARNING = (NB: DEBUG scope is limited when CLEAN is enabled)
 endif
 endif

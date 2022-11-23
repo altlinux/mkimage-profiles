@@ -46,7 +46,7 @@ include conf.d/*.mk
 include features.in/*/config.mk
 
 # ensure the outdir is created and globbable
-ifdef IMAGEDIR
+ifneq (,$(IMAGEDIR))
 $(shell mkdir -p $(IMAGEDIR))
 IMAGEDIR := $(wildcard $(IMAGEDIR))
 endif

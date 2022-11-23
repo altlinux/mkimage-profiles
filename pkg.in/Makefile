@@ -2,7 +2,7 @@
 #         referenced in distro configuration (and only those!)
 #         over to $(BUILDDIR)
 
-ifndef BUILDDIR
+ifeq (,$(BUILDDIR))
 $(error BUILDDIR not defined)
 endif
 

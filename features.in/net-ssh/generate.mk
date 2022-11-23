@@ -1,4 +1,4 @@
-ifdef BUILDDIR
+ifneq (,$(BUILDDIR))
 
 include $(BUILDDIR)/distcfg.mk
 
