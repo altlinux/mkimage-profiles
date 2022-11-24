@@ -3,7 +3,6 @@ Type=Directory
 X-Alterator-PackageList=kworkstation/add-webterminal
 X-Alterator-Required=no
 X-Alterator-Parent=kworkstation/z02-add-additional
-X-Alterator-Conflicts=kworkstation/games
 Categories=KDE;GNOME;XFCE
 
 Name=WEB-terminal
