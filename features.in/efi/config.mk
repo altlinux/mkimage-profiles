@@ -35,6 +35,9 @@ use/efi/signed: use/efi
 	@$(call add,COMMON_PACKAGES,shim-signed)
 	@$(call add,COMMON_PACKAGES,mokutil pesign)
 	@$(call add,RESCUE_PACKAGES,openssl)
+ifeq (p10,$(BRANCH))
+	@$(call add,STAGE1_PACKAGES,shim-signed-installer-kludge grub-efi alt-uefi-certs dosfstools mtools)
+endif
 
 use/efi/lilo: use/efi use/bootloader/lilo
 	@$(call set,EFI_BOOTLOADER,elilo)

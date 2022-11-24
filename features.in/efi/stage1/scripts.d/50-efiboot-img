@@ -1,0 +1,66 @@
+#!/bin/sh -efu
+
+# This is a workaround to fix booting from a flash drive on some UEFIs.
+# Create .efiboot.img in STAGE1 with old shim, wich without problem.
+# This code from mkimage/tools/mki-copy-efiboot-chrooted.
+
+shim_dir=/usr/lib/shim-installer-kludge
+grub64=/usr/lib64/efi/grubx64.efi
+grub32=/usr/lib64/efi/grubia32.efi
+img=.efiboot.img
+
+[ -d "$shim_dir" ] || exit 0
+[ -s "$grub64" ] || exit 1
+[ -s "$grub32" ] || exit 1
+
+cd /.image
+mkdir -p EFI/BOOT
+
+# copy shim
+cp -pLf $shim_dir/shimx64.efi EFI/BOOT/bootx64.efi
+cp -pLf $shim_dir/shimia32.efi EFI/BOOT/bootia32.efi
+cp -pLf $shim_dir/mmx64.efi EFI/BOOT/
+cp -pLf $shim_dir/mmia32.efi EFI/BOOT/
+
+# copy grub
+cp -pLf $grub64 EFI/BOOT/
+cp -pLf $grub32 EFI/BOOT/
+
+# copy cert
+mkdir -p EFI/enroll
+cp /etc/pki/uefi/altlinux.cer EFI/enroll/
+
+# add_grub_cfg
+{
+	cat <<- GRUB_EOF
+	search --file --set=root /.disk/info
+	set prefix=(\$root)/boot/grub
+	source \$prefix/grub.cfg
+	GRUB_EOF
+} > "EFI/BOOT/grub.cfg"
+
+# write efiboot img
+imgsize="$(( $(du -lsB32k EFI | cut -f1) + 10 ))"
+dd if=/dev/zero of="$img" bs=32k count="$imgsize"
+
+# dosfstools-4.0 has dropped those ancient symlinks, *sigh*
+mkfs=
+for bin in mkfs.fat mkfs.vfat; do
+	if $bin --help >/dev/null 2>&1; then
+		mkfs="$bin"
+		break
+	fi
+done
+
+[ -n "$mkfs" ] || exit 1
+
+$mkfs -n "El Torito" $img
+
+# mtools insists that total number of sectors
+# is a multiple of sectors per track (the infamous 63),
+# and dosfstools-4.0 doesn't follow that anymore
+echo "mtools_skip_check=1" >~/.mtoolsrc
+
+mcopy -i "$img" -s "EFI" ::
+
+mv "$img" EFI/
