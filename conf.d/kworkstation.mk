@@ -197,7 +197,7 @@ distro/kworkstation-install: \
 	printing publishing scanning \
 	video-editing sound-editing graphics-editing \
 	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor \
-	z02-add-additional add-oem add-tablet add-webterminal)
+	z02-add-additional add-oem add-tablet add-webterminal add-no4k-screen)
 
 distro/kworkstation-install: \
 	mixin/kworkstation-install-deps \
