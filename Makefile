@@ -3,7 +3,7 @@
 # collect proceedings
 
 ifndef BRANCH
-BRANCH := $(shell rpm --eval %_priority_distbranch)
+BRANCH := $(shell rpm --eval %_priority_distbranch | cut -d _ -f 1)
 export BRANCH
 endif
 
