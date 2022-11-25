@@ -17,7 +17,7 @@ endif
 IMAGE_CONF    := $(firstword $(subst ., ,$(IMAGE_TARGET)))# ve/generic
 IMAGE_CLASS   := $(firstword $(subst /, ,$(IMAGE_TARGET)))# ve
 IMAGE_FILE    := $(lastword  $(subst /, ,$(IMAGE_TARGET)))# generic.tar.gz
-ifneq (,$(BRANCH))
+ifneq (sisyphus,$(BRANCH))
 IMAGE_FILE    := $(subst regular,alt-$(BRANCH),$(IMAGE_FILE))
 endif
 IMAGE_NAME    := $(firstword $(subst ., ,$(IMAGE_FILE)))#   generic

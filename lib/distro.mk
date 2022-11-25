@@ -13,7 +13,7 @@ distro/.init: profile/bare
 	@$(call try,META_PUBLISHER,ALT Linux Team)
 
 distro/.boot: distro/.init boot/iso
-ifeq (,$(BRANCH))
+ifeq (sisyphus,$(BRANCH))
 	@$(call try,META_VOL_ID,ALT $(IMAGE_NAME)/$(ARCH))
 else
 	@$(call try,IMAGE_FLAVOUR,$(subst alt-$(BRANCH)-,,$(IMAGE_NAME)))

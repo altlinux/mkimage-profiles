@@ -8,9 +8,7 @@ use/stage2:: sub/stage1
 	@$(call set,GLOBAL_HSH_PROC,1)
 
 ifneq (,$(filter-out e2k%,$(ARCH)))
-ifeq (,$(BRANCH))
-use/stage2:: use/initrd-bootchain; @:
-else ifneq (,$(filter-out p10 p9 p8 p7 p6 p5 с%,$(BRANCH)))
+ifeq (sisyphus,$(BRANCH))
 use/stage2:: use/initrd-bootchain; @:
 else
 use/stage2:: use/initrd-propagator; @:

@@ -2,6 +2,16 @@
 # iterate over multiple goals/arches,
 # collect proceedings
 
+ifndef BRANCH
+BRANCH := $(shell rpm --eval %_priority_distbranch)
+export BRANCH
+endif
+
+ifeq (,$(BRANCH))
+override BRANCH=sisyphus
+MAKEOVERRIDES += BRANCH=sisyphus
+endif
+
 # preferences
 -include $(HOME)/.mkimage/profiles.mk
 
@@ -51,6 +61,7 @@ SHELL = /bin/bash
 	else \
 		say "** goal: $@"; \
 	fi; \
+	say "** BRANCH: $(BRANCH)"; \
 	for ARCH in $(ARCHES); do \
 		if [ -z "$(QUIET)" ]; then \
 			if [ "$$ARCH" != "$(firstword $(ARCHES))" ]; then \

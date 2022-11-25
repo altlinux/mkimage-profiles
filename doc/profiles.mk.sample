@@ -2,11 +2,7 @@
 # NB: REPORT doesn't work here, it's somewhat special
 
 # where to look for apt.conf; system one used by default
-ifneq (,$(BRANCH))
 APTCONF = ~/apt/apt.conf.$(BRANCH).$(ARCH)
-else
-APTCONF = ~/apt/apt.conf.sisyphus.$(ARCH)
-endif
 
 # path to save out image
 IMAGEDIR = ~/out/$(BRANCH)/$(shell date +%Y%m%d)

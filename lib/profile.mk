@@ -100,7 +100,7 @@ profile/bare: profile/init use/pkgpriorities
 	@$(call try,GLOBAL_VERBOSE,)
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
-ifeq (,$(BRANCH))
+ifeq (sisyphus,$(BRANCH))
 	@$(call try,BRANDING,alt-sisyphus)
 else
 	@$(call try,BRANDING,alt-starterkit)

@@ -8,7 +8,7 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/tty
 	@$(call try,SAVE_PROFILE,yes)
-ifeq (,$(BRANCH))
+ifeq (sisyphus,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
@@ -30,7 +30,7 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 
 # Network install
-ifeq (,$(BRANCH))
+ifeq (sisyphus,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 distro/regular-net-install: distro/grub-net-install
 	@$(call set,BOOTCHAIN_OEM_SRV_NETINST,nightly.altlinux.org)
@@ -165,7 +165,7 @@ distro/regular-gnustep-systemd: distro/.regular-wm +systemd \
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-ifeq (,$(BRANCH))
+ifeq (sisyphus,$(BRANCH))
 	@$(call set,KFLAVOURS,std-def un-def)
 else
 	@$(call set,KFLAVOURS,un-def)
