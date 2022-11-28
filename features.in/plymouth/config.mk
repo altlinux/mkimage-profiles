@@ -17,7 +17,7 @@ use/plymouth:
 ifeq (distro,$(IMAGE_CLASS))
 use/plymouth/stage2: use/plymouth use/branding \
 	use/stage2/kms
-	@$(call add,STAGE1_PACKAGES_REGEXP,make-initrd-plymouth)
+	@$(call add,STAGE1_PACKAGES,make-initrd-plymouth)
 	@$(call add,STAGE1_BRANDING,bootsplash graphics)
 	@$(call add,STAGE2_BRANDING,bootsplash graphics)
 	@$(call add,STAGE2_BOOTARGS,quiet splash)
@@ -25,26 +25,16 @@ else
 use/plymouth/stage2: use/plymouth use/branding; @:
 endif
 
-ifeq (vm,$(IMAGE_CLASS))
-use/plymouth/vm: use/plymouth use/branding use/kernel/initrd-setup
-	@$(call add,VM_INITRDFEATURES,plymouth)
-	@$(call add,THE_BRANDING,bootsplash graphics)
-	@$(call add,THE_PACKAGES,make-initrd-plymouth)
-	@$(call add,BASE_BOOTARGS,quiet)
-	@$(call add,THE_KMODULES,drm)
-else
-use/plymouth/vm: use/plymouth; @:
-endif
-
-use/plymouth/base: use/plymouth/stage2 use/plymouth/vm \
-	use/drm/full; @:
+use/plymouth/base: use/plymouth/stage2 use/drm/full; @:
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-setup-plymouth)
 endif
-	@$(call add,BASE_PACKAGES_REGEXP,make-initrd-plymouth cpio)
-	@$(call add,THE_BRANDING,bootsplash)
-	@$(call add,THE_PACKAGES,make-initrd-plymouth)
-	@$(call add,BASE_BOOTARGS,splash)
+	@$(call add,THE_BRANDING,bootsplash graphics)
+	@$(call add,THE_PACKAGES,make-initrd-plymouth cpio)
+ifeq (vm,$(IMAGE_CLASS))
+	@$(call add,VM_INITRDFEATURES,plymouth)
+	@$(call add,BASE_BOOTARGS,quiet splash)
+endif
 
 use/plymouth/full: use/plymouth/stage2 use/plymouth/base; @:
 
