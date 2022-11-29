@@ -5,9 +5,13 @@ catdoc
 gdb
 fuse-cryfs
 libnss-mdns
-libcuda
 nvidia-modprobe
 plasma5-libkscreen-utils
+
+libcuda
+ocl-nvidia
+ocl-icd@X32
+clinfo
 
 alt-csp-cryptopro
 rosa-crypto-tool
