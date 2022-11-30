@@ -65,6 +65,8 @@ endif
 	@$(call add,INSTALL2_PACKAGES,installer-feature-auto-domain)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
+endif
+ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,centaurus/jitsi-meet)
 endif
 	@$(call add,INSTALL2_PACKAGES,fdisk)
