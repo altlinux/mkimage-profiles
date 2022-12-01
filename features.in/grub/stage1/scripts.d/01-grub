@@ -41,11 +41,6 @@ sed -i "s/@default_id@/$DEFAULT/" "$CFG"
 
 default_change "$CFG"
 
-# snippets are not going into the actual image
-if [ "$DEBUG" != 2 ]; then
-	rm -r .in/
-fi
-
 # change kernels version for multiple kernels only
 if [ $(echo "$GLOBAL_KFLAVOURS" | wc -w) -gt 1 ]; then
 	kver=
@@ -76,12 +71,17 @@ fi
 
 # copy grub locale
 mkdir -p locale
-if [ ! -e "$boot/locale" -a -f "$CFG" ]; then
+if [ ! -e "$boot/locale" -a -f "$CFG" -a -f .in/01gfxterm.cfg ]; then
 	langs=$(grep -oP "([a-z]{2})(?=_[A-Z]{2})" "$CFG" | sort | uniq)
 	for i in $langs; do
 		fp="/usr/share/locale/$i/LC_MESSAGES/grub.mo"
 		[ -f $fp ] && cp -arf "$fp" "locale/$i.mo"
 	done
+fi
+
+# snippets are not going into the actual image
+if [ "$DEBUG" != 2 ]; then
+	rm -r .in/
 fi
 
 exit 0
