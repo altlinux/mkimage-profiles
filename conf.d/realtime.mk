@@ -9,7 +9,8 @@ mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal \
 
 ifeq (distro,$(IMAGE_CLASS))
 distro/regular-cnc-rt: distro/.regular-x11 mixin/cnc-rt \
-	use/live/install; @:
+	use/live-install
+	@$(call set,INSTALLER,alt-workstation)
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
