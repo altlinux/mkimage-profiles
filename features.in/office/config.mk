@@ -3,18 +3,13 @@ use/office:
 	@$(call try,THE_OFFICE,abiword gnumeric)
 	@$(call add,THE_PACKAGES,$$(THE_OFFICE))
 
-ifeq (,$(filter-out riscv64,$(ARCH)))
-# other office not available on riscv64 at the moment
-use/office/%: use/office; @:
-else
-
 # support both LibreOffice and LibreOffice-still
 use/office/LibreOffice: use/office
 	@$(call set,THE_OFFICE,LibreOffice$$(LO_FLAVOUR))
 
 # the complete lack of dependencies is intentional
 use/office/LibreOffice/still: ; @:
-ifneq (,$(filter-out e2k%,$(ARCH)))
+ifneq (,$(filter-out riscv64 e2k%,$(ARCH)))
 	@$(call set,LO_FLAVOUR,-still)
 endif
 
@@ -42,5 +37,3 @@ use/office/LibreOffice/full: use/office/LibreOffice/still \
 
 use/office/calligra: use/office
 	@$(call set,THE_OFFICE,calligra)
-
-endif	# !riscv64
