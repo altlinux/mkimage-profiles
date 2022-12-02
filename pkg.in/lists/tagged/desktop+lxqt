@@ -4,7 +4,7 @@ lxqt-regular@META
 
 # media-player
 mpv
-qmmp1@!riscv64
+qmmp1
 
 # graphics
 easypaint

@@ -9,7 +9,7 @@ unrtf
 
 # Networking
 drbd-utils
-scsitarget-utils@!riscv64,E2K
+scsitarget-utils@!E2K
 ntp-utils
 
 # Optical media
@@ -41,7 +41,7 @@ smartmontools
 #smbios-utils
 
 # Misc^2
-kexec-tools@!E2K,riscv64
+kexec-tools@!E2K
 multipath-tools
 lsof
 parallel

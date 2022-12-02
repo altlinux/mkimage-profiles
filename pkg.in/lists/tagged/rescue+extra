@@ -81,7 +81,7 @@ btrfs-progs
 e2fsprogs
 f2fs-tools
 jfsprogs
-nilfs-utils@!riscv64
+nilfs-utils
 mtd-utils
 reiser4progs
 reiserfsprogs
@@ -143,14 +143,14 @@ elinks
 exabgp
 fping
 fuse-curlftpfs
-fuse-lftpfs@!riscv64
+fuse-lftpfs
 fuse-sshfs
 hostinfo
 hping3@X86
 httpry
 httpry-scripts
 iftop
-infiniband-diags@!riscv64
+infiniband-diags
 iperf
 iperf3
 ipmitool

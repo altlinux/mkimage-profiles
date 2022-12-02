@@ -164,8 +164,8 @@ polkit-rule-udisks2-mount
 # Package managenment
 synaptic
 synaptic-usermode
-gnome-software@!riscv64
-gnome-software-disable-updates@!riscv64
+gnome-software
+gnome-software-disable-updates
 packagekit
 rpminstall
 appinstall
@@ -176,7 +176,7 @@ flatpak-repo-flathub@!E2K,riscv64
 
 # Menu
 altlinux-freedesktop-menu-shallow-menu
-altlinux-freedesktop-menu-mate-like-menu@!riscv64
+altlinux-freedesktop-menu-mate-like-menu
 altlinux-freedesktop-menu-icon-theme-default
 
 # Fallback themes
@@ -201,7 +201,7 @@ avahi-daemon
 blueberry
 udev-rules-rfkill-uaccess
 update-kernel
-printer-drivers-base@!riscv64
+printer-drivers-base
 udev-extras
 fdisk
 gdisk

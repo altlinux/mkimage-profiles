@@ -1,7 +1,7 @@
 thunderbird@!riscv64
 
-pidgin@!riscv64
-pidgin-libnotify@!riscv64
+pidgin
+pidgin-libnotify
 
 rdesktop
 remmina

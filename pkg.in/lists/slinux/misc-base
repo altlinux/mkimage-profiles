@@ -32,7 +32,7 @@ fvwm-
 fvwm-full-
 #kernel-modules-staging-@KERNEL_MOD@
 altlinux-freedesktop-menu-shallow-menu
-altlinux-freedesktop-menu-mate-like-menu@!riscv64
+altlinux-freedesktop-menu-mate-like-menu
 altlinux-freedesktop-menu-icon-theme-default
 #altlinux-freedesktop-menu-common
 #branding-@BRANDING@-xfce-settings
@@ -72,9 +72,9 @@ mate-calc
 synaptic
 synaptic-usermode
 apt-indicator
-gnome-software@!riscv64
-gnome-software-disable-updates@!riscv64
-packagekit@!riscv64
+gnome-software
+gnome-software-disable-updates
+packagekit
 
 alt-rootfs-installer
 beesu
@@ -85,7 +85,7 @@ avahi-daemon
 blueberry
 udev-rules-rfkill-uaccess
 update-kernel
-printer-drivers-base@!riscv64
+printer-drivers-base
 hostname-hook-hosts
 libnss-mdns
 i586-glibc-nss@x86_64
@@ -142,7 +142,7 @@ alterator-zram-swap
 mate-search-tool
 libmate-desktop
 yelp
-altmediawriter@!riscv64
+altmediawriter
 
 #compiz
 #python-module-fusion-icon-gtk
@@ -174,8 +174,8 @@ atril-gtk-pixbuf
 atril-gtk-xps
 stardict
 stardict-mueller7
-stardict-quick_en-ru@!riscv64
-stardict-quick_ru-en@!riscv64
+stardict-quick_en-ru
+stardict-quick_ru-en
 
 # For work as guest in the virtualbox
 virtualbox-guest-additions@X86

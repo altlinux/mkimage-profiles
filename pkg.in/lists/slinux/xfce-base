@@ -36,7 +36,7 @@ xfwm4-themes
 orage
 xfce4-screenshooter
 xfce4-clipman-plugin
-xfce4-cpufreq-plugin@!riscv64
+xfce4-cpufreq-plugin
 #xfce4-globalmenu-plugin
 xfce4-xkb-plugin
 xfce4-timer-plugin
