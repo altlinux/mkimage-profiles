@@ -13,9 +13,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64 armh ppc64le riscv64,$(ARCH)))
 # NB: only reasonable for X11-bearing images
 # see also use/install2/kvm
 use/vmguest/kvm: use/vmguest; @:
-ifneq (riscv64,$(ARCH))
 	@$(call add,THE_PACKAGES,qemu-guest-agent)
-endif
 
 use/vmguest/kvm/x11: use/vmguest/kvm
 	@$(call add,THE_PACKAGES,spice-vdagent xorg-drv-qxl xorg-drv-spiceqxl)
