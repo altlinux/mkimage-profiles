@@ -32,21 +32,15 @@ ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 use/browser/seamonkey: use/browser/firefox use/browser/firefox/esr; @:
 endif
 
-ifeq (,$(filter-out riscv64,$(ARCH)))
-use/browser/firefox: use/browser/midori
-else
 # support both firefox and firefox-esr
 use/browser/firefox: use/browser
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
-endif
 
 # the complete lack of dependencies is intentional
 use/browser/firefox/esr:
-	@$(call set,FX_FLAVOUR,-esr)
-
 ifneq (,$(filter-out riscv64,$(ARCH)))
+	@$(call set,FX_FLAVOUR,-esr)
+endif
+
 use/browser/firefox/live: use/browser/firefox
 	@$(call add,THE_BROWSER,livecd-firefox)
-else
-use/browser/firefox/live: ; @:
-endif
