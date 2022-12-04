@@ -244,6 +244,8 @@ distro/.regular-server-full: distro/.regular-server-managed \
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)
 	@$(call add,BASE_KMODULES,staging)
+	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
+	@$(call add,BASE_PACKAGES,btrfs-progs)
 
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd +systemd-optimal; @:
