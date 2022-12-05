@@ -1,4 +1,4 @@
-thunderbird@!riscv64
+thunderbird
 
 pidgin
 pidgin-libnotify
@@ -6,16 +6,5 @@ pidgin-libnotify
 rdesktop
 remmina
 remmina-plugins
-
-claws-mail@riscv64
-claws-mail-plugin-attachwarner@riscv64
-claws-mail-plugin-notification@riscv64
-claws-mail-plugin-pgpcore@riscv64
-claws-mail-plugin-pgpinline@riscv64
-claws-mail-plugin-pgpmime@riscv64
-claws-mail-plugin-rssyl@riscv64
-claws-mail-plugin-spamassassin@riscv64
-claws-mail-plugin-vcalendar@riscv64
-claws-mail-tools@riscv64
 
 telegram-desktop@E2K
