@@ -9,6 +9,7 @@ nvidia-modprobe
 plasma5-libkscreen-utils
 
 libcuda
+libnvoptix
 ocl-nvidia
 ocl-icd@X32
 clinfo
