@@ -196,6 +196,7 @@ distro/kworkstation-install: \
 	emulators remote-desktop \
 	printing publishing scanning \
 	video-editing sound-editing graphics-editing \
+	z00-add-3dparty 3dparty-flatpak 3dparty-snap \
 	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor \
 	z02-add-additional add-oem add-tablet add-webterminal add-no4k-screen)
 

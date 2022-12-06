@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-Required=no
+X-Alterator-PackageList=kworkstation/3dparty-base
+Categories=KDE;
+
+Name=Third-party software
+Name[ru_RU]=Стороннее ПО
+Comment=Third party software repositories.
+Comment[ru_RU]=Репозитории стороннего программного обеспечения.

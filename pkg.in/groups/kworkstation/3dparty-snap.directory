@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/3dparty-snap
+X-Alterator-Required=no
+X-Alterator-Parent=kworkstation/z00-add-3dparty
+Categories=KDE;GNOME;XFCE
+
+Name=SNAP
+Name[ru_RU]=SNAP
+Comment=Service for install SNAP packages from Snapcraft software repository.
+Comment[ru_RU]=Сервис для установки SNAP-пакетов из репозитория программ Snapcraft.

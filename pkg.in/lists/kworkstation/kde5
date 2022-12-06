@@ -28,9 +28,8 @@ kde5-kcm-grub2
 #
 #appinstall@X86
 synaptic-kde@META
-plasma5-discover-maxi@META
-plasma5-discover-flatpak@META
-flatpak-repo-flathub
+plasma5-discover-fwupd
+plasma5-discover-kns
 openssl-gost-engine
 kde5-kreslimit
 kde5-file-actions-gost

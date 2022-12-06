@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=kworkstation/3dparty-flatpak
+X-Alterator-Required=yes
+X-Alterator-Parent=kworkstation/z00-add-3dparty
+Categories=KDE;GNOME;XFCE
+
+Name=Flatpak
+Name[ru_RU]=Flatpak
+Comment=Service for install flatpak packages from Flathub software repository.
+Comment[ru_RU]=Сервис для установки flatpak-пакетов из репозитория программ Flathub.
