@@ -5,7 +5,7 @@ X-Alterator-Required=no
 X-Alterator-Parent=kworkstation/z02-add-additional
 Categories=KDE;GNOME;XFCE
 
-Name=No hi-resolution screen
-Name[ru_RU]=Нет монитора высокого разрешения
-Comment=Additional tuning if no hi-resolution screens(4K).
-Comment[ru_RU]=Дополнительная подстройка при отсутствии экранов высокого разрешения(4K).
+Name=No 4K monitor
+Name[ru_RU]=Нет монитора 4K
+Comment=Additional tuning when you don't need to connect a monitor with a high resolution screen (>= 3840x2160).
+Comment[ru_RU]=Дополнительная подстройка при отсутствии необходимости подключать монитор с экраном высокого разрешения (>= 3840x2160).
