@@ -2,6 +2,7 @@ use/dev: use/control
 	@$(call add_feature)
 	@$(call add,THE_PACKAGES,git-core hasher gear)
 	@$(call add,CONTROL,pam_mktemp:enabled)
+	@$(call add,DEFAULT_SERVICES_ENABLE,hasher-privd)
 
 # use/dev intentionally missing
 use/dev/repo: use/repo/main
