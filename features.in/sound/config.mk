@@ -19,3 +19,9 @@ use/sound/pulse: use/sound
 use/sound/pipewire: use/sound
 	@$(call set,THE_SOUND,sound/pipewire)
 	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,pipewire pipewire-pulse pipewire-media-session)
+ifeq (sisyphus,$(BRANCH))
+	@$(call add,THE_PACKAGES,wireplumber)
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,wireplumber)
+else
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,pipewire-media-session)
+endif
