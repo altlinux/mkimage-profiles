@@ -1,4 +1,5 @@
 raspberrypi-firmware@ARM
+u-boot-rpi3@ARM
 u-boot-meson@aarch64
 u-boot-sunxi@ARM
 u-boot-rockchip@aarch64
