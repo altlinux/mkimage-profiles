@@ -243,6 +243,7 @@ openresolv-bind
 ipset
 lftp
 links2
+samba-usershares
 
 # Multimedia support
 pulseaudio-daemon
