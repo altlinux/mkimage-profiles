@@ -33,9 +33,9 @@ openssh-server-gostcrypto
 
 eepm-yum
 
-postgresql12
-postgresql12-server
-postgresql12-contrib
+postgresql14
+postgresql14-server
+postgresql14-contrib
 
 systemd-settings-enable-kill-user-processes
 state-change-notify-postfix
