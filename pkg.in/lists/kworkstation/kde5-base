@@ -133,6 +133,7 @@ openvpn-gostcrypto
 kde5-display-manager-sddm
 kde5-network-manager-etcnet
 openssh openssh-clients openssh-askpass-common openssh-server openssh-common openssh-server-control
+systemd-ssh-agent
 kde5-network-manager-nm
 kde5-video-player-haruna
 kde5-audio-player-qmmp
