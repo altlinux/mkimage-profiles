@@ -21,7 +21,7 @@ mixin/alt-server: +installer +systemd \
 	use/apt-conf/branch \
 	use/fonts/install2 \
 	use/install2/stage3 \
-	use/firmware/server \
+	use/firmware/full \
 	use/net/etcnet \
 	use/tty
 	@$(call set,INSTALLER,centaurus)
