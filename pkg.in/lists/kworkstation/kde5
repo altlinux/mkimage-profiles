@@ -10,6 +10,7 @@ plasma5-libkscreen-utils
 
 libcuda
 libnvoptix
+libnvcuvid
 ocl-nvidia
 ocl-icd@X32
 clinfo
