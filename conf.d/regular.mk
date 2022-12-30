@@ -17,7 +17,7 @@ endif
 endif
 
 # base target (for most images)
-distro/.regular-base: distro/.regular-bare use/vmguest use/memtest +efi; @:
+distro/.regular-base: distro/.regular-bare use/vmguest use/memtest use/efi/dtb +efi; @:
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
