@@ -142,7 +142,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 	@$(call add,DEFAULT_SERVICES_ENABLE,pve-manager pve-cluster pveproxy pvedaemon pvestatd \
 		pve-firewall pvefw-logger pve-guests pve-ha-crm pve-ha-lrm spiceproxy \
-		lxc lxcfs lxc-net lxc-monitord qmeventd pvescheduler)
+		lxc lxcfs lxc-net lxc-monitord qmeventd pvescheduler pve-lxc-syscalld)
 	@$(call add,SERVICES_ENABLE,multipathd)
 
 #	@$(call add,MAIN_GROUPS,server-v/141-cockpit $(cockpit))
