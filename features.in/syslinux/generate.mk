@@ -16,11 +16,8 @@ STAGE1_INITRD_BOOTARGS := $(STAGE1_INITRD_TYPEARGS)=$(STAGE1_INITRD_BOOTMETHOD)
 
 # UI is backed by modules in modern syslinux
 # (except for built-in text prompt)
-ifneq (,$(SYSLINUX_UI))
+ifneq (none,$(SYSLINUX_UI))
 SYSLINUX_MODULES := $(SYSLINUX_MODULES) $(SYSLINUX_UI)
-else
-$(warning no syslinux ui configured, default is now none)
-SYSLINUX_UI := none
 endif
 
 ifeq (,$(SYSLINUX_DIRECT))
