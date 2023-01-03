@@ -73,7 +73,7 @@ endif
 # copy devicetree for default kernel on ESP partition
 use/efi/dtb: use/efi; @:
 ifeq (distro,$(IMAGE_CLASS))
-ifneq (,$(filter-out $(aarch64 riscv64),$(ARCH)))
+ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 	@$(call set,GLOBAL_COPY_DTB,1)
 	@$(call add,EFI_FILES_REPLACE,dtb)
 endif
