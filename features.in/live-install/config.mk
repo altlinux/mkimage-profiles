@@ -16,6 +16,7 @@ use/live-install: use/live use/metadata use/repo/main \
 	@$(call add,LIVE_PACKAGES,installer-distro-$$(INSTALLER)-stage3)
 	@$(call add,LIVE_PACKAGES,glibc-gconv-modules) # for guile22
 	@$(call add,LIVE_PACKAGES,curl) # for net install
+	@$(call add,LIVE_PACKAGES,lsof) # for debug alterator-vm
 	@$(call set,GLOBAL_LIVE_INSTALL,1)
 	@$(call xport,BASE_BOOTLOADER)
 
