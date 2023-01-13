@@ -26,6 +26,9 @@ grub-customizer@X86
 
 xorg-conf-libinput-touchpad
 
+glxgears
+glxinfo
+
 # Support Chinese characters
 fonts-bitmap-wqy
 
