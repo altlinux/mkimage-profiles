@@ -4,6 +4,6 @@ Type=Directory
 Name=Graphics editing
 Name[ru_RU]=Обработка графики
 X-Alterator-PackageList=workstation/graphics-editing
-X-Alterator-Required=no
+X-Alterator-Required=yes
 X-Alterator-Parent=workstation/30-multimedia
 Categories=KDE;KDE4;GNOME;XFCE;
