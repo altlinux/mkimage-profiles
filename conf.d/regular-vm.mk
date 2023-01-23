@@ -65,6 +65,7 @@ endif
 vm/.regular-desktop:: vm/systemd mixin/regular-vm-x11 \
 	+systemd +systemd-optimal +plymouth
 	@$(call add,THE_PACKAGES,bluez)
+	@$(call add,THE_PACKAGES,glmark2 glmark2-es2)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
