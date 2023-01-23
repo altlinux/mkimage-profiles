@@ -62,18 +62,12 @@ ifeq (,$(filter-out riscv64,$(ARCH)))
 mixin/regular-vm-x11:: use/oem/vnc; @:
 endif
 
-vm/.regular-desktop:: vm/systemd mixin/regular-vm-x11 \
+vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
 	+systemd +systemd-optimal +plymouth
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,THE_PACKAGES,glmark2 glmark2-es2)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
-
-ifeq (,$(filter-out armh aarch64,$(ARCH)))
-vm/.regular-desktop::
-	@$(call add,THE_PACKAGES,xorg-96dpi)
-	@$(call add,THE_LISTS,remote-access)
 	@$(call try,VM_SIZE,6442450944)
-endif
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
 	use/init/sysv/polkit +power; @:
