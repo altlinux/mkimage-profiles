@@ -41,7 +41,7 @@ endif
 mixin/vm-archdep-x11: mixin/vm-archdep +vmguest; @:
 
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
-	use/services/lvm2-disable
+	use/services/lvm2-disable use/wireless
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 endif
@@ -56,7 +56,7 @@ mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 livecd-net-eth)
 
 mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
-	mixin/regular-desktop use/oem +wireless; @:
+	mixin/regular-desktop use/oem; @:
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
 mixin/regular-vm-x11:: use/oem/vnc; @:
