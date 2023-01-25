@@ -3,7 +3,7 @@ LibreOffice-langpack-ru
 LibreOffice-gtk3
 LibreOffice-common
 
-java-11-openjdk@!E2K,mipsel
+java-17-openjdk@!E2K,mipsel
 java-1.8.0-openjdk@E2K,mipsel
 libreoffice-languagetool@!mipsel
 libcmis
