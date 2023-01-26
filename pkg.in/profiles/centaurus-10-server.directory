@@ -2,4 +2,4 @@
 Type=Directory
 Name=Office Server
 Name[ru_RU]=Офисный сервер
-X-Alterator-Groups=centaurus/dhcp-server-a centaurus/dns-server-a centaurus/ftp-server-a centaurus/mail-server-a centaurus/mysql-server-a centaurus/netinst centaurus/http-server centaurus/dns-server centaurus/bacula-server centaurus/kvm-server centaurus/xorg centaurus/samba centaurus/domain-server centaurus/alterator centaurus/mate centaurus/office centaurus/cups centaurus/nm-daemon
+X-Alterator-Groups=centaurus/dhcp-server-a centaurus/dns-server-a centaurus/ftp-server-a centaurus/mail-server-a centaurus/mysql-server-a centaurus/netinst centaurus/http-server centaurus/dns-server centaurus/bacula-server centaurus/kvm-server centaurus/xorg centaurus/samba centaurus/alterator centaurus/mate centaurus/office centaurus/cups centaurus/nm-daemon

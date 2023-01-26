@@ -1,7 +1,7 @@
 mixin/alt-server: server_groups = $(addprefix centaurus/,\
 	10-alterator 20-server-apps 50-freeipa 70-dev 901-net-if-mgt \
 	sambaDC buildsystem dhcp-server-a diag-tools dns-server-a ftp-server-a \
-	mail-server-a owncloud domain-server freeipa-client nm-daemon \
+	mail-server-a owncloud freeipa-client nm-daemon \
 	systemd-networkd openuds openuds-tunnel admc)
 
 mixin/alt-server: server_main_kmodules = bcmwl ch34x dm-secdel drbd9 drm-ancient \
