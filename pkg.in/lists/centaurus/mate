@@ -178,7 +178,7 @@ NetworkManager-openvpn-gtk
 NetworkManager-pptp-gtk
 NetworkManager-vpnc-gtk
 # strongswan (for NM-l2tp) conflicts with pki-tools (for freeipa-server)
-#NetworkManager-l2tp-gtk
+NetworkManager-l2tp-gtk
 NetworkManager-sstp-gtk@X86
 usb-modeswitch
 autofs
