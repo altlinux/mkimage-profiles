@@ -58,3 +58,11 @@ ipmitool
 udev-rules-ioschedulers
 alt-issue-server
 systemd-settings-disable-kill-user-processes
+ca-certificates-digital.gov.ru
+isbc-pkcs11
+libjcpkcs11
+opensc
+pam_pkcs11
+pcsc-lite
+pcsc-lite-ccid
+pcsc-tools

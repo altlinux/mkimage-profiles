@@ -27,3 +27,6 @@ pcs
 ansible
 docker-compose
 etcd
+inxi
+dmidecode
+sssd-ldap
