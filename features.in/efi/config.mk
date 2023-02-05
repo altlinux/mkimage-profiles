@@ -18,7 +18,6 @@ ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFIVAR_FS)
 	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
 ifeq (x86_64,$(ARCH))
-	@$(call add,RESCUE_PACKAGES,refind $$(EFI_SHELL) $$(EFI_BOOTLOADER))
 	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
 endif
 endif
