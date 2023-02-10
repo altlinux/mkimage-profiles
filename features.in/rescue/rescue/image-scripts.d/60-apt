@@ -1,5 +1,0 @@
-#!/bin/sh
-# enable online repository even more unconditionally
-
-sed -i "s,^#\(rpm .* http.*\),\1," "/etc/apt/sources.list.d/alt.list" ||
-	echo "** warning: unable to enable online repos" >&2
