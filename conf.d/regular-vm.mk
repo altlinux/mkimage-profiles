@@ -56,11 +56,7 @@ mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 livecd-net-eth)
 
 mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
-	mixin/regular-desktop use/oem; @:
-
-ifeq (,$(filter-out riscv64,$(ARCH)))
-mixin/regular-vm-x11:: use/oem/vnc; @:
-endif
+	mixin/regular-desktop use/oem/vnc; @:
 
 vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
 	+systemd +systemd-optimal +plymouth
