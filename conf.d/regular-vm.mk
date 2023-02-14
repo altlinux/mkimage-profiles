@@ -96,11 +96,15 @@ vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep-x11
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep-x11; @:
 
-vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep-x11
+vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep-x11; @:
+ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
+endif
 
-vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep-x11
+vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep-x11; @:
+ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
+endif
 
 vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep-x11
 	@$(call set,VM_SIZE,7516192768)
