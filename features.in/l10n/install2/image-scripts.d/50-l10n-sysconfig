@@ -1,0 +1,16 @@
+#!/bin/bash
+
+langlist="/etc/alterator/sysconfig/lang/langlist.all"
+langlist_temp="$langlist".temp
+locales="$GLOBAL_LOCALES"
+
+[ -f "$langlist" ] || exit 0
+[ -n "$locales" ] || exit 0
+
+rm -f "$langlist_temp"
+
+for lang in $locales; do
+	grep -q "$lang" "$langlist" && grep "$lang" "$langlist" >> "$langlist_temp"
+done
+
+mv "$langlist_temp" "$langlist"
