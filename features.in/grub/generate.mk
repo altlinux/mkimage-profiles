@@ -26,7 +26,9 @@ GRUB_CFG := $(GRUB_CFG) gfxterm
 endif
 
 ifneq (,$(LOCALES))
+ifneq ($(words $(LOCALES)),1)
 GRUB_CFG := $(GRUB_CFG) lang
+endif
 endif
 
 ifneq (,$(KFLAVOURS))
