@@ -264,9 +264,6 @@ wodim
 glxgears
 glxinfo
 
-# Additional filesystem support
-fuse-exfat
-
 # Communications
 pidgin
 pidgin-libnotify
