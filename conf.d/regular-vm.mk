@@ -45,6 +45,7 @@ mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,DEFAULT_SERVICES_DISABLE,multipathd)
 endif
+	@$(call add,DEFAULT_SERVICES_ENABLE,sshd)
 	@$(call add,THE_PACKAGES,bash-completion mc update-kernel)
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
