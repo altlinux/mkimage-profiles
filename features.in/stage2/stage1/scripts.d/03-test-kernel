@@ -55,4 +55,4 @@ options()
 	fi
 }
 
-echo "PACK_SQUASHFS_OPTS=-no-recovery `options`" > /.image/squashcfg.mk
+echo "PACK_SQUASHFS_OPTS=-no-recovery -no-hardlinks `options`" > /.image/squashcfg.mk
