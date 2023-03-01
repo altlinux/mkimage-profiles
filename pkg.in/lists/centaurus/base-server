@@ -59,6 +59,7 @@ reiserfsprogs
 jfsutils
 dosfstools
 multipath-tools
+btrfs-progs
 
 # scsi
 sdparm
