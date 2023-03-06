@@ -73,6 +73,7 @@ endif
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,DEFAULT_SERVICES_ENABLE,rpcbind sshd bind)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,systemd-networkd.service)
 	@$(call set,META_VOL_ID,ALT Server 10.1 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
