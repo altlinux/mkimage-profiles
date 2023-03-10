@@ -20,6 +20,8 @@ done
 
 cat >> /etc/initrd.mk <<EOF
 FEATURES += add-modules compress cleanup
+PUT_UDEV_RULES += *-net-setup-link.rules *-net-description.rules
+PUT_FILES += /lib/systemd/network/99-default.link
 EOF
 
 for module in $(grep -v ^# /.in/modules | sort -u | tr -s '\n' ' '); do
