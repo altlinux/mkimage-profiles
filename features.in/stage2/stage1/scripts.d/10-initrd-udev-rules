@@ -1,0 +1,13 @@
+#!/bin/sh -efu
+
+if rpm -q udev-rule-generator-net; then
+	cat >> /etc/initrd.mk <<-EOF
+	PUT_UDEV_RULES += 75-persistent-net-generator.rules
+	PUT_FILES += /lib/udev/write_net_rules
+	EOF
+else
+	cat >> /etc/initrd.mk <<-EOF
+	PUT_UDEV_RULES += *-net-setup-link.rules *-net-description.rules
+	PUT_FILES += /lib/systemd/network/99-default.link
+	EOF
+fi
