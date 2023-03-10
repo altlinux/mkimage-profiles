@@ -59,8 +59,14 @@ MAKE_INITRD_VER="`make-initrd -V \
 [ -z "$GLOBAL_VERBOSE" ] ||
 	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
 
+# copy initrd.mk to image
+mkdir -p /.image/.disk
+cp /etc/initrd.mk /.image/.disk
+cp /etc/sysconfig/bootchain /.image/.disk
+
 cd /boot
 for KVER in $kver; do
+	echo make-initrd $MAKE_INITRD_OPTS -k "$KVER" >> /.image/.disk/mkinitrd
 	make-initrd $MAKE_INITRD_OPTS -k "$KVER" ||
 		fatal "make-initrd failed"
 done
