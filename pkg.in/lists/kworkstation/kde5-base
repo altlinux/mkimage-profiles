@@ -90,6 +90,7 @@ pciutils
 pcmciautils
 pinfo
 pm-utils
+polkit-rule-admin-root
 pulseaudio-bluez
 quota
 rpminstall
