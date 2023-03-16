@@ -11,9 +11,9 @@ gnupg2
 # 1C
 #1c-preinstall-full@X86 # ms-fonts license
 1c-preinstall@X86
-postgresql.*-1C
-postgresql.*-1C-server
-postgresql.*-1C-contrib
+postgresql15-1C
+postgresql15-1C-server
+postgresql15-1C-contrib
 haspd@IA32
 # VipNet CSP
 vipnetcsp4-preinstall
