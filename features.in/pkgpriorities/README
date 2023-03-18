@@ -1,3 +1,5 @@
+=== features.in/pkgpriorities ===
+
 Эта фича обеспечивает добавление записей в файл
 `$(PKGBOX)/aptbox/etc/apt/pkgpriorities`
 после инициализации чрута, но перед установкой пакетов.

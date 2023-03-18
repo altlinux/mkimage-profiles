@@ -1,14 +1,19 @@
+=== features.in/initrd-bootchain ===
+
 Осуществляется сборка initrd.img при помощи make-initrd с включенными фичами
 bootchain. Это альтернатива фичи initrd-propagator. Используется тот же список
 модулей ядра, что и при сборке с propagator, но в отличие от последнего модули
 добавляются в initrd.img самим make-initrd.
+
 Документацию по использованию bootchain следует смотреть в пакетах
 make-initrd-bootchain-*:
-/usr/share/make-initrd/features/bootchain-*/README.md
+
+  /usr/share/make-initrd/features/bootchain-*/README.md
 
 Конфиг находится в stage1/files/bootchain. Почти все переменные можно
 переопределить. Переменные в m-p по сравнению с конфигом bootchain
 имеют приставку 'BOOTCHAIN_'. Дефолты заданы в config.mk
+
 Переопределить можно так:
 
   $(call set,BOOTCHAIN_OEM_WELCOME_TEXT,Welcome to my OS!)

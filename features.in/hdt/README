@@ -1,3 +1,5 @@
+=== features.in/hdt ===
+
 Добавление модуля hdt (Hardware Detection Tool) к syslinux;
 может быть востребовано для инсталяторов, live/rescue.
 

@@ -1,3 +1,5 @@
+=== features.in/init ===
+
 Эта фича определяет систему инициализации, которая будет использована
 в пользовательской среде (livecd, установленный дистрибутив, vm).
 Она не влияет на состав инсталятора и rescue-образа.
@@ -7,5 +9,7 @@
 считается достигнутой и при последующих вызовах не отрабатывает.
 
 См. тж.:
-http://altlinux.org/sysvinit
-http://altlinux.org/systemd
+
+https://www.altlinux.org/Sysvinit
+
+https://www.altlinux.org/Systemd

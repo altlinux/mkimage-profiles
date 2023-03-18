@@ -1,3 +1,5 @@
+=== features.in/net ===
+
 Эта фича конфигурирует базовую поддержку сети, включая нужную подсистему
 (etcnet, NetworkManager поверх etcnet или connman).
 

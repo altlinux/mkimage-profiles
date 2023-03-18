@@ -1,3 +1,5 @@
+=== features.in/ldm ===
+
 Simple hook to run Linux Driver Management tools to configure hybrid graphics
 (aka Optimus/PRIME) for different DM's.
 

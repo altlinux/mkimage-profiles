@@ -1,6 +1,8 @@
+=== features.in/branding ===
+
 Эта фича врезается в makefile субпрофилей и обеспечивает
 добавление задающих внешний вид и сообщения дистрибутива
-пакетов; см. тж. http://www.altlinux.org/Branding
+пакетов; см. тж. https://www.altlinux.org/Branding
 
 Реализация "двумерная" -- отдельно задаётся BRANDING
 (см. пакеты branding-*-%version-%release.src.rpm),

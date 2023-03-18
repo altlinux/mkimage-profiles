@@ -1,2 +1,8 @@
+=== features.in/control ===
+
 Эта фича предоставляет интерфейс для конфигурирования дистрибутивных
-значений по умолчанию control(8); см. тж. http://altlinux.org/control
+значений по умолчанию control(8).
+
+См. тж.:
+
+https://www.altlinux.org/Control
