@@ -104,7 +104,7 @@ endif
 
 mixin/kworkstation-install-deps: \
 	distro/.installer mixin/desktop-installer \
-	use/install2/suspend use/install2/net use/install2 use/install2/stage3 \
+	use/install2/suspend use/install2/net use/install2 use/install2/stage3 use/install2/vnc \
 	use/install2/vmguest \
 	use/stage2/net-install \
 	use/grub/localboot_bios.cfg \
