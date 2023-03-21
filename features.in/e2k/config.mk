@@ -4,7 +4,6 @@ use/e2k: use/tty/S0 use/l10n/default/ru_RU
 	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-fix-boot-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-ignore-cf-stage2)
-	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 	@$(call add,LIVE_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,STAGE2_PACKAGES,agetty)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-xorg-conf-stage2)
