@@ -88,7 +88,7 @@ use/install2/autoinstall:
 
 # NB: sort of conflicts with use/install2/cleanup/vnc
 use/install2/vnc:
-	@$(call add,INSTALL2_PACKAGES,x11vnc xterm net-tools)
+	@$(call add,INSTALL2_PACKAGES,x11vnc xvt net-tools)
 
 # this one expects external vncviewer to come
 use/install2/vnc/listen: use/install2/vnc \
