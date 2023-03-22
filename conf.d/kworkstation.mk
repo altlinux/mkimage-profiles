@@ -97,6 +97,7 @@ endif
 	@$(call add,SERVICES_ENABLE,snapd.socket)
 	@$(call add,CLEANUP_BASE_PACKAGES,'libwbclient-sssd')
 	@$(call add,CLEANUP_PACKAGES,'^kernel-modules-drm-nouveau.*')
+	@$(call add,CLEANUP_PACKAGES,'xterm')
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) $(ARCH))
