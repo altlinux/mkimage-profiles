@@ -8,6 +8,7 @@ libnss-mdns
 nvidia-modprobe
 plasma5-libkscreen-utils
 
+libnvidia-encode
 libcuda
 libnvoptix
 libnvcuvid
