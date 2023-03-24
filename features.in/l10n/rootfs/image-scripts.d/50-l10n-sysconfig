@@ -3,6 +3,9 @@
 langlist="/etc/alterator/sysconfig/lang/langlist.all"
 langlist_temp="$langlist".temp
 locales="$GLOBAL_LOCALES"
+locale="$GLOBAL_LOCALE"
+systemd_locale=/etc/locale.conf
+sysv_locale=/etc/sysconfig/i18n
 
 [ -f "$langlist" ] || exit 0
 [ -n "$locales" ] || exit 0
@@ -14,3 +17,9 @@ for lang in $locales; do
 done
 
 mv "$langlist_temp" "$langlist"
+
+[ -n "$locale" ] || exit 0
+
+echo LANG="$locale".UTF8 > "$systemd_locale"
+echo LANG="$locale".UTF8 > "$sysv_locale"
+echo SUPPORTED="$locale".UTF8 >> "$sysv_locale"
