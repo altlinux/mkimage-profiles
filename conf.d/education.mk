@@ -79,6 +79,7 @@ endif
 mixin/education-lite-live: \
 	use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
+	use/grub/timeout/1 use/syslinux/timeout/10 \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_PACKAGES,mc-full)
@@ -87,6 +88,8 @@ mixin/education-lite-live: \
 	@$(call add,LIVE_LISTS,education/live-lite)
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
+	@$(call set,GRUB_DEFAULT,session)
+	@$(call set,SYSLINUX_DEFAULT,session)
 
 mixin/education-base: \
 	use/l10n/default/ru_RU +vmguest \
