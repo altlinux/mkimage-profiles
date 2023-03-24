@@ -33,6 +33,26 @@ endif
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,THE_LISTS,$(call tags,base extra))
 
+mixin/education-lite: \
+	use/kernel/desktop use/kernel/net use/kernel/laptop \
+	use/firmware use/firmware/wireless use/firmware/laptop \
+	+systemd +systemd-optimal \
+	use/services \
+	use/ntp/chrony \
+	use/apt-conf/branch \
+	+x11 use/x11/3d \
+	use/x11/lightdm/gtk +pulse \
+	+nm use/x11/gtk/nm \
+	use/xdg-user-dirs/deep \
+	use/browser/chromium
+	@$(call set,BRANDING,alt-education)
+	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
+	@$(call add,THE_LISTS,slinux/xfce-base)
+	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)                            
+	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
+	@$(call add,THE_LISTS,$(call tags,base l10n))
+	@$(call add,THE_LISTS,$(call tags,base regular))
+	@$(call add,THE_LISTS,$(call tags,base extra))
 ifeq (distro,$(IMAGE_CLASS))
 
 mixin/education-live: \
@@ -56,6 +76,17 @@ endif
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
 
+mixin/education-lite-live: \
+	use/live/suspend \
+	use/live/repo use/live/x11 use/live/rw \
+	use/cleanup/live-no-cleanupdb
+	@$(call add,LIVE_PACKAGES,livecd-timezone)
+	@$(call add,LIVE_PACKAGES,mc-full)
+	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,LIVE_LISTS,education/live-lite)
+	@$(call add,CONTROL,tcb_chkpwd:tcb)
+	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
+
 mixin/education-base: \
 	use/l10n/default/ru_RU +vmguest \
 	+efi use/efi/shell \
@@ -75,6 +106,24 @@ mixin/education-base: \
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,alt-rootfs-installer)
 	@$(call add,THE_PACKAGES,btrfs-progs)
+	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,STAGE2_PACKAGES,chrony)
+
+mixin/education-lite-base: \
+	use/l10n/default/ru_RU +vmguest \
+	+efi use/efi/shell \
+	use/isohybrid use/luks \
+	use/install2/fonts \
+	use/wireless \
+	+plymouth \
+	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
+	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
+	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
+	@$(call set,INSTALLER,education)
+	@$(call set,META_VOL_ID,ALT Education 10.1 $(ARCH))
+	@$(call set,META_PUBLISHER,BaseALT Ltd)
+	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
+	@$(call set,META_VOL_SET,ALT)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 
@@ -111,6 +160,9 @@ mixin/education-installer: \
 	#
 distro/alt-education-live: distro/.base mixin/education-live \
 	mixin/education-base mixin/education use/branding/full; @:
+
+distro/alt-education-lite-live: distro/.base mixin/education-lite-live \
+	mixin/education-lite-base mixin/education-lite use/branding/full; @:
 
 distro/education: distro/alt-education; @:
 distro/alt-education: distro/.installer \
