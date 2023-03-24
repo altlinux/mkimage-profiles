@@ -82,6 +82,7 @@ mixin/education-lite-live: \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_PACKAGES,mc-full)
+	@$(call add,LIVE_PACKAGES,mousepad)
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,LIVE_LISTS,education/live-lite)
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
