@@ -9,9 +9,9 @@ ifeq (distro,$(IMAGE_CLASS))
 endif
 
 comma := ,
-use/tty/S0 use/tty/SIF0 use/tty/AMA0: use/tty/%: use/tty
+use/tty/%: use/tty
 	@$(call add,THE_PACKAGES,agetty)
-	@$(call add,TTY_DEV,tty$*)
-	@$(call set,TTY_RATE,115200)
+	@$(call try,TTY_DEV,tty$*)
+	@$(call try,TTY_RATE,115200)
 	@$(call add,SYSLINUX_CFG,tty$*)
 	@$(call add,BASE_BOOTARGS,console=tty1 console=$$(TTY_DEV)$(comma)$$(TTY_RATE)n8)
