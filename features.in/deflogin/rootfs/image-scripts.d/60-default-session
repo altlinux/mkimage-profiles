@@ -1,0 +1,25 @@
+#!/bin/sh
+
+account_dir=/var/lib/AccountsService/users
+
+[ -d /var/lib/AccountsService/users ] || exit 0
+[ -n "$GLOBAL_USERS" ] || exit 0
+[ -n "$GLOBAL_DEFAULT_SESSION" ] || exit 0
+
+if [ -f /usr/share/wayland-sessions/"$GLOBAL_DEFAULT_SESSION".desktop ]; then
+	sesion_type=Session
+elif [ -f /usr/share/xsessions/"$GLOBAL_DEFAULT_SESSION".desktop ]; then
+	sesion_type=XSession
+else
+	echo "$GLOBAL_DEFAULT_SESSION.desktop is not found" >&2
+	exit 1
+fi
+
+for user in $GLOBAL_USERS; do
+	user="${user%%:*}"
+	cat > "$account_dir"/"$user"<<-EOF
+	[User]
+	$sesion_type=$GLOBAL_DEFAULT_SESSION
+	EOF
+	cat "$account_dir"/"$user"
+done

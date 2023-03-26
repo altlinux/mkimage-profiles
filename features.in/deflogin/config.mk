@@ -8,6 +8,7 @@ use/deflogin:
 	@$(call xport,GROUPS)
 	@$(call xport,SPEC_USER)
 	@$(call xport,LIVE_USER)
+	@$(call xport,DEFAULT_SESSION)
 
 # some presets
 # USERS variable chunk format is "login:passwd:admin:sudo"
