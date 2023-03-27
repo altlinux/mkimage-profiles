@@ -1,0 +1,10 @@
+#!/bin/sh -efu
+
+[ -n "$GLOBAL_ALTERNATIVES" ] || exit 0
+for alternative in $GLOBAL_ALTERNATIVES; do
+	candidate="${alternative#*:}"
+	alternative="${alternative%:*}"
+	alternatives-manual "$alternative" "$candidate"
+done
+
+alternatives-update

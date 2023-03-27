@@ -54,6 +54,8 @@ include::../features.in/README[]
 
 include::../features.in/00example/README[]
 
+include::../features.in/alternatives/README[]
+
 include::../features.in/apt-conf/README[]
 
 include::../features.in/armh-mcom02/README[]

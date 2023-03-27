@@ -1,0 +1,13 @@
+=== features.in/alternatives ===
+
+Данная фича позволяет задавать альтернативы [1].
+Например, так:
+
+  @$(call add,ALTERNATIVES,/usr/bin/xvt:/usr/bin/xterm)
+
+Также в самом конфиге могут быть уже преопределены цели для установки альтернатив.
+Например, use/alternatives/xvt/% позволяет задавать произвольные альтернативы для xvt:
+use/alternatives/xvt/xterm, use/alternatives/xvt/mate-terminal и т.д.
+При этом альтернатива должна быть доступна.
+
+1. https://www.altlinux.org/Alternatives
