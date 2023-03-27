@@ -3,12 +3,14 @@
 +live-installer: use/live-install/full; @:
 
 use/live-install: use/live use/metadata use/repo/main \
-	use/bootloader use/grub/live-install.cfg use/syslinux/live-install.cfg
+	use/bootloader use/grub/live-install.cfg use/syslinux/live-install.cfg \
+	use/alternatives/xvt/xterm
 	@$(call add_feature)
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,LIVE_PACKAGES,installer-livecd-install)
 	@$(call add,LIVE_PACKAGES,alterator-postinstall) # for auto install
+	@$(call add,LIVE_PACKAGES,xterm) # for vnc support
 	@$(call try,INSTALLER,altlinux-generic)	# might be replaced later
 	@$(call add,LIVE_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
 	@$(call add,LIVE_PACKAGES,branding-$$(BRANDING)-alterator)
