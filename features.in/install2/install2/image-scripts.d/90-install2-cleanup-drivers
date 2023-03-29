@@ -12,6 +12,9 @@ rm -rf /usr/lib*/vdpau/ /usr/lib*/libXv*
 # evms modules; see http://evms.sourceforge.net/user_guide/
 rm -f /lib*/evms/*/{bbr,csm,drivelink,ogfs,replace,snapshot}*
 
+# evms will assemble arrays on its own
+rm -f /lib/udev/rules.d/64-md-raid-assembly.rules
+
 # unneeded kernel modules
 ### some of these removals belong to a purge grade script
 ### TODO: mostly scsi-less and net-less cleanup for antique
