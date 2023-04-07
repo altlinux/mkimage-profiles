@@ -100,7 +100,7 @@ endif
 	@$(call add,CLEANUP_PACKAGES,'xterm')
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) $(ARCH))
+	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS))
 	@$(call set,META_APP_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) $(ARCH) $(shell date +%F))
 
 mixin/kworkstation-install-deps: \
@@ -191,7 +191,7 @@ mixin/kworkstation-live-opts:
 	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,CLEANUP_LIVE_PACKAGES,'flatpak')
 	@$(call add,CLEANUP_LIVE_PACKAGES,'snapd')
-	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) Live $(ARCH))
+	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) Live)
 	@$(call set,META_APP_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) Live $(ARCH) $(shell date +%F))
 
 distro/kworkstation-install: \
