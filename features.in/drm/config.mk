@@ -29,7 +29,7 @@ use/drm/full: use/drm/ancient use/drm/radeon \
 
 use/drm/stage2:
 	@$(call add,STAGE1_DRM_KMODULES,drm)
-	@$(call add,STAGE1_KMODULES,$$(STAGE1_DRM_KMODULES))
+	@$(call add,STAGE1_KMODULES,$$(STAGE1_DRM_KMODULES) $$(STAGE1_NVIDIA_KMODULES))
 
 use/drm/stage2/ancient: use/drm/stage2
 	@$(call add,STAGE1_DRM_KMODULES,drm-ancient)
@@ -38,7 +38,10 @@ use/drm/stage2/radeon: use/drm/stage2
 	@$(call add,STAGE1_DRM_KMODULES,drm-radeon)
 
 use/drm/stage2/nouveau: use/drm/stage2
-	@$(call add,STAGE1_DRM_KMODULES,drm-nouveau)
+	@$(call set,STAGE1_NVIDIA_KMODULES,drm-nouveau)
+
+use/drm/stage2/nvidia: use/drm/stage2/nouveau
+	@$(call set,STAGE1_NVIDIA_KMODULES,)
 
 use/drm/stage2/full: use/drm/stage2/ancient use/drm/stage2/radeon \
 	use/drm/stage2/nouveau; @:

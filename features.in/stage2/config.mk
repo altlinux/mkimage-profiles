@@ -33,8 +33,8 @@ endif
 
 use/stage2/kms: use/stage2/drm use/drm/stage2/full; @:
 
-use/stage2/kms/nvidia: use/stage2/kms \
-	use/drm/stage2/nvidia; @:
+# initrd without nouveau; see ALT bug 31971
+use/stage2/kms/nvidia: use/stage2/drm use/drm/stage2/nvidia; @:
 
 # install mount.cifs to stage1
 # NB: there's builtin nfsmount there, no reason for nfs-utils
