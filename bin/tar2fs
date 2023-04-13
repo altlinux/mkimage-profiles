@@ -424,15 +424,15 @@ grub-efi)
 		;;
 		aarch64)
 			chroot "$ROOTFS" grub-install --target=arm64-efi --recheck \
-			  --removable --no-uefi-secure-boot
+			  --removable --uefi-secure-boot
 		;;
 		armh)
 			chroot "$ROOTFS" grub-install --target=arm-efi --recheck \
-			  --removable --no-uefi-secure-boot
+			  --removable --uefi-secure-boot
 		;;
 		riscv64)
 			chroot "$ROOTFS" grub-install --target=riscv64-efi --recheck \
-			  --removable --no-uefi-secure-boot
+			  --removable --uefi-secure-boot
 	esac
 	sed -i '/GRUB_DISABLE_OS_PROBER=true/d' "$ROOTFS/etc/sysconfig/grub2"
 	;;
