@@ -18,7 +18,7 @@ done
 	fatal "kernel modules set not found"
 
 cat >> /etc/initrd.mk <<EOF
-FEATURES += add-modules compress cleanup rdshell
+FEATURES += add-modules compress cleanup rdshell kbd
 FEATURES += bootchain-localdev
 FEATURES += bootchain-liverw
 FEATURES += bootchain-waitdev
