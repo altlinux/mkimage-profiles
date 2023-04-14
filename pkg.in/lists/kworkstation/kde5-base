@@ -34,7 +34,6 @@ alterator-services
 alterator-sysconfig
 alterator-update-kernel
 alterator-users
-alterator-x11
 alterator-xkb
 alterator-zram-swap
 
