@@ -48,7 +48,8 @@ rm -rf /lib/modules/*/kernel/drivers/net/hamradio
 rm -rf /lib/modules/*/kernel/drivers/net/irda
 rm -rf /lib/modules/*/kernel/drivers/net/tokenring
 rm -rf /lib/modules/*/kernel/drivers/net/wimax
-rm -rf /lib/modules/*/kernel/drivers/net/wireless
+# wi-fi may also need to be configured in the installer
+#rm -rf /lib/modules/*/kernel/drivers/net/wireless
 rm -rf /lib/modules/*/kernel/drivers/net/wan
 rm -rf /lib/modules/*/kernel/drivers/regulator
 rm -rf /lib/modules/*/kernel/drivers/staging
