@@ -426,10 +426,6 @@ grub-efi)
 			chroot "$ROOTFS" grub-install --target=arm64-efi --recheck \
 			  --removable --uefi-secure-boot
 		;;
-		armh)
-			chroot "$ROOTFS" grub-install --target=arm-efi --recheck \
-			  --removable --uefi-secure-boot
-		;;
 		riscv64)
 			chroot "$ROOTFS" grub-install --target=riscv64-efi --recheck \
 			  --removable --uefi-secure-boot
