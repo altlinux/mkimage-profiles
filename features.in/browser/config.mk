@@ -40,7 +40,7 @@ endif
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
 
 # the complete lack of dependencies is intentional
-use/browser/firefox/esr:
+use/browser/firefox/esr: ; @:
 ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call set,FX_FLAVOUR,-esr)
 endif
