@@ -34,6 +34,9 @@ endif
 
 # support both firefox and firefox-esr
 use/browser/firefox: use/browser
+ifeq (,$(filter-out i586,$(ARCH)))
+	@$(call set,FX_FLAVOUR,-esr)
+endif
 	@$(call set,THE_BROWSER,firefox$$(FX_FLAVOUR))
 
 # the complete lack of dependencies is intentional
