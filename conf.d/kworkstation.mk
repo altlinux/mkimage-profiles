@@ -30,6 +30,7 @@ mixin/kworkstation-common-deps: \
 	use/stage2/kms/nvidia
 
 mixin/kworkstation-common-opts:
+	@$(call set,LOCALES,ru_RU en_US pt_BR)
 	@$(call set,BRANDING,xalt-kworkstation)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
