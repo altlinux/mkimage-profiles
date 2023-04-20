@@ -54,6 +54,7 @@ bc
 bind-utils
 cpufreq-simple
 cifs-utils
+color-prompt-and-man
 curl
 ddcprobe@X86
 dmidecode
