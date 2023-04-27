@@ -6,6 +6,7 @@ gdb
 fuse-cryfs
 libnss-mdns
 nvidia-modprobe
+nvidia-smi
 plasma5-libkscreen-utils
 
 libnvidia-encode
