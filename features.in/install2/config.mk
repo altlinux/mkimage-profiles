@@ -24,10 +24,19 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: \
 	use/install2/packages use/install2/vmguest use/install2/tools \
+	use/install2/lvm use/install2/cryptsetup \
 	use/syslinux/localboot.cfg use/grub/localboot_bios.cfg \
 	use/syslinux/ui/menu use/bootloader
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-synaptics)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-libinput)
+
+use/install2/lvm: use/install2
+	@$(call add,INSTALL2_PACKAGES,lvm2)
+	@$(call add,BASE_PACKAGES,lvm2)
+
+use/install2/cryptsetup: use/install2
+	@$(call add,INSTALL2_PACKAGES,cryptsetup)
+	@$(call add,BASE_PACKAGES,cryptsetup)
 
 # for distributions with their own -stage3 installer part
 use/install2/stage3: use/install2
