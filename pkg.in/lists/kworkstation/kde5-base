@@ -109,7 +109,7 @@ udev-rules-ioschedulers
 update-kernel
 usb-modeswitch
 usbutils
-#userpasswd
+userpasswd
 vdpauinfo
 vim-console
 vkd3d-utils

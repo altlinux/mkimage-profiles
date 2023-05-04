@@ -118,7 +118,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-stage2)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-kde-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-automount-stage2)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-weak-passwd)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-disable-remote-stage2)
