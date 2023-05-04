@@ -31,6 +31,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call set,KFLAVOURS,un-def std-def)
 	@$(call set,GRUB_DEFAULT,network)
+	@$(call set,LOCALES,en_US ru_RU pt_BR)
 endif
 
 distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
