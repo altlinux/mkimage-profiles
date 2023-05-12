@@ -5,11 +5,6 @@ stardict-mueller7
 stardict-wn
 #stardict-engcom
 
-# NVIDIA drivers
-#kernel-modules-nvidia-@KERNEL_MOD@
-nvidia-xconfig@X86
-nvidia-xconfig@aarch64
-
 # ATI proprietary driver
 #fglrx_glx
 #fglrx-tools

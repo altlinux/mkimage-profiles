@@ -16,6 +16,3 @@ bumblebee@X86
 # Spice client
 libspice-gtk3
 #spice-client
-
-# Nvidia drivers
-nvidia_glx_.*@X86

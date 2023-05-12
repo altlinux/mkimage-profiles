@@ -62,7 +62,9 @@ use/slinux/vm-base:: use/oem/vnc
 	@$(call set,KFLAVOURS,un-def)
 endif
 
-use/slinux/mixin-base: use/slinux use/x11/xorg use/x11/lightdm/gtk +pulse \
+use/slinux/mixin-base: use/slinux \
+	+x11 use/x11/3d \
+	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless \
 	use/l10n/default/ru_RU \
 	use/ntp/chrony \

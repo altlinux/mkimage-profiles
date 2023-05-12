@@ -219,3 +219,8 @@ eepm
 
 # Russian Trusted Root CA
 ca-certificates-digital.gov.ru
+
+# NVIDIA drivers
+#kernel-modules-nvidia-@KERNEL_MOD@
+nvidia-xconfig@X86
+nvidia-xconfig@aarch64
