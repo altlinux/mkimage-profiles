@@ -191,7 +191,7 @@ distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 \
-	use/kernel/latest +plymouth
+	use/kernel/latest +plymouth use/browser/epiphany
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
 	@$(call add,LIVE_PACKAGES,screenpen)
 
