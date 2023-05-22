@@ -101,6 +101,8 @@ ifeq (sisyphus,$(BRANCH))
 endif
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
+	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
+	@$(call add,BASE_PACKAGES,btrfs-progs)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,CLEANUP_PACKAGES,acpid-events-power)
 else
