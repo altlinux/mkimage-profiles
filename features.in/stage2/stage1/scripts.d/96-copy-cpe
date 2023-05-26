@@ -1,0 +1,10 @@
+#!/bin/sh -ef
+
+cd /.image
+mkdir -p .disk
+
+. /etc/os-release
+
+[ -n "${CPE_NAME:-}" ] || exit 1
+
+echo "${CPE_NAME:-}" > .disk/cpe
