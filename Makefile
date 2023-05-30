@@ -2,6 +2,14 @@
 # iterate over multiple goals/arches,
 # collect proceedings
 
+ifeq (,$(CHECK))
+ifeq (,$(DEBUG))
+ifneq (,$(REPORT))
+$(warning REPORT is disabled, DEBUG must be enabled for this)
+endif
+endif
+endif
+
 ifndef BRANCH
 BRANCH := $(shell rpm --eval %_priority_distbranch | cut -d _ -f 1)
 export BRANCH
@@ -69,7 +77,7 @@ SHELL = /bin/bash
 			fi; \
 			say "** ARCH: $$ARCH"; \
 		fi; \
-		if [ -n "$(REPORT)" ]; then \
+		if [ -n "$(REPORT)" ] && [ -n "$(DEBUG)" ] && [ -z "$(CHECK)" ]; then \
 			REPORT_PATH=$$(mktemp --tmpdir mkimage-profiles.report.XXXXXXX); \
 			$(MAKE) -f main.mk ARCH=$$ARCH $@ | report-filter > $$REPORT_PATH || exit 1; \
 			$(MAKE) -f reports.mk ARCH=$$ARCH REPORT=$(REPORT) REPORT_PATH=$$REPORT_PATH; \

@@ -14,12 +14,6 @@ LOGDIR := $(shell sed -n 's/^LOGDIR = \(.*\)/\1/p' $(BUILDLOG))
 ifeq (,$(LOGDIR))
 LOGDIR := $(shell sed -n 's/^LOGDIR ?= \(.*\)/\1/p' $(BUILDCFG))
 endif
-ifeq (,$(IMAGE_OUTPATH))
-TARGET_NAME := $(shell sed -n 's/^IMAGE_NAME = \(.*\)/\1/p' $(BUILDDIR)/distcfg.mk)
-TARGET_TYPE := $(shell sed -n 's/^IMAGE_TYPE = \(.*\)/\1/p' $(BUILDDIR)/distcfg.mk)
-TARGET_NAME := $(TARGET_NAME).$(TARGET_TYPE)
-LOGDIR := $(LOGDIR)/CHECK
-endif
 
 # for a multi-image build there's no sense to refer to buildroot
 # contained reports as these are very ephemeral between builds
@@ -36,7 +30,6 @@ define report_body
 fi; }
 endef
 
-ifneq (,$(IMAGE_OUTPATH))
 all: reports/targets reports/scripts reports/cleanlog \
 	reports/contents reports/packages
 	@rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"
@@ -48,20 +41,6 @@ all: reports/targets reports/scripts reports/cleanlog \
 ifeq (2,$(REPORT))
 	@cd "$(LOGDIR)" && tar -cf "$(IMAGE_OUTFILE).reports.tar" "$(IMAGE_OUTFILE).reports" && \
 		rm -r "$(IMAGE_OUTFILE).reports"
-endif
-else
-all: reports/prep reports/targets reports/scripts
-	@rm -fr "$(LOGDIR)/$(TARGET_NAME).reports"
-	@cp -a "$(REPORTDIR)" "$(LOGDIR)/$(TARGET_NAME).reports"
-	@if [ -f "$(BUILDCFG)" ]; then \
-		cp -a "$(BUILDCFG)" "$(LOGDIR)/$(TARGET_NAME).reports/build.cfg"; \
-	fi
-	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
-		"$(LOGDIR)/$(TARGET_NAME).reports/pkg.list"
-ifeq (2,$(REPORT))
-	@cd "$(LOGDIR)" && tar -cf "$(TARGET_NAME).reports.tar" "$(TARGET_NAME).reports" && \
-		rm -r "$(TARGET_NAME).reports"
-endif
 endif
 
 reports/prep:
