@@ -38,6 +38,7 @@ all: reports/targets reports/scripts reports/cleanlog \
 	@mv $(LOGDIR)/{$(IMAGE_OUTFILE),$(IMAGE_OUTFILE).reports/build}.cfg
 	@find $(BUILDDIR)/pkg/ -type f | sed 's:$(BUILDDIR)/pkg/::' > \
 		"$(LOGDIR)/$(IMAGE_OUTFILE).reports/pkg.list"
+	@chmod +r -R "$(LOGDIR)/$(IMAGE_OUTFILE).reports"
 ifeq (2,$(REPORT))
 	@cd "$(LOGDIR)" && tar -cf "$(IMAGE_OUTFILE).reports.tar" "$(IMAGE_OUTFILE).reports" && \
 		rm -r "$(IMAGE_OUTFILE).reports"
