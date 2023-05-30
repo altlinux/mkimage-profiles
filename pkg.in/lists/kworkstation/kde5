@@ -16,6 +16,7 @@ libnvcuvid
 ocl-nvidia
 ocl-icd@X32
 clinfo
+nvidia-vaapi-driver
 
 alt-csp-cryptopro
 rosa-crypto-tool
