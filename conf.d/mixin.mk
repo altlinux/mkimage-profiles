@@ -95,9 +95,6 @@ mixin/regular-gnome3: use/x11/gnome3 use/fonts/ttf/redhat +nm-gtk
 	@$(call add,THE_PACKAGES,xcalib templates)
 	@$(call add,THE_PACKAGES,chrome-gnome-shell)
 	@$(call add,THE_PACKAGES,qt5-wayland)
-ifeq (sisyphus,$(BRANCH))
-	@$(call add,THE_PACKAGES,gnome-packagekit)
-endif
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/x11/kde5-display-manager-lightdm \
