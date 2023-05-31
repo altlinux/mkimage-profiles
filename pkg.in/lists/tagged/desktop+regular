@@ -78,3 +78,5 @@ htop
 #fwupd@x86_64
 
 blacklist-pcspkr@X86
+
+edid-decode
