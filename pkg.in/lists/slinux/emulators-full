@@ -5,7 +5,9 @@ winetricks@X86
 # For winetricks
 zenity@X86
 
-i586-xorg-dri-.*@x86_64
+# Exclude nouveau
+i586-xorg-dri-.*@x86_64 i586-xorg-dri-nouveau- xorg-dri-nouveau-
+
 cabextract@X86
 dosbox
 #kernel-modules-virtualbox-@KERNEL@
