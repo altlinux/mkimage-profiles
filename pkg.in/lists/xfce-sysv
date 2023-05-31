@@ -26,4 +26,6 @@ vlock
 wget
 whdd
 firmware-alsa-sof
-
+edid-decode
+mediainfo
+mpv
