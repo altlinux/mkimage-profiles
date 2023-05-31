@@ -115,7 +115,7 @@ use/slinux/base: use/isohybrid use/luks \
 	use/branding/complete \
 	mixin/desktop-installer \
 	use/firmware/laptop \
-	use/vmguest/kvm/x11 use/stage2/kms \
+	use/vmguest/kvm/x11 use/stage2/kms/nvidia \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401 \
 	use/slinux/mixin-base
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
