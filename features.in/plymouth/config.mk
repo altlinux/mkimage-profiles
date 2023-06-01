@@ -20,7 +20,7 @@ use/plymouth/stage2: use/plymouth use/branding \
 	@$(call add,STAGE1_PACKAGES,make-initrd-plymouth)
 	@$(call add,STAGE1_BRANDING,bootsplash graphics)
 	@$(call add,STAGE2_BRANDING,bootsplash graphics)
-	@$(call add,STAGE2_BOOTARGS,quiet splash)
+	@$(call add,STAGE2_BOOTARGS,quiet loglevel=3 splash)
 else
 use/plymouth/stage2: use/plymouth use/branding; @:
 endif
@@ -33,7 +33,7 @@ endif
 	@$(call add,THE_PACKAGES,make-initrd-plymouth cpio)
 ifeq (vm,$(IMAGE_CLASS))
 	@$(call add,VM_INITRDFEATURES,plymouth)
-	@$(call add,BASE_BOOTARGS,quiet splash)
+	@$(call add,BASE_BOOTARGS,quiet loglevel=3 splash)
 endif
 
 use/plymouth/full: use/plymouth/stage2 use/plymouth/base; @:
