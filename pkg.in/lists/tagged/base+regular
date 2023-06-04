@@ -30,6 +30,7 @@ dmidecode@aarch64
 apt-repo
 apt-rsync
 apt-scripts
+apt-https
 #aptitude # See ALT bug 41622
 update-kernel
 eepm
