@@ -12,7 +12,7 @@ mixin/kworkstation-common-deps: \
 	use/vmguest/complete use/vmguest/vbox/x11 use/vmguest/vmware/x11 \
 	use/power/acpi \
 	use/luks \
-	use/net-eth/dhcp use/net-ssh use/net/nm/nodelay \
+	use/net-eth/dhcp use/net-ssh use/net/nm/nodelay use/net/etcnet \
 	use/ntp/chrony \
 	use/docs/full \
 	use/xdg-user-dirs \
@@ -27,7 +27,7 @@ mixin/kworkstation-common-deps: \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/alternatives/xvt/konsole \
-	+net-eth +wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm \
+	+wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm \
 	use/stage2/kms/nvidia
 
 mixin/kworkstation-common-opts:
