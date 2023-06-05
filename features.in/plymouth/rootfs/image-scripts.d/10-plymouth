@@ -6,5 +6,10 @@ if [ -f "$CONFIG" ]; then
 	grep -q '^Theme=' "$CONFIG" || sed -i 's/#\([T\[]\)/\1/' "$CONFIG"
 fi
 
+CONFIG="$destdir/etc/initrd.mk"
+if [ -f "$CONFIG" ]; then
+	grep -q plymouth "$CONFIG" || echo 'FEATURES += plymouth' >> "$CONFIG"
+fi
+
 cp -a /usr/share/plymouth/default-install-duration \
 	/var/lib/plymouth/boot-duration ||:

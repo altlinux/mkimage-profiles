@@ -32,7 +32,6 @@ endif
 	@$(call add,THE_BRANDING,bootsplash graphics)
 	@$(call add,THE_PACKAGES,make-initrd-plymouth cpio)
 ifeq (vm,$(IMAGE_CLASS))
-	@$(call add,VM_INITRDFEATURES,plymouth)
 	@$(call add,BASE_BOOTARGS,quiet loglevel=3 splash)
 endif
 
