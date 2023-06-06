@@ -9,6 +9,10 @@ strace
 anacron
 os-prober
 make-initrd-lvm
+make-initrd-mdadm
+make-initrd-ucode
+iucode_tool
+firmware-intel-ucode
 shadow-change
 dhcpcd
 test-audio
@@ -16,7 +20,6 @@ pa-conf-switch-on-connect
 man-pages
 etcnet-defaults-desktop
 mdadm
-make-initrd-mdadm
 gzip-utils
 
 telnet
