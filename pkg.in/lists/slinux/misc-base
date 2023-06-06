@@ -227,3 +227,5 @@ ca-certificates-digital.gov.ru
 #kernel-modules-nvidia-@KERNEL_MOD@
 nvidia-xconfig@X86
 nvidia-xconfig@aarch64
+
+polkit-rule-udisks2-mount
