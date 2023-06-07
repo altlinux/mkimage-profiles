@@ -19,6 +19,7 @@ use/slinux/services-enabled: use/services
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups.socket)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,cups-browsed.service)
+	@$(call add,SYSTEMD_SERVICES_ENABLE,fstrim.timer)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,lightdm.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,lvm2-monitor.service)
 	@$(call add,SYSTEMD_SERVICES_ENABLE,network.service)
