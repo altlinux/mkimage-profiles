@@ -93,6 +93,9 @@ printer-drivers-base
 printer-driver-brlaser
 printer-driver-oki
 
+libnss-role
+alterator-roles-common
+
 hostname-hook-hosts
 libnss-mdns
 i586-glibc-nss@x86_64
