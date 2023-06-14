@@ -1,6 +1,6 @@
 mixin/phosh: use/x11/gdm use/x11-autologin +pipewire +nm +nm-native
 	@$(call add,THE_PACKAGES,phosh mutter-gnome xorg-xwayland)
-	@$(call add,THE_PACKAGES,bluez)
+	@$(call add,THE_PACKAGES,bluez eg25-manager)
 	@$(call add,THE_LISTS,mobile-apps)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,DEFAULT_SESSION,phosh)
