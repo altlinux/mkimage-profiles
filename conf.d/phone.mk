@@ -14,7 +14,7 @@ vm/.phosh: vm/systemd use/efi/grub +systemd \
 	@$(call add,USERS,altlinux:altlinux:500:500)
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
-	@$(call set,KFLAVOURS,un-def)
+	@$(call set,KFLAVOURS,pine)
 
 vm/qemu-phosh: vm/.phosh use/tty/S0 +vmguest; @:
 endif
