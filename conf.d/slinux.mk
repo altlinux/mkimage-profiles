@@ -14,7 +14,7 @@ ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,slinux/multimedia-full-obs-studio)
 endif
 ifneq (,$(filter-out e2k% riscv64,$(ARCH)))
-	@$(call add,MAIN_GROUPS,slinux/dropbox slinux/graphics-full-shotwell slinux/flatpak)
+	@$(call add,MAIN_GROUPS,slinux/graphics-full-shotwell slinux/flatpak)
 endif
 	@$(call set,META_VOL_ID,Simply Linux $(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_APP_ID,Simply Linux $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
