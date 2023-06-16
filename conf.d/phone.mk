@@ -25,6 +25,7 @@ ifeq (aarch64,$(ARCH))
 # TODO: devicetree ($root)/boot/dtb/rockchip/rk3399-pinephone-pro.dtb
 mixin/pinephone: use/x11/armsoc use/firmware use/bootloader/uboot use/tty/S2
 	@$(call set,EFI_BOOTLOADER,)
+	@$(call set,UBOOT_TIMEOUT,5)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/pinephone-phosh: vm/.phosh mixin/pinephone; @:
