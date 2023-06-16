@@ -76,7 +76,8 @@ use/slinux/mixin-base: use/slinux \
 	use/ntp/chrony \
 	use/office/LibreOffice/full \
 	use/docs/manual use/docs/indexhtml \
-	use/xdg-user-dirs/deep use/slinux/services use/slinux/control
+	use/xdg-user-dirs use/xdg-user-dirs/deep \
+	use/slinux/services use/slinux/control
 	@$(call set,NVIDIA_PACKAGES,nvidia-xconfig)
 	@$(call set,DOCS,simply-linux)
 	@$(call add,THE_LISTS,gnome-p2p)
