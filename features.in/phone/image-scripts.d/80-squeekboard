@@ -1,0 +1,4 @@
+#!/bin/sh -efu
+# Run screen keyboard (squeekboard) by default
+
+cp "/usr/share/applications/sm.puri.Squeekboard.desktop" "/etc/xdg/autostart/"
