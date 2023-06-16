@@ -11,7 +11,7 @@ vm/.phosh: vm/systemd +systemd \
 	mixin/regular-desktop mixin/phosh use/deflogin/root \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/l10n/ru_RU
-	@$(call add,USERS,altlinux:altlinux:500:500)
+	@$(call add,USERS,altlinux:271828:1:1)
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
 	@$(call set,KFLAVOURS,pine)
