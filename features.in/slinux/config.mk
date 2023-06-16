@@ -45,6 +45,8 @@ use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 
 use/slinux/control: use/control
 	@$(call add,CONTROL,libnss-role:enabled)
+	@$(call add,CONTROL,sudoers:relaxed)
+	@$(call add,CONTROL,sudowheel:enabled)
 
 use/slinux/vm-base:: vm/systemd \
 	use/oem/distro use/slinux/mixin-base
