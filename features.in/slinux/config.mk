@@ -43,6 +43,9 @@ use/slinux/services-disabled: use/services
 
 use/slinux/services: use/slinux/services-enabled use/slinux/services-disabled
 
+use/slinux/control: use/control
+	@$(call add,CONTROL,libnss-role:enabled)
+
 use/slinux/vm-base:: vm/systemd \
 	use/oem/distro use/slinux/mixin-base
 	@$(call add,THE_LISTS,slinux/games-base)
@@ -71,7 +74,7 @@ use/slinux/mixin-base: use/slinux \
 	use/ntp/chrony \
 	use/office/LibreOffice/full \
 	use/docs/manual use/docs/indexhtml \
-	use/xdg-user-dirs/deep use/slinux/services
+	use/xdg-user-dirs/deep use/slinux/services use/slinux/control
 	@$(call set,NVIDIA_PACKAGES,nvidia-xconfig)
 	@$(call set,DOCS,simply-linux)
 	@$(call add,THE_LISTS,gnome-p2p)
