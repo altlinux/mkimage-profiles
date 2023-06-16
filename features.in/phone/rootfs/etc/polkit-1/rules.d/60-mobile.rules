@@ -1,0 +1,12 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.ModemManager1.Contacts" ||
+	action.id == "org.freedesktop.ModemManager1.Device.Control" ||
+	action.id == "org.freedesktop.ModemManager1.Location" ||
+	action.id == "org.freedesktop.ModemManager1.Messaging" ||
+	action.id == "org.freedesktop.ModemManager1.Time" ||
+	action.id == "org.freedesktop.ModemManager1.USSD" ||
+	action.id == "org.freedesktop.ModemManager1.Voice")
+    {
+	return polkit.Result.YES;
+    }
+});
