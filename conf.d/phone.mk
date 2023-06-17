@@ -12,20 +12,21 @@ vm/.phosh: vm/systemd +systemd \
 	mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop mixin/phosh use/deflogin/root \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
-	use/l10n/ru_RU use/phone
+	use/l10n/ru_RU
 	@$(call add,USERS,altlinux:271828:1:1)
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
-	@$(call set,KFLAVOURS,pine)
 
 vm/qemu-phosh: vm/.phosh use/tty/S0 use/efi/grub +vmguest; @:
 endif
 
 ifeq (aarch64,$(ARCH))
 # TODO: devicetree ($root)/boot/dtb/rockchip/rk3399-pinephone-pro.dtb
-mixin/pinephone: use/x11/armsoc use/firmware use/bootloader/uboot use/tty/S2
+mixin/pinephone: use/x11/armsoc use/firmware use/bootloader/uboot use/tty/S2 \
+	 use/phone
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,UBOOT_TIMEOUT,5)
+	@$(call set,KFLAVOURS,pine)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/pinephone-phosh: vm/.phosh mixin/pinephone; @:
