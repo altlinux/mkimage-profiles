@@ -80,6 +80,21 @@ if [ "$BOOTLOADER" == grub-efi -o "$BOOTTYPE" == EFI ]; then
 	ROOTPART="2"
 fi
 
+# tested to work: ext[234], jfs
+# NB: xfs doesn't have a spare sector for the bootloader
+ROOTFSTYPE="${4:-ext4}"
+
+if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ] && [ "$ROOTFSTYPE" != ext4 ]; then
+	if [ -n "$EFIPART" ]; then
+		BOOTPART="2"
+		ROOTPART="3"
+	else
+		BOOTPART="1"
+		ROOTPART="2"
+	fi
+	BOOTFSTYPE="ext4"
+fi
+
 PARTTABLE="$7"
 if [ -z "$PARTTABLE" ]; then
 	if [ "$BOOTLOADER" == grub-efi ]; then
@@ -147,10 +162,6 @@ ROOTSIZE="$((${ROOTSIZE:-$DEFSIZE} + $MB - 1))"	# for ceil rounding to MB
 # image and /boot sizes in megabytes
 ROOTSIZEM="$(($ROOTSIZE / $MB))"
 BOOTSIZEM="$((($SIZE_FACTOR * $BOOT_SIZE_FACTOR * $BOOTSIZE + $MB - 1) / $MB))"
-
-# tested to work: ext[234], jfs
-# NB: xfs doesn't have a spare sector for the bootloader
-ROOTFSTYPE="${4:-ext4}"
 
 # single root partition hardwired so far,
 # add another image for home/data/swap if needed
@@ -369,10 +380,18 @@ popd
 if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ]; then
 	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/extlinux/extlinux.conf"
 	if [ "$PARTTABLE" == gpt ]; then
-		parting set "$ROOTPART" legacy_boot on
+		if [ -n "$BOOTPART" ]; then
+			parting set "$BOOTPART" legacy_boot on
+		else
+			parting set "$ROOTPART" legacy_boot on
+		fi
 	fi
 	if [ "$PARTTABLE" == msdos ]; then
-		parting set "$ROOTPART" boot on
+		if [ -n "$BOOTPART" ]; then
+			parting set "$BOOTPART" boot on
+		else
+			parting set "$ROOTPART" boot on
+		fi
 	fi
 fi
 
