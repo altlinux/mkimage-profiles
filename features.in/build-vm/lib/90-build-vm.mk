@@ -58,7 +58,7 @@ tar2fs: $(SAVE_TARBALL) check-sudo prepare-tarball-qemu
 	if ! sudo $$TOPDIR/bin/tar2fs \
 		"$(VM_TARBALL)" "$(VM_RAWDISK)" "$(VM_SIZE)" "$(VM_FSTYPE)" \
 			"$(VM_BOOTLOADER)" "$(ARCH)" "$(VM_PARTTABLE)" \
-			"$(VM_BOOTTYPE)"; then \
+			"$(VM_BOOTTYPE)" "$(VM_BOOTSIZE)"; then \
 		echo "** error: sudo tar2fs failed, see build log" >&2; \
 		exit 1; \
 	fi

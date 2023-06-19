@@ -153,15 +153,20 @@ IMG="$2"
 ROOTSIZE="$3"
 [ -n "$ROOTSIZE" -a "$ROOTSIZE" != 0 ] || unset ROOTSIZE
 
+BOOTSIZE="$9"
+[ -n "$BOOTSIZE" -a "$BOOTSIZE" != 0 ] || unset BOOTSIZE
+
 # image size in bytes
 TARSIZE="$(stat -Lc %s "$TAR")"
 # /boot size in that tarball
-BOOTSIZE="$(boot_size "$TAR")"
-DEFSIZE="$(($SIZE_FACTOR * ($TARSIZE - $BOOTSIZE)))"	# (exact sizes)
+BOOTDEFSIZE="$(boot_size "$TAR")"
+DEFSIZE="$(($SIZE_FACTOR * ($TARSIZE - ${BOOTSIZE:-$BOOTDEFSIZE})))"	# (exact sizes)
 ROOTSIZE="$((${ROOTSIZE:-$DEFSIZE} + $MB - 1))"	# for ceil rounding to MB
 # image and /boot sizes in megabytes
 ROOTSIZEM="$(($ROOTSIZE / $MB))"
-BOOTSIZEM="$((($SIZE_FACTOR * $BOOT_SIZE_FACTOR * $BOOTSIZE + $MB - 1) / $MB))"
+BOOTDEFSIZE="$(($SIZE_FACTOR * $BOOT_SIZE_FACTOR * $BOOTDEFSIZE))"
+BOOTSIZE="$((${BOOTSIZE:-$BOOTDEFSIZE} + $MB - 1))"	# for ceil rounding to MB
+BOOTSIZEM="$(($BOOTSIZE / $MB))"
 
 # single root partition hardwired so far,
 # add another image for home/data/swap if needed
