@@ -3,6 +3,8 @@ ext3.ko
 ext4.ko
 kernel/fs/exfat
 kernel/fs/fat
+kernel/fs/f2fs
+kernel/crypto/crc32_generic.ko
 kernel/fs/mbcache.ko
 kernel/fs/ntfs
 kernel/fs/ntfs3
