@@ -10,9 +10,9 @@ anacron
 os-prober
 make-initrd-lvm
 make-initrd-mdadm
-make-initrd-ucode
-iucode_tool
-firmware-intel-ucode
+make-initrd-ucode@X86
+iucode_tool@X86
+firmware-intel-ucode@X86
 shadow-change
 dhcpcd
 test-audio
