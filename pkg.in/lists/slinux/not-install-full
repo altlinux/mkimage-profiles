@@ -3,7 +3,7 @@
 #firmware-kernel-led-ws
 
 # For steam
-i586-nvidia_glx_.*@x86_64
+#i586-nvidia_glx_.*@x86_64
 #i586-fglrx_glx@x86_64
 
 # Bumblebee
