@@ -157,7 +157,7 @@ use/x11/deepin: use/x11/xorg +pulse
 	@$(call add,THE_LISTS,$(call tags,deepin desktop))
 
 use/x11/gnome3: use/x11/xorg use/x11/gdm +pipewire
-	@$(call add,THE_PACKAGES,gnome3-minimal gnome3-default)
+	@$(call add,THE_PACKAGES,gnome3-minimal)
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
 use/x11/enlightenment: use/x11 use/net/connman use/power/acpi +pulse
