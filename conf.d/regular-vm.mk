@@ -92,7 +92,7 @@ vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11
 
 vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep-x11; @:
 
-vm/regular-gnome3: vm/.regular-gtk mixin/regular-gnome3 mixin/vm-archdep-x11
+vm/regular-gnome: vm/.regular-gtk mixin/regular-gnome mixin/vm-archdep-x11
 	@$(call set,VM_SIZE,8589934592)
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep-x11; @:

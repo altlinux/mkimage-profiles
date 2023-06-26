@@ -177,7 +177,7 @@ distro/regular-xfce-install: distro/.regular-install-x11-systemd \
 
 distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
 
-distro/regular-gnome3-install: distro/.regular-install-x11-systemd mixin/regular-gnome3 \
+distro/regular-gnome-install: distro/.regular-install-x11-systemd mixin/regular-gnome \
 	use/kernel/latest +plymouth; @:
 
 distro/regular-xfce-sysv-install: distro/.regular-install-x11-full \
@@ -192,7 +192,7 @@ distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
 distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
-distro/regular-gnome3: distro/.regular-desktop mixin/regular-gnome3 \
+distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 	use/kernel/latest +plymouth use/browser/epiphany
 	@$(call add,LIVE_PACKAGES,livecd-gnome3-setup-done)
 	@$(call add,LIVE_PACKAGES,screenpen)
