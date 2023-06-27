@@ -158,6 +158,7 @@ use/x11/deepin: use/x11/xorg +pulse
 
 use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
 	@$(call add,THE_PACKAGES,gnome3-minimal)
+	@$(call add,THE_PACKAGES,tracker3) # ALT bug 42028
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
 use/x11/enlightenment: use/x11 use/net/connman use/power/acpi +pulse
