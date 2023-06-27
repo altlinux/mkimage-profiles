@@ -15,7 +15,6 @@ binutils
 
 # Package management
 apt-repo
-aptitude
 
 # Disk utils
 dc3dd
