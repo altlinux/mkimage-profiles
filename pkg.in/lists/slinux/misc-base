@@ -82,6 +82,7 @@ packagekit
 
 alt-rootfs-installer
 beesu
+userpasswd
 cups
 cups-filters
 cups-pdf
