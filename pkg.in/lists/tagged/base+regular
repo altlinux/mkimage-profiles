@@ -33,7 +33,6 @@ apt-scripts
 apt-https
 #aptitude # See ALT bug 41622
 update-kernel
-eepm
 
 bash-completion
 cpufreq-simple@X86
