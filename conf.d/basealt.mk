@@ -109,7 +109,7 @@ vm/alt-workstation-bfk3: vm/alt-workstation use/mipsel-bfk3/x11; @:
 vm/alt-workstation-tavolga: vm/alt-workstation use/mipsel-mitx/x11; @:
 endif
 
-vm/alt-workstation-cloud: vm/systemd use/x11/lightdm/gtk \
+vm/alt-workstation-cloud: vm/systemd use/x11/lightdm/gtk use/repo \
 	mixin/alt-workstation mixin/cloud-init use/vmguest/kvm use/tty/S0
 	@$(call add,THE_PACKAGES,cloud-init-config-network-manager)
 	@$(call add,THE_KMODULES,drm)
