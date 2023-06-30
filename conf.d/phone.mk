@@ -1,4 +1,4 @@
-mixin/phosh: use/x11/gdm use/x11-autologin +pipewire +nm +nm-native \
+mixin/phosh: use/x11/gdm use/x11-autologin +pulse +nm +nm-native \
 	use/services
 	@$(call add,THE_PACKAGES,phosh mutter-gnome xorg-xwayland)
 	@$(call add,THE_PACKAGES,bluez eg25-manager)
