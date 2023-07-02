@@ -12,7 +12,7 @@ vm/.phosh: vm/systemd +systemd \
 	mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop mixin/phosh use/deflogin/root \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
-	use/l10n/ru_RU
+	use/l10n/ru_RU use/cleanup/alterator
 	@$(call add,USERS,altlinux:271828:1:1)
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
