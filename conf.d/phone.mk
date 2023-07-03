@@ -1,11 +1,10 @@
 mixin/phosh: use/x11/gdm use/x11-autologin +pulse +nm +nm-native \
 	use/services
 	@$(call add,THE_PACKAGES,phosh mutter-gnome xorg-xwayland)
-	@$(call add,THE_PACKAGES,bluez eg25-manager)
+	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,THE_LISTS,mobile-apps)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,DEFAULT_SESSION,phosh)
-	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,eg25-manager.service)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd +systemd \
@@ -27,6 +26,8 @@ mixin/pinephone: use/x11/armsoc use/firmware use/bootloader/uboot use/tty/S2 \
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,UBOOT_TIMEOUT,5)
 	@$(call set,KFLAVOURS,pine)
+	@$(call add,THE_PACKAGES,eg25-manager)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,eg25-manager.service)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/pinephone-phosh: vm/.phosh mixin/pinephone; @:
