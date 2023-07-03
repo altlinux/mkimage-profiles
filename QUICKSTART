@@ -29,6 +29,11 @@ $ git config --global user.name "My Name"
 $ mkdir -p ~/out ~/tmp
 ----
 
+Примечание: можно обойтись установкой пакета builder-useradd и выполнением одной команды от root::
+----
+# builder-useradd USER
+----
+
 тестовая сборка (в каталоге mkimage-profiles)::
 ----
 $ make grub.iso
