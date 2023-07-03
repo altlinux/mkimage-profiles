@@ -28,7 +28,8 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	mixin/waydroid; @:
 
-vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/firmware +x11 +plymouth +vmguest; @:
+vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/bootloader/uboot \
+	use/firmware +x11 +plymouth +vmguest; @:
 endif
 
 ifeq (aarch64,$(ARCH))
