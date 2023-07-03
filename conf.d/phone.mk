@@ -1,3 +1,13 @@
+mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
+	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
+	use/deflogin/root use/l10n/ru_RU
+	@$(call add,THE_LISTS,mobile/base)
+	@$(call add,USERS,altlinux:271828:1:1)
+	@$(call set,LOCALES,ru_RU en_US)
+	@$(call set,LOCALE,ru_RU)
+	@$(call add,CONTROL,fusermount:public)
+	@$(call add,CONTROL,libnss-role:disabled)
+
 mixin/phosh: use/x11/gdm use/x11-autologin +pulse +nm +nm-native \
 	use/services
 	@$(call add,THE_PACKAGES,phosh mutter-gnome xorg-xwayland)
@@ -8,14 +18,7 @@ mixin/phosh: use/x11/gdm use/x11-autologin +pulse +nm +nm-native \
 	@$(call set,DEFAULT_SESSION,phosh)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/.phosh: vm/systemd +systemd \
-	mixin/regular-vm-base mixin/regular-x11 \
-	mixin/regular-desktop mixin/phosh use/deflogin/root \
-	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
-	use/l10n/ru_RU use/cleanup/alterator
-	@$(call add,USERS,altlinux:271828:1:1)
-	@$(call set,LOCALES,ru_RU en_US)
-	@$(call set,LOCALE,ru_RU)
+vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd; @:
 
 vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/firmware +x11 +plymouth +vmguest; @:
 endif
