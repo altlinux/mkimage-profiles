@@ -7,19 +7,18 @@ locale="$GLOBAL_LOCALE"
 systemd_locale=/etc/locale.conf
 sysv_locale=/etc/sysconfig/i18n
 
-[ -f "$langlist" ] || exit 0
-[ -n "$locales" ] || exit 0
+if [ -f "$langlist" ] && [ -n "$locales" ]; then
+	rm -f "$langlist_temp"
 
-rm -f "$langlist_temp"
+	for lang in $locales; do
+		grep -q "$lang" "$langlist" && grep "$lang" "$langlist" >> "$langlist_temp"
+	done
 
-for lang in $locales; do
-	grep -q "$lang" "$langlist" && grep "$lang" "$langlist" >> "$langlist_temp"
-done
+	mv "$langlist_temp" "$langlist"
+fi
 
-mv "$langlist_temp" "$langlist"
-
-[ -n "$locale" ] || exit 0
-
-echo LANG="$locale".UTF8 > "$systemd_locale"
-echo LANG="$locale".UTF8 > "$sysv_locale"
-echo SUPPORTED="$locale".UTF8 >> "$sysv_locale"
+if [ -n "$locale" ]; then
+	echo LANG="$locale".UTF8 > "$systemd_locale"
+	echo LANG="$locale".UTF8 > "$sysv_locale"
+	echo SUPPORTED="$locale".UTF8 >> "$sysv_locale"
+fi
