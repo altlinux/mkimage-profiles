@@ -1,3 +1,9 @@
+mixin/waydroid:
+	@$(call add,THE_PACKAGES,libgbinder1 waydroid)
+	@$(call add,THE_KMODULES,anbox)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waydroid-container.service)
+	@$(call add,BASE_BOOTARGS,psi=1)
+
 mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/deflogin/root use/l10n/ru_RU
@@ -19,7 +25,8 @@ mixin/phosh: use/x11/gdm use/x11-autologin +pulse +nm +nm-native \
 	@$(call set,DEFAULT_SESSION,phosh)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd; @:
+vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
+	mixin/waydroid; @:
 
 vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/firmware +x11 +plymouth +vmguest; @:
 endif
