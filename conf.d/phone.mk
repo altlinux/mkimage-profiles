@@ -17,7 +17,7 @@ vm/.phosh: vm/systemd +systemd \
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
 
-vm/qemu-phosh: vm/.phosh use/tty/S0 use/efi/grub +vmguest; @:
+vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/firmware +x11 +plymouth +vmguest; @:
 endif
 
 ifeq (aarch64,$(ARCH))
