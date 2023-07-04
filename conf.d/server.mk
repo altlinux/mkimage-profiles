@@ -6,7 +6,7 @@ distro/.server-base: distro/.installer use/syslinux/ui/menu use/memtest \
 	@$(call add,BASE_LISTS,server-base openssh)
 
 distro/server-nano: distro/.server-base use/bootloader/lilo +power \
-	use/install2/cleanup/crypto use/install2/cleanup/vnc
+	use/install2/cleanup/vnc
 	@$(call add,BASE_LISTS,$(call tags,server network))
 	@$(call add,BASE_PACKAGES,dhcpcd cpio)
 

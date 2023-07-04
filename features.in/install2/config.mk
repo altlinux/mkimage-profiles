@@ -145,11 +145,6 @@ use/install2/cleanup/dri:
 	@$(call set,INSTALL2_CLEANUP_DRI,yes)
 	@$(call xport,INSTALL2_CLEANUP_DRI)
 
-# conflicts with luks feature
-use/install2/cleanup/crypto:
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,gnupg)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,libgnutls*)
-
 # leave only cirrus, fbdev, qxl, vesa in vm-targeted images
 use/install2/cleanup/x11-hwdrivers:
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-drv-ati xorg-drv-intel)
@@ -160,7 +155,7 @@ use/install2/cleanup/x11-hwdrivers:
 
 # massive purge of anything not critical to installer boot (l10n included!)
 use/install2/cleanup/everything: use/install2/cleanup/x11-hwdrivers \
-	use/install2/cleanup/vnc use/install2/cleanup/crypto
+	use/install2/cleanup/vnc
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,glibc-locales)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,libX11-locales alterator-l10n)
 	@$(call add,INSTALL2_CLEANUP_PACKAGES,kbd-data kbd console-scripts)
