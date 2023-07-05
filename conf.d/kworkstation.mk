@@ -117,7 +117,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,STAGE1_MODLISTS,stage2-ntfs)
 	@$(call add,STAGE2_KMODULES,drm-nouveau)
 	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
-	@$(call add,MAIN_PACKAGES,plasma5-welcome)
+	@$(call add,BASE_PACKAGES,plasma5-welcome)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-kde-stage2)
