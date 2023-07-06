@@ -1,4 +1,6 @@
 kernel-headers-std-def@!E2K
 kernel-headers-modules-std-def@!E2K
+kernel-headers-un-def@!E2K
+kernel-headers-modules-un-def@!E2K
 kernel-headers-elbrus-def@E2K
 kernel-headers-modules-elbrus-def@E2K

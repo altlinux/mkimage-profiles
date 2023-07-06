@@ -1,2 +1,3 @@
 virtualbox@x86_64
 kernel-modules-virtualbox-std-def@x86_64
+kernel-modules-virtualbox-un-def@x86_64
