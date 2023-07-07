@@ -25,7 +25,7 @@ hdparm
 lsblk
 lsmount
 lvm2
-mdadm-tool
+mdadm
 open-iscsi
 photorec
 scalpel
