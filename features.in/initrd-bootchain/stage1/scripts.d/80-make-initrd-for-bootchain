@@ -31,19 +31,18 @@ for module in $(grep -v ^# /.in/modules | sort -u | tr -s '\n' ' '); do
 	echo "MODULES_TRY_ADD += $module" >> /etc/initrd.mk
 done
 
-dialog --create-rc /etc/dialogrc.tmp
-cat /etc/dialogrc.tmp |sed -E \
-	-e 's/^(use_colors).*/\1 = ON/' \
-	-e 's/^(use_shadow).*/\1 = ON/' \
-	-e 's/^(screen_color).*/\1 = \(WHITE,RED,ON\)/' \
-		> /etc/dialogrc.error
-rm -f /etc/dialogrc.tmp
+if [ ! -f /etc/dialogrc.error ]; then
+	dialog --create-rc /tmp/dialogrc.tmp
+	cat /tmp/dialogrc.tmp |sed -E \
+		-e 's/^(use_colors).*/\1 = ON/' \
+		-e 's/^(use_shadow).*/\1 = ON/' \
+		-e 's/^(screen_color).*/\1 = \(WHITE,RED,ON\)/' \
+			> /etc/dialogrc.error
+	rm /tmp/dialogrc.tmp
+fi
 
 # replace generated config bootchain to stage1 chroot
 mv /.image/bootchain /etc/sysconfig/
-
-echo "PUT_FILES += /etc/sysconfig/bootchain" >> /etc/initrd.mk
-echo "PUT_FILES += /etc/dialogrc.error" >> /etc/initrd.mk
 
 # FIXME: large storage systems can get that tmpfs filled up
 # with debug data as of make-initrd 2.2.12
