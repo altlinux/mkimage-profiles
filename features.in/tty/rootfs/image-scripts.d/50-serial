@@ -17,12 +17,8 @@ if ! grep -q "$BIN" "$CFG"; then
 	done
 fi
 
-EXTLINUXCFG=/boot/extlinux/extlinux.conf
-if [ -f "$EXTLINUXCFG" ]; then
-	sed -i "s/ quiet / /g;s/ quiet'/'/" "$EXTLINUXCFG"
-fi
-
-GRUBCFG=/etc/sysconfig/grub2
-if [ -f "$GRUBCFG" ]; then
-	sed -i "s/ quiet / /g;s/ quiet'/'/" "$GRUBCFG"
-fi
+for c in /boot/extlinux/extlinux.conf /etc/sysconfig/grub2; do
+	if [ -f "$c" ]; then
+		sed -i "s/ quiet / /g;s/ quiet'/'/" "$c"
+	fi
+done
