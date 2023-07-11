@@ -21,7 +21,7 @@ ifneq (,$(EFI_BOOTLOADER))
 	@$(call add,RESCUE_PACKAGES,grub2-efi)
 endif
 	@$(call add,RESCUE_LISTS,\
-		$(call tags,(base || extra || server || backup || misc || fs) \
+		$(call tags,(base || extra || server || misc || fs) \
 			&& !x11 && (rescue || comm || network || security || archive)))
 
 use/rescue/rw: use/rescue use/syslinux/rescue_rw.cfg use/grub/rescue_rw.cfg; @:
