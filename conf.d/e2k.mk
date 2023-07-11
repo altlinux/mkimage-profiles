@@ -27,7 +27,7 @@ vm/e2k-mate: vm/.e2k-rescue use/deflogin/live use/x11/mate use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,LibreOffice-langpack-ru)
 
 vm/e2k-lxqt: vm/.e2k-rescue mixin/e2k-desktop
-	@$(call add,THE_LISTS,$(call tags,desktop && lxqt && !extra))
+	@$(call add,THE_LISTS,$(call tags,desktop && lxqt))
 
 vm/e2k-builder: vm/.e2k-rescue use/dev/builder/base
 	@$(call add,KFLAVOURS,elbrus-8c elbrus-4c)

@@ -169,7 +169,7 @@ use/x11/lxde: use/x11
 	@$(call add,IM_PACKAGES,imsettings-lxde)
 
 use/x11/lxqt: use/x11 +pulse
-	@$(call add,THE_LISTS,$(call tags,desktop && lxqt && !extra))
+	@$(call add,THE_LISTS,$(call tags,desktop && lxqt))
 	@$(call add,IM_PACKAGES,imsettings-qt)
 
 use/x11/fvwm: use/x11

@@ -195,8 +195,7 @@ distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 	use/kernel/latest +plymouth use/browser/epiphany; @:
 
-distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth
-	@$(call add,THE_LISTS,$(call tags,lxqt desktop))
+distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
 
 distro/regular-deepin: distro/.regular-gtk mixin/regular-deepin; @:
 
