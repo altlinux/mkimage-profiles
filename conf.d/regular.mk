@@ -10,6 +10,7 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	@$(call try,SAVE_PROFILE,yes)
 	@$(call add,STAGE1_PACKAGES,firmware-linux)
 	@$(call add,STAGE1_KMODULES,drm)
+	@$(call set,BOOTVGA,)
 ifeq (sisyphus,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
@@ -80,7 +81,6 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	use/isohybrid use/branding \
 	use/install2/repo use/install2/packages \
 	use/net/etcnet
-	@$(call set,BOOTVGA,)
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
