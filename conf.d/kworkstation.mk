@@ -19,7 +19,7 @@ mixin/kworkstation-common-deps: \
 	use/l10n/default/ru_RU \
 	use/control use/services \
 	use/x11/intel use/x11/radeon use/x11/amdgpu use/x11/nvidia \
-	use/x11/sddm use/x11/wacom \
+	use/x11/kde5-display-manager-lightdm use/x11/wacom \
 	use/memtest \
 	use/init/systemd \
 	use/cleanup/live-no-cleanupdb \
