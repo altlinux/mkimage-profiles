@@ -35,7 +35,6 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 # Network install
 distro/regular-net-install: distro/grub-net-install; @:
 ifeq (sisyphus,$(BRANCH))
-	@$(call set,BOOTCHAIN_OEM_SRV_NETINST,nightly.altlinux.org)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTCHAIN_OEM_URL_NETINST,/sisyphus/snapshots/$(DATE)/regular-NAME-$(DATE)-$(ARCH).iso)
 else
