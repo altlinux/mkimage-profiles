@@ -1,8 +1,7 @@
 #!/bin/sh
 
-account_dir=/var/lib/AccountsService/users
 
-[ -d /var/lib/AccountsService/users ] || exit 0
+
 [ -n "$GLOBAL_USERS" ] || exit 0
 [ -n "$GLOBAL_DEFAULT_SESSION" ] || exit 0
 
@@ -15,6 +14,12 @@ else
 	exit 1
 fi
 
+LIGHTDM_CONF=/etc/lightdm/lightdm.conf.d/autologin.conf
+[ ! -s "$LIGHTDM_CONF" ] ||
+	sed -i "s/autologin-session=.*/autologin-session=$GLOBAL_DEFAULT_SESSION/" "$LIGHTDM_CONF"
+
+account_dir=/var/lib/AccountsService/users
+[ -d /var/lib/AccountsService/users ] || exit 0
 for user in $GLOBAL_USERS; do
 	user="${user%%:*}"
 	cat > "$account_dir"/"$user"<<-EOF
