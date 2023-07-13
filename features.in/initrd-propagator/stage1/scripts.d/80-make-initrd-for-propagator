@@ -18,37 +18,39 @@ done
 [ -s /.in/modules ] ||
 	fatal "kernel modules set not found"
 
-cat >> /etc/initrd.mk <<EOF
+# copy initrd.mk to image
+mkdir -p /.image/.disk
+cp /etc/initrd.mk /.image/.disk
+cd /.image
+
+cat >> .disk/initrd.mk <<EOF
+FEATURES += propagator
 FEATURES += add-modules compress cleanup
 EOF
 
 for module in $(grep -v ^# /.in/modules | sort -u | tr -s '\n' ' '); do
-	echo "MODULES_TRY_ADD += $module" >> /etc/initrd.mk
+	echo "MODULES_TRY_ADD += $module" >> .disk/initrd.mk
 done
-
-# copy initrd.mk to image
-mkdir -p /.image/.disk
-cp /etc/initrd.mk /.image/.disk
 
 # FIXME: large storage systems can get that tmpfs filled up
 # with debug data as of make-initrd 2.2.12
 rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
 	/usr/share/make-initrd/data/lib/uevent/filters/debug
 
-MAKE_INITRD_OPTS="--no-checks AUTODETECT= "
+MAKE_INITRD_OPTS="--no-checks AUTODETECT= -c .disk/initrd.mk"
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
 
 [ -z "$GLOBAL_VERBOSE" ] ||
 	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
 
-cd /boot
-
 for KVER in $kver; do
-	echo make-initrd $MAKE_INITRD_OPTS -k "$KVER" >> /.image/.disk/mkinitrd
+	echo make-initrd $MAKE_INITRD_OPTS -k "$KVER" >> .disk/mkinitrd
 	make-initrd $MAKE_INITRD_OPTS -k "$KVER" ||
 		fatal "make-initrd failed"
 done
+
+cd /boot
 
 case `arch` in
 e2k)
