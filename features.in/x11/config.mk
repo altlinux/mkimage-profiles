@@ -106,7 +106,8 @@ use/x11/dm: use/x11-autostart use/pkgpriorities
 	@$(call add,PINNED_PACKAGES,$$(THE_DISPLAY_MANAGER))
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(THE_DM_SERVICE))
 
-use/x11/lightdm/gtk use/x11/lightdm/slick use/x11/lightdm/kde: \
+use/x11/lightdm/gtk use/x11/lightdm/slick use/x11/lightdm/kde\
+	use/x11/lightdm/autologin: \
 	use/x11/lightdm/%: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,lightdm-$*-greeter)
 	@$(call set,THE_DM_SERVICE,lightdm)
