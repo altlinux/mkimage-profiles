@@ -14,9 +14,9 @@ mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 	@$(call add,CONTROL,fusermount:public)
 	@$(call add,CONTROL,libnss-role:disabled)
 
-mixin/phosh: use/x11/gdm use/x11-autologin +pulse +nm +nm-native \
-	use/services
-	@$(call add,THE_PACKAGES,phosh mutter-gnome xorg-xwayland)
+mixin/phosh: use/x11/lightdm/autologin use/x11-autologin \
+	use/services +pulse +nm +nm-native
+	@$(call add,THE_PACKAGES,phosh mutter-gnome gnome-shell-data xorg-xwayland)
 	@$(call add,THE_PACKAGES,gnome-terminal gedit)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,bluez)
