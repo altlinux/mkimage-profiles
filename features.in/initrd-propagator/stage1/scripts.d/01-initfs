@@ -1,2 +1,0 @@
-#!/bin/sh
-echo "file	/.VERSION	@TMPDIR@/.VERSION	0644	0 0" >"$WORKDIR"/initfs
