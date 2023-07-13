@@ -13,6 +13,9 @@ use/services: sub/rootfs
 	@$(call xport,SYSTEMD_USER_SERVICES_ENABLE)
 	@$(call xport,SYSTEMD_USER_SERVICES_DISABLE)
 
+user/services/dbus-brocker: use/services
+	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd dbus-broker)
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,dbus-broker)
 
 use/services/lvm2-disable: use/services
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
