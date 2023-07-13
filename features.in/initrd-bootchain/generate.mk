@@ -4,7 +4,7 @@ ifneq (,$(BUILDDIR))
 
 include $(BUILDDIR)/distcfg.mk
 
-BOOTCHAIN_CFG := $(BUILDDIR)/stage1/files/bootchain
+BOOTCHAIN_CFG := $(BUILDDIR)/stage1/files/.disk/bootchain
 
 all: debug
 	@[ -s "$(BOOTCHAIN_CFG)" ] || exit 1; \

@@ -17,7 +17,10 @@ done
 [ -s /.in/modules ] ||
 	fatal "kernel modules set not found"
 
-cat >> /etc/initrd.mk <<EOF
+cd /.image
+
+cp /etc/initrd.mk .disk/
+cat >>.disk/initrd.mk <<EOF
 FEATURES += add-modules compress cleanup rdshell kbd
 FEATURES += bootchain-localdev
 FEATURES += bootchain-liverw
@@ -28,7 +31,7 @@ FEATURES += bootchain-cifs
 EOF
 
 for module in $(grep -v ^# /.in/modules | sort -u | tr -s '\n' ' '); do
-	echo "MODULES_TRY_ADD += $module" >> /etc/initrd.mk
+	echo "MODULES_TRY_ADD += $module" >> .disk/initrd.mk
 done
 
 if [ ! -f /etc/dialogrc.error ]; then
@@ -41,33 +44,25 @@ if [ ! -f /etc/dialogrc.error ]; then
 	rm /tmp/dialogrc.tmp
 fi
 
-# replace generated config bootchain to stage1 chroot
-mv /.image/bootchain /etc/sysconfig/
-
 # FIXME: large storage systems can get that tmpfs filled up
 # with debug data as of make-initrd 2.2.12
 rm -vf  /usr/share/make-initrd/data/etc/udev/rules.d/00-debug.rules \
 	/usr/share/make-initrd/data/lib/uevent/filters/debug
 
-MAKE_INITRD_OPTS="--no-checks AUTODETECT="
+MAKE_INITRD_OPTS="--no-checks AUTODETECT= -c .disk/initrd.mk BOOTCHAIN_PATH=.disk"
 MAKE_INITRD_VER="`make-initrd -V \
 	| sed -rn 's/^make-initrd version ([0-9.]+)/\1/p'`"
 
 [ -z "$GLOBAL_VERBOSE" ] ||
 	MAKE_INITRD_OPTS="$MAKE_INITRD_OPTS -v"
 
-# copy initrd.mk to image
-mkdir -p /.image/.disk
-cp /etc/initrd.mk /.image/.disk
-cp /etc/sysconfig/bootchain /.image/.disk
-
-cd /boot
 for KVER in $kver; do
 	echo make-initrd $MAKE_INITRD_OPTS -k "$KVER" >> /.image/.disk/mkinitrd
 	make-initrd $MAKE_INITRD_OPTS -k "$KVER" ||
 		fatal "make-initrd failed"
 done
 
+cd /boot
 case `arch` in
 e2k)
 	kname=image;;
