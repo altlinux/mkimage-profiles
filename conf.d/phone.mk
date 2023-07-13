@@ -16,7 +16,8 @@ mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 
 mixin/phosh: use/x11/lightdm/autologin use/x11-autologin \
 	use/services +pulse +nm +nm-native
-	@$(call add,THE_PACKAGES,phosh mutter-gnome gnome-shell-data xorg-xwayland)
+	@$(call add,THE_PACKAGES,phosh xdg-desktop-portal-gtk)
+	@$(call add,THE_PACKAGES,gnome-control-center xorg-xwayland)
 	@$(call add,THE_PACKAGES,gnome-terminal gedit)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,bluez)
