@@ -45,6 +45,6 @@ mixin/pinephone: use/x11/armsoc use/firmware use/bootloader/uboot use/tty/S2 \
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,eg25-manager.service)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/pinephone-phosh: vm/.phosh mixin/pinephone; @:
+vm/pinephone-phosh: vm/.phosh mixin/pinephone +plymouth; @:
 endif
 endif
