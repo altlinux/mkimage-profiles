@@ -1,6 +1,6 @@
 +plymouth: use/plymouth/full; @:
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 # and a few aliases
 use/plymouth/live: use/plymouth/stage2; @:
 use/plymouth/install2: use/plymouth/stage2; @:
