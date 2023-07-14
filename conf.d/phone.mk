@@ -14,14 +14,14 @@ mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 	@$(call add,CONTROL,fusermount:public)
 	@$(call add,CONTROL,libnss-role:disabled)
 
-mixin/phosh: use/x11/lightdm/autologin use/x11-autologin \
-	use/services +pulse +nm +nm-native
+mixin/phosh: use/services +pulse +nm +nm-native
 	@$(call add,THE_PACKAGES,phosh xdg-desktop-portal-gtk)
 	@$(call add,THE_PACKAGES,gnome-control-center xorg-xwayland)
 	@$(call add,THE_PACKAGES,gnome-terminal gedit)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,THE_LISTS,mobile/apps)
+	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,DEFAULT_SESSION,phosh)
 
