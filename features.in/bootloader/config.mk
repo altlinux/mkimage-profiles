@@ -6,7 +6,7 @@
 
 # NB: "mysterious" conflicts if BASE_BOOTLOADER is empty
 
-GRUB_ARCHES := i586 x86_64 aarch64 ppc64le riscv64
+GRUB_ARCHES := i586 x86_64 aarch64 ppc64le riscv64 loongarch64
 
 use/bootloader: use/pkgpriorities
 ifneq (,$(filter-out e2k%,$(ARCH)))

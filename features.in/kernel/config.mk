@@ -6,7 +6,11 @@ else
 ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call try,KFLAVOURS,un-def)
 else
+ifeq (,$(filter-out loongarch64,$(ARCH)))
+	@$(call try,KFLAVOURS,loongarch)
+else
 	@$(call try,KFLAVOURS,std-def)
+endif
 endif
 endif
 	@$(call xport,KFLAVOURS)

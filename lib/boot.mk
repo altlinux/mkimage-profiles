@@ -9,7 +9,7 @@ boot/iso:
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call try,BOOTLOADER,isolinux)
 endif
-ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
+ifeq (,$(filter-out aarch64 riscv64 loongarch64,$(ARCH)))
 	@$(call try,BOOTLOADER,efiboot)
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))

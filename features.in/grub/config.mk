@@ -1,7 +1,7 @@
 # default is plain text prompt
 # NB: might be usbflash-ready hybrid iso
 
-ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 riscv64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 riscv64 loongarch64,$(ARCH)))
 
 use/grub: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 	@$(call add_feature)

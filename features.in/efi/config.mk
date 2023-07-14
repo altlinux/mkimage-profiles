@@ -1,4 +1,4 @@
-EFI_ARCHES := x86_64 aarch64 riscv64
+EFI_ARCHES := x86_64 aarch64 riscv64 loongarch64
 
 +efi: use/efi/signed; @:
 

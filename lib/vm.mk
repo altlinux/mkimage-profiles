@@ -21,7 +21,7 @@ else
 vm/.base-grub: vm/.base-grub-efi; @:
 endif
 
-ifeq (,$(filter-out x86_64 aarch64 riscv64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64 riscv64 loongarch64,$(ARCH)))
 vm/.base-grub-efi: vm/.bare use/efi/grub; @:
 else
 vm/.base-grub-efi: vm/.bare; @:
