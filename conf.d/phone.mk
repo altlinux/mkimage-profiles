@@ -30,7 +30,8 @@ vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	mixin/waydroid; @:
 
 vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/bootloader/uboot \
-	use/firmware +x11 +plymouth +vmguest; @:
+	use/firmware +x11 +plymouth +vmguest
+	@$(call set,KFLAVOURS,un-def)
 endif
 
 ifeq (aarch64,$(ARCH))
