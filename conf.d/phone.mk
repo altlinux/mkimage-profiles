@@ -32,6 +32,10 @@ vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/uboot \
 	use/firmware +x11 +plymouth +vmguest
 	@$(call set,KFLAVOURS,un-def)
+ifeq (aarch64,$(ARCH))
+	@$(call set,VM_PARTTABLE,msdos)
+	@$(call set,VM_BOOTTYPE,EFI)
+endif
 endif
 
 ifeq (aarch64,$(ARCH))
