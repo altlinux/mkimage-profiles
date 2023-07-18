@@ -29,7 +29,7 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	mixin/waydroid; @:
 
-vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/bootloader/uboot \
+vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/uboot \
 	use/firmware +x11 +plymouth +vmguest
 	@$(call set,KFLAVOURS,un-def)
 endif
