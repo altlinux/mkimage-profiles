@@ -44,7 +44,7 @@ endif
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 \
-	mixin/regular-desktop +vmguest \
+	mixin/regular-desktop \
 	use/live/rw +live-installer
 	@$(call set,INSTALLER,alt-workstation)
 	@$(call set,GRUB_DEFAULT,live)
@@ -53,7 +53,7 @@ distro/.regular-wm: distro/.regular-x11 \
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm use/branding/full \
-	use/firmware/laptop +systemd +systemd-optimal
+	use/firmware/laptop +systemd +systemd-optimal +vmguest
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
