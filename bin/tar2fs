@@ -77,7 +77,12 @@ if [ "$BOOTLOADER" == grub-efi -o "$BOOTTYPE" == EFI ]; then
 	EFIPART="1"
 	EFIPARTSIZEM="256"
 	EFIPARTFSTYPE="fat"
-	ROOTPART="2"
+	if [ "$ARCH" = x86_64 ]; then
+		BIOSPART="2"
+		ROOTPART="3"
+	else
+		ROOTPART="2"
+	fi
 fi
 
 # tested to work: ext[234], jfs
@@ -217,7 +222,7 @@ trap exit_handler EXIT ERR
 
 # prepare disk image and a filesystem inside it
 rm -f -- "$IMG"
-OFFSET="$(($CUR_BOUNDARY + $EFIPARTSIZEM + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + $ROOTSIZEM - 1))"
+OFFSET="$(($CUR_BOUNDARY + $EFIPARTSIZEM + $BOOTLOADERPARTSIZEM + $BOOTSIZEM + ${BIOSPART:+1} + $ROOTSIZEM - 1))"
 dd if=/dev/zero of="$IMG" conv=notrunc bs=$MB count=1 seek="$OFFSET"
 losetup -f "$IMG"
 LOOPDEV=$(losetup -j "$IMG" | cut -f 1 -d ':')
@@ -247,6 +252,12 @@ if [ -n "$EFIPART" ]; then
 	if [ "$PARTTABLE" == gpt ]; then
 		parting set 1 esp on
 	fi
+fi
+
+if [ -n "$BIOSPART" ]; then
+	parting mkpart bios $((CUR_BOUNDARY+1))MiB $(($CUR_BOUNDARY + 2))MiB
+	CUR_BOUNDARY="$(($CUR_BOUNDARY + 1))"
+	parting set "$BIOSPART" bios on
 fi
 
 if [ -n "$BOOTPART" ]; then
@@ -447,8 +458,10 @@ grub-efi)
 			  --removable --uefi-secure-boot
 			chroot "$ROOTFS" grub-install --target=x86_64-efi --recheck \
 			  --removable --uefi-secure-boot
-			sed -i 's/initrd16/initrdefi/g' "$ROOTFS/boot/grub/grub.cfg"
-			sed -i 's/linux16/linuxefi/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/initrd16/initrd/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/linux16/linux/g' "$ROOTFS/boot/grub/grub.cfg"
+			[ -n "$BIOSPART" ] &&
+				chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
 		;;
 		aarch64)
 			chroot "$ROOTFS" grub-install --target=arm64-efi --recheck \
@@ -477,8 +490,8 @@ grub)
 	case "$ARCH" in
 		*86*)
 			chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
-			sed -i 's/initrdefi/initrd16/g' "$ROOTFS/boot/grub/grub.cfg"
-			sed -i 's/linuxefi/linux16/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/initrdefi/initrd/g' "$ROOTFS/boot/grub/grub.cfg"
+			sed -i 's/linuxefi/linux/g' "$ROOTFS/boot/grub/grub.cfg"
 		;;
 		ppc*)
 			[ -z "$LOOPBOOTLOADER" ] ||
