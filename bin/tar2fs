@@ -462,6 +462,12 @@ grub-efi)
 			chroot "$ROOTFS" grub-install --target=riscv64-efi --recheck \
 			  --removable --uefi-secure-boot
 		;;
+		loongarch64)
+			chroot "$ROOTFS" grub-install --target=loongarch64-efi --recheck \
+			  --no-nvram --uefi-secure-boot
+			chroot "$ROOTFS" grub-install --target=loongarch64-efi --recheck \
+			  --removable --uefi-secure-boot
+		;;
 	esac
 	sed -i '/GRUB_DISABLE_OS_PROBER=true/d' "$ROOTFS/etc/sysconfig/grub2"
 	;;
