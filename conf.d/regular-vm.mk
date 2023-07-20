@@ -14,7 +14,7 @@ vm/regular-systemd: vm/systemd-net use/vmguest/kvm use/tty/S0 \
 mixin/vm-archdep:: use/auto-resize; @:
 
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-mixin/vm-archdep::
+mixin/vm-archdep:: +efi
 	@$(call set,KFLAVOURS,std-def un-def)
 endif
 
