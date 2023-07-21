@@ -138,6 +138,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-xprofile-clear)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-systemd-oomd)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-webterminal-setup)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-remove-xorgconf)
 	@$(call add,INSTALL2_PACKAGES,apt-scripts-nvidia)
 	@$(call add,INSTALL2_PACKAGES,volumes-profile-kdesktop)
 	@$(call add,INSTALL2_PACKAGES,udev-rules-ioschedulers)
