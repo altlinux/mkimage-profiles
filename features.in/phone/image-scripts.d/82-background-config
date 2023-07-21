@@ -1,4 +1,0 @@
-#!/bin/sh -efu
-# Set user perms on installed config
-
-chown altlinux:altlinux -R "/home/altlinux/.config"
