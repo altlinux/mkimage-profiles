@@ -42,7 +42,7 @@ ve/sysvinit-etcnet: ve/base use/net/etcnet \
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
 ve/systemd-bare: ve/.apt use/init/systemd \
-	use/control/sudo-su use/repo use/net-ssh
+	use/control/sudo-su use/repo
 	@$(call add,BASE_PACKAGES,interactivesystem su)
 
 ve/systemd-base: ve/systemd-bare
@@ -50,8 +50,8 @@ ve/systemd-base: ve/systemd-bare
 	@$(call add,BASE_PACKAGES,systemd-settings-disable-kill-user-processes)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata bash-completion iptables curl)
 
-ve/systemd-networkd: ve/systemd-base use/net/networkd/resolved; @:
-ve/systemd-etcnet: ve/systemd-base use/net/etcnet; @:
+ve/systemd-networkd: ve/systemd-base use/net-ssh use/net/networkd/resolved; @:
+ve/systemd-etcnet: ve/systemd-base use/net-ssh use/net/etcnet; @:
 
 ve/.lxc-bare: use/lxc-guest
 	@$(call add,NET_ETH,eth0:dhcp)
