@@ -48,6 +48,7 @@ use/kernel/disable-usb-autosuspend:
 
 # for vm targets
 use/kernel/initrd-setup: use/kernel
+	@$(call add,BASE_PACKAGES,make-initrd)
 	@$(call try,VM_FSTYPE,ext4)
 	@$(call add,VM_INITRDMODULES,$$(VM_FSTYPE))
 	@$(call add,VM_INITRDMODULES,ahci.ko ahci_platform.ko sd_mod.ko)
