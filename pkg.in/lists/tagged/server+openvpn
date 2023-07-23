@@ -1,6 +1,5 @@
 apt
 basesystem
-sysklogd
 etcnet
 glibc-nss
 openvpn
