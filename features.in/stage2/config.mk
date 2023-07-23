@@ -5,7 +5,6 @@ use/stage2:: sub/stage1
 	@$(call add,STAGE1_MODLISTS,$$(FEATURES))
 	@$(call xport,STAGE1_PACKAGES)
 	@$(call xport,STAGE1_KCONFIG)
-	@$(call set,GLOBAL_HSH_PROC,1)
 
 ifneq (,$(filter-out e2k%,$(ARCH)))
 ifeq (sisyphus,$(BRANCH))

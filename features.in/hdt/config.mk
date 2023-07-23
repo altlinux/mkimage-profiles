@@ -6,7 +6,6 @@ use/hdt: use/syslinux use/memtest
 	@$(call add,STAGE1_PACKAGES,dosfstools)
 	@$(call add,SYSLINUX_MODULES,hdt)
 	@$(call add,GRUB_CFG,hdt_bios)
-	@$(call set,GLOBAL_HSH_PROC,1)
 else
 use/hdt: ; @:
 endif

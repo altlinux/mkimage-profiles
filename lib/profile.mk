@@ -105,6 +105,7 @@ ifeq (sisyphus,$(BRANCH))
 else
 	@$(call try,BRANDING,alt-starterkit)
 endif
+	@$(call set,GLOBAL_HSH_PROC,1)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-alterator:Essential)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-bootsplash:Essential)
 	@$(call add,PINNED_PACKAGES,branding-$$(BRANDING)-bootloader:Essential)
