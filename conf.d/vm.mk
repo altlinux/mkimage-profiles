@@ -50,7 +50,6 @@ vm/.desktop-base: vm/.desktop-bare \
 vm/icewm: vm/.desktop-base mixin/icewm; @:
 
 vm/icewm-setup: vm/.desktop-bare mixin/icewm use/oem use/x11-autostart
-	@$(call set,BRANDING,simply-linux)
 	@$(call add,THE_BRANDING,graphics)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 
