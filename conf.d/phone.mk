@@ -22,6 +22,7 @@ mixin/phosh: use/services +pulse +nm +nm-native
 	@$(call add,THE_PACKAGES,gnome-terminal gedit)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,bluez)
+	@$(call add,THE_PACKAGES,tracker3)
 	@$(call add,THE_LISTS,mobile/apps)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
