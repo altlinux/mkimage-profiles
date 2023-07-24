@@ -1,8 +1,10 @@
-mixin/waydroid:
+mixin/waydroid: ; @:
+ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,libgbinder1 waydroid)
 	@$(call add,THE_KMODULES,anbox)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waydroid-container.service)
 	@$(call add,BASE_BOOTARGS,psi=1)
+endif
 
 mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
