@@ -6,9 +6,9 @@ gnome-calendar
 gnome-screenshot
 grim
 megapixels
-chromium
+chromium@!riscv64
 firefox
-telegram-desktop
+telegram-desktop@!riscv64
 evince
 mpv
 amberol
