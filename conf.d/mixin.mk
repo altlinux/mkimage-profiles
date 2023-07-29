@@ -100,7 +100,7 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/x11/kde5-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	+pulse
-	@$(call add,THE_PACKAGES,kde5-telepathy)
+	@$(call add,THE_PACKAGES,kde5-telepathy plasma5-xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,qt6-wayland)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,falkon-kde5)
