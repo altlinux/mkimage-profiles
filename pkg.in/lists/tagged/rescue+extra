@@ -215,6 +215,7 @@ chntpw@X86
 hivex@X86
 scrounge-ntfs@X86
 wabread@X86
+libldm@X86
 
 # Mobile
 android-tools@!E2K,riscv64
