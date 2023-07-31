@@ -12,7 +12,6 @@ mixin/education: \
 	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
-	use/office/LibreOffice/full \
 	use/browser/chromium
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,indexhtml)
@@ -143,6 +142,7 @@ mixin/education-installer: \
 	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,MAIN_GROUPS,education/00_base)
+	@$(call add,MAIN_GROUPS,education/00_libreoffice)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
 	@$(call add,MAIN_GROUPS,education/02_gradeschool)
 	@$(call add,MAIN_GROUPS,education/03_highschool)
@@ -150,6 +150,7 @@ mixin/education-installer: \
 	@$(call add,MAIN_GROUPS,education/05_university)
 	@$(call add,MAIN_GROUPS,education/07_teacher)
 	@$(call add,MAIN_GROUPS,education/08_server-apps-edu)
+	@$(call add,MAIN_GROUPS,education/10_robotics)
 	@$(call add,BASE_PACKAGES,os-prober)
 	@$(call add,BASE_PACKAGES,guest-account)
 	@$(call add,MAIN_PACKAGES,iperf3)

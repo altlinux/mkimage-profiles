@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=LibreOffice Office Suite
+X-Alterator-PackageList=education/libreoffice
+Name[ru_RU]=Офисный пакет LibreOffice
+X-Alterator-Required=yes

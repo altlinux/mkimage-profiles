@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Robotics
+X-Alterator-PackageList=education/robotics
+X-Alterator-Required=no
+Name[ru_RU]=Робототехника
