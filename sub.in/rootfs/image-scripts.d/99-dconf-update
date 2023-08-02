@@ -1,0 +1,4 @@
+#!/bin/sh
+
+type -t dconf >/dev/null || exit 0
+dconf update
