@@ -1,0 +1,23 @@
+# core
+phosh
+xdg-desktop-portal-gtk
+xorg-xwayland
+qt5-wayland
+qt6-wayland
+bluez
+
+# base applications
+gnome-terminal
+gedit
+gnome-control-center
+
+# file manager
+nautilus
+tracker3
+
+# base libraries
+at-spi2-core
+libat-spi2-core-gir
+libgtk+3-gir
+libgtk4-gir
+libtelepathy-mission-control
