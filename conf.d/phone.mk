@@ -27,7 +27,7 @@ vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	mixin/waydroid
 	@$(call add,THE_LISTS,mobile/apps)
 
-vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/uboot use/phone \
+vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone +efi \
 	use/firmware +x11 +plymouth +vmguest
 	@$(call set,KFLAVOURS,un-def)
 ifeq (aarch64,$(ARCH))
