@@ -18,14 +18,14 @@ mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 
 mixin/phosh: use/services +pulse +nm +nm-native
 	@$(call add,THE_LISTS,mobile/phosh)
-	@$(call add,THE_LISTS,mobile/apps)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,DEFAULT_SESSION,phosh)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
-	mixin/waydroid; @:
+	mixin/waydroid
+	@$(call add,THE_LISTS,mobile/apps)
 
 vm/phosh: vm/.phosh use/tty/S0 use/efi/grub use/uboot use/phone \
 	use/firmware +x11 +plymouth +vmguest
