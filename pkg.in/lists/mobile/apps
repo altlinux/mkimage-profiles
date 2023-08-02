@@ -1,22 +1,31 @@
+# connectivity
 gnome-calls
 gnome-contacts
 chatty
-gnome-clocks
-gnome-calendar
-gnome-screenshot
-grim
-megapixels
-cheese
+telegram-desktop@!riscv64
+
+# web, mail
 chromium@!riscv64
 firefox
-telegram-desktop@!riscv64
-evince
+geary
+
+# multimedia
+megapixels
+cheese
 mpv
 totem
 amberol
 lollypop
 shortwave
+
+# readers
+evince
 foliate
-geary
-wallpapers-mobile
+
+# misc
+gnome-clocks
+gnome-calendar
 gnome-maps
+gnome-screenshot
+grim
+wallpapers-mobile
