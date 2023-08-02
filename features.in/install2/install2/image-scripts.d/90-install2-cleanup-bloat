@@ -22,14 +22,12 @@ rm -rf /usr/share/awk/
 
 # save VNC install if present
 MORE=
-[ -x /usr/bin/x11vnc ] || MORE="libGL libEGL libgbm libwayland\\* xterm"
+[ -x /usr/bin/x11vnc ] || MORE="xterm"
 
 ### could it be handled with any grace?
 rpmquery -a common-licenses \
 	cpp\* gcc\* perl-base file ipv6calc \
-	bind-utils libbind \
-	libmpfr\* libmpc\* \
-	libsoup\* \
+	bind-utils \
 	$MORE glxinfo xdriinfo \
 	xdg-utils \
 	mkfontscale mkfontdir \
