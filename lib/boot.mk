@@ -13,7 +13,6 @@ ifeq (,$(filter-out aarch64 riscv64 loongarch64,$(ARCH)))
 	@$(call try,BOOTLOADER,efiboot)
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
-	@$(call try,BOOTLOADER,e2kboot)
 	@$(call set,IMAGE_PACKTYPE,isodata)
 endif
 ifeq (,$(filter-out ppc64le,$(ARCH)))
