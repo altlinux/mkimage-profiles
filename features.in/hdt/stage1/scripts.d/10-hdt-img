@@ -1,6 +1,6 @@
 #!/bin/sh -efu
 
-[ "$GLOBAL_BOOTLOADER" = grubpcboot ] || exit 0
+[ "${GLOBAL_BOOTLOADER-}" = grubpcboot ] || exit 0
 
 cd "$WORKDIR"
 
