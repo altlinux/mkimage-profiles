@@ -2,10 +2,11 @@
 
 [ "${GLOBAL_BOOTLOADER-}" = grubpcboot ] || exit 0
 
-cd "$WORKDIR"
-
-mkdir -p boot syslinux
-cp /usr/lib/syslinux/hdt.c32 "$WORKDIR"/syslinux/
+cd /tmp
+rm -fr syslinux
+mkdir syslinux
+cp /usr/lib/syslinux/hdt.c32 syslinux/
+mv "$WORKDIR"/syslinux/pci.ids syslinux/
 
 cat > syslinux/syslinux.cfg << EOF
 default hdt
@@ -16,12 +17,15 @@ label hdt
 EOF
 
 # floppy disk 720 KiB
-dd if=/dev/zero of=boot/hdt.img bs=512 count="1440"
-mkfs.fat -n HDT -F 12 boot/hdt.img
-mcopy -i boot/hdt.img -s syslinux ::
+mkdir -p "$WORKDIR"/boot
+dd if=/dev/zero of="$WORKDIR"/boot/hdt.img bs=512 count="1440"
+mkfs.fat -n HDT -F 12 "$WORKDIR"/boot/hdt.img
+mcopy -i "$WORKDIR"/boot/hdt.img -s syslinux ::
+
+# clean /tmp
+rm -r syslinux
 
 #dd if=/usr/lib/syslinux/ldlinux.bss of=boot/hdt.img conv=notrunc
-syslinux -d /syslinux --install boot/hdt.img
+syslinux -d /syslinux --install "$WORKDIR"/boot/hdt.img
 
-rm -r syslinux
-cp /usr/lib/syslinux/memdisk boot
+cp /usr/lib/syslinux/memdisk "$WORKDIR"/boot
