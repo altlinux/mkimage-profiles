@@ -2,7 +2,7 @@
 ifeq (vm,$(IMAGE_CLASS))
 
 # NB: interactivesystem pulls in network-config-subsystem anyways
-vm/bare: vm/.base-lilo +sysvinit
+vm/bare: vm/.base-grub +sysvinit
 	@$(call add,BASE_PACKAGES,apt)
 
 vm/systemd: vm/.base-grub use/init/systemd
