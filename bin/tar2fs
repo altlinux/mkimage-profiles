@@ -340,53 +340,10 @@ if [ -n "$EFIPART" ]; then
 	echo "$EFIDEV /boot/efi vfat umask=0,quiet,showexec,iocharset=utf8,codepage=866 1 2" >> "$ROOTFS/etc/fstab"
 fi
 
-# Query ARCH in chroot and redefine arch-dependent variable
-ARCH="$(chroot "$ROOTFS" rpm --eval '%_host_cpu')"
-
-# NB: don't stick BOOTFS here, it has slightly different semantics
-pushd $ROOTFS/boot
-
-# 4.9.76-elbrus-def-alt1.11.1 -> def
-get_label() { echo "${1# *}" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,'; }
-
-KVERSIONS=
-KVERSIONS="$(chroot "$ROOTFS" rpm -qa 'kernel-image*' \
-            --qf '%{installtime} %{version}-%{name}-%{release}\n' \
-        | sort -n \
-        | cut -f 2 -d ' ' \
-        | sed 's/kernel-image-//')"
-[ -n "$KVERSIONS" ] || fatal "unable to deduce kernel version"
-rm -f .origver
-
 # clean fstab
 sed -i "/LABEL=ROOT/d" "$ROOTFS/etc/fstab"
 # ...target device too
 sed -i "s,$LOOPROOT,$ROOTDEV," "$ROOTFS/etc/fstab"
-
-echo "** KVERSIONS=[$KVERSIONS]" >&2
-
-if [ "`echo $KVERSIONS | wc -w`" = 1 ]; then # 2+ labels
-	echo -e "default=`get_label $KVERSIONS`\n" >> boot.conf
-fi
-
-# FIXME: relies on particular (current) kernel package naming scheme
-for v in $KVERSIONS; do
-	l="`get_label "$v"`"
-	cat >> boot.conf <<EOF
-label=$l
-	partition=0
-	image=/image-$v
-	initrd=/initrd-$v.img
-	cmdline=console=ttyS0,115200 console=tty0 consoleblank=0 hardreset root=UUID=$ROOTUUID
-
-EOF
-done
-
-echo "** start of boot.conf"
-cat boot.conf
-echo "** end of boot.conf"
-
-popd
 
 # Update cmdline.txt for Raspberry Pi
 [ -f "$ROOTFS/boot/efi/cmdline.txt" ] &&
@@ -410,6 +367,14 @@ if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ]; then
 		fi
 	fi
 fi
+
+# e2k
+if [ -f "$ROOTFS/boot/boot.conf" ]; then
+	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/boot.conf"
+fi
+
+# Query ARCH in chroot and redefine arch-dependent variable
+ARCH="$(chroot "$ROOTFS" rpm --eval '%_host_cpu')"
 
 # Setup bootloader
 case "$BOOTLOADER" in

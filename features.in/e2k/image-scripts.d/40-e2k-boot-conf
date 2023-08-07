@@ -1,0 +1,39 @@
+#!/bin/sh -efu
+
+# NB: don't stick BOOTFS here, it has slightly different semantics
+# 4.9.76-elbrus-def-alt1.11.1 -> def
+get_label() { echo "${1# *}" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,'; }
+
+KVERSIONS="$(rpm -qa 'kernel-image*' \
+            --qf '%{installtime} %{version}-%{name}-%{release}\n' \
+        | sort -n \
+        | cut -f 2 -d ' ' \
+        | sed 's/kernel-image-//')"
+[ -n "$KVERSIONS" ] ||
+  { echo "** unable to deduce kernel version" >&2; exit 1; }
+
+cd /boot
+
+#rm -f .origver
+
+echo "** KVERSIONS=[$KVERSIONS]" >&2
+if [ "`echo $KVERSIONS | wc -w`" = 1 ]; then # 2+ labels
+	echo -e "default=`get_label $KVERSIONS`\n" >> boot.conf
+fi
+
+# FIXME: relies on particular (current) kernel package naming scheme
+for v in $KVERSIONS; do
+	l="`get_label "$v"`"
+	cat >> boot.conf <<EOF
+label=$l
+	partition=0
+	image=/image-$v
+	initrd=/initrd-$v.img
+	cmdline=console=tty0 consoleblank=0 hardreset LABEL=ROOT
+
+EOF
+done
+
+echo "** start of boot.conf" >&2
+cat boot.conf >&2
+echo "** end of boot.conf" >&2

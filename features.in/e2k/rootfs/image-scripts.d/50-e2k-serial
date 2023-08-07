@@ -10,5 +10,3 @@ CFG="/boot/boot.conf"
 
 # tty0 first
 sed -i "s/console=tty0 /console=$GLOBAL_TTY_DEV,$GLOBAL_TTY_RATE &/" "$CFG"
-
-### NB: there's no boot.conf yet!  could only be the sample one
