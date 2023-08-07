@@ -25,15 +25,6 @@ mv boot/$kname-$kverdef boot/$kname
 cp $verbose -af $initrd boot/
 mv boot/initrd-$kverdef.img boot/initrd.img
 
-# config is generated in mkimage
-case "$GLOBAL_EFI_BOOTLOADER" in
-	refind|elilo)
-		mkdir -p EFI/BOOT
-		cp -lpLf boot/vmlinuz EFI/BOOT/
-		cp -lpLf boot/initrd.img EFI/BOOT/full.cz
-	;;
-esac
-
 # copy dtb for default kernel
 if [ -n "$GLOBAL_COPY_DTB" ]; then
 	dtb_dir=
