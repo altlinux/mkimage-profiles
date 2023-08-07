@@ -9,8 +9,10 @@ KVERSIONS="$(rpm -qa 'kernel-image*' \
         | sort -n \
         | cut -f 2 -d ' ' \
         | sed 's/kernel-image-//')"
-[ -n "$KVERSIONS" ] ||
-  { echo "** unable to deduce kernel version" >&2; exit 1; }
+[ -n "$KVERSIONS" ] || {
+	echo "40-e2k-boot-conf: kernel image missing, exiting" >&2
+	exit 0
+}
 
 cd /boot
 
