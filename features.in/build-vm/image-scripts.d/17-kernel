@@ -42,7 +42,7 @@ for KVER in $kver; do
 done
 
 case "$GLOBAL_ARCH" in
-e2k)
+e2k*)
 	kname=image;;
 *)
 	kname=vmlinuz;;
