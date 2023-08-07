@@ -8,10 +8,12 @@ include $(GLOBAL_BUILDDIR)/distcfg.mk
 include $(GLOBAL_BUILDDIR)/functions.mk
 include $(MKIMAGE_PREFIX)/config.mk
 
+ifneq (isodata,$(IMAGE_PACKTYPE))
 ifeq (,$(BOOTLOADER))
 $(error BOOTLOADER not defined)
 endif
 GLOBAL_BOOTLOADER := $(BOOTLOADER)
+endif
 
 MKI_PACK_RESULTS = data
 COPY_TREE = ./files
