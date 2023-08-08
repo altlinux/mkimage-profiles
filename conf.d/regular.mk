@@ -18,7 +18,8 @@ endif
 endif
 
 # base target (for most images)
-distro/.regular-base: distro/.regular-bare use/vmguest use/memtest use/efi/dtb +efi; @:
+distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
+	use/efi/shell use/efi/dtb +efi; @:
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
@@ -202,8 +203,7 @@ distro/regular-robo: distro/regular-mate use/live/ru use/x11/3d
 	@$(call add,THE_LISTS,robotics/reprap)
 	@$(call add,THE_LISTS,robotics/umki)
 
-distro/regular-rescue: distro/.regular-base mixin/regular-rescue  \
-	use/rescue/rw use/efi/shell use/efi/memtest86 \
+distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
 	use/mediacheck use/stage2/kms use/kernel/latest +wireless
