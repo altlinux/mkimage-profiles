@@ -27,7 +27,8 @@ use/efi/grub: use/efi use/bootloader/grub
 
 ifeq (x86_64,$(ARCH))
 use/efi/shell: use/efi
-	@$(call try,EFI_SHELL,efi-shell)
+	@$(call add,STAGE1_PACKAGES,efi-shell)
+	@$(call add,GRUB_CFG,shell_efi)
 
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)

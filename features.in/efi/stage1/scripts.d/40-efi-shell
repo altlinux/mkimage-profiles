@@ -1,0 +1,7 @@
+#!/bin/sh -efu
+
+EFI_SHELL=/usr/lib64/efi/shell.efi
+[ -s "$EFI_SHELL" ] || exit 0
+
+mkdir -p "$WORKDIR"/boot
+cp "$EFI_SHELL" "$WORKDIR"/boot/
