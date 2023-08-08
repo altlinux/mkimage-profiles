@@ -38,12 +38,9 @@ ifeq (,$(filter-out p10 c10f1,$(BRANCH)))
 	@$(call add,STAGE1_PACKAGES,shim-signed-installer-kludge grub-efi alt-uefi-certs dosfstools mtools)
 endif
 
-use/efi/memtest86: use/efi
-	@$(call set,EFI_MEMTEST86,efi-memtest86)
-
 else
 
-use/efi/signed use/efi/shell use/efi/memtest86: use/efi; @:
+use/efi/signed use/efi/shell: use/efi; @:
 
 endif
 
@@ -58,7 +55,7 @@ else
 
 # ignore on an unsupported target arch but make it hybrid at least
 use/efi use/efi/signed use/efi/debug use/efi/grub \
-  use/efi/shell use/efi/memtest86: use/isohybrid; @:
+  use/efi/shell: use/isohybrid; @:
 
 endif
 
@@ -70,3 +67,6 @@ ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 	@$(call add,EFI_FILES_REPLACE,dtb)
 endif
 endif
+
+use/efi/memtest86:
+	@echo Warning: use/efi/memtest86 is deprecated!!! >&2
