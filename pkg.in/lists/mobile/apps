@@ -4,6 +4,9 @@ gnome-contacts
 chatty
 telegram-desktop@!riscv64
 
+# terminal
+gnome-console
+
 # web, mail
 chromium@!riscv64
 firefox
@@ -22,10 +25,29 @@ shortwave
 evince
 foliate
 
+# file transfer
+warp
+
+# password manager
+secrets
+
+# emoji (see also https://bugzilla.altlinux.org/46471)
+fonts-ttf-google-noto-emoji-color
+
 # misc
+gnome-calculator
 gnome-clocks
 gnome-calendar
+gnome-characters
 gnome-maps
+gnome-weather
 gnome-screenshot
 grim
 wallpapers-mobile
+# libadwaita theme ported to gtk3
+# $ gsettings get org.gnome.desktop.interface gtk-theme
+# 'adw-gtk3'
+gtk3-theme-adw-gtk3
+
+# need to test
+gnome-qr-decoder

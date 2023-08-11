@@ -7,7 +7,6 @@ qt6-wayland
 bluez
 
 # base applications
-gnome-terminal
 gedit
 gnome-control-center
 
