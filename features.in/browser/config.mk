@@ -4,9 +4,8 @@ use/browser:
 	@$(call try,THE_BROWSER,elinks)	# X11-less fallback
 
 # amend as neccessary; firefox is treated separately due to its flavours
-BROWSERS_i586 = seamonkey netsurf epiphany falkon otter-browser \
-		elinks links2
-BROWSERS_x86_64 := $(BROWSERS_i586) chromium
+BROWSERS_i586 = netsurf epiphany falkon otter-browser elinks links2
+BROWSERS_x86_64 := $(BROWSERS_i586) chromium seamonkey
 BROWSERS_ppc64el = netsurf epiphany falkon otter-browser elinks links2
 BROWSERS_aarch64 = chromium netsurf epiphany falkon otter-browser elinks links2
 BROWSERS_armh = netsurf epiphany falkon otter-browser elinks links2
