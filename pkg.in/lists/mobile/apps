@@ -26,7 +26,7 @@ evince
 foliate
 
 # file transfer
-warp
+warp@!riscv64
 
 # password manager
 secrets
