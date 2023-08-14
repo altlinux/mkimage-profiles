@@ -26,6 +26,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/bootloader/lilo: \
 	use/bootloader/%: use/bootloader
 	@$(call set,BASE_BOOTLOADER,$*)
+	@echo Warning: use/bootloader/lilo is deprecated!
 else
 use/bootloader/lilo: ; @:
 endif
