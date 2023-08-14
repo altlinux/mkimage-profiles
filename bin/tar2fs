@@ -146,6 +146,25 @@ mkpart() {
 	parting mkpart primary "$CUR_FS" "$start"MiB "$end"
 }
 
+create_inner_grub_cfg() {
+	local boot_path boot_uuid cfg_path
+	cfg_path=$1
+	[ -n "$cfg_path" ] || return 1
+	if [ -n "$BOOTUUID" ]; then
+		boot_uuid="$BOOTUUID"
+		boot_path=grub
+	else
+		boot_uuid="$ROOTUUID"
+		boot_path=boot/grub
+	fi
+	[ -n "$boot_uuid" ] || return 1
+	cat >"$cfg_path" <<-GRUB_EOF
+	search.fs_uuid $boot_uuid root
+	set prefix=(\$root)/$boot_path
+	configfile \$prefix/grub.cfg
+	GRUB_EOF
+}
+
 # a tarball containing chroot with a kernel
 TAR="$1"
 [ -s "$TAR" ] || fatal "source tarball doesn't really exist"
@@ -413,12 +432,9 @@ image=/boot/vmlinuz
 grub-efi)
 	echo 'GRUB_DISABLE_OS_PROBER=true' >> "$ROOTFS"/etc/sysconfig/grub2
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg
+	mkdir -p "$ROOTFS"/boot/efi/EFI/BOOT
 	case "$ARCH" in
 		x86_64)
-			chroot "$ROOTFS" grub-install --target=i386-efi --recheck \
-			  --no-nvram --uefi-secure-boot
-			chroot "$ROOTFS" grub-install --target=x86_64-efi --recheck \
-			  --no-nvram --uefi-secure-boot
 			chroot "$ROOTFS" grub-install --target=i386-efi --recheck \
 			  --removable --uefi-secure-boot
 			chroot "$ROOTFS" grub-install --target=x86_64-efi --recheck \
@@ -429,25 +445,21 @@ grub-efi)
 				chroot "$ROOTFS" grub-install --target=i386-pc "$LOOPDEV"
 		;;
 		aarch64)
-			chroot "$ROOTFS" grub-install --target=arm64-efi --recheck \
-			  --no-nvram --uefi-secure-boot
-			chroot "$ROOTFS" grub-install --target=arm64-efi --recheck \
-			  --removable --uefi-secure-boot
+			cp "$ROOTFS"/usr/lib64/efi/grubaa64.efi \
+			   "$ROOTFS"/boot/efi/EFI/BOOT/bootaa64.efi
 		;;
 		riscv64)
-			chroot "$ROOTFS" grub-install --target=riscv64-efi --recheck \
-			  --no-nvram --uefi-secure-boot
-			chroot "$ROOTFS" grub-install --target=riscv64-efi --recheck \
-			  --removable --uefi-secure-boot
+			cp "$ROOTFS"/usr/lib64/efi/grubriscv64.efi \
+			   "$ROOTFS"/boot/efi/EFI/BOOT/bootriscv64.efi
 		;;
 		loongarch64)
-			chroot "$ROOTFS" grub-install --target=loongarch64-efi --recheck \
-			  --no-nvram --uefi-secure-boot
-			chroot "$ROOTFS" grub-install --target=loongarch64-efi --recheck \
-			  --removable --uefi-secure-boot
+			cp "$ROOTFS"/usr/lib64/efi/grubloongarch64.efi \
+			   "$ROOTFS"/boot/efi/EFI/BOOT/bootloongarch64.efi
 		;;
 	esac
 	sed -i '/GRUB_DISABLE_OS_PROBER=true/d' "$ROOTFS/etc/sysconfig/grub2"
+	[ -s "$ROOTFS"/boot/efi/EFI/BOOT/grub.cfg ] ||
+		create_inner_grub_cfg "$ROOTFS"/boot/efi/EFI/BOOT/grub.cfg
 	;;
 grub)
 	echo 'GRUB_DISABLE_OS_PROBER=true' >> "$ROOTFS"/etc/sysconfig/grub2
