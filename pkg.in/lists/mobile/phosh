@@ -7,7 +7,6 @@ qt6-wayland
 bluez
 
 # base applications
-gedit
 gnome-control-center
 
 # file manager
