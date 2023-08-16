@@ -5,7 +5,7 @@ endif
 ifeq (distro,$(IMAGE_CLASS))
 
 # install media bootloader
-boot/iso:
+boot/iso: use/uuid-iso
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call try,BOOTLOADER,grubpcboot)
 endif

@@ -1,4 +1,4 @@
-use/initrd-bootchain: use/uuid-iso
+use/initrd-bootchain:
 	@$(call add_feature)
 	@$(call set,STAGE1_INITRD,initrd-bootchain)
 	@$(call set,STAGE1_PACKAGES,make-initrd-bootchain kbd)
