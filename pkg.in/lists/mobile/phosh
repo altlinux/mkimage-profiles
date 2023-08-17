@@ -1,6 +1,7 @@
 # core
 phosh
 xdg-desktop-portal-gtk
+xdg-desktop-portal-gnome
 xorg-xwayland
 qt5-wayland
 qt6-wayland
