@@ -11,6 +11,7 @@ mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs
 	@$(call add,THE_BRANDING,notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
+	@$(call add,THE_PACKAGES,polkit-rule-mobile)
 	@$(call add,USERS,altlinux:271828:1:1)
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
