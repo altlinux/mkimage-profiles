@@ -48,6 +48,7 @@ fonts-ttf-google-droid-.*
 fonts-ttf-ubuntu-font-family
 fonts-ttf-liberation
 fonts-ttf-dejavu
+icon-theme-Papirus
 gnome-icon-theme
 gnome-icon-theme-symbolic
 gnome-keyring
