@@ -5,7 +5,8 @@ polkit.addRule(function(action, subject) {
 	action.id == "org.freedesktop.ModemManager1.Messaging" ||
 	action.id == "org.freedesktop.ModemManager1.Time" ||
 	action.id == "org.freedesktop.ModemManager1.USSD" ||
-	action.id == "org.freedesktop.ModemManager1.Voice")
+	action.id == "org.freedesktop.ModemManager1.Voice" ||
+	action.id == "org.freedesktop.NetworkManager.settings.modify.system")
     {
 	return polkit.Result.YES;
     }
