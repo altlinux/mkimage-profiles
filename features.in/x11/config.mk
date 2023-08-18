@@ -25,6 +25,10 @@ ifeq (,$(filter-out riscv64,$(ARCH)))
 use/x11/xorg:: use/x11/amdgpu; @:
 endif
 
+ifeq (,$(filter-out loongarch64,$(ARCH)))
+use/x11/xorg:: use/x11/radeon use/x11/amdgpu; @:
+endif
+
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/x11/intel: use/x11 use/drm
 	@$(call add,THE_PACKAGES,xorg-drv-intel)
