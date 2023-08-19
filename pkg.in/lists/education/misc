@@ -167,6 +167,7 @@ synaptic-usermode
 gnome-software
 gnome-software-disable-updates
 packagekit
+polkit-rule-packagekit-allow-remove
 rpminstall
 appinstall
 
