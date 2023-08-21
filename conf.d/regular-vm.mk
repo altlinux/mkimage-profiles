@@ -38,7 +38,7 @@ mixin/vm-archdep:: use/bootloader/uboot
 	@$(call set,KFLAVOURS,un-def)
 endif
 
-mixin/vm-archdep-x11: mixin/vm-archdep +vmguest; @:
+mixin/vm-archdep-x11: mixin/vm-archdep use/vmguest/kvm/x11; @:
 
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 	use/services/lvm2-disable use/wireless
