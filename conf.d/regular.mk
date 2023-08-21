@@ -11,11 +11,6 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	@$(call add,STAGE1_PACKAGES,firmware-linux)
 	@$(call add,STAGE1_KMODULES,drm)
 	@$(call set,BOOTVGA,)
-ifeq (sisyphus,$(BRANCH))
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call set,BOOTLOADER,grubpcboot)
-endif
-endif
 
 # base target (for most images)
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
