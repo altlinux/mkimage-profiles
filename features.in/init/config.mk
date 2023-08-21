@@ -14,7 +14,7 @@ use/init: use/pkgpriorities
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
 	@$(call add,THE_PACKAGES,rsyslog-classic startup)
-	@$(call add,THE_PACKAGES,udev-rule-generator)
+	@$(call add,THE_PACKAGES,udevd-final)
 	@$(call add,THE_PACKAGES,apt-conf-ignore-systemd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,udevd-final)
 	@$(call add,PINNED_PACKAGES,rsyslog-classic)
