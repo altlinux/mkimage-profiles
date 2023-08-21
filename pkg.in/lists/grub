@@ -1,6 +1,5 @@
 grub-pc@X86
-grub-efi@X86
-grub-efi@aarch64
+grub-efi@X86,aarch64,riscv64,loongarch64
 grub-ieee1275@ppc64le
 # should be R: in grub-ieee1275
 powerpc-utils@ppc64le
