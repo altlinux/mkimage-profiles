@@ -92,7 +92,10 @@ mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm \
 
 mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 
-mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm
+mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm \
+	use/alternatives/x-terminal-emulator/gnome-terminal
+	@$(call add,THE_PACKAGES,gnome-terminal)
+	@$(call add,PINNED_PACKAGES,gnome-terminal:Required)
 	@$(call add,THE_PACKAGES,templates)
 	@$(call add,THE_PACKAGES,chrome-gnome-shell)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
