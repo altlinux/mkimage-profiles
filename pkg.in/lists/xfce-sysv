@@ -29,3 +29,6 @@ firmware-alsa-sof
 edid-decode
 mediainfo
 mpv
+xinput
+trafshow
+7-zip
