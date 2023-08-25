@@ -3,7 +3,8 @@ firefox-esr@!aarch64
 firefox-esr-ru@!aarch64
 wine@X86
 
-wine-mono@X86
+#wine-mono@X86
+wine-mono-8.0.0@X86
 wine-gecko@X86
 
 i586-wine@x86_64
