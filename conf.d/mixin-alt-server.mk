@@ -13,6 +13,7 @@ mixin/alt-server: server_main_kmodules = bcmwl ch34x dm-secdel drbd9 drm-ancient
 	virtualbox-addition-video virtualbox xtables-addons
 
 mixin/alt-server: +installer +systemd \
+	use/ntp/chrony \
 	use/branding/notes \
 	use/control use/services \
 	use/install2/stage3 \

@@ -70,7 +70,6 @@ openssh-server
 openssh-blacklist
 postfix
 postfix-tls
-openntpd
 irqbalance
 cgroup
 
