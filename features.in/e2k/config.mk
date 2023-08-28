@@ -21,6 +21,7 @@ endif
 	@$(call add,THE_PACKAGES,fruid_print)
 	@$(call add,THE_PACKAGES,pwmd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,pwmd)
+	@$(call add,DEFAULT_SERVICES_DISABLE,ModemManager)	# COM issues
 	@$(call set,KFLAVOURS,elbrus-def)	# no other flavours for now
 	@$(call xport,STAGE2_BOOTARGS)
 
