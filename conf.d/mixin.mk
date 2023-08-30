@@ -89,6 +89,7 @@ mixin/regular-gnustep: use/x11/gnustep use/mediacheck
 mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm \
 	use/fonts/ttf/google use/im
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
+	@$(call add,THE_PACKAGES,gnome-disk-utility gnome-system-monitor)
 
 mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 
