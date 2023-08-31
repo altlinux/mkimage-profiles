@@ -20,6 +20,7 @@ pa-conf-switch-on-connect
 man-pages
 etcnet-defaults-desktop
 mdadm
+btrfs-progs
 gzip-utils
 
 telnet
