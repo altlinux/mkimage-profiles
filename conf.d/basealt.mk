@@ -14,7 +14,7 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/alt-workstation: mediaplayer = workstation/smplayer
 endif
 
-distro/alt-workstation: distro/.base +vmguest +wireless +efi \
+distro/alt-workstation:: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
 	mixin/alt-workstation-install \
 	use/memtest use/rescue use/bootloader/grub use/luks \
@@ -62,6 +62,10 @@ endif	# e2k%
 	@$(call add,MAIN_GROUPS,$(mediaplayer))
 	@$(call add,LIVE_LISTS,$(mediaplayer))
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
+
+ifeq (,$(filter-out e2k%,$(ARCH)))
+distro/alt-workstation:: +power; @:
+endif
 
 endif	# distro
 
