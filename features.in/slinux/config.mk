@@ -129,7 +129,7 @@ use/slinux/base: use/isohybrid use/luks \
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
-	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,INSTALL2_PACKAGES,xorg-conf-libinput-touchpad)
 
 use/slinux/full: use/slinux/base \
 	use/install2/repo
