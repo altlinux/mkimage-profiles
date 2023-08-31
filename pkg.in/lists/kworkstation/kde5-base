@@ -121,6 +121,7 @@ xinput
 xfsprogs
 xorg-conf-synaptics
 xorg-conf-libinput-touchpad
+xsetup
 
 libva-driver-intel@X86
 libva-intel-media-driver@x86_64
