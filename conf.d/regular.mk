@@ -15,6 +15,11 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 # base target (for most images)
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
 	use/efi/shell use/efi/dtb +efi; @:
+ifeq (,$(filter-out p10,$(BRANCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,un-def)
+endif
+endif
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
@@ -167,7 +172,8 @@ endif
 distro/regular-xfce-install: distro/.regular-install-x11-systemd \
 	mixin/regular-xfce; @:
 
-distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv; @:
+distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv
+	@$(call set,KFLAVOURS,std-def)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,isolinux)
 endif
