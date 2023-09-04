@@ -5,6 +5,8 @@ xdg-desktop-portal-gnome
 xorg-xwayland
 qt5-wayland
 qt6-wayland
+qt6-svg
+qt6-imageformats
 bluez
 
 # base applications
