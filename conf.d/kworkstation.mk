@@ -99,6 +99,7 @@ endif
 	@$(call add,CLEANUP_BASE_PACKAGES,'libwbclient-sssd')
 	@$(call add,CLEANUP_PACKAGES,'^kernel-modules-drm-nouveau.*')
 	@$(call add,CLEANUP_PACKAGES,'xterm')
+	@$(call add,CLEANUP_LIVE_PACKAGES,'xterm')
 	@$(call add,CLEANUP_PACKAGES,'udev-rule-generator-net')
 	@$(call add,CLEANUP_LIVE_PACKAGES,'livecd-main-repo')
 	@$(call set,META_VOL_SET,ALT)
