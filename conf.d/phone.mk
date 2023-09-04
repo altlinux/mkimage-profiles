@@ -26,7 +26,7 @@ mixin/phosh: use/services +pulse +nm +nm-native
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
-	mixin/waydroid
+	mixin/waydroid use/fonts/ttf/google
 	@$(call add,THE_LISTS,mobile/apps)
 
 vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone +efi \
