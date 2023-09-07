@@ -35,7 +35,7 @@ use/efi/signed: use/efi
 	@$(call add,COMMON_PACKAGES,shim-signed)
 	@$(call add,COMMON_PACKAGES,mokutil pesign)
 	@$(call add,RESCUE_PACKAGES,openssl)
-ifeq (,$(filter-out p10 c10f1,$(BRANCH)))
+ifeq (,$(filter-out p10 c10f%,$(BRANCH)))
 	@$(call add,STAGE1_PACKAGES,shim-signed-installer-kludge grub-efi alt-uefi-certs dosfstools mtools)
 endif
 
