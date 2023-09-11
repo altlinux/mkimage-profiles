@@ -33,7 +33,7 @@ use/init/systemd: use/init
 
 use/init/systemd/full: use/init/systemd
 	@$(call add,THE_PACKAGES,chkconfig)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,vconsole-setup-kludge)
 endif
 
