@@ -29,7 +29,7 @@ vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google
 	@$(call add,THE_LISTS,mobile/apps)
 
-vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone +efi \
+vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone/ttyescape +efi \
 	use/firmware +x11 +plymouth +vmguest
 	@$(call set,KFLAVOURS,un-def)
 ifeq (aarch64,$(ARCH))
@@ -41,7 +41,7 @@ endif
 ifeq (aarch64,$(ARCH))
 # TODO: devicetree ($root)/boot/dtb/rockchip/rk3399-pinephone-pro.dtb
 mixin/pinephone: use/x11/armsoc use/firmware use/bootloader/uboot use/tty/S2 \
-	 use/phone
+	 use/phone/ttyescape
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,UBOOT_TIMEOUT,5)
 	@$(call set,KFLAVOURS,pine)
