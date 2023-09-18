@@ -20,12 +20,15 @@ use/l10n:
 use/l10n/xkb/switch/ctrl_shift: use/l10n
 	@$(call set,XKB_SWITCH,grp:ctrl_shift_toggle)
 
+use/l10n/xkb/switch/alt_shift: use/l10n
+	@$(call set,XKB_SWITCH,grp:alt_shift_toggle)
+
 # FIXME: derive from locale by default if possible
-use/l10n/ru_RU: use/l10n/xkb/switch/ctrl_shift
+use/l10n/ru_RU: use/l10n/xkb/switch/alt_shift
 	@$(call add,LOCALES,ru_RU)
 	@$(call set,LOCALE,ru_RU)
 	@$(call add,XKB_KEYMAPS,ru)
-	@$(call set,KEYTABLE,ruwin_ct_sh-UTF-8)
+	@$(call set,KEYTABLE,ruwin_alt_sh-UTF-8)
 
 # NB: BOOT_LANG is used within mkimage internally
 use/l10n/default/ru_RU: use/l10n/ru_RU
