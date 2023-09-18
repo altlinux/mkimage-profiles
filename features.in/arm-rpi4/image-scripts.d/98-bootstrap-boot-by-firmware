@@ -21,18 +21,28 @@ cp /usr/share/raspberrypi-firmware/*.{bin,dat,elf} /boot/efi/
 	   /boot/efi/uboot-rpi_4_32b.bin
 
 # copy actualy dtb's for default kernel
-cp /boot/dtb/bcm27*-rpi-*.dtb /boot/efi/ || :
+if [ -d /boot/dtb/broadcom ]; then
+	DTB_DIR=/boot/dtb/broadcom
+elif [ -d /boot/dtb ]; then
+	DTB_DIR=/boot/dtb
+else
+	echo "Error: /boot/dtb/broadcom or /boot/dtb is not exists!!!" >&2
+	exit 1
+fi
+
+cp "$DTB_DIR"/bcm27*-rpi-*.dtb /boot/efi/ || :
+
 [ -f /boot/efi/bcm2710-rpi-3-b.dtb ] ||
-	cp /boot/dtb/bcm2837-rpi-3-b.dtb \
+	cp "$DTB_DIR"/bcm2837-rpi-3-b.dtb \
 	   /boot/efi/bcm2710-rpi-3-b.dtb || :
 [ -f /boot/efi/bcm2710-rpi-3-b-plus.dtb ] ||
-	cp /boot/dtb/bcm2837-rpi-3-b-plus.dtb \
+	cp "$DTB_DIR"/bcm2837-rpi-3-b-plus.dtb \
 	   /boot/efi/bcm2710-rpi-3-b-plus.dtb || :
 [ -f /boot/efi/bcm2710-rpi-cm3.dtb ] ||
-	cp /boot/dtb/bcm2837-rpi-cm3-io3.dtb \
+	cp "$DTB_DIR"/bcm2837-rpi-cm3-io3.dtb \
 	   /boot/efi/bcm2710-rpi-cm3.dtb || :
 [ -f /boot/efi/bcm2711-rpi-cm4.dtb ] ||
-	cp /boot/dtb/bcm2711-rpi-cm4-io.dtb \
+	cp "$DTB_DIR"/bcm2711-rpi-cm4-io.dtb \
 	   /boot/efi/bcm2711-rpi-cm4.dtb || :
 [ -d /boot/dtb/overlays ] &&
 	cp -r /boot/dtb/overlays /boot/efi/ || :
