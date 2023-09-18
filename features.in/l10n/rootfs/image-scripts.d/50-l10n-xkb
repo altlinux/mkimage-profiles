@@ -9,8 +9,8 @@ if [ ! -d "$PREFIX" ]; then
 	exit 0
 fi
 
-if [ -z "$GLOBAL_XKB_VARIANTS" -o -z "$GLOBAL_XKB_KEYMAPS" ]; then
-	echo "** l10n-xkb: empty GLOBAL_XKB_VARIANTS/GLOBAL_XKB_KEYMAPS" >&2
+if [ -z "$GLOBAL_XKB_KEYMAPS" ]; then
+	echo "** l10n-xkb: empty GLOBAL_XKB_KEYMAPS" >&2
 	exit 0
 fi
 
@@ -19,7 +19,6 @@ Section "InputClass"
 Identifier "system-keyboard"
 MatchIsKeyboard "on"
 	Option "XkbLayout" "$GLOBAL_XKB_KEYMAPS"
-	Option "XkbOptions" "$GLOBAL_XKB_SWITCH${GLOBAL_XKB_LED:+,$GLOBAL_XKB_LED} \
-${GLOBAL_XKB_VARIANTS:+-variant $GLOBAL_XKB_VARIANTS}"
+	Option "XkbOptions" "$GLOBAL_XKB_SWITCH"
 EndSection
 EOF

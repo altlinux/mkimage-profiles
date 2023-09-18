@@ -14,19 +14,14 @@ use/l10n:
 	@$(call xport,LOCALE)
 	@$(call xport,LOCALES)
 	@$(call xport,XKB_KEYMAPS)
-	@$(call xport,XKB_VARIANTS)
 	@$(call xport,XKB_SWITCH)
-	@$(call xport,XKB_LED)
 
 # see also alterator-sysconfig backend
 use/l10n/xkb/switch/ctrl_shift: use/l10n
 	@$(call set,XKB_SWITCH,grp:ctrl_shift_toggle)
 
-use/l10n/xkb/led/scroll: use/l10n
-	@$(call set,XKB_LED,grp_led:scroll)
-
 # FIXME: derive from locale by default if possible
-use/l10n/ru_RU: use/l10n/xkb/switch/ctrl_shift use/l10n/xkb/led/scroll
+use/l10n/ru_RU: use/l10n/xkb/switch/ctrl_shift
 	@$(call add,LOCALES,ru_RU)
 	@$(call set,LOCALE,ru_RU)
 	@$(call add,XKB_KEYMAPS,ru)
