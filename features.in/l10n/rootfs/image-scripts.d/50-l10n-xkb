@@ -1,11 +1,11 @@
 #!/bin/sh
 # partial port of livecd-setlocale (xkb bits)
 
-PREFIX=/etc/X11/xinit
+PREFIX=/etc/X11/xorg.conf.d
 
-# Requires: xinitrc
+# Requires: xorg-server-common
 if [ ! -d "$PREFIX" ]; then
-	echo "** l10n-xkb: expected $PREFIX to exist (xinitrc)" >&2
+	echo "** l10n-xkb: expected $PREFIX to exist (xorg-server-common)" >&2
 	exit 0
 fi
 
@@ -14,6 +14,12 @@ if [ -z "$GLOBAL_XKB_VARIANTS" -o -z "$GLOBAL_XKB_KEYMAPS" ]; then
 	exit 0
 fi
 
-echo "-option $GLOBAL_XKB_SWITCH${GLOBAL_XKB_LED:+,$GLOBAL_XKB_LED} \
-${GLOBAL_XKB_VARIANTS:+-variant $GLOBAL_XKB_VARIANTS} \
--layout $GLOBAL_XKB_KEYMAPS" > "$PREFIX"/Xkbmap
+cat > "$PREFIX/00-keyboard.conf" << EOF
+Section "InputClass"
+Identifier "system-keyboard"
+MatchIsKeyboard "on"
+	Option "XkbLayout" "$GLOBAL_XKB_KEYMAPS"
+	Option "XkbOptions" "$GLOBAL_XKB_SWITCH${GLOBAL_XKB_LED:+,$GLOBAL_XKB_LED} \
+${GLOBAL_XKB_VARIANTS:+-variant $GLOBAL_XKB_VARIANTS}"
+EndSection
+EOF
