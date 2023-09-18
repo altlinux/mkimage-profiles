@@ -12,6 +12,7 @@ man-pages
 util-linux
 eject
 binutils
+usbutils
 
 # Package management
 apt-repo
