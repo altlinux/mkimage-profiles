@@ -113,3 +113,14 @@ seavgabios
 haproxy
 keepalived
 eepm
+
+# gostcrypo repo component is needed
+openvpn-gostcrypto
+openvpn-plugins-gostcrypto
+
+openssh-gostcrypto
+openssh-common-gostcrypto
+openssh-askpass-common-gostcrypto
+openssh-clients-gostcrypto
+openssh-server-control-gostcrypto
+openssh-server-gostcrypto

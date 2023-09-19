@@ -27,6 +27,7 @@ mixin/alt-server: +installer +systemd \
 	use/tty
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
+	@$(call set,THE_APT_CONF,branch-gostcrypto)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
