@@ -23,6 +23,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,pwmd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ModemManager)	# COM issues
 	@$(call set,KFLAVOURS,elbrus-def)	# no other flavours for now
+	@$(call set,REPO,http/pvt)	# the only working way right now
 	@$(call xport,STAGE2_BOOTARGS)
 
 use/e2k/x11: use/e2k use/x11
