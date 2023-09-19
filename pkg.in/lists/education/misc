@@ -92,6 +92,7 @@ adp
 settime-rfc867
 x11spice@x86_64
 x11spice@aarch64
+freerdp-server
 pam_pkcs11
 gvfs-shares
 shared-desktop-icons
