@@ -196,10 +196,6 @@ distro/regular-deepin: distro/.regular-gtk mixin/regular-deepin; @:
 distro/regular-kde5: distro/.regular-desktop +nm \
 	mixin/regular-kde5 use/domain-client +plymouth; @:
 
-distro/regular-robo: distro/regular-mate use/live/ru use/x11/3d
-	@$(call add,THE_LISTS,robotics/reprap)
-	@$(call add,THE_LISTS,robotics/umki)
-
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
@@ -244,33 +240,7 @@ distro/.regular-server-full: distro/.regular-server-managed \
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd +systemd-optimal; @:
 
-
 distro/regular-server-sysv: distro/.regular-server-full +sysvinit +power; @:
-
-ifeq (,$(filter-out x86_64,$(ARCH)))
-distro/.regular-server-ovz: distro/.regular-server \
-	use/server/ovz use/server/groups/tools use/cleanup/x11-alterator
-	@$(call add,MAIN_GROUPS,tools/vzstats)
-
-distro/regular-server-ovz: distro/.regular-server-ovz +systemd; @:
-distro/regular-server-ovz-sysv: distro/.regular-server-ovz +sysvinit; @:
-endif
-
-distro/regular-server-hyperv: distro/.regular-server-managed \
-	use/kernel/latest +systemd
-	@$(call add,THE_PACKAGES,hyperv-daemons)
-	@$(call add,DEFAULT_SERVICES_DISABLE,bridge smartd)
-	@$(call add,DEFAULT_SERVICES_DISABLE,cpufreq-simple powertop)
-
-distro/regular-server-pve: distro/.regular-server-base +systemd \
-	use/kernel/server use/firmware/qlogic
-	@$(call set,INSTALLER,altlinux-server)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-pve)
-	@$(call add,THE_PACKAGES,pve-manager nfs-clients su)
-	@$(call add,THE_PACKAGES,dhcpcd faketime tzdata postfix)
-	@$(call add,DEFAULT_SERVICES_DISABLE,pve-manager pve-cluster \
-		pve-firewall pve-ha-crm pve-manager pveproxy pvedaemon \
-		pvefw-logger pve-ha-lrm pvenetcommit pvestatd spiceproxy)
 
 distro/.regular-builder: distro/.regular-base mixin/regular-builder \
 	use/stage2/kms use/firmware +power \
@@ -290,24 +260,4 @@ distro/regular-builder-sysv: distro/.regular-builder +sysvinit \
 	use/dev/builder/live/sysv
 	@$(call add,THE_PACKAGES,livecd-net-eth)
 	@$(call add,DEFAULT_SERVICES_ENABLE,gpm)
-
-distro/regular-server-samba4: distro/.regular-server-managed +systemd
-	@$(call add,THE_LISTS,$(call tags,server && (sambaDC || alterator)))
-	@$(call add,THE_PACKAGES,alterator-dhcp)
-	@$(call add,DEFAULT_SERVICES_DISABLE,smbd nmbd winbind)
-
-distro/regular-server-lxd: distro/.regular-bare \
-	use/isohybrid +power \
-	use/live/base use/live/rw use/live/repo/online use/live/textinstall \
-	use/lxc/lxd use/tty/S0 use/init/systemd/multiuser use/kernel/latest
-	@$(call add,DEFAULT_SERVICES_ENABLE,sshd)
-	@$(call add,DEFAULT_SERVICES_ENABLE,lxd-startup lxd-bridge lxcfs cgmanager)
-	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 getty@ttyS0)
-	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-net-eth)
-
-endif
-
-ifeq (ve,$(IMAGE_CLASS))
-ve/docker-sisyphus: ve/docker; @:
-ve/regular-chroot: ve/generic; @:
 endif
