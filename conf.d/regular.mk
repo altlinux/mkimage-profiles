@@ -119,13 +119,6 @@ distro/regular-jeos-systemd: distro/.regular-jeos-full \
 	+systemd +systemd-optimal
 	@$(call add,BASE_PACKAGES,glibc-locales)
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-# NB: no +efi as it brings in grub2 (no ELILO support for system boot)
-distro/regular-jeos-ovz: distro/.regular-jeos use/cleanup/jeos/full +sysvinit \
-	use/server/ovz-base use/control/server/ldv use/firmware
-	@$(call add,THE_PACKAGES,ipmitool lm_sensors3 mailx)
-endif
-
 distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
 	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
 	use/branding/complete use/branding/slideshow/once
