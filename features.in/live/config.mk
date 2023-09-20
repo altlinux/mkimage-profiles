@@ -43,7 +43,7 @@ use/live/x11: use/live/base use/deflogin/desktop use/x11-autologin use/sound \
 # this target specifically pulls free xorg drivers in (and a few more bits);
 # a browser is requested too, the recommended one can be overridden downstream
 use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
-	use/l10n use/browser/firefox/live use/xdg-user-dirs/deep \
+	use/l10n use/browser/firefox use/xdg-user-dirs/deep \
 	use/syslinux/localboot.cfg use/grub/localboot_bios.cfg +vmguest; @:
 
 # preconfigure apt for both live and installed-from-live systems
