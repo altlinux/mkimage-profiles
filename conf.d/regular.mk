@@ -80,7 +80,7 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	use/isohybrid use/branding \
 	use/install2/repo use/install2/packages \
 	use/net/etcnet
-	@$(call set,INSTALLER,altlinux-generic)
+	@$(call set,INSTALLER,jeos)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console su agetty)
