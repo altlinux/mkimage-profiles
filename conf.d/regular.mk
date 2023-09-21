@@ -47,7 +47,6 @@ endif
 distro/.regular-wm: distro/.regular-x11 \
 	mixin/regular-desktop \
 	use/live/rw +live-installer
-	@$(call set,INSTALLER,alt-workstation)
 	@$(call set,GRUB_DEFAULT,live)
 	@$(call set,SYSLINUX_DEFAULT,live)
 
@@ -122,7 +121,6 @@ distro/regular-jeos-systemd: distro/.regular-jeos-full \
 distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
 	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
 	use/branding/complete use/branding/slideshow/once
-	@$(call set,INSTALLER,alt-workstation)
 
 # assumes somewhat more experienced user
 distro/.regular-install-x11-full: distro/.regular-install-x11 \
@@ -211,7 +209,6 @@ distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
 
 distro/.regular-server-base: distro/.regular-install use/server/base
 	@$(call add,THE_LISTS,$(call tags,server && (regular || network)))
-	@$(call set,INSTALLER,altlinux-server)
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
 
