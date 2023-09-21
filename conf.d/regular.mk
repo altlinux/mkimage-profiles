@@ -14,7 +14,8 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 
 # base target (for most images)
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
-	use/efi/shell use/efi/dtb +efi; @:
+	use/efi/shell use/efi/dtb +efi \
+	use/luks use/volumes/regular; @:
 ifeq (,$(filter-out p10,$(BRANCH)))
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def)
