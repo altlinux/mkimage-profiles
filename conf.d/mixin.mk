@@ -38,8 +38,7 @@ mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
 	@$(call add,THE_PACKAGES,zsh bash-completion)
 
 ### regular.mk
-mixin/regular-x11: \
-	use/browser/firefox use/kernel/disable-usb-autosuspend \
+mixin/regular-x11: use/browser/firefox \
 	use/branding use/ntp/chrony use/services/lvm2-disable
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular && !extra))
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
