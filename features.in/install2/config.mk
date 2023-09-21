@@ -30,6 +30,11 @@ use/install2/full: \
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-synaptics)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-libinput)
 
+use/install2/oem: use/install2
+	@$(call add,INSTALL2_PACKAGES,installer-feature-oem-stage2)
+	@$(call add,MAIN_PACKAGES,alterator-setup)
+	@$(call add,MAIN_PACKAGES,installer-feature-alterator-setup-stage2)
+
 use/install2/lvm: use/install2
 	@$(call add,INSTALL2_PACKAGES,lvm2)
 	@$(call add,BASE_PACKAGES,lvm2)
