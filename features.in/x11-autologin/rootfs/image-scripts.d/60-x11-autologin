@@ -76,9 +76,9 @@ AUTOLOGIN_LIGHTDM
 	restore_later "/etc/group"
 fi
 
-## gdm2 autologin
-GDM_CONF=/etc/X11/gdm/custom.conf
-if [ -f "$GDM_CONF" ]; then
+## gdm autologin
+for GDM_CONF in /etc/gdm/custom.conf /etc/X11/gdm/custom.conf; do
+	[ -f "$GDM_CONF" ] || continue
 	backup "$GDM_CONF"
 	sed -i -e '/\[daemon\]/aAutomaticLoginEnable=true\nAutomaticLogin='$USER \
 		"$GDM_CONF"
@@ -87,8 +87,7 @@ if [ -f "$GDM_CONF" ]; then
 
 	restore_later "$GDM_CONF"
 	restore_later "/etc/group"
-fi
-
+done
 
 ## lxdm autologin
 LXDM_CONF=/etc/lxdm/lxdm.conf
