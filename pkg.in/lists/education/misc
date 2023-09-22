@@ -161,6 +161,7 @@ system-config-printer-udev
 xkill
 eiciel
 polkit-rule-udisks2-mount
+userpasswd
 
 # Package managenment
 synaptic
