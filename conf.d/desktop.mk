@@ -11,4 +11,8 @@ distro/.desktop-network: distro/.desktop-mini mixin/desktop-installer; @:
 #distro/icewm: distro/.desktop-network use/lowmem use/install2/fs +icewm; @:
 #distro/ltsp-icewm: distro/icewm +ltsp; @:
 
+# check OEM mode install (without DE)
+distro/install-oem: distro/.regular-install-x11-systemd use/install2/oem
+	@$(call add,STAGE2_BOOTARGS,oem oem_initrd)
+
 endif
