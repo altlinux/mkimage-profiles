@@ -47,16 +47,16 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,flashrom)
 	@$(call add,MAIN_PACKAGES,alterator-secsetup)
 ifeq (,$(filter-out e2k,$(ARCH)))
-	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 401-PC)
+	@$(call set,META_VOL_ID,ALT Workstation for Elbrus v3 (401-PC))
 endif	# e2k
 ifeq (,$(filter-out e2kv4,$(ARCH)))
-	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 801/101-PC)
+	@$(call set,META_VOL_ID,ALT Workstation for Elbrus v4 (801/101-PC))
 endif	# e2kv4
 ifeq (,$(filter-out e2kv5,$(ARCH)))
-	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 901-PC)
+	@$(call set,META_VOL_ID,ALT Workstation for Elbrus v5 (901-PC))
 endif	# e2kv5
 ifeq (,$(filter-out e2kv6,$(ARCH)))
-	@$(call set,META_VOL_ID,ALT Workstation for Elbrus 201-PC)
+	@$(call set,META_VOL_ID,ALT Workstation for Elbrus v6 (201-PC))
 endif	# e2kv6
 endif	# e2k%
 	@$(call add,MAIN_GROUPS,$(mediaplayer))
