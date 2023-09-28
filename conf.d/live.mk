@@ -25,7 +25,7 @@ endif
 distro/grub-net-install: distro/.base +efi \
 	use/firmware use/grub/sdab_bios.cfg use/l10n \
 	use/stage2/net-install use/stage2/hid use/stage2/usb \
-	use/stage2/ata use/stage2/sbc
+	use/stage2/ata use/stage2/sbc use/stage2/kms
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
