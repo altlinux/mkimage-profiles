@@ -1,1 +1,1 @@
-CHROOT_PACKAGES_REGEXP += $(call branding,$(STAGE1_BRANDING))
+CHROOT_PACKAGES_REGEXP += $(call branding,release $(STAGE1_BRANDING))
