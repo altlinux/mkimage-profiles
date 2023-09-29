@@ -9,12 +9,6 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.bare: profile/bare
 	@$(call add,BASE_PACKAGES,interactivesystem shadow-utils e2fsprogs)
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-vm/.base-lilo: vm/.bare use/bootloader/lilo; @:
-else
-vm/.base-lilo: vm/.base-grub; @:
-endif
-
 ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
 vm/.base-grub: vm/.bare use/bootloader/grub; @:
 else

@@ -344,7 +344,6 @@ fi
 tar -C "$ROOTFS" --numeric-owner -xf "$TAR"
 for i in /dev /proc /sys; do mount --bind "$i" "$ROOTFS$i"; done
 
-# loop device so lilo could work...
 if grep -qe "[[:space:]]/[[:space:]]" "$ROOTFS/etc/fstab"; then \
 	sed -i "s/LABEL=ROOT/$ROOTDEV/" "$ROOTFS/etc/fstab"
 else
@@ -397,38 +396,6 @@ ARCH="$(chroot "$ROOTFS" rpm --eval '%_host_cpu')"
 
 # Setup bootloader
 case "$BOOTLOADER" in
-lilo)
-	# configure and install bootloader
-	REGEXP='^.*: ([0-9]+) cylinders, ([0-9]+) heads, ([0-9]+) sectors/track*$'
-	set -- $(sfdisk -g "$LOOPDEV" | grep -E "$REGEXP" | sed -r "s@$REGEXP@\1 \2 \3@")
-
-	LILO_COMMON="lba32
-delay=1
-vga=0
-image=/boot/vmlinuz
-  initrd=/boot/initrd.img
-  append=\"root=$ROOTDEV rootdelay=3 console=tty1 console=ttyS0,115200n8\"
-  label=linux"
-
-	cat > "$ROOTFS"/etc/lilo-loop.conf <<-EOF
-	boot=$LOOPDEV
-	disk=$LOOPDEV
-	  bios=0x80
-	  cylinders=$1
-	  heads=$2
-	  sectors=$3
-	  partition=$LOOPROOT
-	  start=63
-	$LILO_COMMON
-	EOF
-
-	chroot "$ROOTFS" lilo -C /etc/lilo-loop.conf
-
-	cat > "$ROOTFS"/etc/lilo.conf <<-EOF
-	boot=$BLOCKDEV
-	$LILO_COMMON
-	EOF
-	;;
 grub-efi)
 	echo 'GRUB_DISABLE_OS_PROBER=true' >> "$ROOTFS"/etc/sysconfig/grub2
 	chroot "$ROOTFS" grub-mkconfig -o /boot/grub/grub.cfg

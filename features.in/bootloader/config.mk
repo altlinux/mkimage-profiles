@@ -1,4 +1,4 @@
-# TODO: invent something prettier (think "lilo+grub" -- or error out?)
+# TODO: invent something prettier
 # - add,BASE_PACKAGES,alterator-$* is overly additive
 #   NB: due to make target becoming having been made,
 #       the last different one wins
@@ -20,15 +20,6 @@ ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,PINNED_PACKAGES,alterator-$$(BASE_BOOTLOADER))
 	@$(call add,PINNED_PACKAGES,installer-bootloader-$$(BASE_BOOTLOADER)-stage2)
 endif
-endif
-
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-use/bootloader/lilo: \
-	use/bootloader/%: use/bootloader
-	@$(call set,BASE_BOOTLOADER,$*)
-	@echo Warning: use/bootloader/lilo is deprecated!
-else
-use/bootloader/lilo: ; @:
 endif
 
 ifeq (,$(filter-out $(GRUB_ARCHES),$(ARCH)))
