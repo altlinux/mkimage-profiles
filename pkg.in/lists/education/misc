@@ -217,6 +217,7 @@ cpufreq-simple@X86
 hplip-sane
 gutenprint-cups-ppds
 sane-airscan
+ipp-usb
 udev-rule-generator-cdrom
 xorg-drv-synaptics
 xorg-conf-synaptics
