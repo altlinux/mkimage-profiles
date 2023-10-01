@@ -138,7 +138,7 @@ cifs-utils
 curl
 davfs2
 dhcpdump
-dsniff
+#dsniff
 elinks
 exabgp
 fping
