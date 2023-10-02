@@ -11,6 +11,7 @@ bluez
 
 # base applications
 gnome-control-center
+phosh-mobile-settings
 
 # file manager
 nautilus
