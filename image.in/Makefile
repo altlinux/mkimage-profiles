@@ -90,7 +90,7 @@ imagedir:
 	@mkdir -p "$(IMAGE_OUTDIR)"
 
 postprocess: | $(addprefix postprocess-,$(sort $(POSTPROCESS_TARGETS)))
-	@OUTSIZE="`ls -lh "$(IMAGE_OUTPATH)" | cut -f5 -d' '`"; \
+	@OUTSIZE="`ls -hs "$(IMAGE_OUTPATH)" | cut -f1 -d' '`"; \
 	if [ ! -n "$$OUTSIZE" ]; then \
 		echo "** error: $(IMAGE_OUTPATH) missing" >&2; \
 		exit 1; \
