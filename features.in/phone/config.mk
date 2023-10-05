@@ -4,5 +4,7 @@ use/phone:
 
 # enables tty on the phone using a hotkey
 use/phone/ttyescape: use/phone use/services
+ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,hkdm ttyescape)
+endif
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,hkdm)
