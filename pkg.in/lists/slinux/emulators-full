@@ -1,6 +1,6 @@
 wine@X86
 i586-wine@x86_64
-wine-mono@X86
+wine-mono-8.0.0@X86
 winetricks@X86
 # For winetricks
 zenity@X86
