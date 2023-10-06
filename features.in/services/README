@@ -19,3 +19,6 @@ DEFAULT_SYSTEMD_SERVICES_* и SYSTEMD_SERVICES_*.
 
 Для включения служб systemd-logind нужно использовать
 DEFAULT_SYSTEMD_USER_SERVICES_* и SYSTEMD_USER_SERVICES_*.
+
+Для того, чтобы замаскировать или размаскировать юнит systemd используйте
+SYSTEMD_SERVICES_MASK и SYSTEMD_SERVICES_UNMASK.

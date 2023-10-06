@@ -17,16 +17,17 @@ switch() {
 
 	sname="${sname%.service}"
 	sname="${sname%.socket}"
+	sname="${sname%.target}"
 
 	[ -n "$CHECK_FILES" ] && \
-		grep -E -qs "^[[:blank:]]*$sname(.service|.socket)?[[:blank:]]*$" \
+		grep -E -qs "^[[:blank:]]*$sname(.service|.socket|.target)?[[:blank:]]*$" \
 			$CHECK_FILES && return ||:
 
 	# avoid service duplication: drop sevice without unit type
 	[ "$sname" = "$1" ] || shell_config_del "$STATUS" "$sname"
 
 	case "$2" in
-	on|off|enabled|disabled)
+	on|off|enabled|disabled|mask|unmask)
 		shell_config_set "$STATUS" "$1" "$2";;
 	esac
 }
@@ -81,6 +82,29 @@ if [ -s "$CONFDIR"/services-off ]; then
 		cp -a "$CONFDIR"/{services-off,systemd-disabled}
 	fi
 fi
+
+rm "$STATUS"
+
+# Mask|Unmask systemd units
+STATUS=`mktemp`
+CHECK_FILES=
+
+for f in systemd-mask systemd-unmask; do
+	[ -s "$CONFDIR/$f" ] || continue
+	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
+done
+
+for i in $GLOBAL_SYSTEMD_SERVICES_MASK;    do switch $i mask;   done
+for i in $GLOBAL_SYSTEMD_SERVICES_UNMASK;  do switch $i unmask; done
+
+SERVICES="$GLOBAL_SYSTEMD_SERVICES_MASK $GLOBAL_SYSTEMD_SERVICES_UNMASK"
+SERVICES="$(echo $SERVICES | tr " " "\n" | sort -u)"
+
+for i in $SERVICES; do
+	maskunmask="$(shell_config_get "$STATUS" "$i")"
+	[ -n "$maskunmask" ] || continue
+	echo "$i" >> "$CONFDIR"/systemd-"$maskunmask"ed
+done
 
 rm "$STATUS"
 

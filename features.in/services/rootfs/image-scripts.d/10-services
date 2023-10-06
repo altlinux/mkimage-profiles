@@ -17,6 +17,10 @@ switch() {
 		cc=on; sc=enable;;
 	off)
 		cc=off; sc=disable;;
+	unmask)
+		sc=unmask;;
+	mask)
+		sc=mask;;
 	esac
 
 	{
@@ -43,6 +47,8 @@ for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
 # explicitly specified behaviour
 for i in $GLOBAL_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
 for i in $GLOBAL_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
+for i in $GLOBAL_SYSTEMD_SERVICES_MASK;    do switch $i mask;   done
+for i in $GLOBAL_SYSTEMD_SERVICES_UNMASK;  do switch $i unmask; done
 
 ## systemd-logind services
 SYSTEMD_USER='--user --global'
