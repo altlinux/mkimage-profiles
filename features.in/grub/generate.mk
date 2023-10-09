@@ -25,9 +25,11 @@ ifneq (,$(GRUB_UI))
 GRUB_CFG := $(GRUB_CFG) gfxterm
 endif
 
+ifeq (,$(DISABLE_LANG_MENU))
 ifneq (,$(LOCALES))
 ifneq ($(words $(LOCALES)),1)
 GRUB_CFG := $(GRUB_CFG) lang
+endif
 endif
 endif
 
