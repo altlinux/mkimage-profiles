@@ -7,8 +7,6 @@ TARGET=/lib/systemd/system/$GLOBAL_OEM_TARGET.target
 [ ! -s "$TARGET" ] ||
 	ln -s "$TARGET" /etc/systemd/system/default.target
 
-echo "LANG=en_US.utf-8" >> /etc/sysconfig/i18n
-
 # Disable cleanup alterator-setup
 [ ! "$GLOBAL_OEM_NO_CLEANUP" = yes ] ||
 	sed -i 's/^REMOVE_SELF=.*/REMOVE_SELF=0/' /etc/alterator-setup/config
