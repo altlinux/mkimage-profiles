@@ -6,5 +6,5 @@ Categories=KDE;
 
 Name=Additional (attention)
 Name[ru_RU]=Дополнительно (внимание)
-Comment=Attention! Additional options for special use.
-Comment[ru_RU]=Внимание! Дополнительные опции для специального использования.
+Comment=Warning! Additional options only for special use.
+Comment[ru_RU]=Осторожно! Дополнительные опции только для специального использования.
