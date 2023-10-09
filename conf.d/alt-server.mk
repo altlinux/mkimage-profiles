@@ -6,7 +6,7 @@ distro/alt-server: server_groups_primary = $(addprefix centaurus/,\
 
 ifeq (,$(filter-out x86_64 ppc64le aarch64,$(ARCH)))
 distro/alt-server: server_groups_virtipa = $(addprefix centaurus/,\
-	v12n-server freeipa-server)
+	freeipa-server)
 endif
 endif
 
