@@ -1,19 +1,16 @@
 #!/bin/sh
-
-if [ ! -x /usr/bin/X ]; then
-	echo "SKIP autostart: X not installed" >&2
-	exit 0
-fi
-
 ## setup automated graphical session startup
+
 INITTAB=/etc/inittab
 if [ -f "$INITTAB" ]; then
 	[ -z "$runlevel" ] && runlevel=5
 	sed -i "s,^\(id:\)\(.*\)\(:initdefault.*\),\\1$runlevel\\3," "$INITTAB"
 fi
 
-## ...and systemd, if any
-## NB: alterator-setup's backup file can present a nice catch if left around
-rm -f /etc/systemd/system/default.target{,.bak}
+TARGET=/lib/systemd/system/graphical.target
+if [ -s "$TARGET" ]; then
+        rm -f /etc/systemd/system/default.target
+        ln -s "$TARGET" /etc/systemd/system/default.target
+fi
 
 :
