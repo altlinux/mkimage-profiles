@@ -6,7 +6,7 @@ ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
 	@$(call add,BASE_BOOTARGS,psi=1)
 endif
 
-mixin/phone-base: use/ntp/chrony use/repo use/branding/notes \
+mixin/phone-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs
 	@$(call add,THE_BRANDING,notes indexhtml)
