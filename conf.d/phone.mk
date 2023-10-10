@@ -30,8 +30,9 @@ vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	@$(call add,THE_LISTS,mobile/apps)
 
 vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone/ttyescape +efi \
-	use/firmware +x11 +plymouth +vmguest
+	use/firmware +x11 +plymouth
 	@$(call set,KFLAVOURS,un-def)
+	@$(call add,THE_PACKAGES,xorg-dri-virtio)
 ifeq (aarch64,$(ARCH))
 	@$(call set,VM_PARTTABLE,msdos)
 	@$(call set,VM_BOOTTYPE,EFI)
