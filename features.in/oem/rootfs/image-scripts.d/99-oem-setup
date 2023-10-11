@@ -4,8 +4,12 @@
 
 TARGET=/lib/systemd/system/$GLOBAL_OEM_TARGET.target
 
-[ ! -s "$TARGET" ] ||
+if [ -s "$TARGET" ]; then
+	[ -s /etc/systemd/system/default.target ] &&
+		mv /etc/systemd/system/default.target{,.bak} ||
+		rm -f /etc/systemd/system/default.target
 	ln -s "$TARGET" /etc/systemd/system/default.target
+fi
 
 # Disable cleanup alterator-setup
 [ ! "$GLOBAL_OEM_NO_CLEANUP" = yes ] ||
