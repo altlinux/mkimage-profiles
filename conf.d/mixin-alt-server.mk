@@ -21,13 +21,14 @@ mixin/alt-server: +installer +systemd \
 	use/volumes/alt-server \
 	use/apt-conf/branch \
 	use/fonts/install2 \
-	use/install2/stage3 \
+	use/l10n/default/ru_RU use/install2/stage3 \
 	use/firmware/full \
 	use/net/etcnet \
 	use/tty
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
 	@$(call set,THE_APT_CONF,branch-gostcrypto)
+	@$(call set,DISABLE_LANG_MENU,in_grub)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
