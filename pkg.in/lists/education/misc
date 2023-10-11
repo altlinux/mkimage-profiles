@@ -327,3 +327,6 @@ task-edu-tools@META
 ca-certificates-digital.gov.ru
 
 xauthority-hostname-updater
+
+# Additional repositories
+apt-conf-r7@x86_64
