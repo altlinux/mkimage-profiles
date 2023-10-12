@@ -150,7 +150,9 @@ mixin/education-installer: \
 	@$(call add,MAIN_GROUPS,education/05_university)
 	@$(call add,MAIN_GROUPS,education/07_teacher)
 	@$(call add,MAIN_GROUPS,education/08_server-apps-edu)
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,education/10_robotics)
+endif
 	@$(call add,BASE_PACKAGES,os-prober)
 	@$(call add,BASE_PACKAGES,guest-account)
 	@$(call add,MAIN_PACKAGES,iperf3)
@@ -185,7 +187,9 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,CONTROL,pam_mktemp:disabled)	### private /tmp dirs
 else
 	@$(call add,MAIN_GROUPS,education/06_kde5)
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,education/09_video-conferencing)
+endif
 endif	# e2k%
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
