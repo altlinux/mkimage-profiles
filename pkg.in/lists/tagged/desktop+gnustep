@@ -10,7 +10,7 @@ gnustep-gui
 gnustep-gorm
 gnustep-gworkspace
 
-gnustep-themes-Gtk
+#gnustep-themes-Gtk
 gnustep-themes-Neos
 gnustep-themes-Nesedah
 gnustep-themes-Narcissus
