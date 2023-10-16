@@ -69,7 +69,7 @@ alterator-standalone
 alterator-net-pppoe
 alterator-net-pptp
 alterator-net-openvpn
-alterator-nsswitch
+alterator-auth
 alterator-packages
 alterator-pkg
 alterator-profile
