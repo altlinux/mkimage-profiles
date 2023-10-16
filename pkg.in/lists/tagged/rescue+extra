@@ -21,6 +21,7 @@ disktype
 # fio pulls in a bunch of huge libraries down to libicu
 #fio
 f3
+fdutils@X86
 gpart
 hddtemp
 idle3-tools
