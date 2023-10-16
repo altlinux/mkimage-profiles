@@ -101,6 +101,7 @@ mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,eepm)
+	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/x11/kde5-display-manager-lightdm \
