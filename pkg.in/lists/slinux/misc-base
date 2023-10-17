@@ -107,6 +107,8 @@ i586-libnss-myhostname@x86_64
 
 pavucontrol
 
+onboard
+
 # gstreamer plugins
 gst-plugins-base1.0
 gst-plugins-good1.0
