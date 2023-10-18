@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Single seat
+Name[ru_RU]=Одно место
+Comment=Single-seat Elbrus 201-PC setup
+Comment[ru_RU]=Одно рабочее место на «Эльбрус 201-РС»
+X-Alterator-PackageList=zero
+X-Alterator-Required=no
+X-Alterator-Conflicts=x-e2k/e201-2seat
+X-Alterator-Conflicts=x-e2k/e201-3seat
+X-Alterator-Parent=x-e2k/90-e201

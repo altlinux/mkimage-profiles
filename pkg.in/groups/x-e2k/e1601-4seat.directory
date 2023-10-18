@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Quad seat
+Name[ru_RU]=Четыре места
+Comment=Quad-seat setup for Elbrus-16C system with additional GPUs
+Comment[ru_RU]=Четыре рабочих места на системе с «Эльбрус-16С» (.466) с дополнительными видеокартами
+X-Alterator-PackageList=x-e2k/e1601-4seat
+X-Alterator-Required=no
+X-Alterator-Conflicts=x-e2k/e1601-1seat
+X-Alterator-Parent=x-e2k/90-e1601

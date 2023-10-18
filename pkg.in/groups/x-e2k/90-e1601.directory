@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Multiseat Elbrus-16C system
+Name[ru_RU]=«Горыныч» на системе с «Эльбрус-16С»
+X-Alterator-Required=no
+Comment=Multiple seats on a system with multiple GPUs
+Comment[ru_RU]=Многоместная рабочая станция

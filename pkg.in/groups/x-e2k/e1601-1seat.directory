@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Single seat
+Name[ru_RU]=Одно место
+Comment=Single-seat Elbrus-16C system setup
+Comment[ru_RU]=Одно рабочее место на системе с «Эльбрус-16С»
+X-Alterator-PackageList=zero
+X-Alterator-Required=no
+X-Alterator-Conflicts=x-e2k/e1601-4seat
+X-Alterator-Parent=x-e2k/90-e1601

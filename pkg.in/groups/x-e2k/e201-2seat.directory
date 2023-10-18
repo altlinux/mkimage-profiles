@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dual seat
+Name[ru_RU]=Два места
+Comment=Dual-seat setup for Elbrus 201-PC with additional GPUs
+Comment[ru_RU]=Два рабочих места на «Эльбрус 201-РС» (.404) с дополнительными видеокартами
+X-Alterator-PackageList=x-e2k/e201-2seat
+X-Alterator-Required=no
+X-Alterator-Conflicts=x-e2k/e201-1seat
+X-Alterator-Conflicts=x-e2k/e201-3seat
+X-Alterator-Parent=x-e2k/90-e201
