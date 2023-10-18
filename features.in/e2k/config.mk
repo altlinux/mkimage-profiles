@@ -32,7 +32,7 @@ use/e2k/x11: use/e2k use/x11
 
 ifeq (,$(filter-out e2kv6,$(ARCH)))
 use/e2k/multiseat/full:
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-multiseat) #sic!
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
 	@$(call add,MAIN_GROUPS,x-e2k/90-e201 x-e2k/90-e1601)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/e201-,1seat 2seat))
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/e1601-,1seat 4seat))
@@ -43,7 +43,7 @@ use/e2k/multiseat/full: use/e2k/multiseat/901/full; @:
 
 # 6seat not tested so far but 1E8CB has three suitable PCIe slots
 use/e2k/multiseat/901:
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-multiseat) #sic!
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
 	@$(call add,MAIN_GROUPS,x-e2k/90-e901)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e901-1seat e901-2seat))
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e901-3seat))
@@ -61,7 +61,7 @@ use/e2k/x11/101: use/e2k/x11
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e101-modesetting))
 
 use/e2k/multiseat/801/base:
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-801-multiseat)
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
 	@$(call add,MAIN_GROUPS,x-e2k/90-e801)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-1seat e801-2seat))
 
