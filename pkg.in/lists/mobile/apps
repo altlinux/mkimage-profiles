@@ -34,6 +34,9 @@ secrets
 # emoji (see also https://bugzilla.altlinux.org/46471)
 fonts-ttf-google-noto-emoji-color
 
+# CJK fonts
+fonts-ttf-lxgw-wenkai
+
 # misc
 gnome-calculator
 gnome-clocks
