@@ -126,6 +126,8 @@ cifs-utils
 #gdm-theme-simply
 #gdm2.20-help
 lightdm-gtk-greeter
+slick-greeter-
+
 #gtk3-themes-xfce4
 gnome-themes-extra-data
 
