@@ -139,6 +139,7 @@ kde5-display-manager-lightdm
 kde5-network-manager-etcnet
 openssh openssh-clients openssh-askpass-common openssh-server openssh-common openssh-server-control
 systemd-ssh-agent
+NetworkManager-ssh
 kde5-network-manager-nm
 kde5-video-player-haruna
 kde5-audio-player-qmmp
