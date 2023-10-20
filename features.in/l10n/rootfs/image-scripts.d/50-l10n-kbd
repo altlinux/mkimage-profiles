@@ -2,6 +2,7 @@
 # partial port of livecd-setlocale (kbd bits)
 
 CONFIG=/etc/sysconfig/keyboard
+VCONSOLE_CONF=/etc/vconsole.conf
 
 # Requires: console-scripts
 if [ -s "$CONFIG" ]; then
@@ -15,3 +16,4 @@ if [ -z "$GLOBAL_KEYTABLE" ]; then
 fi
 
 echo "KEYTABLE=$GLOBAL_KEYTABLE" > "$CONFIG"
+[ -f "$VCONSOLE_CONF" ] && echo "KEYMAP=$GLOBAL_KEYTABLE" >> "$VCONSOLE_CONF"
