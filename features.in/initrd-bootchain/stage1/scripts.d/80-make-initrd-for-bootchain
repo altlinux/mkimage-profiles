@@ -21,7 +21,7 @@ cd /.image
 
 cp /etc/initrd.mk .disk/
 cat >>.disk/initrd.mk <<EOF
-FEATURES += add-modules compress cleanup rdshell kbd
+FEATURES += add-modules compress cleanup rdshell
 FEATURES += bootchain-localdev
 FEATURES += bootchain-liverw
 FEATURES += bootchain-waitdev
