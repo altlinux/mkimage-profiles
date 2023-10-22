@@ -32,15 +32,12 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,BASE_PACKAGES,installer-feature-online-repo)
 endif
 
-use/live-install/vnc:
-	@$(call add,LIVE_PACKAGES,installer-feature-vnc-stage2)
-
 # this one expects external vncviewer to come
-use/live-install/vnc/listen: use/live-install/vnc \
+use/live-install/vnc/listen: use/live-install \
 	use/syslinux/live-install-vnc-listen.cfg use/grub/live-install-vnc-listen.cfg; @:
 
 # this one connects to a specified vncviewer --listen
-use/live-install/vnc/connect: use/live-install/vnc \
+use/live-install/vnc/connect: use/live-install \
 	use/syslinux/live-install-vnc-connect.cfg use/grub/live-install-vnc-connect.cfg; @:
 
 # add both bootloader items to be *that* explicit ;-)
