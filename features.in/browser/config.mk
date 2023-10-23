@@ -9,9 +9,9 @@ BROWSERS_x86_64 := $(BROWSERS_i586) chromium seamonkey
 BROWSERS_ppc64el = netsurf epiphany falkon elinks links2
 BROWSERS_aarch64 = chromium netsurf epiphany falkon elinks links2
 BROWSERS_armh = netsurf epiphany falkon elinks links2
-BROWSERS_mipsel = seamonkey netsurf epiphany falkon \
-		  elinks links2
+BROWSERS_mipsel = seamonkey netsurf epiphany falkon elinks links2
 BROWSERS_riscv64 = epiphany midori netsurf elinks
+BROWSERS_loongarch64 = epiphany midori netsurf elinks
 BROWSERS_e2k = netsurf elinks links2
 BROWSERS_e2kv4 := $(BROWSERS_e2k)
 BROWSERS := $(BROWSERS_$(ARCH))
@@ -23,7 +23,7 @@ ifneq (,$(filter-out x86_64 aarch64,$(ARCH)))
 use/browser/chromium: use/browser/firefox use/browser/firefox/esr; @:
 endif
 
-ifeq (,$(filter-out e2k%,$(ARCH)))
+ifeq (,$(filter-out e2k% riscv64 loongarch64,$(ARCH)))
 use/browser/falkon: use/browser/firefox use/browser/firefox/esr; @:
 endif
 
