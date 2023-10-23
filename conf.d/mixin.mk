@@ -95,6 +95,7 @@ mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-terminal)
+	@$(call add,THE_PACKAGES,gnome-software)
 	@$(call add,PINNED_PACKAGES,gnome-terminal:Required)
 	@$(call add,THE_PACKAGES,templates)
 	@$(call add,THE_PACKAGES,chrome-gnome-shell)
