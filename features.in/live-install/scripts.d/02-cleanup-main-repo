@@ -1,5 +1,6 @@
 #!/bin/sh -efu
 
+[ -n "$GLOBAL_LIVE_INSTALL" ] || exit 0
 PREFIX=ALTLinux
 RPM_LIVE_LIST="$WORKDIR/.disk/pkglists/live/image/rpm.txt"
 [ -d "$WORKDIR/$PREFIX/RPMS.main" ] || exit 0
