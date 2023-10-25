@@ -5,7 +5,7 @@ use/oem: use/services use/branding use/deflogin/root use/l10n
 	@$(call add,BASE_PACKAGES,rootfs-installer-features)
 	@$(call add,PINNED_PACKAGES,rootfs-installer-features)
 	@$(call add,THE_BRANDING,alterator notes)
-	@$(call try,OEM_TARGET,setup)
+	@$(call add,BASE_BOOTARGS,systemd.unit=setup.target)
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(OEM_TARGET))
 	@$(call xport,OEM_TARGET)
 	@$(call xport,OEM_NO_CLEANUP)
