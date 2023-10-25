@@ -49,7 +49,7 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 # e2k: mostly radeon, 101 got mga2/vivante
 use/x11/xorg:: use/x11/radeon use/x11/amdgpu use/x11/nouveau use/drm/full
 
-ifeq (,$(filter-out e2kv4,$(ARCH)))
+ifeq (,$(filter-out e2kv4 e2kv6,$(ARCH)))
 use/x11/mga2: use/x11 use/drm
 	@$(call add,THE_PACKAGES,xorg-drv-mga2)
 else
