@@ -17,8 +17,9 @@ ifeq (,$(filter-out e2kv4 e2kv5,$(ARCH)))
 	@# 8C/8CB specific
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
 endif
-ifeq (,$(filter-out e2kv6,$(ARCH)))
-	@$(call add,SYSTEM_PACKAGES,softdep-mga25)	# mcst#8089
+ifeq (,$(filter-out e2kv6 e2kv4,$(ARCH)))
+	@# 1C+/2C3 specific
+	@$(call add,SYSTEM_PACKAGES,softdep-mga2x)	# mcst#8089
 endif
 	@$(call add,BASE_PACKAGES,mirror-e2k-alt)
 	@$(call add,THE_PACKAGES,fruid_print)
