@@ -37,6 +37,9 @@ fonts-ttf-google-noto-emoji-color
 # CJK fonts
 fonts-ttf-lxgw-wenkai
 
+# Dictaphone
+gnome-sound-recorder
+
 # misc
 gnome-calculator
 gnome-clocks
