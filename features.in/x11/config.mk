@@ -195,7 +195,7 @@ use/x11/dwm: use/x11
 use/x11/leechcraft: use/x11
 	@$(call add,THE_PACKAGES,leechcraft)
 
-use/x11/kde5: use/x11/xorg use/x11/kde/synaptic
+use/x11/kde5: use/x11/xorg
 	@$(call add,THE_PACKAGES,kde5)
 
 ## screensavers
