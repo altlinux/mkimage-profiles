@@ -31,8 +31,6 @@ openssh-clients-gostcrypto
 openssh-server-control-gostcrypto
 openssh-server-gostcrypto
 
-eepm-yum
-
 postgresql14
 postgresql14-server
 postgresql14-contrib
