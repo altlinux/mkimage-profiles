@@ -19,7 +19,7 @@ else
 	@$(call try,IMAGE_FLAVOUR,$(subst alt-$(BRANCH)-,,$(IMAGE_NAME)))
 	@$(call try,META_VOL_ID,ALT $(BRANCH) $$(IMAGE_FLAVOUR)/$(ARCH))
 endif
-	@$(call try,META_VOL_try,ALT)
+	@$(call try,META_VOL_SET,ALT)
 
 # NB: the last flavour in KFLAVOURS gets to be the default one;
 # the kernel packages regexp evaluation has to take place at build stage
