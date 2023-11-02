@@ -9,6 +9,8 @@ lftp
 catdoc
 etcnet-defaults-desktop
 lsb-release
+libnss-role
+alterator-roles-common
 man-pages
 mdadm
 make-initrd-mdadm

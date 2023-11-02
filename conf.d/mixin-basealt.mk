@@ -64,6 +64,7 @@ endif
 	@$(call add,SERVICES_DISABLE,powertop bridge gpm)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,systemd-userdbd.service)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,systemd-userdbd.socket)
+	@$(call add,CONTROL,libnss-role:enabled)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_VOL_ID,ALT Workstation $(DISTRO_VERSION) $(ARCH))
