@@ -73,6 +73,8 @@ use/e2k/multiseat/801: use/e2k/multiseat/801/base
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-3seat e801-6seat))
 
 use/e2k/multiseat/801/full: use/e2k/multiseat/801 use/control
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-2seat-4port))
+	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-3seat-4port))
 	@$(call add,MAIN_GROUPS,x-e2k/x-autologin)
 	@$(call add,THE_PACKAGES,test-audio alterator-multiseat)
 else
