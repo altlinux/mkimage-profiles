@@ -8,7 +8,8 @@ endif
 
 mixin/phone-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
-	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs
+	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs \
+	use/drm
 	@$(call add,THE_BRANDING,notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
