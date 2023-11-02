@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dual seat (4 USB)
+Name[ru_RU]=Два места (4 USB)
+Comment=Dual-seat setup for Elbrus 801-PC with additional GPU (model .318 with four rear USB ports)
+Comment[ru_RU]=Два рабочих места на «Эльбрус 801-РС» с дополнительной видеокартой (панель .318 с четырьмя тыловыми USB-портами)
+X-Alterator-PackageList=x-e2k/e801-2seat-4port
+X-Alterator-Required=no
+X-Alterator-Conflicts=x-e2k/e801-1seat
+X-Alterator-Conflicts=x-e2k/e801-2seat
+X-Alterator-Conflicts=x-e2k/e801-3seat
+X-Alterator-Conflicts=x-e2k/e801-3seat-4port
+X-Alterator-Conflicts=x-e2k/e801-6seat
+X-Alterator-Parent=x-e2k/90-e801
