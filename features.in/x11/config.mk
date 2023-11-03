@@ -150,14 +150,14 @@ use/x11/xfce: use/x11
 	@$(call add,THE_PACKAGES,xfce4-minimal xfce4-default)
 	@$(call add,IM_PACKAGES,imsettings-xfce)
 
-use/x11/xfce/full: use/x11/xfce +pulse
+use/x11/xfce/full: use/x11/xfce +pipewire
 	@$(call add,THE_PACKAGES,xfce4-full)
 
-use/x11/cinnamon: use/x11/xorg +pulse
+use/x11/cinnamon: use/x11/xorg +pipewire
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
 	@$(call add,IM_PACKAGES,imsettings-cinnamon)
 
-use/x11/deepin: use/x11/xorg +pulse
+use/x11/deepin: use/x11/xorg +pipewire
 	@$(call add,THE_LISTS,$(call tags,deepin desktop))
 
 use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
@@ -165,14 +165,14 @@ use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
 	@$(call add,THE_PACKAGES,tracker3) # ALT bug 42028
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
-use/x11/enlightenment: use/x11 use/net/connman use/power/acpi +pulse
+use/x11/enlightenment: use/x11 use/net/connman use/power/acpi +pipewire
 	@$(call add,THE_LISTS,$(call tags,enlightenment desktop))
 
 use/x11/lxde: use/x11
 	@$(call add,THE_LISTS,$(call tags,lxde desktop))
 	@$(call add,IM_PACKAGES,imsettings-lxde)
 
-use/x11/lxqt: use/x11 +pulse
+use/x11/lxqt: use/x11 +pipewire
 	@$(call add,THE_LISTS,$(call tags,desktop && lxqt))
 	@$(call add,IM_PACKAGES,imsettings-qt)
 
@@ -185,7 +185,7 @@ use/x11/wmaker: use/x11
 use/x11/gnustep: use/x11
 	@$(call add,THE_LISTS,$(call tags,gnustep desktop))
 
-use/x11/mate: use/x11 +pulse
+use/x11/mate: use/x11 +pipewire
 	@$(call add,THE_LISTS,$(call tags,mate desktop))
 	@$(call add,IM_PACKAGES,imsettings-mate)
 
@@ -195,7 +195,7 @@ use/x11/dwm: use/x11
 use/x11/leechcraft: use/x11
 	@$(call add,THE_PACKAGES,leechcraft)
 
-use/x11/kde5: use/x11/xorg
+use/x11/kde5: use/x11/xorg +pipewire
 	@$(call add,THE_PACKAGES,kde5)
 
 ## screensavers

@@ -106,8 +106,7 @@ mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/x11/kde5-display-manager-lightdm \
-	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
-	+pulse
+	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,qt6-wayland)
 ifneq (,$(filter-out e2k% riscv64 loongarch64,$(ARCH)))
@@ -122,7 +121,7 @@ mixin/xfce-base: use/x11/xfce +nm-gtk \
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 	@$(call add,THE_PACKAGES,xkill)
 
-mixin/regular-xfce: mixin/xfce-base use/domain-client +pulse
+mixin/regular-xfce: mixin/xfce-base use/domain-client +pipewire
 	@$(call add,THE_PACKAGES,pavucontrol xscreensaver-frontend)
 	@$(call add,THE_PACKAGES,xfce4-pulseaudio-plugin xfce-polkit)
 
