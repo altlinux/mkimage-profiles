@@ -2,7 +2,15 @@
 # ensure early kms so stage1 issues can at least be displayed on tty0;
 # trying to preload the missing modules will result in image build failure
 
-cat >> /etc/initrd.mk << EOF
-MODULES_PRELOAD += radeon
-#MODULES_ADD += mga2 galcore vivante
-EOF
+{
+echo "MODULES_ADD += radeon"
+[ "$GLOBAL_ARCH" = "e2kv4" ] &&
+find /lib/modules -name mga2.ko >/dev/null &&
+echo "MODULES_ADD += mga2" &&
+echo "MODULES_ADD += dw_hdmi_imx panel-lvds"
+[ "$GLOBAL_ARCH" = "e2kv6" ] &&
+find /lib/modules -name mga25.ko >/dev/null &&
+echo "MODULES_ADD += mga25" &&
+echo "MODULES_ADD += pwm-bl panel-lvds lp872x i2c-dev panel-simple ti-sn65dsi86 i2c-gpio dw-mipi-dsi sii902x sil164 simple-bridge display-connector dw_hdmi dw_hdmi_cec"
+} >> /etc/initrd.mk
+:
