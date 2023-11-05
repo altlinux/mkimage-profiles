@@ -37,9 +37,10 @@ use/e2k/x11: use/e2k use/x11
 ifeq (,$(filter-out e2kv6,$(ARCH)))
 use/e2k/multiseat/full:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
-	@$(call add,MAIN_GROUPS,x-e2k/90-e201 x-e2k/90-e1601)
-	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/e201-,1seat 2seat))
+	@$(call add,MAIN_GROUPS,x-e2k/90-e1601)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/e1601-,1seat 4seat))
+	@#$(call add,MAIN_GROUPS,x-e2k/90-e201)	# wait for GPU split on *201*
+	@#$(call add,MAIN_GROUPS,$(addprefix x-e2k/e201-,1seat 2seat))
 endif
 
 ifeq (,$(filter-out e2kv5,$(ARCH)))
