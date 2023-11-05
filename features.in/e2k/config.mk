@@ -60,9 +60,7 @@ endif	# e2kv5
 ifeq (,$(filter-out e2kv4,$(ARCH)))
 use/e2k/multiseat/full: use/e2k/multiseat/801/full; @:
 
-use/e2k/x11/101: use/e2k/x11
-	@$(call add,MAIN_GROUPS,x-e2k/91-e101)
-	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e101-modesetting))
+use/e2k/x11/101: use/e2k/x11; @:
 
 use/e2k/multiseat/801/base:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
