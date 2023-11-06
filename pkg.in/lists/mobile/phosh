@@ -14,6 +14,9 @@ gnome-control-center
 phosh-mobile-settings
 gnome-software
 
+# extra applications
+phosh-antispam
+
 # file manager
 portfolio
 tracker3
