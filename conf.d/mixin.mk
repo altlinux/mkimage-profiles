@@ -109,6 +109,7 @@ mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,qt6-wayland)
+	@$(call add,THE_PACKAGES,plasma5-discover)
 ifneq (,$(filter-out e2k% riscv64 loongarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,falkon-kde5)
 endif
