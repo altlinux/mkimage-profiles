@@ -117,8 +117,7 @@ use/x11/lightdm/gtk use/x11/lightdm/slick use/x11/lightdm/kde\
 	@$(call set,THE_DISPLAY_MANAGER,lightdm-$*-greeter)
 	@$(call set,THE_DM_SERVICE,lightdm)
 
-use/x11/lxdm use/x11/gdm2.20 use/x11/sddm \
-	use/x11/kde5-display-manager-sddm: \
+use/x11/lxdm use/x11/gdm2.20 use/x11/sddm: \
 	use/x11/%: use/x11/dm
 	@$(call set,THE_DISPLAY_MANAGER,$*)
 
