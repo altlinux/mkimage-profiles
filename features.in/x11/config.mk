@@ -196,6 +196,8 @@ use/x11/leechcraft: use/x11
 
 use/x11/kde5: use/x11/xorg +pipewire
 	@$(call add,THE_PACKAGES,kde5)
+	@$(call add,THE_PACKAGES,kde5-volume-control-4-pipewire)
+	@$(call add,PINNED_PACKAGES,kde5-volume-control-4-pipewire)
 
 ## screensavers
 use/x11/xscreensaver:
