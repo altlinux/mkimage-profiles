@@ -106,6 +106,7 @@ use/x11/wacom: use/x11
 ## display managers
 use/x11/dm: use/x11-autostart use/pkgpriorities
 	@$(call try,THE_DISPLAY_MANAGER,xdm)
+	@$(call try,THE_DM_SERVICE,dm)
 	@$(call add,THE_PACKAGES,$$(THE_DISPLAY_MANAGER))
 	@$(call add,PINNED_PACKAGES,$$(THE_DISPLAY_MANAGER))
 	@$(call add,DEFAULT_SERVICES_ENABLE,$$(THE_DM_SERVICE))
