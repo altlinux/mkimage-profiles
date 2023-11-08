@@ -2,6 +2,7 @@ use/xdg-user-dirs: use/control
 	@$(call add_feature)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,THE_PACKAGES,xdg-user-dirs)
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,xdg-user-dirs)
 	@$(call xport,XDG_USER_DIRS)
 
 # tweak some values to move these dirs into Documents/
