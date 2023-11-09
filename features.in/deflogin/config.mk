@@ -38,11 +38,11 @@ use/deflogin/altroot: use/deflogin/root use/deflogin/xgrp
 
 # peripherals
 use/deflogin/hardware: use/deflogin
-	@$(call add,GROUPS,cdwriter radio scanner uucp)
+	@$(call add,GROUPS,cdwriter cdrom floppy radio scanner uucp)
 
 # videocard and desktop related hardware
 use/deflogin/xgrp: use/deflogin
-	@$(call add,GROUPS,xgrp audio)
+	@$(call add,GROUPS,xgrp audio video camera)
 
 # potentially elevated privileges (NB: _not_ wheel)
 use/deflogin/privileges: use/deflogin
