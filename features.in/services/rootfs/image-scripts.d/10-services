@@ -51,7 +51,7 @@ for i in $GLOBAL_SYSTEMD_SERVICES_MASK;    do switch $i mask;   done
 for i in $GLOBAL_SYSTEMD_SERVICES_UNMASK;  do switch $i unmask; done
 
 ## systemd-logind services
-SYSTEMD_USER='--user --global'
+SYSTEMD_USER='--global'
 
 # defaults
 for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i on;  done
