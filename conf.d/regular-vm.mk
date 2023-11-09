@@ -68,7 +68,7 @@ vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,THE_PACKAGES,glmark2 glmark2-es2)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
-	@$(call try,VM_SIZE,6442450944)
+	@$(call try,VM_SIZE,8589934592)
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
 	use/init/sysv/polkit +power; @:
@@ -82,7 +82,7 @@ vm/regular-jeos-systemd: vm/systemd \
 	mixin/regular-vm-jeos mixin/vm-archdep
 	@$(call add,THE_PACKAGES,glibc-locales)
 	@$(call add,THE_PACKAGES,systemd-settings-disable-kill-user-processes)
-	@$(call try,VM_SIZE,3221225472)
+	@$(call try,VM_SIZE,4294967296)
 
 vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 
@@ -96,8 +96,7 @@ vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11
 
 vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep-x11; @:
 
-vm/regular-gnome: vm/.regular-gtk mixin/regular-gnome mixin/vm-archdep-x11
-	@$(call set,VM_SIZE,8589934592)
+vm/regular-gnome: vm/.regular-gtk mixin/regular-gnome mixin/vm-archdep-x11; @:
 
 vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep-x11; @:
 
@@ -111,8 +110,7 @@ ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif
 
-vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep-x11
-	@$(call set,VM_SIZE,7516192768)
+vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep-x11; @:
 
 vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep-x11; @:
 
