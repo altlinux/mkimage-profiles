@@ -20,7 +20,7 @@ mixin/phone-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
 	@$(call add,CONTROL,fusermount:public)
 	@$(call add,CONTROL,libnss-role:disabled)
 
-mixin/phosh: use/services +pulse +nm +nm-native
+mixin/phosh: use/services +nm +nm-native
 	@$(call add,THE_LISTS,mobile/phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
@@ -32,7 +32,7 @@ vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	@$(call add,THE_LISTS,mobile/apps)
 
 vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone/ttyescape +efi \
-	use/firmware +plymouth
+	use/firmware +plymouth +pipewire
 	@$(call set,KFLAVOURS,un-def)
 ifeq (aarch64,$(ARCH))
 	@$(call set,VM_PARTTABLE,msdos)
@@ -43,7 +43,7 @@ endif
 ifeq (aarch64,$(ARCH))
 # TODO: devicetree ($root)/boot/dtb/rockchip/rk3399-pinephone-pro.dtb
 mixin/pinephone: use/firmware use/bootloader/uboot use/tty/S2 \
-	 use/phone/ttyescape
+	 use/phone/ttyescape +pulse
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,UBOOT_TIMEOUT,5)
 	@$(call set,KFLAVOURS,pine)
