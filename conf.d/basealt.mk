@@ -18,7 +18,7 @@ distro/alt-workstation: distro/.base +vmguest +wireless +efi \
 	mixin/desktop-installer mixin/alt-workstation \
 	mixin/alt-workstation-install \
 	use/memtest use/rescue use/bootloader/grub use/luks \
-	use/efi/memtest86 use/efi/shell \
+	use/efi/shell \
 	use/install2/repo use/install2/suspend use/live/suspend \
 	use/live/install use/live/x11 use/live/repo use/live/rw \
 	use/vmguest/kvm/x11 use/stage2/kms \
