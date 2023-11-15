@@ -10,3 +10,5 @@ kernel/drivers/usb/dwc3
 kernel/drivers/usb/phy
 kernel/drivers/usb/host
 kernel/drivers/usb/musb
+kernel/drivers/mfd/rk8xx-spi.ko
+kernel/drivers/mfd/rk8xx-i2c.ko
