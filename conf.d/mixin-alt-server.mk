@@ -86,7 +86,6 @@ endif
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,avahi-daemon.service)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,NetworkManager.service)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,ModemManager.service postfix.service)
-	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,nslcd.service nscd.service)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,sshd.service ahttpd.service)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,alteratord.service xinetd.service)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,nfs-server.service bind.service)
