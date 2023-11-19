@@ -186,7 +186,10 @@ distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
-	use/kernel/latest +plymouth use/browser/epiphany; @:
+	use/kernel/latest +plymouth use/browser/epiphany
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,std-def un-def)
+endif
 
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
 
