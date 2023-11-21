@@ -10,6 +10,7 @@ gnome-console
 # web, mail
 chromium@!riscv64
 firefox
+epiphany
 geary
 
 # multimedia
