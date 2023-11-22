@@ -8,6 +8,7 @@ use/dev: use/control
 use/dev/repo: use/repo/main
 	@$(call add,THE_PACKAGES,apt-repo)
 	@$(call add,MAIN_LISTS,$(call tags,main builder))
+	@$(call try,DEV_REPO,1)
 
 use/dev/mkimage: use/dev
 	@$(call add,THE_PACKAGES,mkimage shadow-change su)
@@ -44,3 +45,4 @@ endif
 
 use/dev/groups/builder: use/dev/repo
 	@$(call add,MAIN_GROUPS,dev/builder)
+	@$(call set,DEV_REPO,)
