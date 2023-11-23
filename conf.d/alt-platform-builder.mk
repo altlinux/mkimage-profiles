@@ -38,6 +38,7 @@ distro/alt-platform-builder: \
 	@$(call add,BASE_PACKAGES,ntfs-3g exfatprogs)
 	@$(call add,BASE_LISTS,platform-builder/base.pkgs)
 	@$(call add,BASE_LISTS,platform-builder/alterator)
+	@$(call add,BASE_LISTS,platform-builder/build.pkgs)
 	@$(call add,BASE_LISTS,server-base openssh)
 	@$(call add,BASE_PACKAGES,eepm etersoft-build-utils)
 	@$(call add,COMMON_PACKAGES,vim-console)
