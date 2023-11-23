@@ -43,6 +43,15 @@ fonts-ttf-lxgw-wenkai
 # Dictaphone
 gnome-sound-recorder
 
+# notes
+iotas
+
+# medical
+gnome-dosage
+
+# translation
+dialect
+
 # misc
 gnome-calculator
 gnome-clocks
@@ -52,6 +61,12 @@ gnome-compass
 gnome-maps
 gnome-weather
 grim
+obfuscate
+tangram
+kana
+solanum
+gnome-games-chess
+gnome-games-sudoku
 wallpapers-mobile
 # libadwaita theme ported to gtk3
 # $ gsettings get org.gnome.desktop.interface gtk-theme
