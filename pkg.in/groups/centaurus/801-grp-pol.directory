@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Group policies
+X-Alterator-PackageList=centaurus/zero
+X-Alterator-Required=no
+Name[ru_RU]=Групповые политики

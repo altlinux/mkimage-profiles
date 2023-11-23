@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Client (means of application)
+X-Alterator-PackageList=centaurus/gpupdate
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/801-grp-pol
+Name[ru_RU]=Клиент (средства применения)

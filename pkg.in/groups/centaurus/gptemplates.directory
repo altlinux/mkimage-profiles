@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Group policy templates
+X-Alterator-PackageList=centaurus/gptemplates
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/801-grp-pol
+Name[ru_RU]=Шаблоны групповых политик
