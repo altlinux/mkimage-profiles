@@ -43,7 +43,7 @@ endif
 ifeq (aarch64,$(ARCH))
 # TODO: devicetree ($root)/boot/dtb/rockchip/rk3399-pinephone-pro.dtb
 mixin/pinephone: use/firmware use/bootloader/uboot use/tty/S2 \
-	 use/phone/ttyescape +pulse
+	 use/phone/ttyescape +pipewire
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,UBOOT_TIMEOUT,5)
 	@$(call set,KFLAVOURS,pine)
