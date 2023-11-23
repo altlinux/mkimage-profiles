@@ -5,5 +5,5 @@ Name=MATE desktop enviroment
 X-Alterator-PackageList=centaurus/mate
 X-Alterator-Parent=centaurus/80-desktop
 X-Alterator-Depends=systemd centaurus/xorg
-X-Alterator-Required=yes
+X-Alterator-Required=no
 Name[ru_RU]=Среда MATE

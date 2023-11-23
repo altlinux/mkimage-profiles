@@ -4,5 +4,5 @@ Type=Directory
 Name=Office packages
 X-Alterator-PackageList=centaurus/gnome-office
 X-Alterator-Parent=centaurus/80-desktop
-X-Alterator-Required=yes
+X-Alterator-Required=no
 Name[ru_RU]=Офисный пакет

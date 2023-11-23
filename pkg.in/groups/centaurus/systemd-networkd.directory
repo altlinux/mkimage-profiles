@@ -4,6 +4,6 @@ Type=Directory
 Name=Systemd network configuration daemon
 X-Alterator-PackageList=centaurus/systemd-networkd
 X-Alterator-Parent=centaurus/901-net-if-mgt
-X-Alterator-Required=no
+X-Alterator-Required=yes
 Name[ru_RU]=Система управления Systemd-networkd
 

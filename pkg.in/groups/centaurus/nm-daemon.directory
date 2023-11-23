@@ -4,6 +4,6 @@ Type=Directory
 Name=NetworkManager daemon
 X-Alterator-PackageList=centaurus/nm-daemon
 X-Alterator-Parent=centaurus/901-net-if-mgt
-X-Alterator-Required=yes
+X-Alterator-Required=no
 Name[ru_RU]=Система управления NetworkManager
 
