@@ -24,6 +24,7 @@ distro/alt-platform-builder: \
 #	@$(call set,INSTALLER,alt-platform-builder)
 	@$(call set,INSTALLER,regular)
 #	@$(call set,DOCS,alt-platform-builder)
+	@$(call set,DISABLE_LANG_MENU,1)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,PLATFORM_RELEASE,10.0.0)
 	@$(call set,META_VOL_ID,ALT Platform Builder $$(PLATFORM_RELEASE) $(ARCH))
