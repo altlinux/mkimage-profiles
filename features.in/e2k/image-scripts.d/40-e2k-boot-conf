@@ -1,7 +1,6 @@
 #!/bin/sh -efu
 
-# NB: don't stick BOOTFS here, it has slightly different semantics
-# 4.9.76-elbrus-def-alt1.11.1 -> def
+# 5.10.194-elbrus-def-alt1.12.2 -> def
 get_label() { echo "${1# *}" | sed -r 's,.*elbrus-([0-9a-z]+)-.*$,\1,'; }
 
 KVERSIONS="$(rpm -qa 'kernel-image*' \
@@ -16,14 +15,11 @@ KVERSIONS="$(rpm -qa 'kernel-image*' \
 
 cd /boot
 
-#rm -f .origver
-
 echo "** KVERSIONS=[$KVERSIONS]" >&2
 if [ "`echo $KVERSIONS | wc -w`" = 1 ]; then # 2+ labels
 	echo -e "default=`get_label $KVERSIONS`\n" >> boot.conf
 fi
 
-# FIXME: relies on particular (current) kernel package naming scheme
 for v in $KVERSIONS; do
 	l="`get_label "$v"`"
 	cat >> boot.conf <<EOF
