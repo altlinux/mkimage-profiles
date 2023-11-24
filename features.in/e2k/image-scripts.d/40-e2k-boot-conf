@@ -31,7 +31,7 @@ label=$l
 	partition=0
 	image=/image-$v
 	initrd=/initrd-$v.img
-	cmdline=console=tty0 consoleblank=0 hardreset LABEL=ROOT
+	cmdline=console=tty0 consoleblank=0 hardreset root=LABEL=ROOT
 
 EOF
 done
