@@ -52,7 +52,7 @@ librsvg
 gnome-icon-theme
 gnome-icon-theme-symbolic
 
-# uicode fonts
+# unicode fonts
 fonts-ttf-gnu-freefont-mono
 fonts-ttf-gnu-freefont-sans
 fonts-ttf-gnu-freefont-serif
