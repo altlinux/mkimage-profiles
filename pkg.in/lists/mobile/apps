@@ -23,6 +23,7 @@ clapper
 amberol
 lollypop
 shortwave
+easyeffects
 
 # readers
 evince
@@ -43,8 +44,10 @@ fonts-ttf-lxgw-wenkai
 # Dictaphone
 gnome-sound-recorder
 
-# notes
+# notes & organizers
 iotas
+reminders
+errands
 
 # medical
 gnome-dosage
