@@ -68,3 +68,5 @@ udev-rules-rfkill-uaccess
 xdg-user-dirs
 
 android-tools@!riscv64
+
+screen
