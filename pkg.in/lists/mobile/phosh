@@ -30,4 +30,7 @@ at-spi2-core
 libat-spi2-core-gir
 libgtk+3-gir
 libgtk4-gir
+librsvg-gir
+libportal-gtk3-gir
+libportal-gtk4-gir
 libtelepathy-mission-control
