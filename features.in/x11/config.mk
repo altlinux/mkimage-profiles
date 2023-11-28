@@ -2,6 +2,7 @@
 +icewm: use/x11/icewm; @:
 +xmonad: use/x11/xmonad; @:
 +nm-gtk: use/x11/gtk/nm; @:
++nm-gtk4: use/x11/gtk4/nm; @:
 +screensaver: use/x11/xscreensaver/gl; @:
 
 ## hardware support
@@ -144,6 +145,13 @@ use/x11/kde/synaptic:
 
 use/x11/gtk/nm: use/net/nm
 	@$(call add,THE_LISTS,network/NetworkManager-gtk)
+
+ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
+use/x11/gtk4/nm: use/net/nm
+	@$(call add,THE_LISTS,network/NetworkManager-gtk4)
+else
+use/x11/gtk4/nm: use/x11/gtk/nm; @:
+endif
 
 use/x11/xfce: use/x11
 	@$(call add,THE_PACKAGES,xfce4-minimal xfce4-default)
