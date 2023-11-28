@@ -143,7 +143,7 @@ use/x11/kde/synaptic:
 	@$(call add,THE_PACKAGES,synaptic-kde synaptic-usermode-)
 
 use/x11/gtk/nm: use/net/nm
-	@$(call add,THE_LISTS,$(call tags,desktop nm))
+	@$(call add,THE_LISTS,network/NetworkManager-gtk)
 
 use/x11/xfce: use/x11
 	@$(call add,THE_PACKAGES,xfce4-minimal xfce4-default)
