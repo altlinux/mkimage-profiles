@@ -92,7 +92,7 @@ mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
 
 mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 
-mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm
+mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-terminal)
 	@$(call add,THE_PACKAGES,gnome-software)
