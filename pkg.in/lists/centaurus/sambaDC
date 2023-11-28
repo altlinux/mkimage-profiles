@@ -2,9 +2,4 @@ task-samba-dc@META
 bind-utils
 ldap-user-tools
 task-auth-ad-sssd
-alterator-gpupdate
-gpupdate
 local-policy
-admx-basealt
-admx-firefox
-admx-chromium
