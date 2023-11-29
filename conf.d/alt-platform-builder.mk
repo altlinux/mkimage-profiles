@@ -25,7 +25,7 @@ distro/alt-platform-builder: \
 	@$(call set,INSTALLER,regular)
 #	@$(call set,DOCS,alt-platform-builder)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,PLATFORM_RELEASE,X.X.X)
+	@$(call set,PLATFORM_RELEASE,10.0.0)
 	@$(call set,META_VOL_ID,ALT Platform Builder $$(PLATFORM_RELEASE) $(ARCH))
 	@$(call set,META_APP_ID,ALT Platform Builder $$(PLATFORM_RELEASE) $(ARCH) $(shell date +%F))
 	@$(call add,INSTALL2_PACKAGES,fonts-ttf-google-croscore-arimo)
