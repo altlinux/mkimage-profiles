@@ -37,6 +37,39 @@ mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
 	@$(call add,THE_PACKAGES,ethtool net-tools ifplugd)
 	@$(call add,THE_PACKAGES,zsh bash-completion)
 
+mixin/vm-archdep:: use/auto-resize; @:
+
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+mixin/vm-archdep:: +efi
+ifeq (,$(filter-out p10,$(BRANCH)))
+	@$(call set,KFLAVOURS,un-def)
+else
+	@$(call set,KFLAVOURS,std-def un-def)
+endif
+endif
+
+ifeq (,$(filter-out armh,$(ARCH)))
+mixin/vm-archdep::
+	@$(call set,KFLAVOURS,un-def mp)
+endif
+
+
+ifeq (,$(filter-out armh aarch64,$(ARCH)))
+mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
+endif
+
+ifeq (,$(filter-out mipsel,$(ARCH)))
+mixin/vm-archdep:: use/tty/S0
+	@$(call set,KFLAVOURS,un-malta)
+endif
+
+ifeq (,$(filter-out riscv64,$(ARCH)))
+mixin/vm-archdep:: use/bootloader/uboot
+	@$(call set,KFLAVOURS,un-def)
+endif
+
+mixin/vm-archdep-x11: mixin/vm-archdep use/vmguest/kvm/x11; @:
+
 ### regular.mk
 mixin/regular-x11: use/browser/firefox \
 	use/branding use/ntp/chrony use/services/lvm2-disable

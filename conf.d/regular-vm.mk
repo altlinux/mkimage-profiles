@@ -11,39 +11,6 @@ vm/regular-systemd: vm/systemd-net use/vmguest/kvm use/tty/S0 \
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
 #endif
 
-mixin/vm-archdep:: use/auto-resize; @:
-
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-mixin/vm-archdep:: +efi
-ifeq (,$(filter-out p10,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def)
-else
-	@$(call set,KFLAVOURS,std-def un-def)
-endif
-endif
-
-ifeq (,$(filter-out armh,$(ARCH)))
-mixin/vm-archdep::
-	@$(call set,KFLAVOURS,un-def mp)
-endif
-
-
-ifeq (,$(filter-out armh aarch64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
-endif
-
-ifeq (,$(filter-out mipsel,$(ARCH)))
-mixin/vm-archdep:: use/tty/S0
-	@$(call set,KFLAVOURS,un-malta)
-endif
-
-ifeq (,$(filter-out riscv64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot
-	@$(call set,KFLAVOURS,un-def)
-endif
-
-mixin/vm-archdep-x11: mixin/vm-archdep use/vmguest/kvm/x11; @:
-
 mixin/regular-vm-base: use/firmware use/ntp/chrony use/repo \
 	use/services/lvm2-disable use/wireless
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
