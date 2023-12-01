@@ -93,7 +93,7 @@ distro/.regular-jeos: distro/.regular-jeos-base \
 	use/syslinux/lateboot.cfg use/cleanup/jeos
 	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
 
-distro/.regular-jeos-full: distro/.regular-jeos use/install2/vmguest \
+distro/.regular-jeos-full: distro/.regular-jeos \
 	use/volumes/regular use/ntp/chrony use/bootloader/grub \
 	use/grub/localboot_bios.cfg use/kernel/latest +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
@@ -115,7 +115,7 @@ distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
 	+sysvinit +power
 	@$(call add,BASE_PACKAGES,apt-conf-ignore-systemd)
 
-distro/regular-jeos-systemd: distro/.regular-jeos-full \
+distro/regular-jeos-systemd: distro/.regular-jeos-full use/install2/vmguest \
 	+systemd +systemd-optimal
 	@$(call add,BASE_PACKAGES,glibc-locales)
 
