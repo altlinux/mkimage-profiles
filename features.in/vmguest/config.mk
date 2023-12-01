@@ -11,7 +11,7 @@ use/vmguest/dri: use/vmguest/vbox/dri use/vmguest/vmware/dri \
 use/vmguest/complete: use/vmguest/vbox/x11 use/vmguest/vmware/x11 \
 	use/vmguest/kvm/x11; @:
 
-ifeq (,$(filter-out i586 x86_64 aarch64 armh ppc64le riscv64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64 armh loongarch64 ppc64le riscv64,$(ARCH)))
 # NB: only reasonable for X11-bearing images
 # see also use/install2/kvm
 use/vmguest/kvm: use/vmguest; @:
