@@ -26,6 +26,7 @@ usbutils
 acpi
 dmidecode@X86
 dmidecode@aarch64
+dmidecode@loongarch64
 
 apt-repo
 apt-rsync
