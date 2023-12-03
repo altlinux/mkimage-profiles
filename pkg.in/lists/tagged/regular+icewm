@@ -5,6 +5,9 @@ icewm-startup-simple-sound
 xxkb
 icewm-startup-xxkb-tray
 
+mount-tray
+icewm-startup-mount-tray
+
 iftop
 mutt
 elinks
