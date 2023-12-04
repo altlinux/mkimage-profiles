@@ -123,13 +123,6 @@ distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
 	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
 	use/branding/complete use/branding/slideshow/once
 
-# assumes somewhat more experienced user
-distro/.regular-install-x11-full: distro/.regular-install-x11 \
-	use/fonts/otf/adobe use/fonts/otf/mozilla use/fonts/chinese \
-	mixin/desktop-installer use/install2/fs use/efi/shell use/rescue/base
-	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
-	@$(call add,MAIN_PACKAGES,anacron man-whatis usb-modeswitch)
-
 distro/.regular-install-x11-systemd: distro/.regular-install-x11 \
 	use/x11/lightdm/gtk +systemd +systemd-optimal
 	@$(call add,THE_PACKAGES,bluez)
