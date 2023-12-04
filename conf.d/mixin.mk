@@ -158,10 +158,6 @@ mixin/regular-xfce: mixin/xfce-base use/domain-client +pipewire
 	@$(call add,THE_PACKAGES,pavucontrol xscreensaver-frontend)
 	@$(call add,THE_PACKAGES,xfce4-pulseaudio-plugin xfce-polkit)
 
-mixin/regular-xfce-sysv: mixin/xfce-base +net-eth \
-	use/fonts/otf/adobe use/fonts/otf/mozilla
-	@$(call add,THE_LISTS,xfce-sysv)
-
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 

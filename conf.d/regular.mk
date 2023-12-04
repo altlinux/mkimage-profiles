@@ -168,17 +168,8 @@ endif
 distro/regular-xfce-install: distro/.regular-install-x11-systemd \
 	mixin/regular-xfce; @:
 
-distro/regular-xfce-sysv: distro/.regular-gtk-sysv mixin/regular-xfce-sysv
-	@$(call set,KFLAVOURS,std-def)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call set,BOOTLOADER,isolinux)
-endif
-
 distro/regular-gnome-install: distro/.regular-install-x11-systemd mixin/regular-gnome \
 	use/kernel/latest +plymouth; @:
-
-distro/regular-xfce-sysv-install: distro/.regular-install-x11-full \
-	mixin/regular-xfce-sysv use/init/sysv/polkit use/x11/gdm2.20; @:
 
 distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
 
