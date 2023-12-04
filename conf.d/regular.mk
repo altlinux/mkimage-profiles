@@ -177,7 +177,9 @@ distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 	use/kernel/latest +plymouth use/browser/epiphany \
 	use/live-install/vnc/listen; @:
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+ifeq (sisyphus,$(BRANCH))
 	@$(call set,KFLAVOURS,std-def un-def)
+endif
 endif
 
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
