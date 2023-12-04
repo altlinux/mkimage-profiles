@@ -8,3 +8,6 @@ gear-remotes-utils
 gear-uupdate
 
 mkimage-profiles
+
+# Useful programs
+color-prompt-and-man
