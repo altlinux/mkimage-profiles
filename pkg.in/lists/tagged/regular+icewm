@@ -9,7 +9,7 @@ mount-tray
 icewm-startup-mount-tray
 
 iftop
-mutt
+#mutt
 elinks
 lftp
 
