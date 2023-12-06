@@ -46,7 +46,7 @@ endif
 
 # WM base target
 distro/.regular-wm: distro/.regular-x11 \
-	mixin/regular-desktop \
+	mixin/regular-desktop use/vmguest/dri \
 	use/live/rw +live-installer
 	@$(call set,GRUB_DEFAULT,live)
 	@$(call set,SYSLINUX_DEFAULT,live)
