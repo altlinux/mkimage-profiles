@@ -28,6 +28,7 @@ use/vmguest/vbox: use/vmguest; @:
 use/vmguest/vbox/x11: use/vmguest/vbox
 	@$(call add,THE_KMODULES,drm)
 	@$(call add,THE_PACKAGES,virtualbox-guest-additions)
+	@$(call add,THE_PACKAGES,xorg-dri-vmwgfx)
 
 # see also use/install2/vmware
 use/vmguest/vmware:
