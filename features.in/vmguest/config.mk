@@ -32,8 +32,6 @@ use/vmguest/vbox/x11: use/vmguest/vbox
 
 # see also use/install2/vmware
 use/vmguest/vmware:
-	@$(call add,THE_KMODULES,vmware)
-	@$(call add,THE_KMODULES,scsi)	# mptspi.ko
 	@$(call add,THE_PACKAGES,open-vm-tools)
 
 use/vmguest/vmware/x11: use/vmguest/vmware
