@@ -108,6 +108,7 @@ else
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
+	@$(call add,INSTALL2_PACKAGES,xorg-dri-vmwgfx xorg-dri-virtio)
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
