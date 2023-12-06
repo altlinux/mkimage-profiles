@@ -194,7 +194,7 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
 	use/mediacheck use/stage2/kms use/kernel/latest +wireless
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
-	@$(call add,RESCUE_LISTS,$(call tags,base bench))
+#	@$(call add,RESCUE_LISTS,$(call tags,base bench))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
 distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
