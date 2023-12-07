@@ -1,0 +1,27 @@
+#!/bin/sh -efux
+
+adjtime_file=/etc/adjtime
+sysconfigclock_file=/etc/sysconfig/clock
+
+TIME_UTC="${GLOBAL_TIME_UTC:-}"
+[ "$TIME_UTC" = 0 ] || TIME_UTC=1
+
+if [ -s "$sysconfigclock_file" ]; then
+    if [ "$TIME_UTC" = 1 ]; then
+        sed -i 's/^UTC=.*/UTC=true/' "$sysconfigclock_file"
+    else
+        sed -i 's/^UTC=.*/UTC=false/' "$sysconfigclock_file"
+    fi
+fi
+
+if [ "$TIME_UTC" = 1 ]; then
+    ADJTIME=UTC
+else
+    ADJTIME=LOCAL
+fi
+
+cat > "$adjtime_file" <<EOF
+0.0 0 0
+0
+$ADJTIME
+EOF
