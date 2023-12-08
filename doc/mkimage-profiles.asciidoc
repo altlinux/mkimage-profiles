@@ -78,6 +78,8 @@ include::../features.in/cleanup/README[]
 
 include::../features.in/control/README[]
 
+include::../features.in/datetime/README[]
+
 include::../features.in/deflogin/README[]
 
 include::../features.in/dev/README[]
