@@ -48,5 +48,7 @@ use/vmguest/vmware/x11: use/vmguest/vmware use/vmguest/vmware/dri
 	@$(call add,THE_PACKAGES,open-vm-tools-desktop)
 else
 use/vmguest/vbox use/vmguest/vbox/x11 \
+use/vmguest/vbox/dri \
+use/vmguest/vmware/dri \
 use/vmguest/vmware use/vmguest/vmware/x11: ; @:
 endif
