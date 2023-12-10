@@ -108,7 +108,12 @@ else
 	@$(call add,CLEANUP_PACKAGES,bridge-utils)
 endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
-	@$(call add,INSTALL2_PACKAGES,xorg-dri-vmwgfx xorg-dri-virtio)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call add,INSTALL2_PACKAGES,xorg-dri-vmwgfx)
+endif
+ifneq (,$(filter-out e2k%,$(ARCH)))
+	@$(call add,INSTALL2_PACKAGES,xorg-dri-virtio)
+endif
 
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
