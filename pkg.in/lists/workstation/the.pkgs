@@ -47,6 +47,8 @@ recoll-extras
 
 onboard
 
+timeshift
+
 # compat libs
 libusb-compat@IA32
 
