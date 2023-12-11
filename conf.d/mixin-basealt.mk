@@ -2,7 +2,7 @@
 
 mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 40-virtualization \
-	raccess agents emulators ganttproject gnome-peer-to-peer graphics-editing \
+	raccess agents alterator-web emulators ganttproject gnome-peer-to-peer graphics-editing \
 	libreoffice mate-usershare pidgin scanning scribus \
 	sound-editing thunderbird freeipa-client gpolicy)
 
@@ -61,6 +61,7 @@ endif
 	@$(call add,SERVICES_ENABLE,cups cups-browsed smb nmb httpd2 bluetoothd libvirtd)
 	@$(call add,SERVICES_ENABLE,crond)
 	@$(call add,SERVICES_ENABLE,fstrim.timer)
+	@$(call add,SERVICES_ENABLE,ahttpd)	# in case it gets installed
 	@$(call add,SERVICES_DISABLE,powertop bridge gpm)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,systemd-userdbd.service)
 	@$(call add,SYSTEMD_SERVICES_DISABLE,systemd-userdbd.socket)
