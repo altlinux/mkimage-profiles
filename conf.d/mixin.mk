@@ -88,9 +88,6 @@ mixin/regular-desktop: +alsa +nm-native \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)
-ifeq (p10,$(BRANCH))
-	@$(call add,THE_PACKAGES,polkit-rule-admin-root)
-endif
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_BRANDING,notes)
