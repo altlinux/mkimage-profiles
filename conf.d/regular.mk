@@ -50,6 +50,7 @@ distro/.regular-wm: distro/.regular-x11 \
 	use/live/rw +live-installer
 	@$(call set,GRUB_DEFAULT,live)
 	@$(call set,SYSLINUX_DEFAULT,live)
+	@$(call add,THE_PACKAGES,xorg-drv-vmware) # for virtualbox with VMSVGA
 
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
