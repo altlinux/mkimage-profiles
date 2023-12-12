@@ -23,7 +23,8 @@ use/vmguest/kvm/dri: use/vmguest
 use/vmguest/kvm/x11: use/vmguest/kvm use/vmguest/kvm/dri
 	@$(call add,THE_PACKAGES,spice-vdagent xorg-drv-qxl xorg-drv-spiceqxl)
 else
-use/vmguest/kvm%: ; @:
+use/vmguest/kvm: ; @:
+use/vmguest/kvm/%: ; @:
 endif
 
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
@@ -47,5 +48,6 @@ use/vmguest/vmware/x11: use/vmguest/vmware use/vmguest/vmware/dri
 	@$(call add,THE_PACKAGES,xorg-drv-vmware xorg-drv-vmmouse)
 	@$(call add,THE_PACKAGES,open-vm-tools-desktop)
 else
-use/vmguest/vbox% use/vmguest/vmware%: ; @:
+use/vmguest/vbox use/vmguest/vmware: ; @:
+use/vmguest/vbox/% use/vmguest/vmware/%: ; @:
 endif
