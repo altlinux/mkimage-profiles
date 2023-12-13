@@ -76,6 +76,7 @@ alterator-root
 alterator-services
 alterator-sslkey
 alterator-sysconfig
+alterator-sysinfo
 alterator-update-kernel
 alterator-updates
 alterator-users
