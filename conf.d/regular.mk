@@ -180,7 +180,8 @@ distro/regular-xfce-install: distro/.regular-install-x11-systemd \
 distro/regular-gnome-install: distro/.regular-install-x11-systemd mixin/regular-gnome \
 	use/kernel/latest +plymouth; @:
 
-distro/regular-lxde: distro/.regular-gtk mixin/regular-lxde; @:
+distro/regular-lxde: distro/.regular-desktop use/x11/lightdm/gtk \
+	mixin/regular-lxde; @:
 
 distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
 
