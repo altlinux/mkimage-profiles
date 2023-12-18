@@ -1,12 +1,17 @@
 # regular build/usage images
 ifeq (distro,$(IMAGE_CLASS))
 
+distro/.regular-initrd:: use/stage2/ata use/stage2/fs use/stage2/hid \
+	use/stage2/mmc use/stage2/scsi use/stage2/usb; @:
+
+ifneq (,$(filter-out i586,$(ARCH)))
+distro/.regular-initrd:: use/stage2/net use/stage2/net-nfs use/stage2/cifs \
+	use/stage2/md use/stage2/rtc use/stage2/drm use/stage2/sbc ; @:
+endif
+
 # common ground (really lowlevel)
 distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
-	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
-	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
-	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
-	use/stage2/drm use/tty
+	distro/.regular-initrd use/tty
 	@$(call try,SAVE_PROFILE,yes)
 	@$(call add,STAGE1_PACKAGES,firmware-linux)
 	@$(call add,STAGE1_KMODULES,drm)
