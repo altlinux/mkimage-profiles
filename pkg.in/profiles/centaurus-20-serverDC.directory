@@ -2,4 +2,4 @@
 Type=Directory
 Name=Samba-DC Server (AD controller)
 Name[ru_RU]=Сервер Samba-DC (контроллер AD)
-X-Alterator-Groups=centaurus/dns-server-a centaurus/mysql-server-a centaurus/http-server centaurus/dns-server centaurus/bacula-server centaurus/kvm-server centaurus/sambaDC centaurus/admc centaurus/gptemplates centaurus/cups centaurus/systemd-networkd
+X-Alterator-Groups=centaurus/dns-server-a centaurus/mysql-server-a centaurus/http-server centaurus/dns-server centaurus/bacula-server centaurus/kvm-server centaurus/sambaDC centaurus/gptemplates centaurus/cups centaurus/systemd-networkd
