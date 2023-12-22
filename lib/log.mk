@@ -26,7 +26,7 @@ SHELL += -x
 endif
 ifeq (1,$(STDOUT))
 LOG = 2>&1 | tee -a $(BUILDLOG)
-LOG_STDERR = $(LOG)
+LOG_STDERR = 2> >(tee -a $(BUILDLOG) >&2) 1>>$(BUILDLOG)
 else
 LOG = >>$(BUILDLOG) 2>&1
 LOG_STDERR = 2> >(tee -a $(BUILDLOG) >&2) 1>>$(BUILDLOG)
