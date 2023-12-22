@@ -1,4 +1,5 @@
 use/datetime:
 	@$(call add_feature)
-	@$(call try,TIME_UTC,1)
+	@$(call add,THE_PACKAGES,alterator-datetime-functions)
 	@$(call xport,TIME_UTC)
+	@$(call xport,TIME_ZONE)
