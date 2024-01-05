@@ -100,7 +100,7 @@ use/live/suspend: use/live; @:
 endif
 
 # for kiosks
-use/live/runapp: use/live;
+use/live/runapp: use/live
 	@$(call add,LIVE_PACKAGES,livecd-runapp)
 	@$(call xport,LIVE_RUNAPP_BINARY)
 
