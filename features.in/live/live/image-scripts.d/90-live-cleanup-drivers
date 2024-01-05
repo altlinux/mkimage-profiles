@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 # don't cripple the image to be copied over
-[ -n "$GLOBAL_LIVE_INSTALL"] || \
+[ -n "$GLOBAL_LIVE_INSTALL" ] || \
 	[ -x /usr/sbin/live-install ] || \
 	[ -x /usr/sbin/livecd-install ] && exit 0
 
