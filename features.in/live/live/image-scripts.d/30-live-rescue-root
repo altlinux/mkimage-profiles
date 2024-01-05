@@ -1,0 +1,60 @@
+#!/bin/sh -efu
+
+# don't cripple the image to be copied over
+[ -n "${GLOBAL_LIVE_INSTALL-}" ] || \
+	[ -x /usr/sbin/live-install ] || \
+	[ -x /usr/sbin/livecd-install ] && exit 0
+
+[ -x /sbin/rescue-launcher ] || [ -x /usr/bin/rescue-shell-show ] || exit 0
+
+# for systemd only
+rpm -q systemd-sysvinit >/dev/null 2>&1 || exit 0
+
+# disable issue "Hello friend, say '$LIVECD_LOGIN' to log in at"
+[ ! -f /etc/sysconfig/livecd-user ] ||
+    sed -i 's/^#LIVECD_NO_ISSUE=1/LIVECD_NO_ISSUE=1/' /etc/sysconfig/livecd-user
+
+mkdir -p /etc/systemd/system/getty@.service.d
+cat>>/etc/systemd/system/getty@.service.d/override.conf<<'EOF'
+[Service]
+Type=simple
+ExecStart=
+ExecStart=-agetty -a root --noclear - $TERM
+EOF
+
+mkdir -p /etc/systemd/system/live-rescue.target.d
+cat>>/etc/systemd/system/live-rescue.target<<'EOF'
+[Unit]
+Description=Live Rescue System
+Documentation=man:systemd.special(7)
+Requires=basic.target network.target getty.target
+Conflicts=rescue.service rescue.target multi-user.target
+Conflicts=altlinux-first_time.service vconsole-setup-kludge@tty1.service
+Before=altlinux-first_time.service vconsole-setup-kludge@.service
+After=basic.target rescue.service rescue.target multi-user.target
+After=getty.target
+AllowIsolate=yes
+EOF
+
+cat>>/root/.bash_profile<<'EOF'
+if grep -qsv 'init=' /proc/cmdline; then
+
+EOF
+
+[ -x /sbin/rescue-launcher ] && cat>>/root/.bash_profile<<'EOF'
+	if grep -wqs autorun /proc/cmdline; then
+		if [ -x /sbin/rescue-launcher ]; then
+			if [ "$(tty 2>/dev/null)" = "/dev/tty1" ]; then
+				/sbin/rescue-launcher "$@"
+			fi
+		fi
+	fi
+
+EOF
+
+[ -x /usr/bin/rescue-shell-show ] && cat>>/root/.bash_profile<<'EOF'
+rescue-shell-show
+
+EOF
+
+echo "fi" >> /root/.bash_profile

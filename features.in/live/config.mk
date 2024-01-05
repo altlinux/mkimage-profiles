@@ -99,6 +99,11 @@ else
 use/live/suspend: use/live; @:
 endif
 
+# live as Rescue
+use/live/rescue: use/live use/grub/live-rescue.cfg use/syslinux/live-rescue.cfg
+	@$(call add,LIVE_PACKAGES,startup-rescue)
+	@$(call add,LIVE_LISTS,tagged/base+rescue)
+
 # for kiosks
 use/live/runapp: use/live
 	@$(call add,LIVE_PACKAGES,livecd-runapp)
