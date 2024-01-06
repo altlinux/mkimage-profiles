@@ -18,6 +18,6 @@ use/sound/pulse: use/sound
 
 use/sound/pipewire: use/sound
 	@$(call set,THE_SOUND,sound/pipewire)
-	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,pipewire pipewire-pulse)
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,pipewire.socket pipewire-pulse.socket)
 	@$(call add,THE_PACKAGES,wireplumber)
-	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,wireplumber)
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,wireplumber.service)
