@@ -2,6 +2,7 @@ kde5-printing@META
 
 cups
 cups-ppd
+gutenprint-cups-ppds
 samba-client-cups
 printer-drivers-base
 printer-drivers-X11
