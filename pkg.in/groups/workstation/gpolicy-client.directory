@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Client (means of application)
+Name[ru_RU]=Клиент (средства применения)
+X-Alterator-PackageList=workstation/gpolicy-client
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/25-gpolicy

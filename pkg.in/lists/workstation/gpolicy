@@ -1,11 +1,3 @@
-admc
-alterator-gpupdate
-gpupdate
 local-policy
-admx-basealt
 samba-dc-common
-admx-firefox
-admx-chromium
-admx-msi-setup
-gpui
 krb5-ticket-watcher

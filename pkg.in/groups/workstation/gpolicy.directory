@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Group policy managing tools
-Name[ru_RU]=Инструменты управления групповыми политиками
-X-Alterator-PackageList=workstation/gpolicy
-X-Alterator-Required=no
-X-Alterator-Parent=workstation/20-networking

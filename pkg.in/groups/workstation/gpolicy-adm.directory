@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Administration tools
+Name[ru_RU]=Инструменты администрирования
+X-Alterator-PackageList=workstation/gpolicy-adm
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/25-gpolicy

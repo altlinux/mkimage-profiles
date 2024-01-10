@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Group policies
+Name[ru_RU]=Групповые политики
+X-Alterator-PackageList=workstation/gpolicy
+X-Alterator-Required=no

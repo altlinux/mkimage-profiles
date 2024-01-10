@@ -1,10 +1,10 @@
 # shared across all supported arches, can be complemented per arch
 
 mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
-	10-office 20-networking 30-multimedia 40-virtualization \
+	10-office 20-networking 25-gpolicy 30-multimedia 40-virtualization \
 	raccess agents alterator-web emulators ganttproject gnome-peer-to-peer graphics-editing \
 	libreoffice mate-usershare pidgin scanning scribus \
-	sound-editing thunderbird freeipa-client gpolicy)
+	sound-editing thunderbird freeipa-client gpolicy-adm gpolicy-client gpolicy-templates)
 
 mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/kernel/net use/l10n/default/ru_RU \
