@@ -164,7 +164,8 @@ distro/regular-gnustep-sysv: distro/regular-wmaker-sysv \
 	mixin/regular-gnustep; @:
 
 distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
-	mixin/regular-wmaker mixin/regular-gnustep; @:
+	mixin/regular-wmaker mixin/regular-gnustep
+	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
