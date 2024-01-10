@@ -159,7 +159,7 @@ distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
 distro/regular-gnustep-sysv: distro/regular-wmaker-sysv \
 	mixin/regular-gnustep; @:
 
-distro/regular-gnustep: distro/.regular-wm +systemd \
+distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-wmaker mixin/regular-gnustep; @:
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
