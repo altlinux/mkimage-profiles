@@ -10,6 +10,7 @@ hplip-sane
 libsane-gphoto2
 sane-airscan
 imagescan-sane
+ipp-usb
 iscan-free
 iscan-data
 firmware-iscan
