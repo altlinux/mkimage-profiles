@@ -52,3 +52,8 @@ use/live-install/vnc/full: use/live-install/vnc/listen use/live-install/vnc/conn
 # prepare bootloader for software suspend (see also live)
 use/live-install/suspend:
 	@$(call add,BASE_PACKAGES,installer-feature-desktop-suspend-stage2)
+
+use/live-install/oem: use/live-install
+	@$(call add,LIVE_PACKAGES,installer-feature-oem-stage2)
+	@$(call add,MAIN_PACKAGES,alterator-setup)
+	@$(call add,MAIN_PACKAGES,installer-feature-alterator-setup-stage2)
