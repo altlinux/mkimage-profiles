@@ -144,8 +144,8 @@ distro/.regular-install-x11-systemd: distro/.regular-install-x11 \
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
-distro/regular-icewm: distro/.regular-gtk mixin/regular-icewm \
-	use/kernel/latest
+distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
+	mixin/regular-icewm use/kernel/latest
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
 
 distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
