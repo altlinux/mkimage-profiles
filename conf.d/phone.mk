@@ -53,5 +53,9 @@ mixin/pinephone: use/firmware use/bootloader/uboot use/tty/S2 \
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/pinephone-phosh: vm/.phosh mixin/pinephone +plymouth; @:
+
+vm/mp-phosh: vm/phosh
+	@$(call set,KFLAVOURS,mp)
+	@$(call set,LOCALE,en_US)
 endif
 endif
