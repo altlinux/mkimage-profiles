@@ -52,6 +52,7 @@ mdadm
 mtools
 ntfs-3g
 sfdisk
+fdisk
 usbutils
 xfsprogs
 smartmontools
