@@ -1,5 +1,7 @@
 
 pam0_kwallet5
+pam_fprintd
+fprintd
 
 catdoc
 gdb
