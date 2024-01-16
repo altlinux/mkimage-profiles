@@ -117,7 +117,7 @@ mixin/kworkstation-install-deps: \
 
 mixin/kworkstation-install-opts:
 	@$(call set,GRUB_DEFAULT,harddisk)
-	@$(call set,INSTALLER,centaurus)
+	@$(call set,INSTALLER,kworkstation)
 	@$(call add,STAGE1_MODLISTS,stage2-ntfs)
 	@$(call add,STAGE2_KMODULES,drm-nouveau)
 	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
