@@ -41,8 +41,7 @@ endif
 endif
 
 ifeq (aarch64,$(ARCH))
-# TODO: devicetree ($root)/boot/dtb/rockchip/rk3399-pinephone-pro.dtb
-mixin/pinephone: use/firmware use/bootloader/uboot use/tty/S2 \
+mixin/pine: use/firmware use/bootloader/uboot use/tty/S2 \
 	 use/phone/ttyescape +pipewire
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,UBOOT_TIMEOUT,5)
@@ -51,7 +50,7 @@ mixin/pinephone: use/firmware use/bootloader/uboot use/tty/S2 \
 	@$(call add,THE_PACKAGES,udev-rules-modem-power)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/pinephone-phosh: vm/.phosh mixin/pinephone +plymouth; @:
+vm/pine-phosh: vm/.phosh mixin/pine +plymouth; @:
 
 vm/mp-phosh: vm/phosh
 	@$(call set,KFLAVOURS,mp)
