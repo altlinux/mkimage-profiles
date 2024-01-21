@@ -49,7 +49,6 @@ mixin/pinephone: use/firmware use/bootloader/uboot use/tty/S2 \
 	@$(call set,KFLAVOURS,pine)
 	@$(call add,THE_PACKAGES,eg25-manager)
 	@$(call add,THE_PACKAGES,udev-rules-modem-power)
-	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,eg25-manager.service)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/pinephone-phosh: vm/.phosh mixin/pinephone +plymouth; @:
