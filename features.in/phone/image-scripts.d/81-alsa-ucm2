@@ -1,6 +1,0 @@
-#!/bin/sh -efu
-# Workaround is needed due to bug in old tow-boot versions
-# (until next release):
-# https://github.com/Tow-Boot/Tow-Boot/issues/171
-
-ln -s "../../PinePhonePro/PINE64-PinePhonePro-.conf" "/usr/share/alsa/ucm2/conf.d/simple-card/simple-card.conf"

@@ -6,14 +6,24 @@ ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
 	@$(call add,BASE_BOOTARGS,psi=1)
 endif
 
+# enables tty on the phone using a hotkey
+mixin/ttyescape: use/services; @:
+ifneq (,$(filter-out riscv64,$(ARCH)))
+	@$(call add,THE_PACKAGES,hkdm ttyescape)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,hkdm)
+endif
+
 mixin/phone-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs \
-	use/drm
+	use/drm use/firmware mixin/ttyescape +plymouth +pipewire
 	@$(call add,THE_BRANDING,notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
 	@$(call add,THE_PACKAGES,mesa-dri-drivers)
+	@$(call add,THE_PACKAGES,eg25-manager)
+	@$(call add,THE_PACKAGES,udev-rules-modem-power)
+	@$(call set,UBOOT_TIMEOUT,5)
 	@$(call add,USERS,altlinux:271828:1:1)
 	@$(call set,LOCALES,ru_RU en_US)
 	@$(call set,LOCALE,ru_RU)
@@ -30,9 +40,9 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/phone-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google
 	@$(call add,THE_LISTS,mobile/apps)
+	@$(call add,THE_PACKAGES,phosh-background-settings)
 
-vm/phosh: vm/.phosh use/tty/S0 use/uboot use/phone/ttyescape +efi \
-	use/firmware +plymouth +pipewire
+vm/phosh: vm/.phosh use/tty/S0 use/uboot +efi
 	@$(call set,KFLAVOURS,un-def)
 ifeq (aarch64,$(ARCH))
 	@$(call set,VM_PARTTABLE,msdos)
@@ -41,16 +51,12 @@ endif
 endif
 
 ifeq (aarch64,$(ARCH))
-mixin/pine: use/firmware use/bootloader/uboot use/tty/S2 \
-	 use/phone/ttyescape +pipewire
+mixin/pine: use/bootloader/uboot use/tty/S2
 	@$(call set,EFI_BOOTLOADER,)
-	@$(call set,UBOOT_TIMEOUT,5)
 	@$(call set,KFLAVOURS,pine)
-	@$(call add,THE_PACKAGES,eg25-manager)
-	@$(call add,THE_PACKAGES,udev-rules-modem-power)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/pine-phosh: vm/.phosh mixin/pine +plymouth; @:
+vm/pine-phosh: vm/.phosh mixin/pine; @:
 
 vm/mp-phosh: vm/phosh
 	@$(call set,KFLAVOURS,mp)
