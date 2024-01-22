@@ -20,18 +20,12 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/docs/manual use/docs/indexhtml \
 	use/browser/firefox use/browser/firefox/esr \
 	use/cleanup/live-no-cleanupdb
-ifeq (,$(filter-out x86_64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-modules-un-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-un-def)
 else
-ifeq (,$(filter-out aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,rpi-un std-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-modules-rpi-un)
-	@$(call add,MAIN_PACKAGES,kernel-headers-rpi-un)
-else
 	@$(call set,KFLAVOURS,std-def)
-endif
 endif
 	@$(call add,MAIN_PACKAGES,kernel-headers-modules-std-def)
 	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
