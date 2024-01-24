@@ -6,57 +6,27 @@ pinentry-gnome3
 gcr
 pinentry-qt5-
 
-# It is back!
 mate-default
-# FIXME: drop this list, mate-default should be enough
-# mate-default:
+
+mate-utils
 zenity
-mate-polkit
-mate-settings-daemon
-mate-session
-mate-panel
-mate-control-center
-mate-desktop
-mate-window-manager
 yelp
-mate-user-guide
-mate-menus
-mate-system-monitor
 gucharmap
-mate-calc
-mate-file-manager
-mate-terminal
-mate-file-manager-archiver
-mate-text-editor
-mate-icon-theme
-mate-themes
 libgtk2-engine-adwaita
-mate-screensaver
 gnome-keyring
 seahorse
 gvfs-backends
 fuse-gvfs
-mate-document-viewer 
+dconf-editor
+gst-plugins-good1.0
+parcellite
+mate-menu-editor
+mate-document-viewer
 mate-document-viewer-thumbnailer
 mate-document-viewer-caja
 mate-document-viewer-djvu
 mate-document-viewer-pixbuf
 mate-document-viewer-xps
-mate-applets
-mate-utils
-mate-system-log
-mate-screenshot
-mate-dictionary
-mate-search-tool
-mate-disk-usage-analyzer
-dconf-editor
-mate-notification-daemon
-mate-media
-gst-plugins-good1.0
-mate-image-viewer
-parcellite
-mate-menu-editor
-mate-power-manager
 blueberry
 udev-rules-rfkill-uaccess
 mate-file-manager-sendto
@@ -64,7 +34,7 @@ mate-file-manager-open-terminal
 mate-file-manager-image-converter
 mate-file-manager-extensions
 mate-file-manager-wallpaper
-mate-backgrounds
+mate-applets
 
 pam_gnome-keyring
 
