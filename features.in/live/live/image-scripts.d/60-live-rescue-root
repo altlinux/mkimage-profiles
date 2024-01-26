@@ -11,8 +11,8 @@
 rpm -q systemd-sysvinit >/dev/null 2>&1 || exit 0
 
 # disable issue "Hello friend, say '$LIVECD_LOGIN' to log in at"
-[ ! -f /etc/sysconfig/livecd-user ] ||
-    sed -i 's/^#LIVECD_NO_ISSUE=1/LIVECD_NO_ISSUE=1/' /etc/sysconfig/livecd-user
+[ ! -f /etc/sysconfig/livecd-user.conf ] ||
+    echo 'LIVECD_NO_ISSUE=1' >> /etc/sysconfig/livecd-user.conf
 
 mkdir -p /etc/systemd/system/getty@.service.d
 cat>>/etc/systemd/system/getty@.service.d/override.conf<<'EOF'
