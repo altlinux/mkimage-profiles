@@ -15,6 +15,7 @@ udev
 udev-extras
 pciutils
 su
+sudo
 
 make-initrd
 make-initrd-lvm
