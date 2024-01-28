@@ -12,6 +12,7 @@ mixin/education: \
 	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
+    use/install2/oem \
 	use/browser/chromium
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,indexhtml)
