@@ -65,7 +65,6 @@ appinstall@X86
 gnome-software
 gnome-software-disable-updates
 packagekit
-apt-conf-r7@x86_64
 
 altmediawriter
 

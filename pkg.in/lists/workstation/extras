@@ -38,3 +38,6 @@ state-change-notify-postfix
 vlock
 
 mate-screensaver-screenkeyboard
+
+# For install R7 applications
+apt-conf-r7@x86_64
