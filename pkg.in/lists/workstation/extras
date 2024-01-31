@@ -18,6 +18,9 @@ alterator-secsetup
 
 chromium-gost@x86_64,aarch64
 
+# Yandex browser
+yandex-browser-stable@x86_64
+
 # gostcrypo repo component is needed
 openvpn-gostcrypto openvpn-plugins-gostcrypto
 alterator-openvpn-server
