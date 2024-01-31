@@ -76,11 +76,11 @@ postgresql14-1C-contrib
 mariadb-server
 mariadb@META
 
-php8.0-soap
-php8.0-calendar
-php8.0-sockets
-php8.0-pgsql
-php8.0-ldap
+php8.2-soap
+php8.2-calendar
+php8.2-sockets
+php8.2-pgsql
+php8.2-ldap
 
 xprobe2
 
