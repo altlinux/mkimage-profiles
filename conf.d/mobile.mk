@@ -38,7 +38,8 @@ mixin/phosh: use/services +nm-gtk4 +nm-native
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
-	mixin/waydroid use/fonts/ttf/google
+	mixin/waydroid use/fonts/ttf/google \
+	use/auto-resize
 	@$(call add,THE_LISTS,mobile/apps)
 	@$(call add,THE_PACKAGES,phosh-background-settings)
 
