@@ -5,17 +5,18 @@
 	[ -x /usr/sbin/live-install ] || \
 	[ -x /usr/sbin/livecd-install ] && exit 0
 
-[ -x /sbin/rescue-launcher ] || [ -x /usr/bin/rescue-shell-show ] || exit 0
+which rescue-shell-show >/dev/null 2>&1 || exit 0
 
 # for systemd only
-rpm -q systemd-sysvinit >/dev/null 2>&1 || exit 0
+ls -l /sbin/init |grep -q systemd || exit 0
 
 # disable issue "Hello friend, say '$LIVECD_LOGIN' to log in at"
 [ ! -f /etc/sysconfig/livecd-user.conf ] ||
     echo 'LIVECD_NO_ISSUE=1' >> /etc/sysconfig/livecd-user.conf
 
+# Autologin root to tty's
 mkdir -p /etc/systemd/system/getty@.service.d
-cat>>/etc/systemd/system/getty@.service.d/override.conf<<'EOF'
+cat>>/etc/systemd/system/getty@.service.d/live-rescue.conf<<'EOF'
 [Service]
 Type=simple
 ExecStart=
@@ -37,24 +38,14 @@ AllowIsolate=yes
 EOF
 
 cat>>/root/.bash_profile<<'EOF'
-if grep -qsv 'init=' /proc/cmdline; then
-
-EOF
-
-[ -x /sbin/rescue-launcher ] && cat>>/root/.bash_profile<<'EOF'
+if grep -qs 'systemd.unit=live-rescue.target' /proc/cmdline; then
 	if grep -wqs autorun /proc/cmdline; then
-		if [ -x /sbin/rescue-launcher ]; then
+		if which rescue-launcher >/dev/null 2>&1; then
 			if [ "$(tty 2>/dev/null)" = "/dev/tty1" ]; then
-				/sbin/rescue-launcher "$@"
+				rescue-launcher "$@"
 			fi
 		fi
 	fi
-
+	which rescue-shell-show >/dev/null 2>&1 && rescue-shell-show
+fi
 EOF
-
-[ -x /usr/bin/rescue-shell-show ] && cat>>/root/.bash_profile<<'EOF'
-rescue-shell-show
-
-EOF
-
-echo "fi" >> /root/.bash_profile
