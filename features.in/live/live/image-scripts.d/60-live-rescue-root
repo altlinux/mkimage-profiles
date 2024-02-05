@@ -23,6 +23,15 @@ ExecStart=
 ExecStart=-agetty -a root --noclear - $TERM
 EOF
 
+# Autologin root to serial tty's
+mkdir -p /etc/systemd/system/serial-getty@.service.d
+cat>>/etc/systemd/system/serial-getty@.service.d/live-rescue.conf<<'EOF'
+[Service]
+Type=simple
+ExecStart=
+ExecStart=-agetty -a root --noclear --keep-baud 115200,57600,38400,9600 - $TERM
+EOF
+
 mkdir -p /etc/systemd/system/live-rescue.target.d
 cat>>/etc/systemd/system/live-rescue.target<<'EOF'
 [Unit]
