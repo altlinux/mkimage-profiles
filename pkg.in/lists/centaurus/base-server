@@ -2,6 +2,8 @@
 anacron
 apt
 apt-repo
+apt-rsync
+apt-https
 glibc-gconv-modules
 glibc-locales
 glibc-nss
