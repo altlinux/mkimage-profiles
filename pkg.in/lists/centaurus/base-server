@@ -69,6 +69,7 @@ sg3_utils
 
 # servers
 openssh-server
+openssh-server-control
 openssh-common
 openssh-blacklist
 postfix
