@@ -1,5 +1,5 @@
 .\" Copyright (C) 2010-2020 Michael Shigorin <mike@altlinux.org>
-.\" Copyright (C) 2020-2021 Anton Midyukov <antohami@altlinux.org>
+.\" Copyright (C) 2020-2024 Anton Midyukov <antohami@altlinux.org>
 .\"
 .\" Documentation for mkimage-profiles project.
 .\"
@@ -17,7 +17,7 @@
 .\" along with this program; if not, write to the Free Software
 .\" Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 .\" 
-.TH "MKIMAGE-PROFILES" "9" "October 2021" "mkimage-profiles @VERSION@" "ALT"
+.TH "MKIMAGE-PROFILES" "mkimage-profiles @VERSION@" "ALT"
 .SH "NAME"
 mkimage-profiles \- ALT distribution family metaprofile
 .SH "SYNOPSIS"
