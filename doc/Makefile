@@ -13,7 +13,6 @@ endif
 
 PROJECT = mkimage-profiles
 TOPLEVEL_DOC = $(PROJECT).asciidoc
-RESOURCE_FILES = /etc/asciidoc
 
 A2X = a2x
 FXC = .fop.xconf
@@ -24,7 +23,7 @@ DEPTH = 3
 # common args (and the source file to process) come last
 XSLT_ARGS = --stringparam toc.max.depth $(DEPTH)
 COMMON_ARGS = -d book -a lang="$L" $(DEST) $(VERBOSE) $(TOPLEVEL_DOC)
-HTML_ARGS = -a data-uri --icons -r $(RESOURCE_FILES) -r . \
+HTML_ARGS = -a data-uri --icons -r . \
 	    --xsltproc-opts='$(XSLT_ARGS)' $(COMMON_ARGS)
 
 # most convenient deliverables
