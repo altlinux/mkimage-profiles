@@ -47,8 +47,7 @@ prep:
 	@if [ -n "$(BUILDDIR)" ]; then mkdir -p "$(BUILDDIR)"; fi
 
 man:
-	@VERSION="$$(sed -rn 's/^Version: ([0-9.]+).*$$/\1/p' \
-		../.gear/mkimage-profiles.spec)"; \
+	@VERSION="$$(cat ../VERSION)"; \
 	sed -e "s,@VERSION@,$$VERSION,g" \
 		< mkimage-profiles.7.in \
 		> mkimage-profiles.7
