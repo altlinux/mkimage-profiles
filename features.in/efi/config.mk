@@ -8,8 +8,6 @@ EFI_LISTS := $(call tags,base efi)
 
 use/efi:
 	@$(call add_feature)
-	@$(call set,MKI_VER_MINIMAL,0.2.12)	# it's official now
-	@$(call set,MKI_VER_OPTIMAL,0.2.17)	# for EFI_BOOTARGS
 	@$(call try,EFI_BOOTLOADER,grub-efi)	# default one
 	@$(call xport,EFI_BOOTLOADER)
 	@$(call add,COMMON_LISTS,$(EFI_LISTS))
