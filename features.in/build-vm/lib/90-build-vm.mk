@@ -120,5 +120,5 @@ run-image-scripts: GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 pack-image: MKI_PACK_RESULTS := tar:$(VM_TARBALL)
 
 all: $(GLOBAL_DEBUG) \
-	build-image copy-subdirs copy-tree run-image-scripts pack-image \
-	convert-image postprocess $(GLOBAL_CLEAN_WORKDIR)
+	build-image copy-subdirs copy-tree run-image-patches run-image-scripts \
+	pack-image convert-image postprocess $(GLOBAL_CLEAN_WORKDIR)

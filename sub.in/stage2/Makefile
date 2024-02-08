@@ -70,8 +70,8 @@ include $(MKIMAGE_PREFIX)/targets.mk
 GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 
 all: |  $(GLOBAL_DEBUG) \
-	build-image run-image-scripts copy-tree run-scripts pack-image \
-	$(GLOBAL_CLEAN_WORKDIR)
+	build-image run-image-patches run-image-scripts copy-tree run-scripts \
+	pack-image $(GLOBAL_CLEAN_WORKDIR)
 
 # dummy
 debug:: ;

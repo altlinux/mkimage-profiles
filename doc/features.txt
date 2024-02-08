@@ -6,6 +6,7 @@
 или запрашивают скрипты, которые могут быть оформлены как:
 
 * scripts.d/ или image-scripts.d/ различных стадий;
+* в виде патчей в image-patches.d/ различных стадий;
 * пакеты installer-feature-*
   (тж. https://www.altlinux.org/Installer/beans).
 

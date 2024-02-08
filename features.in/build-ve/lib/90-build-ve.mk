@@ -25,5 +25,5 @@ IMAGE_PACKAGES_REGEXP = $(THE_PACKAGES_REGEXP) \
                         $(BASE_PACKAGES_REGEXP)
 
 all: $(GLOBAL_DEBUG) \
-	build-image copy-subdirs copy-tree run-image-scripts pack-image \
-	postprocess $(GLOBAL_CLEAN_WORKDIR)
+	build-image copy-subdirs copy-tree run-image-patches run-image-scripts \
+	pack-image postprocess $(GLOBAL_CLEAN_WORKDIR)
