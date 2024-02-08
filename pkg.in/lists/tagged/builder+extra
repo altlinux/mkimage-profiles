@@ -6,6 +6,7 @@ gear
 hasher
 iproute2
 mkimage-profiles
+isomd5sum
 net-tools
 parallel
 pv
