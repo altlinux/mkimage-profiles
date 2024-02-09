@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=PHP 8.2 support
+X-Alterator-PackageList=server/php8.2
+X-Alterator-Required=no
+Name[ru_RU]=Поддержка PHP 8.2
+Categories=Server;Networking

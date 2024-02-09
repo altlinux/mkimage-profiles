@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=PHP 8.1 support
-X-Alterator-PackageList=server/php8.1
-X-Alterator-Required=no
-X-Alterator-Conflicts=server/php8.0
-Name[ru_RU]=Поддержка PHP 8.1
-Categories=Server;Networking
