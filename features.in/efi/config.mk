@@ -14,7 +14,6 @@ use/efi:
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFIVAR_FS)
-	@$(call add,EFI_BOOTARGS,$$(STAGE2_BOOTARGS))
 ifeq (x86_64,$(ARCH))
 	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
 endif

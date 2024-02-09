@@ -76,7 +76,6 @@ distro/.server-v-base: distro/.base distro/.installer \
 	use/stage2/kms \
 	use/server/virt use/docs/license use/docs/manual
 	@$(call add,BASE_LISTS,server-base openssh)
-	@$(call add,EFI_BOOTARGS,lang=ru_RU)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
