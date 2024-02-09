@@ -1,5 +1,5 @@
 zabbix-server-mysql
-zabbix-phpfrontend-apache2-mod_php7
+zabbix-phpfrontend-apache2-mod_php8.2
 zabbix-agent
 
 zabbix-preinstall
@@ -7,10 +7,10 @@ zabbix-preinstall
 MySQL-server
 MySQL-client
 
-php7-gd2
-php7-mbstring
-php7-mysqli
-php7-sockets
+php8.2-gd2
+php8.2-mbstring
+php8.2-mysqli
+php8.2-sockets
 
 postfix
 mailx
