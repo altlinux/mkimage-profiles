@@ -44,6 +44,10 @@ use/stage2/cifs: use/stage2/net-cifs
 use/stage2/net-install: use/stage2/net use/stage2/cifs \
 	use/stage2/net-nfs use/grub/netinstall.cfg; @:
 
+# grub submenu 'Network installation' with stagename live only
+use/stage2/net-install-live: use/stage2/net use/stage2/cifs \
+	use/stage2/net-nfs use/grub/netinstall-live.cfg; @:
+
 # eth0 instead of enp0s3
 use/stage2/net-eth: use/stage2
 	@$(call add,STAGE1_PACKAGES,udev-rule-generator-net)
