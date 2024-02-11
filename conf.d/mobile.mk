@@ -16,7 +16,8 @@ endif
 mixin/mobile-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs \
-	use/drm use/firmware mixin/ttyescape +plymouth +pipewire
+	use/drm use/firmware mixin/ttyescape +plymouth +pipewire \
+	use/services/bluetooth-enable
 	@$(call add,THE_BRANDING,notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
@@ -33,7 +34,6 @@ mixin/mobile-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart 
 mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,THE_LISTS,mobile/phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
-	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call set,DEFAULT_SESSION,phosh)
 
 ifeq (vm,$(IMAGE_CLASS))
