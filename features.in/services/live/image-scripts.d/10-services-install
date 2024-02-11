@@ -1,0 +1,144 @@
+#!/bin/sh
+
+# this script piggybacks service status information
+# into the system to be installed (instead of applying
+# it to rootfs being formed immediately)
+
+# NB: The script is a copy of a similar script from install2,
+# but is executed during a live build if there is an classic
+# installer in it.
+
+[ -x /usr/sbin/install2 ] || exit 0
+
+STATUS=`mktemp`
+CONFDIR=/usr/share/install2
+CHECK_FILES=
+
+. shell-config
+
+switch() {
+	local sname="$1"
+
+	sname="${sname%.service}"
+	sname="${sname%.socket}"
+	sname="${sname%.target}"
+
+	[ -n "$CHECK_FILES" ] && \
+		grep -E -qs "^[[:blank:]]*$sname(.service|.socket|.target)?[[:blank:]]*$" \
+			$CHECK_FILES && return ||:
+
+	# avoid service duplication: drop sevice without unit type
+	[ "$sname" = "$1" ] || shell_config_del "$STATUS" "$sname"
+
+	case "$2" in
+	on|off|enabled|disabled|mask|unmask)
+		shell_config_set "$STATUS" "$1" "$2";;
+	esac
+}
+
+for f in services-on services-off systemd-enabled systemd-disabled; do
+	[ -s "$CONFDIR/$f" ] || continue
+	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
+done
+
+# defaults (most likely features.in ones)
+for i in $GLOBAL_DEFAULT_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour (e.g. via conf.d)
+for i in $GLOBAL_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_SERVICES_DISABLE; do switch $i off; done
+
+# defaults systemd services
+for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_DEFAULT_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
+
+# explicitly specified behaviour systemd services
+for i in $GLOBAL_SYSTEMD_SERVICES_ENABLE;  do switch $i on;  done
+for i in $GLOBAL_SYSTEMD_SERVICES_DISABLE; do switch $i off; done
+
+SERVICES="$GLOBAL_DEFAULT_SERVICES_ENABLE $GLOBAL_DEFAULT_SERVICES_DISABLE"
+SERVICES="$SERVICES $GLOBAL_SERVICES_ENABLE $GLOBAL_SERVICES_DISABLE"
+SERVICES="$SERVICES $GLOBAL_DEFAULT_SYSTEMD_SERVICES_ENABLE $GLOBAL_DEFAULT_SYSTEMD_SERVICES_DISABLE"
+SERVICES="$SERVICES $GLOBAL_SYSTEMD_SERVICES_ENABLE $GLOBAL_SYSTEMD_SERVICES_DISABLE"
+SERVICES="$(echo $SERVICES | tr " " "\n" | sort -u)"
+
+for i in $SERVICES; do
+	onoff="$(shell_config_get "$STATUS" "$i")"
+	[ -n "$onoff" ] || continue
+	echo "$i" >> "$CONFDIR"/services-"$onoff"
+done
+
+if [ -s "$CONFDIR"/services-on ]; then
+	if [ -s "$CONFDIR"/systemd-enabled ] || [ -n "$GLOBAL_SYSTEMD_SERVICES_ENABLE" ]; then
+		cat "$CONFDIR"/services-on >>"$CONFDIR"/systemd-enabled
+		rm "$CONFDIR"/services-on
+	else
+		cp -a "$CONFDIR"/{services-on,systemd-enabled}
+	fi
+fi
+
+if [ -s "$CONFDIR"/services-off ]; then
+	if [ -s "$CONFDIR"/systemd-disabled ] || [ -n "$GLOBAL_SYSTEMD_SERVICES_DISABLE" ]; then
+		cat "$CONFDIR"/services-off >>"$CONFDIR"/systemd-disabled
+		rm "$CONFDIR"/services-off
+	else
+		cp -a "$CONFDIR"/{services-off,systemd-disabled}
+	fi
+fi
+
+rm "$STATUS"
+
+# Mask|Unmask systemd units
+STATUS=`mktemp`
+CHECK_FILES=
+
+for f in systemd-mask systemd-unmask; do
+	[ -s "$CONFDIR/$f" ] || continue
+	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
+done
+
+for i in $GLOBAL_SYSTEMD_SERVICES_MASK;    do switch $i mask;   done
+for i in $GLOBAL_SYSTEMD_SERVICES_UNMASK;  do switch $i unmask; done
+
+SERVICES="$GLOBAL_SYSTEMD_SERVICES_MASK $GLOBAL_SYSTEMD_SERVICES_UNMASK"
+SERVICES="$(echo $SERVICES | tr " " "\n" | sort -u)"
+
+for i in $SERVICES; do
+	maskunmask="$(shell_config_get "$STATUS" "$i")"
+	[ -n "$maskunmask" ] || continue
+	echo "$i" >> "$CONFDIR"/systemd-"$maskunmask"ed
+done
+
+rm "$STATUS"
+
+# Enable|Disable logind services
+STATUS=`mktemp`
+CHECK_FILES=
+
+for f in systemd-user-enabled systemd-user-disabled; do
+	[ -s "$CONFDIR/$f" ] || continue
+	CHECK_FILES="$CHECK_FILES $CONFDIR/$f"
+done
+
+# defaults logind services
+for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i enabled;  done
+for i in $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_DISABLE; do switch $i disabled; done
+
+# explicitly specified behaviour logind services
+for i in $GLOBAL_SYSTEMD_USER_SERVICES_ENABLE;  do switch $i enabled;  done
+for i in $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE; do switch $i disabled; done
+
+SERVICES="$GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_ENABLE $GLOBAL_DEFAULT_SYSTEMD_USER_SERVICES_DISABLE"
+SERVICES="$SERVICES $GLOBAL_SYSTEMD_USER_SERVICES_ENABLE $GLOBAL_SYSTEMD_USER_SERVICES_DISABLE"
+SERVICES="$(echo "$SERVICES" | tr ' ' '\n' | sort -u)"
+
+for i in $SERVICES; do
+	onoff="$(shell_config_get "$STATUS" "$i")"
+	[ -n "$onoff" ] || continue
+	echo "$i" >> "$CONFDIR"/systemd-user-"$onoff"
+done
+
+rm "$STATUS"
+
+:
