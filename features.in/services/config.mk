@@ -23,3 +23,11 @@ use/services/lvm2-disable: use/services
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmetad)
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-lvmpolld)
 	@$(call add,DEFAULT_SERVICES_DISABLE,lvm2-monitor)
+
+use/services/bluetooth-enable: use/services
+	@$(call add,DEFAULT_SERICES_ENABLE,bluetooth)
+	@$(call add,SYSTEMD_USER_SERVICES_ENABLE,obex.service)
+
+use/services/bluetooth-disable: use/services
+	@$(call add,DEFAULT_SERICES_DISABLE,bluetooth)
+	@$(call add,SYSTEMD_USER_SERVICES_DISABLE,obex.service)
