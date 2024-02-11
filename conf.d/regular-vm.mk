@@ -31,10 +31,10 @@ mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/oem/vnc; @:
 
 vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
-	+systemd +systemd-optimal +plymouth
+	+systemd +systemd-optimal +plymouth \
+	use/services/bluetooth-enable
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,THE_PACKAGES,glmark2 glmark2-es2)
-	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 	@$(call try,VM_SIZE,8589934592)
 
 vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \

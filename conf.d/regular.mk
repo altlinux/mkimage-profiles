@@ -69,9 +69,8 @@ endif
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm use/branding/full \
 	use/firmware/laptop +systemd +systemd-optimal +vmguest \
-	use/live-install/oem
+	use/live-install/oem use/services/bluetooth-enable
 	@$(call add,THE_PACKAGES,bluez)
-	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
