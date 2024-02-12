@@ -134,8 +134,8 @@ orca at-spi2-core
 ca-certificates-digital.gov.ru
 chromium-gost
 
-openvpn-gostcrypto
 kde5-display-manager-lightdm
+#openvpn-gostcrypto ### removed from repo
 kde5-network-manager-etcnet
 openssh openssh-clients openssh-askpass-common openssh-server openssh-common openssh-server-control
 systemd-ssh-agent

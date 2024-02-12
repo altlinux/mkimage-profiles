@@ -36,7 +36,7 @@ openssh-clients-gostcrypto openssh-askpass-common-gostcrypto
 openssh-server-gostcrypto openssh-server-control-gostcrypto
 openssh-common-gostcrypto
 #
-openvpn-gostcrypto openvpn-plugins-gostcrypto alterator-openvpn-server
+#openvpn-gostcrypto openvpn-plugins-gostcrypto alterator-openvpn-server ### removed from repo
 #
 alterator-openvpn-server alterator-ca
 #
