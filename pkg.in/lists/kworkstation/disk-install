@@ -50,9 +50,7 @@ alterator-kiosk
 alterator-net-domain
 #
 # KDE
-#kde5-maxi@META
 kde5-kfloppy
-#kde5-telepathy
 # MISC
 dnf
 exim
