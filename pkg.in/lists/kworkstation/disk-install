@@ -54,6 +54,7 @@ alterator-net-domain
 kde5-kfloppy
 #kde5-telepathy
 # MISC
+dnf
 exim
 admc
 vsftpd
