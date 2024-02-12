@@ -7,10 +7,10 @@ catdoc
 gdb
 fuse-cryfs
 libnss-mdns
-nvidia-modprobe
-nvidia-smi
 plasma5-libkscreen-utils
 
+nvidia-modprobe
+nvidia-smi
 libnvidia-encode
 libcuda
 libnvoptix
