@@ -1,6 +1,4 @@
 task-auth-freeipa
-installer-feature-sudo-enable-by-default-stage3
-#installer-feature-sudo-enable-by-default-kde5su-stage3
 kde5-autofs-shares
 krb5-ticket-watcher
 task-auth-ldap-sssd
