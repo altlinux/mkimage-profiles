@@ -9,6 +9,7 @@ use/live-install: use/live use/metadata use/repo/main \
 	@$(call add_feature)
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
+	@$(call add,THE_LISTS,$(call tags,basesystem && !alterator))
 	@$(call add,LIVE_PACKAGES,$$(LIVE_INSTALL_PKG))
 	@$(call add,LIVE_PACKAGES,alterator-postinstall) # for auto install
 	@$(call add,LIVE_PACKAGES,xterm) # for vnc support
