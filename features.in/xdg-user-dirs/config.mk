@@ -1,4 +1,4 @@
-use/xdg-user-dirs: use/control
+use/xdg-user-dirs: use/control use/services
 	@$(call add_feature)
 	@$(call add,CONTROL,xdg-user-dirs:enabled)
 	@$(call add,THE_PACKAGES,xdg-user-dirs)
