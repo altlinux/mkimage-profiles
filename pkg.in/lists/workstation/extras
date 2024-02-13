@@ -40,6 +40,9 @@ systemd-settings-enable-kill-user-processes
 state-change-notify-postfix
 vlock
 
+# It can be useful in rare cases
+lcdtest
+
 mate-screensaver-screenkeyboard
 
 # For install R7 applications
