@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Containers
+Name[ru_RU]=Контейнеры
+X-Alterator-Required=no
+Comment=Container Virtualization
+Comment[ru_RU]=Приложения для управления контейнерной виртуализацией

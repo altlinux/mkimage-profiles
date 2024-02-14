@@ -7,6 +7,9 @@ distro/alt-server: server_groups_primary = $(addprefix centaurus/,\
 ifeq (,$(filter-out x86_64 ppc64le aarch64,$(ARCH)))
 distro/alt-server: server_groups_virtipa = $(addprefix centaurus/,\
 	freeipa-server)
+
+distro/alt-server: server_groups_container = $(addprefix centaurus/,\
+	200-container docker)
 endif
 endif
 
@@ -34,6 +37,7 @@ distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
 	@$(call set,DOCS,alt-server)
 	@$(call add,MAIN_GROUPS,$(server_groups_primary))
 	@$(call add,MAIN_GROUPS,$(server_groups_virtipa))
+	@$(call add,MAIN_GROUPS,$(server_groups_container))
 	@$(call add,MAIN_GROUPS,$(server_groups_desktop))
 	@$(call add,MAIN_GROUPS,$(server_groups_virtualbox))
 	@$(call add,MAIN_LISTS,centaurus/disk-dvd)
