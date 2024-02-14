@@ -1,0 +1,17 @@
+#!/bin/sh
+
+repo_script=/usr/share/install2/postinstall.d/99-online-repo.sh
+
+[ -f "$repo_script" ] || exit 0
+[ -n "$GLOBAL_REPO" ] || exit 0
+
+MIRROR="${GLOBAL_REPO#*/}"	# alt, heanet, kiev, yandex, ...
+
+repo_source="/etc/apt/sources.list.d/$MIRROR.list"
+
+if [ ! -s "$repo_source" ]; then
+	echo "Error: $repo_source does not exist" >&2
+	exit 1
+fi
+
+sed -i "s;repo_source=.*;repo_source=$repo_source;" "$repo_script"
