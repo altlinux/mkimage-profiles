@@ -36,7 +36,7 @@ use/live-install/pkg: use/live-install
 # set up remote repositories within installed system out-of-box
 use/live-install/repo: use/live-install; @:
 ifneq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,BASE_PACKAGES,installer-feature-online-repo)
+	@$(call add,LIVE_PACKAGES,installer-feature-online-repo)
 endif
 
 # this one expects external vncviewer to come
