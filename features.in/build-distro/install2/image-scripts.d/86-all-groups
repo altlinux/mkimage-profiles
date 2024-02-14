@@ -3,6 +3,9 @@
 
 SCRIPT="/usr/share/install2/postinstall.d/86-all-groups"
 
+# the script will be packaged into the installer-common-stage2
+[ ! -x "$SCRIPT" ] || exit 0
+
 cat > "$SCRIPT" << EOF
 #!/bin/sh -efu
 
