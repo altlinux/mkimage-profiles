@@ -1,0 +1,6 @@
+#!/bin/sh
+# setup control(8) states for the installed system
+
+[ -z "$GLOBAL_CONTROL" ] || [ ! -x /usr/sbin/install2 ] ||
+	echo "$GLOBAL_CONTROL" |
+		tr ' :' '\n ' > /usr/share/install2/control
