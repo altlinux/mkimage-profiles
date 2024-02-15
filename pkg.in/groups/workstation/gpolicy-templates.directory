@@ -5,4 +5,4 @@ Name=Group policy templates
 Name[ru_RU]=Шаблоны групповых политик
 X-Alterator-PackageList=workstation/gpolicy-templates
 X-Alterator-Required=no
-X-Alterator-Parent=workstation/25-gpolicy
+X-Alterator-Parent=workstation/35-gpolicy

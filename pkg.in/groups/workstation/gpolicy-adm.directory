@@ -5,4 +5,4 @@ Name=Administration tools
 Name[ru_RU]=Инструменты администрирования
 X-Alterator-PackageList=workstation/gpolicy-adm
 X-Alterator-Required=no
-X-Alterator-Parent=workstation/25-gpolicy
+X-Alterator-Parent=workstation/35-gpolicy
