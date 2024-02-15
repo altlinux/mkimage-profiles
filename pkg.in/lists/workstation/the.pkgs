@@ -12,6 +12,8 @@ lsb-release
 libnss-role
 alterator-roles-common
 man-pages
+man-pages-ru
+man-pages-ru-extra
 mdadm
 make-initrd-mdadm
 alterator-quota
