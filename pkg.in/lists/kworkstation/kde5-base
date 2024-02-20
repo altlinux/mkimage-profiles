@@ -89,7 +89,7 @@ pciutils
 pcmciautils
 pinfo
 pm-utils
-polkit-rule-admin-root
+#polkit-rule-admin-root
 power-profiles-daemon
 quota
 rpminstall
