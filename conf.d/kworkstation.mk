@@ -27,7 +27,7 @@ mixin/kworkstation-common-deps: \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/alternatives/xvt/konsole \
-	+wireless +pulse +plymouth +systemd-optimal +wireless +vmguest +efi +nm \
+	+wireless +pipewire +plymouth +systemd-optimal +wireless +vmguest +efi +nm \
 	use/stage2/kms/nvidia
 
 mixin/kworkstation-common-opts:
@@ -163,7 +163,6 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_LISTS,$(call tags,rescue x11))
 	@$(call add,LIVE_LISTS,$(call tags,rescue extra))
 	@$(call add,LIVE_LISTS,$(call tags,rescue crypto))
-	@$(call add,LIVE_LISTS,sound/pulseaudio)
 	@$(call add,LIVE_LISTS,kworkstation/live-rescue)
 	@$(call add,LIVE_LISTS,kworkstation/printing)
 	@$(call add,LIVE_LISTS,kworkstation/scanning)
