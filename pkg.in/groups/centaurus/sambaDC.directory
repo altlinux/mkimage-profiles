@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=SambaDC Server (AD controller)
+Name=Samba DC Server (AD controller)
 X-Alterator-PackageList=centaurus/sambaDC
 X-Alterator-Required=no
 X-Alterator-Parent=centaurus/20-server-apps
 X-Alterator-Conflicts=centaurus/freeipa-server
-Name[ru_RU]=Сервер SambaDC (контроллер AD)
+Name[ru_RU]=Сервер Samba DC (контроллер AD)
 Categories=Server;Networking
 
