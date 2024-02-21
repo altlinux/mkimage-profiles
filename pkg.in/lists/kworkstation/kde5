@@ -37,6 +37,7 @@ synaptic-kde@META
 plasma5-discover-fwupd
 plasma5-discover-kns
 openssl-gost-engine
+gostsum
 kde5-kreslimit
 kde5-file-actions-gost
 
