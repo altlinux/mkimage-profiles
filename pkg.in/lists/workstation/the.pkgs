@@ -27,6 +27,13 @@ alterator-update-kernel
 alterator-zram-swap
 alterator-limits
 
+# Ensure that right gnupg2 will be pulled
+gnupg2
+libksba
+gnupg2-gostcrypto-
+libksba-gost-
+libgcrypt-gost20-
+
 grub-customizer@X86
 
 xorg-conf-libinput-touchpad
