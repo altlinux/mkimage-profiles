@@ -31,6 +31,7 @@ openssh-askpass-common-gostcrypto
 openssh-clients-gostcrypto
 openssh-server-control-gostcrypto
 openssh-server-gostcrypto
+gnupg2-gostcrypto
 
 postgresql14
 postgresql14-server
