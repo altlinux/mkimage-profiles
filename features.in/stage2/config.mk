@@ -6,7 +6,7 @@ use/stage2:: sub/stage1
 	@$(call xport,STAGE1_PACKAGES)
 	@$(call xport,STAGE1_KCONFIG)
 
-ifeq (sisyphus,$(BRANCH))
+ifeq (,$(filter-out sisyphus p11 c11%,$(BRANCH)))
 use/stage2:: use/initrd-bootchain; @:
 else
 use/stage2:: use/initrd-propagator; @:
