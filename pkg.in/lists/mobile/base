@@ -72,3 +72,5 @@ android-tools@!riscv64
 screen
 
 mobile-broadband-provider-info
+
+appstream-data-mobile
