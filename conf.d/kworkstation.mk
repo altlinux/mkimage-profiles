@@ -47,8 +47,6 @@ endif
 	@$(call add,THE_PACKAGES,systemd-presets-kdesktop)
 	@$(call add,THE_PACKAGES,systemd-oomd-defaults)
 	@$(call add,THE_PACKAGES,etcnet-defaults-desktop)
-	@$(call add,THE_PACKAGES,btrfs-progs)
-	@$(call set,INSTALL2_FONTS,fonts-ttf-google-croscore-arimo)
 	@$(call set,LIVECD_FONTS,fonts-ttf-google-noto-sans)
 	@$(call add,THE_PACKAGES,fonts-ttf-dejavu)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans)
@@ -108,49 +106,43 @@ endif
 	@$(call set,META_APP_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS) $(ARCH) $(shell date +%F))
 
 mixin/kworkstation-install-deps: \
-	distro/.installer mixin/desktop-installer \
-	use/install2/suspend use/install2/net use/install2 use/install2/stage3 use/install2/vnc \
-	use/install2/vmguest \
+	distro/.base \
+	use/x11/xorg use/x11-autostart \
 	use/stage2/net-install \
 	use/grub/localboot_bios.cfg \
-	+installer
+	use/live-install/vnc/listen \
+	use/live/no-cleanup \
+	+net-eth +vmguest +live-installer-pkg
 
 mixin/kworkstation-install-opts:
 	@$(call set,GRUB_DEFAULT,harddisk)
 	@$(call set,INSTALLER,kworkstation)
 	@$(call add,STAGE1_MODLISTS,stage2-ntfs)
 	@$(call add,STAGE2_KMODULES,drm-nouveau)
-	@$(call add,THE_PACKAGES,installer-feature-nfs-client-stage3)
+	@$(call add,BASE_PACKAGES,installer-feature-nfs-client-stage3)
 	@$(call add,BASE_PACKAGES,plasma5-welcome)
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-usershares-kde-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-samba-automount-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-weak-passwd)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-disable-remote-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-etcissue)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-kdesktop-tmpfs)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-kdesktop-services)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-vmservices)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-online-repo)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-set-tz)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-rootgtktheme-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-alterator-setup-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-lightdm-kde)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-packagekit-setup)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-xprofile-clear)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-systemd-oomd)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-webterminal-setup)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-remove-xorgconf)
-	@$(call add,INSTALL2_PACKAGES,apt-scripts-nvidia)
-	@$(call add,INSTALL2_PACKAGES,volumes-profile-kdesktop)
-	@$(call add,INSTALL2_PACKAGES,udev-rules-ioschedulers)
-	@$(call add,INSTALL2_PACKAGES,passwdqc-utils)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,xorg-dri-nouveau xorg-drv-nouveau)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,icon-theme-adwaita fonts-ttf-dejavu fonts-bitmap-misc)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,libdconf dconf colord)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,shared-mime-info glib-networking libgtk+3-schemas gtk-update-icon-cache libgtk+3)
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,libat-spi2-core at-spi2-core at-spi2-atk)
+	@$(call add,LIVE_PACKAGES,installer-feature-samba-usershares-kde-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-samba-automount-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-weak-passwd)
+	@$(call add,LIVE_PACKAGES,installer-feature-desktop-disable-remote-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-desktop-etcissue)
+	@$(call add,LIVE_PACKAGES,installer-feature-kdesktop-tmpfs)
+	@$(call add,LIVE_PACKAGES,installer-feature-kdesktop-services)
+	@$(call add,LIVE_PACKAGES,installer-feature-vmservices)
+	@$(call add,LIVE_PACKAGES,installer-feature-online-repo)
+	@$(call add,LIVE_PACKAGES,installer-feature-set-tz)
+	@$(call add,LIVE_PACKAGES,installer-feature-rootgtktheme-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-alterator-setup-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-lightdm-kde)
+	@$(call add,LIVE_PACKAGES,installer-feature-packagekit-setup)
+	@$(call add,LIVE_PACKAGES,installer-feature-xprofile-clear)
+	@$(call add,LIVE_PACKAGES,installer-feature-systemd-oomd)
+	@$(call add,LIVE_PACKAGES,installer-feature-webterminal-setup)
+	@$(call add,LIVE_PACKAGES,installer-feature-remove-xorgconf)
+	@$(call add,LIVE_PACKAGES,apt-scripts-nvidia)
+	@$(call add,LIVE_PACKAGES,volumes-profile-kdesktop)
+	@$(call add,LIVE_PACKAGES,udev-rules-ioschedulers)
+	@$(call add,LIVE_PACKAGES,passwdqc-utils)
 	@$(call add,MAIN_GROUPS,$(kworkstation_groups))
 	@$(call add,THE_PROFILES,kworkstation/10-workstation)
 	@$(call add,THE_PROFILES,kworkstation/20-webterminal)
