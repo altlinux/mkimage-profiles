@@ -144,6 +144,9 @@ endif
 		pve-firewall pvefw-logger pve-guests pve-ha-crm pve-ha-lrm spiceproxy \
 		lxc lxcfs lxc-net lxc-monitord qmeventd pvescheduler pve-lxc-syscalld)
 	@$(call add,SERVICES_ENABLE,multipathd)
+# Instead of installer-feature-sudo-enable-by-default:
+#	@$(call add,CONTROL,sudoers:relaxed)
+#	@$(call add,CONTROL,sudowheel:enabled)
 
 #	@$(call add,MAIN_GROUPS,server-v/141-cockpit $(cockpit))
 #	@$(call add,MAIN_GROUPS,server-v/430-moosefs $(moosefs))
