@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Directory
+Name=Opennebula Computing LXC Node
+Name[ru_RU]=Вычислительный узел Opennebula LXC
+X-Alterator-Groups=server-v/opennebula/node-lxc

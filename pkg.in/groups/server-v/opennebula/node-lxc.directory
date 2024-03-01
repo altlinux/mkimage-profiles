@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Computing LXD Node
-Name[ru_RU]=Сервер контейнеризации LXD
-X-Alterator-PackageList=virt/opennebula/node-lxd
+Name=Computing LXC Node
+Name[ru_RU]=Сервер контейнеризации LXC
+X-Alterator-PackageList=virt/opennebula/node-lxc
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/opennebula/server server-virt/opennebula/gui server-virt/opennebula/gate server-virt/opennebula/flow
 X-Alterator-Parent=server-v/110-opennebula
