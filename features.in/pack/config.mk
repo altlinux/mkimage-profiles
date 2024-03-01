@@ -1,7 +1,7 @@
 ### this might really belong to build-*...
 
 # distributions
-DISTRO_EXTS := .iso
+DISTRO_EXTS := .iso .tar
 
 use/pack::
 	@$(call add_feature)
@@ -13,6 +13,11 @@ endif
 # fallback type is isodata, might get set elsewhere to produce bootable iso
 use/pack/iso: use/pack
 	@$(call try,IMAGE_PACKTYPE,isodata)
+
+ifeq (distro,$(IMAGE_CLASS))
+use/pack/tar: use/pack
+	@$(call set,IMAGE_PACKTYPE,tar)
+endif
 
 # virtual environments
 VE_ARCHIVES := squash tar cpio ubifs
