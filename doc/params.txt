@@ -185,4 +185,4 @@ $HOME/.mkimage/profiles.mk.
 [float]
 === пример ===
 
-  make DEBUG=1 CLEAN=1 syslinux.iso
+  make DEBUG=1 CLEAN=1 grub.iso
