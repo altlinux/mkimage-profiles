@@ -4,6 +4,7 @@ ifeq (distro,$(IMAGE_CLASS))
 mixin/kworkstation-common-deps: \
 	use/kernel/desktop use/kernel/net use/kernel/laptop \
 	use/live/x11 use/live use/live/sound use/live/repo/online \
+	use/live/rescue \
 	use/syslinux/ui/gfxboot use/plymouth/full \
 	use/efi/grub use/efi/shell \
 	use/x11/xorg \
@@ -162,7 +163,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,SERVICES_ENABLE,sshd)
 
 mixin/kworkstation-live-deps: \
-	distro/.base use/rescue \
+	distro/.base \
 	use/x11/xorg use/x11-autostart \
 	use/live/no-cleanup \
 	use/grub/live_rw.cfg \
