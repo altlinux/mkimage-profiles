@@ -18,18 +18,16 @@ ls -l /sbin/init |grep -q systemd || exit 0
 mkdir -p /etc/systemd/system/getty@.service.d
 cat>>/etc/systemd/system/getty@.service.d/live-rescue.conf<<'EOF'
 [Service]
-Type=simple
 ExecStart=
-ExecStart=-agetty -a root --noclear - $TERM
+ExecStart=-agetty -o '-p -f -- \\u' --noclear --autologin root %I $TERM
 EOF
 
 # Autologin root to serial tty's
 mkdir -p /etc/systemd/system/serial-getty@.service.d
 cat>>/etc/systemd/system/serial-getty@.service.d/live-rescue.conf<<'EOF'
 [Service]
-Type=simple
 ExecStart=
-ExecStart=-agetty -a root --noclear --keep-baud 115200,57600,38400,9600 - $TERM
+ExecStart=-agetty -o '-p -f -- \\u' --keep-baud 115200,57600,38400,9600 --autologin root %I $TERM
 EOF
 
 mkdir -p /etc/systemd/system/live-rescue.target.d
@@ -37,7 +35,7 @@ cat>>/etc/systemd/system/live-rescue.target<<'EOF'
 [Unit]
 Description=Live Rescue System
 Documentation=man:systemd.special(7)
-Requires=basic.target network.target getty.target
+Requires=basic.target network-online.target getty.target
 Conflicts=rescue.service rescue.target multi-user.target
 Conflicts=altlinux-first_time.service vconsole-setup-kludge@tty1.service
 Before=altlinux-first_time.service vconsole-setup-kludge@.service
