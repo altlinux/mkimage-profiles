@@ -13,7 +13,7 @@ _OFF = anacron blk-availability bridge clamd dhcpd dmeventd dnsmasq \
 # copy stage2 as live
 # NB: starts to preconfigure but doesn't use/cleanup yet
 use/live: use/stage2 sub/rootfs@live sub/stage2@live \
-	use/services/lvm2-disable use/grub/live.cfg
+	use/services/lvm2-disable
 	@$(call add_feature)
 	@$(call add,CLEANUP_BASE_PACKAGES,'installer*')
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
@@ -28,7 +28,7 @@ use/live/no-cleanup: \
 	use/cleanup/live-no-cleanupdb \
 	use/cleanup/live-no-cleanup-docs; @:
 
-use/live/base: use/live/.base use/net use/deflogin/live
+use/live/base: use/live/.base use/net use/deflogin/live use/grub/live.cfg
 	@$(call add,LIVE_LISTS,$(call tags,base network))
 
 use/live/rw: use/live use/syslinux/live_rw.cfg use/grub/live_rw.cfg; @:
