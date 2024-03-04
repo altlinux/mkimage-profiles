@@ -101,7 +101,7 @@ endif
 
 # live as Rescue
 use/live/rescue: use/live use/grub/live-rescue.cfg use/syslinux/live-rescue.cfg
-	@$(call add,LIVE_PACKAGES,startup-rescue)
+	@$(call add,LIVE_PACKAGES,livecd-rescue-utility)
 	@$(call add,LIVE_LISTS,tagged/base+rescue)
 
 # for kiosks
