@@ -109,7 +109,7 @@ endif
 mixin/kworkstation-install-deps: \
 	distro/.base \
 	use/x11/xorg use/x11-autostart \
-	use/stage2/net-install \
+	use/stage2/net-install-live \
 	use/grub/localboot_bios.cfg \
 	use/live-install/vnc/listen \
 	use/live/no-cleanup \
