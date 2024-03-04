@@ -1,9 +1,9 @@
-English quickstart: make syslinux.iso (after setting up
+English quickstart: make grub.iso (after setting up
 http://en.altlinux.org/Hasher; large tmpfs helps a lot).
 
 требуется
 ~~~~~~~~~
-- ALT 8.0 или выше (возможна адаптация "вниз", см. ветки)
+- ALT 10.0 или выше (возможна адаптация "вниз", см. ветки)
 - установленный mkimage (свежий, как и hasher)
 - пользователь с правом запуска hasher и подключения /proc к нему
 
