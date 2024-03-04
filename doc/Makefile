@@ -34,7 +34,7 @@ DOCS_TMP = $(PROJECT).fo $(PROJECT).xml
 
 .PHONY: all prep chunked xhtml pdf clean
 
-all: man chunked xhtml pdf
+all: chunked xhtml pdf
 
 # NB: destination defined externally
 publish: all
@@ -44,12 +44,6 @@ publish: all
 
 prep:
 	@if [ -n "$(BUILDDIR)" ]; then mkdir -p "$(BUILDDIR)"; fi
-
-man:
-	@VERSION="$$(cat ../VERSION)"; \
-	sed -e "s,@VERSION@,$$VERSION,g" \
-		< mkimage-profiles.7.in \
-		> mkimage-profiles.7
 
 chunked xhtml: prep
 	@echo "** building $@ book"
