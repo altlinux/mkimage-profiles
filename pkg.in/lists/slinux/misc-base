@@ -89,7 +89,7 @@ cups
 cups-filters
 cups-pdf
 avahi-daemon
-blueberry
+blueman
 udev-rules-rfkill-uaccess
 update-kernel
 printer-drivers-base
