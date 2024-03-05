@@ -33,7 +33,7 @@ perl-Crypt-Rijndael
 ffmpeg
 dvgrab
 mencoder@!riscv64
-transcode
+#transcode
 jack-audio-connection-kit
 
 osec-mailreport
