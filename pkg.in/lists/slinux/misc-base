@@ -16,7 +16,7 @@ firmware-intel-ucode@X86
 shadow-change
 dhcpcd
 test-audio
-pa-conf-switch-on-connect
+#pa-conf-switch-on-connect
 man-pages
 etcnet-defaults-desktop
 mdadm
