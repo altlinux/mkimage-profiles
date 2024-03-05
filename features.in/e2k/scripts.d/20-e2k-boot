@@ -40,6 +40,7 @@ for i in live altinst liveinst rescue; do
 		label=install
 		stage2="stagename=live"
 		init="init=/usr/sbin/install2-init"
+		default=install
 	;;
 	*)
 		label="$i"
