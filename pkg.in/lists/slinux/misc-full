@@ -34,7 +34,7 @@ ffmpeg
 dvgrab
 mencoder@!riscv64
 #transcode
-jack-audio-connection-kit
+jackd
 
 osec-mailreport
 slocate
