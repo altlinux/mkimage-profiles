@@ -70,7 +70,7 @@ endif
 
 use/slinux/mixin-base: use/slinux \
 	+x11 use/x11/3d \
-	use/x11/lightdm/gtk +pulse \
+	use/x11/lightdm/gtk +pipewire \
 	+nm use/x11/gtk/nm +systemd +systemd-optimal +wireless \
 	use/l10n/default/ru_RU \
 	use/ntp/chrony \
