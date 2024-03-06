@@ -121,7 +121,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,STAGE1_MODLISTS,stage2-ntfs)
 	@$(call add,STAGE2_KMODULES,drm-nouveau)
 	@$(call add,BASE_PACKAGES,installer-feature-nfs-client-stage3)
-	@$(call add,BASE_PACKAGES,plasma5-welcome)
+	@$(call add,BASE_PACKAGES,alt-welcome-k)
 	@$(call add,LIVE_PACKAGES,installer-feature-samba-usershares-kde-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-samba-automount-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-weak-passwd)
