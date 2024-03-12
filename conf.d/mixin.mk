@@ -88,6 +88,7 @@ mixin/regular-desktop: +alsa +nm-native \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)
+	@$(call add,THE_PACKAGES,eepm)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_BRANDING,notes)
@@ -132,7 +133,6 @@ mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4
 	@$(call add,THE_PACKAGES,chrome-gnome-shell)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
-	@$(call add,THE_PACKAGES,eepm)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 
 mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
