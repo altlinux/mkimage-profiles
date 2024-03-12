@@ -140,6 +140,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_PACKAGES,installer-feature-systemd-oomd)
 	@$(call add,LIVE_PACKAGES,installer-feature-webterminal-setup)
 	@$(call add,LIVE_PACKAGES,installer-feature-remove-xorgconf)
+	@$(call add,LIVE_PACKAGES,installer-feature-swapfile)
 	@$(call add,LIVE_PACKAGES,apt-scripts-nvidia)
 	@$(call add,LIVE_PACKAGES,volumes-profile-kdesktop)
 	@$(call add,LIVE_PACKAGES,udev-rules-ioschedulers)
