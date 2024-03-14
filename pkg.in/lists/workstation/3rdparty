@@ -8,6 +8,6 @@ alt-csp-cryptopro
 mate-file-manager-actions
 
 google-chrome-preinstall@X86
-vmware-view-preinstall@X86
+#vmware-view-preinstall@X86
 skype-preinstall@x86_64
 teamviewer-preinstall@X86
