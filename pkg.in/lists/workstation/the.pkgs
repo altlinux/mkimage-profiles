@@ -90,7 +90,6 @@ ca-certificates-digital.gov.ru
 disable-usb-autosuspend@X86
 
 bluez
-gnome-bluetooth
 
 gpm
 fdisk
