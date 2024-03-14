@@ -26,26 +26,17 @@ distro/slinux-bloat: distro/slinux use/slinux/live
 ifeq (vm,$(IMAGE_CLASS))
 vm/slinux:: use/slinux/vm-base use/auto-resize +vmguest; @:
 
-ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
+ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 vm/slinux:: use/uboot
 	@$(call add,BASE_LISTS,uboot)
 endif
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/slinux:: use/no-sleep use/arm-rpi4; @:
 endif
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full; @:
-endif
-
-ifeq (,$(filter-out mipsel,$(ARCH)))
-vm/slinux::
-	@$(call add,THE_PACKAGES,installer-feature-bell-off-stage3)
-	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-
-vm/slinux-tavolga: vm/slinux use/mipsel-mitx/x11; @:
-vm/slinux-bfk3: vm/slinux use/mipsel-bfk3/x11; @:
 endif
 
 endif
