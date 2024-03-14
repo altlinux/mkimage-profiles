@@ -1,7 +1,7 @@
 1c-preinstall@X86
-postgresql14-1C
-postgresql14-1C-server
-postgresql14-1C-contrib
+postgresql15-1C
+postgresql15-1C-server
+postgresql15-1C-contrib
 
 cryptopro-preinstall-full@X86
 cryptopro-preinstall@X86
