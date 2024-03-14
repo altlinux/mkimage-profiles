@@ -9,7 +9,11 @@ else
 ifeq (,$(filter-out loongarch64,$(ARCH)))
 	@$(call try,KFLAVOURS,loongarch)
 else
+ifeq (,$(filter-out armh,$(ARCH)))
+	@$(call try,KFLAVOURS,mp)
+else
 	@$(call try,KFLAVOURS,std-def)
+endif
 endif
 endif
 endif

@@ -48,12 +48,6 @@ else
 endif
 endif
 
-ifeq (,$(filter-out armh,$(ARCH)))
-mixin/vm-archdep::
-	@$(call set,KFLAVOURS,un-def mp)
-endif
-
-
 ifeq (,$(filter-out armh aarch64,$(ARCH)))
 mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
 endif
