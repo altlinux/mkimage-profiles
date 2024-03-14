@@ -58,8 +58,6 @@ include::../features.in/alternatives/README[]
 
 include::../features.in/apt-conf/README[]
 
-include::../features.in/armh-mcom02/README[]
-
 include::../features.in/arm-rpi4/README[]
 
 include::../features.in/bootloader/README[]

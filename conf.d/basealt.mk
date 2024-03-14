@@ -95,11 +95,6 @@ vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
 	@$(call set,THE_BROWSER,chromium)
 endif
 
-ifeq (,$(filter-out armh,$(ARCH)))
-vm/alt-workstation-mcom02: vm/.alt-workstation use/armh-mcom02/x11
-	@$(call add,THE_LISTS,workstation/celluloid)
-endif
-
 ifeq (,$(filter-out mipsel,$(ARCH)))
 vm/alt-workstation::
 	@$(call add,THE_PACKAGES,mate-reduced-resource)

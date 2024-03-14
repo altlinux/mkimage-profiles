@@ -103,38 +103,6 @@ vm/regular-xfce-rpi: vm/.regular-gtk mixin/regular-xfce use/arm-rpi4/full; @:
 
 endif
 
-ifeq (,$(filter-out armh,$(ARCH)))
-# ELVIS mcom02 (free videodriver)
-vm/regular-lxde-mcom02: vm/.regular-gtk mixin/regular-lxde \
-	use/armh-mcom02/x11; @:
-
-vm/regular-lxqt-mcom02: vm/.regular-gtk mixin/regular-lxqt \
-	use/armh-mcom02/x11; @:
-
-vm/regular-mate-mcom02: vm/.regular-gtk mixin/regular-mate \
-	use/armh-mcom02/x11
-	@$(call add,THE_PACKAGES,mate-reduced-resource)
-
-vm/regular-xfce-mcom02: vm/.regular-gtk mixin/regular-xfce \
-	use/armh-mcom02/x11
-	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-
-# ELVIS mcom02 (propietary videodriver)
-vm/regular-lxde-mcom02-mali: vm/.regular-gtk mixin/regular-lxde \
-	use/armh-mcom02/mali; @:
-
-vm/regular-lxqt-mcom02-mali: vm/.regular-gtk mixin/regular-lxqt \
-	use/armh-mcom02/mali; @:
-
-vm/regular-mate-mcom02-mali: vm/.regular-gtk mixin/mate-base \
-	use/armh-mcom02/mali
-	@$(call add,THE_PACKAGES,mate-reduced-resource)
-
-vm/regular-xfce-mcom02-mali: vm/.regular-gtk mixin/regular-xfce \
-	use/armh-mcom02/mali
-	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-endif
-
 ifeq (,$(filter-out mipsel,$(ARCH)))
 # Tavolga
 vm/regular-jeos-systemd-tavolga: vm/systemd mixin/regular-vm-jeos \
