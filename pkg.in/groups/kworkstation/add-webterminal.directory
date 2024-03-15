@@ -8,4 +8,4 @@ Categories=KDE;GNOME;XFCE
 Name=WEB-terminal
 Name[ru_RU]=Веб-терминал
 Comment=WEB-browser only desktop environment.
-Comment[ru_RU]=Рабочая среда, состоящая из одного Веб-браузера.
+Comment[ru_RU]=Рабочая среда, состоящая из одного веб-браузера.
