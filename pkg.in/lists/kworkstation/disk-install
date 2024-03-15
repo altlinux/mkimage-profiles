@@ -44,7 +44,7 @@ freeipa-server freeipa-server-dns
 #
 alt-customize-branding
 task-samba-dc bind-utils tdb-utils installer-feature-sambaDC-stage3
-gpui admc admx-basealt admx-samba admx-chromium admx-firefox admx-msi-setup
+gpui admc admx-basealt admx-samba admx-chromium admx-firefox admx-yandex-browser admx-msi-setup
 #
 alterator-kiosk
 alterator-net-domain
