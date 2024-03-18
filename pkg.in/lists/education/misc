@@ -262,7 +262,6 @@ gst-plugins-ugly1.0
 alsa-set-initial-options
 dvgrab
 mjpegtools
-transcode
 jackd
 test-audio
 wodim
