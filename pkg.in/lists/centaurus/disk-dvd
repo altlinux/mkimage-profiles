@@ -115,10 +115,10 @@ haproxy
 keepalived
 eepm
 
-qemu-kvm
-qemu-img
+qemu-kvm@x86_64,aarch64,ppc64le,e2kv6,loongarch64
+qemu-img@x86_64,aarch64,ppc64le,e2kv6,loongarch64
 libvirt
-libvirt-kvm
+libvirt-kvm@x86_64,aarch64,ppc64le,e2kv6,loongarch64
 libvirt-daemon-driver-lxc
 lxc
 dnsmasq
