@@ -12,7 +12,6 @@ mixin/education: \
 	use/x11/lightdm/gtk +pulse \
 	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
-    use/install2/oem \
 	use/browser/chromium
 	@$(call set,BRANDING,alt-education)
 	@$(call add,THE_BRANDING,indexhtml)
@@ -58,7 +57,7 @@ ifeq (distro,$(IMAGE_CLASS))
 mixin/education-live: \
 	use/live/suspend \
 	use/live/repo use/live/x11 use/live/rw \
-	use/rescue/base use/memtest \
+	use/memtest \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,livecd-timezone)
 	@$(call add,LIVE_PACKAGES,mc-full)
@@ -72,7 +71,6 @@ endif
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,LIVE_PACKAGES,btrfs-progs)
 	@$(call add,LIVE_PACKAGES,xfsprogs xfsinfo xfsdump)
-	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
 
@@ -95,7 +93,6 @@ mixin/education-base: \
 	use/l10n/default/ru_RU +vmguest \
 	+efi use/efi/shell \
 	use/isohybrid use/luks \
-	use/install2/fonts \
 	use/wireless \
 	+plymouth \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
@@ -117,7 +114,6 @@ mixin/education-lite-base: \
 	use/l10n/default/ru_RU +vmguest \
 	+efi use/efi/shell \
 	use/isohybrid use/luks \
-	use/install2/fonts \
 	use/wireless \
 	+plymouth \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
@@ -132,16 +128,11 @@ mixin/education-lite-base: \
 	@$(call add,STAGE2_PACKAGES,chrony)
 
 mixin/education-installer: \
-	+installer \
-	use/install2/repo \
-	use/rescue/base use/memtest \
+	+live-installer-pkg \
+	use/memtest \
 	use/branding/complete \
-	use/install2/vnc use/install2/full \
-	use/install2/fat \
 	mixin/education-base \
 	use/docs/manual use/docs/indexhtml
-	@$(call add,INSTALL2_PACKAGES,disable-usb-autosuspend)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/00_libreoffice)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
@@ -173,9 +164,12 @@ distro/alt-education-lite-live: distro/.base mixin/education-lite-live \
 	mixin/education-lite-base mixin/education-lite use/branding/full; @:
 
 distro/education: distro/alt-education; @:
-distro/alt-education: distro/.installer \
+distro/alt-education: distro/.base \
 	mixin/education \
 	mixin/education-installer \
+	mixin/education-live \
+	use/live/rescue \
+	use/live-install/oem \
 	use/e2k/multiseat/full use/power/acpi \
 	use/control
 	@$(call set,INSTALLER,education)
