@@ -21,6 +21,7 @@ ifeq (,$(filter-out e2kv6 e2kv4,$(ARCH)))
 	@# 1C+/2C3 specific
 	@$(call add,SYSTEM_PACKAGES,softdep-mga2x)	# mcst#8089
 endif
+	@$(call add,SYSTEM_PACKAGES,softdep-i2c-mux)	# mcst#8627
 	@$(call add,BASE_PACKAGES,mirror-e2k-alt)
 	@$(call add,THE_PACKAGES,fruid_print)
 	@$(call add,THE_PACKAGES,pwmd)
