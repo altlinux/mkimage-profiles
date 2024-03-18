@@ -22,13 +22,12 @@ mixin/kworkstation-common-deps: \
 	use/x11/intel use/x11/radeon use/x11/amdgpu use/x11/nvidia \
 	use/x11/kde-display-manager-lightdm use/x11/wacom \
 	use/memtest \
-	use/init/systemd \
 	use/cleanup/live-no-cleanupdb \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/alternatives/xvt/konsole \
-	+wireless +pipewire +plymouth +systemd-optimal +wireless +vmguest +efi +nm \
+	+wireless +pipewire +plymouth +systemd +systemd-optimal +wireless +vmguest +efi +nm \
 	use/stage2/kms/nvidia
 
 mixin/kworkstation-common-opts:
@@ -39,6 +38,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call set,GRUBTHEME,branding-xalt-kworkstation)
 	@$(call set,DOCS,alt-kworkstation)
+	@$(call add,PINNED_PACKAGES,systemd)
 	@$(call try,THE_BROWSER,chromium-gost)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,THE_KMODULES,staging)
