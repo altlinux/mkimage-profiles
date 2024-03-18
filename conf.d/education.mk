@@ -188,9 +188,6 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,CONTROL,pam_mktemp:disabled)	### private /tmp dirs
 else
 	@$(call add,MAIN_GROUPS,education/06_kde5)
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call add,MAIN_GROUPS,education/09_video-conferencing)
-endif
 endif	# e2k%
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
