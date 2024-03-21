@@ -23,9 +23,6 @@ phosh-antispam
 portfolio
 tracker3
 
-# screen recording for wlroots-based compositors
-wf-recorder
-
 # base libraries
 at-spi2-core
 libat-spi2-core-gir

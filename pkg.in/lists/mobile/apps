@@ -15,15 +15,8 @@ geary
 
 # multimedia
 megapixels
-snapshot
-cheese
-mpv
-totem
 clapper
 amberol
-lollypop
-shortwave
-easyeffects
 
 # readers
 evince
@@ -34,6 +27,8 @@ warp@!riscv64
 
 # password manager
 secrets
+# OTP manager
+authenticator
 
 # emoji (see also https://bugzilla.altlinux.org/46471)
 fonts-ttf-google-noto-emoji-color
@@ -41,40 +36,31 @@ fonts-ttf-google-noto-emoji-color
 # CJK fonts
 fonts-ttf-lxgw-wenkai
 
-# Dictaphone
+# Dictophone
 gnome-sound-recorder
 
 # notes & organizers
 iotas
-reminders
 errands
-
-# medical
-gnome-dosage
 
 # translation
 dialect
 
+# games
+gnome-games-2048
+gnome-games-chess
+gnome-games-sudoku
+
 # misc
 gnome-calculator
-gnome-clocks
 gnome-calendar
 gnome-characters
-gnome-compass
+gnome-clocks
 gnome-maps
 gnome-weather
 grim
-obfuscate
-tangram
-kana
-solanum
-gnome-games-chess
-gnome-games-sudoku
 wallpapers-mobile
 # libadwaita theme ported to gtk3
 # $ gsettings get org.gnome.desktop.interface gtk-theme
 # 'adw-gtk3'
 gtk3-theme-adw-gtk3
-
-# need to test
-gnome-qr-decoder
