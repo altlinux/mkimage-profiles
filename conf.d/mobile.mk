@@ -35,6 +35,8 @@ mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,THE_LISTS,mobile/phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call set,DEFAULT_SESSION,phosh)
+	@$(call add,THE_PACKAGES,dconf-epiphany-mobile-user-agent)
+	@$(call add,THE_PACKAGES,dconf-clapper-playbin3)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
