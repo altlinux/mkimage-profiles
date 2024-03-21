@@ -35,6 +35,7 @@ ncdu
 tree
 lsblk
 sysfsutils
+update-kernel
 
 vim-console
 
