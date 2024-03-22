@@ -57,6 +57,7 @@ ifeq (aarch64,$(ARCH))
 mixin/pine: use/bootloader/uboot use/tty/S2
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,KFLAVOURS,pine)
+	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 
 ifeq (vm,$(IMAGE_CLASS))
 vm/pine-phosh: vm/.phosh mixin/pine; @:
