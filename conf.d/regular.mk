@@ -41,6 +41,7 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_LISTS,$(call tags,base rescue))
 	@$(call add,LIVE_PACKAGES,gpm)
+	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 
 # Network install
