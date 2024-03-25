@@ -173,6 +173,7 @@ distro/alt-education:: distro/.base \
 	use/e2k/multiseat/full use/power/acpi \
 	use/control
 	@$(call set,INSTALLER,education)
+	@$(call add,MAIN_LISTS,kernel-headers)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_GROUPS,education/06_kdesc)
 	@$(call add,MAIN_PACKAGES,xorg-conf-noblank)
@@ -185,10 +186,6 @@ else
 endif	# e2k%
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-modules-std-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-modules-std-def)
 	@$(call add,THE_KMODULES,virtualbox)
 	@$(call add,THE_KMODULES,lsadrv bbswitch)
 	@$(call add,THE_KMODULES,staging)
