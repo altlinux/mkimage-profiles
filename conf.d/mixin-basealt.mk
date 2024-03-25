@@ -22,13 +22,8 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/cleanup/live-no-cleanupdb
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-modules-un-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-un-def)
-else
-	@$(call set,KFLAVOURS,std-def)
 endif
-	@$(call add,MAIN_PACKAGES,kernel-headers-modules-std-def)
-	@$(call add,MAIN_PACKAGES,kernel-headers-std-def)
+	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,mate-settings)
 	@$(call add,COMMON_PACKAGES,vim-console)
