@@ -1,0 +1,21 @@
+#!/bin/sh -efu
+
+kflavours="${1:-}"
+[ -n "$kflavours" ] || exit 0
+
+f="${2:-}"
+[ -n "$f" ] || exit 0
+
+grep -q @KFLAVOUR "$f" || exit 0
+
+while IFS= read -r line; do
+	if [[ "$line" =~ @KFLAVOUR ]]; then
+		for i in $kflavours; do
+			echo "$line" | sed "s/@KFLAVOUR/$i/"
+		done
+	else
+		echo "$line"
+	fi
+done < "$f" > "$f".temp
+
+mv "$f".temp "$f"

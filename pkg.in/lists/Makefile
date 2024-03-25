@@ -18,7 +18,7 @@ include $(BUILDDIR)/functions.mk
 SUFFIX := pkg/lists
 TARGET := $(BUILDDIR)/$(SUFFIX)
 
-all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups save_packages_to_lists grep-metadep grep-archdep check-lists
+all: | $(TARGET) $(GLOBAL_DEBUG) copy-lists copy-groups save_packages_to_lists grep-kflavours grep-metadep grep-archdep check-lists
 	@mp-commit "$(TARGET)" "requested $(SUFFIX) copied over"
 
 # env | grep _LISTS | sort -u | xargs -r cp -t
@@ -57,6 +57,10 @@ grep-metadep:
 		find $(TARGET) -type f \
 		| xargs -r -I __ -- metadep-expander "$$APT_CACHE" __; \
 	fi
+
+grep-kflavours:
+	@find $(TARGET) -type f \
+	| xargs -r -I __ -- kflavours-expander "$(KFLAVOURS)" __
 
 # do beforehand as foreach gets expanded before recipe execution
 $(TARGET):
