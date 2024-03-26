@@ -4,7 +4,7 @@
 fatal() { echo "** error: $@" >&1; exit 1; }
 
 kver=
-for KFLAVOUR in $GLOBAL_KFLAVOURS; do
+for KFLAVOUR in $GLOBAL_STAGE1_KFLAVOURS; do
 	kver+=" $(rpm -qa 'kernel-image*' \
 		--qf '%{version}-%{name}-%{release}\n' \
 	| grep "$KFLAVOUR" \
