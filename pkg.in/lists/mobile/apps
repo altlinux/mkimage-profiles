@@ -59,6 +59,7 @@ gnome-clocks
 gnome-maps
 gnome-weather
 grim
+wl-clipboard
 wallpapers-mobile
 # libadwaita theme ported to gtk3
 # $ gsettings get org.gnome.desktop.interface gtk-theme
