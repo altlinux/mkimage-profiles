@@ -3,7 +3,7 @@ ifeq (distro,$(IMAGE_CLASS))
 
 mixin/kworkstation-common-deps: \
 	use/kernel/desktop use/kernel/net use/kernel/laptop \
-	use/live/x11 use/live use/live/sound use/live/repo/online \
+	use/live/x11 use/live use/live/sound \
 	use/live/rescue \
 	use/syslinux/ui/gfxboot use/plymouth/full \
 	use/efi/grub use/efi/shell \
