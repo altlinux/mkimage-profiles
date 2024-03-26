@@ -31,8 +31,7 @@ endif
 
 use/server/virt: use/server use/kernel
 	@$(call add,BASE_PACKAGES,openssh)
-	@$(call set,STAGE1_KFLAVOURS,std-def)
-	@$(call set,KFLAVOURS,std-def)
+	@$(call set,KFLAVOURS,un-def)
 	@$(call add,THE_KMODULES,kvm)
 
 # NB: examine zabbix-preinstall package, initialization is NOT automatic!
