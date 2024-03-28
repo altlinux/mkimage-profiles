@@ -18,6 +18,9 @@ megapixels
 clapper
 amberol
 
+# image viewer
+loupe
+
 # readers
 evince
 foliate
