@@ -11,6 +11,7 @@ pavucontrol
 plasma5-discover-packagekit@META
 
 alt-kworkstation-addon
+alterator-audit
 alterator-roles-common
 alterator-standalone
 alterator-auth
@@ -49,7 +50,6 @@ apt-rsync
 apt-repo
 apt-scripts
 arj
-audit
 avahi-daemon
 bash-completion
 bc
