@@ -1,4 +1,4 @@
-kernel-modules-zfs-std-def@!ppc64le
+kernel-modules-zfs-@KFLAVOUR@!ppc64le
 zfs-utils@!ppc64le
 libvirt-daemon-driver-storage-zfs@!ppc64le
 

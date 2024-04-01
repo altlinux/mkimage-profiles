@@ -1,2 +1,2 @@
 linstor-satellite
-kernel-modules-drbd9-std-def
+kernel-modules-drbd9-@KFLAVOUR
