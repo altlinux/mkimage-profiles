@@ -1,8 +1,8 @@
 pve-manager
 postfix
 control-sshd-permit-root-login
-kernel-modules-ipset-std-def
-kernel-modules-xtables-addons-std-def
-kernel-modules-zfs-std-def
+kernel-modules-ipset-@KFLAVOUR
+kernel-modules-xtables-addons-@KFLAVOUR
+kernel-modules-zfs-@KFLAVOUR
 zfs-utils
 alt-issue-server-pve
