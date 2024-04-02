@@ -64,7 +64,7 @@ distro/.server-v-base: distro/.base distro/.installer \
 	+systemd-optimal \
 	use/services use/control \
 	use/l10n/default/ru_RU \
-	use/isohybrid \
+	use/isohybrid use/luks \
 	use/install2/vnc/full \
 	use/install2/xfs use/install2/fat use/install2/stage3 \
 	use/kernel/server use/kernel/drm \
