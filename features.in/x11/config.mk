@@ -95,7 +95,7 @@ use/x11/nvidia/optimus:: use/x11/nvidia; @:
 
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 use/x11/nvidia:: use/drm/nvidia
-	@$(call set,NVIDIA_PACKAGES,nvidia-settings nvidia-xconfig)
+	@$(call set,NVIDIA_PACKAGES,nvidia-settings)
 
 use/x11/nvidia/optimus:: use/drm/nvidia/optimus
 	@$(call add,NVIDIA_PACKAGES,bumblebee)
