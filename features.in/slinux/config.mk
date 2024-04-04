@@ -55,12 +55,10 @@ use/slinux/vm-base:: vm/systemd \
 	@$(call add,THE_LISTS,slinux/multimedia-base)
 	@$(call add,THE_LISTS,slinux/net-base)
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
-
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,installer-feature-online-repo)
 endif
 	@$(call add,THE_PACKAGES,installer-feature-samba-usershares-stage2)
-	@$(call add,THE_PACKAGES,installer-feature-sudo-enable-by-default-stage3)
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
 use/slinux/vm-base:: use/oem/vnc
