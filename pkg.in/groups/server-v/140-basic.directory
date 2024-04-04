@@ -5,4 +5,4 @@ Name=Basic Virtualization
 Name[ru_RU]=Базовая виртуализация
 X-Alterator-Required=no
 Comment=Basic Virtualization Utils (qemu+libvirt)
-Comment[ru_RU]=Минимальный набор приложений(qemu+libvirt) для виртуализации
+Comment[ru_RU]=Минимальный набор приложений (qemu+libvirt) для виртуализации

@@ -5,5 +5,5 @@ Name=GlusterFS
 Name[ru_RU]=GlusterFS
 X-Alterator-Required=no
 Comment=GlusterFS is a scalable network filesystem
-Comment[ru_RU]=GlusterFS это масштабируемая сетевая файловая система
+Comment[ru_RU]=Масштабируемая распределённая сетевая файловая система
 X-Alterator-Parent=server-v/400-storage
