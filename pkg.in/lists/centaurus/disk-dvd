@@ -127,6 +127,8 @@ mate-screensaver-screenkeyboard
 
 nginx-spnego
 
+systemd-settings-enable-kill-user-processes
+
 # gostcrypo repo component is needed
 openvpn-gostcrypto
 openvpn-plugins-gostcrypto
