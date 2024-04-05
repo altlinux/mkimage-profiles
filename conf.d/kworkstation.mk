@@ -39,7 +39,7 @@ endif
 	@$(call set,GRUBTHEME,branding-xalt-kworkstation)
 	@$(call set,DOCS,alt-kworkstation)
 	@$(call add,PINNED_PACKAGES,systemd)
-	@$(call try,THE_BROWSER,chromium-gost)
+	@$(call try,THE_BROWSER,yandex-browser-stable)
 	@$(call add,BASE_KMODULES,kvm virtualbox)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,BASE_PACKAGES,os-prober)
