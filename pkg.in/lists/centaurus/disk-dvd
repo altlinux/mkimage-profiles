@@ -125,6 +125,8 @@ dnsmasq
 
 mate-screensaver-screenkeyboard
 
+nginx-spnego
+
 # gostcrypo repo component is needed
 openvpn-gostcrypto
 openvpn-plugins-gostcrypto
