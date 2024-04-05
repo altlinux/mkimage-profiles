@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Web Service
-Name[ru_RU]=Web интерфейс
+Name[ru_RU]=Веб-интерфейс
 X-Alterator-PackageList=virt/cockpit/web
 X-Alterator-Required=no
 X-Alterator-Parent=server-v/141-cockpit

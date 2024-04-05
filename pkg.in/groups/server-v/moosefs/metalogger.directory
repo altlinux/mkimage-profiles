@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Type=Directory
 Name=Metalogger Server
-Name[ru_RU]=Резервный сервер метаданных
+Name[ru_RU]=Резервный сервер метаданных Metalogger
 Comment=Metalogger Server for synchronizes and backups the metadata
-Comment[ru_RU]=Metalogger сервер для синхронизации и резервной копии метаданных
+Comment[ru_RU]=Сервер для синхронизации и резервной копии метаданных
 X-Alterator-PackageList=storage/moosefs-metalogger
 X-Alterator-Required=no
 X-Alterator-Conflicts=server-v/moosefs/master

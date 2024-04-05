@@ -5,5 +5,5 @@ Name=LizardFS
 Name[ru_RU]=LizardFS
 X-Alterator-Required=no
 Comment=Network Distributed File System
-Comment[ru_RU]=Oтказоустойчивая, распределенная сетевая файловая система
+Comment[ru_RU]=Oтказоустойчивая распределенная сетевая файловая система
 X-Alterator-Parent=server-v/400-storage
