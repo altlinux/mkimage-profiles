@@ -11,6 +11,9 @@ qt6-svg
 qt6-imageformats
 bluez
 
+# fonts
+fonts-otf-abattis-cantarell
+
 # base applications
 gnome-control-center
 phosh-mobile-settings
