@@ -217,6 +217,14 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 #	@$(call add,RESCUE_LISTS,$(call tags,base bench))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
+distro/regular-rescue-live: distro/.regular-base +systemd \
+	use/live/rescue/extra use/live/rescue/rw \
+	use/stage2/kms use/hdt use/stage2/kms use/kernel/latest \
+	use/net/etcnet use/net/dhcp use/live/repo +wireless
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
+	@$(call add,LIVE_LISTS,openssh)
+	@$(call add,LIVE_LISTS,$(call tags,network security))
+
 distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
 	@$(call set,RELNAME,en.altlinux.org/rescue (netboot.xyz edition))
 	@$(call set,META_VOL_ID,ALT Rescue)
