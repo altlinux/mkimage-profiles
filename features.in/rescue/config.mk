@@ -1,4 +1,5 @@
-use/rescue/.base: use/stage2 sub/stage2@rescue
+use/rescue/.base: use/stage2 sub/stage2@rescue \
+	use/syslinux/rescue.cfg use/grub/rescue.cfg
 	@$(call add_feature)
 	@$(call add,RESCUE_LISTS,sysvinit)
 	@$(call add,RESCUE_PACKAGES,startup startup-rescue udev)

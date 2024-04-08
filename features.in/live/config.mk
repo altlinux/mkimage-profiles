@@ -29,7 +29,8 @@ use/live/no-cleanup: \
 	use/cleanup/live-no-cleanupdb \
 	use/cleanup/live-no-cleanup-docs; @:
 
-use/live/base: use/live/.base use/net use/deflogin/live use/grub/live.cfg
+use/live/base: use/live/.base use/net use/deflogin/live \
+	 use/syslinux/live.cfg  use/grub/live.cfg
 	@$(call add,LIVE_LISTS,$(call tags,base network))
 
 use/live/rw: use/live use/syslinux/live_rw.cfg use/grub/live_rw.cfg; @:

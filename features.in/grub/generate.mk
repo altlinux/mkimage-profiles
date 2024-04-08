@@ -18,7 +18,7 @@ ifeq (,$(GRUB_DIRECT))
 # SUBPROFILES are considered GRUB_CFG too
 # (note these can appear like stage2@live);
 # 01defaults.cfg is included indefinitely
-GRUB_CFG := $(GRUB_CFG) $(SUBPROFILE_DIRS) defaults fwsetup_efi
+GRUB_CFG := $(GRUB_CFG) defaults fwsetup_efi
 endif
 
 ifneq (,$(GRUB_UI))
