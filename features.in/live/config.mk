@@ -106,6 +106,11 @@ use/live/rescue: use/live use/grub/live-rescue.cfg use/syslinux/live-rescue.cfg
 	@$(call add,LIVE_PACKAGES,livecd-rescue-utility)
 	@$(call add,LIVE_LISTS,tagged/base+rescue)
 
+use/live/rescue/extra: use/live/rescue
+	@$(call add,LIVE_LISTS,\
+	$(call tags,(base || extra || server || misc || fs) \
+		&& !x11 && (rescue || comm || network || security || archive)))
+
 # for kiosks
 use/live/runapp: use/live
 	@$(call add,LIVE_PACKAGES,livecd-runapp)
