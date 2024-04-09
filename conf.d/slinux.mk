@@ -8,7 +8,7 @@ distro/slinux-live: distro/.base use/slinux/base use/slinux/live +live
 	@$(call set,META_APP_ID,Simply Linux live $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 
 distro/slinux: distro/.base use/slinux/full use/live/rescue use/live/repo \
-	+live +live-installer-pkg use/live-install/oem
+	use/live/base +live-installer-pkg use/live-install/oem
 	@$(call set,INSTALLER,simply-linux)
 	@$(call add,MAIN_GROUPS,slinux/emulators-full slinux/games-base slinux/games slinux/games-full slinux/graphics-base slinux/graphics slinux/graphics-full-inkscape slinux/multimedia-full-audacity slinux/multimedia-base slinux/multimedia-full-cheese slinux/multimedia slinux/multimedia-full-shotcut slinux/net-base)
 ifneq (,$(filter-out riscv64,$(ARCH)))
