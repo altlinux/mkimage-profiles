@@ -27,6 +27,7 @@ wget
 
 #printing
 cups
+cups-pdf
 printer-drivers-base
 hplip-hpijs
 hplip-sane
