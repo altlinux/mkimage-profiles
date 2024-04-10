@@ -13,7 +13,7 @@ use/init: use/pkgpriorities
 # the wrong syslogd-daemon provider already
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
-	@$(call add,THE_PACKAGES,rsyslog-classic startup)
+	@$(call add,THE_PACKAGES,rsyslog-classic startup mingetty)
 	@$(call add,THE_PACKAGES,udevd-final)
 	@$(call add,THE_PACKAGES,apt-conf-ignore-systemd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,udevd-final)
