@@ -20,7 +20,7 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call xport,INSTALL2_CLEANUP_KDRIVERS)
 	@$(call add,INSTALL2_PACKAGES,lsof)
 	@$(call add,INSTALL2_PACKAGES,mdadm)
-	@$(call add,BASE_PACKAGES,mdadm)
+	@$(call add,BASE_PACKAGES,e2fsprogs mdadm)
 
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: \
