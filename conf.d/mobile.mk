@@ -45,7 +45,7 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	@$(call add,THE_LISTS,mobile/apps)
 	@$(call add,THE_PACKAGES,phosh-background-settings)
 
-vm/phosh: vm/.phosh use/tty/S0 use/uboot +efi
+vm/alt-mobile-phosh-un-def: vm/.phosh use/tty/S0 use/uboot +efi
 	@$(call set,KFLAVOURS,un-def)
 ifeq (aarch64,$(ARCH))
 	@$(call set,VM_PARTTABLE,msdos)
