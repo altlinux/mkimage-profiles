@@ -51,7 +51,6 @@ ifeq (aarch64,$(ARCH))
 	@$(call set,VM_PARTTABLE,msdos)
 	@$(call set,VM_BOOTTYPE,EFI)
 endif
-endif
 
 ifeq (aarch64,$(ARCH))
 mixin/pine: use/bootloader/uboot use/tty/S2
@@ -63,7 +62,6 @@ mixin/mobile-mp: use/bootloader/uboot use/tty/S0
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,KFLAVOURS,mp)
 
-ifeq (vm,$(IMAGE_CLASS))
 vm/alt-mobile-phosh-pine: vm/.phosh mixin/pine; @:
 vm/alt-mobile-phosh-mp: vm/.phosh mixin/mobile-mp; @:
 endif
