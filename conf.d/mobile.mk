@@ -1,11 +1,3 @@
-mixin/waydroid: ; @:
-ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
-	@$(call add,THE_PACKAGES,libgbinder1 waydroid)
-	@$(call add,THE_KMODULES,anbox)
-	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waydroid-container.service)
-	@$(call add,BASE_BOOTARGS,psi=1)
-endif
-
 # enables tty on the mobile device using a hotkey
 mixin/ttyescape: use/services; @:
 ifneq (,$(filter-out riscv64,$(ARCH)))

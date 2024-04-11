@@ -73,6 +73,14 @@ ifeq (aarch64,$(ARCH))
 	@$(call set,VM_BOOTTYPE,EFI)
 endif
 
+mixin/waydroid: ; @:
+ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
+	@$(call add,THE_PACKAGES,libgbinder1 waydroid)
+	@$(call add,THE_KMODULES,anbox)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waydroid-container.service)
+	@$(call add,BASE_BOOTARGS,psi=1)
+endif
+
 ### regular.mk
 mixin/regular-x11: use/browser/firefox \
 	use/branding use/ntp/chrony use/services/lvm2-disable
