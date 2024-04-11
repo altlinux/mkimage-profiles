@@ -45,21 +45,15 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	@$(call add,THE_LISTS,mobile/apps)
 	@$(call add,THE_PACKAGES,phosh-background-settings)
 
-vm/alt-mobile-phosh-un-def: vm/.phosh use/tty/S0 use/uboot +efi
+vm/alt-mobile-phosh-un-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
-ifeq (aarch64,$(ARCH))
-	@$(call set,VM_PARTTABLE,msdos)
-	@$(call set,VM_BOOTTYPE,EFI)
-endif
 
 ifeq (aarch64,$(ARCH))
-mixin/mobile-pine: use/bootloader/uboot use/tty/S2
-	@$(call set,EFI_BOOTLOADER,)
+mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
 	@$(call set,KFLAVOURS,pine)
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 
-mixin/mobile-mp: use/bootloader/uboot use/tty/S0
-	@$(call set,EFI_BOOTLOADER,)
+mixin/mobile-mp: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,mp)
 
 vm/alt-mobile-phosh-pine: vm/.phosh mixin/mobile-pine; @:

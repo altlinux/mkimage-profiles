@@ -64,6 +64,15 @@ endif
 
 mixin/vm-archdep-x11: mixin/vm-archdep use/vmguest/kvm/x11; @:
 
+mixin/uboot-extlinux: use/bootloader/uboot
+	@$(call set,EFI_BOOTLOADER,)
+
+mixin/uboot-extlinux-efi: use/uboot +efi; @:
+ifeq (aarch64,$(ARCH))
+	@$(call set,VM_PARTTABLE,msdos)
+	@$(call set,VM_BOOTTYPE,EFI)
+endif
+
 ### regular.mk
 mixin/regular-x11: use/browser/firefox \
 	use/branding use/ntp/chrony use/services/lvm2-disable
