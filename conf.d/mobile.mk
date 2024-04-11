@@ -10,6 +10,11 @@ mixin/mobile-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart 
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs \
 	use/drm use/firmware mixin/ttyescape +plymouth +pipewire \
 	use/services/bluetooth-enable
+ifeq (sisyphus,$(BRANCH))
+	@$(call set,BRANDING,alt-mobile-sisyphus)
+else
+	@$(call set,BRANDING,alt-mobile)
+endif
 	@$(call add,THE_BRANDING,notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
@@ -24,6 +29,7 @@ mixin/mobile-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart 
 	@$(call add,CONTROL,libnss-role:disabled)
 
 mixin/phosh: use/services +nm-gtk4 +nm-native
+	@$(call add,THE_BRANDING,phosh-settings)
 	@$(call add,THE_LISTS,mobile/phosh)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call set,DEFAULT_SESSION,phosh)
@@ -35,7 +41,6 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
 	use/auto-resize
 	@$(call add,THE_LISTS,mobile/apps)
-	@$(call add,THE_PACKAGES,phosh-background-settings)
 
 vm/alt-mobile-phosh-un-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
