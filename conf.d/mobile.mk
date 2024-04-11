@@ -53,7 +53,7 @@ ifeq (aarch64,$(ARCH))
 endif
 
 ifeq (aarch64,$(ARCH))
-mixin/pine: use/bootloader/uboot use/tty/S2
+mixin/mobile-pine: use/bootloader/uboot use/tty/S2
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,KFLAVOURS,pine)
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
@@ -62,7 +62,7 @@ mixin/mobile-mp: use/bootloader/uboot use/tty/S0
 	@$(call set,EFI_BOOTLOADER,)
 	@$(call set,KFLAVOURS,mp)
 
-vm/alt-mobile-phosh-pine: vm/.phosh mixin/pine; @:
+vm/alt-mobile-phosh-pine: vm/.phosh mixin/mobile-pine; @:
 vm/alt-mobile-phosh-mp: vm/.phosh mixin/mobile-mp; @:
 endif
 endif
