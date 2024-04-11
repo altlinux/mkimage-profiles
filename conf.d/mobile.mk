@@ -60,9 +60,9 @@ mixin/pine: use/bootloader/uboot use/tty/S2
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/pine-phosh: vm/.phosh mixin/pine; @:
+vm/alt-mobile-phosh-pine: vm/.phosh mixin/pine; @:
 
-vm/mp-phosh: vm/phosh
+vm/alt-mobile-phosh-mp: vm/phosh
 	@$(call set,KFLAVOURS,mp)
 	@$(call set,LOCALE,en_US)
 endif
