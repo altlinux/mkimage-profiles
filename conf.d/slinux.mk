@@ -2,7 +2,7 @@
 
 ifeq (distro,$(IMAGE_CLASS))
 
-distro/slinux-live: distro/.base use/slinux/base use/slinux/live +live
+distro/slinux-live: distro/.livecd-install use/slinux/base use/slinux/live
 	@$(call add,THE_LISTS,slinux/live-install)
 	@$(call set,META_VOL_ID,Simply Linux live $(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_APP_ID,Simply Linux live $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
