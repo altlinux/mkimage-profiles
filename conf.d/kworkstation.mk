@@ -233,7 +233,7 @@ mixin/kworkstation-fsin-opts:
 	@$(call add,THE_PACKAGES,openssl-gost-engine)
 	@$(call add,THE_PACKAGES,openvpn-gostcrypto openvpn-plugins-gostcrypto alterator-openvpn-server)
 	@$(call add,THE_PACKAGES,alt-customize-branding)
-	@$(call add,THE_PACKAGES,alterator-kiosk)
+	@$(call add,THE_PACKAGES,alterator-kiosk kiosk-profiles)
 	@$(call add,SERVICES_ENABLE,kiosk)
 
 distro/kworkstation-install-fsin: \
