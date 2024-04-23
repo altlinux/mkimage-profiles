@@ -45,7 +45,6 @@ sdparm
 sg3_utils
 
 # network tools
-arpwatch
 iftop
 mtr
 nmap
@@ -93,7 +92,6 @@ libzmalloc
 # etc
 apt-rsync
 bash-completion
-bind-doc
 cfdisk
 dnet
 expat

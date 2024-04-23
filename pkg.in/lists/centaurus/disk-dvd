@@ -2,8 +2,6 @@
 
 #altlinux-release
 
-1c-preinstall@X86
-
 #apache2-mod_.*
 
 fonts-ttf-tempora
@@ -30,7 +28,6 @@ perl-Crypt-Rijndael
 
 ffmpeg
 dvgrab
-transcode
 jackd
 
 osec-mailreport
@@ -82,8 +79,6 @@ php8.2-sockets
 php8.2-pgsql
 php8.2-ldap
 
-xprobe2
-
 libqt4-sql-mysql
 libqt4-sql-postgresql
 
@@ -130,9 +125,6 @@ nginx-spnego
 systemd-settings-enable-kill-user-processes
 
 # gostcrypo repo component is needed
-openvpn-gostcrypto
-openvpn-plugins-gostcrypto
-
 openssh-gostcrypto
 openssh-common-gostcrypto
 openssh-askpass-common-gostcrypto
