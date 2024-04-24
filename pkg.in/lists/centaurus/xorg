@@ -54,8 +54,8 @@ firefox-esr-uk@!aarch64
 spice-vdagent
 xorg-drv-qxl
 
-kernel-modules-drm-@KFLAVOUR@!E2K
-kernel-modules-drm-nouveau-@KFLAVOUR@!E2K
-kernel-modules-v4l-@KFLAVOUR@!E2K
+kernel-modules-drm-@KFLAVOUR@!E2K,loongarch64
+kernel-modules-drm-nouveau-@KFLAVOUR@!E2K,loongarch64
+kernel-modules-v4l-@KFLAVOUR@!E2K,loongarch64
 
 cpio

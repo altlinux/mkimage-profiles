@@ -14,8 +14,8 @@ etckeeper
 
 #kernel
 kernel-build-tools
-kernel-doc-std
-kernel-doc-un@!E2K
+kernel-doc-std@!loongarch64
+kernel-doc-un@!E2K,loongarch64
 
 c-icap
 virt-viewer
@@ -125,9 +125,9 @@ nginx-spnego
 systemd-settings-enable-kill-user-processes
 
 # gostcrypo repo component is needed
-openssh-gostcrypto
-openssh-common-gostcrypto
-openssh-askpass-common-gostcrypto
-openssh-clients-gostcrypto
-openssh-server-control-gostcrypto
-openssh-server-gostcrypto
+openssh-gostcrypto@!loongarch64
+openssh-common-gostcrypto@!loongarch64
+openssh-askpass-common-gostcrypto@!loongarch64
+openssh-clients-gostcrypto@!loongarch64
+openssh-server-control-gostcrypto@!loongarch64
+openssh-server-gostcrypto@!loongarch64

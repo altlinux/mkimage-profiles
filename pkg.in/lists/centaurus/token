@@ -13,9 +13,9 @@ openssl
 openssl-engines
 openssl-engine_pkcs11
 
-librtpkcs11ecp
-libjcpkcs11
-isbc-pkcs11
+librtpkcs11ecp@!loongarch64
+libjcpkcs11@!loongarch64
+isbc-pkcs11@!loongarch64
 gnutls-utils
 libp11
 libp11-kit
