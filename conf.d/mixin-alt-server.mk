@@ -43,6 +43,11 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,centaurus/token)
 	@$(call add,MAIN_PACKAGES,mate-reduced-resource)
 endif
+ifeq (,$(filter-out loongarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,loongarch)
+	@$(call add,MAIN_GROUPS,centaurus/token)
+	@$(call add,MAIN_PACKAGES,mate-reduced-resource)
+endif
 	@$(call add,MAIN_KMODULES,$(server_main_kmodules))
 	@$(call add,BASE_LISTS,centaurus/base)
 	@$(call add,BASE_LISTS,centaurus/base-server)
@@ -57,7 +62,7 @@ endif
 	@$(call add,MAIN_LISTS,centaurus/disk)
 	@$(call add,THE_PROFILES,centaurus-10-server)
 	@$(call add,THE_PROFILES,centaurus-20-serverDC)
-ifeq (,$(filter-out i586 x86_64 aarch64 e2k%,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64 loongarch64 e2k%,$(ARCH)))
 	@$(call add,THE_PROFILES,centaurus-30-desktop)
 endif
 	@$(call add,THE_PROFILES,minimal)

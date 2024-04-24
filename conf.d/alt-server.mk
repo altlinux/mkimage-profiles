@@ -10,7 +10,7 @@ distro/alt-server: server_groups_virtipa = $(addprefix centaurus/,\
 endif
 endif
 
-ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 e2k%,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 loongarch64 e2k%,$(ARCH)))
 distro/alt-server: server_groups_desktop = $(addprefix centaurus/,\
         80-desktop emulators freenx-server mate office pidgin xorg scanning samba)
 endif
@@ -70,7 +70,7 @@ ifeq (,$(filter-out x86_64 i586,$(ARCH)))
 distro/alt-server:: use/memtest; @:
 endif
 
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64 loongarch64,$(ARCH)))
 distro/alt-server:: +efi; @:
 endif
 
