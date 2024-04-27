@@ -9,6 +9,7 @@ mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +x11 \
 	@$(call add,THE_PACKAGES,alterator-x11)
 	@$(call add,THE_PACKAGES,ethtool)
 	@$(call add,THE_PACKAGES,python3-module-pip)
+	@$(call add,THE_PACKAGES,openFPGALoader)
 
 ifeq (distro,$(IMAGE_CLASS))
 distro/regular-cnc-rt: distro/.regular-wm mixin/cnc-rt; @:
