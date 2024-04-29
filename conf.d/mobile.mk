@@ -15,7 +15,7 @@ ifeq (sisyphus,$(BRANCH))
 else
 	@$(call set,BRANDING,alt-mobile)
 endif
-	@$(call add,THE_BRANDING,notes indexhtml)
+	@$(call add,THE_BRANDING,graphics notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
 	@$(call add,THE_PACKAGES,mesa-dri-drivers)
