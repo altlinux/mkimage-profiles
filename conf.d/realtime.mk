@@ -1,5 +1,6 @@
 mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +x11 \
-	mixin/regular-desktop mixin/regular-lxqt use/x11/lightdm/gtk
+	mixin/regular-desktop mixin/regular-lxqt use/x11/lightdm/gtk \
+	use/cleanup
 	@$(call set,KFLAVOURS,rt)
 	@$(call add,THE_LISTS,realtime/tests)
 	@$(call add,THE_LISTS,engineering/cnc)
@@ -10,6 +11,7 @@ mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +x11 \
 	@$(call add,THE_PACKAGES,ethtool)
 	@$(call add,THE_PACKAGES,python3-module-pip)
 	@$(call add,THE_PACKAGES,openFPGALoader)
+	@$(call add,CLEANUP_PACKAGES,xscreensaver-modules)
 
 ifeq (distro,$(IMAGE_CLASS))
 distro/regular-cnc-rt: distro/.regular-wm mixin/cnc-rt; @:
