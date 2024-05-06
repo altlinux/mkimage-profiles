@@ -12,17 +12,19 @@ mixin/alt-server: server_main_kmodules = bcmwl ch34x dm-secdel drbd9 drm-ancient
 	v4l2loopback vboxsf vhba virtualbox-addition-guest virtualbox-addition \
 	virtualbox-addition-video virtualbox xtables-addons
 
-mixin/alt-server: +installer +systemd \
+mixin/alt-server: +systemd \
+	+live-installer-pkg \
+	use/live/rescue \
+	use/live/repo \
+	use/live/suspend \
+	use/live-install/vnc/listen \
 	use/ntp/chrony \
 	use/branding/notes \
 	use/control use/services \
-	use/install2/stage3 \
-	use/install2/vnc use/install2/xfs use/install2/fat \
-	use/install2/oem \
 	use/volumes/alt-server \
 	use/apt-conf/branch \
 	use/fonts/install2 \
-	use/l10n/default/ru_RU use/install2/stage3 \
+	use/l10n/default/ru_RU \
 	use/firmware/full \
 	use/net/etcnet \
 	use/tty
@@ -36,8 +38,8 @@ endif
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-cleanup-kernel-stage3)
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
+	@$(call add,LIVE_PACKAGES,installer-feature-cleanup-kernel-stage3)
+	@$(call add,LIVE_PACKAGES,ntfs-3g)
 	@$(call add,BASE_KMODULES,drm)
 	@$(call add,MAIN_GROUPS,centaurus/proxmox-backup-server)
 	@$(call add,MAIN_GROUPS,centaurus/token)
@@ -68,20 +70,20 @@ ifeq (,$(filter-out i586 x86_64 aarch64 loongarch64 e2k%,$(ARCH)))
 endif
 	@$(call add,THE_PROFILES,minimal)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-other-fs-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-alphabet-profiles)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-load-tun)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-network-shares-stage3)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-auto-domain)
+	@$(call add,LIVE_PACKAGES,installer-feature-multipath)
+	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-alphabet-profiles)
+	@$(call add,LIVE_PACKAGES,installer-feature-load-tun)
+	@$(call add,LIVE_PACKAGES,installer-feature-network-shares-stage3)
+	@$(call add,LIVE_PACKAGES,installer-feature-auto-domain)
 ifneq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-quota-stage2)
 endif
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,centaurus/jitsi-meet)
 endif
-	@$(call add,INSTALL2_PACKAGES,fdisk)
-	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
+	@$(call add,LIVE_PACKAGES,fdisk)
+	@$(call add,LIVE_PACKAGES,xorg-conf-synaptics)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,DEFAULT_SERVICES_ENABLE,rpcbind sshd bind)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,systemd-networkd.service systemd-resolved.service)

@@ -30,7 +30,7 @@ distro/alt-server: monitoring = $(addprefix server-v/,\
 
 # FIXME: generalize vm-profile
 distro/alt-server:: distro/.base mixin/alt-server use/vmguest/base \
-	use/bootloader/grub use/rescue/base use/stage2/kms\
+	use/bootloader/grub use/stage2/kms \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
@@ -49,13 +49,13 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-desktop-suspend-stage2)
 endif
 	@$(call add,STAGE2_BOOTARGS,mpath)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
+	@$(call add,LIVE_PACKAGES,installer-feature-multipath)
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
 	@$(call add,SERVICES_ENABLE,multipathd)
-	@$(call add,INSTALL2_PACKAGES,strace)
-	@$(call add,INSTALL2_PACKAGES,fdisk)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
-	@$(call add,INSTALL2_BRANDING,notes)
+	@$(call add,LIVE_PACKAGES,strace)
+	@$(call add,LIVE_PACKAGES,fdisk)
+	@$(call add,LIVE_PACKAGES,btrfs-progs)
+	@$(call add,STAGE2_BRANDING,notes)
 	@$(call add,CLEANUP_BASE_PACKAGES,acpid-events-power)
 	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
 ifeq (,$(filter-out e2k,$(ARCH)))
@@ -78,8 +78,6 @@ endif
 ifeq (,$(filter-out x86_64 aarch64 loongarch64,$(ARCH)))
 distro/alt-server:: +efi; @:
 endif
-
-distro/alt-server:: use/install2/vnc/listen; @:
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/alt-server:: +power +net-eth; @:
