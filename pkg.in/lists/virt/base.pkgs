@@ -60,6 +60,7 @@ systemd-settings-disable-kill-user-processes
 ca-certificates-digital.gov.ru
 isbc-pkcs11
 libjcpkcs11
+librtpkcs11ecp
 opensc
 pam_pkcs11
 pcsc-lite
