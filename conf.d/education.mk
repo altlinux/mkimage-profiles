@@ -133,10 +133,8 @@ mixin/education-installer: \
 	use/branding/complete \
 	mixin/education-base \
 	use/docs/manual use/docs/indexhtml
-	@$(call add,MAIN_GROUPS,education/00_base)
 	@$(call add,MAIN_GROUPS,education/00_libreoffice)
 	@$(call add,MAIN_GROUPS,education/01_preschool)
-	@$(call add,MAIN_GROUPS,education/02_gradeschool)
 	@$(call add,MAIN_GROUPS,education/03_highschool)
 	@$(call add,MAIN_GROUPS,education/04_secondary_vocational)
 	@$(call add,MAIN_GROUPS,education/05_university)
