@@ -31,6 +31,8 @@ mixin/alt-server: +systemd \
 	use/tty
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
+	@$(call set,GRUB_DIRECT,1)
+	@$(call add,GRUB_CFG,defaults fwsetup_efi)
 	@$(call set,THE_APT_CONF,branch-gostcrypto)
 	@$(call set,DISABLE_LANG_MENU,in_grub)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
