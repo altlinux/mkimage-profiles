@@ -61,7 +61,7 @@ endif
 	@$(call add,LIVE_LISTS,centaurus/remmina)
 	@$(call add,LIVE_LISTS,centaurus/cups)
 	@$(call add,LIVE_LISTS,centaurus/nm)
-	@$(call add,LIVE_LISTS,centaurus/domain-client)
+	@$(call add,BASE_LISTS,centaurus/domain-client)
 	@$(call add,MAIN_GROUPS,$(server_groups))
 	@$(call add,MAIN_LISTS,centaurus/cppcheck)
 	@$(call add,MAIN_LISTS,centaurus/disk)
