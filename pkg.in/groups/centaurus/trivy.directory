@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Trivy security scanner
+X-Alterator-PackageList=centaurus/trivy
+X-Alterator-Required=no
+X-Alterator-Parent=centaurus/20-server-apps
+Name[ru_RU]=Сканер уязвимостей Trivy

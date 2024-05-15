@@ -10,7 +10,7 @@ distro/alt-server: server_groups_virtipa = $(addprefix centaurus/,\
 
 distro/alt-server: server_groups_container = $(addprefix centaurus/,\
 	200-container docker podman kubernetes-master kubernetes-node \
-	rootless-kubernetes)
+	rootless-kubernetes trivy)
 endif
 endif
 
