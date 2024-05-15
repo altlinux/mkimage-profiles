@@ -98,7 +98,6 @@ rng-tools
 screen
 smartmontools
 strace
-sudo
 system-report
 systemd-analyze
 tcpdump
