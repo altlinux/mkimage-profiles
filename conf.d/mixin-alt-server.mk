@@ -17,6 +17,7 @@ mixin/alt-server: +systemd \
 	use/live/rescue \
 	use/live/repo \
 	use/live/suspend \
+	use/live-install/oem \
 	use/live-install/vnc/listen \
 	use/ntp/chrony \
 	use/branding/notes \
