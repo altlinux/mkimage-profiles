@@ -84,7 +84,7 @@ endif
 	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,DEFAULT_SERVICES_ENABLE,rpcbind sshd bind)
-	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,systemd-networkd.service)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,systemd-networkd.service systemd-resolved.service)
 	@$(call add,SYSTEMD_SERVICES_MASK,suspend.target hibernate.target)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord ahttpd libvirtd qemu-kvm)
 	@$(call add,DEFAULT_SERVICES_ENABLE,virtualbox openntpd bacula-fd daytime-tcp)
