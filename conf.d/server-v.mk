@@ -88,7 +88,7 @@ endif
 	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,INSTALL2_PACKAGES,fonts-ttf-google-croscore-arimo)
 	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
-	@$(call add,INSTALL2_BRANDING,bootloader bootsplash notes slideshow)
+	@$(call add,INSTALL2_BRANDING,bootloader notes slideshow)
 	@$(call add,THE_BRANDING,alterator)
 	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_PACKAGES,alterator-fbi alterator-notes)
