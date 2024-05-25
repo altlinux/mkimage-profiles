@@ -13,6 +13,7 @@ use/init: use/pkgpriorities
 # the wrong syslogd-daemon provider already
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
+	@$(call add,INSTALL2_PACKAGES,sysvinit)
 	@$(call add,THE_PACKAGES,rsyslog-classic startup mingetty)
 	@$(call add,THE_PACKAGES,udevd-final)
 	@$(call add,THE_PACKAGES,apt-conf-ignore-systemd)
@@ -30,6 +31,7 @@ use/init/sysv/polkit: use/init/sysv
 ### i-f should be dropped as soon as rootfs scripts are effective there
 use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
+	@$(call add,INSTALL2_PACKAGES,systemd-sysvinit)
 
 use/init/systemd/full: use/init/systemd
 	@$(call add,THE_PACKAGES,chkconfig)
