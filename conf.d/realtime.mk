@@ -3,9 +3,10 @@ mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +x11 \
 	use/cleanup
 	@$(call set,KFLAVOURS,rt)
 	@$(call add,THE_LISTS,realtime/tests)
-	@$(call add,THE_LISTS,engineering/cnc)
+#	@$(call add,THE_LISTS,engineering/cnc)
 	@$(call add,THE_LISTS,engineering/misc)
 	@$(call add,THE_LISTS,kernel-headers)
+	@$(call add,THE_PACKAGES,linuxcnc mesaflash)
 	@$(call add,THE_PACKAGES,gcc-c++ liblinuxcnc-devel)
 	@$(call add,THE_PACKAGES,alterator-x11)
 	@$(call add,THE_PACKAGES,ethtool)
