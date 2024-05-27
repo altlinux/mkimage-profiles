@@ -55,6 +55,8 @@ endif
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans-mono)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-caladea)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-crosextra-carlito)
+	@$(call add,THE_PACKAGES,fonts-otf-google-noto-sans-cjk-hk)
+	@$(call add,THE_PACKAGES,fonts-otf-google-noto-sans-mono-cjk-hk)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans-symbols)
 	@$(call add,THE_PACKAGES,fonts-ttf-google-noto-sans-symbols2)
 	@$(call add,THE_PACKAGES,fonts-ttf-material-icons)
