@@ -57,7 +57,6 @@ alterator-kiosk kiosk-profiles
 alterator-net-domain
 #
 # KDE
-kde5-kfloppy
 # MISC
 dnf
 exim
