@@ -114,7 +114,7 @@ gnustep-TextEdit
 gnustep-Ticker
 gnustep-TimeMon
 gnustep-Toolbox
-gnustep-Vespucci
+#gnustep-Vespucci
 #gnustep-ViewPDF
 #gnustep-Vindaloo
 #gnustep-VolumeControl
