@@ -19,7 +19,7 @@ mixin/alt-server: +installer +systemd \
 	use/install2/stage3 \
 	use/install2/vnc use/install2/xfs use/install2/fat \
 	use/volumes/alt-server \
-	use/apt-conf \
+	use/apt-conf/branch \
 	use/fonts/install2 \
 	use/l10n/default/ru_RU use/install2/stage3 \
 	use/firmware/full \
@@ -27,8 +27,7 @@ mixin/alt-server: +installer +systemd \
 	use/tty
 	@$(call set,INSTALLER,centaurus)
 	@$(call set,BRANDING,alt-server)
-# For test on Sisyphus
-#	@$(call set,THE_APT_CONF,branch-gostcrypto)
+	@$(call set,THE_APT_CONF,branch-gostcrypto)
 	@$(call set,DISABLE_LANG_MENU,in_grub)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
