@@ -114,6 +114,7 @@ mixin/kworkstation-install-deps: \
 	use/stage2/net-install-live \
 	use/grub/localboot_bios.cfg \
 	use/live-install/vnc/listen \
+	use/live-install/suspend \
 	use/live/no-cleanup \
 	+net-eth +vmguest +live-installer-pkg
 
