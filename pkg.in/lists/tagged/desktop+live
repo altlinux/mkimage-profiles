@@ -4,5 +4,4 @@ xinitrc
 livecd-setlocale
 livecd-timezone
 os-prober
-sudo
 su
