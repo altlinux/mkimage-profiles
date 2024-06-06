@@ -123,3 +123,5 @@ glibc-timezones
 alt-issue-server
 color-prompt-and-man
 local-policy
+
+fonts-ttf-google-noto-sans
