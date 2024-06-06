@@ -289,7 +289,7 @@ system-report
 zbar
 audit
 vixie-cron
-screenfetch
+neofetch
 debhelper
 xdg-user-dirs-gtk
 libgtk2-engine-adwaita
