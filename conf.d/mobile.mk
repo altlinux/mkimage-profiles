@@ -59,9 +59,14 @@ mixin/mobile-lt11i: mixin/uboot-extlinux use/tty/S0
 mixin/mobile-nxp: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,nxp)
 
+mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
+	@$(call set,KFLAVOURS,rocknix)
+	@$(call add,THE_PACKAGES,u-boot-rockchip)
+
 vm/alt-mobile-phosh-pine: vm/.phosh mixin/mobile-pine; @:
 vm/alt-mobile-phosh-mp: vm/.phosh mixin/mobile-mp; @:
 vm/alt-mobile-phosh-lt11i: vm/.phosh mixin/mobile-lt11i; @:
 vm/alt-mobile-phosh-nxp: vm/.phosh mixin/mobile-nxp; @:
+vm/alt-mobile-phosh-rocknix: vm/.phosh mixin/mobile-rocknix; @:
 endif
 endif
