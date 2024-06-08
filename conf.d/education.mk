@@ -73,6 +73,9 @@ endif
 	@$(call add,LIVE_PACKAGES,xfsprogs xfsinfo xfsdump)
 	@$(call add,LIVE_LISTS,$(call tags,base extra))
 	@$(call add,CONTROL,tcb_chkpwd:tcb)
+	@$(call set,META_VOL_ID,ALT Education $(DISTRO_VERSION) Live)
+	@$(call set,META_APP_ID,ALT Education $(DISTRO_VERSION) Live $(ARCH) $(shell date +%F))
+
 
 mixin/education-lite-live: \
 	use/live/suspend \
@@ -88,6 +91,8 @@ mixin/education-lite-live: \
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
 	@$(call set,GRUB_DEFAULT,session)
 	@$(call set,SYSLINUX_DEFAULT,session)
+	@$(call set,META_VOL_ID,ALT Education $(DISTRO_VERSION) Live)
+	@$(call set,META_APP_ID,ALT Education $(DISTRO_VERSION) Live $(ARCH) $(shell date +%F))
 
 mixin/education-base: \
 	use/l10n/default/ru_RU +vmguest \
@@ -99,10 +104,10 @@ mixin/education-base: \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 10.2 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
+	@$(call set,META_VOL_ID,ALT Education $(DISTRO_VERSION))
+	@$(call set,META_APP_ID,ALT Education $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
 	@$(call add,THE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,alt-rootfs-installer)
@@ -120,10 +125,10 @@ mixin/education-lite-base: \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,education)
-	@$(call set,META_VOL_ID,ALT Education 10.2 $(ARCH))
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
-	@$(call set,META_APP_ID,$(DISTRO_VERSION) $(ARCH))
 	@$(call set,META_VOL_SET,ALT)
+	@$(call set,META_VOL_ID,ALT Education $(DISTRO_VERSION))
+	@$(call set,META_APP_ID,ALT Education $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,STAGE2_PACKAGES,chrony)
 
