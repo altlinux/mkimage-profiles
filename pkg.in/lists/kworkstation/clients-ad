@@ -3,6 +3,10 @@ task-auth-ad-sssd
 kde5-autofs-shares
 krb5-ticket-watcher
 task-auth-ldap-sssd
-gpupdate
 alterator-gpupdate
-admx-basealt admx-samba admx-chromium admx-firefox admx-yandex-browser admx-msi-setup
+admx-basealt
+admx-firefox
+admx-chromium
+admx-yandex-browser
+admx-msi-setup
+admx-samba
