@@ -1,6 +1,5 @@
 task-auth-freeipa
 freeipa-client
 certmonger
-systemd-units
 systemd-services
 libsss_sudo
