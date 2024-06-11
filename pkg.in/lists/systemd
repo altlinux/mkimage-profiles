@@ -1,5 +1,4 @@
 systemd
-systemd-units
 systemd-services
 systemd-sysvinit
 systemd-analyze
