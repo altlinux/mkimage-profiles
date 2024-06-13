@@ -1,0 +1,4 @@
+# Authenticate in Active Directory domain by SSSD
+task-auth-ad-sssd
+alterator-standalone
+alterator-net-iptables
