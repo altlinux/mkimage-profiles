@@ -36,6 +36,9 @@ mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,THE_PACKAGES,dconf-epiphany-mobile-user-agent)
 	@$(call add,THE_PACKAGES,dconf-clapper-playbin3)
 
+mixin/mobile-ad:
+	@$(call add,THE_LISTS,mobile/AD)
+
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
@@ -44,6 +47,8 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 
 vm/alt-mobile-phosh-un-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
+
+vm/alt-mobile-phosh-un-def-ad: vm/alt-mobile-phosh-un-def mixin/mobile-ad; @:
 
 ifeq (aarch64,$(ARCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
@@ -68,5 +73,12 @@ vm/alt-mobile-phosh-mp: vm/.phosh mixin/mobile-mp; @:
 vm/alt-mobile-phosh-lt11i: vm/.phosh mixin/mobile-lt11i; @:
 vm/alt-mobile-phosh-nxp: vm/.phosh mixin/mobile-nxp; @:
 vm/alt-mobile-phosh-rocknix: vm/.phosh mixin/mobile-rocknix; @:
+
+# AD
+vm/alt-mobile-phosh-pine-ad: vm/alt-mobile-phosh-pine mixin/mobile-ad; @:
+vm/alt-mobile-phosh-mp-ad: vm/alt-mobile-phosh-mp mixin/mobile-ad; @:
+vm/alt-mobile-phosh-lt11i-ad: vm/alt-mobile-phosh-lt11i mixin/mobile-ad; @:
+vm/alt-mobile-phosh-nxp-ad: vm/alt-mobile-phosh-nxp mixin/mobile-ad; @:
+vm/alt-mobile-phosh-rocknix-ad: vm/alt-mobile-phosh-rocknix mixin/mobile-ad; @:
 endif
 endif
