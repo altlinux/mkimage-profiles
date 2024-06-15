@@ -67,6 +67,7 @@ mixin/mobile-nxp: mixin/uboot-extlinux use/tty/S0
 mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,rocknix)
 	@$(call add,THE_PACKAGES,u-boot-rockchip)
+	@$(call add,THE_PACKAGES,rg552-hw-control)
 
 vm/alt-mobile-phosh-pine: vm/.phosh mixin/mobile-pine; @:
 vm/alt-mobile-phosh-mp: vm/.phosh mixin/mobile-mp; @:
