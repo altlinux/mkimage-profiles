@@ -25,8 +25,3 @@ use/power/acpi/powersave: use/power/acpi
 	@$(call add,COMMON_PACKAGES,powersave)
 	@$(call add,DEFAULT_SERVICES_DISABLE,acpid)	# override
 	@$(call add,DEFAULT_SERVICES_ENABLE,powersaved)
-
-# legacy power management
-use/power/apm: use/power
-	@$(call add,COMMON_PACKAGES,apmd lphdisk)
-	@$(call add,DEFAULT_SERVICES_ENABLE,apmd)
