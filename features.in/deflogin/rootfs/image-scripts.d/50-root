@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -efu
 
 # explicitly requested empty root password
 case "$GLOBAL_ROOTPW_EMPTY" in

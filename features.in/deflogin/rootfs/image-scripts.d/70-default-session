@@ -1,6 +1,4 @@
-#!/bin/sh
-
-
+#!/bin/sh -efu
 
 [ -n "$GLOBAL_USERS" ] || exit 0
 [ -n "$GLOBAL_DEFAULT_SESSION" ] || exit 0

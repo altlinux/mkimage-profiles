@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -efu
 # add regular user(s) assigning passwords and attributes of power
 
 # NB: care that the utilities exist; shadow-utils is warranted
