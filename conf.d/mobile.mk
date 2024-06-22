@@ -34,7 +34,6 @@ mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call set,DEFAULT_SESSION,phosh)
 	@$(call add,THE_PACKAGES,dconf-epiphany-mobile-user-agent)
-	@$(call add,THE_PACKAGES,dconf-clapper-playbin3)
 
 mixin/mobile-ad:
 	@$(call add,THE_LISTS,mobile/AD)
