@@ -5,6 +5,7 @@ fprintd
 
 catdoc
 gdb
+systemd-coredump
 fuse-cryfs
 libnss-mdns
 plasma5-libkscreen-utils
