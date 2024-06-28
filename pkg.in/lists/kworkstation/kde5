@@ -61,6 +61,8 @@ kde5-k3b
 #kmymoney
 #kmymoney-i18n
 #kde5-plasma-yawp
+# kde5-konsole to override xterm as /usr/bin/xvt
+kde5-konsole
 alt-app-starter
 kde5-plasma-addon-alt-weather
 
