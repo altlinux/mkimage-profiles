@@ -10,6 +10,7 @@ qt6-wayland
 qt6-svg
 qt6-imageformats
 bluez
+feedbackd-device-themes
 
 # fonts
 fonts-otf-abattis-cantarell
