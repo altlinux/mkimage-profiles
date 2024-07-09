@@ -67,6 +67,7 @@ mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,rocknix)
 	@$(call add,THE_PACKAGES,u-boot-rockchip)
 	@$(call add,THE_PACKAGES,rg552-hw-control)
+	@$(call add,THE_PACKAGES,udev-rules-goodix-touchpad)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,rg552-fancontrol.service)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,rg552-wifi.service)
 
