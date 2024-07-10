@@ -22,7 +22,7 @@ chromium-gost@x86_64,aarch64
 yandex-browser-stable@x86_64
 
 # gostcrypo repo component is needed
-openvpn-gostcrypto openvpn-plugins-gostcrypto
+#openvpn-gostcrypto openvpn-plugins-gostcrypto
 alterator-openvpn-server
 
 openssh-gostcrypto
