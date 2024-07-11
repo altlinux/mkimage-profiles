@@ -4,6 +4,6 @@ Type=Directory
 Name=Network installation server
 X-Alterator-PackageList=centaurus/netinst
 X-Alterator-Parent=centaurus/10-alterator
-X-Alterator-Required=no
+X-Alterator-Required=yes
 Name[ru_RU]=Сервер сетевой установки 
 Categories=Server;Networking
