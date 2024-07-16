@@ -125,3 +125,6 @@ color-prompt-and-man
 local-policy
 
 fonts-ttf-google-noto-sans
+
+alterator-browser
+alteratorctl
