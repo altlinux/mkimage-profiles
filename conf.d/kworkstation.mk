@@ -137,7 +137,6 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_PACKAGES,installer-feature-set-tz)
 	@$(call add,LIVE_PACKAGES,installer-feature-rootgtktheme-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-alterator-setup-stage2)
-	@$(call add,LIVE_PACKAGES,installer-feature-lightdm-kde)
 	@$(call add,LIVE_PACKAGES,installer-feature-packagekit-setup)
 	@$(call add,LIVE_PACKAGES,installer-feature-xprofile-clear)
 	@$(call add,LIVE_PACKAGES,installer-feature-systemd-oomd)
