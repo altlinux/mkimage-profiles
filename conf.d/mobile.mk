@@ -60,6 +60,7 @@ mixin/mobile-mp: mixin/uboot-extlinux use/tty/S0
 mixin/mobile-lt11i: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,lt11i)
 	@$(call add,THE_PACKAGES,lt11i-bluetooth)
+	@$(call add,THE_PACKAGES,firmware-lt11i)
 
 mixin/mobile-nxp: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,nxp)
