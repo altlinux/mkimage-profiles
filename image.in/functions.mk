@@ -54,6 +54,16 @@ $(if $(filter groups2lists,$(0)),$(shell \
 ))
 endef
 
+define live_groups2lists
+$(if $(filter live_groups2lists,$(0)),$(shell \
+	  if [ -n "$(THE_GROUPS)$(LIVE_GROUPS)" ]; then \
+	    sed -rn 's,^X-Alterator-PackageList=(.*)$$,\1,p' \
+	    $(call map,group,$(THE_GROUPS) $(LIVE_GROUPS)) | \
+	    sed 's/;/\n/g'; \
+	  fi; \
+))
+endef
+
 # kernel package list generation; see also #24669
 NULL :=
 SPACE := $(NULL) # the officially documented way of getting a space

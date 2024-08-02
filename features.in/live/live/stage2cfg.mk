@@ -6,8 +6,8 @@ IMAGE_PACKAGES_REGEXP = $(LIVE_PACKAGES_REGEXP) $(THE_PACKAGES_REGEXP)
 
 IMAGE_PACKAGES = $(COMMON_PACKAGES) $(LIVE_PACKAGES) $(THE_PACKAGES) \
 		 $(call map,list, \
-			$(LIVE_LISTS) $(LIVE_GROUPS) \
-			$(THE_LISTS) $(THE_GROUPS) \
+			$(LIVE_LISTS) $(THE_LISTS) \
+			$(call live_groups2lists) \
 			$(COMMON_LISTS)) \
 		 interactivesystem
 
