@@ -24,6 +24,10 @@ set_sudo() {
 		echo "$1	ALL=(ALL) ALL" >> "/etc/sudoers"
 }
 
+# workarround for sysusers
+# Link: https://lists.altlinux.org/pipermail/devel/2024-June/218787.html
+chmod u+w /etc/gshadow{,-}
+
 # chpasswd is intended for batch use but that would be less comprehensible
 [ -z "$GLOBAL_USERS" ] ||
 	echo "$GLOBAL_USERS" \
