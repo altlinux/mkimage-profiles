@@ -89,3 +89,4 @@ rescue-launcher
 livecd-rescue-utility
 system-backup
 gostsum
+flashrom
