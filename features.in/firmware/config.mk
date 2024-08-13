@@ -24,6 +24,9 @@ ifneq (,$(filter-out riscv64 mipsel,$(ARCH)))
 	@$(call add,SYSTEM_PACKAGES,firmware-ast_dp501)
 endif
 	@$(call add,THE_PACKAGES_REGEXP,firmware-ql.*)
+	@$(call add,MAIN_PACKAGES,firmware-linux-mellanox)
+	@$(call add,MAIN_PACKAGES,firmware-linux-mrvl)
+	@$(call add,MAIN_PACKAGES,firmware-linux-qcom)
 
 use/firmware/qlogic: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-ql6312)
