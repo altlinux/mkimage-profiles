@@ -152,7 +152,7 @@ endif
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 
-mixin/regular-kde5: use/x11/kde5 use/browser/falkon \
+mixin/regular-kde: use/x11/kde5 use/browser/falkon \
 	use/x11/kde5-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)

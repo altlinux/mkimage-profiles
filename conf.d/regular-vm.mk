@@ -77,7 +77,7 @@ ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif
 
-vm/regular-kde5: vm/.regular-gtk mixin/regular-kde5 mixin/vm-archdep-x11; @:
+vm/regular-kde: vm/.regular-gtk mixin/regular-kde mixin/vm-archdep-x11; @:
 
 vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep-x11; @:
 

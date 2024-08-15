@@ -195,8 +195,8 @@ distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
 
 distro/regular-deepin: distro/.regular-gtk mixin/regular-deepin; @:
 
-distro/regular-kde5: distro/.regular-desktop +nm \
-	mixin/regular-kde5 use/domain-client +plymouth; @:
+distro/regular-kde: distro/.regular-desktop +nm \
+	mixin/regular-kde use/domain-client +plymouth; @:
 
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
