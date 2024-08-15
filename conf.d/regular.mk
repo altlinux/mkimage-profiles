@@ -25,11 +25,6 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
 	use/efi/shell use/efi/dtb +efi \
 	use/luks use/volumes/regular; @:
-ifeq (,$(filter-out p10,$(BRANCH)))
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
-endif
 
 # graphical target (not enforcing xorg drivers or blobs)
 distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
@@ -170,11 +165,7 @@ distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-ifeq (sisyphus,$(BRANCH))
 	@$(call set,KFLAVOURS,std-def un-def)
-else
-	@$(call set,KFLAVOURS,un-def)
-endif
 endif
 
 distro/regular-xfce-install: distro/.regular-install-x11-systemd \
@@ -197,9 +188,7 @@ distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 	use/kernel/latest +plymouth use/browser/epiphany \
 	use/live-install/vnc/listen; @:
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-ifeq (sisyphus,$(BRANCH))
 	@$(call set,KFLAVOURS,std-def un-def)
-endif
 endif
 
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
