@@ -1,0 +1,10 @@
+#!/bin/sh -efu
+
+CONFIG="/etc/initrd.mk"
+if [ -f "$CONFIG" ]; then
+	grep -qw luks "$CONFIG" || echo 'FEATURES += luks' >> "$CONFIG"
+	if rpm -q unl0kr; then
+		grep -qw luks-unl0kr "$CONFIG" ||
+		    echo 'FEATURES += luks-unl0kr' >> "$CONFIG"
+	fi
+fi
