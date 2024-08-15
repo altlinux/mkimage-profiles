@@ -124,7 +124,7 @@ use/x11/gdm2.20: \
 
 use/x11/kde5-display-manager-lightdm: \
 	use/x11/%: use/x11/dm
-	@$(call set,THE_DISPLAY_MANAGER,$*)
+	@$(call set,THE_DISPLAY_MANAGER,kde5-display-manager-7-lightdm)
 	@$(call set,THE_DM_SERVICE,lightdm)
 
 use/x11/gdm use/x11/sddm use/x11/lxdm: \
