@@ -56,7 +56,7 @@ use/kernel/initrd-setup: use/kernel
 	@$(call try,VM_FSTYPE,ext4)
 	@$(call add,VM_INITRDMODULES,$$(VM_FSTYPE))
 	@$(call add,VM_INITRDMODULES,ahci.ko ahci_platform.ko sd_mod.ko)
-	@$(call add,VM_INITRDMODULES,usbhid.ko usbkbd.ko)
+	@$(call add,VM_INITRDMODULES,drivers/hid)
 	@$(call add,VM_INITRDMODULES,evdev.ko)
 	@$(call add,VM_INITRDMODULES,drivers/pci)
 	@$(call add,VM_INITRDMODULES,drivers/mmc drivers/usb/host)
