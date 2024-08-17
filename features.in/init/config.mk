@@ -16,7 +16,6 @@ use/init/sysv: use/init
 	@$(call add,INSTALL2_PACKAGES,sysvinit)
 	@$(call add,THE_PACKAGES,rsyslog-classic startup mingetty)
 	@$(call add,THE_PACKAGES,udevd-final)
-	@$(call add,THE_PACKAGES,apt-conf-ignore-systemd)
 	@$(call add,DEFAULT_SERVICES_ENABLE,udevd-final)
 	@$(call add,PINNED_PACKAGES,rsyslog-classic)
 	@$(call add,PINNED_PACKAGES,systemd-utils-standalone:Essential)
