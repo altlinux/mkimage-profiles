@@ -54,6 +54,9 @@ gnome-games-2048
 gnome-games-chess
 gnome-games-sudoku
 
+# system monitor
+resources
+
 # misc
 gnome-calculator
 gnome-calendar
@@ -62,6 +65,7 @@ gnome-clocks
 gnome-maps
 gnome-weather
 grim
+
 wl-clipboard
 wallpapers-mobile
 # libadwaita theme ported to gtk3
