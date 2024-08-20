@@ -27,6 +27,7 @@ endif
 	@$(call set,LOCALE,ru_RU)
 	@$(call add,CONTROL,fusermount:public)
 	@$(call add,CONTROL,libnss-role:disabled)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waked.service)
 
 mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,THE_BRANDING,phosh-settings)
