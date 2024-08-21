@@ -64,6 +64,7 @@ mixin/mobile-lt11i: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,lt11i)
 	@$(call add,THE_PACKAGES,lt11i-bluetooth)
 	@$(call add,THE_PACKAGES,firmware-lt11i)
+	@$(call add,THE_PACKAGES,blacklist-lt11i-camera)
 
 mixin/mobile-nxp: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,nxp)
