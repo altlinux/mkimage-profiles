@@ -93,10 +93,6 @@ bootargs: clean
 		sed -i "s,@rescue_bootargs@,$(RESCUE_BOOTARGS)," $(DSTCFGS); \
 	fi; \
 	sed -i "s,@rescue_bootargs@,," $(DSTCFGS)
-	@if [ -n "$(BOOTVGA)" ]; then \
-		sed -i "s,@bootvga@,$(BOOTVGA)," $(DSTCFGS); \
-	fi; \
-	sed -i "s,@bootvga@,,;s,vga= ,," $(DSTCFGS)
 	@if [ -n "$(LOCALE)" ]; then \
 		sed -i "s,@LOCALE@,$(LOCALE),g" $(DSTCFGS); \
 	else \

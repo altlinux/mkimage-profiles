@@ -5,9 +5,6 @@ ifeq (,$(filter-out i586 x86_64 ppc64le aarch64 riscv64 loongarch64,$(ARCH)))
 
 use/grub: sub/stage1 $(ISOHYBRID:%=use/isohybrid)
 	@$(call add_feature)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call try,BOOTVGA,normal)
-endif
 	@$(call set,RELNAME,ALT ($(IMAGE_NAME)))
 	@$(call xport,GRUB_DEFAULT)
 
