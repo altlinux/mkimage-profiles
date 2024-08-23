@@ -2,7 +2,7 @@
 gnome-calls
 gnome-contacts
 chatty
-telegram-desktop@!riscv64
+telegram-desktop
 
 # terminal
 gnome-console
