@@ -155,9 +155,14 @@ endif
 mixin/regular-kde: use/x11/kde use/browser/falkon \
 	use/x11/kde-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg
+ifeq (,$(filter-out sisyphus,$(BRANCH)))
+	@$(call add,THE_PACKAGES,xdg-desktop-portal-kde)
+	@$(call add,THE_PACKAGES,plasma-discover)
+else
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
-	@$(call add,THE_PACKAGES,qt6-wayland)
 	@$(call add,THE_PACKAGES,plasma5-discover)
+endif
+	@$(call add,THE_PACKAGES,qt6-wayland)
 	@$(call add,THE_PACKAGES,accountsservice)
 	@$(call add,THE_PACKAGES,gtk-theme-breeze)
 ifneq (,$(filter-out e2k% riscv64 loongarch64,$(ARCH)))
