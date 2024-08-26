@@ -153,7 +153,7 @@ endif
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 
 mixin/regular-kde: use/x11/kde use/browser/falkon \
-	use/x11/kde5-display-manager-lightdm \
+	use/x11/kde-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,qt6-wayland)
