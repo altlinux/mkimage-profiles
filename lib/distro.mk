@@ -23,7 +23,7 @@ endif
 
 # NB: the last flavour in KFLAVOURS gets to be the default one;
 # the kernel packages regexp evaluation has to take place at build stage
-distro/.base: distro/.boot use/kernel
+distro/.base: distro/.boot use/kernel use/branding/notes
 	@$(call try,META_SYSTEM_ID,LINUX)
 
 # this one should not be fundamental as it appears (think armh)

@@ -7,7 +7,7 @@ endif
 ifeq (ve,$(IMAGE_CLASS))
 
 # no package management and networking
-ve/.bare: profile/bare
+ve/.bare: profile/bare use/branding/notes
 	@$(call add,BASE_PACKAGES,basesystem)
 
 # add package management

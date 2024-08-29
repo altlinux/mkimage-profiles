@@ -6,7 +6,7 @@ endif
 
 ifeq (vm,$(IMAGE_CLASS))
 
-vm/.bare: profile/bare
+vm/.bare: profile/bare use/branding/notes
 	@$(call add,BASE_PACKAGES,interactivesystem shadow-utils e2fsprogs)
 
 ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
