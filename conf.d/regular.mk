@@ -208,7 +208,7 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 
 distro/regular-rescue-live: distro/.regular-base +systemd \
 	use/live/rescue/extra use/live/rescue/rw \
-	use/stage2/kms use/hdt use/stage2/kms use/kernel/latest \
+	use/stage2/kms use/hdt use/kernel/latest use/firmware/full \
 	use/net/etcnet use/net/dhcp use/live/repo +wireless \
 	use/syslinux/sdab.cfg use/grub/sdab_bios.cfg
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
