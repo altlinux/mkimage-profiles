@@ -329,6 +329,7 @@ task-edu-tools@META
 
 # Russian Root CA certificate
 ca-certificates-digital.gov.ru
+ca-certificates-tlscc.ru
 
 xauthority-hostname-updater
 
