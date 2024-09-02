@@ -1,3 +1,4 @@
+systemd-sysvinit
 task-auth-freeipa
 kde5-autofs-shares
 krb5-ticket-watcher
