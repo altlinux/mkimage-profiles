@@ -1,7 +1,7 @@
 # core
 phosh
 phosh-tour
-phosh-gsk-renderer-gl
+phosh-gsk-renderer-gl@!X86
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xorg-xwayland
