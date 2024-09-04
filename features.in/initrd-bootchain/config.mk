@@ -3,6 +3,7 @@ use/initrd-bootchain:
 	@$(call set,STAGE1_INITRD,initrd-bootchain)
 	@$(call set,STAGE1_PACKAGES,make-initrd-bootchain)
 	@$(call set,STAGE1_INITRD_TYPEARGS,$(shell echo "root=bootchain bootchain=fg,altboot automatic"))
+	@$(call xport,STAGE1_INITRD_TYPEARGS)
 	@$(call set,STAGE1_INITRD_BOOTMETHOD,$(shell echo "method:disk,uuid:$(UUID_ISO)"))
 	@$(call set,STAGE1_INITRD_STAGE2_OPTION,stagename)
 	@$(call try,BOOTCHAIN_BC_FGVT_ACTIVATE,7)

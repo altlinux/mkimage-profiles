@@ -53,13 +53,13 @@ for i in live altinst liveinst rescue; do
 label=$label
     partition=0
     image=/boot/image.0
-    cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live automatic=method:cdrom ${stage2:+$stage2 }${init:+$init }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
+    cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live ${GLOBAL_STAGE1_INITRD_TYPEARGS:-automatic}=method:cdrom ${stage2:+$stage2 }${init:+$init }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
     initrd=/boot/initrd.img
 
 label=${label}_flash
     partition=0
     image=/boot/image.0
-    cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live lowmem automatic=method:disk,label:altinst,directory:/ ${stage2:+$stage2 }${init:+$init }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
+    cmdline=console=ttyS0,115200 console=tty0 hardreset fastboot live lowmem ${GLOBAL_STAGE1_INITRD_TYPEARGS:-automatic}=method:disk,label:altinst ${stage2:+$stage2 }${init:+$init }${GLOBAL_STAGE2_BOOTARGS:+$GLOBAL_STAGE2_BOOTARGS }${GLOBAL_BOOT_LANG:+lang=$GLOBAL_BOOT_LANG}
     initrd=/boot/initrd.img
 EOF
 done
