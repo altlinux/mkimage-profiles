@@ -27,7 +27,6 @@ lsblk
 lsmount
 lvm2
 mdadm
-open-iscsi
 photorec
 scalpel
 sleuthkit

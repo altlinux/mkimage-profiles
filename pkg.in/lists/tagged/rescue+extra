@@ -89,6 +89,7 @@ reiser4progs
 reiserfsprogs
 shake
 xfsprogs
+open-iscsi
 
 # Compressed filesystem image
 clicfs-utils
