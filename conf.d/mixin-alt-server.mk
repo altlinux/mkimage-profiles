@@ -8,7 +8,7 @@ mixin/alt-server: server_main_kmodules = bcmwl ch34x dm-secdel drbd9 drm-ancient
 	drm-nouveau drm e1000e hifc hinic i40e ide ipset ipt_netflow ipt-ratelimit \
 	ipt-so ixgbe kvdo LiME linux-gpib lsadrv ndpi nvidia nxp-pn71xx-getmobit \
 	promethean r8125 r8168 rtl8168 rtl8188fu rtl8192eu rtl8192fu rtl8723bu \
-	rtl8812au rtl8821ce rtl8821cu rtl88x2bu rtw89 staging tripso usb-vhci \
+	rtl8812au rtl8821cu rtl88x2bu rtw89 staging tripso usb-vhci \
 	v4l2loopback vboxsf vhba virtualbox-addition-guest virtualbox-addition \
 	virtualbox-addition-video virtualbox xtables-addons
 
