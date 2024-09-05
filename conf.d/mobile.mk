@@ -56,6 +56,7 @@ ifeq (aarch64,$(ARCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
 	@$(call set,KFLAVOURS,pine)
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
+	@$(call add,THE_PACKAGES,udev-rules-goodix-touchpad)
 
 mixin/mobile-mp: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,mp)
