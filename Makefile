@@ -69,13 +69,12 @@ SHELL = /bin/bash
 	else \
 		say "** goal: $@"; \
 	fi; \
-	say "** BRANCH: $(BRANCH)"; \
 	for ARCH in $(ARCHES); do \
 		if [ -z "$(QUIET)" ]; then \
 			if [ "$$ARCH" != "$(firstword $(ARCHES))" ]; then \
 				say; \
 			fi; \
-			say "** ARCH: $$ARCH"; \
+			say "** BRANCH/ARCH: $(BRANCH)/$$ARCH"; \
 		fi; \
 		if [ -n "$(REPORT)" ] && [ -n "$(DEBUG)" ] && [ -z "$(CHECK)" ]; then \
 			REPORT_PATH=$$(mktemp --tmpdir mkimage-profiles.report.XXXXXXX); \
