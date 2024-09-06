@@ -100,6 +100,7 @@ mixin/regular-desktop: +alsa +nm-native \
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
 	@$(call add,THE_PACKAGES,pam-limits-desktop beesu polkit dvd+rw-tools)
 	@$(call add,THE_PACKAGES,eepm)
+	@$(call add,THE_PACKAGES,sudo)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_BRANDING,notes)
