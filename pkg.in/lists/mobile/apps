@@ -62,7 +62,7 @@ gnome-calculator
 gnome-calendar
 gnome-characters
 gnome-clocks
-gnome-maps
+#gnome-maps # need replace geoinfo source
 gnome-weather
 grim
 

@@ -46,6 +46,9 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
 	use/auto-resize
 	@$(call add,THE_LISTS,mobile/apps)
+ifeq (sisyphus,$(BRANCH))
+	@$(call add,THE_PACKAGES,gnome-maps)
+endif
 
 vm/alt-mobile-phosh-un-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
