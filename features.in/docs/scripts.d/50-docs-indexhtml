@@ -21,6 +21,9 @@ LANG="${GLOBAL_LOCALE:-en_US}" indexhtml-update
 # http://unix.stackexchange.com/questions/94185/convert-soft-to-hardlinks
 cp -aH "$indexdir" "$dest"
 
+# delete links with absolute PATH
+sed -i '/file:\/\/\//d' "$dest"/indexhtml/index-*.html
+
 mkredir() {
 	cat >"${1}index.html" <<-EOF
 	<html>
