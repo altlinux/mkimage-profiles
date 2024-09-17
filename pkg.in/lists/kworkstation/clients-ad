@@ -1,5 +1,6 @@
 libwbclient
 task-auth-ad-sssd
+task-auth-ad-winbind
 kde5-autofs-shares
 krb5-ticket-watcher
 task-auth-ldap-sssd
