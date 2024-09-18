@@ -102,6 +102,7 @@ smartmontools
 strace
 system-report
 systemd-analyze
+systemd-settings-ignore-handle-lid-switch
 tcpdump
 udev-android
 udev-extras
