@@ -120,7 +120,6 @@ wget
 xauthority-hostname-updater
 xinput
 xfsprogs
-xorg-conf-synaptics
 xorg-conf-libinput-touchpad
 
 libva-driver-intel@X86
