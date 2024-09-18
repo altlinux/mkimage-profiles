@@ -7,7 +7,7 @@ firmware-wireless-regdb
 
 pinentry-qt5
 gst-plugins-good1.0-qt5
-pavucontrol
+pwvucontrol
 
 plasma5-discover-packagekit@META
 
