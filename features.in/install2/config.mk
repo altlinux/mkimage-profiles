@@ -28,7 +28,6 @@ use/install2/full: \
 	use/install2/lvm use/install2/cryptsetup \
 	use/syslinux/localboot.cfg use/grub/localboot_bios.cfg \
 	use/syslinux/ui/menu use/bootloader
-	@$(call add,INSTALL2_PACKAGES,xorg-drv-synaptics)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-libinput)
 
 use/install2/oem: use/install2

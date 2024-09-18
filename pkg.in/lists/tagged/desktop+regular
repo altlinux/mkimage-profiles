@@ -26,7 +26,6 @@ alterator-update-kernel
 
 glxinfo
 glxgears
-xorg-conf-synaptics@X86
 
 cpu-x@X86
 exfatprogs
