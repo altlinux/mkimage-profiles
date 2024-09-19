@@ -335,3 +335,4 @@ xauthority-hostname-updater
 
 # Additional repositories
 apt-conf-r7@x86_64
+apt-conf-netpolice@x86_64
