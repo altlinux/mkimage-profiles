@@ -158,6 +158,7 @@ endif
 	@$(call add,MAIN_PACKAGES,lmms)
 	@$(call add,MAIN_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,MAIN_PACKAGES,settings-alsa-sof-force)
+	@$(call add,MAIN_PACKAGES,dnf createrepo_c)
 	@$(call set,DOCS,alt-education)
 
 #FIXME#	mixin/education-live \
