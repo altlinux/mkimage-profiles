@@ -15,3 +15,7 @@ use/ntp/client: use/ntp
 use/ntp/chrony: use/ntp
 	@$(call set,THE_NTPD,chrony)
 	@$(call set,THE_NTPD_SERVICE,chronyd)
+
+use/ntp/timesyncd: use/ntp
+	@$(call set,THE_NTPD,systemd-timesyncd)
+	@$(call set,THE_NTPD_SERVICE,systemd-timesyncd)
