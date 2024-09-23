@@ -18,7 +18,8 @@ if [ -f "$langlist" ] && [ -n "$locales" ]; then
 fi
 
 if [ -n "$locale" ]; then
-	echo LANG="$locale".UTF8 > "$systemd_locale"
-	echo LANG="$locale".UTF8 > "$sysv_locale"
-	echo SUPPORTED="$locale".UTF8 >> "$sysv_locale"
+	which localectl 2>&1 >/dev/null &&  echo LANG="$locale".UTF8 > "$systemd_locale"
+	[ -f "$sysv_locale" ] && echo LANG="$locale".UTF8 > "$sysv_locale"
+	[ -f "$sysv_locale" ] && echo SUPPORTED="$locale".UTF8 >> "$sysv_locale"
 fi
+:
