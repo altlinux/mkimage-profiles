@@ -133,13 +133,14 @@ mixin/regular-gnustep: use/x11/gnustep use/mediacheck
 	@$(call add,THE_BRANDING,graphics)
 
 mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
-	use/fonts/ttf/google use/im
+	use/fonts/ttf/google use/im use/domain-client
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 	@$(call add,THE_PACKAGES,gnome-disk-utility gnome-system-monitor)
 
 mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 
-mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4
+mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4 \
+	use/domain-client
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-terminal)
 	@$(call add,THE_PACKAGES,gnome-software)
@@ -156,7 +157,8 @@ endif
 
 mixin/regular-kde: use/x11/kde use/browser/falkon \
 	use/x11/kde-display-manager-lightdm \
-	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg
+	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
+	use/domain-client
 ifeq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,plasma-discover)
@@ -190,7 +192,7 @@ mixin/regular-xfce: mixin/xfce-base use/domain-client +pipewire
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
 
-mixin/regular-lxqt: use/x11/lxqt +nm-gtk; @:
+mixin/regular-lxqt: use/x11/lxqt +nm-gtk use/domain-client; @:
 
 mixin/mate-base: use/x11/mate use/fonts/ttf/google +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
