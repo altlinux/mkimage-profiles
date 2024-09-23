@@ -74,7 +74,6 @@ endif
 	@$(call add,THE_PROFILES,minimal)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
 	@$(call add,LIVE_PACKAGES,installer-feature-multipath)
-	@$(call add,LIVE_PACKAGES,installer-feature-desktop-other-fs-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-alphabet-profiles)
 	@$(call add,LIVE_PACKAGES,installer-feature-load-tun)
 	@$(call add,LIVE_PACKAGES,installer-feature-network-shares-stage3)
