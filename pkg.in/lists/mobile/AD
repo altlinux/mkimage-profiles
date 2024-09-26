@@ -2,3 +2,9 @@
 task-auth-ad-sssd
 alterator-standalone
 alterator-net-iptables
+
+# GPO
+admx-basealt
+admc
+gpui
+gpupdate
