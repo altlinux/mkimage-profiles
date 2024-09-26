@@ -11,7 +11,6 @@ mixin/kworkstation-common-deps: \
 	use/branding/complete \
 	use/firmware/wireless use/firmware/laptop use/firmware/cpu use/wireless/full \
 	use/vmguest/complete use/vmguest/vbox/x11 use/vmguest/vmware/x11 \
-	use/power/acpi \
 	use/luks \
 	use/net-eth/dhcp use/net-ssh use/net/nm/nodelay use/net/etcnet \
 	use/ntp/chrony \
