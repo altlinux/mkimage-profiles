@@ -22,7 +22,8 @@ amberol
 loupe
 
 # readers
-papers
+papers@!riscv64
+evince@riscv64
 foliate
 
 # file transfer
