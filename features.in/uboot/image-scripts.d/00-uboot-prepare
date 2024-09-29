@@ -2,7 +2,7 @@
 
 TTY=
 echo $GLOBAL_BASE_BOOTARGS | grep console= ||
-  TTY='console=tty1'
+  TTY='console=tty0'
 
 # installkernel relies on existing extlinux.conf
 # with filled in `default' label

@@ -14,4 +14,4 @@ use/tty/%: use/tty
 	@$(call try,TTY_DEV,tty$*)
 	@$(call try,TTY_RATE,115200)
 	@$(call add,SYSLINUX_CFG,tty$*)
-	@$(call add,BASE_BOOTARGS,console=tty1 console=$$(TTY_DEV)$(comma)$$(TTY_RATE)n8)
+	@$(call add,BASE_BOOTARGS,console=tty0 console=$$(TTY_DEV)$(comma)$$(TTY_RATE)n8)
