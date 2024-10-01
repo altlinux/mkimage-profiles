@@ -83,6 +83,8 @@ alterator-sysconfig
 alterator-sysinfo
 alterator-update-kernel
 alterator-updates
+alterator-usbguard
+alterator-usbmount
 alterator-users
 alterator-x11
 alterator-xkb
