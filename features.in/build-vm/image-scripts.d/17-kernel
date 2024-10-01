@@ -21,7 +21,7 @@ cd /boot
 
 # creating a special initrd.mk
 cp /etc/initrd.mk /etc/initrd.mk.oem
-echo 'FEATURES += add-modules compress cleanup kbd rdshell rootfs' \
+echo 'FEATURES += add-modules compress cleanup rdshell rootfs' \
 	>> /etc/initrd.mk.oem
 
 if [ -n "$GLOBAL_VM_INITRDFEATURES" ]; then
