@@ -5,7 +5,7 @@ X-Alterator-Required=no
 X-Alterator-Parent=kworkstation/z01-add-clients
 Categories=KDE;GNOME;XFCE
 
-Name=Active Directory
-Name[ru_RU]=Активный каталог (AD)
-Comment=Active Directory client.
-Comment[ru_RU]=Клиент службы каталогов Active Directory.
+Name=ALT Domain
+Name[ru_RU]=Альт Домен
+Comment=ALT Domain client(Active Directory).
+Comment[ru_RU]=Клиент для Альт Домен (служба каталогов Active Directory).

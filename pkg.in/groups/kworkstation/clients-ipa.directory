@@ -5,7 +5,7 @@ X-Alterator-Required=no
 X-Alterator-Parent=kworkstation/z01-add-clients
 Categories=KDE;GNOME;XFCE
 
-Name=ALT domain (IPA)
-Name[ru_RU]=Домен Альт (IPA)
-Comment=FreeIPA client for ALT domain.
-Comment[ru_RU]=FreeIPA-клиент домена Альт.
+Name=FreeIPA
+Name[ru_RU]=FreeIPA
+Comment=FreeIPA domain client.
+Comment[ru_RU]=Клиент домена на основе FreeIPA.
