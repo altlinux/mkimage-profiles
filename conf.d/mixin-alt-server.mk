@@ -67,9 +67,11 @@ endif
 	@$(call add,MAIN_LISTS,centaurus/disk)
 	@$(call add,THE_PROFILES,centaurus-10-server)
 	@$(call add,THE_PROFILES,centaurus-20-serverDC)
-	@$(call add,THE_PROFILES,centaurus-40-docker)
 ifeq (,$(filter-out i586 x86_64 aarch64 loongarch64 e2k%,$(ARCH)))
 	@$(call add,THE_PROFILES,centaurus-30-desktop)
+endif
+ifeq (,$(filter-out x86_64 ppc64le aarch64,$(ARCH)))
+	@$(call add,THE_PROFILES,centaurus-40-docker)
 endif
 	@$(call add,THE_PROFILES,minimal)
 	@$(call add,STAGE1_MODLISTS,stage2-mmc)
