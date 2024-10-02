@@ -169,7 +169,7 @@ system-config-printer-udev
 installer-feature-xdg-user-dirs
 xdg-user-dirs-gtk
 pulseaudio@META
-alsa-plugins-pulse
+alsa-set-initial-options
 rpminstall
 apt-repo
 dhcp-client
