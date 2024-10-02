@@ -213,7 +213,7 @@ tigervnc
 theme-mate-windows
 mc-desktop
 
-alterator-browser
-alterator-application-packages
-alterator-application-components
-alterator-components-centaurus
+alterator-browser@!loongarch64
+alterator-application-packages@!loongarch64
+alterator-application-components@!loongarch64
+alterator-components-centaurus@!loongarch64
