@@ -49,6 +49,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_PACKAGES,mate-reduced-resource)
 endif
 ifeq (,$(filter-out loongarch64,$(ARCH)))
+	@$(call set,THE_APT_CONF,sisyphus)
 	@$(call set,KFLAVOURS,loongarch)
 	@$(call add,MAIN_GROUPS,centaurus/token)
 	@$(call add,MAIN_PACKAGES,mate-reduced-resource)
