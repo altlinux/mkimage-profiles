@@ -30,7 +30,6 @@ gparted
 timeshift
 #
 accountsservice
-kde5-ksystemlog
 kde5-kcm-grub2
 #
 #appinstall@X86
@@ -53,7 +52,6 @@ samba-usershares
 # system-config-samba
 
 kde5-messenger-client-mix
-kde5-connect
 
 isomaster
 kde5-k3b
@@ -92,7 +90,6 @@ document-templates-odf
 kamoso
 kde5-kcm-wacomtablet
 
-kde5-ktorrent
 #eiskaltdcpp-qt
 #kde5-kio-gdrive
 
