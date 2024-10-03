@@ -217,3 +217,15 @@ alterator-browser@!loongarch64
 alterator-application-packages@!loongarch64
 alterator-application-components@!loongarch64
 alterator-components-centaurus@!loongarch64
+
+alterator-usbguard
+alterator-usbmount
+usbguard
+usbguard-common
+usbguard-dbus
+usbguard-notifier
+usbguard-utils
+
+kiosk
+alterator-kiosk
+kiosk-mate-profiles
