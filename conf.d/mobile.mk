@@ -9,7 +9,8 @@ mixin/mobile-base:: use/ntp/chrony use/repo use/branding/notes use/x11-autostart
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs \
 	use/drm use/firmware mixin/ttyescape +plymouth +pipewire \
-	use/services/bluetooth-enable use/luks/touchscreen
+	use/services/bluetooth-enable use/luks/touchscreen \
+	use/wireless
 ifeq (sisyphus,$(BRANCH))
 	@$(call set,BRANDING,alt-mobile-sisyphus)
 else
