@@ -30,6 +30,7 @@ define report_body
 fi; }
 endef
 
+ifeq (,$(CHECK))
 all: reports/targets reports/scripts reports/cleanlog \
 	reports/contents reports/packages
 	@rm -fr "$(LOGDIR)/$(IMAGE_OUTFILE).reports"
@@ -42,6 +43,9 @@ all: reports/targets reports/scripts reports/cleanlog \
 ifeq (2,$(REPORT))
 	@cd "$(LOGDIR)" && tar -cf "$(IMAGE_OUTFILE).reports.tar" "$(IMAGE_OUTFILE).reports" && \
 		rm -r "$(IMAGE_OUTFILE).reports"
+endif
+else
+all: reports/targets; @:
 endif
 
 reports/prep:

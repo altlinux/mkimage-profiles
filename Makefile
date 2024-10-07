@@ -3,9 +3,10 @@
 # collect proceedings
 
 ifeq (,$(CHECK))
-ifeq (,$(DEBUG))
 ifneq (,$(REPORT))
-$(warning REPORT is disabled, DEBUG must be enabled for this)
+ifeq (,$(DEBUG))
+export DEBUG=1
+$(warning DEBUG is enabled, since REPORT is enabled)
 endif
 endif
 endif
@@ -76,7 +77,7 @@ SHELL = /bin/bash
 			fi; \
 			say "** BRANCH/ARCH: $(BRANCH)/$$ARCH"; \
 		fi; \
-		if [ -n "$(REPORT)" ] && [ -n "$(DEBUG)" ] && [ -z "$(CHECK)" ]; then \
+		if [ -n "$(REPORT)" ]; then \
 			REPORT_PATH=$$(mktemp --tmpdir mkimage-profiles.report.XXXXXXX); \
 			$(MAKE) -f main.mk ARCH=$$ARCH $@ | report-filter > $$REPORT_PATH || exit 1; \
 			$(MAKE) -f reports.mk ARCH=$$ARCH REPORT=$(REPORT) REPORT_PATH=$$REPORT_PATH; \
