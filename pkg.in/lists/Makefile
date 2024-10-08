@@ -37,7 +37,7 @@ save_packages_to_lists:
 
 check-lists:
 	@APTBOX=$(BUILDDIR)/.work/pkgbox/aptbox; \
-	if [ -d "$$APTBOX" ]; then \
+	if [ -d "$$APTBOX" ] && [ -z "$(NOCHECK)" ]; then \
 		check-pkg-list --aptbox "$$APTBOX" `find $(TARGET) -type f`; \
 	fi
 	@rm -f $(TARGET)/*_PACKAGES*
