@@ -154,6 +154,7 @@ endif
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
+	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 
 mixin/regular-kde: use/x11/kde use/browser/falkon \
 	use/x11/kde-display-manager-lightdm \
