@@ -11,6 +11,7 @@ qt6-svg
 qt6-imageformats
 bluez
 feedbackd-device-themes
+power-profiles-daemon
 
 # fonts
 fonts-otf-abattis-cantarell
