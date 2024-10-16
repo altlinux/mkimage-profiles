@@ -17,7 +17,7 @@ glxinfo
 efivar
 sos
 system-report
-startup-rescue
+livecd-rescue-utility
 qt-fsarchiver
 vulkan-tools
 f2fs-tools
