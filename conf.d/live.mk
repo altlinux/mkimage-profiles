@@ -49,8 +49,10 @@ distro/.live-base: distro/.base use/live/base \
 
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
-distro/.live-desktop: distro/.live-x11 +live use/live/install use/stage2/net-eth \
-	use/plymouth/live; @:
+distro/.live-desktop: distro/.live-x11 +live use/stage2/net-eth \
+	use/plymouth/live
+	@$(call add,LIVE_PACKAGES,polkit)
+
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
 distro/.live-kiosk: distro/.live-base use/live/autologin \
@@ -65,7 +67,7 @@ distro/.live-kiosk: distro/.live-base use/live/autologin \
 
 distro/live-builder-mini: distro/.live-base use/dev/builder/base \
 	use/syslinux/timeout/30 use/isohybrid \
-	use/stage2/net-eth use/net-eth/dhcp +sysvinit; @:
+	use/stage2/net-eth use/net-eth/dhcp +systemd; @:
 
 distro/live-builder: distro/live-builder-mini \
 	use/dev/builder/full use/live/rw +efi; @:
@@ -73,10 +75,10 @@ distro/live-builder: distro/live-builder-mini \
 distro/live-install: distro/.live-base use/live/textinstall; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
 
-distro/live-icewm: distro/.live-desktop use/x11/gdm2.20 use/ntp +icewm \
-	+sysvinit; @:
-distro/live-fvwm: distro/.live-desktop-ru use/x11/gdm2.20 use/ntp use/x11/fvwm \
-	+sysvinit; @:
+distro/live-icewm: distro/.live-desktop use/live/autologin use/ntp +icewm \
+	+systemd; @:
+distro/live-fvwm: distro/.live-desktop-ru use/live/autologin use/ntp use/x11/fvwm \
+	+systemd; @:
 
 distro/live-rescue: distro/live-icewm +efi
 	@$(call add,LIVE_LISTS,$(call tags,rescue && (fs || live || x11)))
@@ -93,7 +95,7 @@ distro/.live-webkiosk-gtk: distro/.live-webkiosk
 	@$(call add,CLEANUP_PACKAGES,'libqt4*' 'qt4*')
 
 # kiosk users rather prefer stability to latest bling
-distro/live-webkiosk-mini: distro/.live-webkiosk-gtk \
+distro/live-webkiosk-mini: distro/.live-webkiosk-gtk +systemd \
 	use/browser/firefox use/browser/firefox/esr use/fonts/otf/mozilla
 	@$(call add,LIVE_PACKAGES,livecd-webkiosk-firefox)
 
@@ -109,13 +111,13 @@ distro/live-webkiosk-chromium: distro/.live-webkiosk use/fonts/ttf/google +efi
 #	@$(call add,LIVE_PACKAGES,livecd-webkiosk-seamonkey)
 
 distro/.live-3d: distro/.live-x11 use/x11/3d \
-	use/x11/lightdm/gtk +icewm +sysvinit
+	use/x11/lightdm/gtk +icewm +systemd
 	@$(call add,LIVE_PACKAGES,glxgears glxinfo)
 
 distro/live-glxgears: distro/.live-3d; @:
 
 distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
-	use/stage2/net-eth use/net-eth/dhcp use/services +efi +sysvinit
+	use/stage2/net-eth use/net-eth/dhcp use/services +efi +systemd
 	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,pciutils input-utils glxgears glxinfo)
