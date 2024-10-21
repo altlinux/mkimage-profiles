@@ -12,7 +12,11 @@ else
 ifeq (,$(filter-out armh,$(ARCH)))
 	@$(call try,KFLAVOURS,mp)
 else
-	@$(call try,KFLAVOURS,std-def)
+ifeq (,$(filter-out sisyphus,$(BRANCH)))
+	@$(call try,KFLAVOURS,6.6)
+else
+	@$(call try,KFLAVOURS,un-def)
+endif
 endif
 endif
 endif
@@ -21,7 +25,9 @@ endif
 
 use/kernel/latest: use/kernel; @:
 ifeq (,$(filter-out aarch64 armh i586 ppc64le x86_64,$(ARCH)))
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,un-def)
+endif
 endif
 
 # r8168 is a kludge, never install it by default
