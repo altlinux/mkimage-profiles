@@ -57,8 +57,10 @@ ifeq (sisyphus,$(BRANCH))
 	@$(call add,THE_PACKAGES,gnome-maps)
 endif
 
-vm/alt-mobile-phosh-un-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0
+vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0; @:
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,un-def)
+endif
 
 ifeq (aarch64,$(ARCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
