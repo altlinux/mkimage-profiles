@@ -60,8 +60,6 @@ endif
 vm/alt-mobile-phosh-un-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0
 	@$(call set,KFLAVOURS,un-def)
 
-vm/alt-mobile-phosh-un-def-ad: vm/alt-mobile-phosh-un-def mixin/mobile-ad; @:
-
 ifeq (aarch64,$(ARCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
 	@$(call set,KFLAVOURS,pine)
