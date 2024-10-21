@@ -164,8 +164,10 @@ distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
+endif
 endif
 
 distro/regular-xfce-install: distro/.regular-install-x11-systemd \
@@ -187,8 +189,10 @@ distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 	use/kernel/latest +plymouth use/browser/epiphany \
 	use/live-install/vnc/listen; @:
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
+endif
 endif
 
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
@@ -261,8 +265,10 @@ distro/.regular-builder: distro/.regular-base mixin/regular-builder \
 distro/regular-builder: distro/.regular-builder +systemd +nm \
 	use/dev/builder/live/systemd
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call set,KFLAVOURS,un-def)
+endif
 endif
 
 # old regular-builder
