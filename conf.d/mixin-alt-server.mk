@@ -40,7 +40,9 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 	@$(call add,THE_BRANDING,alterator)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
+endif
 	@$(call add,LIVE_PACKAGES,installer-feature-cleanup-kernel-stage3)
 	@$(call add,LIVE_PACKAGES,ntfs-3g)
 	@$(call add,BASE_KMODULES,drm)
