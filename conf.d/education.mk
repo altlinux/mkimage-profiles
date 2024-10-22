@@ -182,7 +182,9 @@ else
 	@$(call add,MAIN_GROUPS,education/06_kde5)
 endif	# e2k%
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
+endif
 	@$(call add,THE_KMODULES,virtualbox)
 	@$(call add,THE_KMODULES,lsadrv bbswitch)
 	@$(call add,THE_KMODULES,staging)
