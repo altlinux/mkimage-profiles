@@ -29,7 +29,9 @@ distro/grub-net-install: distro/.base +efi \
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,un-def std-def)
+endif
 	@$(call set,GRUB_DEFAULT,network)
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
 endif
@@ -118,7 +120,6 @@ distro/live-glxgears: distro/.live-3d; @:
 
 distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
 	use/stage2/net-eth use/net-eth/dhcp use/services +efi +systemd
-	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,pciutils input-utils glxgears glxinfo)
 	@$(call add,LIVE_PACKAGES,glibc-locales apulse)
@@ -157,7 +158,6 @@ distro/live-privacy: distro/.base +efi +systemd +vmguest \
 	use/browser/firefox/esr use/browser/firefox use/sound \
 	use/fonts/otf/adobe use/fonts/otf/mozilla \
 	use/fonts/ttf/google use/fonts/ttf/redhat
-	@$(call set,KFLAVOURS,un-def)
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_LISTS,$(call tags,archive extra))
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
