@@ -212,12 +212,16 @@ distro/kworkstation-live: \
 	mixin/kworkstation-live-opts
 
 distro/kworkstation-install-undef: \
-	distro/kworkstation-install
+	distro/kworkstation-install; @:
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,un-def)
+endif
 
 distro/kworkstation-live-undef: \
-	distro/kworkstation-live
+	distro/kworkstation-live; @:
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,un-def)
+endif
 
 mixin/kworkstation-fsin-opts:
 	@$(call add,THE_PACKAGES,libwbclient task-auth-ad-sssd)
