@@ -39,7 +39,7 @@ endif
 	@$(call set,DOCS,alt-kworkstation)
 	@$(call add,PINNED_PACKAGES,systemd)
 	@$(call try,THE_BROWSER,yandex-browser-stable)
-	@$(call add,BASE_KMODULES,kvm virtualbox)
+	@$(call add,BASE_KMODULES,virtualbox)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,BASE_PACKAGES,os-prober)
 	@$(call add,BASE_PACKAGES,plymouth-plugin-label)

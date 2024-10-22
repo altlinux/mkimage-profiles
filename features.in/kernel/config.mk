@@ -49,7 +49,7 @@ use/kernel/desktop:
 use/kernel/drm: use/drm; @:
 
 use/kernel/server:
-	@$(call add,THE_KMODULES,ipset kvm)
+	@$(call add,THE_KMODULES,ipset)
 
 use/kernel/disable-usb-autosuspend:
 	@$(call add,BASE_BOOTARGS,usbcore.autosuspend=-1)

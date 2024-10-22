@@ -34,7 +34,6 @@ use/server/virt: use/server use/kernel
 ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,un-def)
 endif
-	@$(call add,THE_KMODULES,kvm)
 
 # NB: examine zabbix-preinstall package, initialization is NOT automatic!
 use/server/zabbix: use/server use/services use/control
