@@ -21,7 +21,9 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/browser/firefox use/browser/firefox/esr \
 	use/cleanup/live-no-cleanupdb
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
+endif
 endif
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
