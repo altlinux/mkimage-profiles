@@ -22,7 +22,7 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,STAGE1_BRANDING,bootloader)
 endif
 
-distro/grub-net-install: distro/.base +efi \
+distro/grub-net-install: distro/.base +efi +vmguest \
 	use/firmware use/grub/sdab_bios.cfg use/l10n \
 	use/stage2/net-install use/stage2/hid use/stage2/usb \
 	use/stage2/ata use/stage2/sbc use/stage2/kms
