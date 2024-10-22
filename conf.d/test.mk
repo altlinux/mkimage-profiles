@@ -13,8 +13,7 @@ distro/live-systemd: distro/.base use/live/base +systemd; @:
 distro/live-plymouth: distro/.live-base use/plymouth/live; @:
 distro/live-mediacheck: distro/.base use/mediacheck +plymouth; @:
 
-distro/live-testserver: distro/live-install use/server/mini
-	@$(call set,KFLAVOURS,std-def el-smp)
+distro/live-testserver: distro/live-install use/server/mini; @:
 
 # NB: requires runtime Server/ServerActive setup in zabbix_agentd.conf
 distro/live-zabbix: distro/live-icewm use/net-eth
