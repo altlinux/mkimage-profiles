@@ -28,7 +28,6 @@ lsmount
 lvm2
 mdadm
 photorec
-scalpel
 sleuthkit
 smartmontools
 testdisk
