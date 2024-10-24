@@ -27,7 +27,9 @@ else
 endif
 	@$(call add,THE_PACKAGES,mousepad)
 	@$(call add,THE_PACKAGES,thunderbird)
+ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,yandex-browser-alt-education)
+endif
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)                            
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,BASE_LISTS,workstation/3rdparty)
