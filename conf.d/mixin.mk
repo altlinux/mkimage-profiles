@@ -173,9 +173,6 @@ endif
 	@$(call add,THE_PACKAGES,qt6-wayland)
 	@$(call add,THE_PACKAGES,accountsservice)
 	@$(call add,THE_PACKAGES,gtk-theme-breeze)
-ifneq (,$(filter-out e2k% riscv64 loongarch64,$(ARCH)))
-	@$(call add,THE_PACKAGES,falkon-kde5)
-endif
 
 mixin/xfce-base: use/x11/xfce +nm-gtk \
 	use/fonts/ttf/redhat use/fonts/ttf/google/extra
