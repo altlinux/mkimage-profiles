@@ -26,6 +26,8 @@ alterator-update-kernel
 
 glxinfo
 glxgears
+vulkan-tools
+clinfo
 
 cpu-x@X86
 exfatprogs
