@@ -28,6 +28,7 @@ glxinfo
 glxgears
 vulkan-tools
 clinfo
+wayland-utils
 
 cpu-x@X86
 exfatprogs
