@@ -103,6 +103,7 @@ freerdp-server
 pam_pkcs11
 gvfs-shares
 shared-desktop-icons
+control++
 
 # Base utilities
 tzdata
