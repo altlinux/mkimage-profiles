@@ -9,8 +9,7 @@ bonnie++
 cfdisk
 dcfldd
 dc3dd
-dd_rescue@X86
-dd_rescue@aarch64
+dd_rescue
 ddrescue
 ddrutility
 disktype
@@ -73,7 +72,6 @@ agrep-tre
 enca
 findutils
 file
-ldd-requires@X86
 less
 lnav
 wdiff
@@ -106,14 +104,6 @@ fuse-chunkfs
 fuse-ciopfs
 hfsprogs
 ifuse
-libevt-tools@X86
-libevtx-tools@X86
-liblnk-tools@X86
-libpff-tools@X86
-libregf-tools@X86
-libuna-tools
-#libvshadow-tools
-libwrc-tools@X86
 ntfs-3g
 ocfs2-tools
 
@@ -148,7 +138,7 @@ fuse-curlftpfs
 fuse-lftpfs
 fuse-sshfs
 hostinfo
-hping3@X86
+hping3@!riscv64
 httpry
 httpry-scripts
 iftop
@@ -212,12 +202,17 @@ strace
 sysstat
 udis86@X86
 
-# win32
-chntpw@X86
-hivex@X86
-scrounge-ntfs@X86
-wabread@X86
-libldm@X86
+# MS Windows
+hivex@X86,aarch64
+libldm@X86,aarch64
+libevt-tools@X86
+libevtx-tools@X86
+liblnk-tools@X86
+libpff-tools@X86
+libregf-tools@X86
+libuna-tools
+libvshadow-tools
+libwrc-tools@X86
 
 # Mobile
 android-tools@!E2K,riscv64
