@@ -72,9 +72,6 @@ distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
 distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit +power; @:
 
-distro/.regular-gtk-sysv: distro/.regular-desktop-sysv \
-	use/syslinux/ui/gfxboot use/x11/gdm2.20; @:
-
 distro/.regular-install: distro/.regular-base +installer \
 	use/branding use/bootloader/grub use/luks use/stage2/kms \
 	use/install2/fs use/install2/vnc use/install2/repo
@@ -148,8 +145,9 @@ distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-icewm use/kernel/latest
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
 
-distro/regular-icewm-sysv: distro/.regular-gtk-sysv mixin/regular-icewm \
-	use/kernel/latest; @:
+distro/regular-icewm-sysv: distro/.regular-desktop-sysv mixin/regular-icewm \
+	use/live/autologin use/kernel/latest
+	@$(call add,LIVE_PACKAGES,wdm)
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \

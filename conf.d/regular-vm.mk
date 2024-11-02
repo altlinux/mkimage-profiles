@@ -36,8 +36,9 @@ vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call try,VM_SIZE,8589934592)
 
-vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 use/x11/gdm2.20 \
-	use/init/sysv/polkit +power; @:
+vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 \
+	use/init/sysv/polkit +power
+	@$(call add,THE_PACKAGES,wdm)
 
 vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 	@$(call add,THE_PACKAGES,blueman)
