@@ -8,7 +8,7 @@ gdb
 systemd-coredump
 fuse-cryfs
 libnss-mdns
-plasma5-libkscreen-utils
+plasma6-libkscreen-utils
 
 nvidia-settings
 nvidia-modprobe
@@ -35,12 +35,12 @@ kde5-kcm-grub2
 #
 #appinstall@X86
 synaptic-kde@META
-plasma5-discover-fwupd
-plasma5-discover-kns
+plasma-discover-fwupd
+plasma-discover-kns
 openssl-gost-engine
 gostsum
-kde5-kreslimit
-kde5-file-actions-gost
+kreslimit
+kde-file-actions-gost
 
 #altlinux-freedesktop-menu-nested-menu
 alt-desktop-wallpapers
@@ -52,20 +52,20 @@ samba
 samba-usershares
 # system-config-samba
 
-#kde5-akonadi-database-mysql
-kde5-messenger-client-mix
+#kde-akonadi-database-mysql
+kde-messenger-client-mix
 
 isomaster
-kde5-k3b
+k3b
 #fbreader
-#kde5-basket
+#basket
 #kmymoney
 #kmymoney-i18n
-#kde5-plasma-yawp
-# kde5-konsole to override xterm as /usr/bin/xvt
-kde5-konsole
+#kde-plasma-yawp
+# konsole to override xterm as /usr/bin/xvt
+konsole
 alt-app-starter
-kde5-plasma-addon-alt-weather
+plasma-addon-alt-weather
 
 qstardict
 stardict-mueller7
@@ -90,12 +90,11 @@ LibreOffice-plugin-altcsp
 document-templates-odf
 
 kamoso
-kde5-kcm-wacomtablet
+plasma-wacomtablet
 
 #eiskaltdcpp-qt
-#kde5-kio-gdrive
+#kde-kio-gdrive
 
-plasma5-desktop-maxi
-plasma5-kinfocenter-maxi
-kde5@META
-kde5-big@META
+kinfocenter-maxi
+kde@META
+kde-big@META

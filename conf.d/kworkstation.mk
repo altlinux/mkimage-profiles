@@ -161,7 +161,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_LISTS,kworkstation/live-rescue)
 	@$(call add,LIVE_LISTS,kworkstation/printing)
 	@$(call add,LIVE_LISTS,kworkstation/scanning)
-	@$(call add,THE_LISTS,kworkstation/kde5-base)
+	@$(call add,THE_LISTS,kworkstation/kde-base)
 	@$(call add,SERVICES_ENABLE,sshd)
 
 mixin/kworkstation-live-deps: \
@@ -178,8 +178,8 @@ mixin/kworkstation-live-opts:
 	@$(call set,GRUB_DEFAULT,session)
 	@$(call add,SYSLINUX_CFG,live_rw)
 	@$(call set,SYSLINUX_DEFAULT,session)
-	@$(call add,LIVE_LISTS,kworkstation/kde5-base)
-	@$(call add,LIVE_LISTS,kworkstation/kde5)
+	@$(call add,LIVE_LISTS,kworkstation/kde-base)
+	@$(call add,LIVE_LISTS,kworkstation/kde)
 	@$(call add,LIVE_LISTS,kworkstation/graphics-editing)
 	@$(call add,LIVE_LISTS,kworkstation/printing)
 	@$(call add,LIVE_LISTS,kworkstation/scanning)
@@ -194,7 +194,7 @@ mixin/kworkstation-live-opts:
 
 distro/kworkstation-install: \
 	kworkstation_groups = $(addprefix kworkstation/,\
-	kde5 games emulators printing scanning \
+	kde games emulators printing scanning \
 	z00-add-3dparty 3dparty-flatpak 3dparty-snap \
 	z01-add-clients clients-ad clients-ipa clients-backup clients-cloud clients-monitor \
 	z02-add-additional add-adm add-oem add-tablet add-webterminal add-no4k-screen)
@@ -216,7 +216,7 @@ mixin/kworkstation-fsin-opts:
 	@$(call add,THE_PACKAGES,task-auth-freeipa task-auth-ldap-sssd)
 	@$(call add,THE_PACKAGES,task-samba-dc bind-utils tdb-utils installer-feature-sambaDC-stage3)
 	@$(call add,THE_PACKAGES,task-auth-ldap-sssd)
-	@$(call add,THE_PACKAGES,kde5-autofs-shares krb5-ticket-watcher kde5-file-actions-gost)
+	@$(call add,THE_PACKAGES,kde-autofs-shares krb5-ticket-watcher kde-file-actions-gost)
 	@$(call add,THE_PACKAGES,openssl-gost-engine)
 	@$(call add,THE_PACKAGES,openvpn-gostcrypto openvpn-plugins-gostcrypto alterator-openvpn-server)
 	@$(call add,THE_PACKAGES,alt-customize-branding)

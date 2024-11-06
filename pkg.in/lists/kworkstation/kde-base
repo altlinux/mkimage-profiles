@@ -9,7 +9,7 @@ pinentry-qt5
 gst-plugins-good1.0-qt5
 pwvucontrol
 
-plasma5-discover-packagekit@META
+plasma-discover-packagekit@META
 
 alt-kworkstation-addon
 alterator-audit
@@ -134,19 +134,19 @@ orca at-spi2-core
 ca-certificates-digital.gov.ru
 yandex-browser-stable
 
-kde5-display-manager-lightdm
+kde-display-manager-lightdm
 #openvpn-gostcrypto ### removed from repo
-kde5-network-manager-etcnet
+kde-network-manager-etcnet
 openssh-clients openssh-askpass-common openssh-server openssh-common openssh-server-control
 systemd-ssh-agent
 NetworkManager-ssh
-kde5-network-manager-nm
-kde5-video-player-haruna
-kde5-audio-player-qmmp
-kde5-runtime@META
-kde5-mini@META
-kde5-small@META
-plasma5-kscreen
+kde-network-manager-nm
+kde-video-player-haruna
+kde-audio-player-qmmp
+kde-runtime@META
+kde-mini@META
+kde-small@META
+kscreen
 
 # GTK2/GTK3 theme
 gtk-theme-breeze

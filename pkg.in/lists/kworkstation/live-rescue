@@ -1,14 +1,14 @@
 
-kde5-plasma-applet-places-widget
+plasma-applet-places-widget
 
 altmediawriter
 kamoso
-plasma5-kinfocenter-maxi
-plasma5-bluedevil
-plasma5-disks
-kde5-khelpcenter
-kde5-filelight
-kde5-spectacle
+kinfocenter-maxi
+bluedevil
+plasma-disks
+khelpcenter
+filelight
+spectacle
 inxi
 glmark2
 glmark2-wayland

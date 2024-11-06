@@ -2,7 +2,7 @@
 Type=Directory
 Name=Plasma (recommended)
 Comment=Vital KDE Plasma workspace components and applications, without which it may be difficult to work with the system.
-X-Alterator-PackageList=kworkstation/kde5;kworkstation/publishing;kworkstation/remote-desktop;kworkstation/graphics-editing;kworkstation/sound-editing;kworkstation/video-editing;
+X-Alterator-PackageList=kworkstation/kde;kworkstation/publishing;kworkstation/remote-desktop;kworkstation/graphics-editing;kworkstation/sound-editing;kworkstation/video-editing;
 X-Alterator-Required=yes
 Categories=KDE;
 
