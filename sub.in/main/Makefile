@@ -37,7 +37,7 @@ MKI_PACK_RESULTS = data
 
 include $(MKIMAGE_PREFIX)/targets.mk
 
-all: $(GLOBAL_DEBUG) copy-packages pack-image $(GLOBAL_CLEAN_WORKDIR)
+all: $(GLOBAL_DEBUG) run-scripts copy-packages pack-image $(GLOBAL_CLEAN_WORKDIR)
 
 debug:
 	@echo "** main: IMAGE_PACKAGES: $(IMAGE_PACKAGES)"
