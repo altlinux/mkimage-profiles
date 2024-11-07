@@ -96,6 +96,7 @@ endif
 	@$(call add,SERVICES_DISABLE,slapd)
 	@$(call add,SERVICES_ENABLE,snapd.socket)
 	@$(call add,SERVICES_ENABLE,power-profiles-daemon.service)
+	@$(call add,SERVICES_ENABLE,switcheroo-control)
 	@$(call add,CLEANUP_BASE_PACKAGES,'libwbclient-sssd')
 	@$(call add,CLEANUP_PACKAGES,'^kernel-modules-drm-nouveau.*')
 	@$(call add,CLEANUP_PACKAGES,'xterm')
