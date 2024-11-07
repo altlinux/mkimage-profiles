@@ -36,6 +36,10 @@ vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call try,VM_SIZE,8589934592)
 
+vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 \
+	use/init/sysv/polkit +power
+	@$(call add,THE_PACKAGES,wdm)
+
 vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 	@$(call add,THE_PACKAGES,blueman)
 
@@ -52,7 +56,7 @@ vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
 vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
 
-vm/regular-icewm: vm/.regular-gtk mixin/regular-icewm \
+vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
 	mixin/vm-archdep-x11; @:
 
 vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11; @:
@@ -110,7 +114,7 @@ vm/regular-jeos-sysv-tavolga: vm/bare mixin/regular-vm-jeos \
 vm/regular-builder-tavolga: vm/regular-jeos-sysv-tavolga \
 	mixin/regular-builder; @:
 
-vm/regular-icewm-tavolga: vm/.regular-gtk mixin/regular-icewm \
+vm/regular-icewm-sysv-tavolga: vm/.regular-desktop-sysv mixin/regular-icewm \
 	use/mipsel-mitx/x11; @:
 
 vm/regular-lxde-tavolga: vm/.regular-gtk mixin/regular-lxde \
@@ -137,7 +141,7 @@ vm/regular-jeos-sysv-bfk3: vm/bare mixin/regular-vm-jeos \
 vm/regular-builder-bfk3: vm/regular-jeos-sysv-bfk3 \
 	mixin/regular-builder; @:
 
-vm/regular-icewm-bfk3: vm/.regular-gtk mixin/regular-icewm \
+vm/regular-icewm-sysv-bfk3: vm/.regular-desktop-sysv mixin/regular-icewm \
 	use/mipsel-bfk3/x11; @:
 
 vm/regular-lxde-bfk3: vm/.regular-gtk mixin/regular-lxde \
