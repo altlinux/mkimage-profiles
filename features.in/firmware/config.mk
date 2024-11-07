@@ -7,6 +7,7 @@ use/firmware:
 	@$(call add,SYSTEM_PACKAGES,firmware-linux)
 ifeq (,$(filter-out aarch64 armh,$(ARCH)))
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
+	@$(call add,THE_PACKAGES,firmware-linux-qcom)
 endif
 
 use/firmware/full: use/firmware/server use/firmware/laptop; @:
