@@ -6,12 +6,8 @@ pinentry-gnome3
 gcr
 pinentry-qt5-
 
-mate-default
-
-mate-utils
 zenity
 yelp
-gucharmap
 libgtk2-engine-adwaita
 gnome-keyring
 seahorse
@@ -20,33 +16,7 @@ fuse-gvfs
 dconf-editor
 gst-plugins-good1.0
 parcellite
-mate-menu-editor
-mate-document-viewer
-mate-document-viewer-thumbnailer
-mate-document-viewer-caja
-mate-document-viewer-djvu
-mate-document-viewer-pixbuf
-mate-document-viewer-xps
 blueman
 udev-rules-rfkill-uaccess
-mate-file-manager-sendto
-mate-file-manager-open-terminal
-mate-file-manager-image-converter
-mate-file-manager-extensions
-mate-file-manager-wallpaper
-mate-applets
 
 pam_gnome-keyring
-
-vino-mate@X86
-
-# for mate-screensaver
-desktop-screensaver-modules-xscreensaver@!mipsel
-desktop-screensaver-modules-xscreensaver-gl@!mipsel
-
-# put these two into a pkggroup so no-extra-services setup could be achieved
-#mate-user-share
-#mate-file-manager-share
-
-# ALT bugs #37967, #37966
-ImageMagick-tools
