@@ -1,4 +1,4 @@
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 loongarch64,$(ARCH)))
 use/memtest: use/syslinux use/grub
 	@$(call add_feature)
 	@$(call add,SYSTEM_PACKAGES,memtest86+)
