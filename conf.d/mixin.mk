@@ -157,7 +157,7 @@ mixin/regular-kde: use/x11/kde use/browser/falkon \
 	use/x11/kde-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	use/domain-client
-ifeq (,$(filter-out sisyphus,$(BRANCH)))
+ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,plasma-discover)
 	@$(call add,THE_PACKAGES,kf5-kirigami)
