@@ -23,7 +23,7 @@ distro/alt-workstation:: distro/.base +vmguest +wireless +efi \
 	use/live/install use/live/x11 use/live/repo use/live/rw \
 	use/vmguest/kvm/x11 use/stage2/kms \
 	use/branding/complete use/docs/license \
-	use/domain-client/full use/x11/amdgpu use/x11/lightdm/gtk \
+	use/domain-client/full use/x11/amdgpu \
 	use/firmware/laptop \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
