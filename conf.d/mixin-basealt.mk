@@ -8,7 +8,7 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 
 mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/kernel/net use/l10n/default/ru_RU \
-	use/x11/xorg use/x11-autostart use/x11/gtk/nm \
+	use/x11/gnome use/x11-autostart use/x11/gtk4/nm \
 	use/ntp/chrony \
 	use/apt-conf/branch use/volumes/alt-workstation \
 	use/fonts/install2 \
@@ -21,13 +21,24 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/browser/firefox use/browser/firefox/esr \
 	use/cleanup/live-no-cleanupdb
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
+	@$(call add,THE_PACKAGES,power-profiles-daemon)
+	@$(call add,THE_PACKAGES,gnome-terminal)
+	@$(call add,THE_PACKAGES,gnome-software)
+	@$(call add,THE_PACKAGES,gnome-tour)
+	@$(call add,THE_PACKAGES,papers)
+	@$(call add,PINNED_PACKAGES,gnome-terminal:Required)
+	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
+	@$(call add,THE_PACKAGES,cups-pk-helper cups)
+	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
+	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 ifneq (,$(filter-out sisyphus,$(BRANCH)))
 	@$(call set,KFLAVOURS,std-def un-def)
 endif
 endif
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
-	@$(call add,THE_BRANDING,mate-settings)
+	@$(call add,THE_BRANDING,gnome-settings)
+	@$(call add,THE_PACKAGES,wallpapers-alt-workstation)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,BASE_LISTS,workstation/base.pkgs)
 	@$(call add,THE_LISTS,workstation/the.pkgs)
@@ -84,7 +95,6 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,MAIN_LISTS,workstation/extras)
 endif
 	@$(call add,LIVE_PACKAGES,livecd-installer-features)
-	@$(call add,LIVE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,LIVE_PACKAGES,alterator-gpupdate)
 	@$(call add,MAIN_PACKAGES,solaar)
 	@$(call add,STAGE2_PACKAGES,chrony)
