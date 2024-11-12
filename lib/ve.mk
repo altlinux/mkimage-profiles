@@ -12,7 +12,7 @@ ve/.bare: profile/bare use/branding/notes
 
 # add package management
 ve/.apt: ve/.bare
-	@$(call add,BASE_PACKAGES,apt)
+	@$(call add,BASE_PACKAGES,apt apt-https)
 
 # also add networking
 ve/.base: ve/.apt
