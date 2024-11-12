@@ -3,11 +3,11 @@ ifeq (vm,$(IMAGE_CLASS))
 
 # NB: interactivesystem pulls in network-config-subsystem anyways
 vm/bare: vm/.base-grub +sysvinit
-	@$(call add,BASE_PACKAGES,apt)
+	@$(call add,BASE_PACKAGES,apt apt-https)
 
 vm/systemd: vm/.base-grub use/init/systemd
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules glibc-locales tzdata)
-	@$(call add,BASE_PACKAGES,apt)
+	@$(call add,BASE_PACKAGES,apt apt-https)
 
 vm/acos: vm/.base-grub use/init/systemd use/net-eth/networkd-dhcp use/net-ssh
 	@$(call add,BASE_PACKAGES,ostree dracut ignition docker-engine sudo su)
