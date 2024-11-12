@@ -161,9 +161,7 @@ ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,plasma-discover)
 	@$(call add,THE_PACKAGES,kf5-kirigami)
-ifeq (,$(filter-out aarch64,$(ARCH)))
 	@$(call set,DEFAULT_SESSION,plasma)
-endif
 else
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,plasma5-discover)
