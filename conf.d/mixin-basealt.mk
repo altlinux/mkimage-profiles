@@ -31,9 +31,6 @@ ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,std-def un-def)
-endif
 endif
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
