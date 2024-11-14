@@ -4,13 +4,9 @@ distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	3rdparty kvm clamav cloud-clients freecad \
 	gtk-dictionary smartcard voip-clients)
 
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+ifneq (,$(filter-out e2k%,$(ARCH)))
 distro/alt-workstation: mediaplayer = workstation/vlc
-endif
-ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
-distro/alt-workstation: mediaplayer = workstation/celluloid
-endif
-ifeq (,$(filter-out e2k%,$(ARCH)))
+else
 distro/alt-workstation: mediaplayer = workstation/smplayer
 endif
 
@@ -93,7 +89,6 @@ endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
-	@$(call add,THE_LISTS,workstation/celluloid)
 	@$(call set,THE_BROWSER,chromium)
 endif
 
