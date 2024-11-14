@@ -7,7 +7,7 @@ distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 distro/alt-workstation: mediaplayer = workstation/vlc
 endif
-ifeq (,$(filter-out aarch64 armh mipsel riscv64,$(ARCH)))
+ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 distro/alt-workstation: mediaplayer = workstation/celluloid
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
@@ -82,28 +82,19 @@ endif
 vm/alt-workstation:: vm/.alt-workstation  +vmguest
 	@$(call add,THE_LISTS,$(mediaplayer))
 
-ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
+ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
 vm/alt-workstation:: use/uboot
 	@$(call add,BASE_LISTS,uboot)
 endif
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-workstation:: use/no-sleep use/arm-rpi4; @:
 endif
 
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
 	@$(call add,THE_LISTS,workstation/celluloid)
 	@$(call set,THE_BROWSER,chromium)
-endif
-
-ifeq (,$(filter-out mipsel,$(ARCH)))
-vm/alt-workstation::
-	@$(call add,THE_PACKAGES,mate-reduced-resource)
-	@$(call add,THE_LISTS,workstation/celluloid)
-
-vm/alt-workstation-bfk3: vm/alt-workstation use/mipsel-bfk3/x11; @:
-vm/alt-workstation-tavolga: vm/alt-workstation use/mipsel-mitx/x11; @:
 endif
 
 vm/alt-workstation-cloud: vm/systemd use/x11/lightdm/gtk use/repo \
