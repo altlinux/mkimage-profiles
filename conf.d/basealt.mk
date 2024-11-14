@@ -27,9 +27,6 @@ distro/alt-workstation:: distro/.base +vmguest +wireless +efi \
 	use/firmware/laptop \
 	use/e2k/multiseat/full use/e2k/x11/101 use/e2k/sound/401
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call set,BOOTLOADER,grubpcboot)
-endif
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,$(workstation_groups_x86))
 endif
 ifeq (,$(filter-out x86_64,$(ARCH)))
