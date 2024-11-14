@@ -35,7 +35,6 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
-	@$(call add,THE_PACKAGES,setup-mate-nocomposite)
 	@$(call add,THE_PACKAGES,xorg-drv-smi)	# use/x11/smi
 	@$(call add,THE_PACKAGES,flashrom)
 	@$(call add,MAIN_PACKAGES,alterator-secsetup)
