@@ -28,7 +28,7 @@ endif
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/blender)
 	@$(call add,MAIN_GROUPS,workstation/virtualbox)
-	@$(call add,BASE_KMODULES,kvm virtualbox)
+	@$(call add,BASE_KMODULES,virtualbox)
 endif
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/flatpak)
