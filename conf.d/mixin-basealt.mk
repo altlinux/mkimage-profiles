@@ -72,26 +72,18 @@ endif
 	@$(call set,DOCS,alt-workstation)
 	@$(call add,PINNED_PACKAGES,postfix)
 
-mixin/alt-workstation-install: +installer \
-	use/install2/fat use/install2/vnc \
-	use/install2/oem \
+mixin/alt-workstation-install: +live-installer-pkg \
+	use/live-install/oem \
 	use/stage2/ata use/stage2/fs use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb
 	@$(call set,INSTALLER,alt-workstation)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-slideshow)
-	@$(call add,INSTALL2_PACKAGES,alterator-notes)
-	@$(call add,INSTALL2_PACKAGES,fdisk)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
-	@$(call add,INSTALL2_PACKAGES,open-iscsi)
-	@$(call add,INSTALL2_PACKAGES,xorg-conf-libinput-touchpad)
+	@$(call add,LIVE_PACKAGES,installer-feature-slideshow)
 ifneq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,THE_PACKAGES,installer-feature-repo-add)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-quota-stage2)
+	@$(call add,LIVE_PACKAGES,installer-feature-repo-add)
 	@$(call add,LIVE_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,MAIN_LISTS,workstation/extras)
 endif
-	@$(call add,LIVE_PACKAGES,livecd-installer-features)
 	@$(call add,LIVE_PACKAGES,alterator-gpupdate)
 	@$(call add,MAIN_PACKAGES,solaar)
 	@$(call add,STAGE2_PACKAGES,chrony)
