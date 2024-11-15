@@ -147,6 +147,7 @@ mixin/kworkstation-install-opts:
 	@$(call add,LIVE_PACKAGES,volumes-profile-kdesktop)
 	@$(call add,LIVE_PACKAGES,udev-rules-ioschedulers)
 	@$(call add,LIVE_PACKAGES,passwdqc-utils)
+	@$(call add,LIVE_PACKAGES,btrfs-progs)
 	@$(call add,MAIN_GROUPS,$(kworkstation_groups))
 	@$(call add,THE_PROFILES,kworkstation/10-workstation)
 	@$(call add,THE_PROFILES,kworkstation/20-webterminal)

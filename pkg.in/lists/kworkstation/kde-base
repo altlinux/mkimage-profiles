@@ -56,6 +56,7 @@ avahi-daemon
 bash-completion
 bc
 bind-utils
+btrfs-progs
 cpufreq-simple
 cifs-utils
 color-prompt-and-man
