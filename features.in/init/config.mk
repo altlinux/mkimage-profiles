@@ -21,7 +21,6 @@ use/init/sysv: use/init
 	@$(call add,DEFAULT_SERVICES_ENABLE,udevd-final)
 	@$(call add,PINNED_PACKAGES,rsyslog-classic)
 	@$(call add,PINNED_PACKAGES,systemd-utils-standalone:Essential)
-	@$(call add,PINNED_PACKAGES,apt-conf-ignore-systemd:Essential)
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,mount-efivars)
 endif
