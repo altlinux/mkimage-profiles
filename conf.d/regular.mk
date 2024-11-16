@@ -125,8 +125,7 @@ endif
 # NB:
 # - stock cleanup is not enough (or installer-common-stage3 deps soaring)
 distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
-	+sysvinit +power
-	@$(call add,BASE_PACKAGES,apt-conf-ignore-systemd)
+	+sysvinit +power; @:
 
 distro/regular-jeos-systemd: distro/.regular-jeos-full use/install2/vmguest \
 	+systemd +systemd-optimal
