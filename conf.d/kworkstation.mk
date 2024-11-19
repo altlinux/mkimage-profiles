@@ -187,7 +187,6 @@ mixin/kworkstation-live-opts:
 	@$(call add,LIVE_LISTS,kworkstation/scanning)
 	@$(call add,LIVE_LISTS,kworkstation/remote-desktop)
 	@$(call add,LIVE_LISTS,kworkstation/sound-editing)
-	@$(call add,LIVE_LISTS,kworkstation/video-editing)
 	@$(call add,SERVICES_DISABLE,sshd)
 	@$(call add,CLEANUP_LIVE_PACKAGES,'flatpak')
 	@$(call add,CLEANUP_LIVE_PACKAGES,'snapd')
