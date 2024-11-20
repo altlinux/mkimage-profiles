@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for initrd_mk in /etc/initrd.mk /etc/initrd.mk.oem; do
+	[ ! -f "$initrd_mk" ] || echo "FEATURES += fsck" >> "$initrd_mk"
+done
