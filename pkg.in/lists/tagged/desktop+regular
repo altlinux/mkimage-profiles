@@ -10,13 +10,6 @@ alterator-root
 alterator-users
 alterator-groups
 
-alterator-net-general
-alterator-net-pppoe rp-pppoe-client
-alterator-net-pptp
-alterator-net-openvpn
-alterator-net-eth
-alterator-net-wifi@X86
-
 alterator-datetime
 alterator-proxy@X86
 alterator-services
