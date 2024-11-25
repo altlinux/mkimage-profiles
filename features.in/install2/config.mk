@@ -12,7 +12,6 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,INSTALL2_PACKAGES,branding-$$(BRANDING)-alterator)
 	@$(call add,BASE_PACKAGES,branding-$$(BRANDING)-release)
 	@$(call add,BASE_PACKAGES,installer-distro-$$(INSTALLER)-stage3)
-	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,BASE_PACKAGES,glibc-gconv-modules)	# for guile22
 	@$(call add,BASE_LISTS,$(call tags,basesystem && !alterator))
 	@$(call xport,BASE_BOOTLOADER)
