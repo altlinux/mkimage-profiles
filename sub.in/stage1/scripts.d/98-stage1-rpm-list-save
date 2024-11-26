@@ -6,4 +6,4 @@ mkdir -p .disk/pkglists/stage1/{work,image}
 cd .disk/pkglists/stage1/
 
 rpm -qa --qf '%{name}-%{version}-%{release}.%{arch}.rpm\n' | sort -u > work/rpm.txt
-rpm -qa --qf '%{sourcerpm}\n' | sort -u > work/srpm.txt
+rpm -qa --qf '%{sourcerpm}\n' | sed 's/^i586-//' | sort -u > work/srpm.txt

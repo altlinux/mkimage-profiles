@@ -7,4 +7,4 @@ cd /.image/.disk/pkglists/main/
 find /.image/ALTLinux/RPMS.*/ -type f -name '*.rpm' | sed 's|.*/||' |
 	sort -u > rpm.txt
 find /.image/ALTLinux/RPMS.*/ -type f -name '*.rpm' |
-	xargs -r rpm -qp --queryformat '%{sourcerpm}\n' | sort -u > srpm.txt
+	xargs -r rpm -qp --queryformat '%{sourcerpm}\n' | sed 's/^i586-//' | sort -u > srpm.txt

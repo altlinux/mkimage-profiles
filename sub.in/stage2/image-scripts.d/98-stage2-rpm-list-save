@@ -3,4 +3,4 @@
 
 cd /tmp
 rpm -qa --qf '%{name}-%{version}-%{release}.%{arch}.rpm\n' | sort -u > rpm.txt
-rpm -qa --qf '%{sourcerpm}\n' | sort -u > srpm.txt
+rpm -qa --qf '%{sourcerpm}\n' | sed 's/^i586-//' | sort -u > srpm.txt
