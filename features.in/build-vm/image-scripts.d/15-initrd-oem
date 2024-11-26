@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# creating a special initrd.mk
+cp /etc/initrd.mk /etc/initrd.mk.oem
+echo 'FEATURES += add-modules compress cleanup rdshell rootfs' \
+    >> /etc/initrd.mk.oem
+
+if [ -n "$GLOBAL_VM_INITRDFEATURES" ]; then
+    for INITRDFEATURE in $GLOBAL_VM_INITRDFEATURES; do
+	echo "FEATURES += $INITRDFEATURE" >> /etc/initrd.mk.oem
+    done
+fi
+
+if [ -n "$GLOBAL_VM_INITRDMODULES" ]; then
+    for INITRDMODULE in $GLOBAL_VM_INITRDMODULES; do
+	echo "MODULES_TRY_ADD += $INITRDMODULE" >> /etc/initrd.mk.oem
+    done
+fi
