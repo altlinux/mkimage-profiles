@@ -5,7 +5,7 @@ sysctl-conf-userns
 firmware-alsa-sof
 firmware-wireless-regdb
 
-pinentry-qt5
+pinentry-qt6
 gst-plugins-good1.0-qt5
 pwvucontrol
 
