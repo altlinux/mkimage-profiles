@@ -6,6 +6,13 @@ CFG=/etc/inittab
 SEC=/etc/securetty
 
 [ -n "$GLOBAL_TTY_DEV" -a -n "$GLOBAL_TTY_RATE" ] || exit 0
+
+for c in /boot/extlinux/extlinux.conf /etc/sysconfig/grub2 /boot/boot.conf; do
+	if [ -f "$c" ]; then
+		sed -i "s/ quiet / /g;s/ quiet'/'/" "$c"
+	fi
+done
+
 [ -s "$CFG" -a -x "$BIN" ] || exit 0
 
 if ! grep -q "$BIN" "$CFG"; then
@@ -16,9 +23,3 @@ if ! grep -q "$BIN" "$CFG"; then
 		n=$(($n+1))
 	done
 fi
-
-for c in /boot/extlinux/extlinux.conf /etc/sysconfig/grub2 /boot/boot.conf; do
-	if [ -f "$c" ]; then
-		sed -i "s/ quiet / /g;s/ quiet'/'/" "$c"
-	fi
-done
