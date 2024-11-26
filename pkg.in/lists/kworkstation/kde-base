@@ -6,7 +6,7 @@ firmware-alsa-sof
 firmware-wireless-regdb
 
 pinentry-qt6
-gst-plugins-good1.0-qt5
+gst-plugins-good1.0-qt6
 pwvucontrol
 
 plasma-discover-packagekit@META
