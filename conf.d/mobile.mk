@@ -16,6 +16,8 @@ ifeq (sisyphus,$(BRANCH))
 else
 	@$(call set,BRANDING,alt-mobile)
 endif
+	@$(call try,CAMERA,snapshot)
+	@$(call add,THE_PACKAGES,$$(CAMERA))
 	@$(call add,THE_BRANDING,graphics notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
@@ -65,6 +67,7 @@ endif
 ifeq (aarch64,$(ARCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
 	@$(call set,KFLAVOURS,pine)
+	@$(call set,CAMERA,megapixels)
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 	@$(call add,THE_PACKAGES,udev-rules-goodix-touchpad)
 
