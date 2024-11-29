@@ -1,3 +1,5 @@
 #!/bin/sh
 # Run scripts from /etc/firsttime.d at first start
-[ -f "/etc/firsttime.flag" ] || touch "/etc/firsttime.flag"
+[ -d /etc/firsttime.d ] || exit 0
+[ "$(ls /etc/firsttime.d 2>/dev/null |wc -l)" != 0 ] || exit 0
+[ -f /etc/firsttime.flag ] || touch /etc/firsttime.flag
