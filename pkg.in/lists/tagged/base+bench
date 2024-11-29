@@ -1,6 +1,5 @@
 # overall
 dhrystone
-lmbench@X86
 procbench@X86
 # requires luajit
 sysbench@X86
