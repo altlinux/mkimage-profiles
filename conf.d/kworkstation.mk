@@ -27,7 +27,7 @@ mixin/kworkstation-common-deps: \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
 	use/alternatives/xvt/konsole \
 	+wireless +pipewire +plymouth +systemd +systemd-optimal +wireless +vmguest +efi +nm \
-	use/stage2/kms/nvidia
+	use/stage2/kms/nvidia; @:
 
 mixin/kworkstation-common-opts:
 	@$(call set,LOCALES,ru_RU be_BY en_US)
@@ -115,7 +115,7 @@ mixin/kworkstation-install-deps: \
 	use/live-install/vnc/listen \
 	use/live-install/suspend \
 	use/live/no-cleanup \
-	+net-eth +vmguest +live-installer-pkg
+	+net-eth +vmguest +live-installer-pkg; @:
 
 mixin/kworkstation-install-opts:
 	@$(call set,GRUB_DEFAULT,harddisk)
@@ -169,7 +169,7 @@ mixin/kworkstation-live-deps: \
 	use/x11/xorg use/x11-autostart \
 	use/live/no-cleanup \
 	use/grub/live_rw.cfg \
-	+net-eth +vmguest
+	+net-eth +vmguest; @:
 
 mixin/kworkstation-live-opts:
 	@$(call add,BASE_LISTS, \
@@ -203,13 +203,13 @@ distro/kworkstation-install: \
 	mixin/kworkstation-install-deps \
 	mixin/kworkstation-common-deps \
 	mixin/kworkstation-common-opts \
-	mixin/kworkstation-install-opts
+	mixin/kworkstation-install-opts; @
 
 distro/kworkstation-live: \
 	mixin/kworkstation-live-deps \
 	mixin/kworkstation-common-deps \
 	mixin/kworkstation-common-opts \
-	mixin/kworkstation-live-opts
+	mixin/kworkstation-live-opts; @
 
 mixin/kworkstation-fsin-opts:
 	@$(call add,THE_PACKAGES,libwbclient task-auth-ad-sssd)
