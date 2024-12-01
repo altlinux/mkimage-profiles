@@ -29,9 +29,6 @@ distro/grub-net-install: distro/.base +efi +vmguest \
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTLOADER,grubpcboot)
 endif
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def std-def)
-endif
 	@$(call set,GRUB_DEFAULT,network)
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
 endif

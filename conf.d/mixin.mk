@@ -41,9 +41,6 @@ mixin/vm-archdep:: use/auto-resize; @:
 
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 mixin/vm-archdep:: +efi
-ifeq (,$(filter-out p10 p11 c10%,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
 endif
 
 ifeq (,$(filter-out armh aarch64,$(ARCH)))

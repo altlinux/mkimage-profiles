@@ -16,9 +16,6 @@ use/server/mini: use/server/base use/services/lvm2-disable
 
 use/server/virt: use/server use/kernel
 	@$(call add,BASE_PACKAGES,openssh)
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
 
 # NB: examine zabbix-preinstall package, initialization is NOT automatic!
 use/server/zabbix: use/server use/services use/control

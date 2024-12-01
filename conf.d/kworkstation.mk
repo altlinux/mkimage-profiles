@@ -211,18 +211,6 @@ distro/kworkstation-live: \
 	mixin/kworkstation-common-opts \
 	mixin/kworkstation-live-opts
 
-distro/kworkstation-install-undef: \
-	distro/kworkstation-install; @:
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
-
-distro/kworkstation-live-undef: \
-	distro/kworkstation-live; @:
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
-
 mixin/kworkstation-fsin-opts:
 	@$(call add,THE_PACKAGES,libwbclient task-auth-ad-sssd)
 	@$(call add,THE_PACKAGES,task-auth-freeipa task-auth-ldap-sssd)
@@ -237,8 +225,7 @@ mixin/kworkstation-fsin-opts:
 
 distro/kworkstation-install-fsin: \
 	distro/kworkstation-install \
-	mixin/kworkstation-fsin-opts
-	@$(call set,KFLAVOURS,std-def)
+	mixin/kworkstation-fsin-opts; @:
 
 endif
 

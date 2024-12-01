@@ -102,7 +102,7 @@ distro/.regular-jeos: distro/.regular-jeos-base \
 
 distro/.regular-jeos-full: distro/.regular-jeos \
 	use/volumes/regular use/ntp/chrony use/bootloader/grub \
-	use/grub/localboot_bios.cfg use/kernel/latest +efi
+	use/grub/localboot_bios.cfg +efi
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
@@ -141,11 +141,11 @@ distro/.regular-install-x11-systemd: distro/.regular-install-x11 \
 	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
 
 distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
-	mixin/regular-icewm use/kernel/latest
+	mixin/regular-icewm
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
 
 distro/regular-icewm-sysv: distro/.regular-desktop-sysv mixin/regular-icewm \
-	use/live/autologin use/kernel/latest
+	use/live/autologin
 	@$(call add,LIVE_PACKAGES,wdm)
 
 # wdm can't do autologin so add standalone one for livecd
@@ -161,17 +161,12 @@ distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,std-def un-def)
-endif
-endif
 
 distro/regular-xfce-install: distro/.regular-install-x11-systemd \
 	mixin/regular-xfce; @:
 
 distro/regular-gnome-install: distro/.regular-install-x11-systemd mixin/regular-gnome \
-	use/kernel/latest +plymouth; @:
+	+plymouth; @:
 
 distro/regular-lxde: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-lxde; @:
@@ -184,13 +179,8 @@ distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
 
 # not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
-	use/kernel/latest +plymouth use/browser/epiphany \
+	+plymouth use/browser/epiphany \
 	use/live-install/vnc/listen; @:
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,std-def un-def)
-endif
-endif
 
 distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
 
@@ -202,14 +192,14 @@ distro/regular-kde: distro/.regular-desktop +nm \
 distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 	use/hdt use/syslinux/rescue_fm.cfg use/syslinux/rescue_remote.cfg \
 	use/grub/rescue_fm.cfg use/grub/rescue_remote.cfg \
-	use/mediacheck use/stage2/kms use/kernel/latest +wireless
+	use/mediacheck use/stage2/kms +wireless
 	@$(call add,RESCUE_PACKAGES,gpm livecd-net-eth)
 #	@$(call add,RESCUE_LISTS,$(call tags,base bench))
 	@$(call add,RESCUE_LISTS,$(call tags,network security))
 
 distro/regular-rescue-live: distro/.regular-base +systemd \
 	use/live/rescue/extra use/live/rescue/rw \
-	use/stage2/kms use/hdt use/kernel/latest use/firmware/full \
+	use/stage2/kms use/hdt use/firmware/full \
 	use/net/etcnet use/net/dhcp use/live/repo +wireless \
 	use/syslinux/sdab.cfg use/grub/sdab_bios.cfg
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
@@ -262,11 +252,6 @@ distro/.regular-builder: distro/.regular-base mixin/regular-builder \
 distro/regular-builder: distro/.regular-builder +systemd +nm \
 	use/dev/builder/live/systemd
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
-endif
 
 # old regular-builder
 distro/regular-builder-sysv: distro/.regular-builder +sysvinit \

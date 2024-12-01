@@ -63,9 +63,6 @@ endif
 ifeq (,$(filter-out riscv64,$(ARCH)))
 use/slinux/vm-base:: use/oem/vnc
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def)
-endif
 endif
 
 use/slinux/mixin-base: use/slinux \
@@ -89,11 +86,6 @@ use/slinux/mixin-base: use/slinux \
 	@$(call add,THE_LISTS,slinux/multimedia-player-vlc)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_LISTS,$(call tags,xscreensaver && (base || desktop)))
-endif
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-ifeq (,$(filter-out aarch64 i586 x86_64,$(ARCH)))
-	@$(call set,KFLAVOURS,std-def)
-endif
 endif
 
 use/slinux/live: use/live/x11 use/live/rw \
@@ -124,11 +116,6 @@ endif
 	@$(call add,STAGE2_PACKAGES,btrfs-progs)
 
 use/slinux/full: use/slinux/base
-ifeq (,$(filter-out x86_64,$(ARCH)))
-ifneq (,$(filter-out sisyphus,$(BRANCH)))
-	@$(call set,KFLAVOURS,un-def std-def)
-endif
-endif
 	@$(call add,MAIN_LISTS,slinux/not-install-full)
 	@$(call add,THE_LISTS,slinux/misc-full)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
