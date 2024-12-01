@@ -89,15 +89,10 @@ fi
 # NB: xfs doesn't have a spare sector for the bootloader
 ROOTFSTYPE="${4:-ext4}"
 
-if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ] && [ "$ROOTFSTYPE" != ext4 ]; then
-	if [ -n "$EFIPART" ]; then
-		BOOTPART="2"
-		ROOTPART="3"
-	else
-		BOOTPART="1"
-		ROOTPART="2"
-	fi
-	BOOTFSTYPE="ext4"
+if [ "$ROOTFSTYPE" != ext4 ]; then
+	BOOTPART="$ROOTPART"
+	ROOTPART="$(($ROOTPART + 1))"
+	[ -n "$BOOTFSTYPE" ] || BOOTFSTYPE=ext4
 fi
 
 PARTTABLE="$7"
