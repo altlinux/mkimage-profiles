@@ -150,7 +150,7 @@ endif
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 
-mixin/regular-kde: use/x11/kde use/browser/falkon \
+mixin/regular-kde: use/x11/kde \
 	use/x11/kde-display-manager-lightdm \
 	use/fonts/ttf/google use/fonts/ttf/redhat use/fonts/zerg \
 	use/domain-client
