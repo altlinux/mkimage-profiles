@@ -24,16 +24,7 @@ endif
 distro/slinux-bloat: distro/slinux use/slinux/live
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/slinux:: use/slinux/vm-base use/auto-resize +vmguest; @:
-
-ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
-vm/slinux:: use/uboot
-	@$(call add,BASE_LISTS,uboot)
-endif
-
-ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/slinux:: use/no-sleep use/arm-rpi4; @:
-endif
+vm/slinux: use/slinux/vm-base mixin/vm-archdep +vmguest; @:
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/slinux-rpi: use/slinux/vm-base use/arm-rpi4/full; @:
