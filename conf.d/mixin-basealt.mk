@@ -35,7 +35,6 @@ endif
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,gnome-settings)
-	@$(call add,THE_PACKAGES,wallpapers-alt-workstation)
 	@$(call add,COMMON_PACKAGES,vim-console)
 	@$(call add,BASE_LISTS,workstation/base.pkgs)
 	@$(call add,THE_LISTS,workstation/the.pkgs)
