@@ -171,8 +171,6 @@ system-config-printer-udev
 #krb5-ticket-watcher-
 apt-repo
 #krb5-ticket-watcher-
-rekonq-@X86
-rekonq-@ARM
 xdg-user-dirs
 x-cursor-theme-jimmac
 gtk-theme-classiclooks
