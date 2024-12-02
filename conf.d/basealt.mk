@@ -73,17 +73,8 @@ else
 	@$(call add,THE_LISTS,workstation/libreoffice)
 endif
 
-vm/alt-workstation:: vm/.alt-workstation  +vmguest
+vm/alt-workstation: vm/.alt-workstation mixin/vm-archdep +vmguest
 	@$(call add,THE_LISTS,$(mediaplayer))
-
-ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
-vm/alt-workstation:: use/uboot
-	@$(call add,BASE_LISTS,uboot)
-endif
-
-ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-workstation:: use/no-sleep use/arm-rpi4; @:
-endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
