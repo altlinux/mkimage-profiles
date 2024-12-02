@@ -209,16 +209,7 @@ vm/.alt-education: vm/systemd use/repo use/oem/distro mixin/education
 	@$(call add,THE_PACKAGES,task-edu-lite)
 	@$(call add,PINNED_PACKAGES,task-edu-lite:Extra)
 
-vm/alt-education:: vm/.alt-education +vmguest; @:
-
-ifeq (,$(filter-out aarch64 riscv64,$(ARCH)))
-vm/alt-education:: use/uboot
-	@$(call add,BASE_LISTS,uboot)
-endif
-
-ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-education:: use/no-sleep use/arm-rpi4; @:
-endif
+vm/alt-education: vm/.alt-education mixin/vm-archdep +vmguest; @:
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 vm/alt-education-rpi: vm/.alt-education use/arm-rpi4/full; @:
