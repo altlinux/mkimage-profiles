@@ -19,7 +19,7 @@ postgresql16-1C-contrib
 vipnetcsp4-preinstall
 libjcpkcs11
 # MyOffice standart edition
-postgresql12-contrib
+postgresql13-contrib
 # 2FA
 #opensc
 #pcsc-lite-ccid
