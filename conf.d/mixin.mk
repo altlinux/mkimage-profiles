@@ -158,6 +158,7 @@ ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-kde)
 	@$(call add,THE_PACKAGES,plasma-discover)
 	@$(call add,THE_PACKAGES,kf5-kirigami)
+	@$(call add,THE_PACKAGES,kf5-kio)
 	@$(call set,DEFAULT_SESSION,plasma)
 else
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
