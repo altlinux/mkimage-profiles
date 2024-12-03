@@ -13,7 +13,7 @@ ifeq (,$(filter-out armh,$(ARCH)))
 	@$(call try,KFLAVOURS,mp)
 else
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
-	@$(call try,KFLAVOURS,6.6)
+	@$(call try,KFLAVOURS,6.12)
 else
 	@$(call try,KFLAVOURS,un-def)
 endif
