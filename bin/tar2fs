@@ -381,6 +381,11 @@ if [ -f "$ROOTFS/boot/extlinux/extlinux.conf" ]; then
 	fi
 fi
 
+# Copy default devicetree to ESP
+if [ -L "$ROOTFS"/boot/dtb ] && [ -n "$EFIPART" ]; then
+	cp -Lr "$ROOTFS"/boot/dtb "$EFIPARTFS"
+fi
+
 # e2k
 if [ -f "$ROOTFS/boot/boot.conf" ]; then
 	sed -i "s/LABEL=ROOT/$ROOTDEV/g" "$ROOTFS/boot/boot.conf"
