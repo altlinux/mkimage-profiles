@@ -1,6 +1,6 @@
 EFI_ARCHES := x86_64 aarch64 riscv64 loongarch64
 
-+efi: use/efi/signed; @:
++efi: use/efi/signed use/efi/dtb; @:
 
 ifeq (,$(filter-out $(EFI_ARCHES),$(ARCH)))
 
