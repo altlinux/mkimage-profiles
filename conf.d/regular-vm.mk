@@ -21,11 +21,8 @@ endif
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
 
-mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root \
-	use/net/etcnet use/net/dhcp
-	@$(call add,THE_PACKAGES,livecd-net-eth)
+mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
 	@$(call add,THE_LISTS, $(call tags,base && (network || regular)))
-	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1 livecd-net-eth)
 
 mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/oem/vnc; @:
@@ -45,13 +42,17 @@ vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 
 vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
 
-vm/regular-jeos-systemd: vm/systemd \
+vm/regular-jeos-systemd: vm/systemd-net use/net/networkd/resolved \
 	mixin/regular-vm-jeos mixin/vm-archdep
 	@$(call add,THE_PACKAGES,glibc-locales)
 	@$(call add,THE_PACKAGES,systemd-settings-disable-kill-user-processes)
+	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 	@$(call try,VM_SIZE,4294967296)
 
-vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power; @:
+vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power \
+	use/net/etcnet use/net/dhcp
+	@$(call add,THE_PACKAGES,livecd-net-eth)
+	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-net-eth)
 
 vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm
 	@$(call add,THE_PACKAGES,NetworkManager-tui)
