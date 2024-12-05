@@ -53,16 +53,15 @@ ve/systemd-base: ve/systemd-bare
 ve/systemd-networkd: ve/systemd-base use/net-ssh use/net/networkd/resolved; @:
 ve/systemd-etcnet: ve/systemd-base use/net-ssh use/net/etcnet; @:
 
-ve/.lxc-bare: use/lxc-guest
-	@$(call add,NET_ETH,eth0:dhcp)
+ve/.lxc-bare: use/lxc-guest; @:
 
 ve/.lxc-base: ve/.lxc-bare
 	@$(call add,BASE_PACKAGES,vim-console)
 
-ve/lxc-sysvinit-etcnet: ve/.lxc-base ve/sysvinit-etcnet use/net-eth; @:
-ve/lxc-systemd-etcnet: ve/.lxc-base ve/systemd-etcnet use/net-eth; @:
+ve/lxc-sysvinit-etcnet: ve/.lxc-base ve/sysvinit-etcnet use/net-eth/dhcp; @:
+ve/lxc-systemd-etcnet: ve/.lxc-base ve/systemd-etcnet use/net-eth/dhcp; @:
 ve/lxc-systemd-networkd: ve/.lxc-base \
-	ve/systemd-networkd use/net-eth/networkd; @:
+	ve/systemd-networkd use/net-eth/networkd-dhcp; @:
 
 ve/lxc-builder: ve/lxc-sysvinit-etcnet use/dev/builder/base use/repo
 	@$(call add,BASE_LISTS,openssh)
