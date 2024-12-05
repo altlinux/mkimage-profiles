@@ -21,52 +21,31 @@ endif
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
 
-mixin/regular-vm-jeos: mixin/regular-vm-base use/deflogin/root
-	@$(call add,THE_LISTS, $(call tags,base && (network || regular)))
-
-mixin/regular-vm-x11:: mixin/regular-vm-base mixin/regular-x11 \
-	mixin/regular-desktop use/oem/vnc; @:
-
-vm/.regular-desktop: vm/systemd mixin/regular-vm-x11 \
-	+systemd +systemd-optimal +plymouth \
+vm/.regular-desktop: vm/systemd +systemd +systemd-optimal +plymouth \
+	mixin/regular-vm-base mixin/regular-x11 \
+	mixin/regular-desktop use/oem/vnc \
 	use/services/bluetooth-enable
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call try,VM_SIZE,8589934592)
 
-vm/.regular-desktop-sysv: vm/bare mixin/regular-vm-x11 \
-	use/init/sysv/polkit +power
-	@$(call add,THE_PACKAGES,wdm)
-
 vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
 	@$(call add,THE_PACKAGES,blueman)
 
-vm/.regular-qt: vm/.regular-desktop use/x11/sddm; @:
-
-vm/regular-jeos-systemd: vm/systemd-net use/net/networkd/resolved \
-	mixin/regular-vm-jeos mixin/vm-archdep
+vm/.regular-jeos-systemd: vm/systemd-net use/net/networkd/resolved \
+	mixin/regular-vm-base use/deflogin/root
+	@$(call add,THE_LISTS, $(call tags,base && (network || regular)))
 	@$(call add,THE_PACKAGES,glibc-locales)
 	@$(call add,THE_PACKAGES,systemd-settings-disable-kill-user-processes)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 	@$(call try,VM_SIZE,4294967296)
 
-vm/regular-jeos-sysv: vm/bare mixin/regular-vm-jeos mixin/vm-archdep +power \
-	use/net/etcnet use/net/dhcp
-	@$(call add,THE_PACKAGES,livecd-net-eth)
-	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-net-eth)
+vm/regular-jeos-systemd: vm/.regular-jeos-systemd mixin/vm-archdep; @:
 
-vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder +nm
-	@$(call add,THE_PACKAGES,NetworkManager-tui)
-
-vm/regular-icewm-sysv: vm/.regular-desktop-sysv mixin/regular-icewm \
-	mixin/vm-archdep-x11; @:
+vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder; @:
 
 vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11; @:
 
-vm/regular-deepin: vm/.regular-gtk mixin/regular-deepin mixin/vm-archdep-x11; @:
-
 vm/regular-gnome: vm/.regular-gtk mixin/regular-gnome mixin/vm-archdep-x11; @:
-
-vm/regular-lxde: vm/.regular-gtk mixin/regular-lxde mixin/vm-archdep-x11; @:
 
 vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep-x11; @:
 ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
@@ -84,17 +63,10 @@ vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep-x11; @:
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
 # Raspberry Pi 4
-vm/regular-jeos-systemd-rpi: vm/systemd mixin/regular-vm-jeos use/tty/AMA0 \
+vm/regular-jeos-systemd-rpi: vm/.regular-jeos-systemd use/tty/AMA0 \
 	use/arm-rpi4/kernel; @:
 
-vm/regular-jeos-sysv-rpi: vm/bare mixin/regular-vm-jeos use/tty/AMA0 \
-	use/arm-rpi4/kernel +power; @:
-
 vm/regular-builder-rpi: vm/regular-jeos-systemd-rpi mixin/regular-builder; @:
-
-vm/regular-deepin-rpi: vm/.regular-gtk mixin/regular-deepin use/arm-rpi4/full; @:
-
-vm/regular-lxde-rpi: vm/.regular-gtk mixin/regular-lxde use/arm-rpi4/full; @:
 
 vm/regular-lxqt-rpi: vm/.regular-gtk mixin/regular-lxqt use/arm-rpi4/full; @:
 
@@ -106,20 +78,11 @@ endif
 
 ifeq (,$(filter-out mipsel,$(ARCH)))
 # Tavolga
-vm/regular-jeos-systemd-tavolga: vm/systemd mixin/regular-vm-jeos \
+vm/regular-jeos-systemd-tavolga: vm/.regular-jeos-systemd \
 	use/mipsel-mitx; @:
 
-vm/regular-jeos-sysv-tavolga: vm/bare mixin/regular-vm-jeos \
-	use/mipsel-mitx +power; @:
-
-vm/regular-builder-tavolga: vm/regular-jeos-sysv-tavolga \
+vm/regular-builder-tavolga: vm/regular-jeos-systemd-tavolga \
 	mixin/regular-builder; @:
-
-vm/regular-icewm-sysv-tavolga: vm/.regular-desktop-sysv mixin/regular-icewm \
-	use/mipsel-mitx/x11; @:
-
-vm/regular-lxde-tavolga: vm/.regular-gtk mixin/regular-lxde \
-	use/mipsel-mitx/x11; @:
 
 vm/regular-lxqt-tavolga: vm/.regular-gtk mixin/regular-lxqt \
 	use/mipsel-mitx/x11; @:
@@ -133,20 +96,11 @@ vm/regular-xfce-tavolga: vm/.regular-gtk mixin/regular-xfce \
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 
 # bfk3
-vm/regular-jeos-systemd-bfk3: vm/systemd mixin/regular-vm-jeos \
+vm/regular-jeos-systemd-bfk3: vm/.regular-jeos-systemd \
 	use/mipsel-bfk3; @:
 
-vm/regular-jeos-sysv-bfk3: vm/bare mixin/regular-vm-jeos \
-	use/mipsel-bfk3 +power; @:
-
-vm/regular-builder-bfk3: vm/regular-jeos-sysv-bfk3 \
+vm/regular-builder-bfk3: vm/regular-jeos-systemd-bfk3 \
 	mixin/regular-builder; @:
-
-vm/regular-icewm-sysv-bfk3: vm/.regular-desktop-sysv mixin/regular-icewm \
-	use/mipsel-bfk3/x11; @:
-
-vm/regular-lxde-bfk3: vm/.regular-gtk mixin/regular-lxde \
-	use/mipsel-bfk3/x11; @:
 
 vm/regular-lxqt-bfk3: vm/.regular-gtk mixin/regular-lxqt \
 	use/mipsel-bfk3/x11; @:
