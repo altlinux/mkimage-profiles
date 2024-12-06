@@ -249,9 +249,8 @@ distro/.regular-builder: distro/.regular-base mixin/regular-builder \
 	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
 
-distro/regular-builder: distro/.regular-builder +systemd +nm \
-	use/dev/builder/live/systemd
-	@$(call add,THE_PACKAGES,NetworkManager-tui)
+distro/regular-builder: distro/.regular-builder +systemd \
+	use/dev/builder/live/systemd; @:
 
 # old regular-builder
 distro/regular-builder-sysv: distro/.regular-builder +sysvinit \
