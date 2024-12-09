@@ -204,11 +204,11 @@ use/x11/leechcraft: use/x11
 
 use/x11/kde: use/x11/xorg +pipewire
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
-	@$(call add,THE_PACKAGES,kde)
+	@$(call add,THE_LISTS,kde/kde)
 	@$(call add,THE_PACKAGES,kde-volume-control-7-pipewire)
 	@$(call add,PINNED_PACKAGES,kde-volume-control-7-pipewire)
 else
-	@$(call add,THE_PACKAGES,kde5)
+	@$(call add,THE_LISTS,kde/kde5)
 	@$(call add,THE_PACKAGES,kde5-volume-control-4-pipewire)
 	@$(call add,PINNED_PACKAGES,kde5-volume-control-4-pipewire)
 endif
