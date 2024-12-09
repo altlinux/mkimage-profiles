@@ -168,7 +168,7 @@ use/x11/deepin: use/x11/xorg +pipewire
 	@$(call add,THE_LISTS,$(call tags,deepin desktop))
 
 use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
-	@$(call add,THE_PACKAGES,gnome3-minimal)
+	@$(call add,THE_LISTS,gnome/gnome-minimal)
 	@$(call add,THE_PACKAGES,tracker3) # ALT bug 42028
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
