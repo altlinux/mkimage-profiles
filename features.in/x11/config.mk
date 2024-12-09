@@ -154,11 +154,11 @@ use/x11/gtk4/nm: use/x11/gtk/nm; @:
 endif
 
 use/x11/xfce: use/x11
-	@$(call add,THE_PACKAGES,xfce4-minimal xfce4-default)
+	@$(call add,THE_LISTS,xfce/xfce4-default)
 	@$(call add,IM_PACKAGES,imsettings-xfce)
 
 use/x11/xfce/full: use/x11/xfce +pipewire
-	@$(call add,THE_PACKAGES,xfce4-full)
+	@$(call add,THE_LISTS,xfce/xfce4-full)
 
 use/x11/cinnamon: use/x11/xorg +pipewire
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
