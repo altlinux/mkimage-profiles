@@ -96,6 +96,11 @@ $HOME/.mkimage/profiles.mk.
 ** значение: пусто (по умолчанию) либо любая строка
 ** см. features.in/pack/config.mk, features.in/isohybrid/config.mk
 
+* ISO_LEVEL
+** задаёт опцию -iso-level для xorriso (mkisofs) в mkimage
+** значение: 2 (по умолчанию) или 1, 3, 4
+** см. man mkisofs
+
 * LOGDIR
 ** указывает путь для сохранения логов сборки
 ** значение: равно $(IMAGEDIR) (по умолчанию), либо другой путь
