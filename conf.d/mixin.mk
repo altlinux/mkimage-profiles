@@ -169,6 +169,7 @@ else
 	@$(call add,THE_PACKAGES,plasma5-discover)
 endif
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-gtk)
+	@$(call add,THE_PACKAGES,qt5-wayland)
 	@$(call add,THE_PACKAGES,qt6-wayland)
 	@$(call add,THE_PACKAGES,accountsservice)
 	@$(call add,THE_PACKAGES,gtk-theme-breeze)
