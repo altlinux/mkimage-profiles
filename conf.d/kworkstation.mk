@@ -103,6 +103,7 @@ endif
 	@$(call add,CLEANUP_LIVE_PACKAGES,'xterm')
 	@$(call add,CLEANUP_PACKAGES,'udev-rule-generator-net')
 	@$(call add,CLEANUP_LIVE_PACKAGES,'livecd-main-repo')
+	@$(call set,ISO_LEVEL,3)
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_ID,ALT Workstation K $(DISTRO_VERSION)$(STATUS))
