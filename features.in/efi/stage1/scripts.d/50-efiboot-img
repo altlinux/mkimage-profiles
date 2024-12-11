@@ -17,8 +17,10 @@ cd /.image
 mkdir -p EFI/BOOT
 
 # copy shim
-cp -pLf $shim_dir/shimx64.efi EFI/BOOT/bootx64.efi
-cp -pLf $shim_dir/shimia32.efi EFI/BOOT/bootia32.efi
+rm -fv EFI/BOOT/bootx64.efi
+rm -fv EFI/BOOT/bootia32.efi
+cp -pLf $shim_dir/shimx64.efi EFI/BOOT/BOOTX64.EFI
+cp -pLf $shim_dir/shimia32.efi EFI/BOOT/BOOTIA32.EFI
 cp -pLf $shim_dir/mmx64.efi EFI/BOOT/
 cp -pLf $shim_dir/mmia32.efi EFI/BOOT/
 
