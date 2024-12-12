@@ -32,6 +32,7 @@ ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 endif
+	@$(call add,THE_PACKAGES,etcnet alterator-net-eth) # Remove etcnet in future
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,gnome-settings)
