@@ -38,12 +38,7 @@ mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call set,DEFAULT_SESSION,phosh)
 	@$(call add,THE_PACKAGES,dconf-epiphany-mobile-user-agent)
-ifeq (sisyphus,$(BRANCH))
 	@$(call add,THE_PACKAGES,nautilus)
-else
-	@$(call add,THE_PACKAGES,portfolio)
-endif
-
 
 ifneq (sisyphus,$(BRANCH))
 mixin/mobile-base::
