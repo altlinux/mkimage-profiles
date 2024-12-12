@@ -12,6 +12,7 @@ plasma6-libkscreen-utils
 
 nvidia-settings
 nvidia-modprobe
+nvidia-powerd
 nvidia-smi
 libnvidia-encode
 libcuda
