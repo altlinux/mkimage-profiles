@@ -413,15 +413,15 @@ grub-efi)
 		;;
 		aarch64)
 			cp "$ROOTFS"/usr/lib64/efi/grubaa64.efi \
-			   "$ROOTFS"/boot/efi/EFI/BOOT/bootaa64.efi
+			   "$ROOTFS"/boot/efi/EFI/BOOT/BOOTAA64.EFI
 		;;
 		riscv64)
 			cp "$ROOTFS"/usr/lib64/efi/grubriscv64.efi \
-			   "$ROOTFS"/boot/efi/EFI/BOOT/bootriscv64.efi
+			   "$ROOTFS"/boot/efi/EFI/BOOT/BOOTRISCV64.EFI
 		;;
 		loongarch64)
 			cp "$ROOTFS"/usr/lib64/efi/grubloongarch64.efi \
-			   "$ROOTFS"/boot/efi/EFI/BOOT/bootloongarch64.efi
+			   "$ROOTFS"/boot/efi/EFI/BOOT/BOOTLOONGARCH64.EFI
 		;;
 	esac
 	sed -i '/GRUB_DISABLE_OS_PROBER=true/d' "$ROOTFS/etc/sysconfig/grub2"
