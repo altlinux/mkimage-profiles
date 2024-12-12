@@ -172,7 +172,7 @@ use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
 	@$(call add,THE_PACKAGES,tracker3) # ALT bug 42028
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
-use/x11/enlightenment: use/x11 use/net/connman use/power/acpi +pipewire
+use/x11/enlightenment: use/x11 use/power/acpi +pipewire +nm-gtk
 	@$(call add,THE_LISTS,$(call tags,enlightenment desktop))
 
 use/x11/lxde: use/x11
