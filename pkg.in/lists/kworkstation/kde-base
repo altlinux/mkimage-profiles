@@ -144,7 +144,6 @@ NetworkManager-ssh
 kde-network-manager-nm
 kde-video-player-haruna
 kde-audio-player-qmmp
-kde5-runtime@META
 kde-runtime@META
 kde-mini@META
 kde-small@META
