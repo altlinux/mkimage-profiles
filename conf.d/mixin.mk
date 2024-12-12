@@ -123,7 +123,7 @@ mixin/regular-icewm: use/fonts/ttf/redhat +icewm +nm-gtk
 	@$(call add,THE_PACKAGES,icewm-startup-networkmanager)
 	@$(call add,THE_PACKAGES,mnt)
 
-mixin/regular-gnustep: use/x11/gnustep use/mediacheck
+mixin/regular-gnustep: use/x11/gnustep
 	@$(call add,THE_BRANDING,graphics)
 
 mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
