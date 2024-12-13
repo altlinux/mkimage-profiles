@@ -21,11 +21,11 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/browser/firefox use/browser/firefox/esr \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
-	@$(call add,THE_PACKAGES,gnome-terminal)
+	@$(call add,THE_PACKAGES,gnome-console)
 	@$(call add,THE_PACKAGES,gnome-software)
 	@$(call add,THE_PACKAGES,gnome-tour)
 	@$(call add,THE_PACKAGES,papers)
-	@$(call add,PINNED_PACKAGES,gnome-terminal:Required)
+	@$(call add,PINNED_PACKAGES,gnome-console:Required)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
