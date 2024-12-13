@@ -149,7 +149,5 @@ kde-mini@META
 kde-small@META
 kscreen
 
-# GTK2/GTK3 theme
-gtk-theme-breeze
-gtk3-theme-breeze
-gtk2-theme-breeze
+# UI theme
+kde-theme-alt@META
