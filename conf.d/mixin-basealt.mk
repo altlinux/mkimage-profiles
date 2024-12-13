@@ -20,7 +20,6 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/docs/manual use/docs/indexhtml \
 	use/browser/firefox use/browser/firefox/esr \
 	use/cleanup/live-no-cleanupdb
-ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-terminal)
 	@$(call add,THE_PACKAGES,gnome-software)
@@ -31,7 +30,6 @@ ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
-endif
 	@$(call add,THE_PACKAGES,etcnet alterator-net-eth) # Remove etcnet in future
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
@@ -43,9 +41,7 @@ endif
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
 	@$(call add,LIVE_LISTS,workstation/scanning)
-ifneq (,$(filter-out armh,$(ARCH)))
 	@$(call add,LIVE_LISTS,workstation/libreoffice)
-endif
 	@$(call add,THE_LISTS,workstation/mate)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 	@$(call add,THE_LISTS,$(call tags,base regular))
