@@ -35,7 +35,6 @@ accountsservice
 kde5-kcm-grub2
 #
 #appinstall@X86
-synaptic-kde@META
 plasma-discover-fwupd
 plasma-discover-kns
 openssl-gost-engine
