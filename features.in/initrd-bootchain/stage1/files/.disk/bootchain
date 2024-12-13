@@ -16,6 +16,9 @@ BC_FGVT_ACTIVATE=@bc_fgvt_activate@
 # Full path to the bootchain log or character special device name
 BC_LOGFILE=@bc_logfile@
 
+# Specify the TMPFS size, by default it is 50% of available memory
+# BC_TMPFS_SIZE=@bc_tmpfs_size@
+
 # Common timeout in seconds for all waitdev steps:
 # this make possible using fallback after last waitdev step
 WAITDEV_TIMEOUT=@waitdev_timeout@

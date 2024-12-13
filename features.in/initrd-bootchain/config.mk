@@ -22,3 +22,4 @@ use/initrd-bootchain:
 	@$(call try,BOOTCHAIN_OEM_CIFS_NETINST,/netinst)
 	@$(call try,BOOTCHAIN_LOGFILE,/var/log/chaind.log)
 	@$(call try,BOOTCHAIN_LOG_VT,3)
+	@$(call try,BOOTCHAIN_TMPFS_SIZE,50%)

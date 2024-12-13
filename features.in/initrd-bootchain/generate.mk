@@ -30,6 +30,7 @@ all: debug
 		-e "s,@oem_cifs_netinst@,$(BOOTCHAIN_OEM_CIFS_NETINST)," \
 		-e "s,@bc_logfile@,$(BOOTCHAIN_LOGFILE)," \
 		-e "s,@bc_log_vt@,$(BOOTCHAIN_LOG_VT)," \
+		-e "s,@bc_tmpfs_size@,$(BOOTCHAIN_TMPFS_SIZE)," \
 		$(BOOTCHAIN_CFG)
 
 debug:
