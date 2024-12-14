@@ -18,6 +18,7 @@ mixin/education: \
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,education/misc)
+	@$(call add,THE_PACKAGES,etcnet alterator-net-eth) # Remove etcnet in future
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,jre)
 else
