@@ -1,3 +1,7 @@
+#Base packages
+su
+sudo
+
 # Multimedia
 vlc-maxi
 simplescreenrecorder
