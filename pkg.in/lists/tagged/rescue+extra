@@ -34,7 +34,6 @@ mdadm
 ms-sys
 myrescue@X86
 parted
-recoverdm
 safecopy
 sdparm
 sfdisk
