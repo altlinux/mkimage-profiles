@@ -113,7 +113,7 @@ mixin/education-base: \
 	@$(call set,META_VOL_SET,ALT)
 	@$(call set,META_VOL_ID,ALT Education $(DISTRO_VERSION))
 	@$(call set,META_APP_ID,ALT Education $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
-	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
+	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,BASE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,alt-rootfs-installer)
 	@$(call add,THE_PACKAGES,btrfs-progs)
