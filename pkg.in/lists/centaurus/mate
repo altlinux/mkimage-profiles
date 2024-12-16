@@ -160,7 +160,6 @@ dconf
 
 mate-terminal
 pulseaudio-daemon
-pulseaudio-bluez
 bluez
 alsa-plugins-pulse
 python3-module-smbc
