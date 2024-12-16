@@ -335,6 +335,3 @@ xauthority-hostname-updater
 
 # Additional repositories
 apt-conf-r7@x86_64
-
-# Yandex Browser
-yandex-browser-stable@x86_64
