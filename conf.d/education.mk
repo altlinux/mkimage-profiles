@@ -189,7 +189,7 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,CLEANUP_PACKAGES,plymouth plymouth-scripts)
 	@$(call add,CONTROL,pam_mktemp:disabled)	### private /tmp dirs
 else
-	@$(call add,MAIN_GROUPS,education/06_kde5)
+	@$(call add,MAIN_GROUPS,education/06_kde)
 endif	# e2k%
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,THE_KMODULES,virtualbox)
