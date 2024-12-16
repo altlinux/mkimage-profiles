@@ -163,10 +163,8 @@ links2
 samba-usershares
 
 # Multimedia support
-pulseaudio-daemon
-pulseaudio-utils
-pavucontrol
-alsa-plugins-pulse
+pwvucontrol
+pipewire-jack
 gst-plugins-base1.0
 gst-plugins-good1.0
 gst-plugins-bad1.0
@@ -174,7 +172,6 @@ gst-plugins-ugly1.0
 alsa-set-initial-options
 dvgrab
 mjpegtools
-jackd
 test-audio
 wodim
 glxgears

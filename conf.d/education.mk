@@ -9,7 +9,7 @@ mixin/education: \
 	use/volumes/education \
 	use/apt-conf/branch \
 	+x11 use/x11/3d \
-	use/x11/lightdm/gtk +pulse \
+	use/x11/lightdm/gtk +pipewire \
 	+nm use/x11/gtk/nm \
 	use/xdg-user-dirs/deep \
 	use/browser/chromium
