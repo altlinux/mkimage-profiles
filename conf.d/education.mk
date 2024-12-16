@@ -176,6 +176,7 @@ distro/education: distro/alt-education; @:
 distro/alt-education:: distro/.base \
 	mixin/education \
 	mixin/education-installer \
+	+live \
 	use/live/rescue \
 	use/live-install/oem \
 	use/e2k/multiseat/full use/power/acpi \
