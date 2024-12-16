@@ -163,7 +163,7 @@ links2
 samba-usershares
 
 # Multimedia support
-pwvucontrol
+pavucontrol
 pipewire-jack
 gst-plugins-base1.0
 gst-plugins-good1.0
