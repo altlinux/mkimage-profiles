@@ -125,3 +125,6 @@ mugshot
 # Other stuff
 cabextract
 cheese
+
+# Other architecture-depended utilities
+task-edu-tools@META

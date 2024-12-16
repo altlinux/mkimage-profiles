@@ -210,9 +210,6 @@ desktop-screensaver-modules-xscreensaver-gl
 systemd-settings-enable-showstatus
 systemd-settings-enable-log-to-tty12
 
-# Other architecture-depended utilities
-task-edu-tools@META
-
 # Russian Root CA certificate
 ca-certificates-digital.gov.ru
 ca-certificates-tlscc.ru
