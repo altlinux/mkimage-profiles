@@ -1,26 +1,7 @@
-#Base packages
-su
-sudo
-
-# Multimedia
-vlc-maxi
-simplescreenrecorder
-
-# better optimized for 8C
-mplayer@E2K
-libva-driver-intel@X86
-libva-intel-media-driver@x86_64
-vulkan-amdgpu@X86
-
 # Graphics
-ristretto
 simple-scan
 sane
 sane-frontends
-atril-gtk
-atril-gtk-djvu
-atril-gtk-pixbuf
-atril-gtk-xps
 shutter
 
 # Games
@@ -34,61 +15,10 @@ gnome-games-sol@!E2K
 goldendict@!E2K
 stardict@E2K
 dict-mueller7-utf8
-aspell-ru-lebedev
-hunspell-ru-lebedev
-
-# Fonts
-fonts-ttf-google-droid-.*
-fonts-ttf-ubuntu-font-family
-fonts-ttf-liberation
-fonts-ttf-dejavu
-fonts-ttf-gost
-fonts-ttf-xorg
-fonts-ttf-PTAstra
-fonts-ttf-XO
-fonts-ttf-google-noto-sans
-fonts-ttf-google-crosextra-caladea
-fonts-ttf-google-crosextra-carlito
-fonts-ttf-wqy-zenhei
-fonts-ttf-unifont
 
 # Alterator
-alterator-browser-qt
 alterator-fbi
-alterator-standalone
-alterator-notes
-
-alterator-auth
-alterator-control
-alterator-datetime
-alterator-gpupdate
-alterator-groups
-alterator-grub
-alterator-logs
-alterator-net-eth
-alterator-net-general
-alterator-net-openvpn
-alterator-net-pppoe
-alterator-net-pptp
-alterator-net-wifi
-alterator-osec
-alterator-packages
-alterator-pkg
-alterator-ports-access
-alterator-printers
-alterator-root
-alterator-services
-alterator-sslkey
-alterator-sysconfig
-alterator-sysinfo
 alterator-update-kernel
-alterator-updates
-alterator-usbguard
-alterator-usbmount
-alterator-users
-alterator-x11
-alterator-xkb
-alterator-zram-swap
 
 # Authentication and computer management via group policy
 task-auth-ad-sssd
@@ -106,45 +36,7 @@ shared-desktop-icons
 control++
 
 # Base utilities
-tzdata
-vim-console
-rsync
-strace
-anacron
-os-prober
-make-initrd-lvm
-shadow-change
-b43-fwcutter
-pam-limits-desktop
-bash-completion
-mc-full
-inxi
-hw-probe
-hwinfo@X86
-attr
-rfkill
-fvwm-
-fvwm-full-
-apt-repo
-eepm
-apt-rsync
-apt-updatecache
-xdg-user-dirs
-vconsole-setup-kludge
-systemd-analyze
 fwupd@x86_64
-
-# Other utulities and beautifications
-color-prompt-and-man
-vlock
-perl-Crypt-Rijndael
-osec-mailreport
-adjtimex
-opensc
-zsh
-screen
-apcupsd
-disable-usb-autosuspend
 
 # GUI utilities
 gparted
@@ -172,8 +64,6 @@ polkit-rule-udisks2-mount
 userpasswd
 
 # Package managenment
-synaptic
-synaptic-usermode
 gnome-software
 gnome-software-disable-updates
 packagekit
@@ -184,11 +74,6 @@ appinstall
 # Flatpak support
 flatpak
 flatpak-repo-flathub@!E2K,riscv64
-
-# Menu
-altlinux-freedesktop-menu-shallow-menu
-altlinux-freedesktop-menu-mate-like-menu
-altlinux-freedesktop-menu-icon-theme-default
 
 # Fallback themes
 gnome-icon-theme
@@ -204,21 +89,12 @@ pinentry-qt5-
 gtk2-ssh-askpass
 
 # Hardware and computer peripherals support
-alt-rootfs-installer
 cups
 cups-filters
 cups-pdf
 avahi-daemon
-blueman
-udev-rules-rfkill-uaccess
 update-kernel
 printer-drivers-base
-udev-extras
-fdisk
-gdisk
-parted
-partclone
-ntfs-3g
 xorg-drv-wacom
 ocfs2-tools
 cpufreq-simple@X86
@@ -226,88 +102,10 @@ hplip-sane
 gutenprint-cups-ppds
 sane-airscan
 ipp-usb
-udev-rule-generator-cdrom
-xorg-drv-synaptics
-xorg-conf-synaptics
-xinput
-xorg-drv-libinput
-usbutils
-iio-sensor-proxy
-
-# Network utilities
-iproute2
-net-tools
-openssh-server
-openssh-clients
-dhcpcd
-telnet
-cifs-utils
-hostname-hook-hosts
-libnss-mdns
-i586-glibc-nss@x86_64
-i586-libnss-mdns@x86_64
-i586-libnss-myhostname@x86_64
-autossh
-ntpdate
-keyutils
-krb5-kinit
-openresolv-bind
-ipset
-lftp
-links2
-samba-usershares
-
-# Multimedia support
-pulseaudio-daemon
-pulseaudio-utils
-pavucontrol
-alsa-plugins-pulse
-gst-plugins-base1.0
-gst-plugins-good1.0
-gst-plugins-bad1.0
-gst-plugins-ugly1.0
-alsa-set-initial-options
-dvgrab
-mjpegtools
-jackd
-test-audio
-wodim
-glxgears
-glxinfo
 
 # Communications
 pidgin
 pidgin-libnotify
-
-# Other stuff
-htop
-avplay
-cabextract
-cheese
-libsqlite3
-lm_sensors3-utils
-man-pages-ru
-media-player-info
-nano
-quick-usb-formatter
-rpm-build
-setbranding
-system-report
-zbar
-audit
-vixie-cron
-neofetch
-debhelper
-xdg-user-dirs-gtk
-libgtk2-engine-adwaita
-pv
-
-# New stuff
-xfce4-whiskermenu-plugin
-alacarte
-mugshot
-xfce-polkit
-screenkey
 
 # Search
 recoll-extras
@@ -321,21 +119,9 @@ aspell
 aspell-ru-rk
 xpdf-utils
 
-# Append all modules from xscreensaver
-desktop-screensaver-modules-xscreensaver
-desktop-screensaver-modules-xscreensaver-gl
-systemd-settings-enable-showstatus
-systemd-settings-enable-log-to-tty12
+# New stuff
+mugshot
 
-# Other architecture-depended utilities
-task-edu-tools@META
-
-# Russian Root CA certificate
-ca-certificates-digital.gov.ru
-ca-certificates-tlscc.ru
-
-xauthority-hostname-updater
-
-# Additional repositories
-apt-conf-r7@x86_64
-apt-conf-netpolice@x86_64
+# Other stuff
+cabextract
+cheese

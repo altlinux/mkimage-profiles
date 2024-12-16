@@ -17,18 +17,19 @@ mixin/education: \
 	@$(call add,THE_BRANDING,indexhtml)
 	@$(call add,THE_BRANDING,menu xfce-settings system-settings)
 	@$(call add,THE_LISTS,slinux/xfce-base)
-	@$(call add,THE_LISTS,education/misc)
+	@$(call add,THE_LISTS,education/misc-base)
+	@$(call add,BASE_LISTS,education/misc)
 	@$(call add,THE_PACKAGES,etcnet alterator-net-eth) # Remove etcnet in future
 ifeq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,THE_PACKAGES,jre)
+	@$(call add,BASE_PACKAGES,jre)
 else
-	@$(call add,THE_PACKAGES,java-11-openjdk)
+	@$(call add,BASE_PACKAGES,java-11-openjdk)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 endif
 	@$(call add,THE_PACKAGES,mousepad)
-	@$(call add,THE_PACKAGES,thunderbird)
+	@$(call add,BASE_PACKAGES,thunderbird)
 ifeq (,$(filter-out x86_64,$(ARCH)))
-	@$(call add,THE_PACKAGES,yandex-browser-alt-education)
+	@$(call add,BASE_PACKAGES,yandex-browser-alt-education)
 endif
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)                            
 	@$(call add,THE_LISTS,$(call tags,base l10n))
@@ -55,7 +56,7 @@ mixin/education-lite: \
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,THE_LISTS,$(call tags,base l10n))
 	@$(call add,THE_LISTS,$(call tags,base regular))
-	@$(call add,THE_LISTS,$(call tags,base extra))
+	@$(call add,BASE_LISTS,$(call tags,base extra))
 ifeq (distro,$(IMAGE_CLASS))
 
 mixin/education-live: \
@@ -113,7 +114,7 @@ mixin/education-base: \
 	@$(call set,META_VOL_ID,ALT Education $(DISTRO_VERSION))
 	@$(call set,META_APP_ID,ALT Education $(DISTRO_VERSION) $(ARCH) $(shell date +%F))
 	@$(call add,THE_PACKAGES,bluez pulseaudio-bluez)
-	@$(call add,THE_PACKAGES,alterator-fbi)
+	@$(call add,BASE_PACKAGES,alterator-fbi)
 	@$(call add,THE_PACKAGES,alt-rootfs-installer)
 	@$(call add,THE_PACKAGES,btrfs-progs)
 	@$(call add,STAGE2_PACKAGES,xorg-conf-libinput-touchpad)
@@ -192,15 +193,15 @@ else
 	@$(call add,MAIN_GROUPS,education/06_kde)
 endif	# e2k%
 ifeq (,$(filter-out x86_64,$(ARCH)))
-	@$(call add,THE_KMODULES,virtualbox)
+	@$(call add,BASE_KMODULES,virtualbox)
 endif
-	@$(call add,THE_KMODULES,lsadrv bbswitch)
+	@$(call add,BASE_KMODULES,lsadrv bbswitch)
 	@$(call add,THE_KMODULES,staging)
 	@$(call add,MAIN_KMODULES,bbswitch)
 	@$(call add,THE_PACKAGES,mc-full)
 	@$(call add,THE_PACKAGES,remmina remmina-plugins)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,THE_PACKAGES,syslinux)
+	@$(call add,MAIN_PACKAGES,syslinux)
 	@$(call add,MAIN_PACKAGES,owamp-server)
 endif
 	@$(call add,CONTROL,sudo:public)
