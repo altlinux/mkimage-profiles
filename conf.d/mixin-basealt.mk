@@ -30,7 +30,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
 	@$(call add,THE_PACKAGES,fonts-ttf-lxgw-wenkai)
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
-	@$(call add,THE_PACKAGES,etcnet alterator-net-eth) # Remove etcnet in future
+	@$(call add,THE_PACKAGES,etcnet etcnet-defaults-desktop alterator-net-eth) # Remove etcnet in future
 	@$(call add,MAIN_LISTS,kernel-headers)
 	@$(call set,BRANDING,alt-workstation)
 	@$(call add,THE_BRANDING,gnome-settings)
