@@ -19,7 +19,7 @@ mixin/education: \
 	@$(call add,THE_LISTS,slinux/xfce-base)
 	@$(call add,THE_LISTS,education/misc-base)
 	@$(call add,BASE_LISTS,education/misc)
-	@$(call add,THE_PACKAGES,etcnet alterator-net-eth) # Remove etcnet in future
+	@$(call add,THE_PACKAGES,etcnet etcnet-defaults-desktop alterator-net-eth) # Remove etcnet in future
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,BASE_PACKAGES,jre)
 else
