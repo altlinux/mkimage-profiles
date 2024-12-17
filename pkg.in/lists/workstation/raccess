@@ -1,5 +1,6 @@
 openuds-client
 remmina
 remmina-plugins
-rdesktop
 ansible
+virt-viewer
+gnome-connections
