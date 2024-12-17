@@ -22,7 +22,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-console)
-	@$(call add,THE_PACKAGES,gnome-software)
+	@$(call add,BASE_PACKAGES,gnome-software)
 	@$(call add,THE_PACKAGES,gnome-tour)
 	@$(call add,THE_PACKAGES,papers)
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
@@ -40,8 +40,6 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	@$(call add,THE_LISTS,$(call tags,archive extra))
 	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
-	@$(call add,LIVE_LISTS,workstation/scanning)
-	@$(call add,LIVE_LISTS,workstation/libreoffice)
 	@$(call add,THE_LISTS,workstation/mate)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 	@$(call add,THE_LISTS,$(call tags,base regular))
