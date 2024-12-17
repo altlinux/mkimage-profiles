@@ -4,6 +4,6 @@ Type=Directory
 Name=Pidgin IM client
 Name[ru_RU]=Обмен мгновенными сообщениями (Pidgin)
 X-Alterator-PackageList=workstation/pidgin
-X-Alterator-Required=yes
+X-Alterator-Required=no
 X-Alterator-Parent=workstation/20-networking
 Categories=GNOME;XFCE;
