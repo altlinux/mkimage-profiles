@@ -28,7 +28,7 @@ endif
 	@$(call add,THE_PACKAGES,mousepad)
 	@$(call add,BASE_PACKAGES,thunderbird)
 ifeq (,$(filter-out x86_64,$(ARCH)))
-	@$(call add,BASE_PACKAGES,yandex-browser-alt-education)
+	@$(call add,BASE_PACKAGES,yandex-browser-alt-education qt5-wayland)
 endif
 	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)                            
 	@$(call add,THE_LISTS,$(call tags,base l10n))
