@@ -1,8 +1,9 @@
 sane
 sane-airscan
-xsane
-xsane-doc
-xsane-doc-ru
+simple-scan
+#xsane
+#xsane-doc
+#xsane-doc-ru
 papers
 tesseract
 tesseract-langpack-ru
