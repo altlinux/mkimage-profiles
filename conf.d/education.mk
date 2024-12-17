@@ -23,7 +23,6 @@ mixin/education: \
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,BASE_PACKAGES,jre)
 else
-	@$(call add,BASE_PACKAGES,java-11-openjdk)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 endif
 	@$(call add,THE_PACKAGES,mousepad)
@@ -70,8 +69,6 @@ mixin/education-live: \
 	@$(call add,LIVE_PACKAGES,mousepad)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,jre)
-else
-	@$(call add,LIVE_PACKAGES,java-11-openjdk)
 endif
 	@$(call add,LIVE_PACKAGES,xorg-conf-libinput-touchpad)
 	@$(call add,LIVE_PACKAGES,btrfs-progs)
