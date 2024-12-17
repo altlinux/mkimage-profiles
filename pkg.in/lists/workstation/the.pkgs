@@ -51,11 +51,7 @@ firmware-intel-ucode@X86
 task-auth-ad-sssd
 task-auth-ldap-sssd
 
-apt-indicator
-
 recoll-extras
-
-onboard
 
 timeshift
 
