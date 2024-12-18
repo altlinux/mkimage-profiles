@@ -1,5 +1,7 @@
 # Common base packages
 pam-limits-desktop
+pam_gnome-keyring
+udev-rules-rfkill-uaccess
 su
 sudo
 beesu
@@ -37,6 +39,15 @@ test-audio
 xorg-conf-libinput-touchpad
 screen
 terminfo-extra
+fuse-gvfs
+gvfs-backends
+libgtk2-engine-adwaita
+pinentry-gnome3
+dconf-editor
+seahorse
+yelp
+gnome-keyring
+gcr
 
 # Man Pages
 man-pages
@@ -68,6 +79,10 @@ rpminstall
 
 # USB Flash Writer
 altmediawriter
+
+#Codecs
+gst-libav
+gst-plugins-good1.0
 
 # Russian Trusted Root CA
 ca-certificates-digital.gov.ru
