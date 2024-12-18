@@ -18,7 +18,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
 	use/branding use/control use/services \
 	use/sound use/xdg-user-dirs \
 	use/docs/manual use/docs/indexhtml \
-	use/browser/firefox use/browser/firefox/esr \
+	use/browser/chromium-gost \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-console)
