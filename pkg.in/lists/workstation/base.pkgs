@@ -11,6 +11,9 @@ cups-browsed
 timeshift
 grub-customizer@X86
 
+# CD/DVD writer
+brasero
+
 # Sotware manegement
 appinstall@X86
 packagekit
