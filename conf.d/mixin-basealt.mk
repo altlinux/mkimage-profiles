@@ -22,7 +22,6 @@ mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
 	use/cleanup/live-no-cleanupdb
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,gnome-console)
-	@$(call add,BASE_PACKAGES,gnome-software)
 	@$(call add,THE_PACKAGES,gnome-tour)
 	@$(call add,THE_PACKAGES,papers)
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
