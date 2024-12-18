@@ -24,6 +24,9 @@ mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
 	@$(call add,THE_PACKAGES,gnome-console)
 	@$(call add,THE_PACKAGES,gnome-tour)
 	@$(call add,THE_PACKAGES,papers)
+	@$(call add,THE_PACKAGES,alt-panelmoded)
+	@$(call add,THE_PACKAGES,alt-gnome-experimental-settings) # Remove in RC
+	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,alt-panelmoded.service)
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
 	@$(call add,THE_PACKAGES,qt5-wayland qt6-wayland)
 	@$(call add,THE_PACKAGES,cups-pk-helper cups)
