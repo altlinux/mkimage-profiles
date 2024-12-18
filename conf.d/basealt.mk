@@ -52,7 +52,9 @@ endif	# e2kv6
 endif	# e2k%
 	@$(call add,MAIN_GROUPS,$(mediaplayer))
 	@$(call add,LIVE_LISTS,$(mediaplayer))
-	@$(call add,RESCUE_BOOTARGS,nomodeset vga=0)
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call add,RESCUE_BOOTARGS,nomodeset)
+endif
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 distro/alt-workstation:: +power; @:
