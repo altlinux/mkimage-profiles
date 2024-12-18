@@ -5,7 +5,7 @@ distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
 	gtk-dictionary smartcard voip-clients)
 
 ifneq (,$(filter-out e2k%,$(ARCH)))
-distro/alt-workstation: mediaplayer = workstation/vlc
+distro/alt-workstation: mediaplayer = workstation/showtime
 else
 distro/alt-workstation: mediaplayer = workstation/smplayer
 endif
