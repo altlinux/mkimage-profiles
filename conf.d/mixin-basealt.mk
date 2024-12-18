@@ -3,7 +3,7 @@
 mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 35-gpolicy 40-virtualization \
 	raccess agents alterator-web emulators ganttproject gnome-peer-to-peer graphics-editing \
-	libreoffice mate-usershare pidgin scanning scribus \
+	libreoffice pidgin scanning scribus \
 	sound-editing thunderbird freeipa-client gpolicy-adm gpolicy-client gpolicy-templates)
 
 mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
@@ -37,9 +37,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
 	@$(call add,BASE_LISTS,workstation/base.pkgs)
 	@$(call add,THE_LISTS,workstation/the.pkgs)
 	@$(call add,THE_LISTS,$(call tags,archive extra))
-	@$(call add,THE_LISTS,$(call tags,mobile mate))
 	@$(call add,BASE_LISTS,$(call tags,desktop cups))
-	@$(call add,THE_LISTS,workstation/mate)
 	@$(call add,THE_LISTS,$(call tags,regular desktop))
 	@$(call add,THE_LISTS,$(call tags,base regular))
 	@$(call add,THE_LISTS,$(call tags,base l10n))
