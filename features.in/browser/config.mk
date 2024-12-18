@@ -5,13 +5,13 @@ use/browser:
 
 # amend as neccessary; firefox is treated separately due to its flavours
 BROWSERS_i586 = netsurf epiphany elinks links2
-BROWSERS_x86_64 := $(BROWSERS_i586) chromium falkon seamonkey
+BROWSERS_x86_64 := $(BROWSERS_i586) chromium  chromium-gost falkon seamonkey
 BROWSERS_ppc64el = netsurf epiphany elinks links2
-BROWSERS_aarch64 = chromium netsurf epiphany falkon elinks links2
+BROWSERS_aarch64 = chromium chromium-gost netsurf epiphany falkon elinks links2
 BROWSERS_armh = netsurf epiphany elinks links2
 BROWSERS_mipsel = seamonkey netsurf epiphany elinks links2
 BROWSERS_riscv64 = epiphany midori netsurf elinks
-BROWSERS_loongarch64 = chromium epiphany midori netsurf elinks
+BROWSERS_loongarch64 = chromium chromium-gost epiphany midori netsurf elinks
 BROWSERS_e2k = netsurf elinks links2
 BROWSERS_e2kv4 := $(BROWSERS_e2k)
 BROWSERS := $(BROWSERS_$(ARCH))
@@ -20,7 +20,8 @@ $(addprefix use/browser/,$(BROWSERS)): use/browser/%: use/browser
 	@$(call set,THE_BROWSER,$*)
 
 ifneq (,$(filter-out x86_64 aarch64 loongarch64,$(ARCH)))
-use/browser/chromium: use/browser/firefox use/browser/firefox/esr; @:
+use/browser/chromium use/browser/chromium-gost: \
+	use/browser/firefox use/browser/firefox/esr; @:
 endif
 
 ifneq (,$(filter-out aarch64 x86_64,$(ARCH)))
