@@ -6,7 +6,7 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	libreoffice mate-usershare pidgin scanning scribus \
 	sound-editing thunderbird freeipa-client gpolicy-adm gpolicy-client gpolicy-templates)
 
-mixin/alt-workstation: +systemd +systemd-optimal +pulse +nm \
+mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
 	use/kernel/net use/l10n/default/ru_RU \
 	use/x11/gnome use/x11-autostart use/x11/gtk4/nm \
 	use/ntp/chrony \
