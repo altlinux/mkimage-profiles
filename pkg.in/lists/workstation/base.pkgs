@@ -31,3 +31,7 @@ alterator-multiseat
 # Auth in Domain
 task-auth-ad-sssd
 task-auth-ldap-sssd
+
+# Network
+avahi-daemon
+libnss-mdns
