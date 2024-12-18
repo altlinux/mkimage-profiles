@@ -5,6 +5,7 @@ make-initrd-ucode@X86
 iucode_tool@X86
 firmware-intel-ucode@X86
 fwupd@x86_64
+cups-browsed
 
 # GUI utilities
 timeshift
