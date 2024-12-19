@@ -3,6 +3,6 @@ Encoding=UTF-8
 Type=Directory
 Name=Remote Desktop access client
 Name[ru_RU]=Доступ к удалённым рабочим столам
-X-Alterator-Parent=workstation/40-virtualization
+X-Alterator-Parent=workstation/20-networking
 X-Alterator-PackageList=workstation/raccess
 X-Alterator-Required=no
