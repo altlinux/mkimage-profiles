@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Matrix messaging app (Fractal)
+Name[ru_RU]=Обмен мгновенными сообщениями в Matrix (Fractal)
+X-Alterator-PackageList=workstation/fractal
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/20-networking
+Categories=GNOME;MATE;XFCE;KDE;KDE4;
