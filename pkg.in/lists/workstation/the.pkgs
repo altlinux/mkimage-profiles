@@ -87,6 +87,9 @@ gst-plugins-good1.0
 # Search utilitiy
 snoop
 
+# Sketch and take handwritten notes
+rnote@!E2K
+
 # Russian Trusted Root CA
 ca-certificates-digital.gov.ru
 
