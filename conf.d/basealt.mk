@@ -26,6 +26,7 @@ ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 endif
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/blender)
+	@$(call add,MAIN_GROUPS,workstation/yandex-browser)
 endif
 	@$(call add,MAIN_GROUPS,workstation/gnome-boxes)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
