@@ -79,7 +79,7 @@ synaptic
 rpminstall
 
 # USB Flash Writer
-altmediawriter
+impression@!E2K
 
 #Codecs
 gst-libav
