@@ -5,6 +5,7 @@ udev-rules-rfkill-uaccess
 su
 sudo
 beesu
+eepm
 gostsum
 audit
 xmessage
