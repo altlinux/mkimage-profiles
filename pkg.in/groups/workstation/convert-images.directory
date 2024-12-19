@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Convert Images
+Name[ru_RU]=Конвертация изображений
+X-Alterator-PackageList=workstation/convert-images
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/30-multimedia
+Categories=KDE;KDE4;GNOME;XFCE;
