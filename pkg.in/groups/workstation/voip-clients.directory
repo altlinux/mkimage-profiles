@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Directory
-Name=Internet telephony (Linphone)
-Name[ru_RU]=Интернет-телефония (Linphone)
+Name=Internet telephony (GNOME Calls)
+Name[ru_RU]=Интернет-телефония (GNOME Calls)
 X-Alterator-PackageList=workstation/voip-clients
 X-Alterator-Required=no
 X-Alterator-Parent=workstation/20-networking
