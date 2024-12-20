@@ -4,6 +4,6 @@ Type=Directory
 Name=Vector graphics (Inkscape)
 Name[ru_RU]=Векторная графика (Inkscape)
 X-Alterator-PackageList=workstation/vector-graphics
-X-Alterator-Required=yes
+X-Alterator-Required=no
 X-Alterator-Parent=workstation/30-multimedia
 Categories=KDE;KDE4;GNOME;XFCE;
