@@ -65,9 +65,8 @@ endif	# distro
 
 ifeq (vm,$(IMAGE_CLASS))
 
-vm/.alt-workstation: vm/systemd use/x11/lightdm/gtk \
+vm/.alt-workstation: vm/systemd \
 	use/oem/distro use/repo mixin/alt-workstation
-	@$(call add,THE_PACKAGES,installer-feature-lightdm-stage3)
 	@$(call add,THE_PACKAGES,installer-feature-quota-stage2)
 	@$(call add,THE_PACKAGES,alterator-gpupdate)
 	@$(call add,THE_LISTS,workstation/libreoffice)
@@ -80,7 +79,7 @@ vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
 	@$(call set,THE_BROWSER,chromium)
 endif
 
-vm/alt-workstation-cloud: vm/systemd use/x11/lightdm/gtk use/repo \
+vm/alt-workstation-cloud: vm/systemd use/repo \
 	mixin/alt-workstation mixin/cloud-init use/vmguest/kvm use/tty/S0
 	@$(call add,THE_PACKAGES,cloud-init-config-network-manager)
 	@$(call add,THE_KMODULES,drm)
