@@ -37,3 +37,6 @@ gnome-user-docs
 gnome-tour
 papers
 power-profiles-daemon
+
+# default session
+gnome-session-alt
