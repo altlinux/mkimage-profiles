@@ -9,7 +9,7 @@ mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 
 mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
 	use/kernel/net use/l10n/default/ru_RU \
-	use/x11/gnome use/x11-autostart use/x11/gtk4/nm \
+	use/x11/xorg use/x11/gdm use/x11-autostart use/x11/gtk4/nm \
 	use/ntp/chrony \
 	use/apt-conf/branch use/volumes/alt-workstation \
 	use/fonts/install2 \
@@ -21,10 +21,7 @@ mixin/alt-workstation: +systemd +systemd-optimal +pipewire +nm \
 	use/docs/manual use/docs/indexhtml \
 	use/browser/chromium-gost \
 	use/cleanup/live-no-cleanupdb
-	@$(call add,THE_PACKAGES,power-profiles-daemon)
-	@$(call add,THE_PACKAGES,gnome-console)
-	@$(call add,THE_PACKAGES,gnome-tour)
-	@$(call add,THE_PACKAGES,papers)
+	@$(call add,THE_LISTS,workstation/gnome)
 	@$(call add,THE_PACKAGES,alt-panelmoded)
 	@$(call add,THE_PACKAGES,alt-gnome-experimental-settings) # Remove in RC
 	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,alt-panelmoded.service)
