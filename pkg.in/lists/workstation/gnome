@@ -39,3 +39,6 @@ power-profiles-daemon
 
 # default session
 gnome-session-alt
+
+# view and edit keys
+key-rack
