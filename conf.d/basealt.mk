@@ -32,6 +32,7 @@ endif
 	@$(call add,MAIN_GROUPS,workstation/fractal)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/flatpak)
+	@$(call add,MAIN_GROUPS,workstation/daily-planner)
 endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
