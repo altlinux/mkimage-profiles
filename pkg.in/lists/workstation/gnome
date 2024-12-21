@@ -42,3 +42,6 @@ gnome-session-alt
 
 # view and edit keys
 key-rack
+
+# GNOME Shell extensions
+gnome-extension-manager
