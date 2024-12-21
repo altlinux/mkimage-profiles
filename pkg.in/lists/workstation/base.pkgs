@@ -15,7 +15,6 @@ grub-customizer@X86
 brasero
 
 # Sotware manegement
-appinstall@X86
 packagekit
 gnome-software
 
