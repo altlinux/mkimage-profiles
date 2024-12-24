@@ -76,8 +76,7 @@ vm/alt-workstation: vm/.alt-workstation mixin/vm-archdep +vmguest
 	@$(call add,THE_LISTS,$(mediaplayer))
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full
-	@$(call set,THE_BROWSER,chromium)
+vm/alt-workstation-rpi: vm/.alt-workstation use/arm-rpi4/full; @:
 endif
 
 vm/alt-workstation-cloud: vm/systemd use/repo \
