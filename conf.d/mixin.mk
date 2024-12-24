@@ -139,7 +139,7 @@ mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4 \
 	@$(call add,THE_PACKAGES,gnome-software)
 	@$(call add,THE_PACKAGES,gnome-tour)
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
-	@$(call add,THE_PACKAGES,gnome-extensions-app)
+	@$(call add,THE_PACKAGES,gnome-extension-manager)
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
 	@$(call add,THE_PACKAGES,gnome-console)
 	@$(call add,THE_PACKAGES,papers)
