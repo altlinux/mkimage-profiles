@@ -34,6 +34,11 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/flatpak)
 	@$(call add,MAIN_GROUPS,workstation/daily-planner)
 endif
+ifeq (,$(filter-out p11,$(BRANCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
+	@$(call set,KFLAVOURS,6.6 6.12)
+endif
+endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_PACKAGES,python-module-serial)
 	@$(call add,THE_PACKAGES,xorg-drv-smi)	# use/x11/smi
