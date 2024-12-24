@@ -28,6 +28,7 @@ mixin/kworkstation-common-deps: \
 	use/alternatives/xvt/konsole \
 	+wireless +pipewire +plymouth +systemd +systemd-optimal +wireless +vmguest +efi +nm \
 	use/stage2/kms/nvidia; @:
+	@$(call set,KFLAVOURS,6.12)
 
 mixin/kworkstation-common-opts:
 	@$(call set,LOCALES,ru_RU be_BY en_US)
