@@ -1,8 +1,8 @@
 #kde-games@META
-kde5-kmines
-kde5-lskat
-kde5-kpat
-kde5-kmahjongg
+kmines
+lskat
+kpat
+kmahjongg
 
 knights
 #frozen-bubble
