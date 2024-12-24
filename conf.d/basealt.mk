@@ -28,12 +28,12 @@ ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/blender)
 	@$(call add,MAIN_GROUPS,workstation/yandex-browser)
 endif
-	@$(call add,MAIN_GROUPS,workstation/gnome-boxes)
 	@$(call add,MAIN_GROUPS,workstation/fractal)
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/flatpak)
 	@$(call add,MAIN_GROUPS,workstation/daily-planner)
 	@$(call add,MAIN_GROUPS,workstation/kvm)
+	@$(call add,MAIN_GROUPS,workstation/gnome-boxes)
 endif
 ifeq (,$(filter-out p11,$(BRANCH)))
 ifeq (,$(filter-out aarch64,$(ARCH)))
