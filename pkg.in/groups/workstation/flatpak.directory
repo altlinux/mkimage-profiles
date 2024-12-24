@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Flatpak repository
+X-Alterator-Parent=workstation/z00-add-3dparty
 X-Alterator-PackageList=slinux/flatpak
 X-Alterator-Required=no
 Name[ru_RU]=Репозиторий Flatpak

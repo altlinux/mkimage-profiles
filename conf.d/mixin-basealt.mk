@@ -2,7 +2,7 @@
 
 mixin/alt-workstation-install: workstation_groups = $(addprefix workstation/,\
 	10-office 20-networking 30-multimedia 35-gpolicy 40-virtualization \
-	z01-add-clients clients-monitor clients-backup \
+	z00-add-3dparty z01-add-clients clients-monitor clients-backup \
 	raccess alterator-web emulators ganttproject gnome-peer-to-peer \
 	photo-editing convert-images vector-graphics video-editors \
 	libreoffice pidgin scanning scribus \
