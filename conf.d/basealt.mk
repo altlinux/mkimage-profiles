@@ -1,7 +1,7 @@
 ifeq (distro,$(IMAGE_CLASS))
 
 distro/alt-workstation: workstation_groups_x86 = $(addprefix workstation/,\
-	3rdparty kvm clamav cloud-clients freecad \
+	3rdparty clamav cloud-clients freecad \
 	gtk-dictionary smartcard voip-clients)
 
 ifneq (,$(filter-out e2k%,$(ARCH)))
@@ -30,9 +30,10 @@ ifeq (,$(filter-out x86_64,$(ARCH)))
 endif
 	@$(call add,MAIN_GROUPS,workstation/gnome-boxes)
 	@$(call add,MAIN_GROUPS,workstation/fractal)
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
+ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,MAIN_GROUPS,workstation/flatpak)
 	@$(call add,MAIN_GROUPS,workstation/daily-planner)
+	@$(call add,MAIN_GROUPS,workstation/kvm)
 endif
 ifeq (,$(filter-out p11,$(BRANCH)))
 ifeq (,$(filter-out aarch64,$(ARCH)))
