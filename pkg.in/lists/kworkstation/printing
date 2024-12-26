@@ -1,11 +1,9 @@
 kde-printing@META
 
-cups-ppd
 gutenprint-cups-ppds
-samba-client-cups
+samba-client
 printer-drivers-base
 hplip-hpijs
-hplip-PPDs
 printer-testpages
 printer-driver-oki
 printer-driver-brlaser
