@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 [ -n "$GLOBAL_GNOME_KB_SWITCH" ] || exit 0
 
@@ -6,6 +6,5 @@ gsettings get org.gnome.desktop.wm.keybindings switch-input-source || return 0
 
 cat > /etc/dconf/db/local.d/01-gnome-keymap <<EOF
 [org/gnome/desktop/wm/keybindings]
-switch-input-source=[ "$GLOBAL_GNOME_KB_SWITCH" ]
-switch-input-source-backward=[ "$GLOBAL_GNOME_KB_SWITCH" ]
+switch-input-source=['`echo $GLOBAL_GNOME_KB_SWITCH`', '<Super>space', 'XF86Keyboard']
 EOF
