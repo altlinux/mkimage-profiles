@@ -24,7 +24,7 @@ use/l10n/xkb/switch/ctrl_shift: use/l10n
 
 use/l10n/xkb/switch/alt_shift: use/l10n
 	@$(call set,XKB_SWITCH,grp:alt_shift_toggle)
-	@$(call set,GNOME_KB_SWITCH,<Shift>Alt_L)
+	@$(call set,GNOME_KB_SWITCH,<Alt>Shift_L)
 
 # FIXME: derive from locale by default if possible
 use/l10n/ru_RU: use/l10n/xkb/switch/alt_shift
