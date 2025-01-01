@@ -9,8 +9,18 @@ find /lib/modules -name mga2.ko >/dev/null &&
 echo "MODULES_ADD += mga2" &&
 echo "MODULES_ADD += dw_hdmi_imx panel-lvds"
 [ "$GLOBAL_ARCH" = "e2kv6" ] &&
-find /lib/modules -name mga25.ko >/dev/null &&
-echo "MODULES_ADD += mga25" &&
-echo "MODULES_ADD += pwm-bl panel-lvds lp872x i2c-dev panel-simple ti-sn65dsi86 i2c-gpio dw-mipi-dsi sii902x sil164 simple-bridge display-connector dw_hdmi dw_hdmi_cec"
+case "$BRANCH" in
+p10)
+	MGA2=mga25
+	DW_HDMI="dw_hdmi-imx"
+	;;
+*)
+	MGA2=mga2
+	DW_HDMI="dw_hdmi dw_hdmi_cec"
+	;;
+esac
+find /lib/modules -name "$MGA2".ko >/dev/null &&
+echo "MODULES_ADD += $MGA2" &&
+echo "MODULES_ADD += pwm-bl panel-lvds lp872x i2c-dev panel-simple ti-sn65dsi86 i2c-gpio dw-mipi-dsi sii902x sil164 simple-bridge display-connector $DW_HDMI"
 } >> /etc/initrd.mk
 :
