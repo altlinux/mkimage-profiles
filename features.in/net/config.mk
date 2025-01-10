@@ -13,6 +13,10 @@ use/net/etcnet: use/net
 	@$(call set,THE_NET_SUBSYS,etcnet)
 	@$(call add,DEFAULT_SERVICES_ENABLE,network)
 
+use/net/ifupdown2: use/net
+	@$(call set,THE_NET_SUBSYS,ifupdown2)
+	@$(call add,DEFAULT_SERVICES_ENABLE,networking.service)
+
 use/net/dhcp: use/net
 	@$(call add,THE_PACKAGES,dhcpcd)
 
