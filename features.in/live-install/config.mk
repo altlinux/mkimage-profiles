@@ -33,6 +33,13 @@ use/live-install/pkg: use/live-install
 	@$(call set,LIVE_INSTALL_PKG,)
 	@$(call set,GLOBAL_LIVE_INSTALL,)
 
+ifneq (,$(filter-out p10,$(BRANCH)))
+use/live-install/desktop: use/live-install
+	@$(call add,LIVE_PACKAGES,installer-common-desktop)
+else
+use/live-install/desktop: use/live-install; @:
+endif
+
 # set up remote repositories within installed system out-of-box
 use/live-install/repo: use/live-install; @:
 ifneq (,$(filter-out e2k%,$(ARCH)))
