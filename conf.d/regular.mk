@@ -54,7 +54,7 @@ endif
 # WM base target
 distro/.regular-wm: distro/.regular-x11 \
 	mixin/regular-desktop use/vmguest/dri \
-	use/live/rw +live-installer
+	use/live/rw +live-installer use/live-install/desktop
 	@$(call set,GRUB_DEFAULT,live)
 	@$(call set,SYSLINUX_DEFAULT,live)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
