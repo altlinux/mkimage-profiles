@@ -136,8 +136,8 @@ mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4 \
 	use/domain-client
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
-	@$(call add,THE_PACKAGES,gnome-software)
-	@$(call add,THE_PACKAGES,gnome-tour)
+	@$(call add,BASE_PACKAGES,gnome-software)
+	@$(call add,BASE_PACKAGES,gnome-tour)
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call add,THE_PACKAGES,gnome-extension-manager)
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
