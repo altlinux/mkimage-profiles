@@ -71,7 +71,7 @@ distro/live-builder-mini: distro/.live-base use/dev/builder/base \
 distro/live-builder: distro/live-builder-mini \
 	use/dev/builder/full use/live/rw +efi; @:
 
-distro/live-install: distro/.live-base use/live/textinstall; @:
+distro/live-install: distro/.live-base use/live/textinstall +systemd; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
 
 distro/live-icewm: distro/.live-desktop use/live/autologin use/ntp +icewm \
