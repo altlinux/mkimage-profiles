@@ -160,13 +160,13 @@ mixin/regular-kde: use/x11/kde \
 	use/domain-client
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-kde)
-	@$(call add,THE_PACKAGES,plasma-discover)
+	@$(call add,BASE_PACKAGES,plasma-discover)
 	@$(call add,THE_PACKAGES,kf5-kirigami)
 	@$(call add,THE_PACKAGES,kf5-kio)
 	@$(call set,DEFAULT_SESSION,plasma)
 else
 	@$(call add,THE_PACKAGES,plasma5-xdg-desktop-portal-kde)
-	@$(call add,THE_PACKAGES,plasma5-discover)
+	@$(call add,BASE_PACKAGES,plasma5-discover)
 endif
 	@$(call add,THE_PACKAGES,xdg-desktop-portal-gtk)
 	@$(call add,THE_PACKAGES,qt5-wayland)
