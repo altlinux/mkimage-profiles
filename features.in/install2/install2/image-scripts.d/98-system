@@ -1,4 +1,8 @@
 #!/bin/sh
 
 # setup stage2 as init
-mv -f /usr/sbin/install2-init /sbin/init
+if [ -f /usr/sbin/install2-init ]; then
+	mv -f /usr/sbin/install2-init /sbin/init
+else
+	mv -f /usr/libexec/install2/install2-init /sbin/init
+fi

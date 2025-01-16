@@ -3,6 +3,11 @@ use/stage2:: sub/stage1
 	@$(call add_feature)
 	@$(call add,STAGE1_PACKAGES,make-initrd file iproute2)
 	@$(call add,STAGE1_MODLISTS,$$(FEATURES))
+ifeq (,$(filter-out sisyphus p11 c11%,$(BRANCH)))
+	@$(call set,INSTALL2_INIT,init=/usr/libexec/install2/install2-init)
+else
+	@$(call set,INSTALL2_INIT,init=/usr/sbin/install2-init)
+endif
 	@$(call xport,STAGE1_PACKAGES)
 	@$(call xport,STAGE1_KCONFIG)
 
