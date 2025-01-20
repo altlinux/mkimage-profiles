@@ -132,15 +132,6 @@ distro/regular-jeos-systemd: distro/.regular-jeos-full use/install2/vmguest \
 	+systemd +systemd-optimal
 	@$(call add,BASE_PACKAGES,glibc-locales)
 
-distro/.regular-install-x11: distro/.regular-install +vmguest +wireless \
-	use/install2/suspend mixin/regular-desktop mixin/regular-x11 \
-	use/branding/complete use/branding/slideshow/once
-
-distro/.regular-install-x11-systemd: distro/.regular-install-x11 \
-	use/x11/lightdm/gtk +systemd +systemd-optimal
-	@$(call add,THE_PACKAGES,bluez)
-	@$(call add,DEFAULT_SERVICES_ENABLE,bluetoothd)
-
 distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-icewm
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
@@ -162,9 +153,6 @@ distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
-
-distro/regular-xfce-install: distro/.regular-install-x11-systemd \
-	mixin/regular-xfce; @:
 
 distro/regular-gnome-install: distro/.regular-install-x11-systemd mixin/regular-gnome \
 	+plymouth; @:
