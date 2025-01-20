@@ -107,6 +107,7 @@ distro/.regular-jeos-full: distro/.regular-jeos \
 	@$(call add,INSTALL2_PACKAGES,fdisk)
 	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,BASE_PACKAGES,btrfs-progs)
+	@$(call add,BASE_PACKAGES,make-initrd-lvm)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,CLEANUP_PACKAGES,acpid-events-power)
 else
