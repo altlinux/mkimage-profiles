@@ -2,5 +2,6 @@
 
 [ -f /etc/initrd.mk ] || exit 0
 
-echo "part --onpart=/dev/root --resize --grow --useexisting" > /boot/ks.cfg
-echo "KICKSTART_CONFIGS += /boot/ks.cfg" >> /etc/initrd.mk.oem
+mkdir -p /etc/ks.conf.d
+echo "part --onpart=/dev/root --resize --grow --useexisting" > /etc/ks.conf.d/default
+echo "KICKSTART_CONFIGS += /etc/ks.conf.d/default" >> /etc/initrd.mk.oem
