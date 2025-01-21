@@ -112,6 +112,7 @@ bootargs: clean
 	@sed -i "s|@initrd_typeargs@|$(STAGE1_INITRD_TYPEARGS)|g" $(DSTCFGS)
 	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 	@sed -i "s,@install2_init@,$(INSTALL2_INIT),g" $(DSTCFGS)
+	@sed -i "s,@LIVE_NAME@,$(LIVE_NAME),g" $(DSTCFGS)
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \

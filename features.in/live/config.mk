@@ -21,6 +21,7 @@ use/live: use/stage2 sub/rootfs@live sub/stage2@live \
 	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
 	@$(call add,CONTROL,rpcbind:local)
 	@$(call xport,LIVE_CLEANUP_KDRIVERS)
+	@$(call try,LIVE_NAME,LiveCD)
 
 use/live/.base: use/live use/syslinux/ui/menu
 	@$(call add,LIVE_LISTS,$(call tags,base live))
