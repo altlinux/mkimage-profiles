@@ -9,7 +9,7 @@ fi >&2
 [ -n "$GLOBAL_CLEANUP_PACKAGES" ] ||
 	[ -n "$GLOBAL_CLEANUP_BASE_PACKAGES" ] || exit 0
 
-[ -x /usr/sbin/install2-init ] || exit 0
+[ -x /usr/sbin/install2 ] || [ -x /usr/libexec/install2/install2 ] || exit 0
 
 CLEANUP_PACKAGES="$GLOBAL_CLEANUP_PACKAGES $GLOBAL_CLEANUP_BASE_PACKAGES"
 

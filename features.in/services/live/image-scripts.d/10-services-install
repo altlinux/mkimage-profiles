@@ -8,7 +8,7 @@
 # but is executed during a live build if there is an classic
 # installer in it.
 
-[ -x /usr/sbin/install2 ] || exit 0
+[ -x /usr/sbin/install2 ] || [ -x /usr/libexec/install2/install2 ] || exit 0
 
 STATUS=`mktemp`
 CONFDIR=/usr/share/install2
