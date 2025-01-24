@@ -6,9 +6,13 @@ mkdir -p boot
 case "`arch`" in
 	e2k)
 		kname=image
+		# Rename kernel image, unable to boot kernel from CD/DVD
+		# if its name does not contain "." (mcst#6856).
+		ksuffix=.0
 		;;
 	*)
 		kname=vmlinuz
+		ksuffix=
 		;;
 esac
 
@@ -21,7 +25,7 @@ kimage="$(find /boot -type f -name "$kname-*")"
 initrd="$(find /boot -type f -name 'initrd-*.img')"
 
 cp $verbose -af $kimage boot/
-mv boot/$kname-$kverdef boot/$kname
+mv boot/$kname-$kverdef boot/$kname$ksuffix
 cp $verbose -af $initrd boot/
 mv boot/initrd-$kverdef.img boot/initrd.img
 

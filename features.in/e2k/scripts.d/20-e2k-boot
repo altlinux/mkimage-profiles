@@ -4,10 +4,6 @@ echo "** 20-e2k-boot START"
 
 cd "$WORKDIR"
 
-# Rename kernel image, unable to boot kernel from CD/DVD
-# if its name does not contain "." (mcst#6856).
-mv boot/image{,.0}
-
 # slightly different logic as there's no boot *menu*:
 # ensure the user can install this if possible
 [ -f live    ] && default=live
