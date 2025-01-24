@@ -7,6 +7,7 @@ use/live-install: use/live use/metadata use/repo/main \
 	use/bootloader use/grub/live-install.cfg use/syslinux/live-install.cfg \
 	use/alternatives/xvt/xterm
 	@$(call add_feature)
+	@$(call set,STAGE2_LIVE_INST,yes)
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
 	@$(call add,THE_PACKAGES,alterator-wizardface)
 	@$(call add,THE_LISTS,$(call tags,basesystem && !alterator))

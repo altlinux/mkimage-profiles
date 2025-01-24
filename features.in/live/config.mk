@@ -31,6 +31,7 @@ use/live/no-cleanup: \
 
 use/live/base: use/live/.base use/net use/deflogin/live \
 	 use/syslinux/live.cfg  use/grub/live.cfg
+	@$(call set,STAGE2_LIVE,yes)
 	@$(call add,LIVE_LISTS,$(call tags,base network))
 
 use/live/rw: use/live use/syslinux/live_rw.cfg use/grub/live_rw.cfg; @:
@@ -99,6 +100,7 @@ endif
 
 # live as Rescue
 use/live/rescue: use/live use/grub/live-rescue.cfg use/syslinux/live-rescue.cfg
+	@$(call set,STAGE2_LIVE_RESCUE,yes)
 	@$(call add,LIVE_PACKAGES,livecd-rescue-utility)
 	@$(call add,LIVE_LISTS,tagged/base+rescue)
 ifeq (,$(filter-out x86_64,$(ARCH)))
