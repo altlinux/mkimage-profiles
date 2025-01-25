@@ -89,6 +89,7 @@ distro/.regular-jeos-base: distro/.regular-bare \
 	use/install2/repo use/install2/packages \
 	use/net/etcnet
 	@$(call set,INSTALLER,jeos)
+	@$(call add,BASE_PACKAGES,glibc-locales)
 	@$(call add,INSTALL2_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console su agetty)
@@ -129,8 +130,7 @@ distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
 	+sysvinit +power; @:
 
 distro/regular-jeos-systemd: distro/.regular-jeos-full use/install2/vmguest \
-	+systemd +systemd-optimal
-	@$(call add,BASE_PACKAGES,glibc-locales)
+	+systemd +systemd-optimal; @:
 
 distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-icewm
