@@ -118,9 +118,6 @@ distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 
 distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
 
-distro/regular-gnome-install: distro/.regular-install-x11-systemd mixin/regular-gnome \
-	+plymouth; @:
-
 distro/regular-lxde: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-lxde; @:
 
