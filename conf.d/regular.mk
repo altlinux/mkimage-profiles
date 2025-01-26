@@ -84,53 +84,28 @@ endif
 	@$(call add,THE_BRANDING,alterator)
 
 # common base for the very bare distros
-distro/.regular-jeos-base: distro/.regular-bare \
-	use/isohybrid use/branding \
-	use/install2/repo use/install2/packages \
-	use/net/etcnet
-	@$(call set,INSTALLER,jeos)
-	@$(call add,BASE_PACKAGES,glibc-locales)
-	@$(call add,INSTALL2_BRANDING,alterator notes)
-	@$(call add,THE_BRANDING,alterator) # just to be cleaned up later on
+distro/.regular-jeos-base: distro/.regular-bare +efi \
+	use/branding +live-installer-pkg use/live-install/repo
+	@$(call add,THE_BRANDING,alterator notes)
+	@$(call add,BASE_PACKAGES,installer-common-stage3)
+	@$(call add,LIVE_PACKAGES,alterator-net-functions) # for run scripts from installer-common-stage3
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console su agetty)
-	@$(call add,THE_LISTS,openssh)
+	@$(call add,THE_PACKAGES,glibc-locales)
+	@$(call add,BASE_PACKAGES,make-initrd-lvm make-initrd-mdadm cpio)
+	@$(call add,BASE_LISTS,openssh)
+	@$(call add,THE_PACKAGES,fdisk)
+	@$(call add,THE_PACKAGES,btrfs-progs)
 
-# ...and for somewhat bare distros
-distro/.regular-jeos: distro/.regular-jeos-base \
-	use/install2/cleanup/everything use/install2/cleanup/kernel/everything \
-	use/syslinux/lateboot.cfg use/cleanup/jeos
-	@$(call add,BASE_PACKAGES,make-initrd-mdadm cpio)
+distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
+	use/volumes/regular use/ntp/chrony use/net/etcnet \
+	use/firmware use/drm
+	@$(call set,INSTALLER,regular)
+	@$(call add,CLEANUP_BASE_PACKAGES,alterator)
+	@$(call add,BASE_PACKAGES,nfs-utils gdisk apt-repo)
 
-distro/.regular-jeos-full: distro/.regular-jeos \
-	use/volumes/regular use/ntp/chrony use/bootloader/grub \
-	use/grub/localboot_bios.cfg +efi
-	@$(call add,BASE_PACKAGES,nfs-utils gdisk)
-	@$(call add,INSTALL2_PACKAGES,fdisk)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
-	@$(call add,BASE_PACKAGES,btrfs-progs)
-	@$(call add,BASE_PACKAGES,make-initrd-lvm)
-ifeq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,CLEANUP_PACKAGES,acpid-events-power)
-else
-	@$(call add,MAIN_PACKAGES,firmware-linux)
-	@$(call add,CLEANUP_PACKAGES,libffi 'libltdl*')
-	@$(call add,CLEANUP_PACKAGES,bridge-utils)
-endif
-	@$(call add,DEFAULT_SERVICES_DISABLE,fbsetfont)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,INSTALL2_PACKAGES,xorg-dri-vmwgfx)
-endif
-ifneq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,INSTALL2_PACKAGES,xorg-dri-virtio)
-endif
+distro/regular-jeos-sysv: distro/.regular-jeos +sysvinit +power; @:
 
-# NB:
-# - stock cleanup is not enough (or installer-common-stage3 deps soaring)
-distro/regular-jeos-sysv: distro/.regular-jeos-full use/cleanup/jeos/full \
-	+sysvinit +power; @:
-
-distro/regular-jeos-systemd: distro/.regular-jeos-full use/install2/vmguest \
-	+systemd +systemd-optimal; @:
+distro/regular-jeos-systemd: distro/.regular-jeos +systemd +systemd-optimal; @:
 
 distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-icewm
