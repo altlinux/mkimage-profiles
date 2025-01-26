@@ -72,17 +72,6 @@ distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
 
 distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit +power; @:
 
-distro/.regular-install: distro/.regular-base +installer \
-	use/branding use/bootloader/grub use/luks use/stage2/kms \
-	use/install2/fs use/install2/vnc use/install2/repo
-	@$(call add,INSTALL2_PACKAGES,fdisk)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,INSTALL2_PACKAGES,xorg-conf-synaptics)
-endif
-	@$(call add,THE_LISTS,$(call tags,base regular))
-	@$(call add,INSTALL2_BRANDING,alterator notes)
-	@$(call add,THE_BRANDING,alterator)
-
 # common base for the very bare distros
 distro/.regular-jeos-base: distro/.regular-bare +efi \
 	use/branding +live-installer-pkg use/live-install/repo
@@ -175,32 +164,29 @@ distro/regular-rescue-netbootxyz: distro/.regular-bare mixin/regular-rescue
 	@$(call set,META_VOL_ID,ALT Rescue)
 	@$(call set,META_APP_ID,$(ARCH))
 
-distro/.regular-server-base: distro/.regular-install use/server/base
-	@$(call add,THE_LISTS,$(call tags,server && (regular || network)))
+distro/.regular-server-base: distro/.regular-jeos-base use/server/base
+	@$(call add,BASE_LISTS,$(call tags,server && (regular || network)))
 	@$(call add,SYSTEM_PACKAGES,multipath-tools)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-multipath)
+	@$(call add,LIVE_PACKAGES,installer-feature-multipath)
 
 distro/.regular-server: distro/.regular-server-base use/net/etcnet \
-	use/server/mini use/firmware/qlogic use/rescue/base \
-	use/ntp/chrony use/cleanup/libs use/bootloader/grub +efi
-	@$(call add,RESCUE_LISTS,$(call tags,rescue misc))
-	@$(call add,CLEANUP_PACKAGES,qt4-common qt5-base-common)
+	use/server/mini use/firmware/qlogic \
+	use/ntp/chrony use/bootloader/grub +efi \
+	use/volumes/regular
 	@$(call add,DEFAULT_SERVICES_DISABLE,bridge)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 
 distro/.regular-server-managed: distro/.regular-server
-	@$(call add,THE_PACKAGES,alterator-fbi)
-	@$(call add,THE_LISTS,$(call tags,server alterator))
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
+	@$(call add,BASE_PACKAGES,alterator-fbi)
+	@$(call add,BASE_LISTS,$(call tags,server alterator))
+	@$(call add,LIVE_PACKAGES,ntfs-3g)
 	@$(call add,DEFAULT_SERVICES_DISABLE,ahttpd alteratord)
 
 distro/.regular-server-full: distro/.regular-server-managed \
-	use/server/groups/base use/dev/groups/builder use/install2/vnc/full
+	use/server/groups/base use/dev/groups/builder use/live-install/vnc/full
 	@$(call add,MAIN_GROUPS,server/sambaDC)
 	@$(call add,MAIN_GROUPS,tools/hyperv)
 	@$(call add,BASE_KMODULES,staging)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
-	@$(call add,BASE_PACKAGES,btrfs-progs)
 
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd +systemd-optimal; @:
