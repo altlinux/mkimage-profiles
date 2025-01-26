@@ -8,6 +8,7 @@ use/live-install: use/live use/metadata use/repo/main \
 	use/alternatives/xvt/xterm
 	@$(call add_feature)
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
+	@$(call add,THE_PACKAGES,alterator-wizardface)
 	@$(call add,THE_LISTS,$(call tags,basesystem && !alterator))
 	@$(call add,THE_PACKAGES,e2fsprogs)
 	@$(call add,LIVE_PACKAGES,$$(LIVE_INSTALL_PKG))
