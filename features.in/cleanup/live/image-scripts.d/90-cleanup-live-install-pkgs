@@ -25,6 +25,9 @@ echo "removing $CLEANUP_PACKAGES"
 
 # remove temporary packages from the installed system
 list="\$(exec_chroot rpmquery -a --qf='%{NAME}\\n' $CLEANUP_PACKAGES)"
-[ -z "\$list" ] || exec_chroot apt-get remove -f -y  -- \$list
+if [ -n "\$list" ]; then
+	exec_chroot apt-get remove -f -y  -- \$list
+	exec_chroot apt-get autoremove -y
+fi
 EOF
 chmod +x "$SCRIPT"

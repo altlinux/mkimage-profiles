@@ -12,5 +12,8 @@ fi >&2
 CLEANUP_PACKAGES="$GLOBAL_CLEANUP_PACKAGES $GLOBAL_CLEANUP_LIVE_PACKAGES"
 
 list="$(rpmquery -a --qf='%{NAME}\n' $CLEANUP_PACKAGES)"
-[ -z "$list" ] || apt-get remove -f -y -- $list
+if [ -n "$list" ]; then
+	apt-get remove -f -y -- $list
+	apt-get autoremove -y
+fi
 :

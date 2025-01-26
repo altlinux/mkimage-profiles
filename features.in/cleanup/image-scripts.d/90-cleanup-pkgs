@@ -8,4 +8,7 @@ fi >&2
 [ -n "$GLOBAL_CLEANUP_PACKAGES" ] || exit 0
 
 list="$(rpmquery -a --qf='%{NAME}\n' $GLOBAL_CLEANUP_PACKAGES)"
-[ -z "$list" ] || apt-get remove -f -y  -- $list
+if [ -n "$list" ]; then
+	apt-get remove -f -y  -- $list
+	apt-get autoremove -y
+fi
