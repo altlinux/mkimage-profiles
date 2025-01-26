@@ -1,9 +1,0 @@
-basesystem
-fakeroot
-file
-
-make-initrd
-make-initrd-propagator
-
-rpm-build
-sisyphus_check
