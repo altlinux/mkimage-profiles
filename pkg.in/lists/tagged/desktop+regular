@@ -58,6 +58,7 @@ gnome-icon-theme
 gnome-icon-theme-symbolic
 
 # unicode fonts
+fonts-ttf-dejavu
 fonts-ttf-gnu-freefont-mono
 fonts-ttf-gnu-freefont-sans
 fonts-ttf-gnu-freefont-serif
