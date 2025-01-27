@@ -10,7 +10,9 @@ use/live-install: use/live use/metadata use/repo/main \
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
 	@$(call add,THE_PACKAGES,alterator-wizardface)
 	@$(call add,THE_LISTS,$(call tags,basesystem && !alterator))
-	@$(call add,THE_PACKAGES,e2fsprogs)
+	@$(call add,THE_PACKAGES,e2fsprogs mdadm lvm2 cryptsetup)
+	@$(call add,BASE_PACKAGES,make-initrd-mdadm make-initrd-lvm)
+	@$(call add,BASE_PACKAGES,make-initrd-luks)
 	@$(call add,LIVE_PACKAGES,$$(LIVE_INSTALL_PKG))
 	@$(call add,THE_PACKAGES,alterator-postinstall) # for auto install
 	@$(call add,LIVE_PACKAGES,xterm) # for vnc support
