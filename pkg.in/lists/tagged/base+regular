@@ -6,8 +6,6 @@ ntfs-3g
 dosfstools
 fatresize
 
-make-initrd-ucode@X86
-
 shadow-change
 
 openssh
