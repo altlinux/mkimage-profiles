@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=PVE
-Name[ru_RU]=PVE
-X-Alterator-Required=no
-X-Alterator-Conflicts=server-virt/110-opennebula server-virt/120-openstack server-v/140-basic
-Comment=Proxmox Virtual Environment
-Comment[ru_RU]=Виртуальное Окружение Proxmox

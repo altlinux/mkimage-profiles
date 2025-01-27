@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Block Storage Node
-Name[ru_RU]=Сервер управления блочными устройствами
-X-Alterator-PackageList=virt/openstack/block
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/120-openstack

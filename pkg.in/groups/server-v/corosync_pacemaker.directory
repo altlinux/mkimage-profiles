@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=HA Cluster (Corosync and Pacemaker)
-Name[ru_RU]=Отказоустойчивый кластер (Corosync и Pacemaker)
-X-Alterator-PackageList=cluster/corosync_pacemaker
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/300-cluster

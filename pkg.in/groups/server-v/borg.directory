@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Borg deduplicating backup
-Name[ru_RU]=Архивирование Borg
-X-Alterator-PackageList=storage/borg
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/700-backup

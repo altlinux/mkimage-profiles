@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Restic backup
-Name[ru_RU]=Архивирование Restic
-X-Alterator-PackageList=storage/restic
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/700-backup

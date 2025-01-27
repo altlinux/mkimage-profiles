@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Communication between VMs and OpenNebula
-Name[ru_RU]=Сервер сообщений между VM и OpenNebula
-X-Alterator-PackageList=virt/opennebula/gate
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/110-opennebula

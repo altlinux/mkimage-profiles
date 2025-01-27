@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Initiator
-Name[ru_RU]=Клиент iSCSI
-X-Alterator-PackageList=storage/open-iscsi
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/460-iscsi

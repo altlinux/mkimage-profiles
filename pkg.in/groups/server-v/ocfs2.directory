@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=OCFS2(Oracle Cluster FS) management utilities
-Name[ru_RU]=Утилиты управления OCFS2 (Oracle Cluster FS)
-X-Alterator-PackageList=storage/ocfs2
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/400-storage

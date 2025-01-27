@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Bacula File service(also known as the Client program)
-Name[ru_RU]=Клиент архивирования Bacula
-X-Alterator-PackageList=storage/bacula
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/700-backup

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=iSCSI
-Name[ru_RU]=iSCSI
-X-Alterator-Required=no
-Comment=iSCSI support
-Comment[ru_RU]=Доступ к блочному хранилищу через сеть TCP/IP
-X-Alterator-Parent=server-v/400-storage

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Web GUI and the EC2 API
-Name[ru_RU]=Веб-интерфейс управления и EC2 API
-X-Alterator-PackageList=virt/opennebula/gui
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/110-opennebula

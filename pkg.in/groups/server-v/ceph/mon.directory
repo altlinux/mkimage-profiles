@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=MON Cluster Monitor Daemon
-Name[ru_RU]=Мониторинг кластера ceph MON
-X-Alterator-PackageList=storage/ceph-mon
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/410-ceph

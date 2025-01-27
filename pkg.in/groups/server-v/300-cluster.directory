@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=HA Cluster
-Name[ru_RU]=Кластер высокой доступности
-X-Alterator-Required=no
-Comment=High Availability Cluster
-Comment[ru_RU]=Приложения для организации кластера высокой доступности

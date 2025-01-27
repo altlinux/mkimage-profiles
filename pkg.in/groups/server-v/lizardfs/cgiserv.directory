@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Web UI Server
-Name[ru_RU]=Веб-интерфейс управления
-X-Alterator-PackageList=storage/lizardfs-cgiserv
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/430-lizardfs

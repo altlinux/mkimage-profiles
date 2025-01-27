@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=LXD
-Name[ru_RU]=Управление контейнерами LXD
-X-Alterator-PackageList=container/lxd
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/200-container

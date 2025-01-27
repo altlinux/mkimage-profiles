@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Main OpenNebula daemon and scheduler
-Name[ru_RU]=Управляющий сервер Opennebula
-X-Alterator-PackageList=virt/opennebula/server
-X-Alterator-Required=no
-X-Alterator-Parent=server-v/110-opennebula
