@@ -1,5 +1,6 @@
 use/kernel:
 	@$(call add_feature)
+	@$(call add,BASE_PACKAGES,bootloader-utils)
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call try,KFLAVOURS,elbrus-def)
 else
