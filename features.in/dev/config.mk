@@ -1,23 +1,27 @@
 use/dev: use/control
 	@$(call add_feature)
-	@$(call add,THE_PACKAGES,git-core hasher gear)
+	@$(call add,BASE_PACKAGES,git-core hasher gear)
 	@$(call add,CONTROL,pam_mktemp:enabled)
 	@$(call add,DEFAULT_SERVICES_ENABLE,hasher-privd)
 
 # use/dev intentionally missing
 use/dev/repo: use/repo/main
-	@$(call add,THE_PACKAGES,apt-repo)
+	@$(call add,BASE_PACKAGES,apt-repo)
 	@$(call add,MAIN_LISTS,$(call tags,main builder))
 	@$(call try,DEV_REPO,1)
 
 use/dev/mkimage: use/dev
-	@$(call add,THE_PACKAGES,mkimage shadow-change su)
+	@$(call add,BASE_PACKAGES,mkimage shadow-change su)
 
 use/dev/builder/base: use/dev/mkimage
-	@$(call add,THE_LISTS,$(call tags,builder && (base || extra)))
+	@$(call add,BASE_LISTS,$(call tags,builder && (base || extra)))
 
-use/dev/builder/live: use/dev/builder/base
+use/dev/builder/live: use/dev
 	@$(call add,LIVE_LISTS,$(call tags,live builder))
+	@$(call add,LIVE_LISTS,$(call tags,builder && (base || extra)))
+	@$(call add,LIVE_PACKAGES,git-core hasher gear)
+	@$(call add,LIVE_PACKAGES,mkimage shadow-change su)
+	@$(call add,LIVE_PACKAGES,apt-repo)
 
 use/dev/builder/live/sysv: use/dev/builder/live; @:
 ifeq (,$(filter-out x86_64 ,$(ARCH)))
