@@ -1,12 +1,5 @@
 ### various mixins with their origin
 
-### desktop.mk
-mixin/desktop-installer: +vmguest \
-	use/bootloader/os-prober use/x11-autostart use/fonts/install2 use/sound
-	@$(call add,BASE_LISTS, \
-		$(call tags,(base || desktop) && (l10n || network)))
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g)
-
 ### e2k.mk
 mixin/e2k-base: use/tty/S0 use/net-eth/dhcp; @:
 
