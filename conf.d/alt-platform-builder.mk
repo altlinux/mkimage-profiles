@@ -13,7 +13,7 @@ distro/alt-platform-builder: \
 	use/docs/license use/docs/indexhtml \
 	use/vmguest \
 	use/apt-conf/branch \
-	use/volumes/regular use/luks \
+	use/volumes/alt-server use/luks \
 	use/firmware/server use/firmware/cpu \
 	use/kernel/net use/kernel/drm \
 	use/net/etcnet use/net-ssh \
@@ -23,7 +23,7 @@ distro/alt-platform-builder: \
 	use/stage2/drm use/stage2/sbc use/tty
 	@$(call set,BRANDING,alt-platform-builder)
 #	@$(call set,INSTALLER,alt-platform-builder)
-	@$(call set,INSTALLER,regular)
+	@$(call set,INSTALLER,centaurus)
 #	@$(call set,DOCS,alt-platform-builder)
 	@$(call set,DISABLE_LANG_MENU,1)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
