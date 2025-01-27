@@ -1,14 +1,15 @@
 ifeq (distro,$(IMAGE_CLASS))
 distro/alt-platform-builder: \
-	distro/.installer \
+	distro/.base use/live-install/pkg \
+	use/cleanup \
 	+systemd +systemd-optimal \
 	use/memtest +efi \
 	use/dev/builder/base \
 	use/net/dhcp use/ntp/chrony \
 	use/l10n/default/ru_RU \
 	use/isohybrid \
-	use/install2/vnc/listen \
-	use/install2/fat use/install2/repo \
+	use/live-install/vnc/listen \
+	use/live-install/repo \
 	use/docs/license use/docs/indexhtml \
 	use/vmguest \
 	use/apt-conf/branch \
@@ -29,14 +30,12 @@ distro/alt-platform-builder: \
 	@$(call set,PLATFORM_RELEASE,10.0.0)
 	@$(call set,META_VOL_ID,ALT Platform Builder $$(PLATFORM_RELEASE) $(ARCH))
 	@$(call set,META_APP_ID,ALT Platform Builder $$(PLATFORM_RELEASE) $(ARCH) $(shell date +%F))
-	@$(call add,INSTALL2_PACKAGES,fonts-ttf-google-croscore-arimo)
-	@$(call add,INSTALL2_BRANDING,alterator notes)
+	@$(call add,LIVE_PACKAGES,fonts-ttf-google-croscore-arimo)
+	@$(call add,THE_BRANDING,alterator notes)
 	@$(call add,THE_BRANDING,alterator indexhtml notes)
 #	@$(call add,THE_BRANDING,slideshow)
-	@$(call add,INSTALL2_PACKAGES,btrfs-progs)
 	@$(call add,BASE_PACKAGES,btrfs-progs timeshift)
-	@$(call add,INSTALL2_PACKAGES,ntfs-3g exfatprogs)
-	@$(call add,BASE_PACKAGES,ntfs-3g exfatprogs)
+	@$(call add,THE_PACKAGES,ntfs-3g exfatprogs)
 	@$(call add,BASE_LISTS,platform-builder/base.pkgs)
 	@$(call add,BASE_LISTS,platform-builder/alterator)
 	@$(call add,BASE_LISTS,platform-builder/build.pkgs)
