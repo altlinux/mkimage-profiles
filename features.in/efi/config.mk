@@ -10,12 +10,12 @@ use/efi:
 	@$(call add_feature)
 	@$(call try,EFI_BOOTLOADER,grub-efi)	# default one
 	@$(call xport,EFI_BOOTLOADER)
-	@$(call add,COMMON_LISTS,$(EFI_LISTS))
+	@$(call add,BASE_LISTS,$(EFI_LISTS))
 ifeq (distro,$(IMAGE_CLASS))
-	@$(call add,INSTALL2_PACKAGES,dosfstools fatresize)
+	@$(call add,STAGE2_PACKAGES,dosfstools fatresize)
 	@$(call add,STAGE1_KCONFIG,EFI EFI_PARTITION EFIVAR_FS)
 ifeq (x86_64,$(ARCH))
-	@$(call add,THE_PACKAGES,$$(EFI_SHELL))
+	@$(call add,BASE_PACKAGES,$$(EFI_SHELL))
 endif
 endif
 
@@ -29,7 +29,7 @@ use/efi/shell: use/efi
 
 use/efi/signed: use/efi
 	@$(call set,EFI_CERT,altlinux)
-	@$(call add,COMMON_PACKAGES,shim-signed)
+	@$(call add,BASE_PACKAGES,shim-signed)
 	@$(call add,RESCUE_PACKAGES,mokutil pesign)
 	@$(call add,RESCUE_PACKAGES,openssl)
 ifeq (,$(filter-out p10 c10f%,$(BRANCH)))
