@@ -30,7 +30,7 @@ ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,BASE_PACKAGES,installer-feature-setup-plymouth)
 endif
 	@$(call add,THE_BRANDING,bootsplash graphics)
-	@$(call add,THE_PACKAGES,make-initrd-plymouth cpio)
+	@$(call add,BASE_PACKAGES,make-initrd-plymouth cpio)
 ifeq (vm,$(IMAGE_CLASS))
 	@$(call add,BASE_BOOTARGS,quiet splash)
 endif
