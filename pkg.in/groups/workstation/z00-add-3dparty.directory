@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Directory
-X-Alterator-Required=no
-Categories=GNOME;MATE;XFCE;KDE;KDE4;
-
-Name=Third-party software
-Name[ru_RU]=Стороннее ПО
-Comment=Third party software repositories
-Comment[ru_RU]=Репозитории стороннего программного обеспечения

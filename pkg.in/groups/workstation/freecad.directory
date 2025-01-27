@@ -1,7 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=FreeCAD system
-Name[ru_RU]=САПР (FreeCAD)
-X-Alterator-PackageList=workstation/freecad
-X-Alterator-Required=no

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=QEMU/KVM virtualization client-server
-Name[ru_RU]=Клиент-сервер виртуализации (QEMU/KVM)
-X-Alterator-PackageList=workstation/kvm
-X-Alterator-Required=no
-X-Alterator-Parent=workstation/40-virtualization

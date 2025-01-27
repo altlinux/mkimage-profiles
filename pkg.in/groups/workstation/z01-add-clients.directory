@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Directory
-X-Alterator-Required=no
-Categories=GNOME;MATE;XFCE;KDE;KDE4;
-
-Name=Service clients
-Name[ru_RU]=Клиенты сервисов
-Comment=Additional services clients
-Comment[ru_RU]=Дополнительные клиенты различных сервисов

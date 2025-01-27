@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Yandex Browser
-Name[ru_RU]=Яндекс браузер
-X-Alterator-PackageList=workstation/yandex-browser
-X-Alterator-Required=no
-X-Alterator-Parent=workstation/20-networking
-Categories=GNOME;MATE;XFCE;KDE;KDE4;

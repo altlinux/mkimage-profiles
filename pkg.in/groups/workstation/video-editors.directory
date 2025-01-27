@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Video Editors
-Name[ru_RU]=Видеоредакторы
-X-Alterator-PackageList=workstation/video-editors
-X-Alterator-Required=no
-X-Alterator-Parent=workstation/30-multimedia
