@@ -1,5 +1,0 @@
-systemd-sysvinit
-task-auth-freeipa
-kde-autofs-shares
-krb5-ticket-watcher
-task-auth-ldap-sssd
