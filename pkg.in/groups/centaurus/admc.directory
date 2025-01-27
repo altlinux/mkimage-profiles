@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Administration tools
-X-Alterator-PackageList=centaurus/admc
-X-Alterator-Required=no
-X-Alterator-Parent=centaurus/801-grp-pol
-X-Alterator-Depends=centaurus/mate centaurus/xorg
-Name[ru_RU]=Инструменты администрирования

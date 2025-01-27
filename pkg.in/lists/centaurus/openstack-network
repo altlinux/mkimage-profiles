@@ -1,7 +1,0 @@
-openntpd
-python-module-MySQLdb
-openstack-neutron
-openstack-neutron-openvswitch
-openstack-ceilometer-compute
-python-module-ceilometerclient
-python-module-pecan

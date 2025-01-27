@@ -1,6 +1,0 @@
-systemd-sysvinit
-task-auth-freeipa
-freeipa-client
-certmonger
-systemd-services
-libsss_sudo

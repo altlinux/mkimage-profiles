@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Token support
-Name[ru_RU]=Поддержка токенов
-X-Alterator-PackageList=centaurus/token
-X-Alterator-Required=no
-X-Alterator-Parent=centaurus/20-server-apps

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Directory
-Name=Rootless Kubernetes
-X-Alterator-PackageList=centaurus/podsec
-X-Alterator-Required=no
-X-Alterator-Parent=centaurus/200-container
-X-Alterator-Depends=centaurus/trivy
