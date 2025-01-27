@@ -2,7 +2,10 @@
 
 [ -n "$GLOBAL_GNOME_KB_SWITCH" ] || exit 0
 
-gsettings get org.gnome.desktop.wm.keybindings switch-input-source || return 0
+which gsettings 2>&1 >/dev/null || exit 0
+
+[ -n "$(gsettings get org.gnome.desktop.wm.keybindings switch-input-source 2>/dev/null)" ] ||
+	exit 0
 
 cat > /etc/dconf/db/local.d/01-gnome-keymap <<EOF
 [org/gnome/desktop/wm/keybindings]
