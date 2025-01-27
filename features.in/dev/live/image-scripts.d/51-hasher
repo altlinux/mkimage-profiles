@@ -1,6 +1,8 @@
 #!/bin/sh -efu
 # configure hasher (implies that 30-users has been run already)
 
+rpm -q hasher || exit 0
+
 ARCH="$(rpm --eval '%_host_cpu')"
 [ -n "$ARCH" ] || exit 2
 
