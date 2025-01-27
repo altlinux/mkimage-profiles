@@ -16,7 +16,7 @@ distro/alt-platform-builder: \
 	use/volumes/alt-server use/luks \
 	use/firmware/server use/firmware/cpu \
 	use/kernel/net use/kernel/drm \
-	use/net/etcnet use/net-ssh \
+	use/net/etcnet \
 	use/stage2/ata use/stage2/fs use/stage2/kms use/stage2/hid use/stage2/md \
 	use/stage2/mmc use/stage2/net use/stage2/net-nfs use/stage2/cifs \
 	use/stage2/rtc use/stage2/sbc use/stage2/scsi use/stage2/usb \
@@ -44,6 +44,7 @@ distro/alt-platform-builder: \
 	@$(call add,SYSTEM_PACKAGES,mdadm-tool lvm2 multipath-tools fdisk xfsprogs btrfs-progs file)
 	@$(call add,DEFAULT_SERVICES_ENABLE,getty@tty1)
 	@$(call add,DEFAULT_SERVICES_ENABLE,ahttpd alteratord)
+	@$(call add,DEFAULT_SERVICES_ENABLE,sshd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,powertop bridge gpm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver)
 
