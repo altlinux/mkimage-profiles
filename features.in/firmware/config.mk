@@ -15,6 +15,7 @@ use/firmware/full: use/firmware/server use/firmware/laptop; @:
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 use/firmware/cpu: use/firmware
 	@$(call add,THE_PACKAGES,firmware-intel-ucode iucode_tool)
+	@$(call add,BASE_PACKAGES,make-initrd-ucode)
 else
 use/firmware/cpu: use/firmware; @:
 endif
