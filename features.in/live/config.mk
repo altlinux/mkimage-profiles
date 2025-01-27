@@ -59,11 +59,7 @@ use/live/repo/online:
 	@$(call add,LIVE_PACKAGES,livecd-online-repo)
 
 # alterator-based permanent installation
-use/live/install: use/metadata use/xdg-user-dirs \
-	use/syslinux/localboot.cfg use/grub/localboot_bios.cfg \
-	use/bootloader/live use/bootloader/grub
-	@$(call add,LIVE_PACKAGES,livecd-install)
-	@$(call add,LIVE_PACKAGES,livecd-installer-features)
+use/live/install: use/live-install/desktop; @:
 
 # text-based installation script
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
