@@ -16,7 +16,6 @@ use/live: use/stage2 sub/rootfs@live sub/stage2@live \
 	use/services/lvm2-disable
 	@$(call add_feature)
 	@$(call add,LIVE_PACKAGES,livecd-no-ldconfig-service)
-	@$(call add,CLEANUP_BASE_PACKAGES,'installer*')
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
 	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
 	@$(call add,CONTROL,rpcbind:local)
