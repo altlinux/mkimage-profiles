@@ -10,6 +10,8 @@ shadow-change
 
 openssh
 openssh-blacklist
+iptables
+iproute2
 net-tools
 nfs-utils
 
