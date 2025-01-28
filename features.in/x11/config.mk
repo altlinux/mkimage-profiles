@@ -11,7 +11,7 @@ use/x11:
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$(call tags,base xorg))
 
-use/x11/xorg:: use/x11 use/x11/armsoc use/x11/intel use/drm
+use/x11/xorg:: use/x11 use/x11/intel use/drm
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
 	@$(call add,THE_LISTS,mesa-dri-drivers)
 
@@ -39,12 +39,7 @@ else
 use/x11/intel: use/x11; @:
 endif
 
-ifeq (,$(filter-out armh aarch64,$(ARCH)))
-use/x11/armsoc: use/x11 use/firmware use/drm
-	@$(call add,THE_PACKAGES,xorg-dri-armsoc)
-else
-use/x11/armsoc: use/x11; @:
-endif
+use/x11/armsoc: use/x11/xorg; @:
 
 ifeq (,$(filter-out e2k%,$(ARCH)))
 # e2k: mostly radeon, 101 got mga2/vivante
