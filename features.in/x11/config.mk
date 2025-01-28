@@ -13,6 +13,7 @@ use/x11:
 
 use/x11/xorg:: use/x11 use/x11/armsoc use/x11/intel use/drm
 	@$(call add,THE_LISTS,$(call tags,desktop xorg))
+	@$(call add,THE_LISTS,mesa-dri-drivers)
 
 # x86: free drivers for various hardware (might lack acceleration)
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
