@@ -3,5 +3,4 @@ xinit
 xinitrc
 livecd-setlocale
 livecd-timezone
-os-prober
 su
