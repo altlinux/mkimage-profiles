@@ -20,6 +20,7 @@ distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
 	@$(call add,STAGE1_PACKAGES,firmware-linux)
 	@$(call add,STAGE1_KMODULES,drm)
 	@$(call set,BOOTVGA,)
+	@$(call add,BASE_LISTS,openssh)
 
 # base target (for most images)
 distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
