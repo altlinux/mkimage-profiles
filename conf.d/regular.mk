@@ -15,7 +15,7 @@ endif
 
 # common ground (really lowlevel)
 distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
-	distro/.regular-initrd use/tty
+	distro/.regular-initrd use/tty use/bootloader/os-prober
 	@$(call try,SAVE_PROFILE,yes)
 	@$(call add,STAGE1_PACKAGES,firmware-linux)
 	@$(call add,STAGE1_KMODULES,drm)
