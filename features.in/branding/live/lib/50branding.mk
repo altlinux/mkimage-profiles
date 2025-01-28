@@ -1,2 +1,2 @@
 IMAGE_PACKAGES_REGEXP += $(call branding, release \
-				$(THE_BRANDING) $(STAGE2_BRANDING))
+	$(shell echo $(THE_BRANDING) $(STAGE2_BRANDING)|sed 's/bootloader//g'))
