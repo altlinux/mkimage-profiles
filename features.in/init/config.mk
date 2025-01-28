@@ -7,6 +7,7 @@ use/init: use/pkgpriorities
 	@$(call add_feature)
 	@$(call add,THE_LISTS,$$(INIT_TYPE))
 	@$(call add,PINNED_PACKAGES,$$(INIT_TYPE))
+	@$(call add,THE_PACKAGES,kbd)
 ifneq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call add,THE_PACKAGES,startup) # contains configs needed all
 endif
