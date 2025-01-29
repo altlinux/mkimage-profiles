@@ -65,6 +65,8 @@ write_systemd_iface() {
 	dhcp4)
 		echo "[Match]"
 		echo "Name=$iface"
+		echo "Kind=!*"
+		echo "Type=ether"
 		echo
 		echo "[Network]"
 		echo "DHCP=ipv4"
@@ -80,6 +82,8 @@ write_systemd_iface() {
 	dhcp)
 		echo "[Match]"
 		echo "Name=$iface"
+		echo "Kind=!*"
+		echo "Type=ether"
 		echo
 		echo "[Network]"
 		echo "DHCP=yes"
@@ -93,6 +97,8 @@ write_systemd_iface() {
 	static)
 		echo "[Match]"
 		echo "Name=$iface"
+		echo "Kind=!*"
+		echo "Type=ether"
 		echo
 		echo "[Network]"
 		echo "Address=$ipv4addr"
