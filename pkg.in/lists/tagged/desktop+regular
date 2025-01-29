@@ -9,6 +9,7 @@ alterator-standalone
 alterator-root
 alterator-users
 alterator-groups
+alterator-notes
 
 alterator-datetime
 alterator-proxy@X86
