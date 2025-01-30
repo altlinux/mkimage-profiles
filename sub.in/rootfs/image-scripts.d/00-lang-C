@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Set fallback unicode locale
+# Overrides in use/l10n
+
+[ -d /usr/lib/locale/C.utf8 ] || exit 0
+
+systemd_locale=/etc/locale.conf
+sysv_locale=/etc/sysconfig/i18n
+
+which localectl 2>&1 >/dev/null && echo LANG=C.UTF-8 > "$systemd_locale"
+
+if [ -f "$sysv_locale" ]; then
+	echo LANG=C.UTF-8 > "$sysv_locale"
+	echo SUPPORTED=C.UTF-8 >> "$sysv_locale"
+fi
+:
