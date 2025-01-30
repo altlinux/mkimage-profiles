@@ -1,17 +1,18 @@
 #!/bin/sh
-# FIXME: there should be less brutal i18n tuning
 
 # don't cripple the image to be copied over
-[ -n "$GLOBAL_LIVE_INSTALL"] || \
-	[ -x /usr/sbin/live-install ] || \
-	[ -x /usr/sbin/livecd-install ] && exit 0
+[ -z "$GLOBAL_LIVE_INSTALL" ] || exit 0
+[ ! -x /usr/sbin/live-install ] || exit 0
+[ ! -x /usr/sbin/livecd-install ] || exit 0
 
-cd /usr/share/locale
-rm -r *@*
-for i in */; do
-	case "$i" in
-	be*|en*|ru*|uk*) continue;;
-	esac
-	rm -r "$i"
-done
+if [ -n "$GLOBAL_LOCALES" ]; then
+	# -not -name C* -a -not -name en* -a -not -name ru*
+	LOCALES="$(echo "C*" $GLOBAL_LOCALES | sed 's/ / -a -not -name /g;s/^/-not -name /;s/_[A-Z]*/*/g')"
+else
+	LOCALES="-not -name C*"
+fi
+
+find /usr/share/locale /usr/lib/locale -mindepth 1 -maxdepth 1 \
+	$LOCALES -exec rm -r {} \;
+
 :
