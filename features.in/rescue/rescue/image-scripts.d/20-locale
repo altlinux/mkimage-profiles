@@ -6,7 +6,14 @@ if [ -s /etc/sysconfig/i18n ]; then exit 0; fi
 mkdir -p /etc/sysconfig
 cat >> /etc/sysconfig/i18n << _EOF_
 # mkimage-profiles live 20-locale hook
-SYSFONT=LatArCyrHeb-16
-LANG=en_US.utf8
+LANG=C.UTF-8
+SUPPORTED=C.UTF-8
 _EOF_
+
+# set locale C.UTF-8 for root (needed for p10)
+cat>/root/.i18n<<_EOF_
+LANGUAGE=C.UTF-8
+LANG=C.UTF-8
+_EOF_
+
 :

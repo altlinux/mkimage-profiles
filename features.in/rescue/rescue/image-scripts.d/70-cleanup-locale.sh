@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# cleanup extra locales
-CLEANUP_DIRS="/usr/lib/locale /usr/share/locale"
+find /usr/lib/locale /usr/share/locale -mindepth 1 -maxdepth 1 \
+	-not -name 'C*' -exec rm -r {} \;
 
-for CLEANUP_DIR in $CLEANUP_DIRS; do
-cd "$CLEANUP_DIR"
-rm -fr $(ls -1 |sed '/en_US/d' | tr -s '\r\n' ' ')
-done
