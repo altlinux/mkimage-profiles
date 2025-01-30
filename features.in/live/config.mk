@@ -53,6 +53,7 @@ use/live/desktop: use/live/x11 use/x11/xorg use/x11/wacom \
 use/live/repo: use/live
 	@$(call try,LIVE_REPO,http/alt)
 	@$(call xport,LIVE_REPO)
+	@$(call add,CLEANUP_LIVE_PACKAGES,livecd-main-repo)
 
 # preconfigure apt in runtime (less reliable)
 use/live/repo/online:
