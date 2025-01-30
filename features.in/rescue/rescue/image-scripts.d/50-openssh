@@ -16,4 +16,8 @@ grep -qs "^$KEY_TYPES" sshd_config || echo "$KEY_TYPES" >> sshd_config
 grep -qs "^$KEY_TYPES" ssh_config  || echo "$KEY_TYPES" >> ssh_config
 grep -qs "^$KEX_ALGOS" ssh_config  || echo "$KEX_ALGOS" >> ssh_config
 
+# do not use locale of ssh clients
+sed -i '/^AcceptEnv LANG/s/^/#/' sshd_config
+sed -i '/^AcceptEnv LC_/s/^/#/' sshd_config
+
 :
