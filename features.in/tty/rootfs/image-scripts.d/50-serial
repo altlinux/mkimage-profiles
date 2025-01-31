@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/bin/sh -x
 # setup serial console access
 
 BIN=/sbin/agetty
 CFG=/etc/inittab
 SEC=/etc/securetty
+GRUB_CFG=/etc/sysconfig/grub2
 
 [ -n "$GLOBAL_TTY_DEV" -a -n "$GLOBAL_TTY_RATE" ] || exit 0
 
@@ -12,6 +13,23 @@ for c in /boot/extlinux/extlinux.conf /etc/sysconfig/grub2 /boot/boot.conf; do
 		sed -i "s/ quiet / /g;s/ quiet'/'/" "$c"
 	fi
 done
+
+if [ -f /etc/sysconfig/grub2 ]; then
+	sed '/^GRUB_TERMINAL_OUTPUT=.*/d' -i "$GRUB_CFG"
+	sed '/^GRUB_TERMINAL_INPUT=.*/d' -i "$GRUB_CFG"
+	case `arch` in
+	i*86|x86_64|pentium*|k6|athlon*)
+		serial_unit="$(echo "$GLOBAL_TTY_DEV" |sed -r 's/^[^0-9]+//')"
+		echo "GRUB_SERIAL_COMMAND=\"serial --unit=$serial_unit --speed=$GLOBAL_TTY_RATE\"" >> "$GRUB_CFG"
+		grub_console='serial console'
+	;;
+	*)
+		grub_console='console'
+	;;
+	esac
+	echo "GRUB_TERMINAL_INPUT=\"$grub_console\"" >> "$GRUB_CFG"
+	echo "GRUB_TERMINAL_OUTPUT=\"$grub_console\"" >> "$GRUB_CFG"
+fi
 
 [ -s "$CFG" -a -x "$BIN" ] || exit 0
 
