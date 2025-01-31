@@ -3,7 +3,7 @@
 +live-installer: use/live-install/full; @:
 +live-installer-pkg: use/live-install/full use/live-install/pkg; @:
 
-use/live-install: use/live use/metadata use/repo/main \
+use/live-install: use/live use/metadata use/repo/main use/l10n \
 	use/bootloader use/grub/live-install.cfg use/syslinux/live-install.cfg \
 	use/alternatives/xvt/xterm
 	@$(call add_feature)
