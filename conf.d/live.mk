@@ -49,7 +49,7 @@ distro/.live-base: distro/.base use/live/base \
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
 distro/.live-desktop: distro/.live-x11 +live use/stage2/net-eth \
-	use/plymouth/live
+	use/plymouth/live use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,polkit)
 
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
@@ -65,7 +65,7 @@ distro/.live-kiosk: distro/.live-base use/live/autologin \
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver fbsetfont keytable)
 
 distro/live-builder-mini: distro/.live-base use/dev/builder/base \
-	use/syslinux/timeout/30 use/isohybrid \
+	use/syslinux/timeout/30 use/isohybrid use/cleanup/live-no-cleanupdb \
 	use/stage2/net-eth use/net-eth/dhcp +systemd; @:
 
 distro/live-builder: distro/live-builder-mini \
