@@ -86,6 +86,8 @@ distro/.regular-jeos-base: distro/.regular-bare +efi \
 	@$(call add,BASE_LISTS,openssh)
 	@$(call add,THE_PACKAGES,fdisk)
 	@$(call add,THE_PACKAGES,btrfs-progs)
+	@$(call set,LOCALES,en_US ru_RU)
+	@$(call set,DISABLE_LANG_MENU,1)
 
 distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 	use/volumes/regular use/ntp/chrony use/net/etcnet \
