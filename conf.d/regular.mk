@@ -81,7 +81,7 @@ distro/.regular-jeos-base: distro/.regular-bare +efi \
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,LIVE_PACKAGES,alterator-net-functions) # for run scripts from installer-common-stage3
 	@$(call add,THE_PACKAGES,apt basesystem dhcpcd vim-console su agetty)
-	@$(call add,THE_PACKAGES,glibc-locales)
+	@$(call add,THE_PACKAGES,glibc-locales tzdata)
 	@$(call add,BASE_PACKAGES,make-initrd-lvm make-initrd-mdadm cpio)
 	@$(call add,BASE_LISTS,openssh)
 	@$(call add,THE_PACKAGES,fdisk)
