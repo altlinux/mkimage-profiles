@@ -30,10 +30,6 @@ ExecStart=
 ExecStart=-agetty -o '-p -f -- \\u' --keep-baud 115200,57600,38400,9600 --autologin root %I $TERM
 EOF
 
-# enable root login via ssh using password
-[ ! -f /etc/openssh/sshd_config ] ||
-	sed -i 's/#PermitRootLogin without-password/PermitRootLogin yes/' /etc/openssh/sshd_config
-
 mkdir -p /etc/systemd/system/live-rescue.target.d
 cat>>/etc/systemd/system/live-rescue.target<<'EOF'
 [Unit]
