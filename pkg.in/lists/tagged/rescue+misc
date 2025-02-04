@@ -56,7 +56,6 @@ make-initrd-nfs
 
 # Filesystem archival tools
 fsarchiver
-wimtools@X86
 
 # Filesystem maintenance
 duff
