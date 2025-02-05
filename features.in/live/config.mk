@@ -102,7 +102,7 @@ endif
 # live as Rescue
 use/live/rescue: use/live use/grub/live-rescue.cfg use/syslinux/live-rescue.cfg
 	@$(call set,STAGE2_LIVE_RESCUE,yes)
-	@$(call add,LIVE_PACKAGES,livecd-rescue-utility)
+	@$(call add,LIVE_PACKAGES,livecd-rescue)
 	@$(call add,LIVE_LISTS,tagged/base+rescue)
 ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,pesign mokutil)
