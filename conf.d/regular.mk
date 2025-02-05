@@ -156,7 +156,7 @@ distro/regular-rescue-live: distro/.regular-base +systemd \
 	use/net-eth/networkd-dhcp use/net/networkd/resolved \
 	use/cleanup/live-no-cleanupdb use/live/repo +wireless \
 	use/syslinux/sdab.cfg use/grub/sdab_bios.cfg \
-	use/deflogin
+	use/deflogin use/ntp/timesyncd
 	@$(call set,ROOTPW_EMPTY,1)
 	@$(call add,LIVE_LISTS,openssh)
 	@$(call add,LIVE_LISTS,$(call tags,network security))
