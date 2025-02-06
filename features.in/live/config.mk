@@ -104,9 +104,6 @@ use/live/rescue: use/live use/grub/live-rescue.cfg use/syslinux/live-rescue.cfg
 	@$(call set,STAGE2_LIVE_RESCUE,yes)
 	@$(call add,LIVE_PACKAGES,livecd-rescue)
 	@$(call add,LIVE_PACKAGES,livecd-rescue-base-utils)
-ifeq (,$(filter-out x86_64,$(ARCH)))
-	@$(call add,LIVE_PACKAGES,pesign mokutil)
-endif
 
 use/live/rescue/extra: use/live/rescue
 	@$(call add,LIVE_LISTS,\
