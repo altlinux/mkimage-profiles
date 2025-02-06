@@ -4,6 +4,9 @@ use/rescue/.base: use/stage2 sub/stage2@rescue \
 	@$(call set,STAGE2_RESCUE,yes)
 	@$(call add,RESCUE_LISTS,sysvinit)
 	@$(call add,RESCUE_PACKAGES,startup startup-rescue udev rescue-launcher)
+ifeq (p10,$(BRANCH))
+	@$(call add,RESCUE_PACKAGES,glibc-locales)
+endif
 	@$(call add,RESCUE_LISTS,openssh)
 	@$(call add,RESCUE_LISTS,grub)
 
