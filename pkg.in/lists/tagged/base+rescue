@@ -83,7 +83,6 @@ partclone
 glibc-locales
 
 # Misc
-rescue-launcher
 livecd-rescue-utility
 system-backup
 gostsum
