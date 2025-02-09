@@ -93,7 +93,6 @@ clicfs-utils
 squashfs-tools
 
 # Foreign filesystems
-afpfs-ng
 bindfs
 dosfstools
 exfatprogs
@@ -173,7 +172,6 @@ tcpreen
 tcpreplay
 tcptrace
 tcputils
-tcpxtract
 telnet
 traceroute
 uucp
