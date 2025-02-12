@@ -3,7 +3,6 @@ ceph
 tuned
 postfix
 control-sshd-permit-root-login
-kernel-modules-ipset-@KFLAVOUR
 kernel-modules-xtables-addons-@KFLAVOUR
 kernel-modules-zfs-@KFLAVOUR
 zfs-utils
