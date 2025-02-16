@@ -12,7 +12,7 @@ wmeyes
 wmfishtime
 #wmfmio		--> requires hardware and setup
 #wmforkplop	--> needed fonts-ttf-vera, which breaks cyrillic into gnustep
-wmfortune
+#wmfortune
 #wmgtemp	--> requires lm_sensors configuration
 #wmhdaps	--> requires that hdaps.ko be loaded
 #wmhdplop	--> needed fonts-ttf-vera, which breaks cyrillic into gnustep
@@ -31,7 +31,7 @@ wmpiki
 #wmpomme	--> very specific
 wmpower
 wmsysmon
-wmsystray
+#wmsystray
 wmtimer
 wmtop
 wmupmon
