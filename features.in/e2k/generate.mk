@@ -41,7 +41,7 @@ config: prep
 		elif [ "$$i" = liveinst ]; then \
 			LABEL="install"; \
 			STAGE2="stagename=live"; \
-			INIT=" init=/usr/sbin/install2-init"; \
+			INIT=" $(INSTALL2_INIT)"; \
 		elif [ "$$i" = liverescue ]; then \
 			LABEL=rescue; \
 			STAGE2="stagename=live"; \
