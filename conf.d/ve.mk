@@ -29,7 +29,7 @@ ve/generic: ve/base use/repo
 
 # example of service-specific template
 ve/openvpn: ve/bare
-	@$(call add,BASE_LISTS,$(call tags,server openvpn))
+	@$(call add,BASE_LISTS,tagged/server+openvpn)
 
 ve/pgsql: ve/generic
 	@$(call add,BASE_PACKAGES,postgresql-server)
