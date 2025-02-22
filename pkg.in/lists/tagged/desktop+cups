@@ -15,6 +15,3 @@ hplip-gui
 printer-driver-splix
 printer-driver-brlaser
 printer-driver-oki
-
-system-config-printer
-system-config-printer-udev
