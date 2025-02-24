@@ -60,6 +60,7 @@ ifeq (aarch64,$(ARCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
 	@$(call set,KFLAVOURS,pine)
 	@$(call set,CAMERA,megapixels)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,eg25-manager.service)
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 	@$(call add,THE_PACKAGES,udev-rules-goodix-touchpad)
 
