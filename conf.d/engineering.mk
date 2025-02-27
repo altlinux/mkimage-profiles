@@ -16,5 +16,6 @@ endif
 	@$(call add,LIVE_LISTS,engineering/eda)
 	@$(call add,LIVE_LISTS,engineering/misc)
 	@$(call add,LIVE_PACKAGES,theme-gnome-windows)
+	@$(call add,LIVE_PACKAGES,python3-module-pygobject3) # ALT bug 52950
 
 endif
