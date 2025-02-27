@@ -5,6 +5,7 @@ distro/regular-engineering-live: distro/.regular-x11 +systemd +systemd-optimal \
 	use/live/ru use/live/rw use/live/desktop \
 	use/cleanup/live-no-cleanupdb \
 	use/cleanup/live-no-cleanup-docs
+	@$(call set,LIVE_NAME,ALT Engineering $(BRANCH) Live)
 	@$(call add,LIVE_LISTS,engineering/2d-cad)
 	@$(call add,LIVE_LISTS,engineering/3d-cad)
 	@$(call add,LIVE_LISTS,engineering/3d-printer)
