@@ -14,6 +14,7 @@ mixin/cnc-rt: use/l10n +nm-gtk +systemd +systemd-optimal +x11 \
 	@$(call add,THE_PACKAGES,openFPGALoader)
 	@$(call add,THE_PACKAGES,xorg-conf-noblank)
 	@$(call add,CLEANUP_PACKAGES,xscreensaver-modules)
+	@$(call add,THE_PACKAGES,python3-module-pygobject3) # ALT bug 52950
 
 ifeq (distro,$(IMAGE_CLASS))
 distro/regular-cnc-rt: distro/.regular-wm mixin/cnc-rt; @:
