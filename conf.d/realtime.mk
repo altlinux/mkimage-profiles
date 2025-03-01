@@ -21,5 +21,5 @@ distro/regular-cnc-rt: distro/.regular-wm mixin/cnc-rt; @:
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/regular-cnc-rt: vm/systemd mixin/regular-vm-x11 mixin/vm-archdep mixin/cnc-rt; @:
+vm/regular-cnc-rt: vm/systemd vm/.regular-desktop mixin/vm-archdep mixin/cnc-rt; @:
 endif
