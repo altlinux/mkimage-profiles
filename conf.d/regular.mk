@@ -68,7 +68,7 @@ distro/.regular-desktop: distro/.regular-wm use/branding/full \
 	use/firmware/laptop +systemd +systemd-optimal +vmguest \
 	use/live-install/oem use/services/bluetooth-enable \
 	use/live/rescue
-ifeq (,$(filter-out sisyphus,$(BRANCH)))
+ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
 	@$(call set,INSTALL2_INIT,systemd.unit=install2.target)
 endif
 	@$(call add,THE_PACKAGES,bluez)
