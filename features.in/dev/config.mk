@@ -16,7 +16,7 @@ use/dev/mkimage: use/dev
 use/dev/builder/base: use/dev/mkimage
 	@$(call add,BASE_LISTS,$(call tags,builder && (base || extra)))
 
-use/dev/builder/live: use/dev
+use/dev/builder/live: use/dev use/live/no-cleanup
 	@$(call add,LIVE_LISTS,$(call tags,live builder))
 	@$(call add,LIVE_LISTS,$(call tags,builder && (base || extra)))
 	@$(call add,LIVE_PACKAGES,git-core hasher gear)
