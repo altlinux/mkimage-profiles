@@ -203,6 +203,7 @@ distro/.regular-builder: distro/.regular-base mixin/regular-builder \
 	use/live/base use/live/rw use/live/repo use/live/textinstall \
 	use/isohybrid use/syslinux/timeout/300 use/grub/timeout/30
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
+	@$(call set,LIVE_NAME,ALT Builder $(BRANCH) Live)
 
 distro/regular-builder: distro/.regular-builder +systemd \
 	use/dev/builder/live/systemd; @:
