@@ -4,16 +4,12 @@
 CONFIG=/etc/sysconfig/keyboard
 VCONSOLE_CONF=/etc/vconsole.conf
 
+[ -n "$GLOBAL_KEYTABLE" ] || exit 0
+
 # Requires: console-scripts
 if [ -s "$CONFIG" ]; then
-	echo "** l10n-kbd: expected $CONFIG to be an empty file" >&2
-	exit 0
+	echo "KEYTABLE=$GLOBAL_KEYTABLE" > "$CONFIG"
 fi
 
-if [ -z "$GLOBAL_KEYTABLE" ]; then
-	echo "** l10n-kbd: empty GLOBAL_KEYTABLE" >&2
-	exit 0
-fi
-
-echo "KEYTABLE=$GLOBAL_KEYTABLE" > "$CONFIG"
-[ -f "$VCONSOLE_CONF" ] && echo "KEYMAP=$GLOBAL_KEYTABLE" >> "$VCONSOLE_CONF"
+rpm -qf "$VCONSOLE_CONF" && echo "KEYMAP=$GLOBAL_KEYTABLE" >> "$VCONSOLE_CONF"
+:
