@@ -1,2 +1,4 @@
 glibc-locales
 glibc-gconv-modules
+kbd
+kbd-data
