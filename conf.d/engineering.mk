@@ -1,5 +1,5 @@
 ifeq (distro,$(IMAGE_CLASS))
-distro/regular-engineering-live: distro/.regular-x11 +systemd +systemd-optimal \
+distro/regular-engineering-live: distro/.regular-x11 +systemd \
 	mixin/regular-desktop mixin/regular-gnome use/x11/gdm  \
 	use/l10n +nm-gtk4 +plymouth \
 	use/live/ru use/live/rw use/live/desktop \

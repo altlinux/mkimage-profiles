@@ -65,7 +65,7 @@ endif
 # DE base target
 # TODO: use/plymouth/live when luks+plymouth is done, see also #28255
 distro/.regular-desktop: distro/.regular-wm use/branding/full \
-	use/firmware/laptop +systemd +systemd-optimal +vmguest \
+	use/firmware/laptop +systemd +vmguest \
 	use/live-install/oem use/services/bluetooth-enable \
 	use/live/rescue
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
@@ -101,7 +101,7 @@ distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 
 distro/regular-jeos-sysv: distro/.regular-jeos +sysvinit +power; @:
 
-distro/regular-jeos-systemd: distro/.regular-jeos +systemd +systemd-optimal; @:
+distro/regular-jeos-systemd: distro/.regular-jeos +systemd; @:
 
 distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-icewm
@@ -194,7 +194,7 @@ distro/.regular-server-full: distro/.regular-server-managed \
 	@$(call add,BASE_KMODULES,staging)
 
 distro/regular-server-systemd: distro/.regular-server-full \
-	+systemd +systemd-optimal; @:
+	+systemd; @:
 
 distro/regular-server-sysv: distro/.regular-server-full +sysvinit +power; @:
 

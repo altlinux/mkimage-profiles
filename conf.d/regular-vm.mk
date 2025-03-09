@@ -21,7 +21,7 @@ endif
 	@$(call add,THE_PACKAGES,vim-console)
 	@$(call add,KMODULES,staging)
 
-vm/.regular-desktop: vm/systemd +systemd +systemd-optimal +plymouth \
+vm/.regular-desktop: vm/systemd +systemd +plymouth \
 	mixin/regular-vm-base mixin/regular-x11 \
 	mixin/regular-desktop use/oem/vnc \
 	use/services/bluetooth-enable

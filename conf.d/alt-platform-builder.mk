@@ -2,7 +2,7 @@ ifeq (distro,$(IMAGE_CLASS))
 distro/alt-platform-builder: \
 	distro/.base use/live-install/pkg \
 	use/cleanup \
-	+systemd +systemd-optimal \
+	+systemd \
 	use/memtest +efi \
 	use/dev/builder/base \
 	use/net/dhcp use/ntp/chrony \
