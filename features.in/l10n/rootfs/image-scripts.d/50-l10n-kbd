@@ -4,6 +4,9 @@
 CONFIG=/etc/sysconfig/keyboard
 VCONSOLE_CONF=/etc/vconsole.conf
 
+# setup unicode console
+rpm -qf "$VCONSOLE_CONF" && echo "FONT=UniCyr_8x16" > "$VCONSOLE_CONF"
+
 [ -n "$GLOBAL_KEYTABLE" ] || exit 0
 
 # Requires: console-scripts
@@ -11,5 +14,5 @@ if [ -s "$CONFIG" ]; then
 	echo "KEYTABLE=$GLOBAL_KEYTABLE" > "$CONFIG"
 fi
 
-rpm -qf "$VCONSOLE_CONF" && echo "KEYMAP=$GLOBAL_KEYTABLE" >> "$VCONSOLE_CONF"
+[ -s "$VCONSOLE_CONF" ] && echo "KEYMAP=$GLOBAL_KEYTABLE" >> "$VCONSOLE_CONF"
 :
