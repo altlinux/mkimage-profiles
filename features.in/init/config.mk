@@ -17,6 +17,7 @@ endif
 use/init/sysv: use/init
 	@$(call set,INIT_TYPE,sysvinit)
 	@$(call add,INSTALL2_PACKAGES,sysvinit)
+	@$(call add,SYSTEM_PACKAGES,console-scripts)
 	@$(call add,THE_PACKAGES,rsyslog-classic startup mingetty)
 	@$(call add,THE_PACKAGES,udevd-final)
 	@$(call add,DEFAULT_SERVICES_ENABLE,udevd-final)
