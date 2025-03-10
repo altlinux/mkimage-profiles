@@ -1,0 +1,11 @@
+#!/bin/sh -efu
+
+if ! find /lib/kbd/consolefonts/ -name UniCyr* >/dev/null 2>&1; then
+    echo "** vconsole-setup: kbd-data is required!" >&2
+    exit 0
+fi
+
+VCONSOLE_CONF=/etc/vconsole.conf
+
+# setup unicode console
+rpm -qf "$VCONSOLE_CONF" && echo "FONT=UniCyr_8x16" > "$VCONSOLE_CONF"
