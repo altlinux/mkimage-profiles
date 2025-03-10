@@ -8,4 +8,5 @@ fi
 VCONSOLE_CONF=/etc/vconsole.conf
 
 # setup unicode console
-rpm -qf "$VCONSOLE_CONF" && echo "FONT=UniCyr_8x16" > "$VCONSOLE_CONF"
+rpm -qf "$VCONSOLE_CONF" || exit 0
+echo "FONT=UniCyr_8x16" > "$VCONSOLE_CONF"
