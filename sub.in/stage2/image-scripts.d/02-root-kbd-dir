@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# https://bugzilla.altlinux.org/53223
+
+mkdir -p /root/.kbd
