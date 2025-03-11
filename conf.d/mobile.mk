@@ -53,6 +53,9 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 ifeq (sisyphus,$(BRANCH))
 	@$(call add,THE_PACKAGES,gnome-maps)
 endif
+ifeq (x86_64,$(ARCH))
+	@$(call add,THE_PACKAGES,udev-rules-MIG-goodix-touchpad)
+endif
 
 vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0; @:
 
