@@ -102,6 +102,10 @@ distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 distro/regular-jeos-sysv: distro/.regular-jeos +sysvinit +power; @:
 
 distro/regular-jeos-systemd: distro/.regular-jeos +systemd; @:
+ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
+	@$(call set,INSTALL2_INIT,systemd.unit=install2.target)
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
+endif
 
 distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-icewm
