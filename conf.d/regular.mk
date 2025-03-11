@@ -199,6 +199,10 @@ distro/.regular-server-full: distro/.regular-server-managed \
 
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd; @:
+ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
+	@$(call set,INSTALL2_INIT,systemd.unit=install2.target)
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
+endif
 
 distro/regular-server-sysv: distro/.regular-server-full +sysvinit +power; @:
 
