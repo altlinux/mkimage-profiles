@@ -30,6 +30,8 @@ endif
 	@$(call set,LOCALE,ru_RU)
 	@$(call add,CONTROL,fusermount:public)
 	@$(call add,CONTROL,libnss-role:disabled)
+	@$(call add,CONTROL,passwdqc-match:no_check)
+	@$(call add,CONTROL,passwdqc-min:allow_pincode)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waked.service)
 
 mixin/phosh: use/services +nm-gtk4 +nm-native
