@@ -8,7 +8,7 @@ telegram-desktop
 gnome-console
 
 # web, mail
-chromium@!riscv64
+chromium@x86_64
 firefox
 epiphany
 geary
