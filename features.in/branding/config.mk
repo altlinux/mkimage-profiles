@@ -16,9 +16,6 @@ use/branding/full: use/branding/notes use/syslinux/ui/gfxboot \
 ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_BRANDING,bootloader)
 endif
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,THE_BRANDING,bootsplash)
-endif
 
 use/branding/complete: use/branding/full use/plymouth/full
 	@$(call add,INSTALL2_BRANDING,slideshow)
