@@ -75,7 +75,7 @@ distro/live-install: distro/.live-base use/live/textinstall +systemd; @:
 distro/.livecd-install: distro/.live-base use/live/install; @:
 
 distro/live-icewm: distro/.live-desktop use/live/autologin use/ntp +icewm \
-	+systemd; @:
+	+systemd +nm-gtk; @:
 distro/live-fvwm: distro/.live-desktop-ru use/live/autologin use/ntp use/x11/fvwm \
 	+systemd; @:
 
