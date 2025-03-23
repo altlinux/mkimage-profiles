@@ -82,8 +82,6 @@ f2fs-tools
 jfsprogs
 nilfs-utils
 mtd-utils
-reiser4progs
-reiserfsprogs
 shake
 xfsprogs
 open-iscsi
