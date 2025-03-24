@@ -24,7 +24,7 @@ vulkan-tools
 clinfo
 wayland-utils
 
-cpu-x@x86_64
+cpu-x@X86
 exfatprogs
 hdparm
 inxi
