@@ -23,9 +23,6 @@ case "$GLOBAL_ARCH" in
 	aarch64)
 		gl_url="${gl_url}arm64"
 	;;
-	ppc64le)
-		gl_url="${gl_url}ppc64le"
-	;;
 	*)
 		echo "arch $GLOBAL_ARCH not supported!"
 		exit 1

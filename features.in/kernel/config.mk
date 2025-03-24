@@ -68,14 +68,11 @@ use/kernel/initrd-setup: use/kernel
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,ata_piix.ko)
 endif
-ifeq (,$(filter-out i586 x86_64 aarch64 armh e2k% ppc64le mipsel,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64 armh e2k% mipsel,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,usb)
 endif
 ifneq (,$(filter-out e2k% riscv64 mipsel,$(ARCH)))
 	@$(call add,VM_INITRDFEATURES,qemu)
-endif
-ifeq (,$(filter-out ppc64le,$(ARCH)))
-	@$(call add,VM_INITRDMODULES,ipr.ko ibmvscsi.ko)
 endif
 ifeq (,$(filter-out aarch64 armh riscv64,$(ARCH)))
 	@$(call add,VM_INITRDMODULES,drivers/dma drivers/reset)

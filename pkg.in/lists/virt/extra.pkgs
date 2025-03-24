@@ -3,10 +3,10 @@ kernel-headers-modules-@KFLAVOUR
 kernel-modules-ipset-@KFLAVOUR
 kernel-modules-xtables-addons-@KFLAVOUR
 kernel-modules-drm-@KFLAVOUR
-kernel-modules-zfs-@KFLAVOUR@!ppc64le
+kernel-modules-zfs-@KFLAVOUR
 kernel-modules-hinic-@KFLAVOUR@aarch64
 kernel-modules-hifc-@KFLAVOUR@aarch64
-zfs-utils@!ppc64le
+zfs-utils
 ocfs2-tools
 
 net-snmp

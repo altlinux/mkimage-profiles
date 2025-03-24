@@ -9,7 +9,7 @@ ifeq (vm,$(IMAGE_CLASS))
 vm/.bare: profile/bare use/branding/notes
 	@$(call add,BASE_PACKAGES,interactivesystem shadow-utils e2fsprogs)
 
-ifeq (,$(filter-out i586 x86_64 ppc64le,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 vm/.base-grub: vm/.bare use/bootloader/grub; @:
 else
 vm/.base-grub: vm/.base-grub-efi; @:

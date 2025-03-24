@@ -15,9 +15,6 @@ endif
 ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call set,IMAGE_PACKTYPE,isodata)
 endif
-ifeq (,$(filter-out ppc64le,$(ARCH)))
-	@$(call try,BOOTLOADER,ieee1275boot)
-endif
 	@$(call try,IMAGE_PACKTYPE,boot)
 
 endif
