@@ -5,7 +5,7 @@ fonts-bitmap-terminus
 leafpad
 galculator
 mpv
-mtpaint
+#mtpaint
 parcellite
 
 gpicview
@@ -20,7 +20,7 @@ obconf
 lxde-lxlauncher
 
 # instead of a (missing) native notification display
-notify-osd
+#notify-osd
 
 # for lock screen session menu entry
 xscreensaver-frontend
