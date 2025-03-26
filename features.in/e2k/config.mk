@@ -1,22 +1,8 @@
 ifeq (,$(filter-out e2k%,$(ARCH)))
 use/e2k: use/tty/S0 use/l10n/default/ru_RU
 	@$(call add_feature)
-	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
-	@$(call add,LIVE_PACKAGES,installer-feature-e2k-fix-boot-stage2)
-	@$(call add,LIVE_PACKAGES,installer-feature-e2k-ignore-cf-stage2)
 	@$(call add,LIVE_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,STAGE2_PACKAGES,agetty)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-xorg-conf-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-fix-boot-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-fstrim-stage2)
-	@$(call add,INSTALL2_PACKAGES,blacklist-ide)	# avoid overwriting hda
-	@$(call add,INSTALL2_PACKAGES,ifplugd)	# for net-eth link status
-	@$(call add,INSTALL2_CLEANUP_PACKAGES,llvm)
-ifeq (,$(filter-out e2kv4 e2kv5,$(ARCH)))
-	@# 8C/8CB specific
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
-endif
 ifeq (,$(filter-out e2kv6 e2kv4,$(ARCH)))
 	@# 1C+/2C3 specific
 	@$(call add,SYSTEM_PACKAGES,softdep-mga2x)	# mcst#8089
