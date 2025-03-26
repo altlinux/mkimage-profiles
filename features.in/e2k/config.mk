@@ -20,6 +20,7 @@ endif
 use/e2k/x11: use/e2k use/x11
 	@$(call add,THE_PACKAGES,xorg-server xinit)
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-amdgpu lccrt-blobs)
+	@$(call add,LIVE_PACKAGES,xorg-drv-amdgpu lccrt-blobs)
 
 use/e2k/multiseat:
 	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
