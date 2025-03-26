@@ -16,7 +16,9 @@ use/sound/alsa: use/sound
 use/sound/pulse: use/sound
 	@$(call set,THE_SOUND,sound/pulseaudio)
 
-use/sound/pipewire: use/sound
-	@$(call set,THE_SOUND,sound/pipewire)
+use/sound/pipewire-services: use/services
 	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,pipewire.socket pipewire-pulse.socket)
 	@$(call add,DEFAULT_SYSTEMD_USER_SERVICES_ENABLE,wireplumber.service)
+
+use/sound/pipewire: use/sound use/sound/pipewire-services
+	@$(call set,THE_SOUND,sound/pipewire)
