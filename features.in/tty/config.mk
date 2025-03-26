@@ -13,5 +13,10 @@ use/tty/%: use/tty
 	@$(call add,THE_PACKAGES,agetty)
 	@$(call try,TTY_DEV,tty$*)
 	@$(call try,TTY_RATE,115200)
+ifeq (distro,$(IMAGE_CLASS))
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call add,GRUB_CFG,serial)
 	@$(call add,SYSLINUX_CFG,tty$*)
+endif
+endif
 	@$(call add,BASE_BOOTARGS,console=tty0 console=$$(TTY_DEV)$(comma)$$(TTY_RATE)n8)

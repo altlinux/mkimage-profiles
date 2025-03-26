@@ -113,6 +113,14 @@ bootargs: clean
 	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 	@sed -i "s,@install2_init@,$(INSTALL2_INIT),g" $(DSTCFGS)
 	@sed -i "s,@LIVE_NAME@,$(LIVE_NAME),g" $(DSTCFGS)
+	@if [ -n "$(GLOBAL_TTY_DEV)" ] && [ -n "$(GLOBAL_TTY_RATE)" ]; then \
+		sed -i "s,@serial_speed@,$(GLOBAL_TTY_RATE),g" $(DSTCFGS); \
+		sed -i "s,@serial_port@,$(GLOBAL_TTY_DEV),g" $(DSTCFGS); \
+		SERIAL_UNIT="`echo $(GLOBAL_TTY_DEV) |sed -r 's,^[^0-9]+,,'`"; \
+		sed -i "s,@serial_unit@,$$SERIAL_UNIT,g" $(DSTCFGS); \
+	else \
+		sed -i "s, console=tty0 console=@serial_port@\,@serial_speed@n8,,g" $(DSTCFGS); \
+	fi
 
 clean: copy
 	@if [ "$(GRUB_UI)" = gfxboot ]; then \
