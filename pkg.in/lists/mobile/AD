@@ -1,11 +1,8 @@
 # Authenticate in Active Directory domain by SSSD
 task-auth-ad-sssd
-alterator-net-iptables
 
 # GPO
 admx-basealt
-admc
-gpui
 gpupdate
 
 # Alt Mobile domain input tool
