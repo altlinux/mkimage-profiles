@@ -1,4 +1,4 @@
-#!/bin/sh -efu
+#!/bin/bash -efu
 # ALT: write Elbrus boot media
 # public domain 2020 Michael Shigorin <mike@altlinux.org>
 # http://altlinux.org/elbrus
