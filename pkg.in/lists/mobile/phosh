@@ -15,6 +15,7 @@ power-profiles-daemon
 
 # fonts
 fonts-otf-abattis-cantarell
+fonts-ttf-adwaita
 
 # base applications
 gnome-control-center
