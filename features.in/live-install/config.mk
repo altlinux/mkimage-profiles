@@ -8,6 +8,8 @@ use/live-install: use/live use/metadata use/repo/main use/l10n \
 	use/alternatives/xvt/xterm
 	@$(call add_feature)
 	@$(call set,STAGE2_LIVE_INST,yes)
+	@$(call try,MAIN_KERNEL_SAVE,no)
+	@$(call xport,MAIN_KERNEL_SAVE)
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
 	@$(call add,THE_PACKAGES,alterator-wizardface)
 	@$(call add,THE_LISTS,$(call tags,basesystem && !alterator))

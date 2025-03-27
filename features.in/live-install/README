@@ -25,3 +25,8 @@
 размера iso-образа.
 
 Второй вариант не отличается от altinst.
+
+По дефолту пакеты kernel-image и kernel-modules в режиме распаковки образа live
+удаляются. Чтобы это предотвратить задайте переменную MAIN_KERNEL_SAVE:
+
+	@$(call set,MAIN_KERNEL_SAVE,yes)

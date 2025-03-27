@@ -7,4 +7,8 @@ RPM_LIVE_LIST="$WORKDIR/.disk/pkglists/live/image/rpm.txt"
 [ -f "$RPM_LIVE_LIST" ] || exit 1
 
 cd "$WORKDIR/$PREFIX/RPMS.main"
-cat "$RPM_LIVE_LIST" | grep -v kernel-image | grep -v kernel-modules | xargs rm -fv
+if [ "$GLOBAL_MAIN_KERNEL_SAVE" = yes ]; then
+	cat "$RPM_LIVE_LIST" | grep -v kernel-image | grep -v kernel-modules | xargs rm -fv
+else
+	cat "$RPM_LIVE_LIST" | xargs rm -fv
+fi
