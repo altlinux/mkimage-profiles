@@ -58,6 +58,7 @@ distro/.regular-wm: distro/.regular-x11 \
 	use/live-install/repo
 	@$(call set,GRUB_DEFAULT,live)
 	@$(call set,SYSLINUX_DEFAULT,live)
+	@$(call set,MAIN_KERNEL_SAVE,yes)
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xorg-drv-vmware) # for virtualbox with VMSVGA
 endif
