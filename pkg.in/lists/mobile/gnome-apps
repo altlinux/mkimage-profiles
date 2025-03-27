@@ -1,0 +1,45 @@
+# base applications
+gnome-control-center
+gnome-software
+foldy
+
+# terminal
+gnome-console
+
+# file manager
+nautilus
+tracker3
+
+# web
+epiphany
+dconf-epiphany-mobile-user-agent
+
+# mail
+geary
+
+# connectivity
+gnome-calls
+gnome-contacts
+chatty
+
+# image viewer
+loupe
+
+# Dictophone
+gnome-sound-recorder
+
+# games
+gnome-games-2048
+gnome-games-chess
+gnome-games-sudoku
+
+# misc
+gnome-calculator
+gnome-calendar
+gnome-characters
+gnome-clocks
+#gnome-maps # need replace geoinfo source
+gnome-weather
+
+# system monitor
+resources

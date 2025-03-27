@@ -20,6 +20,7 @@ endif
 	@$(call add,THE_PACKAGES,$$(CAMERA))
 	@$(call add,THE_BRANDING,graphics notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
+	@$(call add,THE_LISTS,mobile/apps)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
 	@$(call add,THE_PACKAGES,mesa-dri-drivers)
 	@$(call add,THE_PACKAGES,eg25-manager)
@@ -37,10 +38,15 @@ endif
 mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,THE_BRANDING,phosh-settings)
 	@$(call add,THE_LISTS,mobile/phosh)
+	@$(call add,THE_LISTS,mobile/gnome-apps)
 	@$(call add,DEFAULT_SERVICES_ENABLE,phosh)
 	@$(call set,DEFAULT_SESSION,phosh)
-	@$(call add,THE_PACKAGES,dconf-epiphany-mobile-user-agent)
-	@$(call add,THE_PACKAGES,nautilus)
+ifeq (sisyphus,$(BRANCH))
+	@$(call add,THE_PACKAGES,gnome-maps)
+endif
+ifeq (x86_64,$(ARCH))
+	@$(call add,THE_PACKAGES,udev-rules-MIG-goodix-touchpad)
+endif
 
 ifneq (sisyphus,$(BRANCH))
 mixin/mobile-base::
@@ -50,14 +56,7 @@ endif
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
-	use/auto-resize
-	@$(call add,THE_LISTS,mobile/apps)
-ifeq (sisyphus,$(BRANCH))
-	@$(call add,THE_PACKAGES,gnome-maps)
-endif
-ifeq (x86_64,$(ARCH))
-	@$(call add,THE_PACKAGES,udev-rules-MIG-goodix-touchpad)
-endif
+	use/auto-resize; @:
 
 vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0; @:
 

@@ -1,17 +1,9 @@
 # connectivity
-gnome-calls
-gnome-contacts
-chatty
 telegram-desktop
-
-# terminal
-gnome-console
 
 # web, mail
 chromium@x86_64
 firefox
-epiphany
-geary
 
 # Messaging app
 fractal
@@ -19,9 +11,6 @@ fractal
 # multimedia
 livi
 amberol
-
-# image viewer
-loupe
 
 # readers
 papers
@@ -41,9 +30,6 @@ fonts-ttf-google-noto-emoji-color
 # CJK fonts
 fonts-ttf-lxgw-wenkai
 
-# Dictophone
-gnome-sound-recorder
-
 # notes & organizers
 iotas
 errands
@@ -51,26 +37,8 @@ errands
 # translation
 dialect
 
-# games
-gnome-games-2048
-gnome-games-chess
-gnome-games-sudoku
-
-# system monitor
-resources
-
 # misc
-gnome-calculator
-gnome-calendar
-gnome-characters
-gnome-clocks
-#gnome-maps # need replace geoinfo source
-gnome-weather
 grim
 
 wl-clipboard
 wallpapers-mobile
-# libadwaita theme ported to gtk3
-# $ gsettings get org.gnome.desktop.interface gtk-theme
-# 'adw-gtk3'
-gtk3-theme-adw-gtk3

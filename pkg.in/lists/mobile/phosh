@@ -18,18 +18,11 @@ fonts-otf-abattis-cantarell
 fonts-ttf-adwaita
 
 # base applications
-gnome-control-center
 phosh-mobile-settings
 alt-tweaks
-gnome-software
-foldy
 
 # extra applications
 phosh-antispam
-
-# file manager
-#nautilus
-tracker3
 
 # base libraries
 at-spi2-core
@@ -40,3 +33,8 @@ librsvg-gir
 libportal-gtk3-gir
 libportal-gtk4-gir
 libtelepathy-mission-control
+
+# libadwaita theme ported to gtk3
+# $ gsettings get org.gnome.desktop.interface gtk-theme
+# 'adw-gtk3'
+gtk3-theme-adw-gtk3
