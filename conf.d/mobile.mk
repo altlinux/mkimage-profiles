@@ -5,7 +5,7 @@ ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,hkdm)
 endif
 
-mixin/mobile-base:: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
+mixin/mobile-base: use/ntp/chrony use/repo use/branding/notes use/x11-autostart \
 	use/deflogin/privileges use/deflogin/xgrp use/deflogin/hardware \
 	use/deflogin/root use/l10n/ru_RU use/xdg-user-dirs \
 	use/drm use/firmware mixin/ttyescape +plymouth +pipewire \
@@ -21,6 +21,7 @@ endif
 	@$(call add,THE_BRANDING,graphics notes indexhtml)
 	@$(call add,THE_LISTS,mobile/base)
 	@$(call add,THE_LISTS,mobile/apps)
+	@$(call add,THE_LISTS,mobile/AD)
 	@$(call add,THE_PACKAGES,polkit-rule-mobile)
 	@$(call add,THE_PACKAGES,mesa-dri-drivers)
 	@$(call add,THE_PACKAGES,eg25-manager)
@@ -46,11 +47,6 @@ ifeq (sisyphus,$(BRANCH))
 endif
 ifeq (x86_64,$(ARCH))
 	@$(call add,THE_PACKAGES,udev-rules-MIG-goodix-touchpad)
-endif
-
-ifneq (sisyphus,$(BRANCH))
-mixin/mobile-base::
-	@$(call add,THE_LISTS,mobile/AD)
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
