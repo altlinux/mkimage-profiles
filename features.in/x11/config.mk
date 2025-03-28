@@ -166,7 +166,9 @@ use/x11/deepin: use/x11/xorg +pipewire
 
 use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
 	@$(call add,THE_LISTS,gnome/gnome-minimal)
+ifeq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,THE_PACKAGES,tracker3) # ALT bug 42028
+endif
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
 use/x11/enlightenment: use/x11 use/power/acpi +pipewire +nm-gtk
