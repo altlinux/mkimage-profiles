@@ -119,7 +119,7 @@ bootargs: clean
 		SERIAL_UNIT="`echo $(GLOBAL_TTY_DEV) |sed -r 's,^[^0-9]+,,'`"; \
 		sed -i "s,@serial_unit@,$$SERIAL_UNIT,g" $(DSTCFGS); \
 	else \
-		sed -i "s, console=tty0 console=@serial_port@\,@serial_speed@n8,,g" $(DSTCFGS); \
+		sed -i "s, console=@serial_port@\,@serial_speed@n8 console=tty0,,g" $(DSTCFGS); \
 	fi
 
 clean: copy
