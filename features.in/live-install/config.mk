@@ -60,6 +60,7 @@ use/live-install/pkg: use/live-install
 ifneq (,$(filter-out p10,$(BRANCH)))
 use/live-install/desktop: use/live-install
 	@$(call add,LIVE_PACKAGES,installer-common-desktop)
+	@$(call add,BASE_PACKAGES,installer-alterator-livecd-stage3)
 else
 use/live-install/desktop: use/live-install; @:
 endif
