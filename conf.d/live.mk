@@ -124,7 +124,7 @@ distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
 	@$(call add,LIVE_PACKAGES,pciutils input-utils glxgears glxinfo)
 	@$(call add,LIVE_PACKAGES,glibc-locales apulse)
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
-	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind alteratord messagebus)
+	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind alteratord)
 
 distro/live-flightgear: distro/.live-games
 	@$(call add,LIVE_PACKAGES,FlightGear)
