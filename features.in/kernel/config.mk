@@ -10,7 +10,7 @@ else
 ifeq (,$(filter-out armh,$(ARCH)))
 	@$(call try,KFLAVOURS,mp)
 else
-ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
+ifeq (,$(filter-out sisyphus p11 c11%,$(BRANCH)))
 	@$(call try,KFLAVOURS,6.12)
 else
 	@$(call try,KFLAVOURS,un-def)
