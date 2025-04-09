@@ -51,8 +51,6 @@ use/stage2/net-install-live: use/stage2/net use/stage2/cifs \
 
 # eth0 instead of enp0s3
 use/stage2/net-eth: use/stage2
-	@$(call add,STAGE1_PACKAGES,udev-rule-generator-net)
-	@$(call add,STAGE2_PACKAGES,udev-rule-generator-net livecd-net-eth)
 
 # NB: sub/stage2 isn't used standalone but rather
 #     as a base for various livecd modifications

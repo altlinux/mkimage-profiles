@@ -38,7 +38,7 @@ distro/rescue: distro/.base use/rescue use/syslinux/ui/menu use/stage2/cifs \
 	use/stage2/ata use/stage2/hid use/stage2/usb \
 	use/efi/shell +efi; @:
 
-distro/rescue-remote: distro/.base use/rescue/base use/stage2/net-eth
+distro/rescue-remote: distro/.base use/rescue/base
 	@$(call set,SYSLINUX_CFG,rescue_remote)
 	@$(call set,SYSLINUX_DIRECT,1)
 	@$(call add,RESCUE_PACKAGES,livecd-net-eth)
@@ -48,25 +48,28 @@ distro/.live-base: distro/.base use/live/base \
 
 distro/.live-x11: distro/.live-base use/live/x11; @:
 
-distro/.live-desktop: distro/.live-x11 +live use/stage2/net-eth \
+distro/.live-desktop: distro/.live-x11 +live \
 	use/plymouth/live use/cleanup/live-no-cleanupdb
 	@$(call add,LIVE_PACKAGES,polkit)
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 
 distro/.live-desktop-ru: distro/.live-desktop use/live/ru; @:
 
 distro/.live-kiosk: distro/.live-base use/live/autologin \
-	use/syslinux/timeout/1 use/cleanup use/stage2/net-eth \
+	use/syslinux/timeout/1 use/cleanup \
 	use/fonts/otf/adobe
 	@$(call add,CLEANUP_PACKAGES,'alterator*' 'guile*' 'vim-common')
 	@$(call set,SYSLINUX_UI,none)
 	@$(call set,SYSLINUX_CFG,live)
 	@$(call add,STAGE2_BOOTARGS,quiet)
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind klogd syslogd)
 	@$(call add,DEFAULT_SERVICES_DISABLE,consolesaver fbsetfont keytable)
 
 distro/live-builder-mini: distro/.live-base use/dev/builder/base \
 	use/syslinux/timeout/30 use/isohybrid use/cleanup/live-no-cleanupdb \
-	use/stage2/net-eth use/net-eth/dhcp +systemd; @:
+	use/net-eth/dhcp +systemd
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 
 distro/live-builder: distro/live-builder-mini \
 	use/dev/builder/full use/live/rw +efi; @:
@@ -116,12 +119,12 @@ distro/.live-3d: distro/.live-x11 use/x11/3d \
 distro/live-glxgears: distro/.live-3d; @:
 
 distro/.live-games: distro/.live-kiosk use/x11/3d use/sound \
-	use/stage2/net-eth use/net-eth/dhcp use/services +efi +systemd
+	use/net-eth/dhcp use/services +efi +systemd
 	@$(call add,LIVE_LISTS,$(call tags,xorg misc))
 	@$(call add,LIVE_PACKAGES,pciutils input-utils glxgears glxinfo)
 	@$(call add,LIVE_PACKAGES,glibc-locales apulse)
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 	@$(call add,DEFAULT_SERVICES_DISABLE,rpcbind alteratord messagebus)
-	@$(call add,SERVICES_DISABLE,livecd-net-eth)
 
 distro/live-flightgear: distro/.live-games
 	@$(call add,LIVE_PACKAGES,FlightGear)

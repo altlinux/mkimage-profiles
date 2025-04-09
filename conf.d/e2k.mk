@@ -50,12 +50,12 @@ ve/e2k-git: ve/.e2k-bare use/e2k use/net-ssh use/net-dns/yandex
 endif
 
 ifeq (distro,$(IMAGE_CLASS))
-distro/.e2k-rescue: distro/.base mixin/e2k-base use/rescue/.base +net-eth
+distro/.e2k-rescue: distro/.base mixin/e2k-base use/rescue/.base
 	@$(call set,META_VOL_ID,ALT Rescue for Elbrus)
 
 distro/.e2k-installer-base: distro/.base mixin/e2k-base \
 	use/install2 use/install2/packages use/e2k \
-	use/volumes/regular use/net-ssh +net-eth
+	use/volumes/regular use/net-ssh
 	@$(call set,INSTALLER,altlinux-generic)
 	@$(call set,META_PUBLISHER,BaseALT Ltd)
 	@$(call set,META_VOL_SET,ALT)
