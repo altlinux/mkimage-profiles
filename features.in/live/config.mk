@@ -119,7 +119,7 @@ use/live/runapp: use/live
 	@$(call xport,LIVE_RUNAPP_BINARY)
 
 # deny network/local drive access for security reasons
-use/live/privacy: use/services use/memclean use/deflogin \
+use/live/privacy: use/services use/deflogin \
 	use/stage2/ata use/stage2/drm use/stage2/hid \
 	use/stage2/mmc use/stage2/net-nfs use/stage2/usb
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-nodisks)
