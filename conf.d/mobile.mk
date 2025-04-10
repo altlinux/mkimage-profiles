@@ -54,23 +54,39 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
 	use/auto-resize; @:
 
+ifeq (sisyphus,$(BRANCH))
 vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0; @:
+else
+vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi; @:
+endif
 
 ifeq (aarch64,$(ARCH))
+ifeq (sisyphus,$(BRANCH))
 mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
+else
+mixin/mobile-pine: mixin/uboot-extlinux
+endif
 	@$(call set,KFLAVOURS,pine)
 	@$(call set,CAMERA,megapixels)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,eg25-manager.service)
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 	@$(call add,THE_PACKAGES,udev-rules-goodix-touchpad)
 
+ifeq (sisyphus,$(BRANCH))
 mixin/mobile-lt11i: mixin/uboot-extlinux use/tty/S0
+else
+mixin/mobile-lt11i: mixin/uboot-extlinux
+endif
 	@$(call set,KFLAVOURS,lt11i)
 	@$(call add,THE_PACKAGES,lt11i-bluetooth)
 	@$(call add,THE_PACKAGES,firmware-lt11i)
 	@$(call add,THE_PACKAGES,blacklist-lt11i-camera)
 
+ifeq (sisyphus,$(BRANCH))
 mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
+else
+mixin/mobile-rocknix: mixin/uboot-extlinux
+endif
 	@$(call set,KFLAVOURS,rocknix)
 	@$(call add,THE_PACKAGES,u-boot-rockchip)
 	@$(call add,THE_PACKAGES,rg552-hw-control)
