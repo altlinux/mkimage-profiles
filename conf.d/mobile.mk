@@ -64,17 +64,11 @@ mixin/mobile-pine: mixin/uboot-extlinux use/tty/S2
 	@$(call add,THE_PACKAGES,alsa-ucm-conf-pinephone-pro-workaround)
 	@$(call add,THE_PACKAGES,udev-rules-goodix-touchpad)
 
-mixin/mobile-mp: mixin/uboot-extlinux use/tty/S0
-	@$(call set,KFLAVOURS,mp)
-
 mixin/mobile-lt11i: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,lt11i)
 	@$(call add,THE_PACKAGES,lt11i-bluetooth)
 	@$(call add,THE_PACKAGES,firmware-lt11i)
 	@$(call add,THE_PACKAGES,blacklist-lt11i-camera)
-
-mixin/mobile-nxp: mixin/uboot-extlinux use/tty/S0
-	@$(call set,KFLAVOURS,nxp)
 
 mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
 	@$(call set,KFLAVOURS,rocknix)
@@ -85,9 +79,7 @@ mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,rg552-wifi.service)
 
 vm/alt-mobile-phosh-pine: vm/.phosh mixin/mobile-pine; @:
-vm/alt-mobile-phosh-mp: vm/.phosh mixin/mobile-mp; @:
 vm/alt-mobile-phosh-lt11i: vm/.phosh mixin/mobile-lt11i; @:
-vm/alt-mobile-phosh-nxp: vm/.phosh mixin/mobile-nxp; @:
 vm/alt-mobile-phosh-rocknix: vm/.phosh mixin/mobile-rocknix; @:
 endif
 endif
