@@ -55,7 +55,12 @@ config: prep
 		sed -e "s,@stage2@,$$STAGE2$$INIT," \
 		    -e "s,@label@,$$LABEL," \
 			< $(DSTDIR)/body.conf \
-			>> $(RESULTCFG); \
+			> $(DSTDIR)/temp.conf; \
+		if [ "$$i" = rescue ] || [ "$$i" = liverescue ]; then \
+			sed -i "s;@stage2_bootargs@;nosplash $(RESCUE_BOOTARGS);" $(DSTDIR)/temp.conf; \
+		fi; \
+		cat $(DSTDIR)/temp.conf >> $(RESULTCFG); \
+		rm $(DSTDIR)/temp.conf; \
 	done; \
 	sed -i "s,@default@,$$DEFAULT," $(RESULTCFG); \
 	sed -i "s,@lang@,lang=$(LOCALE)," $(RESULTCFG); \
