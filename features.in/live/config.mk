@@ -15,7 +15,6 @@ _OFF = anacron blk-availability bridge clamd dhcpd dmeventd dnsmasq \
 use/live: use/stage2 sub/rootfs@live sub/stage2@live \
 	use/services/lvm2-disable use/cleanup
 	@$(call add_feature)
-	@$(call add,LIVE_PACKAGES,livecd-no-ldconfig-service)
 	@$(call add,DEFAULT_SERVICES_ENABLE,$(_ON))
 	@$(call add,DEFAULT_SERVICES_DISABLE,$(_OFF))
 	@$(call add,CONTROL,rpcbind:local)
