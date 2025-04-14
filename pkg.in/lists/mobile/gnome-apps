@@ -38,6 +38,7 @@ gnome-calendar
 gnome-characters
 gnome-clocks
 #gnome-maps # need replace geoinfo source
+gnome-text-editor
 gnome-weather
 
 # system monitor
