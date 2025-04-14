@@ -34,7 +34,6 @@ use/init/sysv/polkit: use/init/sysv
 use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
 	@$(call add,INSTALL2_PACKAGES,systemd-sysvinit)
-	@$(call add,LIVE_PACKAGES,livecd-no-ldconfig-service)
 
 use/init/systemd/full: use/init/systemd
 	@$(call add,THE_PACKAGES,chkconfig)
