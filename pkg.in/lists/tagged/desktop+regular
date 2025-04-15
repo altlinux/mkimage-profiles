@@ -25,11 +25,9 @@ clinfo
 wayland-utils
 
 cpu-x@X86
-exfatprogs
 hdparm
 inxi
 lm_sensors3
-lsblk
 sdparm
 
 ntpdate

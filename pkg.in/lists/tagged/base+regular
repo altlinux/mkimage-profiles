@@ -1,10 +1,14 @@
 glibc-locales
 tzdata
 
+lsblk
+
 xfsprogs
 jfsprogs
+f2fs-tools
 ntfs-3g
 dosfstools
+exfatprogs
 fatresize
 
 shadow-change
