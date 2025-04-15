@@ -23,6 +23,7 @@ glxgears
 vulkan-tools
 clinfo
 wayland-utils
+libinput-tools
 
 cpu-x@X86
 hdparm
