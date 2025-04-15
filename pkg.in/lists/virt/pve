@@ -1,6 +1,8 @@
 pve-manager
 ceph
 tuned
+openresolv
+resolvconf-ifupdown2
 postfix
 control-sshd-permit-root-login
 kernel-modules-xtables-addons-@KFLAVOUR
