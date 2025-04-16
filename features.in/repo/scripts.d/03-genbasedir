@@ -23,6 +23,7 @@ genbasedir \
 	${INFO_VERSION:+--version="$INFO_VERSION"} \
 	${INFO_ORIGIN:+--origin="$INFO_ORIGIN"} \
 	${INFO_LABEL:+--label="$INFO_LABEL"} \
+	${INFO_SUITE:+--suite="$INFO_SUITE"} \
 	$PREFIX $COMPS
 
 ### drop this when genbasedir is fixed (--no-uncompressed)
