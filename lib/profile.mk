@@ -101,6 +101,7 @@ profile/bare: profile/init use/pkgpriorities
 	@$(call try,IMAGEDIR,$(wildcard $(IMAGEDIR)))
 	@$(call try,LOGDIR,$(wildcard $(LOGDIR)))
 	@$(call add,COMMON_PACKAGES,fakeroot)
+	@$(call set,BRANCH,$(BRANCH))
 ifeq (sisyphus,$(BRANCH))
 	@$(call try,BRANDING,alt-sisyphus)
 else
