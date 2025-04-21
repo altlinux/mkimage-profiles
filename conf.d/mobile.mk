@@ -36,6 +36,12 @@ endif
 	@$(call add,CONTROL,passwdqc-min:allow_pincode)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,waked.service)
 
+ifeq (sisyphus,$(BRANCH))
+mixin/mobile-def: mixin/uboot-extlinux-efi use/tty/S0; @:
+else
+mixin/mobile-def: mixin/uboot-extlinux-efi; @:
+endif
+
 mixin/phosh: use/services +nm-gtk4 +nm-native
 	@$(call add,THE_BRANDING,phosh-settings)
 	@$(call add,THE_LISTS,mobile/phosh)
@@ -54,11 +60,7 @@ vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
 	use/auto-resize; @:
 
-ifeq (sisyphus,$(BRANCH))
-vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi use/tty/S0; @:
-else
-vm/alt-mobile-phosh-def: vm/.phosh mixin/uboot-extlinux-efi; @:
-endif
+vm/alt-mobile-phosh-def: vm/.phosh mixin/mobile-def; @:
 
 ifeq (aarch64,$(ARCH))
 ifeq (sisyphus,$(BRANCH))
