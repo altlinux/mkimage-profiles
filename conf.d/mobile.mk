@@ -55,12 +55,24 @@ ifeq (x86_64,$(ARCH))
 	@$(call add,THE_PACKAGES,udev-rules-MIG-goodix-touchpad)
 endif
 
+mixin/sway: use/services +nm-gtk +nm-native
+	@$(call add,THE_BRANDING,sway-settings)
+	@$(call add,THE_LISTS,mobile/sway)
+	@$(call set,DEFAULT_SESSION,sway)
+	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,sway-autostart.service)
+
 ifeq (vm,$(IMAGE_CLASS))
 vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
 	use/auto-resize; @:
 
+vm/.sway: vm/systemd mixin/mobile-base mixin/sway +systemd \
+    mixin/waydroid use/fonts/ttf/google \
+    use/auto-resize; @:
+
 vm/alt-mobile-phosh-def: vm/.phosh mixin/mobile-def; @:
+
+vm/alt-mobile-sway-def: vm/.sway mixin/mobile-def; @:
 
 ifeq (aarch64,$(ARCH))
 ifeq (sisyphus,$(BRANCH))
@@ -99,5 +111,8 @@ endif
 vm/alt-mobile-phosh-pine: vm/.phosh mixin/mobile-pine; @:
 vm/alt-mobile-phosh-lt11i: vm/.phosh mixin/mobile-lt11i; @:
 vm/alt-mobile-phosh-rocknix: vm/.phosh mixin/mobile-rocknix; @:
+vm/alt-mobile-sway-pine: vm/.sway mixin/mobile-pine; @:
+vm/alt-mobile-sway-lt11i: vm/.sway mixin/mobile-lt11i; @:
+vm/alt-mobile-sway-rocknix: vm/.sway mixin/mobile-rocknix; @:
 endif
 endif
