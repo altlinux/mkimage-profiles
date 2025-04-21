@@ -1,9 +1,5 @@
 #!/bin/sh
 
-TTY=
-echo $GLOBAL_BASE_BOOTARGS | grep console= ||
-  TTY='console=tty0'
-
 # installkernel relies on existing extlinux.conf
 # with filled in `default' label
 mkdir -p /boot/extlinux
@@ -17,7 +13,7 @@ label linux
 	kernel ../vmlinuz
 	initrd ../initrd.img
 	fdtdir ../dtb
-	append root=LABEL=ROOT ro $GLOBAL_BASE_BOOTARGS $GLOBAL_UBOOT_BOOTARGS $TTY
+	append root=LABEL=ROOT ro $GLOBAL_BASE_BOOTARGS $GLOBAL_UBOOT_BOOTARGS
 EOF
 
 [ -z "${GLOBAL_UBOOT_NOFDTDIR:-}" ] || sed -i -e '/^[\t]*fdtdir \/boot\/dtb$/d' /boot/extlinux/extlinux.conf
