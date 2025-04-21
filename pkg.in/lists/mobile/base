@@ -72,6 +72,8 @@ android-tools@!riscv64
 
 screen
 mc
+htop
+fastfetch
 
 mobile-broadband-provider-info
 
