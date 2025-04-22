@@ -383,7 +383,7 @@ fi
 
 # Copy default devicetree to ESP
 if [ -L "$ROOTFS"/boot/dtb ] && [ -n "$EFIPART" ]; then
-	cp -Lr "$ROOTFS"/boot/dtb "$EFIPARTFS"
+	chroot "$ROOTFS" cp -Lr /boot/dtb /boot/efi/
 fi
 
 # e2k
