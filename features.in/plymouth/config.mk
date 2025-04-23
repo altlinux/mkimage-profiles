@@ -7,6 +7,7 @@ use/plymouth/install2: use/plymouth/stage2; @:
 
 use/plymouth:
 	@$(call add_feature)
+	@$(call try,SPLASH_ARGS,quiet splash)
 
 # NB: *_REGEXP due to branding() using regexp and the
 #     dependency resolution having to occur within a
@@ -20,7 +21,7 @@ use/plymouth/stage2: use/plymouth use/branding \
 	@$(call add,STAGE1_PACKAGES,make-initrd-plymouth)
 	@$(call add,STAGE1_BRANDING,bootsplash graphics)
 	@$(call add,STAGE2_BRANDING,bootsplash graphics)
-	@$(call add,STAGE2_BOOTARGS,quiet splash)
+	@$(call add,STAGE2_BOOTARGS,$$(SPLASH_ARGS))
 else
 use/plymouth/stage2: use/plymouth use/branding; @:
 endif
@@ -32,7 +33,7 @@ endif
 	@$(call add,THE_BRANDING,bootsplash graphics)
 	@$(call add,BASE_PACKAGES,make-initrd-plymouth cpio)
 ifeq (vm,$(IMAGE_CLASS))
-	@$(call add,BASE_BOOTARGS,quiet splash)
+	@$(call add,BASE_BOOTARGS,$$(SPLASH_ARGS))
 endif
 
 use/plymouth/full: use/plymouth/stage2 use/plymouth/base; @:
