@@ -90,6 +90,9 @@ mixin/regular-desktop: +alsa +nm-native \
 	@$(call add,THE_PACKAGES,eepm)
 	@$(call add,THE_PACKAGES,sudo)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
+ifneq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call set,SPLASH_ARGS,splash)
+endif
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,THE_BRANDING,notes)
 endif
