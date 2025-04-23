@@ -44,8 +44,8 @@ cp "$DTB_DIR"/bcm27*-rpi-*.dtb /boot/efi/ || :
 [ -f /boot/efi/bcm2711-rpi-cm4.dtb ] ||
 	cp "$DTB_DIR"/bcm2711-rpi-cm4-io.dtb \
 	   /boot/efi/bcm2711-rpi-cm4.dtb || :
-[ -d /boot/dtb/overlays ] &&
-	cp -r /boot/dtb/overlays /boot/efi/ || :
+[ -d "$DTB_DIR"/overlays ] &&
+	cp -r "$DTB_DIR"/dtb/overlays /boot/efi/ || :
 
 # copy missing dtb's from raspberrypi-firmware
 for dtb in /usr/share/raspberrypi-firmware/*.dtb; do
