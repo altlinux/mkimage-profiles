@@ -47,12 +47,6 @@ cp "$DTB_DIR"/bcm27*-rpi-*.dtb /boot/efi/ || :
 [ -d "$DTB_DIR"/overlays ] &&
 	cp -r "$DTB_DIR"/dtb/overlays /boot/efi/ || :
 
-# copy missing dtb's from raspberrypi-firmware
-for dtb in /usr/share/raspberrypi-firmware/*.dtb; do
-	[ -f "/boot/efi/$(basename $dtb)" ] ||
-		cp "$dtb" /boot/efi/
-done
-
 [ "$GLOBAL_ARCH" = aarch64 ] && \
 	echo "arm_64bit=1" > /boot/efi/config.txt
 
