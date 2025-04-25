@@ -22,7 +22,7 @@ LANG="${GLOBAL_LOCALE:-en_US}" indexhtml-update
 cp -aH "$indexdir" "$dest"
 
 # delete links with absolute PATH
-sed -i '/file:\/\/\//d' "$dest"/indexhtml/index-*.html
+sed -i -e '/file:\/\/\//d' -e '/href="\//d' "$dest"/indexhtml/index-*.html
 
 mkredir() {
 	cat >"${1}index.html" <<-EOF
