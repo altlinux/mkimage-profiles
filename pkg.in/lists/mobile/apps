@@ -4,6 +4,7 @@ telegram-desktop
 # web, mail
 chromium@x86_64
 firefox
+mobile-config-firefox
 
 # Messaging app
 fractal
