@@ -43,3 +43,6 @@ gnome-weather
 
 # system monitor
 resources
+
+# tools
+hashsum
