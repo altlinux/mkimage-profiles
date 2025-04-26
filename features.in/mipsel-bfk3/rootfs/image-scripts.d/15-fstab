@@ -1,5 +1,0 @@
-#!/bin/sh -efu
-
-sed '/[[:space:]]\/[[:space:]]/d' /etc/fstab
-
-printf "/dev/sda1\t/\t$GLOBAL_VM_FSTYPE\tdefaults\t1 1\n" >> /etc/fstab

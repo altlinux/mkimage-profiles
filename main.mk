@@ -65,8 +65,7 @@ VM_TARGETS := $(call targets,vm)
 DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS))
 VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 VES_TAR := $(call addsuffices,.tar,$(VE_TARGETS))
-VMS     := $(call addsuffices,$(VM_EXTS),$(VM_TARGETS)) \
- $(call addsuffices,$(VM_TAVOLGA_EXTS), $(filter vm/%-tavolga, $(VM_TARGETS)))
+VMS     := $(call addsuffices,$(VM_EXTS),$(VM_TARGETS))
 VMS_IMG := $(call addsuffices,.img,$(VM_TARGETS))
 IMAGES  := $(DISTROS) $(VES) $(VMS)
 

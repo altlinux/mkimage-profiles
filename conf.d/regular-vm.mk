@@ -76,42 +76,4 @@ vm/regular-xfce-rpi: vm/.regular-gtk mixin/regular-xfce use/arm-rpi4/full; @:
 
 endif
 
-ifeq (,$(filter-out mipsel,$(ARCH)))
-# Tavolga
-vm/regular-jeos-systemd-tavolga: vm/.regular-jeos-systemd \
-	use/mipsel-mitx; @:
-
-vm/regular-builder-tavolga: vm/regular-jeos-systemd-tavolga \
-	mixin/regular-builder; @:
-
-vm/regular-lxqt-tavolga: vm/.regular-gtk mixin/regular-lxqt \
-	use/mipsel-mitx/x11; @:
-
-vm/regular-mate-tavolga: vm/.regular-gtk mixin/regular-mate \
-	use/mipsel-mitx/x11
-	@$(call add,THE_PACKAGES,mate-reduced-resource)
-
-vm/regular-xfce-tavolga: vm/.regular-gtk mixin/regular-xfce \
-	use/mipsel-mitx/x11
-	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-
-# bfk3
-vm/regular-jeos-systemd-bfk3: vm/.regular-jeos-systemd \
-	use/mipsel-bfk3; @:
-
-vm/regular-builder-bfk3: vm/regular-jeos-systemd-bfk3 \
-	mixin/regular-builder; @:
-
-vm/regular-lxqt-bfk3: vm/.regular-gtk mixin/regular-lxqt \
-	use/mipsel-bfk3/x11; @:
-
-vm/regular-mate-bfk3: vm/.regular-gtk mixin/regular-mate \
-	use/mipsel-bfk3/x11
-	@$(call add,THE_PACKAGES,mate-reduced-resource)
-
-vm/regular-xfce-bfk3: vm/.regular-gtk mixin/regular-xfce \
-	use/mipsel-bfk3/x11
-	@$(call add,THE_PACKAGES,xfce-reduced-resource)
-endif
-
 endif

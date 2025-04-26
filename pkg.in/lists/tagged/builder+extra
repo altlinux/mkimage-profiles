@@ -15,7 +15,5 @@ screen
 strace
 sudo
 su
-tavolga-image-tools@mipsel
-tavolga-image-tools@X86
 vim-console
 zsh
