@@ -115,6 +115,7 @@ distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 distro/regular-icewm-sysv: distro/.regular-desktop-sysv mixin/regular-icewm \
 	use/live/autologin
 	@$(call add,LIVE_PACKAGES,wdm)
+	@$(call add,SysVinit-usermode)
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
