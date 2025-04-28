@@ -18,8 +18,10 @@ indexfile="$indexdir/index.html"
 
 LANG="${GLOBAL_LOCALE:-en_US}" indexhtml-update
 
-# http://unix.stackexchange.com/questions/94185/convert-soft-to-hardlinks
-cp -aH "$indexdir" "$dest"
+# delete brocken symlinks before cp -L
+find "$indexdir" -xtype l 2>/dev/null -exec rm {} \;
+# copy with conversion of symlinks to directories and files
+cp -aL "$indexdir" "$dest"
 
 # delete links with absolute PATH
 sed -i -e '/file:\/\/\//d' -e '/href="\//d' "$dest"/indexhtml/index-*.html
@@ -42,8 +44,9 @@ mkredir "" "$dest"	# /index.html -> docs/indexhtml/index.html
 mkredir "$dest" ""	# docs//index.html -> indexhtml/index.html
 
 docdir="/usr/share/doc/documentation"
-[ -d "$docdir" ] || nonfatal "$docdir not found"
-
-cp -aH "$docdir" "$dest"
-
-### no need to replace symlinks with hardlinks by now? (-aH)
+if [ -d "$docdir" ] && [ ! -d "$dest"/indexhtml/documentation ]; then
+	### no need to replace symlinks with hardlinks by now? (-aH)
+	cp -aH "$docdir" "$dest"
+else
+	nonfatal "$docdir not found"
+fi
