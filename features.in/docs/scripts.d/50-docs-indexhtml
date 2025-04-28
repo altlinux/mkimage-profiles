@@ -3,7 +3,6 @@
 # trailing slash is important here
 dest="docs/"
 
-mkdir -p "$WORKDIR/$dest"
 cd $WORKDIR
 
 nonfatal() { echo "** $*" >&2; exit 0; }
@@ -24,13 +23,13 @@ find "$indexdir" -xtype l 2>/dev/null -exec rm {} \;
 cp -aL "$indexdir" "$dest"
 
 # delete links with absolute PATH
-sed -i -e '/file:\/\/\//d' -e '/href="\//d' "$dest"/indexhtml/index-*.html
+sed -i -e '/file:\/\/\//d' -e '/href="\//d' "$dest"/index-*.html
 
 mkredir() {
 	cat >"${1}index.html" <<-EOF
 	<html>
 	<head>
-	<meta http-equiv="refresh" content="0;url=${2}indexhtml/index.html">
+	<meta http-equiv="refresh" content="0;url=${2}index.html">
 	<title>Redirecting...</title>
 	</head>
 	<body>
@@ -40,11 +39,10 @@ mkredir() {
 	EOF
 }
 
-mkredir "" "$dest"	# /index.html -> docs/indexhtml/index.html
-mkredir "$dest" ""	# docs//index.html -> indexhtml/index.html
+mkredir "" "$dest"	# /index.html -> docs/index.html
 
 docdir="/usr/share/doc/documentation"
-if [ -d "$docdir" ] && [ ! -d "$dest"/indexhtml/documentation ]; then
+if [ -d "$docdir" ] && [ ! -d "$dest"/documentation ]; then
 	### no need to replace symlinks with hardlinks by now? (-aH)
 	cp -aH "$docdir" "$dest"
 else
