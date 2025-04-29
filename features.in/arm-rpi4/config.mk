@@ -27,4 +27,6 @@ use/arm-rpi4/kernel: use/arm-rpi4; @:
 
 use/arm-rpi4/full: use/arm-rpi4/kernel use/arm-rpi4/x11; @:
 
+else
+use/arm-rpi4 use/arm-rpi4/x11 use/arm-rpi4/kernel use/arm-rpi4/full: ; @:
 endif
