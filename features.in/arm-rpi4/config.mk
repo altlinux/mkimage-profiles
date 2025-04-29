@@ -1,5 +1,5 @@
 ifeq (,$(filter-out aarch64,$(ARCH)))
-use/arm-rpi4: use/efi/grub use/uboot use/auto-resize
+use/arm-rpi4: use/uboot use/auto-resize
 	@$(call add_feature)
 	@$(call set,VM_PARTTABLE,msdos)
 	@$(call set,VM_BOOTTYPE,EFI)
