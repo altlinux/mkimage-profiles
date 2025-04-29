@@ -30,20 +30,8 @@ mixin/e2k-mate: use/e2k/x11 use/x11/xorg use/fonts/install2 \
 	@$(call add,THE_PACKAGES,ethtool net-tools ifplugd)
 	@$(call add,THE_PACKAGES,zsh bash-completion)
 
-mixin/vm-archdep:: use/auto-resize; @:
-
-ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
-mixin/vm-archdep:: +efi
-endif
-
-ifeq (,$(filter-out aarch64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot use/arm-rpi4; @:
-endif
-
-ifeq (,$(filter-out riscv64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot
-	@$(call set,KFLAVOURS,un-def)
-endif
+mixin/vm-archdep: use/auto-resize use/uboot use/arm-rpi4 +efi
+	@$(call add,THE_LISTS,uboot)
 
 mixin/vm-archdep-x11: mixin/vm-archdep use/vmguest/kvm/x11; @:
 
