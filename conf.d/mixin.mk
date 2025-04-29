@@ -37,7 +37,7 @@ mixin/vm-archdep:: +efi
 endif
 
 ifeq (,$(filter-out aarch64,$(ARCH)))
-mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
+mixin/vm-archdep:: use/bootloader/uboot use/arm-rpi4; @:
 endif
 
 ifeq (,$(filter-out riscv64,$(ARCH)))
