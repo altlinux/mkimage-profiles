@@ -1,9 +1,5 @@
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
-ifeq (aarch64,$(ARCH))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 use/arm-rpi4: use/efi/grub use/uboot use/auto-resize
-else
-use/arm-rpi4: use/bootloader/uboot use/auto-resize
-endif
 	@$(call add_feature)
 	@$(call set,VM_PARTTABLE,msdos)
 	@$(call set,VM_BOOTTYPE,EFI)
@@ -19,14 +15,12 @@ use/arm-rpi4/x11: use/arm-rpi4
 	@$(call add,DEFAULT_SERVICES_DISABLE,systemd-networkd-wait-online)
 
 use/arm-rpi4/kernel: use/arm-rpi4; @:
-ifeq (aarch64,$(ARCH))
 	@$(call set,RPI_NOUBOOT,yes)
 	@$(call add,THE_PACKAGES,rpi4-boot-switch)
 	@$(call add,THE_PACKAGES,rpi4-boot-nouboot-filetrigger)
 	@$(call add,THE_PACKAGES,rpi4-boot-uboot-filetrigger)
 	@$(call xport,RPI_NOUBOOT)
 	@$(call set,KFLAVOURS,rpi-def rpi-un)
-endif
 
 use/arm-rpi4/full: use/arm-rpi4/kernel use/arm-rpi4/x11; @:
 

@@ -68,7 +68,7 @@ use/install2/stage3: use/install2
 use/install2/fonts: use/fonts/install2; @:
 
 # see also use/vmguest
-ifeq (,$(filter-out i586 x86_64 aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 
 # see also use/vmguest/kvm; qxl included in xorg pkglist
 use/install2/kvm:

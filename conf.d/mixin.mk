@@ -36,13 +36,8 @@ ifeq (,$(filter-out i586 x86_64 aarch64,$(ARCH)))
 mixin/vm-archdep:: +efi
 endif
 
-ifeq (,$(filter-out armh aarch64,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 mixin/vm-archdep:: use/bootloader/uboot use/no-sleep use/arm-rpi4; @:
-endif
-
-ifeq (,$(filter-out mipsel,$(ARCH)))
-mixin/vm-archdep:: use/tty/S0
-	@$(call set,KFLAVOURS,un-malta)
 endif
 
 ifeq (,$(filter-out riscv64,$(ARCH)))

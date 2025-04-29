@@ -68,9 +68,6 @@ kernel=uboot-rpi_4.bin
 [all]
 EOF
 
-[ "$GLOBAL_ARCH" = armh ] && \
-	sed -i 's/.bin/_32b.bin/g' /boot/efi/config.txt
-
 # Enable bootloading without u-boot
 if [ -n "${GLOBAL_RPI_NOUBOOT-}" ]; then
 	rpi4-boot-nouboot $kflavour

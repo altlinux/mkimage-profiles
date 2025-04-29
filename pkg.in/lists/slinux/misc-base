@@ -179,8 +179,8 @@ plymouth
 #branding-simply-linux-bootsplash
 
 # Office
-java-17-openjdk@!E2K,mipsel
-java-1.8.0-openjdk@E2K,mipsel
+java-17-openjdk@!E2K
+java-1.8.0-openjdk@E2K
 atril-gtk
 atril-gtk-djvu
 atril-gtk-pixbuf

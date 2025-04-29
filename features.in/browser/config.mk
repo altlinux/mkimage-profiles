@@ -6,10 +6,7 @@ use/browser:
 # amend as neccessary; firefox is treated separately due to its flavours
 BROWSERS_i586 = netsurf epiphany elinks links2
 BROWSERS_x86_64 := $(BROWSERS_i586) chromium  chromium-gost falkon seamonkey
-BROWSERS_ppc64el = netsurf epiphany elinks links2
 BROWSERS_aarch64 = chromium chromium-gost netsurf epiphany falkon elinks links2
-BROWSERS_armh = netsurf epiphany elinks links2
-BROWSERS_mipsel = seamonkey netsurf epiphany elinks links2
 BROWSERS_riscv64 = epiphany midori netsurf elinks
 BROWSERS_loongarch64 = chromium chromium-gost epiphany midori netsurf elinks
 BROWSERS_e2k = netsurf elinks links2

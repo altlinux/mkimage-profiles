@@ -5,7 +5,7 @@
 use/firmware:
 	@$(call add_feature)
 	@$(call add,SYSTEM_PACKAGES,firmware-linux)
-ifeq (,$(filter-out aarch64 armh,$(ARCH)))
+ifeq (,$(filter-out aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
 	@$(call add,THE_PACKAGES,firmware-linux-qcom)
 endif
@@ -22,7 +22,7 @@ endif
 
 use/firmware/server: use/firmware
 	@$(call add,SYSTEM_PACKAGES,firmware-aic94xx-seq)
-ifneq (,$(filter-out riscv64 mipsel,$(ARCH)))
+ifneq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,SYSTEM_PACKAGES,firmware-ast_dp501)
 endif
 	@$(call add,THE_PACKAGES_REGEXP,firmware-ql.*)

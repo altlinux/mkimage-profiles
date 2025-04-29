@@ -48,12 +48,12 @@ vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11
 vm/regular-gnome: vm/.regular-gtk mixin/regular-gnome mixin/vm-archdep-x11; @:
 
 vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep-x11; @:
-ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
+ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,mate-reduced-resource)
 endif
 
 vm/regular-xfce: vm/.regular-gtk mixin/regular-xfce mixin/vm-archdep-x11; @:
-ifeq (,$(filter-out mipsel riscv64,$(ARCH)))
+ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif
 

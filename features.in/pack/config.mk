@@ -53,8 +53,4 @@ ifeq (vm,$(IMAGE_CLASS))
 
 $(VM_EXTS:.%=use/pack/%): use/pack; @:
 
-ifeq (mipsel,$(ARCH))
-use/pack/recovery.tar: use/pack/tar; @:
-endif
-
 endif
