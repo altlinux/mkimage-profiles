@@ -30,9 +30,6 @@ else
 use/bootloader/grub: ; @:
 endif
 
-use/bootloader/uboot: use/bootloader use/uboot
-	@$(call set,BASE_BOOTLOADER,uboot)
-
 use/bootloader/live: use/bootloader; @:
 ifneq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,alterator-$$(BASE_BOOTLOADER))

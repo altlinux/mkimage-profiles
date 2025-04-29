@@ -35,7 +35,7 @@ mixin/vm-archdep: use/auto-resize use/uboot use/arm-rpi4 +efi
 
 mixin/vm-archdep-x11: mixin/vm-archdep use/vmguest/kvm/x11; @:
 
-mixin/uboot-extlinux: use/bootloader/uboot
+mixin/uboot-extlinux: use/uboot
 	@$(call set,EFI_BOOTLOADER,)
 
 mixin/uboot-extlinux-efi: use/uboot +efi; @:
