@@ -8,6 +8,9 @@ use/arm-rpi4: use/uboot use/auto-resize
 	@$(call add,THE_PACKAGES,u-boot-tools)
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
 	@$(call add,DEFAULT_SERVICES_DISABLE,smartd)
+ifneq (,$(filter-out p10,$(BRANCH)))
+	@$(call add,THE_PACKAGES,u-boot-repka4)
+endif
 
 use/arm-rpi4/x11: use/arm-rpi4
 	@$(call add,THE_PACKAGES,pi-bluetooth)
