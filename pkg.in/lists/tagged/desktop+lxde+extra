@@ -16,9 +16,6 @@ file-roller
 # openbox behaviour, virtual desktops, etc
 obconf
 
-# an asus eeepc inspired application launcher (needs integration)
-lxde-lxlauncher
-
 # instead of a (missing) native notification display
 #notify-osd
 
