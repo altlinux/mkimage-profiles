@@ -164,6 +164,7 @@ mixin/xfce-base: use/x11/xfce +nm-gtk \
 mixin/regular-xfce: mixin/xfce-base use/domain-client +pipewire
 	@$(call add,THE_PACKAGES,pavucontrol xscreensaver-frontend)
 	@$(call add,THE_PACKAGES,xfce4-pulseaudio-plugin xfce-polkit)
+	@$(call set,DEFAULT_SESSION,xfce)
 
 mixin/regular-lxde: use/x11/lxde use/im +nm-gtk
 	@$(call add,THE_PACKAGES,qasmixer qpdfview)
