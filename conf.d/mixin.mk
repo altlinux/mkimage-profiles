@@ -69,6 +69,7 @@ mixin/regular-desktop: +alsa +nm-native \
 	use/x11/xorg use/xdg-user-dirs use/l10n use/l10n/xkb/switch/alt_shift \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
+	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,THE_PACKAGES,pam-limits-desktop polkit dvd+rw-tools)
 	@$(call add,THE_PACKAGES,eepm)
 	@$(call add,THE_PACKAGES,sudo)
@@ -114,7 +115,6 @@ mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
 
 mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4 \
 	use/domain-client
-	@$(call add,THE_PACKAGES,power-profiles-daemon)
 	@$(call add,BASE_PACKAGES,gnome-software)
 	@$(call add,BASE_PACKAGES,gnome-tour)
 ifneq (,$(filter-out p10,$(BRANCH)))
