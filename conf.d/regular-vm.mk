@@ -43,9 +43,9 @@ vm/regular-jeos-systemd: vm/.regular-jeos-systemd mixin/vm-archdep; @:
 
 vm/regular-builder: vm/regular-jeos-systemd mixin/regular-builder; @:
 
-vm/regular-cinnamon: vm/.regular-gtk mixin/regular-cinnamon mixin/vm-archdep-x11; @:
+vm/regular-cinnamon: vm/.regular-desktop mixin/regular-cinnamon mixin/vm-archdep-x11; @:
 
-vm/regular-gnome: vm/.regular-gtk mixin/regular-gnome mixin/vm-archdep-x11; @:
+vm/regular-gnome: vm/.regular-desktop mixin/regular-gnome mixin/vm-archdep-x11; @:
 
 vm/regular-mate: vm/.regular-gtk mixin/mate-base mixin/vm-archdep-x11; @:
 ifeq (,$(filter-out riscv64,$(ARCH)))
@@ -57,7 +57,7 @@ ifeq (,$(filter-out riscv64,$(ARCH)))
 	@$(call add,THE_PACKAGES,xfce-reduced-resource)
 endif
 
-vm/regular-kde: vm/.regular-gtk mixin/regular-kde mixin/vm-archdep-x11; @:
+vm/regular-kde: vm/.regular-desktop mixin/regular-kde mixin/vm-archdep-x11; @:
 
 vm/regular-lxqt: vm/.regular-gtk mixin/regular-lxqt mixin/vm-archdep-x11; @:
 
