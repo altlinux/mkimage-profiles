@@ -2,7 +2,7 @@
 telegram-desktop
 
 # web
-chromium@x86_64
+chromium@x86_64,aarch64
 firefox
 mobile-config-firefox
 
