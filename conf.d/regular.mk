@@ -99,6 +99,7 @@ distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 	@$(call set,INSTALLER,regular)
 	@$(call add,CLEANUP_BASE_PACKAGES,alterator)
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk apt-repo)
+	@$(call add,MAIN_PACKAGES,wpa-supplicant)
 
 distro/regular-jeos-sysv: distro/.regular-jeos +sysvinit +power; @:
 
