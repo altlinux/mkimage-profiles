@@ -21,7 +21,7 @@ use/live-install: use/live use/metadata use/repo/main use/l10n \
 	@$(call add,LIVE_PACKAGES,xterm) # for vnc support
 	@$(call try,INSTALLER,regular)	# might be replaced later
 	@$(call add,LIVE_PACKAGES,installer-distro-$$(INSTALLER)-stage2)
-	@$(call add,THE_PACKAGES,branding-$$(BRANDING)-alterator)
+	@$(call add,LIVE_PACKAGES,branding-$$(BRANDING)-alterator)
 	@$(call add,THE_PACKAGES,branding-$$(BRANDING)-release)
 	@$(call add,BASE_PACKAGES,installer-distro-$$(INSTALLER)-stage3)
 	@$(call add,LIVE_PACKAGES,glibc-gconv-modules) # for guile22
