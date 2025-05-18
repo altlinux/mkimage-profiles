@@ -69,9 +69,6 @@ distro/.regular-desktop: distro/.regular-wm use/branding/full \
 	use/firmware/laptop +systemd +vmguest \
 	use/live-install/oem use/services/bluetooth-enable \
 	use/live/rescue
-ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
-	@$(call set,INSTALL2_INIT,systemd.unit=install2.target)
-endif
 	@$(call add,THE_PACKAGES,bluez)
 
 distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
@@ -105,7 +102,6 @@ distro/regular-jeos-sysv: distro/.regular-jeos +sysvinit +power; @:
 
 distro/regular-jeos-systemd: distro/.regular-jeos +systemd; @:
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
-	@$(call set,INSTALL2_INIT,systemd.unit=install2.target)
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 endif
 
@@ -203,7 +199,6 @@ distro/.regular-server-full: distro/.regular-server-managed \
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd; @:
 ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
-	@$(call set,INSTALL2_INIT,systemd.unit=install2.target)
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 endif
 
