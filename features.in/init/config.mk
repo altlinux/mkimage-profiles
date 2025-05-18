@@ -10,6 +10,9 @@ use/init: use/pkgpriorities
 	@$(call add,SYSTEM_PACKAGES,kbd kbd-data)
 ifeq (,$(filter-out p10 c10%,$(BRANCH)))
 	@$(call add,THE_PACKAGES,startup) # contains configs needed all
+ifeq (distro,$(IMAGE_CLASS))
+	@$(call try,INSTALL2_INIT,init=/usr/sbin/install2-init)
+endif
 endif
 
 # THE_LISTS is too late when BASE_PACKAGES have pulled in
@@ -26,6 +29,11 @@ use/init/sysv: use/init
 ifeq (,$(filter-out x86_64 aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,mount-efivars)
 endif
+ifneq (,$(filter-out p10 c10%,$(BRANCH)))
+ifeq (distro,$(IMAGE_CLASS))
+	@$(call try,INSTALL2_INIT,init=/usr/libexec/install2/install2-init)
+endif
+endif
 
 use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
@@ -33,7 +41,12 @@ use/init/sysv/polkit: use/init/sysv
 ### i-f should be dropped as soon as rootfs scripts are effective there
 use/init/systemd: use/init
 	@$(call set,INIT_TYPE,systemd)
+ifeq (distro,$(IMAGE_CLASS))
+ifneq (,$(filter-out p10 c10%,$(BRANCH)))
 	@$(call add,INSTALL2_PACKAGES,systemd-sysvinit)
+	@$(call try,INSTALL2_INIT,systemd.unit=install2.target)
+endif
+endif
 
 use/init/systemd/full: use/init/systemd
 	@$(call add,THE_PACKAGES,chkconfig)
