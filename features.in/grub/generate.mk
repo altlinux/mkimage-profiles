@@ -105,7 +105,6 @@ bootargs: clean
 	sed -i "s,@grubtheme@,$$GRUBTHEME,g" $(DSTCFGS)
 	@sed -i "s,@initrd@,initrd," $(DSTCFGS)
 	@sed -i "s,@initrd_ext@,img," $(DSTCFGS)
-	@sed -i "s|@initrd_bootmethod@|$(STAGE1_INITRD_BOOTMETHOD)|g" $(DSTCFGS)
 	@sed -i "s|@initrd_typeargs@|$(STAGE1_INITRD_TYPEARGS)|g" $(DSTCFGS)
 	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 	@sed -i "s,@install2_init@,$(INSTALL2_INIT),g" $(DSTCFGS)
