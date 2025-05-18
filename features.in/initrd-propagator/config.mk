@@ -5,5 +5,5 @@ use/initrd-propagator:
 	@$(call set,STAGE1_INITRD,initrd-propagator)
 	@$(call set,STAGE1_INITRD_TYPEARGS,$(shell echo "changedisk automatic"))
 	@$(call xport,STAGE1_INITRD_TYPEARGS)
-	@$(call set,STAGE1_INITRD_BOOTMETHOD,$(shell echo "method:cdrom,fuid:$(UUID_ISO)"))
+	@$(call set,STAGE1_INITRD_BOOTMETHOD,$(shell echo "method:disk,uuid:$(UUID_ISO)"))
 	@$(call set,STAGE1_INITRD_STAGE2_OPTION,stagename)
