@@ -105,7 +105,7 @@ $(FEATURES):
 		for srcdir in $$srcdirs; do \
 			[ -d "$$srcdir" ] || continue; \
 			pushd "$$srcdir" >&/dev/null; \
-			for part in lib {image-,}scripts.d; do \
+			for part in files lib {image-,}scripts.d; do \
 				destdir="$(BUILDDIR)/$$dst/$$part"; \
 				[ -d "$$destdir" ] || continue; \
 				if [ "$$sub" = / -a -d "$$part" ]; then \
