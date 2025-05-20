@@ -3,6 +3,7 @@ use/tty:
 	@$(call xport,TTY_DEV)
 	@$(call xport,TTY_RATE)
 	@$(call xport,BASE_BOOTARGS)
+	@$(call add,GRUB_CFG,serial-console)
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,INSTALL2_PACKAGES,installer-feature-serial-stage2)
 	@$(call add,THE_PACKAGES,installer-feature-serial-stage3)
