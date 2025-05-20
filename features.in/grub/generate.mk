@@ -83,7 +83,6 @@ distro: bootargs
 # pass over additional parameters, if any
 bootargs: clean
 	@if [ -n "$(STAGE2_BOOTARGS)" ]; then \
-		sed -i "s,$(STAGE2_BOOTARGS),," $(DSTCFGS); \
 		sed -i "s,@bootargs@,$(STAGE2_BOOTARGS)," $(DSTCFGS); \
 	fi; \
 	sed -i "s,@bootargs@,," $(DSTCFGS)
