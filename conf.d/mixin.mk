@@ -122,6 +122,7 @@ ifneq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
 	@$(call add,THE_PACKAGES,gnome-console)
 	@$(call add,THE_PACKAGES,papers)
+	@$(call add,THE_PACKAGES,userpasswd-gnome)
 	@$(call set,THE_IMAGEWRITER,impression)
 else
 	@$(call add,PINNED_PACKAGES,gnome-terminal:Required)
