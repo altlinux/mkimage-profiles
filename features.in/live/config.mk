@@ -32,6 +32,7 @@ use/live/base: use/live/.base use/net use/deflogin/live \
 	 use/syslinux/live.cfg  use/grub/live.cfg
 	@$(call set,STAGE2_LIVE,yes)
 	@$(call add,LIVE_LISTS,$(call tags,base network))
+	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 
 use/live/rw: use/live use/syslinux/live_rw.cfg use/grub/live_rw.cfg; @:
 
