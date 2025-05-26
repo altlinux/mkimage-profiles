@@ -24,7 +24,6 @@ use/net/dhcp: use/net
 use/net/nm: use/net
 	@$(call set,THE_NET_SUBSYS,NetworkManager)
 	@$(call add,THE_LISTS,network/NetworkManager)  # NB: won't get overridden
-	@$(call add,LIVE_PACKAGES,livecd-save-nfs)
 	@$(call add,DEFAULT_SERVICES_ENABLE,network) # need for NM?
 	@$(call add,DEFAULT_SERVICES_ENABLE,NetworkManager ModemManager)
 	@$(call add,DEFAULT_SERVICES_ENABLE,livecd-save-nfs) # keep interface up
