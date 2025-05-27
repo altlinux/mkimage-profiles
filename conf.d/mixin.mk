@@ -120,7 +120,7 @@ mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4 \
 ifneq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,THE_PACKAGES,gnome-extension-manager)
 	@$(call add,PINNED_PACKAGES,gnome-console:Required)
-	@$(call add,BASE_PACKAGES,tuner-tweaks)
+	@$(call add,THE_PACKAGES,tuner-tweaks)
 	@$(call add,THE_PACKAGES,gnome-console)
 	@$(call add,THE_PACKAGES,papers)
 	@$(call add,THE_PACKAGES,userpasswd-gnome)
