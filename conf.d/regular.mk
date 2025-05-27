@@ -94,7 +94,7 @@ distro/.regular-jeos-base: distro/.regular-bare +efi \
 distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 	use/volumes/regular use/ntp/chrony use/net/etcnet \
 	use/firmware use/drm
-	@$(call set,INSTALLER,regular)
+	@$(call set,INSTALLER,jeos)
 	@$(call add,CLEANUP_BASE_PACKAGES,alterator)
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk apt-repo)
 	@$(call add,MAIN_PACKAGES,wpa_supplicant)
