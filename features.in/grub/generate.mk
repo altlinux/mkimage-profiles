@@ -108,6 +108,7 @@ bootargs: clean
 	@sed -i "s,@stagename@,$(STAGE1_INITRD_STAGE2_OPTION),g" $(DSTCFGS)
 	@sed -i "s,@install2_init@,$(INSTALL2_INIT),g" $(DSTCFGS)
 	@sed -i "s,@LIVE_NAME@,$(LIVE_NAME),g" $(DSTCFGS)
+	@sed -i "s,@UUID_ISO@,$(UUID_ISO),g" $(DSTCFGS)
 	@if [ -n "$(GLOBAL_TTY_DEV)" ] && [ -n "$(GLOBAL_TTY_RATE)" ]; then \
 		sed -i "s,@serial_speed@,$(GLOBAL_TTY_RATE),g" $(DSTCFGS); \
 		SERIAL_UNIT="`echo $(GLOBAL_TTY_DEV) |sed -r 's,^[^0-9]+,,'`"; \
