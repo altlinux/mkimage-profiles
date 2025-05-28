@@ -56,9 +56,13 @@ include::../features.in/00example/README[]
 
 include::../features.in/alternatives/README[]
 
+include::../features.in/alt-components/README[]
+
 include::../features.in/apt-conf/README[]
 
 include::../features.in/arm-rpi4/README[]
+
+include::../features.in/auto-resize/README[]
 
 include::../features.in/bootloader/README[]
 
@@ -140,15 +144,9 @@ include::../features.in/lxc/README[]
 
 include::../features.in/mediacheck/README[]
 
-include::../features.in/memclean/README[]
-
 include::../features.in/memtest/README[]
 
 include::../features.in/metadata/README[]
-
-include::../features.in/mipsel-bfk3/README[]
-
-include::../features.in/mipsel-mitx/README[]
 
 include::../features.in/net-dns/README[]
 
