@@ -111,14 +111,12 @@ distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
 
 distro/regular-icewm-sysv: distro/.regular-desktop-sysv mixin/regular-icewm \
-	use/live/autologin
-	@$(call add,LIVE_PACKAGES,wdm)
-	@$(call add,SysVinit-usermode)
+	use/live/autologin; @:
 
 # wdm can't do autologin so add standalone one for livecd
 distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
 	mixin/regular-wmaker use/live/autologin
-	@$(call add,LIVE_PACKAGES,wdm wmxkbru)
+	@$(call add,LIVE_PACKAGES,wmxkbru)
 
 distro/regular-gnustep-sysv: distro/regular-wmaker-sysv \
 	mixin/regular-gnustep; @:
