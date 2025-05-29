@@ -16,11 +16,6 @@ dconf-epiphany-mobile-user-agent
 # mail
 geary
 
-# connectivity
-gnome-calls
-gnome-contacts
-chatty
-
 # image viewer
 loupe
 

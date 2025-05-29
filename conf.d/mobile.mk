@@ -62,14 +62,18 @@ mixin/sway: use/services +nm-gtk +nm-native
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,sway-autostart.service)
 
 ifeq (vm,$(IMAGE_CLASS))
-vm/.phosh: vm/systemd mixin/mobile-base mixin/phosh +systemd \
+vm/.phosh-base: vm/systemd mixin/mobile-base mixin/phosh +systemd \
 	mixin/waydroid use/fonts/ttf/google \
 	use/auto-resize; @:
+
+vm/.phosh: vm/.phosh-base
+	@$(call add,THE_LISTS,mobile/gnome-apps-connect)
 
 vm/.sway: vm/systemd mixin/mobile-base mixin/sway +systemd \
     mixin/waydroid use/fonts/ttf/google \
     use/auto-resize; @:
 
+vm/alt-mobile-phosh-tablet-def: vm/.phosh-base mixin/mobile-def; @:
 vm/alt-mobile-phosh-def: vm/.phosh mixin/mobile-def; @:
 
 vm/alt-mobile-sway-def: vm/.sway mixin/mobile-def; @:
