@@ -70,8 +70,8 @@ vm/.phosh: vm/.phosh-base
 	@$(call add,THE_LISTS,mobile/gnome-apps-connect)
 
 vm/.sway: vm/systemd mixin/mobile-base mixin/sway +systemd \
-    mixin/waydroid use/fonts/ttf/google \
-    use/auto-resize; @:
+	mixin/waydroid use/fonts/ttf/google \
+	use/auto-resize; @:
 
 vm/alt-mobile-phosh-tablet-def: vm/.phosh-base mixin/mobile-def; @:
 vm/alt-mobile-phosh-def: vm/.phosh mixin/mobile-def; @:
