@@ -209,8 +209,9 @@ distro/.regular-builder: distro/.regular-base mixin/regular-builder \
 	@$(call add,THE_PACKAGES,ccache cifs-utils wodim)
 	@$(call set,LIVE_NAME,ALT Builder $(BRANCH) Live)
 
-distro/regular-builder: distro/.regular-builder +systemd \
-	use/dev/builder/live/systemd; @:
+distro/regular-builder: distro/.regular-builder +systemd +nm \
+	use/dev/builder/live/systemd
+	@$(call add,THE_PACKAGES,NetworkManager-tui)
 
 # old regular-builder
 distro/regular-builder-sysv: distro/.regular-builder +sysvinit \

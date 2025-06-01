@@ -28,8 +28,7 @@ ifeq (,$(filter-out x86_64 ,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,livecd-qemu-arch qemu-user-binfmt_misc)
 endif
 
-use/dev/builder/live/systemd: use/dev/builder/live use/net-eth/networkd-dhcp \
-	use/net/networkd/resolved
+use/dev/builder/live/systemd: use/dev/builder/live
 	@$(call add,LIVE_PACKAGES,systemd-settings-disable-kill-user-processes)
 ifeq (,$(filter-out x86_64 ,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,qemu-user-static-binfmt)
