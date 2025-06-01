@@ -158,8 +158,7 @@ distro/regular-rescue: distro/.regular-base mixin/regular-rescue use/rescue/rw \
 distro/regular-rescue-live: distro/.regular-base +systemd \
 	use/live/rescue/extra use/live/rescue/rw \
 	use/stage2/kms use/hdt use/firmware/full \
-	use/net-eth/networkd-dhcp use/net/networkd/resolved \
-	use/cleanup/live-no-cleanupdb use/live/repo +wireless \
+	use/cleanup/live-no-cleanupdb use/live/repo +wireless +nm \
 	use/syslinux/sdab.cfg use/grub/sdab_bios.cfg \
 	use/deflogin use/ntp/timesyncd
 	@$(call set,ROOTPW_EMPTY,1)
