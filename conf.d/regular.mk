@@ -15,8 +15,7 @@ endif
 
 # common ground (really lowlevel)
 distro/.regular-bare: distro/.base use/kernel/net use/docs/license \
-	distro/.regular-initrd use/tty use/bootloader/os-prober \
-	use/grub/safe-mode.cfg
+	distro/.regular-initrd use/tty use/bootloader/os-prober
 	@$(call try,SAVE_PROFILE,yes)
 	@$(call add,STAGE1_PACKAGES,firmware-linux)
 	@$(call add,STAGE1_KMODULES,drm)
@@ -33,7 +32,7 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 	use/x11/wacom use/x11/amdgpu +wireless \
 	use/live/x11 use/live/repo \
 	use/live/suspend use/browser/firefox \
-	use/syslinux/ui/gfxboot use/grub/ui/gfxboot
+	use/syslinux/ui/gfxboot use/grub/ui/gfxboot use/grub/safe-mode.cfg
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))
 	@$(call add,LIVE_PACKAGES,livecd-rescue-base-utils)
@@ -42,7 +41,7 @@ distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 
 # Network install
 ifeq (,$(filter-out i586 x86_64 aarch64 riscv64 loongarch64,$(ARCH)))
-distro/regular-net-install: distro/grub-net-install; @:
+distro/regular-net-install: distro/grub-net-install use/grub/safe-mode.cfg use/tty; @:
 ifeq (sisyphus,$(BRANCH))
 ifeq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,BOOTCHAIN_OEM_URL_NETINST,/sisyphus/snapshots/$(DATE)/regular-NAME-$(DATE)-$(ARCH).iso)
@@ -96,7 +95,8 @@ endif
 
 distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 	use/volumes/regular use/ntp/chrony use/net/etcnet \
-	use/firmware use/drm use/vmguest
+	use/firmware use/drm use/vmguest \
+	use/grub/safe-mode.cfg
 	@$(call set,INSTALLER,jeos)
 	@$(call add,CLEANUP_BASE_PACKAGES,alterator)
 	@$(call add,BASE_PACKAGES,nfs-utils gdisk apt-repo)
