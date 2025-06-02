@@ -105,7 +105,7 @@ distro/.regular-jeos: distro/.regular-jeos-base use/cleanup \
 distro/regular-jeos-sysv: distro/.regular-jeos +sysvinit +power; @:
 
 distro/regular-jeos-systemd: distro/.regular-jeos +systemd; @:
-ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
+ifneq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 endif
 
@@ -199,7 +199,7 @@ distro/.regular-server-full: distro/.regular-server-managed \
 
 distro/regular-server-systemd: distro/.regular-server-full \
 	+systemd; @:
-ifeq (,$(filter-out sisyphus p11,$(BRANCH)))
+ifneq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 endif
 
