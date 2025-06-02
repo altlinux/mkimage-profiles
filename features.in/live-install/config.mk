@@ -11,9 +11,6 @@ use/live-install: use/live use/metadata use/repo/main \
 	@$(call try,MAIN_KERNEL_SAVE,no)
 	@$(call xport,MAIN_KERNEL_SAVE)
 	@$(call add,LIVE_PACKAGES,installer-common-stage2)
-ifneq (,$(filter-out p10,$(BRANCH)))
-	@$(call add,LIVE_PACKAGES,livecd-net-eth livecd-auto-hostname)
-endif
 	@$(call add,THE_PACKAGES,alterator-wizardface)
 	@$(call add,THE_LISTS,$(call tags,basesystem && !alterator))
 	@$(call add,THE_PACKAGES,e2fsprogs mdadm lvm2 cryptsetup)
