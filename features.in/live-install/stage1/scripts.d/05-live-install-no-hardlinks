@@ -1,6 +1,0 @@
-#!/bin/sh -efu
-
-[ -n "${GLOBAL_LIVE_INSTALL:-}" ] || exit 0
-[ -s /.image/squashcfg.mk ] || exit 1
-
-sed -i 's/PACK_SQUASHFS_OPTS=/PACK_SQUASHFS_OPTS=-no-hardlinks /' /.image/squashcfg.mk
