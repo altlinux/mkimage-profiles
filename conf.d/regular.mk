@@ -31,7 +31,7 @@ distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
 distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
 	use/x11/wacom use/x11/amdgpu +wireless \
 	use/live/x11 use/live/repo \
-	use/live/suspend use/browser/firefox \
+	use/live/suspend \
 	use/syslinux/ui/gfxboot use/grub/ui/gfxboot use/grub/safe-mode.cfg
 	@$(call add,THE_BRANDING,bootloader)
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))

@@ -53,7 +53,7 @@ ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
 endif
 
 ### regular.mk
-mixin/regular-x11: use/browser/firefox \
+mixin/regular-x11: use/browser/chromium \
 	use/branding use/ntp/chrony use/services/lvm2-disable
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular && !extra))
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
