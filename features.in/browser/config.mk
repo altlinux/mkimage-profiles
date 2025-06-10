@@ -7,7 +7,7 @@ use/browser:
 BROWSERS_i586 = netsurf epiphany elinks links2
 BROWSERS_x86_64 := $(BROWSERS_i586) chromium  chromium-gost falkon seamonkey
 BROWSERS_aarch64 = chromium chromium-gost netsurf epiphany falkon elinks links2
-BROWSERS_riscv64 = epiphany midori netsurf elinks
+BROWSERS_riscv64 = chromium netsurf elinks
 BROWSERS_loongarch64 = chromium chromium-gost epiphany midori netsurf elinks
 BROWSERS_e2k = netsurf elinks links2
 BROWSERS_e2kv4 := $(BROWSERS_e2k)
@@ -16,7 +16,7 @@ BROWSERS := $(BROWSERS_$(ARCH))
 $(addprefix use/browser/,$(BROWSERS)): use/browser/%: use/browser
 	@$(call set,THE_BROWSER,$*)
 
-ifneq (,$(filter-out x86_64 aarch64 loongarch64,$(ARCH)))
+ifneq (,$(filter-out x86_64 aarch64 loongarch64 riscv64,$(ARCH)))
 use/browser/chromium use/browser/chromium-gost: \
 	use/browser/firefox use/browser/firefox/esr; @:
 endif
