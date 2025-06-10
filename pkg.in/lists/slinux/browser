@@ -1,3 +1,2 @@
-chromium@x86_64,aarch64,loongarch64
+chromium@x86_64,aarch64,loongarch64,riscv64
 firefox-esr@E2K,i586
-firefox@riscv64
