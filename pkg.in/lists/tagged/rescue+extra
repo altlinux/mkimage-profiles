@@ -132,7 +132,7 @@ fuse-curlftpfs
 fuse-lftpfs
 fuse-sshfs
 hostinfo
-hping3@!riscv64
+hping3
 httpry
 httpry-scripts
 iftop
@@ -155,7 +155,7 @@ ngrep
 nmap
 p0f
 pdsh
-perftest@!E2K,riscv64
+perftest@!E2K
 rsh
 rsync
 scanssh

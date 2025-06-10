@@ -32,7 +32,7 @@ perl-Crypt-Rijndael
 
 ffmpeg
 dvgrab
-mencoder@!riscv64
+mencoder
 #transcode
 jackd
 

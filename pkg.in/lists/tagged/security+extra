@@ -14,4 +14,4 @@ osec-cronjob
 osec-mailreport
 
 # hardware reliability
-rasdaemon@!riscv64
+rasdaemon
