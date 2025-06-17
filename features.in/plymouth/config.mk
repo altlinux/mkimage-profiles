@@ -26,7 +26,7 @@ else
 use/plymouth/stage2: use/plymouth use/branding; @:
 endif
 
-use/plymouth/base: use/plymouth/stage2 use/drm/full; @:
+use/plymouth/base: use/drm/full; @:
 ifeq (distro,$(IMAGE_CLASS))
 	@$(call add,BASE_PACKAGES,installer-feature-setup-plymouth)
 endif
