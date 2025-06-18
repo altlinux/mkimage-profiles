@@ -3,4 +3,6 @@
 
 . shell-config
 
+[ -f /etc/sysconfig/clock ] || exit 0
+
 shell_config_set /etc/sysconfig/clock UTC true
