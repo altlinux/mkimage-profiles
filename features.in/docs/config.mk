@@ -11,7 +11,7 @@ use/docs:
 use/docs/indexhtml: use/docs use/branding
 	@$(call add,THE_BRANDING,indexhtml)
 
-use/docs/manual: use/docs
+use/docs/manual: use/docs/indexhtml
 	@$(call xport,DOCS)
 	@$(call add,THE_PACKAGES,docs-$$(DOCS))
 
