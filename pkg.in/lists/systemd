@@ -3,3 +3,4 @@ systemd-services
 systemd-sysvinit
 systemd-analyze
 chkconfig
+hwclock
