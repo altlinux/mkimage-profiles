@@ -1,0 +1,10 @@
+#!/bin/sh
+
+[ ! -f /etc/sysconfig/clock ] || exit 0
+[ -f /etc/adjtime ] || exit 0
+[ ! -s /etc/adjtime ] || exit 0
+cat> /etc/adjtime <<EOF
+0.0 0 0
+0
+UTC
+EOF
