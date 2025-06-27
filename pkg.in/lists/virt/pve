@@ -1,4 +1,5 @@
 pve-manager
+ceph
 postfix
 control-sshd-permit-root-login
 kernel-modules-ipset-@KFLAVOUR
