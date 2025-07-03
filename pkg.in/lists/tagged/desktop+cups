@@ -1,10 +1,9 @@
 cups
-ghostscript-cups
+cups-filters
 cups-pdf
 
 printer-drivers-base
 foomatic-db
-cups-filters
 
 hplip
 hplip-hpcups
