@@ -44,8 +44,6 @@ glxinfo
 
 lm_sensors3
 
-udev-extras
-
 # fix missing requires
 librsvg
 
