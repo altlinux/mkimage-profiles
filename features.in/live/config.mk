@@ -4,7 +4,7 @@
 _ON = alteratord cpufreq-simple \
       livecd-evms livecd-fstab livecd-auto-hostname \
       livecd-setauth livecd-setlocale livecd-timezone livecd-net-eth livecd-install-wmaker \
-      random rpcbind plymouth avahi-daemon \
+      random rpcbind plymouth avahi-daemon livecd-backlight-max
 
 _OFF = anacron blk-availability bridge clamd dhcpd dmeventd dnsmasq \
        mdadm netfs o2cb ocfs2 openvpn postfix rawdevices slapd smartd sshd \
@@ -45,6 +45,7 @@ use/live/x11: use/live/base use/deflogin/desktop use/x11-autologin \
 	@$(call add,LIVE_LISTS,$(call tags,desktop && (live || network)))
 	@$(call add,LIVE_LISTS,$(call tags,base l10n))
 	@$(call add,LIVE_PACKAGES,pciutils)
+	@$(call add,LIVE_PACKAGES,livecd-backlight-max)
 
 # this target specifically pulls free xorg drivers in (and a few more bits);
 # a browser is requested too, the recommended one can be overridden downstream
