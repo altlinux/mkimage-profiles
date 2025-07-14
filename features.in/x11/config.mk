@@ -118,9 +118,9 @@ use/x11/lightdm/gtk use/x11/lightdm/slick use/x11/lightdm/kde\
 use/x11/kde-display-manager-lightdm: \
 	use/x11/%: use/x11/dm
 ifneq (,$(filter-out p10,$(BRANCH)))
-	@$(call set,THE_DISPLAY_MANAGER,kde-display-manager-7-lightdm)
+	@$(call set,THE_DISPLAY_MANAGER,kde-display-manager-lightdm)
 else
-	@$(call set,THE_DISPLAY_MANAGER,kde5-display-manager-7-lightdm)
+	@$(call set,THE_DISPLAY_MANAGER,kde5-display-manager-lightdm)
 endif
 	@$(call set,THE_DM_SERVICE,lightdm)
 
