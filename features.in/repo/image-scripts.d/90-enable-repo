@@ -3,9 +3,6 @@
 
 [ -z "$GLOBAL_REPO_MAIN" ] || exit 0
 
-# no public repos for e2k for now, unfortunately
-[ `arch` != "e2k" ] || exit 0
-
 [ -n "$GLOBAL_REPO" ] || exit 0
 
 PROTO="${GLOBAL_REPO%/*}"	# http, ftp, rsync
