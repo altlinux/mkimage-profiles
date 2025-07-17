@@ -15,6 +15,7 @@ endif
 	@$(call add,DEFAULT_SERVICES_DISABLE,ModemManager)	# COM issues
 	@$(call set,KFLAVOURS,elbrus-def)	# no other flavours for now
 	@$(call set,REPO,http/ivk_e2k)	# the public origin
+	@$(call set,LIVE_REPO,http/ivk_e2k)
 	@$(call xport,STAGE2_BOOTARGS)
 
 use/e2k/x11: use/e2k use/x11
