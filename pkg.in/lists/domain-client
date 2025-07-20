@@ -7,7 +7,7 @@ cifs-utils
 keyutils
 nfs-clients
 autofs
-libnss-fallback
+#libnss-fallback # removed from Sisyphus
 libnss-mdns
 
 settime-rfc867
