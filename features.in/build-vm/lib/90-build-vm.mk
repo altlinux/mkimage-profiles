@@ -1,5 +1,7 @@
 # step 4: build the virtual machine image
 
+DATE_F := $(shell date +%F)
+
 IMAGE_PACKAGES = $(DOT_BASE) \
 		 $(SYSTEM_PACKAGES) \
 		 $(COMMON_PACKAGES) \
@@ -106,6 +108,10 @@ run-image-scripts: GLOBAL_CLEANUP_PACKAGES := $(CLEANUP_PACKAGES)
 # override
 pack-image: MKI_PACK_RESULTS := tar:$(VM_TARBALL)
 
-all: $(GLOBAL_DEBUG) \
+dot-disk:
+	@mkdir -p files/root/.install-log
+	@echo "vm/$(IMAGE_NAME)/$(ARCH) build $(DATE_F)" >files/root/.install-log/diskinfo
+
+all: $(GLOBAL_DEBUG) dot-disk \
 	build-image copy-subdirs copy-tree run-image-patches run-image-scripts \
 	pack-image convert-image postprocess $(GLOBAL_CLEAN_WORKDIR)
