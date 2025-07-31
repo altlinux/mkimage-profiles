@@ -11,3 +11,6 @@ cat > /etc/dconf/db/local.d/01-gnome-keymap <<EOF
 [org/gnome/desktop/wm/keybindings]
 switch-input-source=['`echo $GLOBAL_GNOME_KB_SWITCH`', '<Super>space', 'XF86Keyboard']
 EOF
+
+# cleanup unneeded xkb opts
+sed -i '/Option "XkbOptions"/d' /etc/X11/xorg.conf.d/00-keyboard.conf
