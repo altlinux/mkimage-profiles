@@ -36,7 +36,6 @@ ifeq (,$(filter-out e2k%,$(ARCH)))
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-ignore-cf-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-xorg-conf-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-e2k-sensors-stage2)
-	@$(call add,LIVE_PACKAGES,installer-feature-e2k-btrfs-stage2)
 	@$(call add,LIVE_PACKAGES,installer-feature-fstrim-stage2)
 	@$(call add,LIVE_PACKAGES,blacklist-ide)	# avoid overwriting hda
 	@$(call add,LIVE_PACKAGES,ifplugd)	# for net-eth link status
