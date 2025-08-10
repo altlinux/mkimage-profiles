@@ -23,12 +23,9 @@ use/e2k/x11: use/e2k use/x11
 	@$(call add,INSTALL2_PACKAGES,xorg-drv-amdgpu lccrt-blobs)
 	@$(call add,LIVE_PACKAGES,xorg-drv-amdgpu lccrt-blobs)
 
-use/e2k/multiseat:
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
-	@$(call add,LIVE_PACKAGES,installer-feature-e2k-multiseat)
-
 ifeq (,$(filter-out e2kv6,$(ARCH)))
-use/e2k/multiseat/full: use/e2k/multiseat
+use/e2k/multiseat/full:
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
 	@$(call add,MAIN_GROUPS,x-e2k/90-e1601)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/e1601-,1seat 4seat))
 	@#$(call add,MAIN_GROUPS,x-e2k/90-e201)	# wait for GPU split on *201*
@@ -39,7 +36,8 @@ ifeq (,$(filter-out e2kv5,$(ARCH)))
 use/e2k/multiseat/full: use/e2k/multiseat/901/full; @:
 
 # 6seat not tested so far but 1E8CB has three suitable PCIe slots
-use/e2k/multiseat/901: use/e2k/multiseat
+use/e2k/multiseat/901:
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
 	@$(call add,MAIN_GROUPS,x-e2k/90-e901)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e901-1seat e901-2seat))
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e901-3seat))
@@ -54,7 +52,8 @@ use/e2k/multiseat/full: use/e2k/multiseat/801/full; @:
 
 use/e2k/x11/101: use/e2k/x11; @:
 
-use/e2k/multiseat/801/base: use/e2k/multiseat
+use/e2k/multiseat/801/base:
+	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-multiseat)
 	@$(call add,MAIN_GROUPS,x-e2k/90-e801)
 	@$(call add,MAIN_GROUPS,$(addprefix x-e2k/,e801-1seat e801-2seat))
 
