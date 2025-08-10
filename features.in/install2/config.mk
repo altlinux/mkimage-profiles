@@ -21,23 +21,6 @@ use/install2: use/stage2 sub/stage2@install2 use/metadata \
 	@$(call add,INSTALL2_PACKAGES,lsof)
 	@$(call add,INSTALL2_PACKAGES,mdadm)
 	@$(call add,BASE_PACKAGES,e2fsprogs mdadm)
-ifeq (,$(filter-out e2k%,$(ARCH)))
-	@$(call add,BASE_PACKAGES,installer-feature-e2k-fix-clock-stage3)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-xorg-conf-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-fix-boot-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
-	@$(call add,INSTALL2_PACKAGES,installer-feature-fstrim-stage2)
-	@$(call add,INSTALL2_PACKAGES,blacklist-ide)	# avoid overwriting hda
-	@$(call add,INSTALL2_PACKAGES,ifplugd)	# for net-eth link status
-ifeq (,$(filter-out e2kv4 e2kv5,$(ARCH)))
-	@# 8C/8CB specific
-	@$(call add,INSTALL2_PACKAGES,installer-feature-e2k-sensors-stage2)
-endif
-ifeq (,$(filter-out e2kv6 e2kv4,$(ARCH)))
-	@# 1C+/2C3 specific
-	@$(call add,SYSTEM_PACKAGES,softdep-mga2x)	# mcst#8089
-endif
-endif
 
 # doesn't use/install2/fs on purpose (at least so far)
 use/install2/full: \
