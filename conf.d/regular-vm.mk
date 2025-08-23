@@ -22,13 +22,13 @@ endif
 	@$(call add,KMODULES,staging)
 
 vm/.regular-desktop: vm/systemd +systemd +plymouth \
-	mixin/regular-vm-base mixin/regular-x11 \
+	mixin/regular-vm-base \
 	mixin/regular-desktop use/oem/vnc \
 	use/services/bluetooth-enable
 	@$(call add,THE_PACKAGES,bluez)
 	@$(call try,VM_SIZE,8589934592)
 
-vm/.regular-gtk: vm/.regular-desktop use/x11/lightdm/gtk
+vm/.regular-gtk: vm/.regular-desktop
 	@$(call add,THE_PACKAGES,blueman)
 
 vm/.regular-jeos-systemd: vm/systemd-net use/net/networkd/resolved \

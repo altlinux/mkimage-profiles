@@ -53,25 +53,23 @@ ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
 endif
 
 ### regular.mk
-mixin/regular-x11: use/browser/chromium \
-	use/branding use/ntp/chrony use/services/lvm2-disable
-	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular && !extra))
-	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
-	@$(call add,THE_PACKAGES,btrfs-progs)
-	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
-ifneq (sisyphus,$(BRANCH))
-	@$(call set,FX_FLAVOUR,-esr)
-endif
-
-# common WM live/installer bits
-mixin/regular-desktop: +alsa +nm-native \
+mixin/regular-desktop: +alsa +nm-native use/x11/lightdm/gtk \
 	use/x11/xorg use/xdg-user-dirs use/l10n use/l10n/xkb/switch/alt_shift \
-	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes
+	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes \
+	use/services/bluetooth-enable use/browser/chromium \
+	use/branding use/ntp/chrony use/services/lvm2-disable \
+	use/firmware/laptop
+ifeq (,$(filter-out i586 x86_64,$(ARCH)))
+	@$(call add,THE_PACKAGES,xorg-drv-vmware) # for virtualbox with VMSVGA
+endif
 	@$(call set,LOCALES,en_US ru_RU pt_BR)
+	@$(call add,THE_LISTS,task-common/system-base)
+	@$(call add,THE_LISTS,task-common/desktop-base)
 	@$(call add,THE_PACKAGES,power-profiles-daemon)
-	@$(call add,THE_PACKAGES,pam-limits-desktop polkit dvd+rw-tools)
+	@$(call add,THE_PACKAGES,bluez)
 	@$(call add,THE_PACKAGES,eepm)
 	@$(call add,THE_PACKAGES,sudo)
+	@$(call add,THE_PACKAGES,btrfs-progs)
 	@$(call add,THE_BRANDING,alterator graphics indexhtml)
 ifneq (,$(filter-out i586 x86_64,$(ARCH)))
 	@$(call set,SPLASH_ARGS,splash)
@@ -81,14 +79,25 @@ ifneq (,$(filter-out e2k%,$(ARCH)))
 endif
 	@$(call add,THE_PACKAGES,$$(THE_IMAGEWRITER))
 	@$(call try,THE_IMAGEWRITER,altmediawriter)
-	@$(call add,THE_PACKAGES,upower udev-rules-rfkill-uaccess)
+	@$(call add,THE_LISTS,tagged/base+regular)
+	@$(call add,THE_LISTS,tagged/desktop+regular)
 	@$(call add,THE_PACKAGES,hunspell-ru-lebedev hunspell-en_US)
 	@$(call add,THE_PACKAGES,glmark2 glmark2-es2)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gssd idmapd krb5kdc rpcbind)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cups)
 	@$(call add,DEFAULT_SERVICES_ENABLE,alteratord)
+	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 	@$(call add,CONTROL,fusermount:public)
 	@$(call add,CONTROL,libnss-role:disabled)
+ifneq (sisyphus,$(BRANCH))
+	@$(call set,FX_FLAVOUR,-esr)
+endif
+
+mixin/regular-desktop-install: +live-installer use/live-install/desktop \
+	use/live-install/oem use/live-install/repo \
+	use/grub/safe-mode.cfg
+	@$(call add,MAIN_LISTS,kernel-headers)
+	@$(call set,MAIN_KERNEL_SAVE,yes)
 
 mixin/desktop-extra:
 	@$(call add,BASE_LISTS,$(call tags,(archive || base) && extra))

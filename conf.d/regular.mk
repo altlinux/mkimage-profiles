@@ -27,18 +27,6 @@ distro/.regular-base: distro/.regular-bare use/vmguest use/memtest \
 	use/efi/shell use/efi/dtb +efi \
 	use/luks use/volumes/regular; @:
 
-# graphical target (not enforcing xorg drivers or blobs)
-distro/.regular-x11: distro/.regular-base mixin/regular-x11 \
-	use/x11/wacom use/x11/amdgpu +wireless \
-	use/live/x11 use/live/repo \
-	use/live/suspend \
-	use/syslinux/ui/gfxboot use/grub/ui/gfxboot use/grub/safe-mode.cfg
-	@$(call add,THE_BRANDING,bootloader)
-	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular))
-	@$(call add,LIVE_PACKAGES,livecd-rescue-base-utils)
-	@$(call add,MAIN_LISTS,kernel-headers)
-	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
-
 # Network install
 ifeq (,$(filter-out i586 x86_64 aarch64 riscv64 loongarch64,$(ARCH)))
 distro/regular-net-install: distro/grub-net-install use/grub/safe-mode.cfg use/tty; @:
@@ -51,33 +39,23 @@ endif
 endif
 endif
 
-# WM base target
-distro/.regular-wm: distro/.regular-x11 \
-	mixin/regular-desktop use/vmguest/dri \
-	use/live/rw +live-installer use/live-install/desktop \
-	use/live-install/repo
+# DE base target
+distro/.regular-desktop-base: distro/.regular-base use/branding/full \
+	mixin/regular-desktop mixin/regular-desktop-install +wireless \
+	use/live/rw use/live/x11 use/live/repo use/vmguest/kvm \
+	use/live/suspend use/grub/ui/gfxboot
+	@$(call add,THE_BRANDING,bootloader)
+	@$(call add,LIVE_PACKAGES,livecd-rescue-base-utils)
 	@$(call set,GRUB_DEFAULT,live)
 	@$(call set,SYSLINUX_DEFAULT,live)
-	@$(call set,MAIN_KERNEL_SAVE,yes)
-ifeq (,$(filter-out i586 x86_64,$(ARCH)))
-	@$(call add,THE_PACKAGES,xorg-drv-vmware) # for virtualbox with VMSVGA
-endif
 
-# DE base target
-# TODO: use/plymouth/live when luks+plymouth is done, see also #28255
-distro/.regular-desktop: distro/.regular-wm use/branding/full \
-	use/firmware/laptop +systemd +vmguest \
-	use/live-install/oem use/services/bluetooth-enable \
-	use/live/rescue
-	@$(call add,THE_PACKAGES,bluez)
-
-distro/.regular-gtk: distro/.regular-desktop use/x11/lightdm/gtk +plymouth; @:
-
-distro/.regular-desktop-sysv: distro/.regular-wm use/init/sysv/polkit +power; @:
+distro/.regular-desktop: distro/.regular-desktop-base use/x11/wacom +vmguest \
+	+systemd +plymouth; @:
 
 # common base for the very bare distros
 distro/.regular-jeos-base: distro/.regular-bare +efi \
-	use/branding +live-installer-pkg use/live-install/repo
+	use/branding +live-installer-pkg use/live-install/repo \
+	use/live/rescue
 	@$(call add,THE_BRANDING,alterator notes)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,LIVE_PACKAGES,alterator-net-functions) # for run scripts from installer-common-stage3
@@ -109,16 +87,16 @@ ifneq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,LIVE_PACKAGES,livecd-net-eth)
 endif
 
-distro/regular-icewm: distro/.regular-desktop use/x11/lightdm/gtk \
+distro/regular-icewm: distro/.regular-desktop-base use/x11/lightdm/gtk \
 	mixin/regular-icewm
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
 
-distro/regular-icewm-sysv: distro/.regular-desktop-sysv mixin/regular-icewm \
-	use/live/autologin; @:
+distro/regular-icewm-sysv: distro/.regular-desktop-base mixin/regular-icewm \
+	use/live/autologin +sysvinit-desktop; @:
 
 # wdm can't do autologin so add standalone one for livecd
-distro/regular-wmaker-sysv: distro/.regular-desktop-sysv \
-	mixin/regular-wmaker use/live/autologin
+distro/regular-wmaker-sysv: distro/.regular-desktop-base \
+	mixin/regular-wmaker use/live/autologin +sysvinit-desktop
 	@$(call add,LIVE_PACKAGES,wmxkbru)
 
 distro/regular-gnustep-sysv: distro/regular-wmaker-sysv \
@@ -128,25 +106,24 @@ distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-wmaker mixin/regular-gnustep
 	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
-distro/regular-xfce: distro/.regular-gtk mixin/regular-xfce; @:
+distro/regular-xfce: distro/.regular-desktop mixin/regular-xfce; @:
 
 distro/regular-lxde: distro/.regular-desktop use/x11/lightdm/gtk \
 	mixin/regular-lxde; @:
 
-distro/regular-mate: distro/.regular-gtk mixin/regular-mate; @:
+distro/regular-mate: distro/.regular-desktop mixin/regular-mate; @:
 
-distro/regular-enlightenment: distro/.regular-gtk use/x11/enlightenment; @:
+distro/regular-enlightenment: distro/.regular-desktop use/x11/enlightenment; @:
 
-distro/regular-cinnamon: distro/.regular-gtk mixin/regular-cinnamon; @:
+distro/regular-cinnamon: distro/.regular-desktop mixin/regular-cinnamon; @:
 
-# not .regular-gtk due to gdm vs lightdm
 distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 	+plymouth use/browser/epiphany \
 	use/live-install/vnc/listen; @:
 
-distro/regular-lxqt: distro/.regular-gtk mixin/regular-lxqt +plymouth; @:
+distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth; @:
 
-distro/regular-deepin: distro/.regular-gtk mixin/regular-deepin; @:
+distro/regular-deepin: distro/.regular-desktop mixin/regular-deepin; @:
 
 distro/regular-kde: distro/.regular-desktop +nm \
 	mixin/regular-kde +plymouth; @:
