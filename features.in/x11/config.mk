@@ -166,6 +166,9 @@ use/x11/gnome: use/x11/xorg use/x11/gdm +pipewire
 ifeq (,$(filter-out p10,$(BRANCH)))
 	@$(call add,THE_PACKAGES,tracker3) # ALT bug 42028
 endif
+ifeq (,$(filter-out p11,$(BRANCH)))
+	@$(call add,THE_PACKAGES,fonts-ttf-adwaita)
+endif
 	@$(call add,IM_PACKAGES,imsettings-gsettings)
 
 use/x11/enlightenment: use/x11 use/power/acpi +pipewire +nm-gtk
