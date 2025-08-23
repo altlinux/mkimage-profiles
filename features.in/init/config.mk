@@ -1,4 +1,5 @@
 +sysvinit: use/init/sysv; @:
++sysvinit-desktop: use/init/sysv/desktop; @:
 +systemd: use/init/systemd/full; @:
 +systemd-optimal: use/init/systemd/settings/optimal; @:
 
@@ -37,6 +38,8 @@ endif
 
 use/init/sysv/polkit: use/init/sysv
 	@$(call add,THE_PACKAGES,polkit-sysvinit)
+
+use/init/sysv/desktop: use/init/sysv/polkit +power; @:
 
 ### i-f should be dropped as soon as rootfs scripts are effective there
 use/init/systemd: use/init
