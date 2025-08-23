@@ -58,7 +58,6 @@ mixin/regular-x11: use/browser/chromium \
 	@$(call add,THE_LISTS,$(call tags,(base || desktop) && regular && !extra))
 	@$(call add,THE_PACKAGES,disable-usb-autosuspend)
 	@$(call add,THE_PACKAGES,btrfs-progs)
-	@$(call add,THE_PACKAGES,gpm)
 	@$(call add,DEFAULT_SERVICES_DISABLE,gpm powertop)
 ifneq (sisyphus,$(BRANCH))
 	@$(call set,FX_FLAVOUR,-esr)
