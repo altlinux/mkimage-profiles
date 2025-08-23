@@ -1,11 +1,13 @@
 ifeq (distro,$(IMAGE_CLASS))
-distro/regular-engineering-live: distro/.regular-x11 +systemd \
-	mixin/regular-desktop mixin/regular-gnome use/x11/gdm  \
+distro/regular-engineering-live: distro/.regular-base +systemd \
+	mixin/regular-gnome use/vmguest/base \
 	use/l10n +nm-gtk4 +plymouth \
-	use/live/ru use/live/rw use/live/desktop \
+	use/live/ru use/live/rw use/live/desktop-common \
 	use/cleanup/live-no-cleanupdb \
 	use/cleanup/live-no-cleanup-docs
 	@$(call set,LIVE_NAME,ALT Engineering $(BRANCH) Live)
+	@$(call add,LIVE_LISTS,task-common/system-base)
+	@$(call add,LIVE_LISTS,task-common/desktop-base)
 	@$(call add,LIVE_LISTS,engineering/2d-cad)
 	@$(call add,LIVE_LISTS,engineering/3d-cad)
 	@$(call add,LIVE_LISTS,engineering/3d-printer)
