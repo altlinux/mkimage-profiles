@@ -63,6 +63,7 @@ DISTRO_TARGETS := $(call targets,distro)
 VE_TARGETS := $(call targets,ve)
 VM_TARGETS := $(call targets,vm)
 DISTROS := $(call addsuffices,$(DISTRO_EXTS),$(DISTRO_TARGETS))
+DISTROS_ISO := $(call addsuffices,.iso,$(DISTRO_TARGETS))
 VES     := $(call addsuffices,$(VE_EXTS),$(VE_TARGETS))
 VES_TAR := $(call addsuffices,.tar,$(VE_TARGETS))
 VMS     := $(call addsuffices,$(VM_EXTS),$(VM_TARGETS))
@@ -77,8 +78,8 @@ export LC_MESSAGES=C
 
 ### duplicate but still needed
 everything:
-	@n=1; sum=$(words $(DISTROS) $(VES_TAR) $(VMS_IMG)); \
-	for distro in $(DISTROS) $(VES_TAR) $(VMS_IMG); do \
+	@n=1; sum=$(words $(DISTROS_ISO) $(VES_TAR) $(VMS_IMG)); \
+	for distro in $(DISTROS_ISO) $(VES_TAR) $(VMS_IMG); do \
 		echo "** building $$distro [$$n/$$sum]:"; \
 		$(MAKE) -f main.mk --no-print-directory $$distro; \
 		[ "$$n" -lt "$$sum" ] && echo; \
