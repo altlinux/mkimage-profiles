@@ -20,7 +20,7 @@ ifneq (,$(filter-out p10,$(BRANCH)))
 endif
 
 ifeq (distro,$(IMAGE_CLASS))
-distro/regular-cnc-rt: distro/.regular-wm mixin/cnc-rt; @:
+distro/regular-cnc-rt: distro/.regular-desktop-base mixin/cnc-rt; @:
 endif
 
 ifeq (vm,$(IMAGE_CLASS))
