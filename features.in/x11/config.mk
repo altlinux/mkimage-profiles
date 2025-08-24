@@ -158,9 +158,6 @@ use/x11/cinnamon: use/x11/xorg +pipewire
 	@$(call add,THE_LISTS,$(call tags,cinnamon desktop))
 	@$(call add,IM_PACKAGES,imsettings-cinnamon)
 
-use/x11/deepin: use/x11/xorg +pipewire
-	@$(call add,THE_LISTS,$(call tags,deepin desktop))
-
 use/x11/gnome: use/x11/gdm +pipewire
 	@$(call add,THE_LISTS,gnome/gnome-minimal)
 ifeq (,$(filter-out p10,$(BRANCH)))

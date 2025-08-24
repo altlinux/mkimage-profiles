@@ -119,8 +119,6 @@ mixin/regular-cinnamon: use/x11/cinnamon use/x11/lightdm/slick +nm-gtk \
 	@$(call add,THE_PACKAGES,xdg-user-dirs-gtk)
 	@$(call add,THE_PACKAGES,gnome-disk-utility gnome-system-monitor)
 
-mixin/regular-deepin: use/x11/deepin use/browser/chromium +nm; @:
-
 mixin/regular-gnome: use/x11/gnome use/fonts/ttf/redhat +nm-gtk4 \
 	use/domain-client
 	@$(call add,BASE_PACKAGES,gnome-software)

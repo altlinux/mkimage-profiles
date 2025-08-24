@@ -123,8 +123,6 @@ distro/regular-gnome: distro/.regular-desktop mixin/regular-gnome \
 
 distro/regular-lxqt: distro/.regular-desktop mixin/regular-lxqt +plymouth; @:
 
-distro/regular-deepin: distro/.regular-desktop mixin/regular-deepin; @:
-
 distro/regular-kde: distro/.regular-desktop +nm \
 	mixin/regular-kde +plymouth; @:
 

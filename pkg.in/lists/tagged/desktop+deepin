@@ -1,8 +1,0 @@
-# meta packages
-deepin-minimal@META
-deepin-default@META
-#deepin-full@META
-#deepin-regular@META
-
-# polkit agent
-polkit-gnome
