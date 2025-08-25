@@ -209,9 +209,7 @@ mixin/regular-builder: use/dev/builder/base use/net/dhcp use/ntp/chrony
 ### vm.mk
 mixin/cloud-init:
 	@$(call add,BASE_PACKAGES,cloud-init)
-ifeq (sisyphus,$(BRANCH))
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-init-main cloud-init-network)
-endif
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-config cloud-final)
 	@$(call add,DEFAULT_SERVICES_ENABLE,cloud-init cloud-init-local)
 	@$(call set,GLOBAL_NET_ETH,)
