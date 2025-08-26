@@ -54,8 +54,7 @@ distro/.regular-desktop: distro/.regular-desktop-base use/x11/wacom +vmguest \
 
 # common base for the very bare distros
 distro/.regular-jeos-base: distro/.regular-bare +efi \
-	use/branding +live-installer-pkg use/live-install/repo \
-	use/live/rescue
+	use/branding +live-installer-pkg use/live-install/repo
 	@$(call add,THE_BRANDING,alterator notes)
 	@$(call add,BASE_PACKAGES,installer-common-stage3)
 	@$(call add,LIVE_PACKAGES,alterator-net-functions) # for run scripts from installer-common-stage3
