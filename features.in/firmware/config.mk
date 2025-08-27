@@ -9,9 +9,7 @@ ifeq (,$(filter-out aarch64,$(ARCH)))
 	@$(call add,THE_PACKAGES,firmware-bcm4345)
 	@$(call add,THE_PACKAGES,firmware-linux-qcom)
 endif
-ifeq (,$(filter-out x86_64,$(ARCH)))
 	@$(call add,THE_PACKAGES,firmware-alsa-sof)
-endif
 
 use/firmware/full: use/firmware/server use/firmware/laptop; @:
 
