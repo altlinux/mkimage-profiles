@@ -101,9 +101,9 @@ endif
 	@$(call add,THE_PACKAGES,blacklist-lt11i-camera)
 
 ifeq (sisyphus,$(BRANCH))
-mixin/mobile-rocknix: mixin/uboot-extlinux use/tty/S0
+mixin/mobile-rocknix: mixin/uboot-extlinux-efi use/tty/S0
 else
-mixin/mobile-rocknix: mixin/uboot-extlinux
+mixin/mobile-rocknix: mixin/uboot-extlinux-efi
 endif
 	@$(call set,KFLAVOURS,rocknix)
 	@$(call add,THE_PACKAGES,u-boot-rockchip)
