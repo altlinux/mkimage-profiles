@@ -107,6 +107,7 @@ mixin/mobile-rocknix: mixin/uboot-extlinux-efi
 endif
 	@$(call set,KFLAVOURS,rocknix)
 	@$(call add,THE_PACKAGES,u-boot-rockchip)
+	@$(call add,THE_PACKAGES,settings-alsa-sof-force)
 	@$(call add,THE_PACKAGES,rg552-hw-control)
 	@$(call add,THE_PACKAGES,rg552-fancontrol-quick-setting)
 	@$(call add,DEFAULT_SYSTEMD_SERVICES_ENABLE,rg552-fancontrol.service)
