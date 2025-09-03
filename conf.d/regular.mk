@@ -87,7 +87,7 @@ ifneq (,$(filter-out p10,$(BRANCH)))
 endif
 
 distro/regular-icewm: distro/.regular-desktop-base use/x11/lightdm/gtk \
-	mixin/regular-icewm
+	mixin/regular-icewm +systemd
 	@$(call add,THE_PACKAGES,icewm-startup-polkit-gnome)
 
 distro/regular-icewm-sysv: distro/.regular-desktop-base mixin/regular-icewm \
@@ -102,7 +102,7 @@ distro/regular-gnustep-sysv: distro/regular-wmaker-sysv \
 	mixin/regular-gnustep; @:
 
 distro/regular-gnustep: distro/.regular-desktop use/x11/lightdm/gtk \
-	mixin/regular-wmaker mixin/regular-gnustep
+	mixin/regular-wmaker mixin/regular-gnustep +systemd
 	@$(call add,THE_PACKAGES,wmaker-autostart-polkit-gnome)
 
 distro/regular-xfce: distro/.regular-desktop mixin/regular-xfce; @:
