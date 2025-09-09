@@ -60,7 +60,7 @@ ifeq (,$(filter-out aarch64 x86_64,$(ARCH)))
 endif
 
 ### regular.mk
-mixin/regular-desktop: +alsa +nm-native use/x11/lightdm/gtk \
+mixin/regular-desktop: +alsa +nm +nm-native use/x11/lightdm/gtk \
 	use/x11/xorg use/xdg-user-dirs use/l10n use/l10n/xkb/switch/alt_shift \
 	use/fonts/otf/adobe use/fonts/otf/mozilla use/branding/notes \
 	use/services/bluetooth-enable use/browser/chromium \
